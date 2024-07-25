@@ -9,5 +9,5 @@ enum EnvironmentEnum: string
     case LOCAL = 'local';
     case PRODUCTION = 'production';
     case REMOTE = 'remote';
-    case TEST = 'test';
+    case STAGING = 'staging';
 }
