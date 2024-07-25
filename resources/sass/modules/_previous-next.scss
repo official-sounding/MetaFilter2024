@@ -1,0 +1,12 @@
+
+.previous-next {
+    display: flex;
+}
+
+.previous-next .next {
+    text-align: right;
+}
+
+.previous-next > a {
+    flex: 1;
+}

@@ -1,0 +1,34 @@
+
+.main-sidebar section {
+    color: var(--darker-gray);
+    background-color: var(--lightest-gray);
+    margin: 0 0 1rem 0;
+}
+
+.main-sidebar section header {
+    margin: 0 0 0.5rem 0;
+}
+
+.main-sidebar section h3 {
+    color: var(--dark-gray);
+    background-color: var(--light-gray);
+}
+
+.main-sidebar section h3.has-accordion {
+    position: relative;
+}
+
+.main-sidebar section h3 > .accordion-toggle {
+    position: absolute;
+    right: 0;
+    top: 25%;
+}
+
+.main-sidebar section h3,
+.main-sidebar section p {
+    padding: 0 1rem 0 1rem;
+}
+
+.main-sidebar section p {
+    padding-bottom: 1rem;
+}

@@ -1,0 +1,31 @@
+
+.notification {
+    margin: 1rem 0 1rem 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    position: relative;
+    width: fit-content;
+    border: 1px solid;
+    border-radius: 4px;
+    color: var(--black);
+}
+
+// TODO: Need red colors
+.notification.is-danger {
+    background-color: #fdd8e4;
+    border-color: #710627;
+}
+
+.notification.is-info {
+    background-color: #dfebf6;
+    border-color: var(--darker-blue);
+}
+
+.notification.is-success {
+    background-color: #e5faf3;
+    border-color: #00cc88;
+}
+
+.notification.is-warning {
+    background-color: #fff7bf;
+    border-color: #ff9d00;
+}

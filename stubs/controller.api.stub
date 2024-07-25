@@ -1,0 +1,37 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use {{ rootNamespace }}Http\Controllers\Controller;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
+
+final class {{ class }} extends Controller
+{
+    public function index(): View
+    {
+        //
+    }
+
+    public function show(string $id): View
+    {
+        //
+    }
+
+    public function store(Request $request): void
+    {
+        //
+    }
+
+    public function update(Request $request, string $id): void
+    {
+        //
+    }
+
+    public function delete(string $id): void
+    {
+        //
+    }
+}

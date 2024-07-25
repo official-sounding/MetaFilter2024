@@ -1,0 +1,41 @@
+
+// https://jdsteinbach.com/css/sass-maps-breakpoint-mixin/
+
+@mixin phone-only {
+    @media (max-width: 649px) {
+        @content;
+    }
+}
+
+@mixin tablet-portrait-up {
+    @media (min-width: 650px) {
+        @content;
+    }
+}
+
+@mixin tablet-landscape-up {
+    @media (min-width: 700px) {
+        @content;
+    }
+}
+
+@mixin desktop-up {
+    @media (min-width: 850px) {
+        @content;
+    }
+}
+
+@mixin big-desktop-up {
+    @media (min-width: 1140px) {
+        @content;
+    }
+}
+
+/*
+> 1140 Full design
+850-1140 No icons in utility nav
+650-850 Only icons in utility nav
+700 Site title font is smaller
+650 Icons drop to second row
+625 Global nav and utility nav in dropdowns
+*/

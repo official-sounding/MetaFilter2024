@@ -1,0 +1,27 @@
+
+.comments > article,
+.posts > article {
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+}
+
+.post-footer {
+    margin: 0 0 2.5rem 0;
+    padding: 0.25rem 1rem 0.25rem 0.75rem;
+    color: inherit;
+    background-color: var(--lightest-gray);
+}
+
+/*
+.comments > article > footer,
+.posts > article > footer,
+.main-contents > article.post > footer {
+    margin-top: 0.25rem;
+}
+*/
+
+.comments > article > footer {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}

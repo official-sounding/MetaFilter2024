@@ -1,0 +1,84 @@
+
+a {
+    text-decoration: none;
+    transition: background-color 0.1s, color 0.1s, border-color 0.1s;
+}
+
+a:not([class]) {
+    text-decoration-thickness: max(0.08rem, 1px);
+    text-underline-offset: 0.15em;
+}
+
+.dropdown-toggle,
+.global-navigation a {
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+}
+
+.global-navigation .dropdown-menu a:link,
+.global-navigation .dropdown-menu a:visited {
+    display: block;
+}
+
+.dropdown-toggle,
+.global-navigation a,
+.primary-navigation a {
+    padding: 0.625rem;
+}
+
+.primary-navigation a {
+    display: inline-flex;
+    text-align: center;
+}
+
+.secondary-navigation a {
+    display: inherit;
+    padding: 0.25rem 0.875rem 0.25rem 0.875rem;
+}
+
+.utility-navigation a {
+    width: 50%;
+}
+
+.logout-button,
+.utility-navigation a {
+    display: inline-block;
+    padding: 0.375rem 0.470rem 0.375rem 0.470rem;
+}
+
+.global-navigation a:focus,
+.primary-navigation a:focus,
+.secondary-navigation a:focus,
+.utility-navigation a:focus,
+button:focus {
+    outline: max(1px, 0.1em) dashed currentColor;
+    outline-offset: -0.25em;
+}
+
+.comment-footer a,
+.post-footer a {
+    font-weight: bold;
+}
+
+.site-footer a {
+    display: block;
+    height: 28px;
+    line-height: 28px;
+    width: fit-content;
+}
+
+.site-footer ul.has-rss a {
+    display: inline-block;
+}
+
+.utility-navigation a {
+    display: inline-block;
+}
+
+@include big-desktop-up() {
+    .global-navigation a,
+    .utility-navigation a {
+        width: initial;
+    }
+}

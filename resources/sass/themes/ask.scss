@@ -1,0 +1,103 @@
+
+// Light mode
+
+.dropdown-toggle::after {
+    border-bottom-color: var(--light-green);
+}
+
+.fine-print,
+.global-navigation,
+.global-navigation .dropdown-menu a:link {
+    background-color: var(--light-green);
+}
+
+.dropdown-toggle::after {
+    border-bottom-color: var(--light-green);
+}
+
+.input-add-on .icon-search {
+    background-color: var(--darker-green);
+}
+
+.mode-switcher [aria-pressed=true]::after {
+    color: var(--light-green);
+    border-color: var(--light-green);
+}
+
+.mode-switcher [aria-pressed=true]::before {
+    background-color: var(--light-green);
+    border-color: var(--light-green);
+}
+
+.primary-navigation,
+.primary-navigation a:link,
+.primary-navigation a:visited {
+    color: var(--green);
+    background-color: var(--lighter-green);
+}
+
+.primary-navigation a[aria-current='page']:link,
+.primary-navigation a[aria-current='page']:visited {
+    color: var(--green);
+    background-color: var(--white);
+}
+
+.primary-navigation a:active,
+.primary-navigation a:hover {
+    color: var(--white);
+    background-color: var(--light-green);
+}
+
+.secondary-navigation a:link,
+.secondary-navigation a:visited {
+    color: var(--green);
+}
+
+.secondary-navigation a:active,
+.secondary-navigation a:hover {
+    background-color: var(--lighter-green);
+}
+
+.site-footer {
+    background-color: var(--green);
+    border-top-color: var(--lighter-green);
+}
+
+.site-footer a.rss {
+    color: var(--lighter-green);
+}
+
+.site-header {
+    color: var(--light-green);
+    background-color: var(--green);
+}
+/*
+.site-header button {
+    color: var(--lighter-green);
+}
+*/
+.tagline {
+    color: var(--light-green);
+}
+
+// Dark mode
+
+body.dark-mode,
+.dark-mode .primary-navigation a[aria-current='page']:link {
+    background-color: var(--green);
+}
+
+.dark-mode .secondary-navigation .container,
+.dark-mode .secondary-navigation a:link,
+.dark-mode .secondary-navigation a:visited {
+    color: var(--yellow-green);
+    background-color: var(--dark-green);
+}
+
+.dark-mode .sidebar section {
+    background-color: var(--dark-green);
+}
+
+.dark-mode input[type="search"] {
+    background-color: var(--lightest-green);
+}

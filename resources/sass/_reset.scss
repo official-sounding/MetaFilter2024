@@ -1,0 +1,57 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    text-size-adjust: none;
+}
+
+body,
+h1, h2, h3, h4,
+p, figure, blockquote, pre,
+dl, dd {
+    margin: 0;
+}
+
+ul[role="list"],
+ol[role="list"] {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4,
+button, input, label {
+    line-height: 1.1;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+textarea:not([rows]) {
+    min-height: 10rem;
+}
+
+:target {
+    scroll-margin-block: 2rem;
+}
+
+// https://www.tonymottaz.com/blog/bell-coyier-css-reset/
+// https://piccalil.li/blog/a-more-modern-css-reset/
+// https://chriscoyier.net/2023/10/03/being-picky-about-a-css-reset-for-fun-pleasure/

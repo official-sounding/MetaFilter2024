@@ -1,0 +1,105 @@
+
+// Light mode
+
+.dropdown-toggle::after {
+    border-bottom-color: var(--light-music-black);
+}
+
+.fine-print,
+.global-navigation,
+.global-navigation .dropdown-menu a:link {
+    background-color: var(--light-music-black);
+}
+
+.dropdown-toggle::after {
+    border-bottom-color: var(--light-music-black);
+}
+
+.input-add-on .icon-search {
+    background-color: var(--darker-music-black);
+}
+
+.mode-switcher [aria-pressed=true]::after {
+    color: var(--light-music-black);
+    border-color: var(--light-music-black);
+}
+
+.mode-switcher [aria-pressed=true]::before {
+    background-color: var(--light-music-black);
+    border-color: var(--light-music-black);
+}
+
+.primary-navigation,
+.primary-navigation a:link,
+.primary-navigation a:visited {
+    color: var(--music-black);
+    background-color: var(--lighter-music-black);
+}
+
+.primary-navigation a[aria-current='page']:link,
+.primary-navigation a[aria-current='page']:visited {
+    color: var(--music-black);
+    background-color: var(--white);
+}
+
+.primary-navigation a:active,
+.primary-navigation a:hover {
+    color: var(--white);
+    background-color: var(--light-music-black);
+}
+
+.secondary-navigation a:link,
+.secondary-navigation a:visited {
+    color: var(--music-black);
+}
+
+.secondary-navigation a:active,
+.secondary-navigation a:hover {
+    background-color: var(--lighter-music-black);
+}
+
+.site-footer {
+    background-color: var(--music-black);
+    border-top-color: var(--lighter-music-black);
+}
+
+.site-footer a.rss {
+    color: var(--lighter-music-black);
+}
+
+.site-header {
+    color: var(--light-music-black);
+    background-color: var(--music-black);
+}
+
+/*
+.site-header button {
+    color: var(--lighter-music-black);
+}
+*/
+
+.tagline {
+    color: var(--light-music-black);
+}
+
+// Dark mode
+
+body.dark-mode,
+.dark-mode .primary-navigation a[aria-current='page']:link {
+    background-color: var(--music-black);
+}
+
+.dark-mode .secondary-navigation .container,
+.dark-mode .secondary-navigation a:link,
+.dark-mode .secondary-navigation a:visited {
+    color: var(--yellow-black);
+    background-color: var(--dark-music-black);
+}
+
+.dark-mode .sidebar section {
+    background-color: var(--dark-music-black);
+}
+
+.dark-mode input[type="search"] {
+    background-color: var(--lightest-music-black);
+}

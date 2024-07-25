@@ -1,0 +1,80 @@
+
+:root {
+    --global-spacing: 1.25rem;
+}
+
+body {
+    min-height: 100vh;
+    padding: 0;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+.fine-print {
+    padding: 0.5rem 0 0.5rem 0;
+    text-align: center;
+}
+
+main {
+    padding: var(--global-spacing);
+}
+
+.main-sidebar {
+    padding-right: var(--global-spacing);
+    padding-left: var(--global-spacing);
+    padding-bottom: var(--global-spacing);
+}
+
+@include big-desktop-up() {
+    body {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    main {
+        padding: 0;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin-inline: auto;
+    }
+
+    .container.wrapper {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        grid-template-rows: 1fr;
+        gap: 0 4em;
+        grid-auto-flow: row;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .flex-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .fine-print b {
+        display: inline-block;
+        margin-right: 0.5rem;
+    }
+
+    .site-footer > .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4rem;
+    }
+
+    .site-footer .site-links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}

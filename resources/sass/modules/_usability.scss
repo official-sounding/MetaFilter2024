@@ -1,0 +1,26 @@
+
+:target {
+    scroll-margin-block-start: 2rem;
+}
+
+:focus {
+    scroll-margin-block-end: 8rem;
+}
+
+#scroll-top-link {
+    color: #fff;
+    border: 1px solid #030303;
+    background-color: #333;
+    position: fixed;
+    border-radius: 2px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-decoration: none;
+    text-align: center;
+    opacity: 0;
+    right: 50px;
+    bottom: 50px;
+    z-index: 1030;
+    visibility: hidden;
+}

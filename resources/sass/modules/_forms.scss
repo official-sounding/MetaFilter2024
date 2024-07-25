@@ -1,0 +1,136 @@
+
+// https://blog.logrocket.com/style-forms-css/
+
+:root {
+    --input-border-width: 1.5px;
+    --input-border-radius: 2px;
+    --input-padding: 0.5em;
+}
+
+select,
+textarea,
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="text"] {
+    padding: var(--input-padding);
+    border-radius: var(--input-border-radius);
+}
+
+select,
+textarea,
+main input[type="email"],
+main input[type="password"],
+main input[type="search"],
+main input[type="text"] {
+    border: var(--input-border-width) solid  var(--lighter-gray);
+    width: 100%;
+}
+
+.input:not(textarea) {
+    line-height: 1;
+    height: 2.25rem;
+}
+
+.icon-search {
+    border: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+input[type="search"] {
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-add-on {
+    display: flex;
+}
+
+.input-add-on input {
+    flex: 1;
+}
+
+button,
+label {
+    cursor: pointer;
+}
+
+fieldset {
+    margin: 0 0 2rem 0;
+    padding: 0.75rem 0.75rem 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+}
+
+.field,
+fieldset:last-of-type {
+    margin: 0 0 1rem 0;
+}
+
+input + small {
+    margin-top: 0.25rem;
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+label,
+form small {
+    color: var(--gray);
+    background-color: inherit;
+}
+
+form {
+    margin: 0 0 1rem 0;
+    padding: 0;
+}
+
+.logout-form {
+    margin: 0;
+    display: inline;
+}
+
+form.mode-switcher,
+.global-navigation form {
+    margin-bottom: 0;
+}
+
+.global-navigation form input[type="search"] {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.global-navigation form .input-add-on {
+    height: 2rem;
+}
+
+main form {
+    max-width: 30rem;
+}
+
+.form-group {
+    margin: 0 0 1rem 0;
+    padding: 0;
+}
+
+form small,
+.form-group label {
+    display: block;
+}
+
+.form-group label {
+    padding-bottom: 0.25rem;
+}
+
+label.required {
+    font-weight: bold;
+}
+
+.required-field {
+    color: var(--is-danger);
+}

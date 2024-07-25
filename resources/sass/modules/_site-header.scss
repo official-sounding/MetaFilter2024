@@ -1,0 +1,34 @@
+
+.site-header {
+    position: relative;
+    z-index: 100;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.tagline {
+    display: none;
+}
+
+.global-navigation-search-form {
+    margin: 0 var(--global-spacing) 0 var(--global-spacing);
+    padding: 0;
+}
+
+@include big-desktop-up() {
+    .global-navigation-search-form {
+        margin: 0;
+    }
+
+    .tagline {
+        display: block;
+    }
+
+    .site-header .dropdown-toggle {
+        display: none;
+    }
+}

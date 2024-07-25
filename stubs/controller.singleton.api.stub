@@ -1,0 +1,32 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use {{ rootNamespace }}Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+final class {{ class }} extends Controller
+{
+    public function store(Request $request): never
+    {
+        abort(Response::HTTP_NOT_FOUND);
+    }
+
+    public function show(): View
+    {
+        //
+    }
+
+    public function update(Request $request): void
+    {
+        //
+    }
+
+    public function delete(): never
+    {
+        abort(Response::HTTP_NOT_FOUND);
+    }
+}

@@ -1,0 +1,11 @@
+
+.hidden {
+    display: none;
+}
+
+.responsive-br {
+    //noinspection SassScssResolvedByNameOnly
+    @include big-desktop-up() {
+        display: none;
+    }
+}

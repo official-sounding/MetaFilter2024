@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+namespace [testnamespace];
+
+use [classwithnamespace];
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Livewire\Livewire;
+use Symfony\Component\HttpFoundation\Response;
+use Tests\TestCase;
+
+final class [testclass] extends TestCase
+{
+    public function test_renders_successfully(): void
+    {
+        Livewire::test([class]::class)
+            ->assertStatus(Response::HTTP_OK);
+    }
+}

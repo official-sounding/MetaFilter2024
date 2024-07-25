@@ -1,0 +1,103 @@
+
+// Light mode
+
+.dropdown-toggle::after {
+    border-bottom-color: var(--light-teal);
+}
+
+.fine-print,
+.global-navigation,
+.global-navigation .dropdown-menu a:link {
+    background-color: var(--light-teal);
+}
+
+.dropdown-toggle::after {
+    border-bottom-color: var(--light-teal);
+}
+
+.input-add-on .icon-search {
+    background-color: var(--darker-teal);
+}
+
+.mode-switcher [aria-pressed=true]::after {
+    color: var(--light-teal);
+    border-color: var(--light-teal);
+}
+
+.mode-switcher [aria-pressed=true]::before {
+    background-color: var(--light-teal);
+    border-color: var(--light-teal);
+}
+
+.primary-navigation,
+.primary-navigation a:link,
+.primary-navigation a:visited {
+    color: var(--teal);
+    background-color: var(--lighter-teal);
+}
+
+.primary-navigation a[aria-current='page']:link,
+.primary-navigation a[aria-current='page']:visited {
+    color: var(--teal);
+    background-color: var(--white);
+}
+
+.primary-navigation a:active,
+.primary-navigation a:hover {
+    color: var(--white);
+    background-color: var(--light-teal);
+}
+
+.secondary-navigation a:link,
+.secondary-navigation a:visited {
+    color: var(--teal);
+}
+
+.secondary-navigation a:active,
+.secondary-navigation a:hover {
+    background-color: var(--lighter-teal);
+}
+
+.site-footer {
+    background-color: var(--teal);
+    border-top-color: var(--lighter-teal);
+}
+
+.site-footer a.rss {
+    color: var(--lighter-teal);
+}
+
+.site-header {
+    color: var(--light-teal);
+    background-color: var(--teal);
+}
+
+.site-header /*button {
+    color: var(--lighter-teal);
+}
+*/
+.tagline {
+    color: var(--light-teal);
+}
+
+// Dark mode
+
+body.dark-mode,
+.dark-mode .primary-navigation a[aria-current='page']:link {
+    background-color: var(--teal);
+}
+
+.dark-mode .secondary-navigation .container,
+.dark-mode .secondary-navigation a:link,
+.dark-mode .secondary-navigation a:visited {
+    color: var(--yellow-teal);
+    background-color: var(--dark-teal);
+}
+
+.dark-mode .sidebar section {
+    background-color: var(--dark-teal);
+}
+
+.dark-mode input[type="search"] {
+    background-color: var(--lightest-teal);
+}

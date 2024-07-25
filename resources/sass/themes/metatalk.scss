@@ -1,0 +1,105 @@
+
+// Light mode
+
+.dropdown-toggle::after {
+    border-bottom-color: var(--light-gray);
+}
+
+.fine-print,
+.global-navigation,
+.global-navigation .dropdown-menu a:link {
+    background-color: var(--light-gray);
+}
+
+.dropdown-toggle::after {
+    border-bottom-color: var(--light-gray);
+}
+
+.input-add-on .icon-search {
+    background-color: var(--darker-gray);
+}
+
+.mode-switcher [aria-pressed=true]::after {
+    color: var(--light-gray);
+    border-color: var(--light-gray);
+}
+
+.mode-switcher [aria-pressed=true]::before {
+    background-color: var(--light-gray);
+    border-color: var(--light-gray);
+}
+
+.primary-navigation,
+.primary-navigation a:link,
+.primary-navigation a:visited {
+    color: var(--gray);
+    background-color: var(--lighter-gray);
+}
+
+.primary-navigation a[aria-current='page']:link,
+.primary-navigation a[aria-current='page']:visited {
+    color: var(--gray);
+    background-color: var(--white);
+}
+
+.primary-navigation a:active,
+.primary-navigation a:hover {
+    color: var(--white);
+    background-color: var(--light-gray);
+}
+
+.secondary-navigation a:link,
+.secondary-navigation a:visited {
+    color: var(--gray);
+}
+
+.secondary-navigation a:active,
+.secondary-navigation a:hover {
+    background-color: var(--lighter-gray);
+}
+
+.site-footer {
+    background-color: var(--gray);
+    border-top-color: var(--lighter-gray);
+}
+
+.site-footer a.rss {
+    color: var(--lighter-gray);
+}
+
+.site-header {
+    color: var(--light-gray);
+    background-color: var(--gray);
+}
+
+/*
+.site-header button {
+    color: var(--lighter-gray);
+}
+*/
+
+.tagline {
+    color: var(--light-gray);
+}
+
+// Dark mode
+
+body.dark-mode,
+.dark-mode .primary-navigation a[aria-current='page']:link {
+    background-color: var(--gray);
+}
+
+.dark-mode .secondary-navigation .container,
+.dark-mode .secondary-navigation a:link,
+.dark-mode .secondary-navigation a:visited {
+    color: var(--yellow-gray);
+    background-color: var(--dark-gray);
+}
+
+.dark-mode .sidebar section {
+    background-color: var(--dark-gray);
+}
+
+.dark-mode input[type="search"] {
+    background-color: var(--lightest-gray);
+}

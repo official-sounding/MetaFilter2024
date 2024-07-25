@@ -1,0 +1,38 @@
+
+::placeholder {
+    opacity: 1;
+}
+
+.skip-navigation {
+    position: fixed;
+    top: -200px;
+    padding: 1rem;
+    display: inline-block;
+}
+
+.skip-navigation:focus {
+    top: 0;
+}
+
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}

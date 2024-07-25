@@ -1,0 +1,82 @@
+:root {
+    // Global colors
+    --black: #231f20;
+    --white: #fff;
+    --neutral-gray: #f2f2f2;
+    --yellow-green: #9bc654;
+    --is-danger: #710627;
+    --rss-orange: #eb7818;
+    --royal-blue: #4169e1;
+
+    // Ask MetaFilter
+    --darker-green: #1f3c22;
+    --dark-green: #284d2c;
+    --green: #426746;
+    --light-green: #6f9073;
+    --lighter-green: #b7c8b9;
+    --lightest-green: #d4ded5;
+
+    // FanFare
+    --darker-purple: #221e2c;
+    --dark-purple: #2e283b;
+    --purple: #3e3354;
+    --light-purple: #66548b;
+    --lighter-purple: #b1a6c9;
+    --lightest-purple: #cdc6dc;
+
+    // IRL
+    --darker-russet: #321c0F;
+    --dark-russet: #4d2c17;
+    --russet: #7a4427;
+    --light-russet: #aF7654;
+    --lighter-russet: #deb089;
+    --lightest-russet: #e9cbb1;
+
+    // Jobs
+    --darker-brown: #2d251d;
+    --dark-brown: #3c3227;
+    --brown: #544433;
+    --light-brown: #8b7054;
+    --lighter-brown: #c9b8a6;
+    --lightest-brown: #dcd1c6;
+
+    // MetaFilter
+    --darker-blue: #033d63;
+    --dark-blue: #045286;
+    --blue: #065a8f;
+    --light-blue: #1185b1;
+    --lighter-blue: #88c2d8;
+    --lightest-blue: #aed6e5;
+
+    // MetaTalk
+    --darker-gray: #2d2d2d;
+    --dark-gray: #3f3f3f;
+    --gray: #595959;
+    --light-gray: #858585;
+    --lighter-gray: #c2c2c2;
+    --lightest-gray: #dcdcdc;
+
+    // Music
+    --darker-music-black: #171717;
+    --dark-music-black: #292929;
+    --music-black: #333;
+    --light-music-black: #5f5f5f;
+    --lighter-music-black: #afafaf;
+    --lightest-music-black: #c9c9c9;
+
+    // Projects
+    --darker-teal: #134040;
+    --dark-teal: #134040;
+    --teal: #2d5a5a;
+    --light-teal: #598585;
+    --lighter-teal: #acc2c2;
+    --lightest-teal: #c9d8d8;
+}
+
+.green {
+    color: var(--yellow-green);
+}
+
+.white {
+    color: var(--white);
+}

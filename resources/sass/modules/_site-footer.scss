@@ -1,0 +1,44 @@
+
+.fine-print.simple,
+.site-footer {
+    border-top-width: 5px;
+    border-top-style: solid;
+    content-visibility: auto;
+}
+
+.fund-metafilter small {
+    display: block;
+}
+
+.site-footer {
+    padding: var(--global-spacing);
+}
+
+.site-footer h3 {
+    margin: 0 0 0.5rem 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.site-footer .help-fund-mefi p {
+    display: none;
+}
+
+.site-footer p {
+    margin-bottom: 1rem;
+}
+
+.site-footer ul {
+    margin-bottom: var(--global-spacing);
+    column-count: 2;
+}
+
+@include big-desktop-up() {
+    .site-footer {
+        justify-content: space-evenly;
+    }
+
+    .site-footer ul {
+        column-count: auto;
+    }
+}
