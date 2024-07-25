@@ -26,10 +26,5 @@ return [
             'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
             'class' => 'icon-heart',
         ],
-        [
-            'name' => 'Logout',
-            'route' => RouteNameEnum::AUTH_LOGOUT->value,
-            'class' => 'icon-logout',
-        ],
     ],
 ];
