@@ -21,13 +21,16 @@
 @include('layouts.navigation.primary-navigation')
 @include('layouts.navigation.secondary-navigation')
 
-<div class="wrapper container">
-<!-- He's the DJ; I'm the wrapper -->
-    <main class="main-contents " id="main-contents">
+<main class="columns container">
+    <!-- He's the DJ; I'm the wrapper -->
+    <main class="main-contents column is-four-fifths" id="main-contents">
         @include('layouts.partials.flash-messages')
         @yield('contents')
     </main>
-</div>
+    <aside class="column sidebar">
+        sidebar
+    </aside>
+</main>
 
 @include('layouts.partials.site-footer')
 @include('layouts.partials.fine-print')

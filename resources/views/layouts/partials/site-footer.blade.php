@@ -1,5 +1,5 @@
-<footer class="site-footer" id="site-footer">
-    <div class="container">
+<footer class="footer site-footer" id="site-footer">
+    <div class="container content">
         <h2 class="sr-only">Site Footer</h2>
 
         <section class="site-links">

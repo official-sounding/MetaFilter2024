@@ -2,7 +2,9 @@
     action=""
     role="search">
 
-    <label class="sr-only" for="{{ $formId }}-query">Search {{ config('app.name') }}…</label>
+    <label class="sr-only" for="{{ $formId }}-query">
+        Search {{ config('app.name') }}…
+    </label>
 
     <div class="input-add-on">
         <input
