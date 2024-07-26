@@ -23,10 +23,10 @@
         @include('posts.partials.show-footer')
     </article>
 
-    <livewire:post-comments-component :post="$post" />
+    <livewire:post.post-comments-component :post="$post" />
 
     @auth
-        <livewire:post-comment-form-component :post="$post" />
+        <livewire:post.post-comment-form-component :post="$post" />
     @endauth
 
     @include('posts.partials.next-previous')

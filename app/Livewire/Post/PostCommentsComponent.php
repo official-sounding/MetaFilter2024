@@ -24,7 +24,7 @@ final class PostCommentsComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.post-comments-component', [
+        return view('livewire.post.post-comments-component', [
             'comments' => $this->comments,
         ]);
     }
