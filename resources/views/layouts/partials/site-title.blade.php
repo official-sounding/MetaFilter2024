@@ -1,8 +1,15 @@
 <a href="{{ route($subsite['route']) }}" title="Home page">
     <hgroup class="site-title">
-        <h1 class="site-title-text">
-            <span class="white">{{ $subsite['whiteText'] }}</span><span class="green">{{ $subsite['greenText'] }}</span>
-        </h1>
+        @if (empty(request()->segment(1)))
+            <h1 class="site-title-text">
+                <span class="white">{{ $subsite['whiteText'] }}</span><span class="green">{{ $subsite['greenText'] }}</span>
+            </h1>
+        @else
+            <p class="site-title-text">
+                <span class="white">{{ $subsite['whiteText'] }}</span><span class="green">{{ $subsite['greenText'] }}</span>
+            </p>
+        @endif
+
         @if ($subsite['tagline'] !== '')
             <p class="tagline">{{ $subsite['tagline'] }}</p>
         @endif
