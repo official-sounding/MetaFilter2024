@@ -17,7 +17,7 @@
     </x-forms.button>
 
     <div>
-        Don't have account? <a wire:click.prevent="register">
+        Don&rsquo;t have an account? <a href="{{ route($registerCreateRoute) }}">
             <strong>
                 Register Here
             </strong>
