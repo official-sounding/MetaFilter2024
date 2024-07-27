@@ -12,14 +12,4 @@ final class SubsiteRepository extends BaseRepository implements SubsiteRepositor
     {
         parent::__construct($model);
     }
-
-    public function getFooterNavigationItems(): array
-    {
-        // TODO: Implement getFooterNavigationItems() method.
-    }
-
-    public function getGlobalNavigationItems(): array
-    {
-        // TODO: Implement getGlobalNavigationItems() method.
-    }
 }
