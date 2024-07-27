@@ -21,7 +21,7 @@
 @include('layouts.navigation.primary-navigation')
 @include('layouts.navigation.secondary-navigation')
 
-<main class="columns container">
+<div class="columns container">
     <!-- He's the DJ; I'm the wrapper -->
     <main class="main-contents column is-four-fifths" id="main-contents">
         @include('layouts.partials.flash-messages')
@@ -30,7 +30,7 @@
     <aside class="column sidebar">
         sidebar
     </aside>
-</main>
+</div>
 
 @include('layouts.partials.site-footer')
 @include('layouts.partials.fine-print')
