@@ -22,25 +22,13 @@ export default defineConfig({
 //                'resources/css/filament/admin/theme.css',
                 'resources/js/app.js'
             ],
-            publicDirectory: 'public',
+            publicDirectory: 'public_html',
             refresh: true
-        }),
-        viteStaticCopy({
-            targets: [
-                {
-                    src: 'resources/sass/vendor/fontello/animation.css',
-                    dest: '../css/vendor/fontello'
-                },
-                {
-                    src: 'resources/sass/vendor/fontello/metafilter-fontello.css',
-                    dest: '../css/vendor/fontello'
-                }
-            ]
         })
     ],
     resolve: {
         alias: {
-            $fonts: resolve('./public/fonts')
+            $fonts: resolve('./public_html/fonts')
         }
     }
 });

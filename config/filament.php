@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'default_filesystem_disk' => env('FILAMENT_FILESYSTEM_DISK', 'public'),
+    'default_filesystem_disk' => env('FILAMENT_FILESYSTEM_DISK', 'public_html'),
 
     /*
     |--------------------------------------------------------------------------
@@ -50,7 +50,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | This is the directory where Filament's assets will be published to. It
-    | is relative to the `public` directory of your Laravel application.
+    | is relative to the `public_html` directory of your Laravel application.
     |
     | After changing the path, you should run `php artisan filament:assets`.
     |
