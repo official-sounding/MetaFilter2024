@@ -1,27 +1,25 @@
-<nav class="utility-navigation navbar" id="utility-navigation" aria-label="Utility navigation">
-    <ul class="navbar-menu" id="utility-navbar-menu">
+<nav class="navbar-menu" id="utility-navigation">
+    <div class="navbar-end">
         @auth
             {!! $utilityNavigation ?? 'Utility navigation unavailable' !!}
         @endauth
         @guest
-            <li>
-                <a href="{{ route($loginCreateRoute) }}"
-                   class="icon-login"
-                   @if (request()->segment(1) === 'login')
-                       aria-current="page"
-                    @endif>
-                    Log In
-                </a>
-            </li>
-            <li>
-                <a href="{{ route($registerCreateRoute) }}"
-                   class="icon-user"
-                   @if (request()->segment(1) === 'register')
-                       aria-current="page"
-                    @endif>
-                    Register
-                </a>
-            </li>
+            <a href="{{ route($loginCreateRoute) }}"
+               class="navbar-item"
+               @if (request()->segment(1) === 'login')
+                   aria-current="page"
+               @endif>
+               <img src="{{ asset('images/icons/box-arrow-in-left.svg') }}" class="icon" role="img" alt="">
+               Log In
+            </a>
+            <a href="{{ route($registerCreateRoute) }}"
+               class="navbar-item"
+               @if (request()->segment(1) === 'register')
+                   aria-current="page"
+               @endif>
+               <img src="{{ asset('images/icons/person-fill.svg') }}" class="icon" role="img" alt="">
+               Sign Up
+            </a>
         @endguest
-    </ul>
+    </div>
 </nav>

@@ -16,7 +16,7 @@ trait NavigationTrait
     public function appendLogoutButton(): string
     {
         try {
-            $logoutButton = view('layouts.navigation.partials.logout-button')->render();
+            $logoutButton = view('layouts.navigation.partials.logout-form')->render();
 
             return '<li>' . $logoutButton . '</li>';
         } catch (Throwable $exception) {
@@ -33,17 +33,12 @@ trait NavigationTrait
         $item = null;
 
         if (isset($itemData['route'])) {
-            $item = '<li>';
-
             if ($showRssLink) {
                 $item .= $this->getRssLink($itemData);
             }
 
             $item .= '<a href="' . route($itemData['route']) . '"';
-
-            if (isset($itemData['class'])) {
-                $item .= ' class="' . $itemData['class'] . '"';
-            }
+            $item .= 'class="navbar-item"';
 
             if (Route::currentRouteName() === $itemData['route']) {
                 $currentValue = isset($globalNavigation) && $globalNavigation === true ? 'location' : 'page';
@@ -53,8 +48,6 @@ trait NavigationTrait
             $item .= '>';
             $item .= $itemData['nickname'] ?? $itemData['name'] ?? $itemData['text'];
             $item .= '</a>';
-
-            $item .= '</li>';
         }
 
         return $item;
@@ -65,7 +58,9 @@ trait NavigationTrait
         $rssUrl = $this->getRssUrl($itemData['subdomain']);
         $rssTitle = $itemData['name'] . ' RSS feed';
 
-        $rssLink = '<a href="' . $rssUrl . '" class="rss icon-rss-1" title="' . $rssTitle . '">';
+        $rssLink = '<a href="' . $rssUrl . '" title="' . $rssTitle . '">';
+        $rssLink .= '<img src="/images/icons/rss-fill.svg" class="icon" role="img" alt="">
+';
         $rssLink .= '<span class="visually-hidden">' . $rssTitle . '</span>';
         $rssLink .= '</a>';
 

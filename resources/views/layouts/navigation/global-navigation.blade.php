@@ -1,5 +1,5 @@
 <nav class="global-navigation navbar" id="global-navigation" aria-label="Global navigation">
-    <div class="container flex-container">
+    <div class="container">
         {!! $globalNavigation ?? 'Global navigation unavailable' !!}
 {{--
         @include('forms.search.search-form', [

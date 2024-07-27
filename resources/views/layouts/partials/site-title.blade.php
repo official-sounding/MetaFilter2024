@@ -1,4 +1,4 @@
-<a href="{{ route($subsite['route']) }}" title="Home page">
+<a href="{{ route($subsite['route']) }}" class="navbar-item" title="Home page">
     <hgroup class="site-title">
         @if (empty(request()->segment(1)))
             <h1 class="site-title-text">

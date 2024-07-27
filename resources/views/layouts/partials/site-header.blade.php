@@ -1,24 +1,14 @@
-<header class="site-header">
+<header class="navbar">
     <div class="container">
-        <button
-            id="global-navigation-toggle"
-            class="icon-menu dropdown-toggle button"
-            title="Toggle navigation menu"
-            aria-label="Toggle global navigation menu"
-            aria-expanded="false"
-            aria-controls="global-navigation"
-            tabindex="0"></button>
+        <div class="navbar-brand">
+            @include('layouts.partials.site-title')
 
-        @include('layouts.partials.site-title')
-
-        <button
-            id="utility-navigation-toggle"
-            class="icon-user dropdown-toggle button"
-            title="Toggle user menu"
-            aria-label="Toggle user menu"
-            aria-expanded="false"
-            aria-controls="utility-navigation"
-            tabindex="0"></button>
+            <span class="navbar-burger burger" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </div>
 
         @include('layouts.navigation.utility-navigation')
     </div>
