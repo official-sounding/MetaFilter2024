@@ -1,23 +1,18 @@
 <footer class="footer site-footer" id="site-footer">
-    <div class="container content">
-        <h2 class="sr-only">Site Footer</h2>
+    <h2 class="sr-only">Site Footer</h2>
 
-        <section class="site-links">
-            <h3 class="sr-only">Site Links</h3>
+    <div class="columns">
+        <h3 class="sr-only">Site Links</h3>
 
-            @include('layouts.navigation.footer-subsite-navigation')
-            @include('layouts.navigation.footer-member-links-navigation')
-            @include('layouts.navigation.footer-links-navigation')
-        </section>
+        @include('layouts.site-footer.footer-subsite-navigation')
+        @include('layouts.site-footer.footer-member-links-navigation')
+        @include('layouts.site-footer.footer-links-navigation')
+    </div>
 
-        <section>
-            <h3 class="sr-only">Search and Contact</h3>
-
-            @include('forms.search.search-form', [
-                'formId' => 'site-footer-search-form'
-            ])
-            @include('layouts.footer.fund-metafilter')
-            @include('layouts.footer.contact')
-        </section>
+    <div class="content has-text-centered">
+        <small>
+            <b>&copy; 1999&ndash;{{ now()->year }} MetaFilter LLC.</b> <br class="responsive-br">
+            All posts copyright their original authors.
+        </small>
     </div>
 </footer>

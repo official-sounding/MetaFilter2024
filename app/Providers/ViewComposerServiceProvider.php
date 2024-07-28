@@ -18,17 +18,17 @@ final class ViewComposerServiceProvider extends ServiceProvider
     public function boot(): void
     {
         view()->composer(
-            'layouts.navigation.footer-links-navigation',
+            'layouts.site-footer.footer-links-navigation',
             FooterLinksNavigationViewComposer::class,
         );
 
         view()->composer(
-            'layouts.navigation.footer-member-links-navigation',
+            'layouts.site-footer.footer-member-links-navigation',
             FooterMemberLinksViewComposer::class,
         );
 
         view()->composer(
-            'layouts.navigation.footer-subsite-navigation',
+            'layouts.site-footer.footer-subsite-navigation',
             FooterSubsiteNavigationViewComposer::class,
         );
 
