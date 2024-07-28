@@ -33,7 +33,6 @@
 </div>
 
 @include('layouts.partials.site-footer')
-@include('layouts.partials.fine-print')
 @include('layouts.partials.scripts')
 
 </body>
