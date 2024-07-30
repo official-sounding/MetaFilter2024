@@ -16,9 +16,7 @@ trait NavigationTrait
     public function appendLogoutButton(): string
     {
         try {
-            $logoutButton = view('layouts.navigation.partials.logout-form')->render();
-
-            return '<li>' . $logoutButton . '</li>';
+            return view('layouts.navigation.partials.logout-form')->render();
         } catch (Throwable $exception) {
             $this->logError($exception);
 
@@ -59,7 +57,7 @@ trait NavigationTrait
         $rssTitle = $itemData['name'] . ' RSS feed';
 
         $rssLink = '<a href="' . $rssUrl . '" title="' . $rssTitle . '">';
-        $rssLink .= '<img src="/images/icons/rss-fill.svg" class="icon" role="img" alt="">
+        $rssLink .= '<img src="/images/icons/rss-fill.svg" class="icon rss" role="img" alt="">
 ';
         $rssLink .= '<span class="visually-hidden">' . $rssTitle . '</span>';
         $rssLink .= '</a>';
