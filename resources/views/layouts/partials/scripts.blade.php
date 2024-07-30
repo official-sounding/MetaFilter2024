@@ -7,3 +7,5 @@
 ])
 
 @stack('scripts')
+
+<x-impersonate::banner/>
