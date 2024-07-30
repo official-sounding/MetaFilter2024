@@ -13,6 +13,6 @@ Route::controller(PostController::class)->group(function () {
     Route::get('create', 'create')
         ->name(RouteNameEnum::ASK_POST_CREATE->value);
 
-    Route::get('{post}', 'show')
+    Route::get('{post}/{slug}', 'show')
         ->name(RouteNameEnum::ASK_POST_SHOW->value);
 });
