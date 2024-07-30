@@ -49,7 +49,7 @@ final class PostController extends BaseController
 
     public function store(StorePostRequest $request)
     {
-        $stored = $this->postService->store($request->validated());
+        $post = $this->postService->store($request->validated());
     }
 
     public function edit(Post $post): View

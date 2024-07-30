@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Enums\RouteNameEnum;
 use App\Repositories\PostRepositoryInterface;
 use Illuminate\Http\RedirectResponse;
 
@@ -20,6 +19,9 @@ final class RandomPostController extends BaseController
     {
         $post = $this->postRepository->getRandomPost();
 
-        return redirect()->route(RouteNameEnum::POST_SHOW->value);
+        return redirect()->route("$post->subdomain.post.show", [
+            'post' => $post,
+            'slug' => $post->slug,
+        ]);
     }
 }
