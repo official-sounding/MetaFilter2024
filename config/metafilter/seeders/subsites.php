@@ -69,6 +69,17 @@ return [
         'globalNavigationSortOrder' => 3,
         'hasTheme' => true,
     ],
+    'faq' => [
+        'name' => 'FAQ',
+        'subdomain' => 'faq',
+        'route' => RouteNameEnum::FAQ_INDEX->value,
+        'view' => 'faq.index',
+        'inDropdown' => false,
+        'inFooterNav' => false,
+        'footerNavigationSortOrder' => 0,
+        'globalNavigationSortOrder' => 0,
+        'hasTheme' => false,
+    ],
     'irl' => [
         'name' => 'MeFi IRL',
         'nickname' => 'IRL',
