@@ -25,6 +25,7 @@
         "opcodesio/log-viewer": "^3.10",
         "saloonphp/laravel-plugin": "^3.5",
         "saloonphp/saloon": "^3.9",
+        "spatie/laravel-activitylog": "^4.8",
         "spatie/laravel-feed": "^4.4",
         "spatie/laravel-honeypot": "^4.5",
         "spatie/laravel-livewire-wizard": "^2.3",
