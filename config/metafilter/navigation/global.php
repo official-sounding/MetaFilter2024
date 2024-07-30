@@ -11,7 +11,7 @@ return [
             'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
         ],
         [
-            'name' => 'Ask MetaFilter',
+            'name' => 'Ask MeFi',
             'route' => RouteNameEnum::ASK_POST_INDEX->value,
         ],
         [
