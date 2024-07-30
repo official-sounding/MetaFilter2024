@@ -13,6 +13,8 @@ $middleware = [
 
 require __DIR__ . '/auth.php';
 
+Route::feeds();
+
 Route::get('search', [SearchController::class, 'create'])
     ->name('search.create');
 
