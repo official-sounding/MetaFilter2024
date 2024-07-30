@@ -12,7 +12,7 @@ return [
         ],
         [
             'name' => 'FAQ',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::FAQ_INDEX->value,
         ],
         [
             'name' => 'About',
@@ -20,19 +20,19 @@ return [
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::POST_ARCHIVES_INDEX->value,
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::TAGS_INDEX->value,
         ],
         [
             'name' => 'Popular',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::METAFILTER_POPULAR_POST_INDEX->value,
         ],
         [
             'name' => 'Random',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::METAFILTER_RANDOM_POST_SHOW->value,
         ],
     ],
     'ask' => [
