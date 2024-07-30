@@ -7,6 +7,7 @@
         "php": "^8.3",
         "ext-mbstring": "*",
         "ext-pdo": "*",
+        "bezhansalleh/filament-shield": "^3.2",
         "binarytorch/larecipe": "^2.7",
         "cviebrock/eloquent-sluggable": "^11.0",
         "cybercog/laravel-ban": "^4.9",
