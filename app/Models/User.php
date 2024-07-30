@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Cog\Laravel\Ban\Traits\Bannable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -23,6 +24,7 @@ use Laravel\Passport\HasApiTokens;
  */
 final class User extends Authenticatable
 {
+    use Bannable;
     use HasApiTokens;
     use HasFactory;
     use Notifiable;
