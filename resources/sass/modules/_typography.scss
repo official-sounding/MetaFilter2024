@@ -1,13 +1,21 @@
 :root {
+    --bulma-body-line-height: 1.5;
+
     --font-size-minus-3: 0.625rem; // 10px
     --font-size-minus-2: 0.75rem; // 12px
-    --font-size-minus-1: 0.875rem;  // 14px
+    --font-size-minus-1: 0.875rem; // 14px
     --font-size-normal: 1rem;
     --font-size-plus-1: 1.125rem; // 18px
     --font-size-plus-2: 1.25rem; // 20px
     --font-size-plus-3: 1.5rem; // 24px
     --font-size-plus-4: 1.75rem; // 28px
     --font-size-plus-5: 2rem; // 32px
+
+    --bulma-body-font-size: var(--font-size-normal);
+    --bulma-size-small: var(--font-size-minus-2);
+    --bulma-size-normal: var(--font-size-normal);
+    --bulma-size-medium: var(--font-size-plus-2);
+    --bulma-size-large: var(--font-size-plus-3);
 }
 
 html {
@@ -21,7 +29,9 @@ html {
     line-height: 1.5;
 }
 
-h1, h2, h3, h4,
+h1,
+h2,
+h3, h4,
 .site-title {
     font-family: Montserrat, "Source Sans 3", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-optical-sizing: auto;

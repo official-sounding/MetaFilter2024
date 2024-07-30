@@ -1,6 +1,11 @@
 
+:root {
+    --bulma-navbar-height: auto;
+}
+
 // TODO: Use focus-within to highlight the dropdown menu when it is open
 
+/*
 nav li {
     display: block;
     white-space: nowrap;
@@ -88,3 +93,4 @@ nav li {
         width: fit-content;
     }
 }
+*/

@@ -125,12 +125,12 @@ input[type="search"]:focus {
     text-decoration: underline;
 }
 
-.site-footer a.rss {
+.site-footer .rss {
     background-color: transparent;
     margin-right: 0.25rem;
 }
 
-.site-footer a.rss:hover {
+.site-footer .rss:hover {
     color: var(--rss-orange);
     background-color: transparent;
     text-decoration: none;
