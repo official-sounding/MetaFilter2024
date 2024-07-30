@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Mpociot\Versionable\VersionableTrait;
 use Spatie\Tags\HasTags;
 
 /**
@@ -29,6 +30,7 @@ final class Post extends BaseModel
     use HasTags;
     use Sluggable;
     use SoftDeletes;
+    use VersionableTrait;
 
     // Properties
 
@@ -71,6 +73,7 @@ final class Post extends BaseModel
     {
         return $this->orderBy('id')
             ->where('id', '>', $this->id)
+            ->where('subsite_id', '=', $this->subsite_id)
             ->first();
     }
 
@@ -78,6 +81,7 @@ final class Post extends BaseModel
     {
         return $this->orderByDesc('id')
             ->where('id', '<', $this->id)
+            ->where('subsite_id', '=', $this->subsite_id)
             ->first();
     }
 

@@ -7,6 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Mpociot\Versionable\VersionableTrait;
 
 /**
  * @property int $id
@@ -18,6 +19,7 @@ final class Comment extends BaseModel
 {
     use HasFactory;
     use SoftDeletes;
+    use VersionableTrait;
 
     // Properties
 

@@ -19,6 +19,7 @@
         "maatwebsite/excel": "^3.1",
         "matt-daneshvar/laravel-survey": "^0.4.0",
         "mews/purifier": "^3.4",
+        "mpociot/versionable": "^4.4",
         "opcodesio/log-viewer": "^3.10",
         "saloonphp/laravel-plugin": "^3.5",
         "saloonphp/saloon": "^3.9",
