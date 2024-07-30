@@ -16,11 +16,13 @@
 
 @include('layouts.partials.site-header')
 
-<div class="wrapper container">
-    <main class="main-contents " id="main-contents">
-        @include('layouts.partials.flash-messages')
-        @yield('contents')
-    </main>
+<div class="hero is-success is-fullheight">
+    <div class="hero-body">
+        <main class="container has-text-centered" id="main-contents">
+            @include('layouts.partials.flash-messages')
+            @yield('contents')
+        </main>
+    </div>
 </div>
 
 @include('layouts.partials.scripts')

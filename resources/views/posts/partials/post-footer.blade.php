@@ -8,7 +8,10 @@
     </time>
     -
     @if ($post->comments()->count() > 0)
-        <a href="/{{ $post->id }}#comments">
+        <a href="{{ route("$subdomain.post.show", [
+            'post' => $post,
+            'slug' => $post->slug
+        ]) }}#comments" class="comments">
             {{ $post->comments()->count() }}
 
             @if ($post->comments()->count() === 1)
@@ -18,7 +21,10 @@
             @endif
         </a>
     @else
-        <a href="/{{ $post->id }}#comments">
+        <a href="{{ route("$subdomain.post.show", [
+            'post' => $post,
+            'slug' => $post->slug
+        ]) }}" class="comments">
             no comments
         </a>
     @endif

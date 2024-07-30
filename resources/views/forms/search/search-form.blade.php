@@ -1,6 +1,7 @@
 <x-forms.form
     action=""
-    role="search">
+    role="search"
+    showRequiredFieldsNote="false">
 
     <label class="sr-only" for="{{ $formId }}-query">
         Search {{ config('app.name') }}…

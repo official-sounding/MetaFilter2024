@@ -12,18 +12,20 @@
             {!! $post->more_inside !!}
         @endif
 
-        @guest
-            @include('posts.partials.show-not-logged-in')
-        @endguest
+        @include('posts.partials.post-footer', [
+            'username' => $post->user->username
+        ])
 
         @if (isset($isArchived ) && $isArchived === true)
             @include('posts.partials.show-archived')
         @endif
-
-        @include('posts.partials.show-footer')
     </article>
 
     <livewire:post.post-comments-component :post="$post" />
+
+    @guest
+        @include('posts.partials.show-not-logged-in')
+    @endguest
 
     @auth
         <livewire:post.post-comment-form-component :post="$post" />

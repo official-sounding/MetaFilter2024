@@ -3,5 +3,5 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    posts edit
+    @livewire('post-form-component')
 @endsection

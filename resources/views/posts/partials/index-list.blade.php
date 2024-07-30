@@ -1,23 +1,32 @@
-@foreach ($posts as $date => $datePosts)
-    <h3>{{ $date }}</h3>
+@php
+    $currentDate = $posts->first()->created_at->format('F j, Y');
+@endphp
 
-    <div class="posts">
-        @foreach ($datePosts as $post)
-            <article class="post">
-                <header>
-                    <h3>
-                        <a href="{{ $post->id }}">
-                            {{ $post->title }}
-                        </a>
-                    </h3>
-                </header>
+@foreach ($posts as $post)
+    @if ($loop->first)
+        <h2>{{ $currentDate }}</h2>
+    @endif
 
-                {{ $post->body }}
+    @if ($currentDate !== $post->created_at->format('F j, Y'))
+        <h2>{{ $currentDate }}</h2>
+    @endif
 
-                @include('posts.partials.index-footer', [
-                    'username' => $post->username
-                ])
-            </article>
-        @endforeach
-    </div>
+    <article class="post">
+        <header>
+            <h3>
+                <a href="{{ route("$subdomain.post.show", [
+                    'post' => $post,
+                    'slug' => $post->slug
+                ]) }}">
+                    {{ $post->title }}
+                </a>
+            </h3>
+        </header>
+
+        {{ $post->body }}
+
+        @include('posts.partials.post-footer', [
+            'username' => $post->username
+        ])
+    </article>
 @endforeach
