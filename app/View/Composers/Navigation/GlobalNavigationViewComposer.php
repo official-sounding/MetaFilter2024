@@ -28,8 +28,8 @@ final class GlobalNavigationViewComposer implements ViewComposerInterface
     {
         $buttonId = 'more-sites-dropdown';
 
-        $dropdown = '<li class="navbar-item has-dropdown">';
-        $dropdown .= '<button type="button" class="dropdown-toggle" aria-expanded="false" ';
+        $dropdown = '<li class="has-dropdown">';
+        $dropdown .= '<button type="button" class="navbar-item dropdown-toggle" aria-expanded="false" ';
         $dropdown .= 'aria-controls="' . $buttonId . '">';
         $dropdown .= 'More';
         $dropdown .= '</button>';
