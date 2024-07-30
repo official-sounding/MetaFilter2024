@@ -14,13 +14,13 @@ final class FooterSubsiteNavigationViewComposer implements ViewComposerInterface
 
     public function compose(View $view): void
     {
-        $navigation = '<ul class="footer-menu has-rss" id="footer-subsite-menu">';
+        $navigation = '<ul class="menu-list" id="footer-subsite-menu">';
 
         $items = $this->getItems();
 
         foreach ($items as $item) {
             if ($item['inFooterNav'] === true) {
-                $navigation .= $this->getNavigationItem($item, true);
+                $navigation .= '<li>' . $this->getNavigationItem($item, true) . '</li>';
             }
         }
 
@@ -35,12 +35,12 @@ final class FooterSubsiteNavigationViewComposer implements ViewComposerInterface
 
         return $this->sortItems($subsites);
     }
-
-    private function filterItems(array $subsites): array
-    {
-        return array_filter($subsites, $isFooterItem, ARRAY_FILTER_USE_KEY);
-    }
-
+    /*
+        private function filterItems(array $subsites): array
+        {
+            return array_filter($subsites, $isFooterItem, ARRAY_FILTER_USE_KEY);
+        }
+    */
     private function isFooterItem($key): bool
     {
         return array_key_exists('inFooterNav', $key) && $key['inFooterNav'] === true;

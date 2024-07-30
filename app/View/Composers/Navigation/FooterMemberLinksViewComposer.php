@@ -14,12 +14,12 @@ final class FooterMemberLinksViewComposer implements ViewComposerInterface
 
     public function compose(View $view): void
     {
-        $navigation = '<ul class="navbar-menu" id="footer-member-links-navbar-menu">';
+        $navigation = '<ul class="menu-list" id="footer-member-links-navbar-menu">';
 
         $items = config('metafilter.navigation.footer-member-links');
 
         foreach ($items as $item) {
-            $navigation .= $this->getNavigationItem($item, false, 'definition');
+            $navigation .= '<li>' . $this->getNavigationItem($item) . '</li>';
         }
 
         $navigation .= '</ul>';
