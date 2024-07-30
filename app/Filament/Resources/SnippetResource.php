@@ -1,16 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SnippetResource\Pages;
+use App\Filament\Resources\SnippetResource\Pages\CreateSnippet;
+use App\Filament\Resources\SnippetResource\Pages\EditSnippet;
+use App\Filament\Resources\SnippetResource\Pages\ListSnippets;
 use App\Models\Snippet;
 use Filament\Forms;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class SnippetResource extends Resource
+final class SnippetResource extends Resource
 {
     protected static ?string $model = Snippet::class;
 
@@ -20,13 +31,13 @@ class SnippetResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
+                TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
+                TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('contents')
+                Textarea::make('contents')
                     ->required()
                     ->columnSpanFull(),
             ]);
@@ -36,19 +47,19 @@ class SnippetResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
+                TextColumn::make('slug')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('deleted_at')
+                TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -57,11 +68,11 @@ class SnippetResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -76,9 +87,9 @@ class SnippetResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSnippets::route('/'),
-            'create' => Pages\CreateSnippet::route('/create'),
-            'edit' => Pages\EditSnippet::route('/{record}/edit'),
+            'index' => ListSnippets::route('/'),
+            'create' => CreateSnippet::route('/create'),
+            'edit' => EditSnippet::route('/{record}/edit'),
         ];
     }
 }

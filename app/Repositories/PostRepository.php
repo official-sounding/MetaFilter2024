@@ -7,6 +7,7 @@ namespace App\Repositories;
 use App\Models\Post;
 use App\Traits\LoggingTrait;
 use App\Traits\SubsiteTrait;
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -15,6 +16,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
     use LoggingTrait;
     use SubsiteTrait;
 
+    private const int POSTS_PER_PAGE = 20;
     private const array COLUMNS = [
         'posts.id',
         'posts.title',
@@ -23,6 +25,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
         'posts.body',
         'posts.created_at',
         'posts.deleted_at',
+        'subsites.subdomain as subdomain',
         'subsites.name as subsite',
         'users.id as user_id',
         'users.username',
@@ -35,7 +38,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
         parent::__construct($model);
     }
 
-    public function getBySubdomain(): array|Collection
+    public function getBySubdomain(): Paginator
     {
         // TODO: Add categories
 
@@ -46,8 +49,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             ->withCount(['comments'])
             ->select(self::COLUMNS)
             ->orderBy('posts.created_at', 'desc')
-            ->get()
-            ->groupBy(fn($item) => $item->created_at->format('F j'));
+            ->simplePaginate(self::POSTS_PER_PAGE);
     }
 
     public function getPopularPosts()
@@ -55,9 +57,17 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
         // TODO: get popular posts
     }
 
-    public function getRandomPost()
+    public function getRandomPost(): Collection
     {
-        // TODO: Implement getRandomPost() method.
+        return $this->model->newQuery()
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
+            ->where('subsites.subdomain', '=', $this->subdomain)
+            ->withCount(['comments'])
+            ->select(self::COLUMNS)
+            ->inRandomOrder()
+            ->limit(1)
+            ->get();
     }
 
     public function getRecentPosts(): array|Collection

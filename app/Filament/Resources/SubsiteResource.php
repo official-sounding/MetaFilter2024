@@ -1,16 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SubsiteResource\Pages;
+use App\Filament\Resources\SubsiteResource\Pages\CreateSubsite;
+use App\Filament\Resources\SubsiteResource\Pages\EditSubsite;
+use App\Filament\Resources\SubsiteResource\Pages\ListSubsites;
 use App\Models\Subsite;
 use Filament\Forms;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class SubsiteResource extends Resource
+final class SubsiteResource extends Resource
 {
     protected static ?string $model = Subsite::class;
 
@@ -20,44 +33,44 @@ class SubsiteResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
+                TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('subdomain')
+                TextInput::make('subdomain')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('nickname')
+                TextInput::make('nickname')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('tagline')
+                TextInput::make('tagline')
                     ->maxLength(255),
-                Forms\Components\Textarea::make('logo_filename')
+                Textarea::make('logo_filename')
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('white_text')
+                TextInput::make('white_text')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('green_text')
+                TextInput::make('green_text')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('route')
+                TextInput::make('route')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('view')
+                TextInput::make('view')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Toggle::make('has_theme')
+                Toggle::make('has_theme')
                     ->required(),
-                Forms\Components\TextInput::make('footer_navigation_sort_order')
+                TextInput::make('footer_navigation_sort_order')
                     ->required()
                     ->numeric()
                     ->default(0),
-                Forms\Components\TextInput::make('global_navigation_sort_order')
+                TextInput::make('global_navigation_sort_order')
                     ->required()
                     ->numeric()
                     ->default(0),
-                Forms\Components\Toggle::make('in_dropdown')
+                Toggle::make('in_dropdown')
                     ->required(),
-                Forms\Components\Toggle::make('in_footer_nav')
+                Toggle::make('in_footer_nav')
                     ->required(),
             ]);
     }
@@ -66,45 +79,45 @@ class SubsiteResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
+                TextColumn::make('slug')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('subdomain')
+                TextColumn::make('subdomain')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('nickname')
+                TextColumn::make('nickname')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('tagline')
+                TextColumn::make('tagline')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('white_text')
+                TextColumn::make('white_text')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('green_text')
+                TextColumn::make('green_text')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('route')
+                TextColumn::make('route')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('view')
+                TextColumn::make('view')
                     ->searchable(),
-                Tables\Columns\IconColumn::make('has_theme')
+                IconColumn::make('has_theme')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('footer_navigation_sort_order')
+                TextColumn::make('footer_navigation_sort_order')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('global_navigation_sort_order')
+                TextColumn::make('global_navigation_sort_order')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\IconColumn::make('in_dropdown')
+                IconColumn::make('in_dropdown')
                     ->boolean(),
-                Tables\Columns\IconColumn::make('in_footer_nav')
+                IconColumn::make('in_footer_nav')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('deleted_at')
+                TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -113,11 +126,11 @@ class SubsiteResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -132,9 +145,9 @@ class SubsiteResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSubsites::route('/'),
-            'create' => Pages\CreateSubsite::route('/create'),
-            'edit' => Pages\EditSubsite::route('/{record}/edit'),
+            'index' => ListSubsites::route('/'),
+            'create' => CreateSubsite::route('/create'),
+            'edit' => EditSubsite::route('/{record}/edit'),
         ];
     }
 }
