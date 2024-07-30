@@ -86,10 +86,10 @@ final class UserResource extends Resource
                 //
             ])
             ->actions([
+                Impersonate::make(),
                 EditAction::make(),
             ])
             ->bulkActions([
-                Impersonate::make(),
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
