@@ -12,6 +12,7 @@
                <img src="{{ asset('images/icons/box-arrow-in-right.svg') }}" class="icon" role="img" alt="">
                Log In
             </a>
+
             <a href="{{ route($registerCreateRoute) }}"
                class="navbar-item"
                @if (request()->segment(1) === 'register')
