@@ -9,7 +9,7 @@
                @if (request()->segment(1) === 'login')
                    aria-current="page"
                @endif>
-               <img src="{{ asset('images/icons/box-arrow-in-left.svg') }}" class="icon" role="img" alt="">
+               <img src="{{ asset('images/icons/box-arrow-in-right.svg') }}" class="icon" role="img" alt="">
                Log In
             </a>
             <a href="{{ route($registerCreateRoute) }}"
