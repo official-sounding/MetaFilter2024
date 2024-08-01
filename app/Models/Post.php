@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Mpociot\Versionable\VersionableTrait;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Tags\HasTags;
 
 /**
@@ -28,6 +30,7 @@ final class Post extends BaseModel
 {
     use HasFactory;
     use HasTags;
+    use LogsActivity;
     use Sluggable;
     use SoftDeletes;
     use VersionableTrait;
@@ -60,6 +63,11 @@ final class Post extends BaseModel
         return Attribute::make(
             get: fn(bool $value) => $this->created_at <= $archiveDate,
         );
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::logFillable();
     }
 
     // Relationships

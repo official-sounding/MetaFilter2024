@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Mpociot\Versionable\VersionableTrait;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @property int $id
@@ -18,6 +20,7 @@ use Mpociot\Versionable\VersionableTrait;
 final class Comment extends BaseModel
 {
     use HasFactory;
+    use LogsActivity;
     use SoftDeletes;
     use VersionableTrait;
 
@@ -33,6 +36,11 @@ final class Comment extends BaseModel
         'user',
     ];
 
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::logFillable();
+    }
+
     // Relationships
 
     public function post(): BelongsTo
@@ -44,4 +52,5 @@ final class Comment extends BaseModel
     {
         return $this->belongsTo(User::class);
     }
+
 }
