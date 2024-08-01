@@ -33,6 +33,7 @@ final class AppServiceProvider extends ServiceProvider
         view()->share('loginCreateRoute', RouteNameEnum::AUTH_LOGIN_CREATE->value);
         view()->share('loginStoreRoute', RouteNameEnum::AUTH_LOGIN_STORE->value);
         view()->share('logoutRoute', RouteNameEnum::AUTH_LOGOUT->value);
+        view()->share('profileRoute', RouteNameEnum::PROFILE_SHOW->value);
         view()->share('registerCreateRoute', RouteNameEnum::AUTH_REGISTER_CREATE->value);
         view()->share('registerStoreRoute', RouteNameEnum::AUTH_REGISTER_STORE->value);
     }
