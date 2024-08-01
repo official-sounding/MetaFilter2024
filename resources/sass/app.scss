@@ -14,7 +14,9 @@
 @import "themes/default";
 
 @import "modules/accessibility";
+@import "modules/lists";
 @import "modules/navigation";
+@import "modules/responsive";
 @import "modules/typography";
 
 /*
@@ -23,11 +25,9 @@
 @import "modules/forms";
 @import "modules/layout";
 @import "modules/links";
-@import "modules/lists";
 @import "modules/notifications";
 @import "modules/posts";
 @import "modules/previous-next";
-@import "modules/responsive";
 @import "modules/sidebar";
 @import "modules/site-footer";
 @import "modules/site-header";
