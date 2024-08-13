@@ -18,7 +18,6 @@
         "vite-plugin-static-copy": "^1.0.6"
     },
     "dependencies": {
-        "bulma": "^1.0.1",
         "ckeditor5": "^42.0.1",
         "webtour": "^1.1.0"
     }

@@ -1,6 +1,4 @@
 :root {
-    --bulma-body-line-height: 1.5;
-
     --font-size-minus-3: 0.625rem; // 10px
     --font-size-minus-2: 0.75rem; // 12px
     --font-size-minus-1: 0.875rem; // 14px
@@ -10,16 +8,10 @@
     --font-size-plus-3: 1.5rem; // 24px
     --font-size-plus-4: 1.75rem; // 28px
     --font-size-plus-5: 2rem; // 32px
-
-    --bulma-body-font-size: var(--font-size-normal);
-    --bulma-size-small: var(--font-size-minus-2);
-    --bulma-size-normal: var(--font-size-normal);
-    --bulma-size-medium: var(--font-size-plus-2);
-    --bulma-size-large: var(--font-size-plus-3);
 }
 
 html {
-    font-family: "Source Sans 3", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
 }
@@ -33,7 +25,7 @@ h1,
 h2,
 h3, h4,
 .site-title {
-    font-family: Montserrat, "Source Sans 3", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Montserrat, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     line-height: 1;
@@ -79,22 +71,20 @@ h4 {
 
 body,
 h1, h2, h3, h4,
+.notification,
 .secondary-navigation a,
 .site-footer a,
 .site-title,
-.notification {
-    font-weight: 400;
-}
-
 .tagline {
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .dropdown-toggle,
 .logout-button,
 nav a,
 .notification a,
-.posts h4 {
+.posts h4,
+.tagline {
     font-weight: 600;
 }
 

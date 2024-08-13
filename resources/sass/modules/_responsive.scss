@@ -1,12 +1,4 @@
-@use "bulma/sass/utilities/mixins";
 
 .hidden {
     display: none;
-}
-
-.responsive-br {
-    //noinspection SassScssResolvedByNameOnly
-    @include mixins.tablet() {
-        display: none;
-    }
 }
