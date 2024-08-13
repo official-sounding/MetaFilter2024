@@ -7,6 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Maize\Markable\Markable;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -21,6 +22,7 @@ final class Comment extends BaseModel
 {
     use HasFactory;
     use LogsActivity;
+    use Markable;
     use SoftDeletes;
     use VersionableTrait;
 
@@ -38,7 +40,7 @@ final class Comment extends BaseModel
 
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::logFillable();
+        return LogOptions::defaults()->logFillable();
     }
 
     // Relationships

@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Maize\Markable\Markable;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -31,6 +32,7 @@ final class Post extends BaseModel
     use HasFactory;
     use HasTags;
     use LogsActivity;
+    use Markable;
     use Sluggable;
     use SoftDeletes;
     use VersionableTrait;
@@ -67,7 +69,7 @@ final class Post extends BaseModel
 
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::logFillable();
+        return LogOptions::defaults()->logFillable();
     }
 
     // Relationships
