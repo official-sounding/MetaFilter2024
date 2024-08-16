@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Maize\Markable\Markable;
+use Maize\Markable\Models\Favorite;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -47,6 +48,11 @@ final class Post extends BaseModel
         'legacy_id',
         'subsite_id',
         'user_id',
+    ];
+
+    protected static array $marks = [
+        Favorite::class,
+        Flag::class,
     ];
 
     public function sluggable(): array

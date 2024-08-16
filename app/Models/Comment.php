@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Maize\Markable\Markable;
+use Maize\Markable\Models\Favorite;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -32,6 +33,11 @@ final class Comment extends BaseModel
         'contents',
         'post_id',
         'user_id',
+    ];
+
+    protected static array $marks = [
+        Favorite::class,
+        Flag::class,
     ];
 
     protected $with = [
