@@ -37,6 +37,7 @@ final class PostController extends BaseController
             'post' => $post,
             'next' => $post->next(),
             'previous' => $post->previous(),
+            'useWysiwyg' => true,
         ]);
     }
 

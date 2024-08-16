@@ -18,6 +18,7 @@ final class ProfileController extends BaseController
     public function show(User $user): View
     {
         return view('profile.show', [
+            'title' => $user->username . '&rsquo;s profile',
             'user' => $user,
         ]);
     }
