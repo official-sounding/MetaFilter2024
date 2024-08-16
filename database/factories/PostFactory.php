@@ -7,10 +7,13 @@ namespace Database\Factories;
 use App\Models\Post;
 use App\Models\Subsite;
 use App\Models\User;
+use App\Traits\UrlTrait;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 final class PostFactory extends Factory
 {
+    use UrlTrait;
+
     protected $model = Post::class;
 
     public function definition(): array
