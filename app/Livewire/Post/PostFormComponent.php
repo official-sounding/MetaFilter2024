@@ -14,7 +14,7 @@ final class PostFormComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.forms.post-form');
+        return view('livewire.post.post-form');
     }
 
     public function save() {}
