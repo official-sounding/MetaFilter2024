@@ -12,4 +12,12 @@ final class CommentRepository extends BaseRepository implements CommentRepositor
     {
         parent::__construct($model);
     }
+
+    public function getCommentByUserId(int $userId)
+    {
+        return $this->model
+            ->where('user_id', $userId)
+            ->count();
+    }
+
 }
