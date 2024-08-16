@@ -1,26 +1,22 @@
+/* jshint esversion: 6 */
 
-function toggleDropdown(target) {
-    const ARIA_CONTROLS = 'aria-controls';
-    const ARIA_EXPANDED = 'aria-expanded';
-    const ARIA_HIDDEN = 'aria-hidden';
+import constant from '../constants.js';
 
-    let controls = target.getAttribute(ARIA_CONTROLS);
-    let dropdownMenu = document.getElementById(controls);
+function toggleExpanded(target) {
+    let controls = target.getAttribute(constant.ARIA_CONTROLS);
+    let dropdown = document.getElementById(controls);
 
-    let expanded = target.getAttribute(ARIA_EXPANDED) === 'true' || false;
+    let expanded = target.getAttribute(constant.ARIA_EXPANDED) === 'true' || false;
 
     if (expanded) {
-        target.setAttribute(ARIA_EXPANDED, 'false');
+        target.setAttribute(constant.ARIA_EXPANDED, 'false');
 
-        dropdownMenu.setAttribute(ARIA_HIDDEN, 'true');
+        dropdown.setAttribute(constant.ARIA_HIDDEN, 'true');
     } else {
-        target.setAttribute(ARIA_EXPANDED, 'true');
+        target.setAttribute(constant.ARIA_EXPANDED, 'true');
 
-        dropdownMenu.removeAttribute(ARIA_HIDDEN);
+        dropdown.removeAttribute(constant.ARIA_HIDDEN);
     }
-
-    console.log('Toggling dropdown...');
-    console.log(controls);
 }
 
-export {toggleDropdown};
+export {toggleExpanded};
