@@ -38,8 +38,6 @@ return [
             'name' => 'MetaTalk',
             'route' => RouteNameEnum::METATALK_POST_INDEX->value,
         ],
-    ],
-    'dropdown_items' => [
         [
             'name' => 'Best Of',
             'route' => RouteNameEnum::BEST_OF_HOME_INDEX->value,
