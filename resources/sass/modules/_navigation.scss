@@ -1,14 +1,52 @@
 
-:root {
-    --bulma-navbar-height: auto;
+// TODO: Use focus-within to highlight the dropdown menu when it is open
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-// TODO: Use focus-within to highlight the dropdown menu when it is open
+nav ul li {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+nav ul.dropdown li,
+nav.column ul li{
+    display: block;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-toggle > img {
+    pointer-events: none;
+}
+
+.site-header .container {
+    position: relative;
+}
+
+.site-header .container .navbar-menu {
+    position: absolute;
+    top: 100%;
+    z-index: 100;
+}
+
+.site-header .container .navbar-menu.global-navigation {
+    left: 0;
+}
+
+.site-header .container .navbar-menu.utility-navigation {
+    right: 0;
+}
 
 /*
 nav li {
-    display: block;
-    white-space: nowrap;
 }
 
 .has-dropdown {
@@ -27,13 +65,6 @@ nav li {
     background-color: var(--gray-999);
 }
 
-.dropdown-menu[aria-hidden="true"] {
-    display: none;
-}
-
-.dropdown-menu[aria-hidden="false"] {
-    display: block;
-}
 
 .dropdown-menu:focus-within {
     visibility: visible;
@@ -42,10 +73,6 @@ nav li {
 .global-navigation ul {
     column-count: 2;
     column-gap: 0;
-}
-
-.toggle-dropdown > span.button-text {
-    pointer-events: none;
 }
 
 .utility-navigation {

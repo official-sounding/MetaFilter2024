@@ -3,6 +3,14 @@
     opacity: 1;
 }
 
+[aria-hidden="true"] {
+    display: none;
+}
+
+[aria-hidden="false"] {
+    display: block;
+}
+
 .skip-navigation {
     position: fixed;
     top: -200px;
