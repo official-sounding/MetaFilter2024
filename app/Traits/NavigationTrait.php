@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Enums\RouteNameEnum;
 use Illuminate\Support\Facades\Route;
 use Throwable;
 
@@ -28,24 +29,42 @@ trait NavigationTrait
         array $itemData,
         bool $showRssLink = false,
     ): ?string {
-        $item = null;
+        $item = '<li>';
 
         if (isset($itemData['route'])) {
             if ($showRssLink) {
                 $item .= $this->getRssLink($itemData);
             }
 
-            $item .= '<a href="' . route($itemData['route']) . '"';
-            $item .= 'class="navbar-item"';
+            if ($itemData['route'] === RouteNameEnum::PREFERENCES_EDIT->value) {
+                if (auth()->user()) {
+                    $item .= '<a href="' . route($itemData['route'], [
+                        'user' => auth()->user(),
+                    ]) . '"';
+                }
+            } elseif ($itemData['route'] === RouteNameEnum::PROFILE_SHOW->value) {
+                if (auth()->user()) {
+                    $item .= '<a href="' . route($itemData['route'], [
+                        'user' => auth()->user(),
+                    ]) . '"';
+                }
+            } else {
+                $item .= '<a href="' . route($itemData['route']) . '"';
+            }
 
             if (Route::currentRouteName() === $itemData['route']) {
-                $currentValue = isset($globalNavigation) && $globalNavigation === true ? 'location' : 'page';
-                $item .= ' aria-current="' . $currentValue . '"';
+                $item .= ' aria-current="page"';
             }
 
             $item .= '>';
+
+            if (isset($itemData['icon'])) {
+                $item .= '<img src="/images/icons/' . $itemData['icon'] . '.svg" class="icon ' . $itemData['icon'] . '" role="img" alt="">';
+            }
+
             $item .= $itemData['nickname'] ?? $itemData['name'] ?? $itemData['text'];
             $item .= '</a>';
+            $item .= '</li>';
         }
 
         return $item;
@@ -57,7 +76,7 @@ trait NavigationTrait
         $rssTitle = $itemData['name'] . ' RSS feed';
 
         $rssLink = '<a href="' . $rssUrl . '" title="' . $rssTitle . '">';
-        $rssLink .= '<img src="/images/icons/rss-fill.svg" class="icon rss" role="img" alt="">
+        $rssLink .= '<img src="' . asset('images/icons/rss-fill.svg') . '" class="icon rss" role="img" alt="">
 ';
         $rssLink .= '<span class="visually-hidden">' . $rssTitle . '</span>';
         $rssLink .= '</a>';
