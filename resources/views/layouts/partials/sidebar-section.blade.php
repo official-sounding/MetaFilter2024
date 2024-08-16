@@ -1,9 +1,9 @@
 <section>
-    <header>
-        <h3 @if (isset($hasAccordion) && $hasAccordion === true) class="has-accordion" @endif>
-            {{ $title ?? 'Untitled' }}
-        </h3>
-    </header>
+    <details @if (isset($isOpen) && $isOpen === true) open @endif>
+        <summary>
+            <h3>{{ $title ?? 'Untitled' }}</h3>
+        </summary>
 
-    @yield('sidebar-contents')
+        @yield('sidebar-contents')
+    </details>
 </section>

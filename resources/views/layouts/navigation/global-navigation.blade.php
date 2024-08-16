@@ -1,11 +1,7 @@
-<nav class="global-navigation navbar" id="global-navigation" aria-label="Global navigation">
-    <div class="container">
-        {!! $globalNavigation ?? 'Global navigation unavailable' !!}
-{{--
-        @include('forms.search.search-form', [
-            'class' => 'global-navigation-search-form',
-            'id' => 'global-navigation-search-form'
-        ])
---}}
-    </div>
+<nav class="global-navigation navbar-menu"
+     id="global-navigation"
+     aria-hidden="true"
+     aria-label="Global navigation"
+     aria-labelledby="global-navigation-toggle">
+    {!! $globalNavigation ?? 'Global navigation unavailable' !!}
 </nav>

@@ -13,7 +13,8 @@
         @endif
 
         @include('posts.partials.post-footer', [
-            'username' => $post->user->username
+            'userId' => $post->user->id,
+            'username' => $post->user->username,
         ])
 
         @if (isset($isArchived ) && $isArchived === true)
@@ -24,7 +25,9 @@
     <livewire:post.post-comments-component :post="$post" />
 
     @guest
-        @include('posts.partials.show-not-logged-in')
+        @include('posts.partials.show-not-logged-in', [
+            'context' => 'comment'
+        ])
     @endguest
 
     @auth

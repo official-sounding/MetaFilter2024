@@ -26,7 +26,8 @@
         {{ $post->body }}
 
         @include('posts.partials.post-footer', [
-            'username' => $post->username
+            'userId' => $post->user_id,
+            'username' => $post->username,
         ])
     </article>
 @endforeach

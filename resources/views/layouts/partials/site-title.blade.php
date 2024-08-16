@@ -1,4 +1,4 @@
-<a href="{{ route($subsite['route']) }}" class="navbar-item" title="Home page">
+<a href="{{ route($subsite['route']) }}" title="Home page">
     <hgroup class="site-title">
         @if (isset($subsite['whiteText']) && isset($subsite['greenText']))
             @if (empty(request()->segment(1)))

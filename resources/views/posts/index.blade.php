@@ -3,6 +3,12 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
+    @guest
+        @include('posts.partials.show-not-logged-in', [
+            'context' => 'index'
+        ])
+    @endguest
+
     @if (count($posts) > 0)
         @include('posts.partials.index-list', [
             'posts' => $posts

@@ -1,13 +1,18 @@
 <footer class="footer site-footer" id="site-footer">
-    <section class="container">
+    <div class="container">
         <h2 class="sr-only">Site Footer</h2>
 
-        <div class="columns">
-            <h3 class="sr-only">Site Links</h3>
+            <div class="columns">
+                <h3 class="sr-only">Site Links</h3>
 
-            @include('layouts.site-footer.footer-subsite-navigation')
-            @include('layouts.site-footer.footer-member-links-navigation')
-            @include('layouts.site-footer.footer-links-navigation')
+                @include('layouts.site-footer.footer-subsite-navigation')
+                @include('layouts.site-footer.footer-member-links-navigation')
+                @include('layouts.site-footer.footer-links-navigation')
+            </div>
+            <div>
+                <h3 class="sr-only">Search</h3>
+    search
+            </div>
         </div>
 
         <div class="content has-text-centered">
@@ -16,5 +21,4 @@
                 All posts copyright their original authors.
             </small>
         </div>
-    </section>
 </footer>

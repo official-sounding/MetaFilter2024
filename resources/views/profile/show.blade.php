@@ -5,7 +5,7 @@
 @section('contents')
     profile show
 
-    @include('profile.partials.subsite-contributions')
+    @include('profile.partials.contributions')
 @endsection
 
 @section('sidebar')

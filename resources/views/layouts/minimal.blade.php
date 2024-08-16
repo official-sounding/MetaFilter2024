@@ -2,12 +2,12 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ $title ?? 'Untitled' }}</title>
+<title>@include('layouts.partials.window-title')</title>
 
-    @include('layouts.partials.styles')
+@include('layouts.partials.styles')
 
 </head>
 <body>
