@@ -16,7 +16,7 @@ final class UtilityNavigationViewComposer implements ViewComposerInterface
 
     public function compose(View $view): void
     {
-        $navigation = '';
+        $navigation = '<ul class="dropdown">';
 
         $items = config('metafilter.navigation.utility.auth');
 
@@ -25,6 +25,8 @@ final class UtilityNavigationViewComposer implements ViewComposerInterface
         }
 
         $navigation .= $this->appendLogoutButton();
+
+        $navigation .= '</ul>';
 
         $view->with('utilityNavigation', $navigation);
     }

@@ -20,7 +20,7 @@ final class PrimaryNavigationViewComposer implements ViewComposerInterface
 
     public function compose(View $view): void
     {
-        $navigation = null;
+        $navigation = '<ul>';
 
         $subdomain = $this->getSubdomainFromUrl();
 
@@ -33,6 +33,8 @@ final class PrimaryNavigationViewComposer implements ViewComposerInterface
                 $navigation .= $this->getNavigationItem($item);
             }
         }
+
+        $navigation .= '</ul>';
 
         $view->with('primaryNavigation', $navigation);
     }
