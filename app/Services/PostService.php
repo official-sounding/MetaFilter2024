@@ -15,16 +15,14 @@ final class PostService
 
     public function __construct(protected PostRepositoryInterface $postRepository) {}
 
-    public function store(array $data): bool
+    public function store(array $data): ?Post
     {
         try {
-            $this->postRepository->create($data);
-
-            return true;
+            return $this->postRepository->create($data);
         } catch (Exception $exception) {
             $this->logError($exception);
 
-            return false;
+            return null;
         }
     }
 
