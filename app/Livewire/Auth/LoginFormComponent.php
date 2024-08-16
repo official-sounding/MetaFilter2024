@@ -35,17 +35,12 @@ final class LoginFormComponent extends Component
             ],
         ]);
 
-        $this->logDebugMessage('Username: ' . $validated['username']);
-        $this->logDebugMessage('Password: ' . $validated['password']);
-
         if (Auth::attempt(
             [
                 'username' => $validated['username'],
                 'password' => $validated['password'],
             ],
         )) {
-            $this->logDebugMessage('Passed validation.');
-
             $this->reset();
 
             // TODO: Translate messages
