@@ -9,7 +9,7 @@ use Illuminate\Database\Seeder;
 
 final class FakePostSeeder extends Seeder
 {
-    private const int NUMBER_OF_FAKE_POSTS = 5000;
+    private const int NUMBER_OF_FAKE_POSTS = 1500;
 
     public function run(): void
     {
