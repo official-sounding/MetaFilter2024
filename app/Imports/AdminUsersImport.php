@@ -16,6 +16,7 @@ final class AdminUsersImport implements ToModel, WithHeadingRow
     {
         return new User([
             'id' => $row['id'],
+            'legacy_id' => $row['id'],
             'name' => $row['name'],
             'username' => $row['username'],
             'email' => $row['email'],
