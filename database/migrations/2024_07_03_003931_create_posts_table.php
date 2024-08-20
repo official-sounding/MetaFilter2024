@@ -13,7 +13,7 @@ return new class () extends Migration {
             $table->id();
 
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->integer('legacy_id')->nullable();
             $table->text('url');
             $table->text('body');

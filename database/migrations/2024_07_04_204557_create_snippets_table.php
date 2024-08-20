@@ -13,7 +13,7 @@ return new class () extends Migration {
             $table->id();
 
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->text('contents');
 
             $table->nullableTimestamps();

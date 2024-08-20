@@ -9,8 +9,11 @@ use Illuminate\Support\Facades\Schema;
 return new class () extends Migration {
     public function up(): void
     {
-        Schema::create('markable_flags', function (Blueprint $table) {
+        Schema::create('flag_reasons', function (Blueprint $table) {
             $table->id();
+
+            $table->string('reason');
+            $table->string('slug')->unique();
 
             $table->nullableTimestamps();
             $table->softDeletes();
@@ -19,6 +22,6 @@ return new class () extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('markable_flags');
+        Schema::dropIfExists('flag_reasons');
     }
 };

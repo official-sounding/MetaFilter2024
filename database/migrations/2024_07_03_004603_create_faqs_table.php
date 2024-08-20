@@ -12,7 +12,7 @@ return new class () extends Migration {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
 
-            $table->string('question');
+            $table->string('question')->unique();
             $table->string('slug');
             $table->text('answer');
 
