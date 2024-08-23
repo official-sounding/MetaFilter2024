@@ -11,7 +11,7 @@
         <h2>{{ $currentDate }}</h2>
     @endif
 
-    <article class="post">
+    <article class="post" wire:key="post-{{ $post->id }}">
         <header>
             <h3>
                 <a href="{{ route("$subdomain.post.show", [

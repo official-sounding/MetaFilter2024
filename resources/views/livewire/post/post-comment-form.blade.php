@@ -1,4 +1,4 @@
-<form wire:submit="save">
+<form wire:submit="saveComment()">
     <small>posting as
         <a title="{{ __('View profile') }}"
             href="{{ route($profileRoute, [
@@ -8,7 +8,9 @@
         </a>
     </small>
 
-    <div id="wysiwyg"></div>
+    <div wire:ignore>
+        <textarea wire:model.live="contents" name="contents" id="wysiwyg"></textarea>
+    </div>
 
     <button type="submit">
         {{ __('Post Comment') }}

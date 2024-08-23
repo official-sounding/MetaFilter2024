@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.guest')
 
 @section('title', $title ?? 'Untitled')
 
@@ -6,7 +6,4 @@
     profile show
 
     @include('profile.partials.contributions')
-@endsection
-
-@section('sidebar')
 @endsection

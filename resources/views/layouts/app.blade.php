@@ -20,14 +20,14 @@
 @include('layouts.navigation.primary-navigation')
 @include('layouts.navigation.secondary-navigation')
 
-<div class="container">
+<div class="container wrapper">
     <!-- He's the DJ; I'm the wrapper -->
-    <main class="main-contents column" id="main-contents">
+    <main class="main-contents" id="main-contents">
         @include('layouts.partials.flash-messages')
         @yield('contents')
     </main>
     <aside class="sidebar">
-        sidebar
+        @include('layouts.partials.main-sidebar')
     </aside>
 </div>
 

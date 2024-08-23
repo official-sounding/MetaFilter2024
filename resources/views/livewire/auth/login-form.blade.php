@@ -13,7 +13,7 @@
         label="{{ __('Password') }}"/>
 
     <x-forms.button>
-        {{ __('Login') }}
+        {{ __('Log In') }}
     </x-forms.button>
 
     <div>

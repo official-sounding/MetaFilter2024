@@ -1,5 +1,9 @@
 <div class="flag">
     @if ($flagged === true)
+        <img src="{{ asset($iconPath) }}"
+             class="icon"
+             role="img"
+             alt="">
         [Flagged]
     @endif
 
@@ -14,7 +18,7 @@
                 aria-expanded="false"
                 wire:click="toggleDropdown()"
             >
-                <img src="{{ asset('images/icons/flag-fill.svg') }}"
+                <img src="{{ asset($iconPath) }}"
                      class="icon"
                      role="img"
                      alt="">
@@ -92,7 +96,8 @@
                                     Cancel
                                 </button>
 
-                                <button type="submit">
+                                <button type="submit"
+                                        wire:click="flag('noise-derail-other')">
                                     Add Note
                                 </button>
                             </form>

@@ -1,3 +1,4 @@
+<!--suppress JSCheckFunctionSignatures -->
 <script type="importmap">
     {
         "imports": {
@@ -6,6 +7,7 @@
         }
     }
 </script>
+
 <script type="module">
     import {Bold, ClassicEditor, Essentials, Italic, Paragraph,} from 'ckeditor5';
 

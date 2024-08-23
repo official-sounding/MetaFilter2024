@@ -13,10 +13,10 @@
     </div>
     <div>
         @auth
-            <livewire:post.favorite-comment-component :comment="$comment" />
-{{--
+            {{--
             <livewire:post.flag-comment-component :comment="$comment" />
---}}
+            --}}
+            <livewire:post.favorite-comment-component :comment="$comment" />
         @endauth
     </div>
 </footer>
