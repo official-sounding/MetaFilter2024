@@ -25,6 +25,7 @@
         "mpociot/versionable": "^4.4",
         "opcodesio/log-viewer": "^3.10",
         "pxlrbt/filament-activity-log": "^1.1",
+        "rahulalam31/laravel-abuse-ip": "^1.2",
         "saloonphp/laravel-plugin": "^3.5",
         "saloonphp/saloon": "^3.9",
         "spatie/laravel-activitylog": "^4.8",
