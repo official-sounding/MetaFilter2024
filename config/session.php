@@ -156,7 +156,7 @@ return [
     | available to. By default, the cookie will be available to the root
     | domain and all subdomains. Typically, this shouldn't be changed.
     |
-    | The domain needs to have a leading dot so logins work across subdomains.
+    | MetaFilter: The domain needs to have a leading dot so logins work across subdomains.
     |
     */
 
