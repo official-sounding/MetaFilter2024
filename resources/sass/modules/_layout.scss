@@ -19,6 +19,12 @@ body {
     text-align: center;
 }
 
+.previous-next {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 main {
     padding: var(--global-spacing);
 }
@@ -29,6 +35,7 @@ main {
     padding-bottom: var(--global-spacing);
 }
 
+//noinspection SassScssResolvedByNameOnly
 @include big-desktop-up() {
     body {
         display: grid;

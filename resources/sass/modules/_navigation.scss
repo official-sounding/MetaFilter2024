@@ -17,14 +17,18 @@ nav.column ul li{
     display: block;
 }
 
+.dropdown-toggle > img {
+    pointer-events: none;
+}
+
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.dropdown-toggle > img {
-    pointer-events: none;
+.primary-navigation {
+    margin: 0 0 1rem 0;
 }
 
 .site-header .container {

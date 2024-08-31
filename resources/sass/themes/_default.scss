@@ -88,15 +88,8 @@ input[type="search"]:focus {
     color: var(--white);
 }
 
-.secondary-navigation .container,
 .secondary-navigation a:link,
 .secondary-navigation a:visited {
-    background-color: var(--lightest-gray);
-}
-
-.secondary-navigation a:link,
-.secondary-navigation a:visited {
-    background-color: var(--lightest-gray);
     position: relative;
 }
 
