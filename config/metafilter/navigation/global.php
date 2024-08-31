@@ -15,7 +15,7 @@ return [
             'route' => RouteNameEnum::ASK_POST_INDEX->value,
         ],
         [
-            'name' => 'Fanfare',
+            'name' => 'FanFare',
             'route' => RouteNameEnum::FANFARE_POST_INDEX->value,
         ],
         [
@@ -48,7 +48,7 @@ return [
         ],
         [
             'name' => 'Chat',
-            'route' => RouteNameEnum::METACHAT_HOME_INDEX->value,
+            'route' => RouteNameEnum::CHAT_HOME_INDEX->value,
         ],
         [
             'name' => 'Labs',

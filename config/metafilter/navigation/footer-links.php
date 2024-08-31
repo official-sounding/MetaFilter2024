@@ -63,7 +63,7 @@ return [
     ],
     [
         'name' => 'Chat',
-        'route' => RouteNameEnum::METACHAT_HOME_INDEX->value,
+        'route' => RouteNameEnum::CHAT_HOME_INDEX->value,
     ],
     [
         'name' => 'Labs',

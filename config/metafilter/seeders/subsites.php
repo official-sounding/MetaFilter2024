@@ -46,7 +46,7 @@ return [
         'greenText' => 'Chat',
         'tagline' => 'talk about ' . $metaFilter,
         'subdomain' => 'chat',
-        'route' => RouteNameEnum::METACHAT_HOME_INDEX->value,
+        'route' => RouteNameEnum::CHAT_HOME_INDEX->value,
         'view' => 'chat.home.index',
         'inDropdown' => true,
         'inFooterNav' => false,
