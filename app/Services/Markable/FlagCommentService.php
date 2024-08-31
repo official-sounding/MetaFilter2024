@@ -24,7 +24,7 @@ final class FlagCommentService
         return Flag::has($comment, $user);
     }
 
-    public function store(Comment $comment, User $user, string $reason): void
+    public function store(Comment $comment, User $user, string $reason = null): void
     {
         try {
             Flag::add($comment, $user, $reason);
