@@ -1,5 +1,5 @@
 @php
-    $currentDate = $posts->first()->created_at->format('F j, Y');
+    $currentDate = $posts->first()->created_at->format('F j');
 @endphp
 
 @foreach ($posts as $post)

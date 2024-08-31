@@ -2,7 +2,6 @@
     @include('forms.partials.validation-summary')
     @include('forms.partials.required-fields-note')
     @honeypot
-
     <x-forms.input
         name="name"
         type="text"

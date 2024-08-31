@@ -11,7 +11,8 @@
     <x-forms.label
         :for="$name"
         :label="$label"
-        :required="$required"/>
+        :required="$required" />
+
     <input
         type="{{ $type }}"
         name="{{ $name }}"
@@ -24,12 +25,14 @@
     >
 
     @if ($note !== null)
-        <small>{!! $note !!}</small>
+        <small>
+            {!! $note !!}
+        </small>
     @endif
 
     @error($name)
-    <small class="text-danger error">
-        {{ $message }}
-    </small>
+        <small class="text-danger error">
+            {{ $message }}
+        </small>
     @enderror
 </x-forms.field>

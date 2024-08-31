@@ -21,6 +21,7 @@
     <x-forms.input
         name="username"
         type="text"
+        autofocus="true"
         label="{{ __('Username') }}" />
 
     <x-forms.input

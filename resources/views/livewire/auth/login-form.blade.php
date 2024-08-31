@@ -5,6 +5,7 @@
     <x-forms.input
         name="username"
         type="text"
+        autofocus="true"
         label="{{ __('Username') }}"/>
 
     <x-forms.input
@@ -14,19 +15,30 @@
 
     <x-forms.button>
         {{ __('Log In') }}
+        <span wire:loading>
+            {{ __('Logging in...') }}
+        </span>
     </x-forms.button>
 
     <div>
-        Don&rsquo;t have an account? <a href="{{ route($registerCreateRoute) }}">
+        {!! __('Don&rsquo;t have an account?') !!}
+        <a href="{{ route($registerCreateRoute) }}">
             <strong>
-                Register Here
+                {{ __('Register here') }}
             </strong>
         </a>
     </div>
+
     <div>
-        Forgot your password?
+        <a href="{{ route($forgotPasswordRoute) }}">
+            {{ __('Forgot your password?') }}
+        </a>
     </div>
+
     <div>
-        Need help? contact the admins.
+        {{ __('Need help?') }}
+        <a href="{{ route($contactFormRoute) }}">
+            {{ __('Contact the admins.') }}
+        </a>
     </div>
 </form>

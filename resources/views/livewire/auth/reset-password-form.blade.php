@@ -1,9 +1,9 @@
 <form wire:submit="save">
-    reset password form
     <x-forms.input
         name="email"
         type="email"
         autocomplete="true"
+        autofocus="true"
         text="{{ __('Email Address') }}"/>
 
     <x-forms.input

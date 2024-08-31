@@ -7,7 +7,7 @@
             @case('comment')
                 {{-- TODO: Localize text --}}
                 <a href="{{ route($loginCreateRoute) }}">Log in</a> or
-                <a href="{{ route($registerCreateRoute) }}">register</a> to post comments.
+                <a href="{{ route($registerCreateRoute) }}">register</a> to add comments.
                 @break
             @case('index')
                 Please <a href="{{ route($registerCreateRoute) }}">register</a> to add posts or comments,

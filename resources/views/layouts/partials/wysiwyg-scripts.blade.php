@@ -1,4 +1,5 @@
 <!--suppress JSCheckFunctionSignatures -->
+{{--
 <script type="importmap">
     {
         "imports": {
@@ -7,7 +8,23 @@
         }
     }
 </script>
+--}}
+<script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
 
+<script>
+    ClassicEditor
+        .create(document.querySelector('#wysiwyg'))
+        .then(editor => {
+            editor.model.document.on('change:data', () => {
+                @this.set('message', editor.getData());
+            })
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+{{--
 <script type="module">
     import {Bold, ClassicEditor, Essentials, Italic, Paragraph,} from 'ckeditor5';
 
@@ -30,3 +47,4 @@
             console.error(error);
         });
 </script>
+--}}

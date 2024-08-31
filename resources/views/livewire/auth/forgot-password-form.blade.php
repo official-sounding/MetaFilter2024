@@ -7,6 +7,7 @@
         name="email"
         type="email"
         autocomplete="true"
+        autofocus="true"
         label="{{ __('Email Address') }}"/>
 
     <x-forms.button>

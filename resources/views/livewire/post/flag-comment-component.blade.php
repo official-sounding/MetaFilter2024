@@ -24,7 +24,7 @@
                      alt="">
             </button>
 
-            @if ($showDropdown === true)
+            @if (isset($showDropdown) && $showDropdown === true)
                 <ul class="dropdown-menu" role="menu">
                     <li>
                         <button
@@ -79,7 +79,7 @@
                             Flag with note
                         </button>
 
-                        @if ($showFlagReason === true)
+                        @if (isset($showFlagReason) && $showFlagReason === true)
                             <form
                                 id="flag-reason-form"
                                 aria-labelledby="flag-reason-toggle"

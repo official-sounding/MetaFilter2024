@@ -1,12 +1,15 @@
 @props([
+    'label',
     'name',
     'required' => true,
 ])
 
 <x-forms.field>
     <x-forms.label
-        :name="$name"
+        :for="$name"
+        :label="$label"
         :required="$required" />
+
     <textarea
         name="{{ $name }}"
         id="{{ $name }}"

@@ -22,7 +22,7 @@
         @endif
     </article>
 
-    <livewire:post.post-comments-component :post="$post" />
+    <livewire:post.post-comments-component :post="$post"/>
 
     @guest
         @include('posts.partials.show-not-logged-in', [
@@ -31,8 +31,8 @@
     @endguest
 
     @auth
-        <livewire:post.post-comment-form-component :post="$post" />
+        <livewire:post.post-comment-component :post="$post"/>
     @endauth
 
-    @include('posts.partials.next-previous')
+    @include('posts.partials.previous-next')
 @endsection
