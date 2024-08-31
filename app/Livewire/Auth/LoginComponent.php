@@ -10,7 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-final class LoginFormComponent extends Component
+final class LoginComponent extends Component
 {
     use LoggingTrait;
 
@@ -35,17 +35,13 @@ final class LoginFormComponent extends Component
             ],
         ]);
 
-        if (Auth::attempt(
-            [
-                'username' => $validated['username'],
-                'password' => $validated['password'],
-            ],
-        )) {
+        if (Auth::attempt([
+            'username' => $validated['username'],
+            'password' => $validated['password'],
+        ])) {
             $this->reset();
 
-            // TODO: Translate messages
-
-            session()->flash('message', 'Login successful.');
+            session()->flash('message', __('Login successful'));
 
             $redirectUrl = route(RouteNameEnum::METAFILTER_POST_INDEX->value);
             $this->logDebugMessage('redirectUrl:' . $redirectUrl);
@@ -55,7 +51,7 @@ final class LoginFormComponent extends Component
         } else {
             $this->logDebugMessage('Failed validation.');
 
-            session()->flash('error', 'Sorry, those credentials do not match our records.');
+            session()->flash('error', __('Sorry, those credentials do not match our records'));
         }
     }
 }

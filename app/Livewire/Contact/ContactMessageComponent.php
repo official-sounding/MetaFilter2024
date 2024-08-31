@@ -7,7 +7,7 @@ namespace App\Livewire\Contact;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-final class ContactMessageFormComponent extends Component
+final class ContactMessageComponent extends Component
 {
     public ContactMessageForm $form;
 

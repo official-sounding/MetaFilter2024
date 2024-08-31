@@ -7,7 +7,7 @@ namespace App\Livewire\Auth;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-final class RegisterFormComponent extends Component
+final class RegisterComponent extends Component
 {
     public function render(): View
     {

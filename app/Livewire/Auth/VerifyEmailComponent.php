@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace App\Livewire\Auth;
 
-use App\Livewire\Auth\Forms\ForgotPasswordForm;
+use App\Livewire\Auth\Forms\VerifyEmailForm;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-final class ForgotPasswordFormComponent extends Component
+final class VerifyEmailComponent extends Component
 {
-    public ForgotPasswordForm $form;
+    public VerifyEmailForm $form;
 
     public function render(): View
     {
-        return view('livewire.auth.forgot-password-form');
+        return view('livewire.auth.verify-email-form');
     }
 
     public function save() {}
