@@ -43,7 +43,7 @@ Route::get('archives', [ArchivesController::class, 'index'])
     ->name(RouteNameEnum::POST_ARCHIVES_INDEX->value);
 
 Route::get('contact', [ContactMessageController::class, 'create'])
-    ->name('metafilter.contact-message.create');
+    ->name(RouteNameEnum::CONTACT_MESSAGE_CREATE->value);
 
 Route::get('funding', [FundingController::class, 'index'])
     ->name(RouteNameEnum::METAFILTER_FUNDING_INDEX->value);
@@ -58,7 +58,7 @@ Route::get('random', [PopularPostController::class, 'index'])
     ->name(RouteNameEnum::METAFILTER_RANDOM_POST_SHOW->value);
 
 Route::get('tags', [TagController::class, 'index'])
-    ->name('metafilter.tags.index');
+    ->name(RouteNameEnum::TAGS_INDEX->value);
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')

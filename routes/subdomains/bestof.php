@@ -9,4 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
         ->name(RouteNameEnum::BEST_OF_HOME_INDEX->value);
+
+    Route::get('{post}/{slug}', 'show')
+        ->name(RouteNameEnum::BEST_OF_POST_SHOW->value);
 });
