@@ -34,16 +34,17 @@ enum RouteNameEnum: string
     case ASK_POST_DELETE = 'ask.post.delete';
 
     case BEST_OF_HOME_INDEX = 'bestof.home.index';
+    case BEST_OF_POST_SHOW = 'bestof.post.show';
 
-    case METACHAT_HOME_INDEX = 'chat.home.index';
+    case CHAT_HOME_INDEX = 'chat.home.index';
 
     case COMMENT_STORE = 'comment.store';
     case COMMENT_EDIT = 'comment.edit';
     case COMMENT_UPDATE = 'comment.update';
     case COMMENT_DELETE = 'comment.delete';
 
-    case CONTACT_CREATE = 'contact.create';
-    case CONTACT_STORE = 'contact.store';
+    case CONTACT_MESSAGE_CREATE = 'contact.create';
+    case CONTACT_MESSAGE_STORE = 'contact.store';
 
     case CONTACTS_INDEX = 'contacts.index';
 
