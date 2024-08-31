@@ -29,6 +29,8 @@ final class AppServiceProvider extends ServiceProvider
         view()->share('subsite', $subsite);
 
         view()->share('currentRouteName', Route::currentRouteName());
+        view()->share('contactFormRoute', RouteNameEnum::CONTACT_MESSAGE_CREATE->value);
+        view()->share('forgotPasswordRoute', RouteNameEnum::AUTH_FORGOT_PASSWORD_CREATE->value);
         view()->share('fundingIndexRoute', RouteNameEnum::METAFILTER_FUNDING_INDEX->value);
         view()->share('loginCreateRoute', RouteNameEnum::AUTH_LOGIN_CREATE->value);
         view()->share('loginStoreRoute', RouteNameEnum::AUTH_LOGIN_STORE->value);
