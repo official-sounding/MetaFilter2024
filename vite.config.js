@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite';
-import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 import laravel from 'laravel-vite-plugin';
 import { resolve } from 'path';
@@ -20,7 +19,7 @@ export default defineConfig({
                 'resources/sass/themes/music.scss',
                 'resources/sass/themes/projects.scss',
 //                'resources/css/filament/admin/theme.css',
-                'resources/js/app.js'
+                'resources/js/app.js',
             ],
             publicDirectory: 'public_html',
             refresh: true
