@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders\Production;
 
+use App\Models\FlagReason;
 use Illuminate\Database\Seeder;
 
 final class FlagReasonSeeder extends Seeder
@@ -11,11 +12,32 @@ final class FlagReasonSeeder extends Seeder
     public function run(): void
     {
         $reasons = [
-            'Fantastic comment',
-            'HTML/display error',
-            'Offensive/sexism/racism',
-            'Breaks the guidelines',
-            'Noise/derail/other',
+            [
+                'reason' => 'Fantastic comment',
+                'slug' => 'fantastic-comment',
+            ],
+            [
+                'reason' => 'HTML/display error',
+                'slug' => 'html-display-error',
+            ],
+            [
+                'reason' => 'Offensive/sexism/racism',
+                'slug' => 'offensive-sexism-racism',
+            ],
+            [
+                'reason' => 'Breaks the guidelines',
+                'slug' => 'breaks-the-guidelines',
+            ],
+            [
+                'reason' => 'Noise/derail/other',
+                'slug' => 'noise-derail-other',
+            ],
+            [
+                'reason' => 'Flag with note',
+                'slug' => 'flag-with-note',
+            ],
         ];
+
+        FlagReason::upsert($reasons, 'reason');
     }
 }

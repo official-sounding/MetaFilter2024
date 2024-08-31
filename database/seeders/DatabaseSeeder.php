@@ -8,6 +8,7 @@ use Database\Seeders\Development\AdminSeeder;
 use Database\Seeders\Development\FakeCommentSeeder;
 use Database\Seeders\Development\FakePostSeeder;
 use Database\Seeders\Development\FakeUserSeeder;
+use Database\Seeders\Production\FlagReasonSeeder;
 use Database\Seeders\Production\PageSeeder;
 use Database\Seeders\Production\SnippetSeeder;
 use Database\Seeders\Production\SubsiteSeeder;
@@ -47,6 +48,7 @@ final class DatabaseSeeder extends Seeder
     private function seedProductionData(): void
     {
         $this->call([
+            FlagReasonSeeder::class,
             SubsiteSeeder::class,
             PageSeeder::class,
             SnippetSeeder::class,
