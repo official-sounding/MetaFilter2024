@@ -14,7 +14,8 @@ final class SnippetFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->words(3, true),
+            'contents' => $this->faker->paragraphs(2, true),
         ];
     }
 }

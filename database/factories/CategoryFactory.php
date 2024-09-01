@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Models\Category;
+use App\Models\Subsite;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 final class CategoryFactory extends Factory
@@ -14,7 +15,8 @@ final class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'category' => $this->faker->words(),
+            'subsite_id' => Subsite::inRandomOrder()->first(),
         ];
     }
 }

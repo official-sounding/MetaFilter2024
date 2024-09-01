@@ -14,7 +14,9 @@ final class ContactMessageFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'email' => $this->faker->safeEmail(),
+            'subject' => $this->faker->sentence(),
+            'message' => $this->faker->paragraph(),
         ];
     }
 }
