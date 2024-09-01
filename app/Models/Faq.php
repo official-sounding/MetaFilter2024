@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $question
  * @property string $slug
  * @property string $answer
+ * @property int $legacy_id
  * @property int $subsite_id
  */
 final class Faq extends BaseModel
@@ -22,6 +23,7 @@ final class Faq extends BaseModel
     protected $fillable = [
         'question',
         'answer',
+        'legacy_id',
         'subsite_id',
     ];
 
