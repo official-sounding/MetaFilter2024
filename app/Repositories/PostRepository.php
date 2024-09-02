@@ -57,8 +57,10 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
         // TODO: get popular posts
     }
 
-    public function getRandomPost(): Collection
+    public function getRandomPost(): Post
     {
+        $this->logDebugMessage('Getting random post');
+
         return $this->model->newQuery()
             ->join('users', 'posts.user_id', '=', 'users.id')
             ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
@@ -67,7 +69,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             ->select(self::COLUMNS)
             ->inRandomOrder()
             ->limit(1)
-            ->get();
+            ->first();
     }
 
     public function getRecentPosts(): array|Collection
