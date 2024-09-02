@@ -12,7 +12,7 @@ final class PageController extends BaseController
     public function show(Page $page): View
     {
         return view('pages.show', [
-            'page' => compact($page),
+            'page' => $page,
         ]);
     }
 }
