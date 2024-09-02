@@ -2,10 +2,6 @@
     @livewireScripts
 @endif
 
-@if (isset($useWysiwyg) && $useWysiwyg === true)
-    @include('layouts.partials.wysiwyg-scripts')
-@endif
-
 @vite([
     'resources/js/app.js'
 ])
