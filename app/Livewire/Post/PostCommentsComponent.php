@@ -6,7 +6,6 @@ namespace App\Livewire\Post;
 
 use App\Models\Post;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 final class PostCommentsComponent extends Component
@@ -19,7 +18,7 @@ final class PostCommentsComponent extends Component
     {
         $this->comments = $post->comments()->orderBy('created_at')->get();
 
-        $this->user = Auth::user();
+        $this->user = auth()->user();
     }
 
     public function render(): View

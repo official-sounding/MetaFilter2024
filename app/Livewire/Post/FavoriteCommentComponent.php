@@ -6,7 +6,6 @@ namespace App\Livewire\Post;
 
 use App\Models\Comment;
 use App\Services\Markable\FavoriteCommentService;
-use Auth;
 use Illuminate\Contracts\View\View;
 
 final class FavoriteCommentComponent extends BaseFavoriteComponent
@@ -23,7 +22,7 @@ final class FavoriteCommentComponent extends BaseFavoriteComponent
     public function mount(Comment $comment): void
     {
         $this->comment = $comment;
-        $this->user = Auth::user();
+        $this->user = auth()->user();
 
         $this->favorited = $this->favoriteCommentService->favorited($this->comment, $this->user);
     }

@@ -6,7 +6,6 @@ namespace App\Livewire\Post;
 
 use App\Models\Post;
 use App\Services\Markable\FlagPostService;
-use Auth;
 use Illuminate\Contracts\View\View;
 
 final class FlagPostComponent extends BaseFlagComponent
@@ -24,7 +23,7 @@ final class FlagPostComponent extends BaseFlagComponent
     public function mount(Post $post): void
     {
         $this->post = $post;
-        $this->user = Auth::user();
+        $this->user = auth()->user();
 
         $this->flagged = $this->flagPostService->flagged($this->comment, $this->user);
     }
