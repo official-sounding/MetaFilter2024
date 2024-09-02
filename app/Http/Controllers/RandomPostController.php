@@ -19,7 +19,9 @@ final class RandomPostController extends BaseController
     {
         $post = $this->postRepository->getRandomPost();
 
-        return redirect()->route("$post->subdomain.post.show", [
+        $route = $post->subdomain === 'www' ? 'metafilter.post.show' : "$post->subdomain.post.show";
+
+        return redirect()->route($route, [
             'post' => $post,
             'slug' => $post->slug,
         ]);
