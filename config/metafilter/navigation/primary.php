@@ -16,7 +16,7 @@ return [
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::ABOUT_INDEX->value,
         ],
         [
             'name' => 'Archives',
@@ -89,6 +89,12 @@ return [
         [
             'name' => 'Random',
             'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        ],
+    ],
+    'faq' => [
+        [
+            'name' => 'Home',
+            'route' => RouteNameEnum::FAQ_INDEX->value,
         ],
     ],
     'irl' => [
