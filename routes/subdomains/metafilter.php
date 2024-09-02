@@ -8,10 +8,12 @@ use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\FundingController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PopularPostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PreferencesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RandomPostController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,8 +37,7 @@ Route::middleware('auth')->group(function () {
         ->name(RouteNameEnum::PROFILE_DELETE->value);
 });
 
-// TODO: use PageController
-Route::get('about', [ContactMessageController::class, 'create'])
+Route::get('about', [PageController::class, 'show'])
     ->name('metafilter.about.index');
 
 Route::get('archives', [ArchivesController::class, 'index'])
@@ -54,7 +55,7 @@ Route::get('mail', [MailController::class, 'index'])
 Route::get('popular', [PopularPostController::class, 'index'])
     ->name(RouteNameEnum::METAFILTER_POPULAR_POST_INDEX->value);
 
-Route::get('random', [PopularPostController::class, 'index'])
+Route::get('random', [RandomPostController::class, 'show'])
     ->name(RouteNameEnum::METAFILTER_RANDOM_POST_SHOW->value);
 
 Route::get('tags', [TagController::class, 'index'])
