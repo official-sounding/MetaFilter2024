@@ -8,6 +8,10 @@ html {
     text-size-adjust: none;
 }
 
+body {
+    transition: all .2s ease-in-out;
+}
+
 body,
 h1, h2, h3, h4,
 p, figure, blockquote, pre,

@@ -8,6 +8,11 @@ button,
     background-color: inherit;
 }
 
+.dropdown-button {
+    white-space: nowrap;
+    text-align: left;
+}
+
 button .primary-button,
 .button.primary-button {
     color: var(--black);
