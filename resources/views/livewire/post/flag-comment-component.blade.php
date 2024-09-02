@@ -8,7 +8,7 @@
     @endif
 
     @if ($flagged === false)
-        <div class="dropdown">
+        <div class="dropdown-container">
             <button
                 type="button"
                 id="flag-dropdown-toggle"
