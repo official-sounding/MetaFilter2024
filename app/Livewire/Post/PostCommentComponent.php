@@ -6,6 +6,8 @@ namespace App\Livewire\Post;
 
 use App\Enums\StatusEnum;
 use App\Models\Comment;
+use App\Models\Post;
+use App\Models\User;
 use App\Traits\LoggingTrait;
 use Exception;
 use Illuminate\Contracts\View\View;
@@ -16,22 +18,27 @@ final class PostCommentComponent extends Component
 {
     use LoggingTrait;
 
+    public Post $post;
+    public User $user;
+
     #[Validate('required|string|min:5')]
     public string $contents = '';
+
+    public function mount(Post $post): void
+    {
+        $this->post = $post;
+        $this->user = auth()->user();
+    }
 
     public function store(): bool
     {
         $this->validate();
 
         try {
-            $this->logDebugMessage('contents: ' . $this->contents);
-            $this->logDebugMessage('Post ID: ' . $this->post->id);
-            $this->logDebugMessage('User ID: ' . $this->userId);
-
             Comment::create([
                 'contents' => $this->contents,
                 'post_id' => $this->post->id,
-                'user_id' => $this->userId,
+                'user_id' => $this->user->id,
             ]);
 
             return true;
