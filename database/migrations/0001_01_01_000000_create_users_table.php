@@ -13,7 +13,7 @@ return new class () extends Migration {
             $table->id();
 
             // Default Laravel fields
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -21,6 +21,7 @@ return new class () extends Migration {
 
             // MetaFilter-specific fields
             $table->string('username')->unique();
+            $table->string('homepage_url')->nullable();
             $table->integer('legacy_id')->unique();
 
             // Filament-specific fields
