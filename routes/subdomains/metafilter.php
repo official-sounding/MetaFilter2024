@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('about', [PageController::class, 'show'])
-    ->name('metafilter.about.index');
+    ->name(RouteNameEnum::ABOUT_INDEX->value);
 
 Route::get('archives', [ArchivesController::class, 'index'])
     ->name(RouteNameEnum::POST_ARCHIVES_INDEX->value);
@@ -50,7 +50,10 @@ Route::get('funding', [FundingController::class, 'index'])
     ->name(RouteNameEnum::METAFILTER_FUNDING_INDEX->value);
 
 Route::get('mail', [MailController::class, 'index'])
-    ->name('metafilter.mail.index');
+    ->name(RouteNameEnum::MAIL_INDEX->value);
+
+Route::get('new-post', [PostController::class, 'create'])
+    ->name(RouteNameEnum::METAFILTER_POST_CREATE->value);
 
 Route::get('popular', [PopularPostController::class, 'index'])
     ->name(RouteNameEnum::METAFILTER_POPULAR_POST_INDEX->value);
