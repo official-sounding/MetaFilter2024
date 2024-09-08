@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property int $id
+ * @property string $name
  * @property string $email
  * @property string $subject
  * @property string $message
@@ -22,6 +23,7 @@ final class ContactMessage extends Model
     // Properties
 
     protected $fillable = [
+        'name',
         'email',
         'subject',
         'message',

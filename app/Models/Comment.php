@@ -12,6 +12,7 @@ use Maize\Markable\Models\Favorite;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Tags\HasTags;
 
 /**
  * @property int $id
@@ -22,6 +23,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 final class Comment extends BaseModel
 {
     use HasFactory;
+    use HasTags;
     use LogsActivity;
     use Markable;
     use SoftDeletes;
@@ -60,5 +62,4 @@ final class Comment extends BaseModel
     {
         return $this->belongsTo(User::class);
     }
-
 }

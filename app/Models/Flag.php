@@ -10,6 +10,11 @@ final class Flag extends Mark
 {
     public static function markableRelationName(): string
     {
-        return 'flagged by';
+        return 'flaggers';
+    }
+
+    public static function markRelationName(): string
+    {
+        return 'flags';
     }
 }

@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Tags\HasTags;
 
 /**
  * @property string $created_at
@@ -13,6 +14,8 @@ use Illuminate\Database\Eloquent\Model;
 */
 abstract class BaseModel extends Model
 {
+    use HasTags;
+
     public function getSlugFrom(string $string): array
     {
         return [
