@@ -3,5 +3,5 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    pages show
+    {!! $page->contents !!}
 @endsection

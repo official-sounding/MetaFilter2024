@@ -6,7 +6,7 @@
             aria-controls="global-navigation"
             aria-haspopup="true"
             aria-expanded="false"
-            aria-label="Navigation menu"
+            aria-label="MetaFilter sites"
             tabindex="0"
             title="MetaFilter sites">
             <img src="{{ asset('images/icons/list.svg') }}"
@@ -25,8 +25,9 @@
             aria-controls="utility-navigation"
             aria-haspopup="true"
             aria-expanded="false"
-            aria-label="Utility menu"
-            tabindex="0">
+            aria-label="User menu"
+            tabindex="0"
+            title="User menu">
             <img src="{{ asset('images/icons/person-fill.svg') }}"
                  class="icon"
                  role="img"

@@ -1,4 +1,4 @@
-<nav class="previous-next">
+<nav class="level">
     @if (isset($previous))
         <div class="previous">
             <a title="View the previous post"

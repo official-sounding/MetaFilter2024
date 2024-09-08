@@ -3,7 +3,7 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    @livewire('auth.register-form-component')
+    @livewire('register-wizard')
 @endsection
 
 @section('sidebar')

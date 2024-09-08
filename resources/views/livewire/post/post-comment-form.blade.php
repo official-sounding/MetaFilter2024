@@ -1,16 +1,9 @@
-<form wire:submit="save()">
+<form wire:submit="store()">
+    @include('forms.partials.required-fields-note')
     @include('forms.partials.validation-summary')
+    @include('livewire.post.partials.posting-as')
 
-    <small>posting as
-        <a title="{{ __('View profile') }}"
-           href="{{ route($profileRoute, [
-            'user' => auth()->user()
-        ]) }}">
-            <stong>{{ auth()->user()->username }}</stong>
-        </a>
-    </small>
-
-    <div wire:ignore>
+    <div wire:ignore><label for="contents">Comment</label>
         <textarea wire:model.live="contents" name="contents" id="contents"></textarea>
     </div>
 
@@ -20,17 +13,5 @@
 </form>
 
 @push('scripts')
-    <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#contents'))
-            .then(editor => {
-                editor.model.document.on('change:data', () => {
-                    @this.set('contents', editor.getData());
-                })
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
+    @include('livewire.post.partials.wysiwyg-scripts')
 @endpush

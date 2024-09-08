@@ -1,4 +1,7 @@
 <button
+    @guest
+        disabled="disabled"
+    @endguest
     type="button"
     wire:click="toggleFavorite()">
     <img src="{{ asset($iconPath) }}"

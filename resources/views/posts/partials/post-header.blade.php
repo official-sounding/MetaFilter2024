@@ -3,7 +3,8 @@
 
     <small>
         <time datetime="{{ $post->created_at->format('Y-m-d H:i:d') }}">
-            {{ $post->created_at->format('F j Y, g:i a') }}
+            @include('posts.partials.post-created-at-date')
+            @include('posts.partials.post-created-at-time')
         </time>
     </small>
 </header>

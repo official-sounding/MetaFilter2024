@@ -3,5 +3,13 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    @livewire('post-form-component')
+    @auth
+        @livewire('post.post-form-component')
+    @endauth
+
+    @guest
+        @include('posts.partials.show-not-logged-in', [
+            'context' => 'index'
+        ])
+    @endguest
 @endsection

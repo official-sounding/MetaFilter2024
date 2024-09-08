@@ -1,7 +1,13 @@
 <footer class="footer site-footer" id="site-footer">
     <div class="container">
         <h2 class="sr-only">Site Footer</h2>
-
+        <small>
+            <b>&copy; 1999&ndash;{{ now()->year }} MetaFilter LLC.</b> <br class="responsive-br">
+            All posts copyright their original authors.
+        </small>
+    </div>
+</footer>
+{{--
             <div class="columns">
                 <h3 class="sr-only">Site Links</h3>
 
@@ -15,10 +21,4 @@
             </div>
         </div>
 
-        <div class="content has-text-centered">
-            <small>
-                <b>&copy; 1999&ndash;{{ now()->year }} MetaFilter LLC.</b> <br class="responsive-br">
-                All posts copyright their original authors.
-            </small>
-        </div>
-</footer>
+--}}

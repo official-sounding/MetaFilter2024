@@ -16,7 +16,7 @@
                 aria-haspopup="menu"
                 aria-label="menu button"
                 aria-expanded="false"
-                wire:click="toggleDropdown()"
+                wire:click="toggleFlagForm()"
             >
                 <img src="{{ asset($iconPath) }}"
                      class="icon"
@@ -24,7 +24,7 @@
                      alt="">
             </button>
 
-            @if (isset($showDropdown) && $showDropdown === true)
+            @if (isset($showFlagForm) && $showFlagForm === true)
                 <ul class="dropdown-menu" role="menu">
                     <li>
                         <button

@@ -3,8 +3,8 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    <article>
-        @include('posts.partials.show-header')
+    <article class="post">
+        @include('posts.partials.post-header')
 
         {!! $post->body !!}
 
@@ -13,11 +13,11 @@
         @endif
 
         @include('posts.partials.post-footer', [
-            'userId' => $post->user->id,
-            'username' => $post->user->username,
+            'userId' => $userId,
+            'username' => $username,
         ])
 
-        @if (isset($isArchived ) && $isArchived === true)
+        @if (isset($isArchived) && $isArchived === true)
             @include('posts.partials.show-archived')
         @endif
     </article>

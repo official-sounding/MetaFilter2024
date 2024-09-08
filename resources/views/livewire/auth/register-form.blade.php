@@ -13,7 +13,7 @@
     EOT;
 @endphp
 
-<form wire:submit="register">
+<form>
     @include('forms.partials.validation-summary')
     @include('forms.partials.required-fields-note')
     @honeypot

@@ -26,7 +26,8 @@
         @include('layouts.partials.flash-messages')
         @yield('contents')
     </main>
-    <aside class="sidebar">
+
+    <aside class="sidebar main-sidebar" id="main-sidebar">
         @include('layouts.partials.main-sidebar')
     </aside>
 </div>

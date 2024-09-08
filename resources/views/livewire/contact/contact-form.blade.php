@@ -1,7 +1,8 @@
-<form wire:submit="save">
+<form wire:submit="store()">
     @include('forms.partials.validation-summary')
     @include('forms.partials.required-fields-note')
     @honeypot
+
     <x-forms.input
         name="name"
         type="text"
@@ -19,7 +20,6 @@
 
     <x-forms.textarea
         name="message"
-        type="text"
         label="{{ __('Message') }}" />
 
     <x-forms.button>

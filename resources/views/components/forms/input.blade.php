@@ -11,7 +11,7 @@
     <x-forms.label
         :for="$name"
         :label="$label"
-        :required="$required" />
+        :required="(bool) $required" />
 
     <input
         type="{{ $type }}"

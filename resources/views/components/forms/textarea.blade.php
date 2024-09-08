@@ -8,14 +8,13 @@
     <x-forms.label
         :for="$name"
         :label="$label"
-        :required="$required" />
+        :required="(bool) $required" />
 
     <textarea
         name="{{ $name }}"
         id="{{ $name }}"
-        @if ($required)
-            required
-        @endif>
+        class="wysiwyg"
+        wire:model.live="{{ $name }}">
         {{ old($name) }}
     </textarea>
 
