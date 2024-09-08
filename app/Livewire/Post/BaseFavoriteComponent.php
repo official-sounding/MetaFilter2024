@@ -11,7 +11,7 @@ class BaseFavoriteComponent extends Component
 {
     public bool $favorited = false;
     public int $favorites = 12;
-    public User $user;
+    public ?User $user;
 
     public function toggleFavorite(): void
     {

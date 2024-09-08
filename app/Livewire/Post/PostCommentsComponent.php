@@ -6,19 +6,18 @@ namespace App\Livewire\Post;
 
 use App\Models\Post;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 final class PostCommentsComponent extends Component
 {
     public Post $post;
     public $comments;
-    public $user;
 
     public function mount(Post $post): void
     {
-        $this->comments = $post->comments()->orderBy('created_at')->get();
-
-        $this->user = auth()->user();
+        $this->post = $post;
+        $this->getComments();
     }
 
     public function render(): View
@@ -26,5 +25,11 @@ final class PostCommentsComponent extends Component
         return view('livewire.post.post-comments-component', [
             'comments' => $this->comments,
         ]);
+    }
+
+    #[On('comment-added')]
+    public function getComments(): void
+    {
+        $this->comments = $this->post->comments()->orderBy('created_at')->get();
     }
 }

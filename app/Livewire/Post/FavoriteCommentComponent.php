@@ -22,7 +22,7 @@ final class FavoriteCommentComponent extends BaseFavoriteComponent
     public function mount(Comment $comment): void
     {
         $this->comment = $comment;
-        $this->user = auth()->user();
+        $this->user = auth()->user() ?? null;
 
         $this->favorited = $this->favoriteCommentService->favorited($this->comment, $this->user);
     }

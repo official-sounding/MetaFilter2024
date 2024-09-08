@@ -12,6 +12,7 @@ final class FlagPostComponent extends BaseFlagComponent
 {
     public Post $post;
     public bool $flagged = false;
+    public string $reason = '';
 
     private FlagPostService $flagPostService;
 
@@ -25,11 +26,25 @@ final class FlagPostComponent extends BaseFlagComponent
         $this->post = $post;
         $this->user = auth()->user();
 
-        $this->flagged = $this->flagPostService->flagged($this->comment, $this->user);
+        $this->flagged = $this->flagPostService->flagged($this->post, $this->user);
     }
 
     public function render(): View
     {
-        return view('livewire.flag-post-component');
+        $iconPath = $this->getIconPath();
+
+        return view('livewire.post.flag-component', [
+            'iconPath' => $iconPath,
+        ]);
+    }
+
+    public function delete(): void
+    {
+        $this->flagPostService->delete($this->post, $this->user);
+    }
+
+    public function store(): void
+    {
+        $this->flagPostService->store($this->post, $this->user);
     }
 }

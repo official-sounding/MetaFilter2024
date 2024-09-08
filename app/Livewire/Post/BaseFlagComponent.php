@@ -11,13 +11,13 @@ class BaseFlagComponent extends Component
 {
     public bool $flagged = false;
     public int $flags = 12;
-    public bool $showDropdown = false;
+    public bool $showFlagForm = false;
     public bool $showFlagReason = false;
-    public User $user;
+    public ?User $user;
 
-    public function toggleDropdown(): void
+    public function toggleFlagForm(): void
     {
-        $this->showDropdown = ! $this->showDropdown;
+        $this->showFlagForm = ! $this->showFlagForm;
     }
 
     public function toggleFlagReason(): void

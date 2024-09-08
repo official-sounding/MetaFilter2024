@@ -12,7 +12,6 @@ use Illuminate\Contracts\View\View;
 final class FavoritePostComponent extends BaseFavoriteComponent
 {
     public Post $post;
-    public User $user;
 
     private FavoritePostService $favoritePostService;
 
@@ -24,7 +23,7 @@ final class FavoritePostComponent extends BaseFavoriteComponent
     public function mount(Post $post): void
     {
         $this->post = $post;
-        $this->user = auth()->user();
+        $this->user = auth()->user() ?? null;
 
         $this->favorited = $this->favoritePostService->favorited($this->post, $this->user);
     }
