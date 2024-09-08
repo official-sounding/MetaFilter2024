@@ -37,6 +37,8 @@ final class PostController extends BaseController
             'post' => $post,
             'next' => $post->next(),
             'previous' => $post->previous(),
+            'userId' => $post->user->id,
+            'username' => $post->user->username,
             'useWysiwyg' => true,
         ]);
     }
@@ -44,7 +46,7 @@ final class PostController extends BaseController
     public function create(): View
     {
         return view('posts.create', [
-            'title' => 'Create Post',
+            'title' => 'New Post',
         ]);
     }
 

@@ -8,10 +8,17 @@ use Illuminate\Contracts\View\View;
 
 final class SearchController extends BaseController
 {
-    public function show(): View
+    public function create(): View
     {
         return view('search.create', [
             'title' => 'Search',
+        ]);
+    }
+
+    public function show(): View
+    {
+        return view('search.show', [
+            'title' => 'Search Results',
         ]);
     }
 }
