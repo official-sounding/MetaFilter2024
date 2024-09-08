@@ -21,6 +21,7 @@ button .primary-button,
     border-style: none;
     display: block;
     height: 40px;
+    // TODO: Use decimals and rems
     line-height: 20px;
     margin: 0 auto 1.25rem auto;
     outline: none;
@@ -36,6 +37,14 @@ button .primary-button:hover,
 .button.primary-button:hover {
     color: var(--yellow-green);
     background-color: var(--black);
+}
+
+.footer-button {
+    margin: 0 0.5rem 0 0;
+}
+
+.footer-button:last-child {
+    margin-right: 0;
 }
 
 .global-navigation button.dropdown-toggle {

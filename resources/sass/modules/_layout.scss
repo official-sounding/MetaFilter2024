@@ -19,7 +19,7 @@ body {
     text-align: center;
 }
 
-.previous-next {
+.level {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,8 +30,6 @@ main {
 }
 
 .main-sidebar {
-    padding-right: var(--global-spacing);
-    padding-left: var(--global-spacing);
     padding-bottom: var(--global-spacing);
 }
 

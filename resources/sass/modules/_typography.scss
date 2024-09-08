@@ -28,7 +28,6 @@ h3, h4,
     font-family: Montserrat, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    line-height: 1;
 }
 
 .site-title-text {
@@ -45,6 +44,12 @@ small,
 .secondary-navigation,
 .utility-navigation {
     font-size: var(--font-size-minus-1);
+}
+
+.comment-footer,
+.post-footer,
+.post-header small {
+    font-size: var(--font-size-minus-2);
 }
 
 .site-title {
@@ -66,8 +71,7 @@ h4 {
 }
 
 .main-contents h1 {
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .main-contents h3 {
