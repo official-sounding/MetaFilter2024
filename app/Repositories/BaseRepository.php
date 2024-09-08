@@ -59,12 +59,12 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->getQuery()->find($id);
     }
 
-    public function getById(int $id): Builder
+    public function getById(int $id): Model
     {
         return $this->getQuery()->where('id', '=', $id);
     }
 
-    public function getBySlug(string $slug): Builder
+    public function getBySlug(string $slug): Model
     {
         return $this->getQuery()->where('slug', '=', $slug)->firstOrFail();
     }
@@ -93,11 +93,11 @@ class BaseRepository implements BaseRepositoryInterface
 
     public function update($id, array $data): Model|Collection|Builder|array|null
     {
-        $app = $this->getQuery()->find($id);
+        $model = $this->getQuery()->find($id);
 
-        $app->update($data);
+        $model->update($data);
 
-        return $app;
+        return $model;
     }
 
     public function with($relation): Builder
