@@ -19,12 +19,16 @@ final class FlagPostService
         return Flag::count($post);
     }
 
-    public function flagged(Post $post, User $user): bool
+    public function flagged(Post $post, ?User $user): bool
     {
+        if ($user === null) {
+            return false;
+        }
+
         return Flag::has($post, $user);
     }
 
-    public function store(Post $post, User $user, string $reason): void
+    public function store(Post $post, User $user, string $reason = null): void
     {
         try {
             Flag::add($post, $user, $reason);
@@ -36,5 +40,10 @@ final class FlagPostService
     public function delete(Post $post, User $user): void
     {
         Flag::remove($post, $user);
+    }
+
+    public function toggle(Post $post, User $user): void
+    {
+        Flag::toggle($post, $user);
     }
 }

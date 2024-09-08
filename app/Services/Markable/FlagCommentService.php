@@ -19,8 +19,12 @@ final class FlagCommentService
         return Flag::count($comment);
     }
 
-    public function flagged(Comment $comment, User $user): bool
+    public function flagged(Comment $comment, ?User $user): bool
     {
+        if ($user === null) {
+            return false;
+        }
+
         return Flag::has($comment, $user);
     }
 
@@ -36,5 +40,10 @@ final class FlagCommentService
     public function delete(Comment $comment, User $user): void
     {
         Flag::remove($comment, $user);
+    }
+
+    public function toggle(Comment $comment, User $user): void
+    {
+        Flag::toggle($comment, $user);
     }
 }

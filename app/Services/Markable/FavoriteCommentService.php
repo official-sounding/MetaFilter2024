@@ -19,8 +19,12 @@ final class FavoriteCommentService
         return Favorite::count($comment);
     }
 
-    public function favorited(Comment $comment, User $user): bool
+    public function favorited(Comment $comment, ?User $user): bool
     {
+        if ($user === null) {
+            return false;
+        }
+
         return Favorite::has($comment, $user);
     }
 

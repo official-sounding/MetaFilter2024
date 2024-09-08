@@ -19,8 +19,12 @@ final class FavoritePostService
         return Favorite::count($post);
     }
 
-    public function favorited(Post $post, User $user): bool
+    public function favorited(Post $post, ?User $user): bool
     {
+        if ($user === null) {
+            return false;
+        }
+
         return Favorite::has($post, $user);
     }
 

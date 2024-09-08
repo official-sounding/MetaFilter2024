@@ -18,8 +18,6 @@ final class CommentService
 
     public function store(array $data): bool
     {
-        $this->logInfo('data:' . print_r($data, true));
-
         try {
             $this->commentRepository->create($data);
 
