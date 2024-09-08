@@ -20,14 +20,6 @@ class StoreCommentRequest extends BaseFormRequest
                 'required',
                 'string',
             ],
-            'post_id' => [
-                'required',
-                'exists:posts,id',
-            ],
-            'user_id' => [
-                'required',
-                'exists:users,id',
-            ],
         ];
     }
 }

@@ -10,7 +10,6 @@ class StorePostRequest extends BaseFormRequest
 {
     public function authorize(): bool
     {
-        // TODO: Add check for last post on subsite
         return auth()->check();
     }
 
@@ -20,37 +19,25 @@ class StorePostRequest extends BaseFormRequest
             'title' => [
                 'required',
                 'string',
-                'min:1',
                 'max:255',
             ],
-            'legacy_id' => [
-                'nullable',
-                'integer',
-                'min:-2147483648',
-                'max:2147483647',
-            ],
             'url' => [
-                'required',
+                'sometimes',
+                'required_with:link_text',
                 'string',
-                'min:1',
+            ],
+            'link_text' => [
+                'sometimes',
+                'required_with:url',
+                'string',
             ],
             'body' => [
                 'required',
                 'string',
-                'min:1',
             ],
             'more_inside' => [
                 'nullable',
                 'string',
-                'min:1',
-            ],
-            'subsite_id' => [
-                'required',
-                'exists:subsites,id',
-            ],
-            'user_id' => [
-                'required',
-                'exists:users,id',
             ],
         ];
     }

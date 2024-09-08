@@ -18,7 +18,7 @@ final class StoreUserRequest extends BaseFormRequest
     public function rules(): array
     {
         return [
-            'name' => [
+            'username' => [
                 'required',
                 'string',
                 'max:255',
@@ -34,6 +34,14 @@ final class StoreUserRequest extends BaseFormRequest
             'password' => [
                 'required',
                 'confirmed', Password::defaults(),
+            ],
+            'name' => [
+                'string',
+                'max:255',
+            ],
+            'homepage_url' => [
+                'string',
+                'max:255',
             ],
         ];
     }
