@@ -6,8 +6,8 @@ namespace App\Enums;
 
 enum EnvironmentEnum: string
 {
-    case LOCAL = 'local';
-    case PRODUCTION = 'production';
-    case REMOTE = 'remote';
-    case STAGING = 'staging';
+    case Local = 'local';
+    case Production = 'production';
+    case Remote = 'remote';
+    case Staging = 'staging';
 }

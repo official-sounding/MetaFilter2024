@@ -6,56 +6,55 @@ namespace App\Enums;
 
 enum SubsiteEnum: string
 {
-    case ASK = 'ask';
-    case BEST_OF = 'bestof';
-    case CHAT = 'chat';
-    case FANFARE = 'fanfare';
-    case IRL = 'irl';
-    case JOBS = 'jobs';
-    case LABS = 'labs';
-    case MALL = 'mall';
-    case METAFILTER = 'www';
-    case METATALK = 'metatalk';
-    case MUSIC = 'music';
-    case PODCAST = 'podcast';
-    case PROJECTS = 'projects';
+    case Ask = 'ask';
+    case BestOf = 'bestof';
+    case Chat = 'chat';
+    case FanFare = 'fanfare';
+    case Irl = 'irl';
+    case Jobs = 'jobs';
+    case Labs = 'labs';
+    case Mall = 'mall';
+    case MetaFilter = 'www';
+    case MetaTalk = 'metatalk';
+    case Music = 'music';
+    case Podcast = 'podcast';
+    case Projects = 'projects';
 
     public function route(): string
     {
         return match ($this) {
-            self::METAFILTER => RouteNameEnum::METAFILTER_POST_INDEX->value,
-            self::ASK => RouteNameEnum::ASK_POST_INDEX->value,
-            self::FANFARE => RouteNameEnum::FANFARE_POST_INDEX->value,
-            self::PROJECTS => RouteNameEnum::PROJECTS_POST_INDEX->value,
-            self::MUSIC => RouteNameEnum::MUSIC_POST_INDEX->value,
-            self::JOBS => RouteNameEnum::JOBS_POST_INDEX->value,
-            self::IRL => RouteNameEnum::IRL_POST_INDEX->value,
-            self::METATALK => RouteNameEnum::METATALK_POST_INDEX->value,
-            self::PODCAST => RouteNameEnum::PODCAST_POST_INDEX->value,
-            self::CHAT => RouteNameEnum::CHAT_HOME_INDEX->value,
-            self::LABS => RouteNameEnum::LABS_HOME_INDEX->value,
-            self::MALL => RouteNameEnum::MALL_HOME_INDEX->value,
-            self::BEST_OF => RouteNameEnum::BEST_OF_HOME_INDEX->value,
+            self::Ask => RouteNameEnum::AskPostIndex->value,
+            self::BestOf => RouteNameEnum::BestOfHomeIndex->value,
+            self::Chat => RouteNameEnum::ChatHomeIndex->value,
+            self::FanFare => RouteNameEnum::FanfarePostIndex->value,
+            self::Irl => RouteNameEnum::IrlPostIndex->value,
+            self::Jobs => RouteNameEnum::JobsPostIndex->value,
+            self::Labs => RouteNameEnum::LabsHomeIndex->value,
+            self::Mall => RouteNameEnum::MallHomeIndex->value,
+            self::MetaFilter => RouteNameEnum::MetaFilterPostIndex->value,
+            self::MetaTalk => RouteNameEnum::MetaTalkPostIndex->value,
+            self::Music => RouteNameEnum::MusicPostIndex->value,
+            self::Podcast => RouteNameEnum::PodcastPostIndex->value,
+            self::Projects => RouteNameEnum::ProjectsPostIndex->value,
         };
     }
 
     public function title(): string
     {
         return match ($this) {
-            self::METAFILTER => 'MetaFilter',
-            self::ASK => 'AskMeFi',
-            self::FANFARE => 'FanFare',
-            self::PROJECTS => 'Projects',
-            self::MUSIC => 'Music',
-            self::JOBS => 'Jobs',
-            self::IRL => 'IRL',
-            self::METATALK => 'MetaTalk',
-            self::PODCAST => 'Podcast',
-            self::CHAT => 'Chat',
-            self::LABS => 'Labs',
-            self::MALL => 'Mall',
-            self::BEST_OF => 'Best Of',
+            self::Ask => 'AskMeFi',
+            self::BestOf => 'Best Of',
+            self::Chat => 'Chat',
+            self::FanFare => 'FanFare',
+            self::Irl => 'IRL',
+            self::Jobs => 'Jobs',
+            self::Labs => 'Labs',
+            self::Mall => 'Mall',
+            self::MetaFilter => 'MetaFilter',
+            self::MetaTalk => 'MetaTalk',
+            self::Music => 'Music',
+            self::Podcast => 'Podcast',
+            self::Projects => 'Projects',
         };
     }
-
 }

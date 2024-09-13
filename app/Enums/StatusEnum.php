@@ -6,13 +6,13 @@ namespace App\Enums;
 
 enum StatusEnum: string
 {
-    case FAILURE = 'failure';
-    case SUCCESS = 'success';
-    case COMMENT_ADDED = 'Comment added';
-    case ADDING_COMMENT_FAILED = 'Adding comment failed';
-    case PASSWORD_UPDATED = 'password-updated';
-    case PROFILE_UPDATED = 'profile-updated';
-    case VERIFICATION_LINK_SENT = 'verification-link-sent';
-    case POST_ADDED = 'Post added';
-    case POST_ADDING_FAILED = 'Adding post failed';
+    case Failure = 'failure';
+    case Success = 'success';
+    case CommentAdded = 'Comment added';
+    case AddingCommentFailed = 'Adding comment failed';
+    case PasswordUpdated = 'password-updated';
+    case ProfileUpdated = 'profile-updated';
+    case VerificationLinkSent = 'verification-link-sent';
+    case PostAdded = 'Post added';
+    case AddingPostFailed = 'Adding post failed';
 }
