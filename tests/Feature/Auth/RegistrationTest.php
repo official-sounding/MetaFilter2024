@@ -28,5 +28,5 @@ test('new users can register', function () {
     // Assert
     $this->assertAuthenticated();
 
-    $response->assertRedirect(route(RouteNameEnum::METAFILTER_POST_INDEX->value, absolute: false));
+    $response->assertRedirect(route(RouteNameEnum::MetaFilterPostIndex->value, absolute: false));
 });

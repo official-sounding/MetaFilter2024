@@ -44,7 +44,7 @@ test('email can be verified', function () {
 
     expect($user->fresh()->hasVerifiedEmail())->toBeTrue();
 
-    $response->assertRedirect(route(RouteNameEnum::METAFILTER_POST_INDEX->value, absolute: false) . '?verified=1');
+    $response->assertRedirect(route(RouteNameEnum::MetaFilterPostIndex->value, absolute: false) . '?verified=1');
 });
 
 test('email is not verified with invalid hash', function () {

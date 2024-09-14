@@ -48,7 +48,7 @@ test('password can be reset with valid token', function () {
     $this->post('/forgot-password', ['email' => $user->email]);
 
     Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
-        $response = $this->post(RouteNameEnum::AUTH_RESET_PASSWORD->value, [
+        $response = $this->post(RouteNameEnum::AuthResetPassword->value, [
             'token' => $notification->token,
             'email' => $user->email,
             'password' => 'password',
@@ -57,7 +57,7 @@ test('password can be reset with valid token', function () {
 
         $response
             ->assertSessionHasNoErrors()
-            ->assertRedirect(route(RouteNameEnum::AUTH_LOGIN_CREATE->value));
+            ->assertRedirect(route(RouteNameEnum::AuthLoginCreate->value));
 
         return true;
     });
