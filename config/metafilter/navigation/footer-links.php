@@ -7,66 +7,66 @@ use App\Enums\RouteNameEnum;
 return [
     [
         'name' => 'Home',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'Guidelines',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'Content Policy',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'Privacy Policy',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'FAQ',
-        'route' => RouteNameEnum::FAQ_INDEX->value,
+        'route' => RouteNameEnum::FaqIndex->value,
     ],
     [
         'name' => 'About',
-        'route' => RouteNameEnum::ABOUT_INDEX->value,
+        'route' => RouteNameEnum::AboutIndex->value,
     ],
     [
         'name' => 'Archives',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'Tags',
-        'route' => RouteNameEnum::TAGS_INDEX->value,
+        'route' => RouteNameEnum::TagsIndex->value,
     ],
     [
         'name' => 'Popular',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'Random',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'BIPOC Board',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'Steering Committee',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'Wiki',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'Search',
-        'route' => RouteNameEnum::SEARCH_CREATE->value,
+        'route' => RouteNameEnum::SearchCreate->value,
     ],
     [
         'name' => 'Chat',
-        'route' => RouteNameEnum::CHAT_HOME_INDEX->value,
+        'route' => RouteNameEnum::ChatHomeIndex->value,
     ],
     [
         'name' => 'Labs',
-        'route' => RouteNameEnum::LABS_HOME_INDEX->value,
+        'route' => RouteNameEnum::LabsHomeIndex->value,
     ],
 ];

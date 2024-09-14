@@ -8,30 +8,30 @@ use App\Enums\RouteNameEnum;
 return [
     [
         'name' => 'Profile',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'Preferences',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'Favorites',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'Recent Activity',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'Contacts',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'New Post',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
     [
         'name' => 'Log Out',
-        'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+        'route' => RouteNameEnum::MetaFilterPostIndex->value,
     ],
 ];

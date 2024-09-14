@@ -8,253 +8,253 @@ return [
     'www' => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'FAQ',
-            'route' => RouteNameEnum::FAQ_INDEX->value,
+            'route' => RouteNameEnum::FaqIndex->value,
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::ABOUT_INDEX->value,
+            'route' => RouteNameEnum::AboutIndex->value,
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::POST_ARCHIVES_INDEX->value,
+            'route' => RouteNameEnum::PostArchivesIndex->value,
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::TAGS_INDEX->value,
+            'route' => RouteNameEnum::TagsIndex->value,
         ],
         [
             'name' => 'Popular',
-            'route' => RouteNameEnum::METAFILTER_POPULAR_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPopularPostIndex->value,
         ],
         [
             'name' => 'Random',
-            'route' => RouteNameEnum::METAFILTER_RANDOM_POST_SHOW->value,
+            'route' => RouteNameEnum::MetaFilterRandomPostShow->value,
         ],
     ],
     'ask' => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::ASK_POST_INDEX->value,
+            'route' => RouteNameEnum::AskPostIndex->value,
         ],
         [
             'name' => 'FAQ',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Popular',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Random',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
     'fanfare' => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::FANFARE_POST_INDEX->value,
+            'route' => RouteNameEnum::FanfarePostIndex->value,
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Popular',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Random',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
     'faq' => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::FAQ_INDEX->value,
+            'route' => RouteNameEnum::FaqIndex->value,
         ],
     ],
     'irl' => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::IRL_POST_INDEX->value,
+            'route' => RouteNameEnum::IrlPostIndex->value,
         ],
         [
             'name' => 'FAQ',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Random',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
     'jobs' => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::JOBS_POST_INDEX->value,
+            'route' => RouteNameEnum::JobsPostIndex->value,
         ],
         [
             'name' => 'FAQ',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Random',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
     'labs' => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::LABS_HOME_INDEX->value,
+            'route' => RouteNameEnum::LabsHomeIndex->value,
         ],
     ],
     'mail' => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::MAIL_INDEX->value,
+            'route' => RouteNameEnum::MailIndex->value,
         ],
     ],
     'metatalk' => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::METATALK_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaTalkPostIndex->value,
         ],
         [
             'name' => 'FAQ',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Popular',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Random',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
     'music' => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::MUSIC_POST_INDEX->value,
+            'route' => RouteNameEnum::MusicPostIndex->value,
         ],
         [
             'name' => 'FAQ',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Popular',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Random',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
     'podcast' => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::PODCAST_POST_INDEX->value,
+            'route' => RouteNameEnum::PodcastPostIndex->value,
         ],
     ],
     'projects' => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::PROJECTS_POST_INDEX->value,
+            'route' => RouteNameEnum::ProjectsPostIndex->value,
         ],
         [
             'name' => 'FAQ',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Popular',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Random',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
 ];

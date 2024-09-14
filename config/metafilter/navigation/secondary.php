@@ -8,155 +8,155 @@ return [
     'www' => [
         [
             'name' => 'Recent Posts',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Popular Posts',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Recent Comments',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'My MeFi',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'My Favorites',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'My Comments',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
     'ask' => [
         [
             'name' => 'Recent Posts',
-            'route' => RouteNameEnum::ASK_POST_INDEX->value,
+            'route' => RouteNameEnum::AskPostIndex->value,
         ],
         [
             'name' => 'Popular Questions',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Answered',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Unanswered',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'My Favorites',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'My Ask',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
     'fanfare' => [
         [
             'name' => 'Recent Posts',
-            'route' => RouteNameEnum::FANFARE_POST_INDEX->value,
+            'route' => RouteNameEnum::FanfarePostIndex->value,
         ],
         [
             'name' => 'Recent Comments',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'FanFare Talk',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Clubs',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Watercooler',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'My FanFare',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
     'irl' => [
         [
             'name' => 'Upcoming Events',
-            'route' => RouteNameEnum::IRL_POST_INDEX->value,
+            'route' => RouteNameEnum::IrlPostIndex->value,
         ],
         [
             'name' => 'Past Events',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Future Events',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Proposed Events',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Recently Posted',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'My IRL',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
     'metatalk' => [
         [
             'name' => 'Recent Posts',
-            'route' => RouteNameEnum::METATALK_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaTalkPostIndex->value,
         ],
         [
             'name' => 'Popular Posts',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Recent Comments',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'My Favorites',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
     'music' => [
         [
             'name' => 'Songs',
-            'route' => RouteNameEnum::MUSIC_POST_INDEX->value,
+            'route' => RouteNameEnum::MusicPostIndex->value,
         ],
         [
             'name' => 'Talk',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Charts',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Challenges',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
     'podcast' => [
         [
             'name' => 'Recent Posts',
-            'route' => RouteNameEnum::PODCAST_POST_INDEX->value,
+            'route' => RouteNameEnum::PodcastPostIndex->value,
         ],
         [
             'name' => 'Best of the Web',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Out of the Blue',
-            'route' => RouteNameEnum::METAFILTER_POST_INDEX->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
     ],
 ];
