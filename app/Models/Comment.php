@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Maize\Markable\Markable;
 use Maize\Markable\Models\Favorite;
+use Maize\Markable\Models\Reaction;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -39,7 +40,7 @@ final class Comment extends BaseModel
 
     protected static array $marks = [
         Favorite::class,
-        Flag::class,
+        Reaction::class,
     ];
 
     protected $with = [
