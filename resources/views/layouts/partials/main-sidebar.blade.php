@@ -10,28 +10,28 @@
 @include('layouts.partials.toggle-dark-mode')
 
 @switch($subdomain)
-    @case(SubsiteEnum::ASK->value)
+    @case(SubsiteEnum::Ask->value)
         @include('layouts.partials.sidebars.ask-sidebar')
         @break
-    @case(SubsiteEnum::FANFARE->value)
+    @case(SubsiteEnum::FanFare->value)
         @include('layouts.partials.sidebars.fanfare-sidebar')
         @break
-    @case(SubsiteEnum::IRL->value)
+    @case(SubsiteEnum::Irl->value)
         @include('layouts.partials.sidebars.irl-sidebar')
         @break
-    @case(SubsiteEnum::JOBS->value)
+    @case(SubsiteEnum::Jobs->value)
         @include('layouts.partials.sidebars.jobs-sidebar')
         @break
-    @case(SubsiteEnum::METATALK->value)
+    @case(SubsiteEnum::MetaTalk->value)
         @include('layouts.partials.sidebars.metatalk-sidebar')
         @break
-    @case(SubsiteEnum::MUSIC->value)
+    @case(SubsiteEnum::Music->value)
         @include('layouts.partials.sidebars.music-sidebar')
         @break
-    @case(SubsiteEnum::PODCAST->value)
+    @case(SubsiteEnum::Podcast->value)
         @include('layouts.partials.sidebars.podcast-sidebar')
         @break
-    @case(SubsiteEnum::PROJECTS->value)
+    @case(SubsiteEnum::Projects->value)
         @include('layouts.partials.sidebars.projects-sidebar')
         @break
     @default

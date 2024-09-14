@@ -22,7 +22,9 @@
         @endif
     </article>
 
-    <livewire:post.post-comments-component :post="$post"/>
+    <livewire:post.post-comments-component
+        :flagReasons = "$flagReasons"
+        :post = "$post" />
 
     @guest
         @include('posts.partials.show-not-logged-in', [
