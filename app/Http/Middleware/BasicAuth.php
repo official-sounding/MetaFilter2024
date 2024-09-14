@@ -11,7 +11,7 @@ final class BasicAuth
 {
     public function handle($request, Closure $next)
     {
-        if (config('app.env') !== EnvironmentEnum::STAGING->value) {
+        if (config('app.env') !== EnvironmentEnum::Staging->value) {
             return $next($request);
         }
 
