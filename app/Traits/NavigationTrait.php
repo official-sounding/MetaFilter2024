@@ -36,13 +36,13 @@ trait NavigationTrait
                 $item .= $this->getRssLink($itemData);
             }
 
-            if ($itemData['route'] === RouteNameEnum::PREFERENCES_EDIT->value) {
+            if ($itemData['route'] === RouteNameEnum::PreferencesEdit->value) {
                 if (auth()->user()) {
                     $item .= '<a href="' . route($itemData['route'], [
                         'user' => auth()->user(),
                     ]) . '"';
                 }
-            } elseif ($itemData['route'] === RouteNameEnum::PROFILE_SHOW->value) {
+            } elseif ($itemData['route'] === RouteNameEnum::ProfileShow->value) {
                 if (auth()->user()) {
                     $item .= '<a href="' . route($itemData['route'], [
                         'user' => auth()->user(),
