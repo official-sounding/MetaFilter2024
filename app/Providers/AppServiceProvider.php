@@ -29,15 +29,15 @@ final class AppServiceProvider extends ServiceProvider
         view()->share('subsite', $subsite);
 
         view()->share('currentRouteName', Route::currentRouteName());
-        view()->share('contactFormRoute', RouteNameEnum::CONTACT_MESSAGE_CREATE->value);
-        view()->share('forgotPasswordRoute', RouteNameEnum::AUTH_FORGOT_PASSWORD_CREATE->value);
-        view()->share('fundingIndexRoute', RouteNameEnum::METAFILTER_FUNDING_INDEX->value);
-        view()->share('loginCreateRoute', RouteNameEnum::AUTH_LOGIN_CREATE->value);
-        view()->share('loginStoreRoute', RouteNameEnum::AUTH_LOGIN_STORE->value);
-        view()->share('logoutRoute', RouteNameEnum::AUTH_LOGOUT->value);
-        view()->share('profileRoute', RouteNameEnum::PROFILE_SHOW->value);
-        view()->share('registerCreateRoute', RouteNameEnum::AUTH_REGISTER_CREATE->value);
-        view()->share('registerStoreRoute', RouteNameEnum::AUTH_REGISTER_STORE->value);
+        view()->share('contactFormRoute', RouteNameEnum::ContactMessageCreate->value);
+        view()->share('forgotPasswordRoute', RouteNameEnum::AuthForgotPasswordCreate->value);
+        view()->share('fundingIndexRoute', RouteNameEnum::MetaFilterFundingIndex->value);
+        view()->share('loginCreateRoute', RouteNameEnum::AuthLoginCreate->value);
+        view()->share('loginStoreRoute', RouteNameEnum::AuthLoginStore->value);
+        view()->share('logoutRoute', RouteNameEnum::AuthLogout->value);
+        view()->share('profileRoute', RouteNameEnum::ProfileShow->value);
+        view()->share('registerCreateRoute', RouteNameEnum::AuthRegisterCreate->value);
+        view()->share('registerStoreRoute', RouteNameEnum::AuthRegisterStore->value);
     }
 
     private function getStylesheets(array $subsite): array
