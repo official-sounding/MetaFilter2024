@@ -40,7 +40,7 @@ final class ProfileController extends BaseController
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', StatusEnum::PROFILE_UPDATED);
+        return Redirect::route('profile.edit')->with('status', StatusEnum::ProfileUpdated);
     }
 
     public function delete(Request $request): RedirectResponse

@@ -30,6 +30,6 @@ final class PasswordController extends BaseAuthController
             'password' => Hash::make($validated['password']),
         ]);
 
-        return back()->with('status', StatusEnum::PASSWORD_UPDATED);
+        return back()->with('status', StatusEnum::PasswordUpdated);
     }
 }

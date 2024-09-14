@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Enums\FlagReasonEnum;
 use App\Http\Requests\Post\StorePostRequest;
 use App\Http\Requests\Post\UpdatePostRequest;
 use App\Models\Post;
+use App\Repositories\FlagReasonRepositoryInterface;
 use App\Repositories\PostRepositoryInterface;
 use App\Services\PostService;
 use Illuminate\Contracts\View\View;
@@ -16,6 +18,7 @@ final class PostController extends BaseController
     public function __construct(
         protected PostRepositoryInterface $postRepository,
         protected PostService $postService,
+        protected FlagReasonRepositoryInterface $flagReasonRepository,
     ) {
         parent::__construct();
     }
@@ -32,6 +35,8 @@ final class PostController extends BaseController
 
     public function show(Post $post): View
     {
+        $flagReasons = FlagReasonEnum::cases();
+
         return view('posts.show', [
             'title' => $post->title,
             'post' => $post,
@@ -40,6 +45,7 @@ final class PostController extends BaseController
             'userId' => $post->user->id,
             'username' => $post->user->username,
             'useWysiwyg' => true,
+            'flagReasons' => $flagReasons,
         ]);
     }
 

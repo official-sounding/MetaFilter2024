@@ -18,6 +18,6 @@ final class EmailVerificationNotificationController extends BaseAuthController
 
         $request->user()->sendEmailVerificationNotification();
 
-        return back()->with('status', StatusEnum::VERIFICATION_LINK_SENT);
+        return back()->with('status', StatusEnum::VerificationLinkSent->value);
     }
 }

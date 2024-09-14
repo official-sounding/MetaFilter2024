@@ -10,8 +10,8 @@ use Illuminate\Http\RedirectResponse;
 
 abstract class BaseAuthController extends Controller
 {
-    public const string INTENDED_ROUTE_NAME = RouteNameEnum::METAFILTER_POST_INDEX->value;
-    public const string REDIRECT_TO_ROUTE_NAME = RouteNameEnum::METAFILTER_POST_INDEX->value;
+    public const string INTENDED_ROUTE_NAME = RouteNameEnum::MetaFilterPostIndex->value;
+    public const string REDIRECT_TO_ROUTE_NAME = RouteNameEnum::MetaFilterPostIndex->value;
 
     public function redirectTo(string $routeName): RedirectResponse
     {
