@@ -21,14 +21,14 @@ final class ContactMail extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Contact',
+            subject: 'Contact Form Email',
         );
     }
 
     public function content(): Content
     {
         return new Content(
-            view: 'emails.contact',
+            view: 'emails.contact-form-text',
         );
     }
 
