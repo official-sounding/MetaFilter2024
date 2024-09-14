@@ -46,13 +46,13 @@ final class PostCommentComponent extends Component
         $stored = $commentService->store($data);
 
         if ($stored) {
-            $this->logInfo(StatusEnum::COMMENT_ADDED->value);
+            $this->logInfo(StatusEnum::CommentAdded->value);
 
-            session()->flash('message', StatusEnum::COMMENT_ADDED->value);
+            session()->flash('message', StatusEnum::CommentAdded->value);
         } else {
-            $this->logError(StatusEnum::ADDING_COMMENT_FAILED->value);
+            $this->logError(StatusEnum::AddingCommentFailed->value);
 
-            session()->flash('error', StatusEnum::ADDING_COMMENT_FAILED->value);
+            session()->flash('error', StatusEnum::AddingCommentFailed->value);
         }
 
         $this->reset('contents');

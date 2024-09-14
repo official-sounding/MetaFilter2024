@@ -54,8 +54,8 @@ final class TagsComponent extends Component
             $this->allTags = Tag::all();
 
             $this->iteration++;
-        } catch(Exception $exception) {
-//            $this->emit('errorAlert', 'Some problem in saving Tags');
+        } catch (Exception $exception) {
+            //            $this->emit('errorAlert', 'Some problem in saving Tags');
         }
     }
 }

@@ -13,6 +13,7 @@ final class PostCommentsComponent extends Component
 {
     public Post $post;
     public $comments;
+    public bool $showFlagForm = true;
 
     public function mount(Post $post): void
     {

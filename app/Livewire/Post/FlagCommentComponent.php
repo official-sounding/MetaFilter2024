@@ -12,6 +12,7 @@ final class FlagCommentComponent extends BaseFlagComponent
 {
     public Comment $comment;
     private FlagCommentService $flagCommentService;
+    public array $flagReasons;
 
     public function boot(FlagCommentService $flagCommentService): void
     {
