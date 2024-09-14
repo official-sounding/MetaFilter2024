@@ -79,6 +79,11 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->getQuery()->firstOrCreate($attributes, $values);
     }
 
+    public function getDropdownValues(string $column, string $key = 'id'): array
+    {
+        return $this->getQuery()->pluck($column, $key)->toArray();
+    }
+
     public function paginate($limit = 20): LengthAwarePaginator
     {
         return $this->getQuery()->paginate($limit);
