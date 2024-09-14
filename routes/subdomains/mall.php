@@ -7,4 +7,4 @@ use App\Http\Controllers\MallHomePageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MallHomePageController::class, 'index'])
-    ->name(RouteNameEnum::MALL_HOME_INDEX->value);
+    ->name(RouteNameEnum::MallHomeIndex->value);

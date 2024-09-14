@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use App\Enums\RouteNameEnum;
-
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -21,28 +20,28 @@ Route::domain('www.' . $appUrl)
     ->middleware('guest')->group(
         function () {
             Route::get('register', [RegisteredUserController::class, 'create'])
-                ->name(RouteNameEnum::AUTH_REGISTER_CREATE->value);
+                ->name(RouteNameEnum::AuthRegisterCreate->value);
 
             Route::post('register', [RegisteredUserController::class, 'store'])
-                ->name(RouteNameEnum::AUTH_REGISTER_STORE->value);
+                ->name(RouteNameEnum::AuthRegisterStore->value);
 
             Route::get('login', [AuthenticatedSessionController::class, 'create'])
-                ->name(RouteNameEnum::AUTH_LOGIN_CREATE->value);
+                ->name(RouteNameEnum::AuthLoginCreate->value);
 
             Route::post('login', [AuthenticatedSessionController::class, 'store'])
-                ->name(RouteNameEnum::AUTH_LOGIN_STORE->value);
+                ->name(RouteNameEnum::AuthLoginStore->value);
 
             Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-                ->name(RouteNameEnum::AUTH_FORGOT_PASSWORD_CREATE->value);
+                ->name(RouteNameEnum::AuthForgotPasswordCreate->value);
 
             Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-                ->name(RouteNameEnum::AUTH_FORGOT_PASSWORD_STORE->value);
+                ->name(RouteNameEnum::AuthForgotPasswordStore->value);
 
             Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
-                ->name(RouteNameEnum::AUTH_RESET_PASSWORD_CREATE->value);
+                ->name(RouteNameEnum::AuthResetPasswordCreate->value);
 
             Route::post('reset-password', [NewPasswordController::class, 'store'])
-                ->name(RouteNameEnum::AUTH_RESET_PASSWORD_STORE->value);
+                ->name(RouteNameEnum::AuthResetPasswordStore->value);
         },
     );
 
@@ -69,6 +68,6 @@ Route::domain('www.' . $appUrl)
                 ->name('password.update');
 
             Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->name(RouteNameEnum::AUTH_LOGOUT->value);
+                ->name(RouteNameEnum::AuthLogout->value);
         },
     );

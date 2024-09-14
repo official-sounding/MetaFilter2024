@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
-        ->name(RouteNameEnum::ASK_POST_INDEX->value);
+        ->name(RouteNameEnum::AskPostIndex->value);
 
     Route::get('create', 'create')
-        ->name(RouteNameEnum::ASK_POST_CREATE->value);
+        ->name(RouteNameEnum::AskPostCrete->value);
 
     Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::ASK_POST_SHOW->value);
+        ->name(RouteNameEnum::AskPostShow->value);
 });

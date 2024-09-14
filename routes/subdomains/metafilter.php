@@ -19,58 +19,58 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
     Route::get('favorites', [FavoritesController::class, 'index'])
-        ->name(RouteNameEnum::FAVORITES_INDEX->value);
+        ->name(RouteNameEnum::FavoritesIndex->value);
 
     Route::get('preferences/{user}', [PreferencesController::class, 'edit'])
-        ->name(RouteNameEnum::PREFERENCES_EDIT->value);
+        ->name(RouteNameEnum::PreferencesEdit->value);
 
     Route::get('profile/{user:id}', [ProfileController::class, 'show'])
-        ->name(RouteNameEnum::PROFILE_SHOW->value);
+        ->name(RouteNameEnum::ProfileShow->value);
 
     Route::get('profile', [ProfileController::class, 'edit'])
-       ->name(RouteNameEnum::PROFILE_EDIT->value);
+       ->name(RouteNameEnum::ProfileEdit->value);
 
     Route::patch('profile', [ProfileController::class, 'update'])
-        ->name(RouteNameEnum::PROFILE_UPDATE->value);
+        ->name(RouteNameEnum::ProfileUpdate->value);
 
     Route::delete('profile', [ProfileController::class, 'delete'])
-        ->name(RouteNameEnum::PROFILE_DELETE->value);
+        ->name(RouteNameEnum::ProfileDelete->value);
 });
 
 Route::get('about', [PageController::class, 'show'])
-    ->name(RouteNameEnum::ABOUT_INDEX->value);
+    ->name(RouteNameEnum::AboutIndex->value);
 
 Route::get('archives', [ArchivesController::class, 'index'])
-    ->name(RouteNameEnum::POST_ARCHIVES_INDEX->value);
+    ->name(RouteNameEnum::PostArchivesIndex->value);
 
 Route::get('contact', [ContactMessageController::class, 'create'])
-    ->name(RouteNameEnum::CONTACT_MESSAGE_CREATE->value);
+    ->name(RouteNameEnum::ContactMessageCreate->value);
 
 Route::get('funding', [FundingController::class, 'index'])
-    ->name(RouteNameEnum::METAFILTER_FUNDING_INDEX->value);
+    ->name(RouteNameEnum::MetaFilterFundingIndex->value);
 
 Route::get('mail', [MailController::class, 'index'])
-    ->name(RouteNameEnum::MAIL_INDEX->value);
+    ->name(RouteNameEnum::MailIndex->value);
 
 Route::get('new-post', [PostController::class, 'create'])
-    ->name(RouteNameEnum::METAFILTER_POST_CREATE->value);
+    ->name(RouteNameEnum::MetaFilterPostCreate->value);
 
 Route::get('popular', [PopularPostController::class, 'index'])
-    ->name(RouteNameEnum::METAFILTER_POPULAR_POST_INDEX->value);
+    ->name(RouteNameEnum::MetaFilterPopularPostIndex->value);
 
 Route::get('random', [RandomPostController::class, 'show'])
-    ->name(RouteNameEnum::METAFILTER_RANDOM_POST_SHOW->value);
+    ->name(RouteNameEnum::MetaFilterRandomPostShow->value);
 
 Route::get('tags', [TagController::class, 'index'])
-    ->name(RouteNameEnum::TAGS_INDEX->value);
+    ->name(RouteNameEnum::TagsIndex->value);
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
-        ->name(RouteNameEnum::METAFILTER_POST_INDEX->value);
+        ->name(RouteNameEnum::MetaFilterPostIndex->value);
 
     Route::get('create', 'create')
-        ->name(RouteNameEnum::METAFILTER_POST_CREATE->value);
+        ->name(RouteNameEnum::MetaFilterPostCreate->value);
 
     Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::METAFILTER_POST_SHOW->value);
+        ->name(RouteNameEnum::MetaFilterPostShow->value);
 });

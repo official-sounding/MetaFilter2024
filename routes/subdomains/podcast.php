@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
-        ->name(RouteNameEnum::PODCAST_POST_INDEX->value);
+        ->name(RouteNameEnum::PodcastPostIndex->value);
 
     Route::get('create', 'create')
-        ->name(RouteNameEnum::PODCAST_POST_CREATE->value);
+        ->name(RouteNameEnum::PodcastPostCreate->value);
 
     Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::PODCAST_POST_SHOW->value);
+        ->name(RouteNameEnum::PodcastPostShow->value);
 });

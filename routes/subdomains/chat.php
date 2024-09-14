@@ -7,4 +7,4 @@ use App\Http\Controllers\ChatHomePageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('', [ChatHomePageController::class, 'index'])
-    ->name(RouteNameEnum::CHAT_HOME_INDEX->value);
+    ->name(RouteNameEnum::ChatHomeIndex->value);
