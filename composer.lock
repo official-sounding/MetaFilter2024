@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "15062cac679317e5af7eafc10d196646",
+    "content-hash": "3f9c84f9de6cdfac0abd6561892133ec",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -4999,77 +4999,6 @@
             "time": "2022-12-02T22:17:43+00:00"
         },
         {
-            "name": "masmerise/livewire-toaster",
-            "version": "2.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/masmerise/livewire-toaster.git",
-                "reference": "238f92452f30efb33db763dfeba9300616c92ed3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/masmerise/livewire-toaster/zipball/238f92452f30efb33db763dfeba9300616c92ed3",
-                "reference": "238f92452f30efb33db763dfeba9300616c92ed3",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "^11.0",
-                "livewire/livewire": "^3.0",
-                "php": "~8.2|~8.3"
-            },
-            "conflict": {
-                "stevebauman/unfinalize": "*"
-            },
-            "require-dev": {
-                "dive-be/php-crowbar": "^1.0",
-                "larastan/larastan": "^2.0",
-                "laravel/pint": "^1.0",
-                "orchestra/testbench": "^9.0",
-                "phpunit/phpunit": "^10.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "aliases": {
-                        "Toaster": "Masmerise\\Toaster\\Toaster"
-                    },
-                    "providers": [
-                        "Masmerise\\Toaster\\ToasterServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Masmerise\\Toaster\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Muhammed Sari",
-                    "email": "support@muhammedsari.me",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Beautiful toast notifications for Laravel / Livewire.",
-            "homepage": "https://github.com/masmerise/livewire-toaster",
-            "keywords": [
-                "alert",
-                "laravel",
-                "livewire",
-                "toast",
-                "toaster"
-            ],
-            "support": {
-                "issues": "https://github.com/masmerise/livewire-toaster/issues",
-                "source": "https://github.com/masmerise/livewire-toaster/tree/2.3.1"
-            },
-            "time": "2024-07-21T10:39:11+00:00"
-        },
-        {
             "name": "masterminds/html5",
             "version": "2.9.0",
             "source": {
@@ -8992,6 +8921,79 @@
                 }
             ],
             "time": "2024-08-09T09:07:48+00:00"
+        },
+        {
+            "name": "spatie/schema-org",
+            "version": "3.23.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/schema-org.git",
+                "reference": "c95abf7da59f16570aec18ca11d861255e645c39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/schema-org/zipball/c95abf7da59f16570aec18ca11d861255e645c39",
+                "reference": "c95abf7da59f16570aec18ca11d861255e645c39",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.6",
+                "graham-campbell/analyzer": "^3.0.5",
+                "illuminate/collections": "^8.62.0",
+                "league/flysystem": "^2.3.0 || ^3.0",
+                "pestphp/pest": "^1.21",
+                "symfony/console": "^5.3.7 || 6.0",
+                "twig/twig": "^3.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\SchemaOrg\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Tom Witkowski",
+                    "email": "dev.gummibeer@gmail.com",
+                    "homepage": "https://gummibeer.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A fluent builder Schema.org types and ld+json generator",
+            "homepage": "https://github.com/spatie/schema-org",
+            "keywords": [
+                "schema-org",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/schema-org/issues",
+                "source": "https://github.com/spatie/schema-org/tree/3.23.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-01-11T14:58:44+00:00"
         },
         {
             "name": "spatie/temporary-directory",
