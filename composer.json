@@ -43,6 +43,7 @@
         "stephenjude/filament-debugger": "^3.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.13",
         "dragon-code/pretty-routes": "^3.4",
         "fakerphp/faker": "^1.23",
         "laravel/breeze": "^2.1",
