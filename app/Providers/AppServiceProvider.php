@@ -27,6 +27,7 @@ final class AppServiceProvider extends ServiceProvider
         view()->share('stylesheets', $this->getStylesheets($subsite));
         view()->share('subdomain', $subdomain === 'www' ? 'metafilter' : $subdomain);
         view()->share('subsite', $subsite);
+        view()->share('subsiteName', $subsite['name']);
 
         view()->share('currentRouteName', Route::currentRouteName());
         view()->share('contactFormRoute', RouteNameEnum::ContactMessageCreate->value);
