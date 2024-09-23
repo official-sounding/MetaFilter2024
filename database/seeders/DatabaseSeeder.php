@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Enums\EnvironmentEnum;
 use Database\Seeders\Development\AdminSeeder;
 use Database\Seeders\Development\FakeCommentSeeder;
 use Database\Seeders\Development\FakePostSeeder;
@@ -23,7 +24,7 @@ final class DatabaseSeeder extends Seeder
 
         $this->seedProductionData();
 
-        if (config('app.env') !== 'production') {
+        if (config('app.env') !== EnvironmentEnum::Production->value) {
             $this->seedDevelopmentData();
         }
 
