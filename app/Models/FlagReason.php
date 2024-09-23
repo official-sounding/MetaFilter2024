@@ -10,19 +10,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @property int $id
  * @property string $reason
- * @property string $slug
+ * @property string $note
  */
 final class FlagReason extends BaseModel
 {
     use HasFactory;
     use SoftDeletes;
 
+    // Properties
+
     protected $fillable = [
         'reason',
+        'note',
     ];
-
-    public function sluggable(): array
-    {
-        return $this->getSlugFrom('reason');
-    }
 }
