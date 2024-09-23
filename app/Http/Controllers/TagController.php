@@ -18,7 +18,7 @@ final class TagController extends BaseController
 
     public function index(): View
     {
-        return view('tags.index', []);
+        return view('tags.index');
     }
 
     public function show(Tag $tag): View
