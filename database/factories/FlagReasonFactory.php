@@ -1,19 +1,18 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Database\Factories;
 
+use App\Models\FlagReason;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-final class FlagReasonFactory extends Factory
+class FlagReasonFactory extends Factory
 {
-    protected $model = App\Models\FlagReason;
+    protected $model = FlagReason::class;
 
     public function definition(): array
     {
         return [
-            //
+            'reason' => $this->faker->word,
         ];
     }
 }
