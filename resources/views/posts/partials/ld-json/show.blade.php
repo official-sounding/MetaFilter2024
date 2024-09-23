@@ -1,4 +1,4 @@
-@extends('layouts.ld-json')
+@extends('layouts.partials.ld-json')
 
 @section('contents')
     "@context": "https://schema.org",

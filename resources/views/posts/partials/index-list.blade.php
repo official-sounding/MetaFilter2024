@@ -28,6 +28,9 @@
         @include('posts.partials.post-footer', [
             'userId' => $post->user_id,
             'username' => $post->username,
+            'commentsCount' => $post->comments_count,
+            'favoritesCount' => $post->favorites_count,
+            'flagsCount' => $post->flags_count
         ])
     </article>
 @endforeach

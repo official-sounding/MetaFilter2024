@@ -1,7 +1,7 @@
 <nav class="level">
     @if (isset($previous))
         <div class="previous">
-            <a title="View the previous post"
+            <a title="Previous post"
                href="{{ route("$subdomain.post.show", [
                     'post' => $previous,
                     'slug' => $previous->slug
@@ -13,7 +13,7 @@
 
     @if (isset($next))
         <div class="next">
-            <a title="View the next post"
+            <a title="Next post"
                 href="{{ route("$subdomain.post.show", [
                     'post' => $next,
                     'slug' => $next->slug

@@ -4,9 +4,9 @@
     ]) }}#comments"
     class="button footer-button"
     title="Permanent link to this post">
-    <img src="{{ asset('images/icons/chat.svg') }}" class="icon" role="img" alt="">
-    @if ($post->comments()->count() > 0)
-        {{ $post->comments()->count() }}
+     <img src="{{ asset('images/icons/chat.svg') }}" class="icon" role="img" alt="">
+    @if ($commentsCount > 0)
+        {{ $commentsCount }}
     @else
         0
     @endif

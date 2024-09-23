@@ -3,7 +3,8 @@
     @include('forms.partials.validation-summary')
     @include('livewire.post.partials.posting-as')
 
-    <div wire:ignore><label for="contents">Comment</label>
+    <div wire:ignore>
+        <label for="contents">Comment</label>
         <textarea wire:model.live="contents" name="contents" id="contents"></textarea>
     </div>
 

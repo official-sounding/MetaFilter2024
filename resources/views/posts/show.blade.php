@@ -15,6 +15,7 @@
         @include('posts.partials.post-footer', [
             'userId' => $userId,
             'username' => $username,
+            'commentsCount' => $post->comments()->count()
         ])
 
         @if (isset($isArchived) && $isArchived === true)
@@ -22,9 +23,11 @@
         @endif
     </article>
 
-    <livewire:post.post-comments-component
-        :flagReasons = "$flagReasons"
-        :post = "$post" />
+    <livewire:post.post-comments-component :post="$post" />
+
+    @auth
+        <livewire:post.post-comment-component :post="$post" />
+    @endauth
 
     @guest
         @include('posts.partials.show-not-logged-in', [
@@ -32,9 +35,9 @@
         ])
     @endguest
 
-    @auth
-        <livewire:post.post-comment-component :post="$post"/>
-    @endauth
-
     @include('posts.partials.previous-next')
 @endsection
+
+@push('scripts')
+
+@endpush

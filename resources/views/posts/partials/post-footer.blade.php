@@ -8,4 +8,5 @@
     @include('posts.partials.post-comments-link')
 
     <livewire:post.favorite-post-component :post="$post" :key="$post->id" />
+    <livewire:post.flag-post-component :post="$post" :key="$post->id" />
 </footer>
