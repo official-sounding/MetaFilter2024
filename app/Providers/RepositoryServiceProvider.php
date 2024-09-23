@@ -12,6 +12,12 @@ use App\Repositories\ContactMessageRepository;
 use App\Repositories\ContactMessageRepositoryInterface;
 use App\Repositories\FaqRepository;
 use App\Repositories\FaqRepositoryInterface;
+use App\Repositories\FavoriteRepository;
+use App\Repositories\FavoriteRepositoryInterface;
+use App\Repositories\FlagReasonRepository;
+use App\Repositories\FlagReasonRepositoryInterface;
+use App\Repositories\FlagRepository;
+use App\Repositories\FlagRepositoryInterface;
 use App\Repositories\PageRepository;
 use App\Repositories\PageRepositoryInterface;
 use App\Repositories\PostRepository;
@@ -33,6 +39,9 @@ final class RepositoryServiceProvider extends ServiceProvider
             CommentRepositoryInterface::class => CommentRepository::class,
             ContactMessageRepositoryInterface::class => ContactMessageRepository::class,
             FaqRepositoryInterface::class => FaqRepository::class,
+            FavoriteRepositoryInterface::class => FavoriteRepository::class,
+            FlagReasonRepositoryInterface::class => FlagReasonRepository::class,
+            FlagRepositoryInterface::class => FlagRepository::class,
             PageRepositoryInterface::class => PageRepository::class,
             PostRepositoryInterface::class => PostRepository::class,
             SubsiteRepositoryInterface::class => SubsiteRepository::class,

@@ -41,13 +41,16 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
     public function getBySubdomain(): Paginator
     {
         // TODO: Add categories
-
         return $this->model->newQuery()
             ->join('users', 'posts.user_id', '=', 'users.id')
             ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
             ->where('subsites.subdomain', '=', $this->subdomain)
-            ->withCount(['comments'])
             ->select(self::COLUMNS)
+            ->withCount([
+                'comments',
+                'favorites',
+                'flags',
+            ])
             ->orderBy('posts.created_at', 'desc')
             ->simplePaginate(self::POSTS_PER_PAGE);
     }

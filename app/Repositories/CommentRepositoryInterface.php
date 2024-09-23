@@ -7,4 +7,6 @@ namespace App\Repositories;
 interface CommentRepositoryInterface extends BaseRepositoryInterface
 {
     public function getCommentByUserId(int $userId);
+
+    public function getCommentsByPostId(int $postId);
 }
