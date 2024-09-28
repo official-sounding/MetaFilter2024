@@ -32,6 +32,10 @@ final class CommentRepository extends BaseRepository implements CommentRepositor
                 'comments.created_at',
                 'users.username',
             ])
+            ->withCount([
+                'favorites',
+                'flags',
+            ])
             ->where('comments.post_id', '=', $postId)
             ->orderBy('comments.created_at')
             ->get();
