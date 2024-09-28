@@ -61,6 +61,11 @@ a.footer-button:hover {
     background-color: var(--lightest-gray);
 }
 
+.footer-button:disabled:hover,
+a.footer-button:disabled:hover {
+    background-color: transparent;
+}
+
 .global-navigation button.dropdown-toggle {
     padding-right: 1.5rem;
     position: relative;
@@ -94,6 +99,7 @@ form .button.icon-search {
 .site-header button {
     width: inherit;
     border: none;
+    border-radius: 0;
 }
 
 .site-header .button.icon-search {
