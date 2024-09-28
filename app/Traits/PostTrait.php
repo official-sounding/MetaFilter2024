@@ -25,4 +25,9 @@ trait PostTrait
             'diffForHumans' => $post->created_at->diffForHumans(),
         ];
     }
+
+    public function getUserIcon(int $userId): string
+    {
+        return $userId === auth()->id() ? 'person-fill.svg' : 'person.svg';
+    }
 }
