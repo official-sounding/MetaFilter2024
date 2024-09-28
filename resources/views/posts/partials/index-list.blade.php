@@ -30,7 +30,8 @@
             'username' => $post->username,
             'commentsCount' => $post->comments_count,
             'favoritesCount' => $post->favorites_count,
-            'flagsCount' => $post->flags_count
+            'flagsCount' => $post->flags_count,
+            'showFlags' => false
         ])
     </article>
 @endforeach

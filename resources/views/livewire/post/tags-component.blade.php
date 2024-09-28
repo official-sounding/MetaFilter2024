@@ -6,7 +6,7 @@
 <form wire:submit.prevent="saveTags">
     <div class="level">
         <button @click="show=false" type="button">
-            Cancel
+            {{ __('Cancel') }}
         </button>
 
         <button type="button">
@@ -18,8 +18,8 @@
                   <div wire:ignore>
                       <select class="select2" name="tags" id="tags" multiple="multiple">
                           @foreach($allTags as $tag)
-                              <option value="{{$tag->name}}">
-                                {{$tag->name}}
+                              <option value="{{$tag->name}}" wire:key="{{ tag->id }}>
+                                {{  $tag->name }}
                               </option>
                           @endforeach
                       </select>

@@ -11,17 +11,17 @@
         <button
             type="button"
             class="button footer-button"
-            id="flag-dropdown-toggle"
             @guest
                 disabled="disabled"
             @endguest
             @auth
                 title="{{ $title }}"
-                aria-controls="flag-form"
-                aria-haspopup="menu"
-                aria-label="menu button"
-                aria-expanded="false"
-                wire:click="toggleFlagForm()"
+                @if ($type === 'comment')
+                    @click="$dispatch('toggle-flag-comment-form')"
+                @endif
+                @if ($type === 'post')
+                    @click="$dispatch('toggle-flag-post-form')"
+                @endif
             @endauth
         >
             <img
@@ -29,6 +29,11 @@
                 class="icon"
                 role="img"
                 alt="">
+            @if ($flags > 0)
+                {{ __('Flags') }} ({{ $flags }})
+            @else
+                {{ __('Flags') }} (0)
+            @endif
         </button>
     @endif
 </div>

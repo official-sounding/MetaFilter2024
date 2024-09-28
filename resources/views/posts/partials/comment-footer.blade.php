@@ -11,9 +11,23 @@
                 'comment' => $comment,
             ])
 
-            <livewire:post.favorite-comment-component :comment="$comment" />
+            <livewire:post.favorite-comment-component
+                :comment="$comment"
+                :favorites="$favoritesCount"
+            />
         </div>
 
-        <livewire:post.flag-comment-component :comment="$comment" />
+        <livewire:post.flag-comment-component
+            :comment="$comment"
+            :flags="$flagsCount"
+        />
     </div>
+
+    @if (isset($showFlagCommentForm) && $showFlagCommentForm === true)
+        <livewire:post.flag-comment-form-component
+            :comment="$comment"
+            :flagReasons="$flagReasons"
+            :type="$type"
+        />
+   @endif
 </footer>

@@ -9,10 +9,9 @@
          class="icon"
          role="img"
          alt="">
-    Fave
     @if ($favorites > 0)
-        ({{ $favorites }})
+        Favorites ({{ $favorites }})
     @else
-        0
+        Favorites (0)
     @endif
 </button>

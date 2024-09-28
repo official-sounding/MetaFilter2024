@@ -15,7 +15,10 @@
         @include('posts.partials.post-footer', [
             'userId' => $userId,
             'username' => $username,
-            'commentsCount' => $post->comments()->count()
+            'commentsCount' => $post->comments()->count(),
+            'favoritesCount' => $post->favorites()->count(),
+            'flagsCount' => $post->flags()->count(),
+            'showFlags' => true
         ])
 
         @if (isset($isArchived) && $isArchived === true)
@@ -23,10 +26,10 @@
         @endif
     </article>
 
-    <livewire:post.post-comments-component :post="$post" />
+    <livewire:post.post-comments-component :post="$post" :flagReasons="$flagReasons" />
 
     @auth
-        <livewire:post.post-comment-component :post="$post" />
+        <livewire:post.comment-form-component :post="$post" />
     @endauth
 
     @guest

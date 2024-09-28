@@ -19,9 +19,3 @@
         ])
     @endif
 @endsection
-
-@section('sidebar')
-    {{--
-        @includeIf($sidebarView)
-    --}}
-@endsection

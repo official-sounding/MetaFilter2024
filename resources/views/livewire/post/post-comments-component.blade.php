@@ -6,11 +6,11 @@
 
                 @include('posts.partials.comment-footer', [
                     'comment' => $comment,
+                    'favoritesCount' => $comment->favorites()->count(),
+                    'flagsCount' => $comment->flags()->count(),
+                    'flagReasons' => $flagReasons,
+                    'type' => 'comment'
                 ])
-
-                @if (isset($showFlagForm) && $showFlagForm === true)
-                    <livewire:post.flag-form-component />
-                @endif
             </article>
         @endforeach
     @else
