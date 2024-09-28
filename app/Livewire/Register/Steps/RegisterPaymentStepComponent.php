@@ -41,7 +41,6 @@ final class RegisterPaymentStepComponent extends StepComponent
 
     public function render(): View
     {
-        return view('livewire.wizards.register.steps.register-payment', [
-        ]);
+        return view('livewire.wizards.register.steps.register-payment');
     }
 }

@@ -5,56 +5,17 @@ declare(strict_types=1);
 namespace App\Livewire\Post;
 
 use App\Models\User;
+use App\Traits\LoggingTrait;
 use Livewire\Component;
 
 class BaseFlagComponent extends Component
 {
-    public bool $flagged = false;
-    public int $flags = 12;
-    public bool $showFlagForm = false;
-    public bool $showFlagReason = false;
+    use LoggingTrait;
+
+    public string $flagEvent;
+    public bool $flagged;
+    public int $flags;
+    public string $iconPath;
+    public string $type;
     public ?User $user;
-
-    public function toggleFlagForm(): void
-    {
-        $this->showFlagForm = ! $this->showFlagForm;
-    }
-
-    public function toggleFlagReason(): void
-    {
-        $this->showFlagReason = ! $this->showFlagReason;
-    }
-
-    public function toggleFlag(): void
-    {
-        if ($this->flagged) {
-            $this->decrementFlags();
-        } else {
-            $this->incrementFlags();
-        }
-
-        $this->flagged = ! $this->flagged;
-    }
-
-    public function getIconPath(): string
-    {
-        $iconPath = $this->flagged ? 'flag-fill.svg' : 'flag.svg';
-
-        return "images/icons/$iconPath";
-    }
-
-    public function decrementFlags(): void
-    {
-        $this->flags--;
-    }
-
-    public function incrementFlags(): void
-    {
-        $this->flags++;
-    }
-
-    public function flag(): void
-    {
-        $this->flagged = true;
-    }
 }

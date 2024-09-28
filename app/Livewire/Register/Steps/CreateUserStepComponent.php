@@ -31,7 +31,6 @@ final class CreateUserStepComponent extends StepComponent
 
     public function render(): View
     {
-        return view('livewire.register.steps.create-user', [
-        ]);
+        return view('livewire.register.steps.create-user');
     }
 }

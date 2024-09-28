@@ -44,7 +44,6 @@ final class LoginComponent extends Component
             session()->flash('message', __('Login successful'));
 
             $redirectUrl = route(RouteNameEnum::MetaFilterPostIndex->value);
-            $this->logDebugMessage('redirectUrl:' . $redirectUrl);
 
             $this->redirect($redirectUrl, navigate: true);
 

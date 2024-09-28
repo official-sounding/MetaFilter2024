@@ -33,7 +33,7 @@ final class PostFormComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.post.post-form');
+        return view('livewire.post.post-form.component');
     }
 
     public function store(): void

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Post;
 
+use App\Enums\LivewireEventEnum;
 use App\Enums\StatusEnum;
 use App\Http\Requests\Post\StoreCommentRequest;
 use App\Models\Post;
@@ -13,7 +14,7 @@ use App\Traits\LoggingTrait;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-final class PostCommentComponent extends Component
+final class CommentFormComponent extends Component
 {
     use LoggingTrait;
 
@@ -57,11 +58,11 @@ final class PostCommentComponent extends Component
 
         $this->reset('contents');
 
-        $this->dispatch('comment-added');
+        $this->dispatch(LivewireEventEnum::CommentAdded->value);
     }
 
     public function render(): View
     {
-        return view('livewire.post.post-comment-form');
+        return view('livewire.post.comment-form-component');
     }
 }

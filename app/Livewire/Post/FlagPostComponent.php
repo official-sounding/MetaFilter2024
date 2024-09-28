@@ -5,16 +5,19 @@ declare(strict_types=1);
 namespace App\Livewire\Post;
 
 use App\Models\Post;
-use App\Services\Markable\FlagPostService;
+use App\Services\FlagPostService;
+use App\Traits\FlagTrait;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\On;
 
 final class FlagPostComponent extends BaseFlagComponent
 {
-    public Post $post;
-    public bool $flagged = false;
-    public string $reason = '';
+    use FlagTrait;
 
+    public string $title;
+    public Post $post;
     private FlagPostService $flagPostService;
+    public string $flagEvent;
 
     public function boot(FlagPostService $flagPostService): void
     {
@@ -24,27 +27,30 @@ final class FlagPostComponent extends BaseFlagComponent
     public function mount(Post $post): void
     {
         $this->post = $post;
+        $this->title = 'Flag this post';
         $this->user = auth()->user();
+        $this->type = 'post';
 
-        $this->flagged = $this->flagPostService->flagged($this->post, $this->user);
+        $this->flagged = $this->user !== null
+            ? $this->flagPostService->flagged($this->post->id, $this->user->id)
+            : false;
+
+        $this->iconPath = $this->getIconPath();
     }
 
     public function render(): View
     {
-        $iconPath = $this->getIconPath();
-
-        return view('livewire.post.flag-component', [
-            'iconPath' => $iconPath,
+        return view('livewire.post.flag-component')->with([
+            'iconPath' => $this->iconPath,
+            'title' => $this->title,
+            'type' => $this->type,
         ]);
     }
 
-    public function delete(): void
+    #[On('post-flag-added.{post.id}')]
+    public function flagPost(): void
     {
-        $this->flagPostService->delete($this->post, $this->user);
-    }
-
-    public function store(): void
-    {
-        $this->flagPostService->store($this->post, $this->user);
+        $this->incrementFlags();
+        $this->flagged = true;
     }
 }

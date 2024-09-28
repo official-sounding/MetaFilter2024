@@ -5,14 +5,19 @@ declare(strict_types=1);
 namespace App\Livewire\Post;
 
 use App\Models\Comment;
-use App\Services\Markable\FlagCommentService;
+use App\Services\FlagCommentService;
+use App\Traits\FlagTrait;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\On;
 
 final class FlagCommentComponent extends BaseFlagComponent
 {
+    use FlagTrait;
+
+    public string $title;
     public Comment $comment;
     private FlagCommentService $flagCommentService;
-    public array $flagReasons;
+    public string $flagEvent;
 
     public function boot(FlagCommentService $flagCommentService): void
     {
@@ -22,27 +27,32 @@ final class FlagCommentComponent extends BaseFlagComponent
     public function mount(Comment $comment): void
     {
         $this->comment = $comment;
+        $this->title = 'Flag this comment';
+        $this->type = 'comment';
         $this->user = auth()->user() ?? null;
 
-        $this->flagged = $this->flagCommentService->flagged($this->comment, $this->user);
+        $this->flagged = $this->user !== null
+            ? $this->flagCommentService->flagged($this->comment->id, $this->user->id)
+            : false;
+
+        $this->iconPath = $this->getIconPath();
     }
 
     public function render(): View
     {
         $iconPath = $this->getIconPath();
 
-        return view('livewire.post.flag-component', [
+        return view('livewire.post.flag-component')->with([
             'iconPath' => $iconPath,
+            'title' => $this->title,
+            'type' => $this->type,
         ]);
     }
 
-    public function delete(): void
+    #[On('comment-flag-added.{comment.id}')]
+    public function flagComment(): void
     {
-        $this->flagCommentService->delete($this->comment, $this->user);
-    }
-
-    public function store(): void
-    {
-        $this->flagCommentService->store($this->comment, $this->user);
+        $this->incrementFlags();
+        $this->flagged = true;
     }
 }

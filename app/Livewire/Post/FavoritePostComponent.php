@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace App\Livewire\Post;
 
 use App\Models\Post;
-use App\Services\Markable\FavoritePostService;
+use App\Services\FavoritePostService;
 use Illuminate\Contracts\View\View;
 
 final class FavoritePostComponent extends BaseFavoriteComponent
 {
     public Post $post;
-
     private FavoritePostService $favoritePostService;
 
     public function boot(FavoritePostService $favoritePostService): void
@@ -24,15 +23,39 @@ final class FavoritePostComponent extends BaseFavoriteComponent
         $this->post = $post;
         $this->user = auth()->user() ?? null;
 
-        $this->favorited = $this->favoritePostService->favorited($this->post, $this->user);
+        $this->favorited = $this->user !== null
+            ? $this->favoritePostService->favorited($this->post->id, $this->user->id)
+            : false;
     }
 
     public function render(): View
     {
         $iconPath = $this->getIconPath();
 
-        return view('livewire.post.favorite-component', [
+        return view('livewire.post.favorite-component')->with([
             'iconPath' => $iconPath,
         ]);
+    }
+
+    public function delete(): void
+    {
+        $deleted = $this->favoritePostService->delete($this->post->id, $this->user->id);
+
+        if ($deleted) {
+            $this->decrementFavorites();
+        } else {
+            $this->logError('Failed to delete favorite post');
+        }
+    }
+
+    public function store(): void
+    {
+        $stored = $this->favoritePostService->create($this->post->id, $this->user->id);
+
+        if ($stored) {
+            $this->incrementFavorites();
+        } else {
+            $this->logError('Failed to store favorite post');
+        }
     }
 }
