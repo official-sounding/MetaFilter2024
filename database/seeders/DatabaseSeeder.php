@@ -9,6 +9,8 @@ use Database\Seeders\Development\AdminSeeder;
 use Database\Seeders\Development\FakeCommentSeeder;
 use Database\Seeders\Development\FakePostSeeder;
 use Database\Seeders\Development\FakeUserSeeder;
+use Database\Seeders\Development\FavoriteSeeder;
+use Database\Seeders\Development\FlagSeeder;
 use Database\Seeders\Production\FlagReasonSeeder;
 use Database\Seeders\Production\PageSeeder;
 use Database\Seeders\Production\SnippetSeeder;
@@ -43,6 +45,10 @@ final class DatabaseSeeder extends Seeder
 
             // Needs FakeUserSeeder and FakePostSeeder
             FakeCommentSeeder::class,
+
+            FavoriteSeeder::class,
+            FlagSeeder::class,
+
         ]);
     }
 
