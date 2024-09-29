@@ -19,6 +19,7 @@
     padding: 0;
 }
 
+//noinspection SassScssResolvedByNameOnly
 @include big-desktop-up() {
     .global-navigation-search-form {
         margin: 0;
