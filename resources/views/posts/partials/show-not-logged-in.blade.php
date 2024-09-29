@@ -1,8 +1,6 @@
 <div class="notification is-info">
     <p>
         You aren&rsquo;t logged in.
-    </p>
-    <p>
         @switch($context)
             @case('comment')
                 {{-- TODO: Localize text --}}

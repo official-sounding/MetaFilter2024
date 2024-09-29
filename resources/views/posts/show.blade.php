@@ -40,7 +40,3 @@
 
     @include('posts.partials.previous-next')
 @endsection
-
-@push('scripts')
-
-@endpush
