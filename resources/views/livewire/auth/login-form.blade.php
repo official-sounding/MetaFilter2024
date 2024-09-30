@@ -1,4 +1,5 @@
 <form wire:submit="login">
+    @csrf
     @include('forms.partials.validation-summary')
     @include('forms.partials.required-fields-note')
 
