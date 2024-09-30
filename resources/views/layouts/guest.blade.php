@@ -15,16 +15,14 @@
 @include('layouts.partials.skip-navigation')
 @include('layouts.partials.site-header')
 
-<div class="hero is-success is-fullheight">
-    <div class="hero-body">
-        <main class="container has-text-centered" id="main-contents">
-            @include('layouts.partials.flash-messages')
-            @yield('contents')
-        </main>
-    </div>
+<div class="container wrapper">
+    <main class="main-contents" id="main-contents">
+        @include('layouts.partials.flash-messages')
+        @yield('contents')
+    </main>
 </div>
 
-@include('layouts.partials.fine-print')
+@include('layouts.partials.site-footer')
 @include('layouts.partials.scripts')
 
 </body>

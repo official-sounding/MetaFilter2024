@@ -11,6 +11,10 @@
 @include('layouts.partials.social-media-meta-tags')
 @include('layouts.partials.favicons')
 
+@if (isset($useWysiwyg) && $useWysiwyg === true)
+    <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+@endif
+
 </head>
 <body>
 

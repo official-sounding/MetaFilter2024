@@ -1,7 +1,7 @@
-<script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+
 <script>
     ClassicEditor
-        .create(document.querySelectorAll('#contents'))
+        .create(document.querySelector('#contents'))
         .then(editor => {
             editor.model.document.on('change:data', () => {
                 @this.set('contents', editor.getData());
@@ -11,3 +11,4 @@
             console.error(error);
         });
 </script>
+ 
