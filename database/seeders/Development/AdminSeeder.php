@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace Database\Seeders\Development;
 
-use App\Imports\AdminUsersImport;
+use App\Models\User;
+use App\Services\CsvService;
 use Illuminate\Database\Seeder;
-use Maatwebsite\Excel\Excel;
 
 final class AdminSeeder extends Seeder
 {
     public function __construct(
-        protected Excel $excel,
+        protected CsvService $csvService,
     ) {}
 
     public function run(): void
     {
-        $file = storage_path('app/imports/metafilter-admins.csv');
+        $path = storage_path('app/imports/metafilter-admins.csv');
 
-        $this->excel->import(new AdminUsersImport(), $file);
+        $data = [];
+        $admins = $this->csvService->read($path);
+
+        foreach ($admins as $admin) {
+            $data[] = [
+                'id' => $admin['id'],
+                'name' => $admin['name'],
+                'username' => $admin['username'],
+                'email' => $admin['email'],
+            ];
+        }
+
+        User::upsert($data, 'id');
     }
 }
