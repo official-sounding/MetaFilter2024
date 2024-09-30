@@ -17,7 +17,10 @@ trait SubsiteTrait
 
     public function getSubsiteBySubdomain(string $subdomain): array
     {
-        if ($subdomain === 'metafilter.test' || $subdomain === 'localhost') {
+        if (
+            $subdomain === 'metafilter.test' ||
+            $subdomain === 'metastaging.net'
+        ) {
             $subdomain = 'www';
         }
 
