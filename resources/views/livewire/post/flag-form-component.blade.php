@@ -33,7 +33,7 @@
             {{ __('Cancel') }}
         </button>
 
-        <button type="button" wire:click="flag()">
+        <button type="button" wire:click="store()">
             {{ __('Add Flag') }}
         </button>
     </div>
