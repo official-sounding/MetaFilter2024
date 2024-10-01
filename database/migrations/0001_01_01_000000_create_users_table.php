@@ -22,7 +22,7 @@ return new class extends Migration {
             // MetaFilter-specific fields
             $table->string('username')->nullable()->unique();
             $table->string('homepage_url')->nullable();
-            $table->integer('legacy_id')->unique();
+            $table->integer('legacy_id')->nullable()->unique();
 
             // Filament-specific fields
             $table->boolean('is_admin')->default(false);
