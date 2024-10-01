@@ -1,6 +1,7 @@
 
 .notification {
-    margin: 1rem var(--global-spacing) 1rem var(--global-spacing);
+    max-width: 24rem;
+    margin: 0 auto var(--global-spacing) auto;
     padding: 0.5rem 1rem 0.5rem 1rem;
     position: relative;
     width: fit-content;
