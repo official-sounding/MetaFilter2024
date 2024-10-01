@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 use App\Enums\EnvironmentEnum;
-use Database\Seeders\Development\AdminSeeder;
 use Database\Seeders\Development\FakeCommentSeeder;
 use Database\Seeders\Development\FakePostSeeder;
 use Database\Seeders\Development\FakeUserSeeder;
@@ -36,8 +35,6 @@ final class DatabaseSeeder extends Seeder
     private function seedDevelopmentData(): void
     {
         $this->call([
-            AdminSeeder::class,
-
             FakeUserSeeder::class,
 
             // Needs FakeUserSeeder
