@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->rememberToken();
 
             // MetaFilter-specific fields
-            $table->string('username')->unique();
+            $table->string('username')->nullable()->unique();
             $table->string('homepage_url')->nullable();
             $table->integer('legacy_id')->unique();
 
