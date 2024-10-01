@@ -10,6 +10,8 @@ final class ContactMessageController extends BaseController
 {
     public function create(): View
     {
-        return view('contact.create');
+        return view('contact.create', [
+            'title' => trans('Contact Us'),
+        ]);
     }
 }
