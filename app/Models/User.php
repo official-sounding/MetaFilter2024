@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Cog\Laravel\Ban\Traits\Bannable;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -24,7 +26,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property bool $is_admin
  * @mixin Builder
  */
-final class User extends Authenticatable
+final class User extends Authenticatable implements FilamentUser
 {
     use Bannable;
     use HasApiTokens;
@@ -32,6 +34,8 @@ final class User extends Authenticatable
     use HasRoles;
     use Notifiable;
     use SoftDeletes;
+
+    private const string DOMAIN = '@metafilter.com';
 
     // Properties
 
@@ -58,8 +62,8 @@ final class User extends Authenticatable
         ];
     }
 
-    public function canAccessFilament(): bool
+    public function canAccessPanel(Panel $panel): bool
     {
-        return $this->is_admin;
+        return str_ends_with($this->email, self::DOMAIN);
     }
 }
