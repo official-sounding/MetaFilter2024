@@ -5,6 +5,13 @@ import { resolve } from 'path';
 
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig({
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: 'modern-compiler' // or "modern"
+            }
+        }
+    },
     plugins: [
         laravel({
             input: [
