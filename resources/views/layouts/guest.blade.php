@@ -17,6 +17,8 @@
 
 <div class="container wrapper">
     <main class="main-contents" id="main-contents">
+        <h1>{{ $title }}</h1>
+
         @include('layouts.partials.flash-messages')
         @yield('contents')
     </main>
