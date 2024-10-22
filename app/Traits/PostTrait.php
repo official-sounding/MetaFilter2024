@@ -9,12 +9,28 @@ use Carbon\Carbon;
 
 trait PostTrait
 {
+    use UrlTrait;
+
     public function isArchived(Post $post): bool
     {
         $archiveDate = now()->subDays(30);
         $postDate = $post->created_at;
 
         return $postDate <= $archiveDate;
+    }
+
+    public function getCanonicalUrl(Post $post): string
+    {
+        $subdomain = $this->getSubdomainFromUrl();
+
+        if ($subdomain = 'www') {
+            $subdomain = 'metafilter';
+        }
+
+        return route("$subdomain.post.show", [
+            'post' => $post,
+            'slug' => $post->slug,
+        ]);
     }
 
     public function getTimestamp(Post $post): array

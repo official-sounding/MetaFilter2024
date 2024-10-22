@@ -62,7 +62,7 @@ trait NavigationTrait
                 $item .= '<img src="/images/icons/' . $itemData['icon'] . '.svg" class="icon ' . $itemData['icon'] . '" role="img" alt="">';
             }
 
-            $item .= $itemData['nickname'] ?? $itemData['name'] ?? $itemData['text'];
+            $item .= $itemData['name'] ?? $itemData['nickname'] ?? $itemData['text'];
             $item .= '</a>';
             $item .= '</li>';
         }
