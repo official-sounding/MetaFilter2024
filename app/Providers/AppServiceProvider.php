@@ -24,6 +24,12 @@ final class AppServiceProvider extends ServiceProvider
 
         $subsite = $this->getSubsiteBySubdomain($subdomain);
 
+        session([
+            'subdomain' => $subdomain,
+            'subsite' => $subsite,
+            'subsiteName' => $subsite['name'],
+        ]);
+
         view()->share('stylesheets', $this->getStylesheets($subsite));
         view()->share('subdomain', $subdomain === 'www' ? 'metafilter' : $subdomain);
         view()->share('subsite', $subsite);
