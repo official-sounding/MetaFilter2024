@@ -4,7 +4,6 @@
     @include('livewire.post.partials.posting-as')
 
     <fieldset>
-
         <x-forms.input
             name="title"
             type="text"

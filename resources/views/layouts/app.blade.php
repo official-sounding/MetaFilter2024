@@ -9,7 +9,11 @@
 
 @include('layouts.partials.styles')
 @include('layouts.partials.social-media-meta-tags')
+@include('layouts.partials.sidebars.previous-next-meta')
 @include('layouts.partials.favicons')
+@if (isset($canonicalUrl))
+    <link rel="canonical" href="{{ $canonicalUrl }}">
+@endif
 
 @if (isset($useWysiwyg) && $useWysiwyg === true)
     <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>

@@ -1,5 +1,11 @@
-primary-sidebar<br>
+<h2>
+    {{ $subsiteName }}
+</h2>
 
 @auth()
-    @include('layouts.partials.new-post-button')
+    @include('layouts.navigation.partials.create-post-button')
 @endauth
+
+@if (isset($primarySidebarNavigation))
+    {!! $primarySidebarNavigation !!}
+@endif
