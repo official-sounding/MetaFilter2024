@@ -10,8 +10,11 @@ Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
         ->name(RouteNameEnum::MusicPostIndex->value);
 
-    Route::get('create', 'create')
-        ->name(RouteNameEnum::MusicPostCreate->value);
+    Route::get('create-song', 'create')
+        ->name(RouteNameEnum::MusicPostSongCreate->value);
+
+    Route::get('create-talk', 'create')
+        ->name(RouteNameEnum::MusicPostTalkCreate->value);
 
     Route::get('{post}/{slug}', 'show')
         ->name(RouteNameEnum::MusicPostShow->value);

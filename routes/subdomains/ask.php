@@ -11,7 +11,7 @@ Route::controller(PostController::class)->group(function () {
         ->name(RouteNameEnum::AskPostIndex->value);
 
     Route::get('create', 'create')
-        ->name(RouteNameEnum::AskPostCrete->value);
+        ->name(RouteNameEnum::AskPostCreate->value);
 
     Route::get('{post}/{slug}', 'show')
         ->name(RouteNameEnum::AskPostShow->value);
