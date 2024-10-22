@@ -27,7 +27,7 @@ enum RouteNameEnum: string
 
     case AskPostIndex = 'ask.post.index';
     case AskPostShow = 'ask.post.show';
-    case AskPostCrete = 'ask.post.create';
+    case AskPostCreate = 'ask.post.create';
     case AskPostStore = 'ask.post.store';
     case AskPostEdit = 'ask.post.edit';
     case AskPostUpdate = 'ask.post.update';
@@ -73,7 +73,8 @@ enum RouteNameEnum: string
 
     case JobsPostIndex = 'jobs.post.index';
     case JobsPostShow = 'jobs.post.show';
-    case JobsPostCreate = 'jobs.post.create';
+    case JobsPostJobCreate = 'jobs.post-job.create';
+    case JobsPostAvailabilityCreate = 'jobs.post-availability.create';
     case JobsPostStore = 'jobs.post.store';
     case JobsPostEdit = 'jobs.post.edit';
     case JobsPostUpdate = 'jobs.post.update';
@@ -114,7 +115,8 @@ enum RouteNameEnum: string
     case MusicPopularFavoritesIndex = 'music.popular-favorites.index';
     case MusicPostIndex = 'music.post.index';
     case MusicPostShow = 'music.post.show';
-    case MusicPostCreate = 'music.post.create';
+    case MusicPostSongCreate = 'music.post-song.create';
+    case MusicPostTalkCreate = 'music.post-talk.create';
     case MusicPostStore = 'music.post.store';
     case MusicPostEdit = 'music.post.edit';
     case MusicPostUpdate = 'music.post.update';
