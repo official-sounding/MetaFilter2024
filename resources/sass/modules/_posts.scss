@@ -1,15 +1,14 @@
 
 .comment,
 .post {
-    background-color: var(--white);
-    margin: 0 0 1.5rem 0;
+    margin: 0;
     padding: var(--global-spacing) var(--global-spacing) 1rem var(--global-spacing);
+    border-bottom: 1px solid var(--lighter-gray);
 }
 
-.comment,
-.post {
-    border-top: 1px solid var(--lighter-gray);
-    border-bottom: 1px solid var(--lighter-gray);
+.comment:first-of-type,
+.post:first-of-type {
+    top: 1px solid var(--lighter-gray);
 }
 
 .post-footer {

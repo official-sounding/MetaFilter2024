@@ -1,6 +1,6 @@
 
 :root {
-    --global-spacing: 1.25rem;
+    --global-spacing: 3rem;
 }
 
 body {
@@ -32,6 +32,15 @@ body {
     margin: 0 auto 0 auto;
 }
 
+
+.primary-sidebar {
+    padding: var(--global-spacing) var(--global-spacing) 0 0;
+}
+
+.secondary-sidebar {
+    padding: var(--global-spacing) 0 0 var(--global-spacing);
+}
+
 //noinspection SassScssResolvedByNameOnly
 @include tablet-portrait-up() {
     .container.wrapper {
@@ -43,15 +52,6 @@ body {
     .primary-sidebar,
     .secondary-sidebar {
         width: 50%;
-        padding: 3rem 0 0 0;
-    }
-
-    .primary-sidebar {
-        padding: 0 var(--global-spacing) 0 0;
-    }
-
-    .secondary-sidebar {
-        padding: 0 0 0  var(--global-spacing);
     }
 }
 
@@ -64,6 +64,7 @@ body {
     .main-contents {
         padding: 3rem 0 0 0;
         width: 60%;
+        background-color: var(--white);
         border-right: 1px solid var(--light-gray);
         border-left: 1px solid var(--light-gray);
     }
