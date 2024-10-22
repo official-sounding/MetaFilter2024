@@ -53,6 +53,7 @@ final class PostController extends BaseController
             'useWysiwyg' => true,
             'flagReasons' => $this->flagReasons,
             'iconFilename' => $this->getUserIcon($post->user->id),
+            'canonicalUrl' => $this->getCanonicalUrl($post),
         ]);
     }
 
