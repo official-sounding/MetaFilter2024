@@ -1,13 +1,9 @@
-<nav class="utility-navigation navbar-menu"
-     id="utility-navigation"
-     aria-hidden="true"
-     aria-label="Utility navigation"
-     aria-labelledby="utility-navigation-toggle">
+<nav class="utility-navigation" id="utility-navigation">
     @auth
         {!! $utilityNavigation ?? 'Utility navigation unavailable' !!}
     @endauth
     @guest
-        <ul class="dropdown">
+        <ul class="inline">
             <li>
                 <a href="{{ route($loginCreateRoute) }}"
                    @if (request()->segment(1) === 'login')
