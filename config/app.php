@@ -15,8 +15,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'MetaFilter'),
-    'host' => env('APP_HOST', 'metafilter.test'),
+    'name' => env('APP_NAME'),
+    'host' => env('APP_HOST'),
     'default_subdomain' => env('APP_DEFAULT_SUBDOMAIN', 'www'),
 
     /*

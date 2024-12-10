@@ -29,7 +29,7 @@ return [
     ],
     'guest' => [
         [
-            'name' => 'Login',
+            'name' => 'Log In',
             'route' => RouteNameEnum::AuthLoginCreate->value,
             'icon' => 'box-arrow-in-right',
         ],
