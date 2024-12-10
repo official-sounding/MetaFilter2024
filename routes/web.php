@@ -73,3 +73,5 @@ Route::domain('projects.' . $appUrl)
 Route::domain('www.' . $appUrl)
     ->middleware($middleware)
     ->group(base_path('routes/subdomains/metafilter.php'));
+
+Route::webhooks('webhook-receiving-url');
