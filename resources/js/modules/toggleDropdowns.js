@@ -2,21 +2,65 @@
 
 import constant from '../constants.js';
 
-function toggleExpanded(target) {
-    let controls = target.getAttribute(constant.ARIA_CONTROLS);
-    let dropdown = document.getElementById(controls);
+function toggleDropdowns() {
+    const dropdownToggles = document.getElementsByClassName('dropdown-toggle')
 
-    let expanded = target.getAttribute(constant.ARIA_EXPANDED) === 'true' || false;
+    for (let i = 0; i < dropdownToggles.length; i++) {
+        let toggle = dropdownToggles[i];
 
-    if (expanded) {
-        target.setAttribute(constant.ARIA_EXPANDED, 'false');
+        toggle.addEventListener('click', (event) => {
+            let target = event.currentTarget;
 
-        dropdown.setAttribute(constant.ARIA_HIDDEN, 'true');
-    } else {
-        target.setAttribute(constant.ARIA_EXPANDED, 'true');
+            let controls = getControls(target);
+            let expanded = getExpanded(target);
 
-        dropdown.removeAttribute(constant.ARIA_HIDDEN);
+            let dropdown = document.getElementById(controls);
+
+            if (expanded) {
+                hideDropdown(target, dropdown);
+            } else {
+                showDropdown(target, dropdown);
+            }
+        })
+
+        window.addEventListener('click', function(event) {
+            if (!toggle.contains(event.target)) {
+            }
+        });
     }
 }
 
-export {toggleExpanded};
+function toggleDropdown(target) {
+    let controls = getControls(target);
+    let expanded = getExpanded(target);
+
+    let dropdown = document.getElementById(controls);
+
+    if (expanded) {
+        hideDropdown(target, dropdown);
+    } else {
+        showDropdown(target, dropdown);
+    }
+}
+
+function getControls(target) {
+    return target.getAttribute(constant.ARIA_CONTROLS);
+}
+
+function getExpanded(target) {
+    return target.getAttribute(constant.ARIA_EXPANDED) === 'true' || false;
+}
+
+function showDropdown(target, dropdown) {
+    target.setAttribute(constant.ARIA_EXPANDED, 'true');
+
+    dropdown.removeAttribute(constant.ARIA_HIDDEN);
+}
+
+function hideDropdown(target, dropdown) {
+    target.setAttribute(constant.ARIA_EXPANDED, 'false');
+
+    dropdown.setAttribute(constant.ARIA_HIDDEN, 'true');
+}
+
+export {getExpanded, toggleDropdown, toggleDropdowns};

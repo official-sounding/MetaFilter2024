@@ -1,16 +1,19 @@
 
-function toggleDarkMode() {
+function toggleDarkMode(eventTarget) {
+    const DARK_MODE_TOGGLE = eventTarget;
+
     const ARIA_PRESSED = 'aria-pressed';
     const DARK_MODE_CLASS = 'dark-mode';
     const DARK_MODE_ON_CLASS = 'dark-mode-on';
     const DARK_MODE_OFF_CLASS = 'dark-mode-off';
-    const DARK_MODE_TOGGLE = document.getElementById('dark-mode-toggle');
+
+    const body = document.body;
 
     if (DARK_MODE_TOGGLE.getAttribute(ARIA_PRESSED) === 'false') {
         DARK_MODE_TOGGLE.setAttribute(ARIA_PRESSED, 'true');
 
-        if (!document.body.classList.contains(DARK_MODE_CLASS)) {
-            document.body.classList.add(DARK_MODE_CLASS);
+        if (!body.classList.contains(DARK_MODE_CLASS)) {
+            body.classList.add(DARK_MODE_CLASS);
         }
 
         if (!DARK_MODE_TOGGLE.classList.contains(DARK_MODE_OFF_CLASS)) {
@@ -21,8 +24,8 @@ function toggleDarkMode() {
     } else {
         DARK_MODE_TOGGLE.setAttribute(ARIA_PRESSED, 'false');
 
-        if (document.body.classList.contains(DARK_MODE_CLASS)) {
-            document.body.classList.remove(DARK_MODE_CLASS);
+        if (body.classList.contains(DARK_MODE_CLASS)) {
+            body.classList.remove(DARK_MODE_CLASS);
         }
 
         if (DARK_MODE_TOGGLE.classList.contains(DARK_MODE_ON_CLASS)) {
