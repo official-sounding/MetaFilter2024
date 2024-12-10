@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Post\StorePostRequest;
-use App\Http\Requests\Post\UpdatePostRequest;
+use App\Http\Requests\Post\StoreMetaFilterPostRequest;
+use App\Http\Requests\Post\UpdateMetaFilterPostRequest;
 use App\Models\Post;
 use App\Repositories\FlagReasonRepositoryInterface;
 use App\Repositories\PostRepositoryInterface;
@@ -64,7 +64,7 @@ final class PostController extends BaseController
         ]);
     }
 
-    public function store(StorePostRequest $request)
+    public function store(StoreMetaFilterPostRequest $request)
     {
         $post = $this->postService->store($request->validated());
     }
@@ -77,7 +77,7 @@ final class PostController extends BaseController
         ]);
     }
 
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdateMetaFilterPostRequest $request, Post $post)
     {
         $updated = $this->postService->update($post, $request->validated());
     }

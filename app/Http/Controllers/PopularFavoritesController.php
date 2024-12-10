@@ -28,7 +28,7 @@ final class PopularFavoritesController extends BaseController
     {
         $subsite = $this->getSubsiteMetadata();
 
-        $urlSegment = $this->getUrlSegment(1);
+        $urlSegment = request()->segment(1);
 
         $subdomain = $subsite['subdomain'];
 

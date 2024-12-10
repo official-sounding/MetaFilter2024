@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Post\StoreCommentRequest;
-use App\Http\Requests\Post\UpdateCommentRequest;
+use App\Http\Requests\Comment\StoreCommentRequest;
+use App\Http\Requests\Comment\UpdateCommentRequest;
 use App\Models\Comment;
 use App\Services\CommentService;
 use Illuminate\Contracts\View\View;
