@@ -5,31 +5,22 @@ declare(strict_types=1);
 namespace Database\Seeders\Development;
 
 use App\Models\User;
-use App\Services\CsvService;
+use App\Traits\LoggingTrait;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 final class AdminSeeder extends Seeder
 {
-    public function __construct(
-        protected CsvService $csvService,
-    ) {}
+    use LoggingTrait;
 
     public function run(): void
     {
-        $path = storage_path('app/imports/metafilter-admins.csv');
+        $path = storage_path('app/imports/metafilter-admins.json');
 
-        $data = [];
-        $admins = $this->csvService->read($path);
+        $json = File::get($path);
 
-        foreach ($admins as $admin) {
-            $data[] = [
-                'id' => $admin['id'],
-                'name' => $admin['name'],
-                'username' => $admin['username'],
-                'email' => $admin['email'],
-            ];
-        }
+        $admins = json_decode($json);
 
-        User::upsert($data, 'id');
+        User::upsert($admins, ['email']);
     }
 }
