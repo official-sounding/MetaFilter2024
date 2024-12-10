@@ -13,6 +13,7 @@ enum SubsiteEnum: string
     case Irl = 'irl';
     case Jobs = 'jobs';
     case Labs = 'labs';
+    case Mail = 'mail';
     case Mall = 'mall';
     case MetaFilter = 'www';
     case MetaTalk = 'metatalk';
@@ -30,6 +31,7 @@ enum SubsiteEnum: string
             self::Irl => RouteNameEnum::IrlPostIndex->value,
             self::Jobs => RouteNameEnum::JobsPostIndex->value,
             self::Labs => RouteNameEnum::LabsHomeIndex->value,
+            self::Mail => RouteNameEnum::MailHomeIndex->value,
             self::Mall => RouteNameEnum::MallHomeIndex->value,
             self::MetaFilter => RouteNameEnum::MetaFilterPostIndex->value,
             self::MetaTalk => RouteNameEnum::MetaTalkPostIndex->value,
@@ -49,6 +51,7 @@ enum SubsiteEnum: string
             self::Irl => 'IRL',
             self::Jobs => 'Jobs',
             self::Labs => 'Labs',
+            self::Mail => 'Mail',
             self::Mall => 'Mall',
             self::MetaFilter => 'MetaFilter',
             self::MetaTalk => 'MetaTalk',

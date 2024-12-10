@@ -85,6 +85,7 @@ enum RouteNameEnum: string
     case LanguageSwitcher = 'language-switcher';
 
     case MailIndex = 'metafilter.mail.index';
+    case MailHomeIndex = 'mail.home.index';
 
     case MallHomeIndex = 'mall.home.index';
 
