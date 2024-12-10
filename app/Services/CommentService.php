@@ -4,28 +4,27 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Repositories\CommentRepositoryInterface;
+use App\Http\Requests\Comment\StoreCommentRequest;
+use App\Http\Requests\Comment\UpdateCommentRequest;
+use App\Models\Comment;
 use App\Traits\LoggingTrait;
-use Exception;
 
 final class CommentService
 {
     use LoggingTrait;
 
-    public function __construct(
-        protected CommentRepositoryInterface $commentRepository,
-    ) {}
-
-    public function store(array $data): bool
+    public function store(StoreCommentRequest $request): Comment
     {
-        try {
-            $this->commentRepository->create($data);
+        return Comment::create($request->validated());
+    }
 
-            return true;
-        } catch (Exception $exception) {
-            $this->logError($exception);
+    public function update(UpdateCommentRequest $request): bool
+    {
+        return Comment::update($request->validated());
+    }
 
-            return false;
-        }
+    public function delete(Comment $comment): bool
+    {
+        return $comment->delete();
     }
 }

@@ -23,3 +23,4 @@ final class CsvService
         }
     }
 }
+$csv = Reader::createFromPath(database_path() . '/csv/yourfile.csv', 'r');
