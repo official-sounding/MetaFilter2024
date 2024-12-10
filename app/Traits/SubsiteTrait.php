@@ -25,7 +25,6 @@ trait SubsiteTrait
             $subdomain = 'www';
         }
 
-        // TODO: Move to settings JSON file
         $subsites = config('metafilter.seeders.subsites');
 
         return $subsites[$subdomain];
