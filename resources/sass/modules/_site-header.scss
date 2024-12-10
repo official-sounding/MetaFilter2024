@@ -1,3 +1,5 @@
+@use "../mixins/breakpoints";
+
 
 .site-header {
     position: relative;
@@ -20,7 +22,7 @@
 }
 
 //noinspection SassScssResolvedByNameOnly
-@include big-desktop-up() {
+@include breakpoints.big-desktop-up() {
     .global-navigation-search-form {
         margin: 0;
     }

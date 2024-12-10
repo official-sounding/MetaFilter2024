@@ -23,15 +23,31 @@ html {
 
 h1,
 h2,
-h3, h4,
+h3,
+h4,
 .site-title {
     font-family: Montserrat, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
 }
 
+.next,
+.previous {
+    font-size: var(--font-size-plus-1);
+}
+
+.next .title,
+.previous .title {
+    font-size: var(--font-size-minus-1);
+}
+
 .site-title-text {
     font-size: var(--font-size-plus-3);
+}
+
+hgroup {
+    margin: 0;
+    padding: 0;
 }
 
 html {

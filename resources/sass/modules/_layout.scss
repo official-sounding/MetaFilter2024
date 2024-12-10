@@ -1,3 +1,5 @@
+@use "../mixins/breakpoints";
+
 
 :root {
     --global-spacing: 3rem;
@@ -42,7 +44,7 @@ body {
 }
 
 //noinspection SassScssResolvedByNameOnly
-@include tablet-portrait-up() {
+@include breakpoints.tablet-portrait-up() {
     .container.wrapper {
         display: flex;
         flex-wrap: wrap;
@@ -56,7 +58,7 @@ body {
 }
 
 //noinspection SassScssResolvedByNameOnly
-@include big-desktop-up() {
+@include breakpoints.big-desktop-up() {
     .primary-sidebar {
         order: -1;
     }
@@ -65,8 +67,13 @@ body {
         padding: 3rem 0 0 0;
         width: 60%;
         background-color: var(--white);
-        border-right: 1px solid var(--light-gray);
-        border-left: 1px solid var(--light-gray);
+        border-right: 1px solid var(--light-mode-border-color);
+        border-left: 1px solid var(--light-mode-border-color);
+    }
+
+    .dark-mode .main-contents {
+        border-right: 1px solid var(--dark-mode-border-color);
+        border-left: 1px solid var(--dark-mode-border-color);
     }
 
     .primary-sidebar,

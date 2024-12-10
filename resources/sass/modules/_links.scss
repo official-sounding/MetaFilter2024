@@ -14,6 +14,10 @@ a:not([class]) {
 .utility-navigation a {
     display: inline-block;
     text-align: left;
+}
+
+.dropdown-toggle,
+.global-navigation a {
     width: 100%;
 }
 

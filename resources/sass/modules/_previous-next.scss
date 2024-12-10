@@ -1,12 +1,44 @@
 
 .previous-next {
-    padding: var(--global-spacing);
+    gap: 2rem;
+    margin: 0 1rem 1rem 1rem;
 }
 
-.previous-next .next {
+.next,
+.previous {
+    display: inline-block;
+    border: 1px solid var(--neutral-gray);
+    position: relative;
+}
+
+.next .title,
+.previous .title {
+    display: block;
+}
+
+.next {
+    margin: 0 1rem 0 0;
+    padding: 1rem 2rem 1rem 1rem;
     text-align: right;
 }
 
-.previous-next > a {
-    flex: 1;
+.previous {
+    margin: 0 0 0 1rem;
+    padding: 1rem 1rem 1rem 2rem;
+}
+
+.next::after,
+.previous::before {
+    position: absolute;
+}
+
+.previous::before {
+    content: '<';
+    left: 1rem;
+}
+
+.next::after {
+    content: '>';
+    top: 1rem;
+    right: 1rem;
 }

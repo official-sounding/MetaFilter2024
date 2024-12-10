@@ -48,6 +48,10 @@ select {
     font: inherit;
 }
 
+summary > * {
+    display: inline;
+}
+
 textarea:not([rows]) {
     min-height: 10rem;
 }

@@ -1,3 +1,5 @@
+@use "../mixins/breakpoints";
+
 
 .fine-print.simple,
 .site-footer {
@@ -33,7 +35,7 @@
     column-count: 2;
 }
 
-@include big-desktop-up() {
+@include breakpoints.big-desktop-up() {
     .site-footer {
         justify-content: space-evenly;
     }
