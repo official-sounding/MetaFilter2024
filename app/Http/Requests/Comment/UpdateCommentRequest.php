@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\Post;
+namespace App\Http\Requests\Comment;
 
 final class UpdateCommentRequest extends StoreCommentRequest
 {

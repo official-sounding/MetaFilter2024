@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Post;
 
-final class UpdatePostRequest extends StorePostRequest
+final class UpdateMetaFilterPostRequest extends StoreMetaFilterPostRequest
 {
     public function authorize(): bool
     {

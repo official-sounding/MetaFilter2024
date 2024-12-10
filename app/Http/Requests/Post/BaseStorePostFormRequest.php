@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Post;
 
-use App\Http\Requests\BaseFormRequest;
+use Illuminate\Foundation\Http\FormRequest;
 
-class StorePostRequest extends BaseFormRequest
-{
+abstract class BaseStorePostFormRequest extends FormRequest {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function authorize(): bool
     {
         return auth()->check();
@@ -39,6 +43,14 @@ class StorePostRequest extends BaseFormRequest
                 'nullable',
                 'string',
             ],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'The title is required.',
+            'category_id.numeric' => 'Invalid category value.',
         ];
     }
 }
