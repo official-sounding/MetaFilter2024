@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Post;
 
-use App\Http\Requests\Post\StoreFlagRequest;
+use App\Http\Requests\Flag\StoreFlagRequest;
 use App\Traits\FlagFormTrait;
 use App\Traits\LoggingTrait;
 use Illuminate\Contracts\View\View;

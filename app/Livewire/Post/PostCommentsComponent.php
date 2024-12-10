@@ -28,12 +28,12 @@ final class PostCommentsComponent extends Component
     public function mount(Post $post): void
     {
         $this->post = $post;
-
-        $this->comments = $this->commentRepository->getCommentsByPostId($this->post->id);
     }
 
     public function render(): View
     {
+        $this->getComments();
+
         return view('livewire.post.post-comments-component')->with([
             'comments' => $this->comments,
         ]);
@@ -42,7 +42,7 @@ final class PostCommentsComponent extends Component
     #[On(LivewireEventEnum::CommentAdded->value)]
     public function getComments(): void
     {
-        $this->render();
+        $this->comments = $this->commentRepository->getCommentsByPostId($this->post->id);
     }
 
     #[On(LivewireEventEnum::HideFlagCommentForm->value)]

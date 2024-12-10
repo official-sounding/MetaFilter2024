@@ -6,7 +6,7 @@ namespace App\Livewire\Post;
 
 use App\Enums\LivewireEventEnum;
 use App\Enums\StatusEnum;
-use App\Http\Requests\Post\StoreCommentRequest;
+use App\Http\Requests\Comment\StoreCommentRequest;
 use App\Models\Post;
 use App\Models\User;
 use App\Services\CommentService;
