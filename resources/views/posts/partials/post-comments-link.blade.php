@@ -3,7 +3,7 @@
         'slug' => $post->slug
     ]) }}#comments"
     class="button footer-button"
-    title="Permanent link to this post">
+    title="Comments">
      <img src="{{ asset('images/icons/chat.svg') }}" class="icon" role="img" alt="">
     @if ($commentsCount > 0)
         {{ $commentsCount }}

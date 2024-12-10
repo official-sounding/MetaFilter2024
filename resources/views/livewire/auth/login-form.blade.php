@@ -25,7 +25,7 @@
         {!! __('Don&rsquo;t have an account?') !!}
         <a href="{{ route($registerCreateRoute) }}">
             <strong>
-                {{ __('Register here') }}
+                {{ __('Sign up here') }}
             </strong>
         </a>
     </div>

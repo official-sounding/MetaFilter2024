@@ -10,7 +10,7 @@
                        aria-current="page"
                    @endif>
                    <img src="{{ asset('images/icons/box-arrow-in-right.svg') }}" class="icon" role="img" alt="">
-                   Log In
+                    {{ __('Log In') }}
                 </a>
             </li>
             <li>
@@ -19,7 +19,7 @@
                        aria-current="page"
                    @endif>
                    <img src="{{ asset('images/icons/person-plus-fill.svg') }}" class="icon" role="img" alt="">
-                   Sign Up
+                    {{ __('Sign Up') }}
                 </a>
             </li>
         </ul>

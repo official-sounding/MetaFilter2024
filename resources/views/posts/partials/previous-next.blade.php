@@ -1,25 +1,29 @@
 <nav class="level previous-next">
     @if (isset($previous))
-        <div class="previous">
-            <a title="Previous post"
-               href="{{ route("$subdomain.post.show", [
-                    'post' => $previous,
-                    'slug' => $previous->slug
-               ]) }}">
+        <a class="previous"
+           title="Previous post"
+           href="{{ route("$subdomain.post.show", [
+                'post' => $previous,
+                'slug' => $previous->slug
+           ]) }}">
+            Previous
+            <span class="title">
                 {{ $previous->title }}
-            </a>
-        </div>
+            </span>
+        </a>
     @endif
 
     @if (isset($next))
-        <div class="next">
-            <a title="Next post"
-                href="{{ route("$subdomain.post.show", [
-                    'post' => $next,
-                    'slug' => $next->slug
-                ]) }}">
+        <a class="next"
+           title="Next post"
+            href="{{ route("$subdomain.post.show", [
+                'post' => $next,
+                'slug' => $next->slug
+            ]) }}">
+            Next
+            <span class="title">
                 {{ $next->title }}
-            </a>
-        </div>
+            </span>
+        </a>
     @endif
 </nav>

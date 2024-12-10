@@ -4,10 +4,17 @@
     $subdomain = $subsite['subdomain'];
 @endphp
 
-<h2 class="sr-only">Sidebar</h2>
+<h2 class="sr-only">{{  __('Sidebar') }}</h2>
 
 @include('layouts.partials.fund-mefi')
-@include('layouts.partials.toggle-dark-mode')
+
+<details>
+    <summary>
+        <h3>{{  __('Appearance') }}</h3>
+    </summary>
+
+    @include('layouts.partials.toggle-dark-mode')
+</details>
 
 @switch($subdomain)
     @case(SubsiteEnum::Ask->value)

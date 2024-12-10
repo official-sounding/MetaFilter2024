@@ -7,7 +7,7 @@
                     <x-comments::input
                         wire:model="guest_name"
                         :shouldDisable="$limitExceeded"
-                        placeholder="{{__('Comment as')}}"
+                        placeholder="{{  __('Comment as') }}"
                     />
                     <div class="min-h-6">
                         @if ($errors->has('guest_name'))
@@ -23,7 +23,7 @@
                             wire:model="guest_email"
                             :shouldDisable="$limitExceeded"
                             type="email"
-                            placeholder="{{__('Email')}}"
+                            placeholder="{{  __('Email') }}"
                         />
                         <div class="min-h-6">
                             @if ($errors->has('guest_email'))
@@ -66,7 +66,7 @@
                             wire:click.prevent="redirectToLogin(window.location.href)"
                             class="font-bold text-blue-600"
                         >
-                            {{ __('login') }}
+                            {{ __('Log In') }}
                         </x-comments::link>
                         {{ __('to comment !') }}
                     </span>

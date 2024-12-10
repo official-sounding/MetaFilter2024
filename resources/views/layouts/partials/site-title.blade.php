@@ -3,11 +3,13 @@
         @if (isset($subsite['whiteText']) && isset($subsite['greenText']))
             @if (empty(request()->segment(1)))
                 <h1 class="site-title-text">
-                    <span class="white">{{ $subsite['whiteText'] }}</span><span class="green">{{ $subsite['greenText'] }}</span>
+                    <span class="white">{{ $subsite['whiteText'] }}</span>
+                    <span class="green">{{ $subsite['greenText'] }}</span>
                 </h1>
             @else
                 <p class="site-title-text">
-                    <span class="white">{{ $subsite['whiteText'] }}</span><span class="green">{{ $subsite['greenText'] }}</span>
+                    <span class="white">{{ $subsite['whiteText'] }}</span>
+                    <span class="green">{{ $subsite['greenText'] }}</span>
                 </p>
             @endif
         @endif

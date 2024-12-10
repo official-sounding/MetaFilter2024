@@ -167,7 +167,7 @@
                         }
                      "
                 >
-                    <x-comments::link class="align-text-bottom text-sm" type="popup">{{__('reply')}}</x-comments::link>
+                    <x-comments::link class="align-text-bottom text-sm" type="popup">{{  __('reply) }}</x-comments::link>
                 </div>
             @endif
         </div>
@@ -279,7 +279,7 @@
                                         type="button"
                                         size="sm"
                                     >
-                                        {{__('Load')}}
+                                        {{  __('Load') }}
                                     </x-comments::button>
                                 </div>
                             @endif

@@ -4,14 +4,15 @@
     @endguest
     type="button"
     class="button footer-button"
-    wire:click="toggleFavorite()">
+    wire:click="toggleFavorite()"
+    title="Favorites">
     <img src="{{ asset($iconPath) }}"
          class="icon"
          role="img"
          alt="">
     @if ($favorites > 0)
-        Favorites ({{ $favorites }})
+        {{ $favorites }}
     @else
-        Favorites (0)
+        0
     @endif
 </button>

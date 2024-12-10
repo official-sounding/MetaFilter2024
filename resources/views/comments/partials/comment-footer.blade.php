@@ -7,7 +7,7 @@
                 'iconFilename' => $comment->user->id === auth()->id() ? 'person-fill.svg' : 'person.svg',
             ])
 
-            @include('posts.partials.comment-created-at-time', [
+            @include('comments.partials.comment-created-at-time', [
                 'comment' => $comment,
             ])
 
@@ -29,5 +29,5 @@
             :flagReasons="$flagReasons"
             :type="$type"
         />
-   @endif
+    @endif
 </footer>

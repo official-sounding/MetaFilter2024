@@ -1,5 +1,5 @@
-<h2>
-    {{ $subsiteName }}
+<h2 class="sr-only">
+    {{ $subsiteName }} Sidebar
 </h2>
 
 @auth()

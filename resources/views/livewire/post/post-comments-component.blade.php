@@ -4,7 +4,7 @@
             <article class="comment" id="{{ $comment->id }}" wire:key="comment-{{ $comment->id }}">
                 <p>{!! $comment->contents !!}</p>
 
-                @include('posts.partials.comment-footer', [
+                @include('comments.partials.comment-footer', [
                     'comment' => $comment,
                     'favoritesCount' => $comment->favorites()->count(),
                     'flagsCount' => $comment->flags()->count(),
