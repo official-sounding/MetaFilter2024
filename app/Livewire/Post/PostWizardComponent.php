@@ -8,7 +8,7 @@ use App\Livewire\Post\Steps\PostFormStepComponent;
 use App\Livewire\Post\Steps\PostPreviewStepComponent;
 use Spatie\LivewireWizard\Components\WizardComponent;
 
-final class ehPostWizardComponent extends WizardComponent
+final class PostWizardComponent extends WizardComponent
 {
     public function steps(): array
     {
