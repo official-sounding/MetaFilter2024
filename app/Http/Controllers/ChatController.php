@@ -6,12 +6,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
 
-final class MallHomePageController extends BaseController
+final class ChatController extends BaseController
 {
     public function index(): View
     {
-        return view('mall.index', [
-            'title' => 'Mall',
+        return view('chat.index', [
+            'title' => 'Chat',
         ]);
     }
 }

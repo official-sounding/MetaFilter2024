@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
 
-final class ContactMessageController extends BaseController
+final class ContactController extends BaseController
 {
     public function create(): View
     {
