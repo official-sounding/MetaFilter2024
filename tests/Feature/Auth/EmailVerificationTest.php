@@ -13,7 +13,7 @@ test('email verification screen can be rendered', function () {
     $user = User::factory()->unverified()->create();
 
     // Act
-    $response = $this->actingAs($user)->get('/verify-email');
+    $response = $this->actingAs($user)->get(config('app.testUrl') . '/verify-email');
 
     // Assert
     $response->assertOk();

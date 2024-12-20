@@ -11,7 +11,7 @@ test('confirm password screen can be rendered', function () {
     $user = User::factory()->create();
 
     // Act
-    $response = $this->actingAs($user)->get('/confirm-password');
+    $response = $this->actingAs($user)->get(config('app.testUrl') . '/confirm-password');
 
     // Assert
     $response->assertStatus(Response::HTTP_OK);
@@ -22,7 +22,7 @@ test('password can be confirmed', function () {
     $user = User::factory()->create();
 
     // Act
-    $response = $this->actingAs($user)->post('/confirm-password', [
+    $response = $this->actingAs($user)->post(config('app.testUrl') . '/confirm-password', [
         'password' => 'password',
     ]);
 
@@ -41,7 +41,7 @@ test('password is not confirmed with invalid password', function () {
     $user = User::factory()->create();
 
     // Act
-    $response = $this->actingAs($user)->post('/confirm-password', [
+    $response = $this->actingAs($user)->post(config('app.testUrl') . '/confirm-password', [
         'password' => 'wrong-password',
     ]);
 

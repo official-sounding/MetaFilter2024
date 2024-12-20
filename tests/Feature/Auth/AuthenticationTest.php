@@ -7,7 +7,7 @@ use App\Models\User;
 
 test('login screen can be rendered', function () {
     // Act
-    $response = $this->get('/login');
+    $response = $this->get(config('app.testUrl') . '/login');
 
     // Assert
     $response->assertOk();
@@ -23,7 +23,7 @@ test('users can authenticate using the login screen', function () {
     ];
 
     // Act
-    $response = $this->post('/login', $data);
+    $response = $this->post(config('app.testUrl') . '/login', $data);
 
     // Assert
     $this->assertAuthenticated();
@@ -41,7 +41,7 @@ test('users cannot authenticate with invalid password', function () {
     ];
 
     // Act
-    $this->post('/login', $data);
+    $this->post(config('app.testUrl') . '/login', $data);
 
     // Assert
     $this->assertGuest();
@@ -52,10 +52,10 @@ test('users can logout', function () {
     $user = User::factory()->create();
 
     // Act
-    $response = $this->actingAs($user)->post('/logout');
+    $response = $this->actingAs($user)->post(config('app.testUrl') . '/logout');
 
     // Assert
     $this->assertGuest();
 
-    $response->assertRedirect('/');
+    $response->assertRedirect(config('app.testUrl'));
 });

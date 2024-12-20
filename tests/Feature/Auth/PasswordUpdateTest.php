@@ -19,14 +19,14 @@ test('password can be updated', function () {
     // Act
     $response = $this
         ->actingAs($user)
-        ->from('/profile')
-        ->put('/password', $data);
+        ->from(config('app.testUrl') . '/profile')
+        ->put(config('app.testUrl') . '/password', $data);
 
     // Assert
     try {
         $response
             ->assertSessionHasNoErrors()
-            ->assertRedirect('/profile');
+            ->assertRedirect(config('app.testUrl') . '/profile');
     } catch (JsonException $exception) {
         Log::error($exception->getMessage());
     }
@@ -47,10 +47,10 @@ test('correct password must be provided to update password', function () {
     // Act
     $response = $this
         ->actingAs($user)
-        ->from('/profile')
-        ->put('/password', $data);
+        ->from(config('app.testUrl') . '/profile')
+        ->put(config('app.testUrl') . '/password', $data);
 
     $response
         ->assertSessionHasErrorsIn('updatePassword', 'current_password')
-        ->assertRedirect('/profile');
+        ->assertRedirect(config('app.testUrl') . '/profile');
 });

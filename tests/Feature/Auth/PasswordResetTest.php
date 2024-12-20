@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Notification;
 use Symfony\Component\HttpFoundation\Response;
 
 test('reset password link screen can be rendered', function () {
-    $response = $this->get('/forgot-password');
+    $response = $this->get(config('app.testUrl') . '/forgot-password');
 
     $response->assertStatus(Response::HTTP_OK);
 });
@@ -19,7 +19,7 @@ test('reset password link can be requested', function () {
 
     $user = User::factory()->create();
 
-    $this->post('/forgot-password', ['email' => $user->email]);
+    $this->post(config('app.testUrl') . '/forgot-password', ['email' => $user->email]);
 
     Notification::assertSentTo($user, ResetPassword::class);
 });
@@ -29,10 +29,10 @@ test('reset password screen can be rendered', function () {
 
     $user = User::factory()->create();
 
-    $this->post('/forgot-password', ['email' => $user->email]);
+    $this->post(config('app.testUrl') . '/forgot-password', ['email' => $user->email]);
 
     Notification::assertSentTo($user, ResetPassword::class, function ($notification) {
-        $response = $this->get('/reset-password/' . $notification->token);
+        $response = $this->get(config('app.testUrl') . '/reset-password/' . $notification->token);
 
         $response->assertStatus(Response::HTTP_OK);
 
@@ -45,7 +45,7 @@ test('password can be reset with valid token', function () {
 
     $user = User::factory()->create();
 
-    $this->post('/forgot-password', ['email' => $user->email]);
+    $this->post(config('app.testUrl') . '/forgot-password', ['email' => $user->email]);
 
     Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
         $response = $this->post(RouteNameEnum::AuthResetPassword->value, [
