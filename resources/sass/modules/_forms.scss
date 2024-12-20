@@ -14,9 +14,10 @@ main input[type="password"],
 main input[type="search"],
 main input[type="text"],
 main input[type="url"] {
+    background-color: var(--white);
     border: var(--input-border-width) solid  var(--lighter-gray);
-    padding: var(--input-padding);
     border-radius: var(--input-border-radius);
+    padding: var(--input-padding);
     width: 100%;
 }
 

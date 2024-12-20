@@ -1,4 +1,8 @@
 
+ul.bulleted {
+    list-style: disc;
+}
+
 .site-footer ul.two-columns {
     columns: 2;
     column-gap: 0;
@@ -6,8 +10,4 @@
 
 .inline {
     list-style: none;
-}
-
-.inline li {
-    display: inline;
 }

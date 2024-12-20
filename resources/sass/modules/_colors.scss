@@ -1,6 +1,6 @@
 :root {
     // Global colors
-    --black: #231f20;
+    --black: #333;
     --white: #fff;
     --neutral-gray: #f2f2f2;
     --yellow-green: #9bc654;
@@ -39,6 +39,7 @@
     --light-brown: #8b7054;
     --lighter-brown: #c9b8a6;
     --lightest-brown: #dcd1c6;
+    color-scheme: light dark;
 
     // MetaFilter
     --darker-blue: #033d63;
@@ -59,7 +60,7 @@
     // Music
     --darker-music-black: #171717;
     --dark-music-black: #292929;
-    --music-black: #333;
+    --music-black: var(--black);
     --light-music-black: #5f5f5f;
     --lighter-music-black: #afafaf;
     --lightest-music-black: #c9c9c9;
@@ -74,6 +75,16 @@
 
     --dark-mode-border-color: #3f4450;
     --light-mode-border-color: #e0e2e2;
+
+    --darker-base-color: var(--darker-blue);
+    --dark-base-color: var(--dark-blue);
+    --base-color: var(--blue);
+    --light-base-color: var(--light-blue);
+    --lighter-base-color: var(--lighter-blue);
+}
+
+.black {
+    color: var(--black);
 }
 
 .white {

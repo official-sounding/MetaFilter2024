@@ -1,12 +1,15 @@
+/*
 .site-title {
     margin: 1rem 0 0.5rem 0;
 }
+*/
 
 .site-title-text {
     line-height: 1;
     margin: 0;
     padding: 0;
     white-space-collapse: collapse;
+    display: inline-flex;
 }
 
 .tagline {

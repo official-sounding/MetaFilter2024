@@ -1,3 +1,4 @@
+@use '../mixins/breakpoints';
 
 a {
     text-decoration: none;
@@ -12,13 +13,12 @@ a:not([class]) {
 .dropdown-toggle,
 .global-navigation a,
 .utility-navigation a {
-    display: inline-block;
+    display: block;
     text-align: left;
 }
 
 .dropdown-toggle,
 .global-navigation a {
-    display: block;
     width: 100%;
 }
 
@@ -46,17 +46,28 @@ a:not([class]) {
     padding: 0.25rem 0.875rem 0.25rem 0.875rem;
 }
 
+.subsite-navigation-menu a {
+    display: block;
+    padding: 0.25rem;
+}
+
+@include breakpoints.phone-only() {
+    .subsite-navigation-menu li {
+        width: 25%;
+    }
+}
 
 .logout-button {
     display: inline-block;
+    width: 25%;
     padding: 0.375rem 0.470rem 0.375rem 0.470rem;
 }
 
+button:focus,
 .global-navigation a:focus,
 .primary-navigation a:focus,
 .secondary-navigation a:focus,
-.utility-navigation a:focus,
-button:focus {
+.utility-navigation a:focus {
     outline: max(1px, 0.1em) dashed currentColor;
     outline-offset: -0.25em;
 }
@@ -68,9 +79,8 @@ button:focus {
 
 .site-footer a {
     display: block;
-    // TODO: Use decimals and rems
-    height: 28px;
-    line-height: 28px;
+    height: 1.5rem;
+    line-height: 1.5rem;
     width: fit-content;
 }
 

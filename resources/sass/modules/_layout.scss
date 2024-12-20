@@ -1,5 +1,4 @@
-@use "../mixins/breakpoints";
-
+@use '../mixins/breakpoints';
 
 :root {
     --global-spacing: 3rem;
@@ -8,7 +7,6 @@
 body {
     min-height: 100vh;
     padding: 0;
-    background-color: var(--neutral-gray);
     display: flex;
     flex-direction: column;
 }
@@ -34,7 +32,6 @@ body {
     margin: 0 auto 0 auto;
 }
 
-
 .primary-sidebar {
     padding: var(--global-spacing) var(--global-spacing) 0 0;
 }
@@ -43,47 +40,25 @@ body {
     padding: var(--global-spacing) 0 0 var(--global-spacing);
 }
 
+.global-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.tagline {
+    display: none;
+}
 //noinspection SassScssResolvedByNameOnly
 @include breakpoints.tablet-portrait-up() {
-    .container.wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        flex: 1;
+    .tagline {
+        display: block;
     }
 
-    .primary-sidebar,
-    .secondary-sidebar {
-        width: 50%;
-    }
-}
-
-//noinspection SassScssResolvedByNameOnly
-@include breakpoints.big-desktop-up() {
-    .primary-sidebar {
-        order: -1;
+    .site-banner {
+        order: 1;
     }
 
-    .main-contents {
-        padding: 3rem 0 0 0;
-        width: 60%;
-        background-color: var(--white);
-        border-right: 1px solid var(--light-mode-border-color);
-        border-left: 1px solid var(--light-mode-border-color);
-    }
-
-    .dark-mode .main-contents {
-        border-right: 1px solid var(--dark-mode-border-color);
-        border-left: 1px solid var(--dark-mode-border-color);
-    }
-
-    .primary-sidebar,
-    .secondary-sidebar {
-        width: 20%;
-    }
-}
-
-@media screen and (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
+    .site-header {
+        order: 2;
     }
 }

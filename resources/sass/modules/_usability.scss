@@ -13,15 +13,14 @@
     background-color: #333;
     position: fixed;
     border-radius: 2px;
-    height: 50px;
-    width: 50px;
-    // TODO: Use decimals and rems
-    line-height: 50px;
+    height: 2.75rem;
+    width: 2.75rem;
+    line-height: 2.75rem;
     text-decoration: none;
     text-align: center;
     opacity: 0;
-    right: 50px;
-    bottom: 50px;
+    right: 2.75rem;
+    bottom: 2.75rem;
     z-index: 1030;
     visibility: hidden;
 }

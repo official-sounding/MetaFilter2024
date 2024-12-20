@@ -1,3 +1,4 @@
+@use '../mixins/breakpoints';
 
 // TODO: Use focus-within to highlight the dropdown menu when it is open
 
@@ -42,6 +43,18 @@ nav.column ul li,
 
 .site-header .container .navbar-menu.utility-navigation {
     right: 0;
+}
+
+@include breakpoints.phone-only() {
+    nav ul.subsite-navigation {
+        width: 100%;
+        display: inline-flex;
+    }
+
+    nav ul.subsite-navigation li {
+        flex: auto;
+        width: 25%;
+    }
 }
 
 /*

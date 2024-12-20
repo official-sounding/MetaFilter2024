@@ -1,0 +1,64 @@
+
+//noinspection CssInvalidFunction // PHPStorm is a harsh mistress
+body {
+    color: light-dark(var(--black), var(--white));
+    background-color: light-dark(var(--white), var(--base-color));
+}
+
+.comments a,
+.comments a:hover,
+.posts a,
+.posts a:hover {
+    background-color: inherit;
+}
+
+//noinspection CssInvalidFunction
+.comments a,
+.posts a {
+    color: light-dark(var(--base-color), var(--white));
+}
+
+//noinspection CssInvalidFunction
+.comments a:hover,
+.posts a:hover {
+    color: light-dark(var(--base-color), var(--white));
+}
+
+.global-navigation a {
+    color: var(--white);
+    background-color: var(--base-color);
+}
+
+.global-navigation a:hover {
+    color: var(--black);
+    background-color: var(--yellow-green);
+}
+
+.subsite-navigation,
+.subsite-navigation-menu a {
+    color: var(--base-color);
+    background-color: var(--lighter-base-color);
+}
+
+//noinspection CssInvalidFunction
+.subsite-navigation-menu a:hover {
+    color: light-dark(var(--base-color), var(--white));
+    background-color: light-dark(var(--white), var(--base-color));
+}
+
+//noinspection CssInvalidFunction
+.subsite-navigation-menu a[aria-current='page'] {
+    color: light-dark(var(--white), var(--base-color));
+    background-color: light-dark(var(--base-color), var(--white));
+}
+
+//noinspection CssInvalidFunction
+.subsite-navigation-menu a[aria-current='page']:hover {
+    color: light-dark(var(--base-color), var(--white));
+    background-color: light-dark(var(--white), var(--base-color));
+}
+
+.tagline {
+    color: var(--lighter-base-color);
+    background-color: inherit;
+}

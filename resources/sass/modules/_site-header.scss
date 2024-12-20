@@ -1,15 +1,9 @@
-@use "../mixins/breakpoints";
+@use '../mixins/breakpoints';
 
 
 .site-header {
     position: relative;
     z-index: 100;
-}
-
-.site-header .container {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
 }
 
 .tagline {

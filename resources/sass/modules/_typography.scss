@@ -1,3 +1,10 @@
+html {
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 100%;
+}
+
 :root {
     --font-size-minus-3: 0.625rem; // 10px
     --font-size-minus-2: 0.75rem; // 12px
@@ -8,12 +15,6 @@
     --font-size-plus-3: 1.5rem; // 24px
     --font-size-plus-4: 1.75rem; // 28px
     --font-size-plus-5: 2rem; // 32px
-}
-
-html {
-    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
 }
 
 .comment,
@@ -48,10 +49,6 @@ h4,
 hgroup {
     margin: 0;
     padding: 0;
-}
-
-html {
-    font-size: 100%;
 }
 
 .dropdown-menu,
@@ -110,6 +107,7 @@ h1, h2, h3, h4,
 nav a,
 .notification a,
 .posts h4,
+.site-banner,
 .tagline {
     font-weight: 600;
 }
