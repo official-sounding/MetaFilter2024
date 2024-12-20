@@ -25,6 +25,15 @@ final class AppServiceProvider extends ServiceProvider
         $subsite = $this->getSubsiteBySubdomain($subdomain);
 
         session([
+            'fundingIndexRoute', RouteNameEnum::MetaFilterFundingIndex->value,
+            'loginCreateRoute', RouteNameEnum::AuthLoginCreate->value,
+            'loginStoreRoute', RouteNameEnum::AuthLoginStore->value,
+            'logoutRoute', RouteNameEnum::AuthLogout->value,
+            'preferencesEditRoute' => RouteNameEnum::PreferencesEdit->value,
+            'profileEditRoute' => RouteNameEnum::ProfileEdit->value,
+            'profileShowRoute' => RouteNameEnum::ProfileShow->value,
+            'registerCreateRoute', RouteNameEnum::AuthRegisterCreate->value,
+            'registerStoreRoute', RouteNameEnum::AuthRegisterStore->value,
             'subdomain' => $subdomain,
             'subsite' => $subsite,
             'subsiteName' => $subsite['name'],
@@ -35,16 +44,8 @@ final class AppServiceProvider extends ServiceProvider
         view()->share('subsite', $subsite);
         view()->share('subsiteName', $subsite['name']);
 
-        view()->share('currentRouteName', Route::currentRouteName());
         view()->share('contactFormRoute', RouteNameEnum::ContactMessageCreate->value);
         view()->share('forgotPasswordRoute', RouteNameEnum::AuthForgotPasswordCreate->value);
-        view()->share('fundingIndexRoute', RouteNameEnum::MetaFilterFundingIndex->value);
-        view()->share('loginCreateRoute', RouteNameEnum::AuthLoginCreate->value);
-        view()->share('loginStoreRoute', RouteNameEnum::AuthLoginStore->value);
-        view()->share('logoutRoute', RouteNameEnum::AuthLogout->value);
-        view()->share('profileRoute', RouteNameEnum::ProfileShow->value);
-        view()->share('registerCreateRoute', RouteNameEnum::AuthRegisterCreate->value);
-        view()->share('registerStoreRoute', RouteNameEnum::AuthRegisterStore->value);
     }
 
     private function getStylesheets(array $subsite): array

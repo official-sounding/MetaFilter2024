@@ -7,8 +7,7 @@ namespace App\Providers;
 use App\View\Composers\Navigation\CreatePostButtonViewComposer;
 use App\View\Composers\Navigation\GlobalNavigationViewComposer;
 use App\View\Composers\Navigation\PrimaryNavigationViewComposer;
-use App\View\Composers\Navigation\PrimarySidebarNavigationComposer;
-use App\View\Composers\Navigation\SecondaryNavigationViewComposer;
+use App\View\Composers\Navigation\SubsiteNavigationViewComposer;
 use App\View\Composers\Navigation\UtilityNavigationViewComposer;
 use Illuminate\Support\ServiceProvider;
 
@@ -43,18 +42,13 @@ final class ViewComposerServiceProvider extends ServiceProvider
         );
 
         view()->composer(
-            'layouts.partials.primary-sidebar',
-            PrimarySidebarNavigationComposer::class,
-        );
-
-        view()->composer(
             'layouts.navigation.primary-navigation',
             PrimaryNavigationViewComposer::class,
         );
 
         view()->composer(
-            'layouts.navigation.secondary-navigation',
-            SecondaryNavigationViewComposer::class,
+            'layouts.navigation.subsite-navigation',
+            SubsiteNavigationViewComposer::class,
         );
 
         view()->composer(
