@@ -20,7 +20,7 @@
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^43.1.1",
         "ckeditor5": "^42.0.1",
-        "laravel-precognition-alpine": "^0.5.13",
+        "laravel-precognition-alpine": "^0.5.14",
         "webtour": "^1.1.0"
     }
 }
