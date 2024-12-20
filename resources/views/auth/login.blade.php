@@ -3,7 +3,7 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    @livewire('auth.login-component')
+    @include('forms.auth.login-form')
 @endsection
 
 @section('sidebar')

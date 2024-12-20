@@ -10,7 +10,7 @@
     </header>
 
     <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
-        @csrf
+        @include('forms.partials.csrf-token')
         @method('put')
 
         <div>

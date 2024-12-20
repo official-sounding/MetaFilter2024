@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" data-theme="light">
 <head>
 
 <meta charset="utf-8">
@@ -22,8 +22,18 @@
 </head>
 <body>
 
+@include('layouts.partials.set-theme')
 @include('layouts.partials.skip-navigation')
-@include('layouts.partials.site-header')
+
+<header class="global-header">
+    @include('layouts.partials.site-header')
+    @include('layouts.partials.site-banner')
+</header>
+
+<header class="subsite-header">
+    @include('layouts.navigation.subsite-navigation')
+    {{-- TODO: Add the search form here --}}
+</header>
 
 <div class="container wrapper">
     <!-- He's the DJ; I'm the wrapper -->
@@ -32,8 +42,8 @@
         @yield('contents')
     </main>
 
-    <aside class="sidebar primary-sidebar">
-        @include('layouts.partials.primary-sidebar')
+    <aside class="sidebar">
+        @include('layouts.partials.sidebar')
     </aside>
 
     <aside class="sidebar secondary-sidebar">

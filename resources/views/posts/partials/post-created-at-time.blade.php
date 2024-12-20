@@ -1,6 +1,6 @@
 <span
     class="button footer-button"
     datetime="{{ $post->created_at->format('Y-m-d H:i:d') }}">
-    <img src="{{ asset('images/icons/clock.svg') }}" class="icon" role="img" alt="">
+    <img src="{{ asset('images/icons/clock.svg') }}" class="icon" alt="">
     {{ $post->created_at->format('g:i a') }}
 </span>

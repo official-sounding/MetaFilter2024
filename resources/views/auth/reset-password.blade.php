@@ -1,6 +1,6 @@
 <x-guest-layout>
     <form method="POST" action="{{ route('password.store') }}">
-        @csrf
+        @include('forms.partials.csrf-token')
 
         <!-- Password Reset Token -->
         <input type="hidden" name="token" value="{{ $request->route('token') }}">

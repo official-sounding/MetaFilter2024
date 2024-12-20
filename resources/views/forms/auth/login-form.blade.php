@@ -1,5 +1,5 @@
-<form wire:submit="login">
-    @csrf
+<form method="POST" action="{{ route('auth.login.store') }}">
+    @include('forms.partials.csrf-token')
     @include('forms.partials.validation-summary')
     @include('forms.partials.required-fields-note')
 
@@ -14,16 +14,15 @@
         type="password"
         label="{{ __('Password') }}"/>
 
-    <x-forms.button>
-        {{ __('Log In') }}
-        <span wire:loading>
-            {{ __('Logging in...') }}
-        </span>
-    </x-forms.button>
+    <x-forms.field>
+        <button type="submit">
+            {{ __('Log In') }}
+        </button>
+    </x-forms.field>
 
     <div>
         {!! __('Don&rsquo;t have an account?') !!}
-        <a href="{{ route($registerCreateRoute) }}">
+        <a href="{{ session('registerCreateRoute') }}">
             <strong>
                 {{ __('Sign up here') }}
             </strong>
@@ -31,14 +30,14 @@
     </div>
 
     <div>
-        <a href="{{ route($forgotPasswordRoute) }}">
+        <a href="{{ session('forgotPasswordRoute') }}">
             {{ __('Forgot your password?') }}
         </a>
     </div>
 
     <div>
         {{ __('Need help?') }}
-        <a href="{{ route($contactFormRoute) }}">
+        <a href="{{ session('contactFormRoute') }}">
             {{ __('Contact the admins.') }}
         </a>
     </div>

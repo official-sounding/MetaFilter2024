@@ -4,7 +4,7 @@
     ]) }}#comments"
     class="button footer-button"
     title="Comments">
-     <img src="{{ asset('images/icons/chat.svg') }}" class="icon" role="img" alt="">
+     <img src="{{ asset('images/icons/chat.svg') }}" class="icon" alt="">
     @if ($commentsCount > 0)
         {{ $commentsCount }}
     @else

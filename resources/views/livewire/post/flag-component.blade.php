@@ -2,7 +2,6 @@
     @if ($flagged === true)
         <img src="{{ asset($iconPath) }}"
              class="icon"
-             role="img"
              alt="">
         [Flagged]
     @endif
@@ -27,7 +26,6 @@
             <img
                 src="{{ asset($iconPath) }}"
                 class="icon"
-                role="img"
                 alt="">
             @if ($flags > 0)
                 {{ __('Flags') }} ({{ $flags }})

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" data-theme="light">
 <head>
 
 <meta charset="utf-8">
@@ -11,6 +11,8 @@
 
 </head>
 <body>
+
+@include('layouts.partials.set-theme')
 
 <div class="wrapper container">
     <main class="main-contents " id="main-contents">

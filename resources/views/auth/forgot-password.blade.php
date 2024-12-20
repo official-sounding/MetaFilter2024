@@ -7,7 +7,7 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{ route('password.email') }}">
-        @csrf
+        @include('forms.partials.csrf-token')
 
         <!-- Email Address -->
         <div>

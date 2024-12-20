@@ -1,6 +1,6 @@
 <small>posting as
     <a title="{{ __('View profile') }}"
-       href="{{ route($profileRoute, [
+       href="{{ session('profileShowRoute', [
             'user' => auth()->user()
         ]) }}">
         <stong>{{ auth()->user()->username }}</stong>

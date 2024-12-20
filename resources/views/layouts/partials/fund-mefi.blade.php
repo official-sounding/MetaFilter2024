@@ -1,8 +1,8 @@
 <section class="help-fund-mefi">
-    <h2 class="sr-only">Help Fund MetaFilter</h2>
+    <h2 class="sr-only">{{ __('Help Fund MetaFilter') }}</h2>
 
-    <a href="{{ route($fundingIndexRoute) }}" class="button primary-button">
-        Help fund MeFi!
+    <a href="{{ session('fundingIndexRoute') }}" class="button primary-button">
+        {{ __('Help fund MeFi!') }}
     </a>
 
     {!! $fundMeFiContents ?? '' !!}

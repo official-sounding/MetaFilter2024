@@ -15,8 +15,8 @@
     @if ($upload === true)
         enctype="multipart/form-data"
     @endif>
-    @csrf
 
+    @include('forms.partials.csrf-token')
     @include('forms.partials.validation-summary')
 
     @if ($showRequiredFieldsNote === true)

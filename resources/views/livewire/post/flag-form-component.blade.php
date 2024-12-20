@@ -4,7 +4,7 @@
             {{ __('Reason for flagging') }}
         </legend>
         @foreach($flagReasons as $id => $reason)
-            <label for="flag-reason-{{ $id }}">
+            <label for="flag-reason-{{ $id }}" wire:key="reason-{{ $id }}">
                 <input
                     type="radio"
                     name="flag_reason"

@@ -1,6 +1,6 @@
 <search>
     <form action="">
-        <label for="query">Search</label>
+        <label for="query" class="sr-only">Search</label>
         <input id="query" name="q" type="search">
         <button type="submit">
             {{ __('Go') }}

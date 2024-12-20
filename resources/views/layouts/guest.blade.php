@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" data-theme="light">
 <head>
 
 <meta charset="utf-8">
@@ -12,12 +12,13 @@
 </head>
 <body class="guest">
 
+@include('layouts.partials.set-theme')
 @include('layouts.partials.skip-navigation')
 @include('layouts.partials.site-header')
 
 <div class="container wrapper">
     <main class="main-contents" id="main-contents">
-        <h1>{{ $title }}</h1>
+        <h1>{!! $title !!}</h1>
 
         @include('layouts.partials.flash-messages')
         @yield('contents')
