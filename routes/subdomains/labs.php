@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use App\Enums\RouteNameEnum;
-use App\Http\Controllers\LabsHomePageController;
+use App\Http\Controllers\LabsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [LabsHomePageController::class, 'index'])
+Route::get('/', [LabsController::class, 'index'])
     ->name(RouteNameEnum::LabsHomeIndex->value);

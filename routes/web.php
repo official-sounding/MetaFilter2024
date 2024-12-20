@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 $appUrl = config('app.url');
@@ -17,6 +18,9 @@ require __DIR__ . '/auth.php';
 
 Route::get('search', [SearchController::class, 'create'])
     ->name('search.create');
+
+Route::get('test', [TestController::class, 'index'])
+    ->name('test.index');
 
 Route::domain('ask.' . $appUrl)
     ->middleware($middleware)

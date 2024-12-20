@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\Enums\RouteNameEnum;
 use App\Http\Controllers\ArchivesController;
-use App\Http\Controllers\ContactMessageController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\FundingController;
 use App\Http\Controllers\MailController;
@@ -43,7 +43,7 @@ Route::get('about', [PageController::class, 'show'])
 Route::get('archives', [ArchivesController::class, 'index'])
     ->name(RouteNameEnum::PostArchivesIndex->value);
 
-Route::get('contact', [ContactMessageController::class, 'create'])
+Route::get('contact', [ContactController::class, 'create'])
     ->name(RouteNameEnum::ContactMessageCreate->value);
 
 Route::get('funding', [FundingController::class, 'index'])

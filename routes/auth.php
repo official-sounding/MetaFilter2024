@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Support\Facades\Route;
 
 $appUrl = config('app.url');
@@ -29,7 +30,8 @@ Route::domain('www.' . $appUrl)
                 ->name(RouteNameEnum::AuthLoginCreate->value);
 
             Route::post('login', [AuthenticatedSessionController::class, 'store'])
-                ->name(RouteNameEnum::AuthLoginStore->value);
+                ->name(RouteNameEnum::AuthLoginStore->value)
+                ->middleware([HandlePrecognitiveRequests::class]);
 
             Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
                 ->name(RouteNameEnum::AuthForgotPasswordCreate->value);
