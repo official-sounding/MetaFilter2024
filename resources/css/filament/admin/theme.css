@@ -1,0 +1,9 @@
+@import '/vendor/filament/filament/resources/css/theme.css';
+
+@import '/resources/sass/modules/_colors.scss';
+@import '/resources/sass/modules/_site-title.scss';
+@import '/resources/sass/modules/_typography.scss';
+
+@import '_metafilter_theme.scss';
+
+@config 'tailwind.config.js';
