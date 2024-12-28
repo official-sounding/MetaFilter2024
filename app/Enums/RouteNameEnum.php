@@ -19,7 +19,7 @@ enum RouteNameEnum: string
     case AuthRegisterStore = 'auth.register.store';
     case AuthVerifyEmail = 'auth.verify-email';
 
-    case AboutIndex = 'metafilter.about.index';
+    case MetaFilterAboutIndex = 'metafilter.about.index';
 
     case AskPopularFavoritesIndex = 'ask.popular-favorites.index';
     case AskPopularPostIndex = 'ask.post.popular.index';
@@ -89,12 +89,13 @@ enum RouteNameEnum: string
 
     case MallHomeIndex = 'mall.home.index';
 
+    case MetaFilterArchivesIndex = 'metafilter.archives.index';
+    case MetaFilterChatIndex = 'metafilter.chat.index';
     case MetaFilterCommentIndex = 'metafilter.comment.index';
     case MetaFilterPostIndex = 'metafilter.post.index';
     case MetaFilterPopularPostIndex = 'metafilter.post.popular.index';
     case MetaFilterPopularFavoritesIndex = 'metafilter.popular-favorites.index';
     case MetaFilterRandomPostShow = 'metafilter.random.show';
-
     case MetaFilterPostShow = 'metafilter.post.show';
     case MetaFilterPostCreate = 'metafilter.post.create';
     case MetaFilterPostStore = 'metafilter.post.store';
@@ -134,8 +135,6 @@ enum RouteNameEnum: string
     case PodcastPostEdit = 'podcast.post.edit';
     case PodcastPostUpdate = 'podcast.post.update';
     case PodcastPostDelete = 'podcast.post.delete';
-
-    case PostArchivesIndex = 'post.archives.index';
 
     case PreferencesEdit = 'preferences.edit';
 
