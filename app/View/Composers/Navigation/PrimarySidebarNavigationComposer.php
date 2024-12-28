@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\View\Composers\Navigation;
 
-use App\Enums\RouteNameEnum;
-use App\Enums\SubsiteEnum;
 use App\Traits\LoggingTrait;
 use App\Traits\NavigationTrait;
 use App\Traits\SubsiteTrait;

@@ -16,15 +16,20 @@ final class UtilityNavigationViewComposer implements ViewComposerInterface
 
     public function compose(View $view): void
     {
-        $navigation = '<ul class="dropdown">';
+        $navigation = '<ul id="utility-navigation-menu">';
 
-        $items = config('metafilter.navigation.utility.auth');
+        $items = auth()->check()
+            ? config('metafilter.navigation.utility.auth')
+            : config('metafilter.navigation.utility.guest');
 
         foreach ($items as $itemData) {
             $navigation .= $this->getNavigationItem($itemData);
         }
 
-        $navigation .= $this->appendLogoutButton();
+        if (auth()->check()) {
+            $navigation .= $this->getNewPostButton();
+            $navigation .= $this->getLogoutButton();
+        }
 
         $navigation .= '</ul>';
 

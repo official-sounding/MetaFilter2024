@@ -14,7 +14,7 @@ final class FooterSubsiteNavigationViewComposer implements ViewComposerInterface
 
     public function compose(View $view): void
     {
-        $navigation = '<ul class="menu-list" id="footer-subsite-menu">';
+        $navigation = '<ul class="footer-subsite-menu">';
 
         $items = $this->getItems();
 

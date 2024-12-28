@@ -14,7 +14,7 @@ final class FooterLinksNavigationViewComposer implements ViewComposerInterface
 
     public function compose(View $view): void
     {
-        $navigation = '<ul class="menu-list two-columns" id="footer-links-navbar-menu">';
+        $navigation = '<ul class="footer-links-menu two-columns">';
 
         $items = config('metafilter.navigation.footer-links');
 

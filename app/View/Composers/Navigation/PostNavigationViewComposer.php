@@ -8,22 +8,23 @@ use App\Traits\NavigationTrait;
 use App\View\Composers\ViewComposerInterface;
 use Illuminate\Contracts\View\View;
 
-final class FooterMemberLinksViewComposer implements ViewComposerInterface
+final class PostNavigationViewComposer implements ViewComposerInterface
 {
     use NavigationTrait;
 
     public function compose(View $view): void
     {
-        $navigation = '<ul class="footer-members-menu">';
+        $navigation = '<ul class="post-navigation-menu">';
 
-        $items = config('metafilter.navigation.footer-member-links');
+        $items = config('metafilter.navigation.post');
 
         foreach ($items as $item) {
             $navigation .= '<li>' . $this->getNavigationItem($item) . '</li>';
         }
 
+        $navigation .= '<li><a href="#">Recent Posts</a></li>';
         $navigation .= '</ul>';
 
-        $view->with('footerMemberLinksNavigation', $navigation);
+        $view->with('postNavigation', $navigation);
     }
 }

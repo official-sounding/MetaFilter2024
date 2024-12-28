@@ -7,27 +7,27 @@ namespace App\View\Composers\Navigation;
 use App\Traits\LoggingTrait;
 use App\Traits\NavigationTrait;
 use App\Traits\SubsiteTrait;
-use App\Traits\UrlTrait;
 use App\View\Composers\ViewComposerInterface;
 use Illuminate\Contracts\View\View;
 
-final class SecondaryNavigationViewComposer implements ViewComposerInterface
+final class SubsiteNavigationViewComposer implements ViewComposerInterface
 {
     use LoggingTrait;
     use NavigationTrait;
     use SubsiteTrait;
-    use UrlTrait;
 
     public function compose(View $view): void
     {
-        $navigation = '<ul>';
-
         $subdomain = $this->getSubdomainFromUrl();
 
-        $items = config("metafilter.navigation.secondary.$subdomain");
+        $path = "metafilter.navigation.subsites.$subdomain";
+
+        $items = config($path);
+
+        $navigation = '<ul class="subsite-navigation-menu">';
 
         if ($items === null) {
-            $this->logError('Secondary navigation items are null.');
+            $this->logError('Subsite navigation items are null.');
         } else {
             foreach ($items as $item) {
                 $navigation .= $this->getNavigationItem($item);
@@ -36,6 +36,6 @@ final class SecondaryNavigationViewComposer implements ViewComposerInterface
 
         $navigation .= '</ul>';
 
-        $view->with('secondaryNavigation', $navigation);
+        $view->with('subsiteNavigation', $navigation);
     }
 }
