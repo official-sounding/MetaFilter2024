@@ -25,7 +25,7 @@ export default defineConfig({
                 'resources/sass/themes/metatalk.scss',
                 'resources/sass/themes/music.scss',
                 'resources/sass/themes/projects.scss',
-//                'resources/css/filament/admin/theme.css',
+                'resources/css/filament/admin/theme.css',
                 'resources/js/app.js',
             ],
             publicDirectory: 'public_html',
