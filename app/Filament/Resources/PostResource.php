@@ -8,6 +8,7 @@ use App\Filament\Resources\PostResource\Pages\CreatePost;
 use App\Filament\Resources\PostResource\Pages\EditPost;
 use App\Filament\Resources\PostResource\Pages\ListPosts;
 use App\Models\Post;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -40,10 +41,10 @@ class PostResource extends Resource
                 Textarea::make('url')
                     ->required()
                     ->columnSpanFull(),
-                Textarea::make('body')
+                RichEditor::make('body')
                     ->required()
                     ->columnSpanFull(),
-                Textarea::make('more_inside')
+                RichEditor::make('more_inside')
                     ->columnSpanFull(),
                 Select::make('subsite_id')
                     ->relationship('subsite', 'name')

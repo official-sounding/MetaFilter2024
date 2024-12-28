@@ -8,7 +8,7 @@ use App\Filament\Resources\PageResource\Pages\CreatePage;
 use App\Filament\Resources\PageResource\Pages\EditPage;
 use App\Filament\Resources\PageResource\Pages\ListPages;
 use App\Models\Page;
-use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -34,7 +34,7 @@ final class PageResource extends Resource
                 TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
-                Textarea::make('contents')
+                RichEditor::make('contents')
                     ->required()
                     ->columnSpanFull(),
             ]);

@@ -8,7 +8,7 @@ use App\Filament\Resources\SnippetResource\Pages\CreateSnippet;
 use App\Filament\Resources\SnippetResource\Pages\EditSnippet;
 use App\Filament\Resources\SnippetResource\Pages\ListSnippets;
 use App\Models\Snippet;
-use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -34,7 +34,7 @@ final class SnippetResource extends Resource
                 TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
-                Textarea::make('contents')
+                RichEditor::make('contents')
                     ->required()
                     ->columnSpanFull(),
             ]);
