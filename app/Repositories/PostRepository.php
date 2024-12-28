@@ -7,7 +7,7 @@ namespace App\Repositories;
 use App\Models\Post;
 use App\Traits\LoggingTrait;
 use App\Traits\SubsiteTrait;
-use Illuminate\Contracts\Pagination\Paginator;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -38,7 +38,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
         parent::__construct($model);
     }
 
-    public function getBySubdomain(): Paginator
+    public function getBySubdomain(): Collection
     {
         // TODO: Add categories
         return $this->model->newQuery()
@@ -51,13 +51,31 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
                 'favorites',
                 'flags',
             ])
-            ->orderBy('posts.created_at', 'desc')
-            ->simplePaginate(self::POSTS_PER_PAGE);
+            ->limit(self::POSTS_PER_PAGE)
+            ->orderBy('posts.created_at', 'desc')->get()
+            ->groupBy(function ($val) {
+                return Carbon::parse($val->created_at)->format('F j');
+            });
     }
 
-    public function getPopularPosts()
+    public function getPopularPosts(): Collection
     {
-        // TODO: get popular posts
+        // TODO: rewrite to get popular posts
+        return $this->model->newQuery()
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
+            ->where('subsites.subdomain', '=', $this->subdomain)
+            ->select(self::COLUMNS)
+            ->withCount([
+                'comments',
+                'favorites',
+                'flags',
+            ])
+            ->limit(self::POSTS_PER_PAGE)
+            ->orderBy('posts.created_at', 'desc')->get()
+            ->groupBy(function ($val) {
+                return Carbon::parse($val->created_at)->format('F j');
+            });
     }
 
     public function getRandomPost(): Post

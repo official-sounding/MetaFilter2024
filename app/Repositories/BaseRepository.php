@@ -66,6 +66,8 @@ class BaseRepository implements BaseRepositoryInterface
 
     public function getBySlug(string $slug): Model
     {
+        \Log::debug('Get by slug: ' . $slug);
+
         return $this->getQuery()->where('slug', '=', $slug)->firstOrFail();
     }
 
