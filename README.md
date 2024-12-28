@@ -1,3 +1,4 @@
+# Read Me
 
 MetaFilter is primarily a collection of blog subsites:
 
@@ -20,7 +21,7 @@ There are also smaller secondary subsites:
 
 The <a href="https://github.com/MetaFilter/MetaFilter2024/blob/main/app/Providers/AppServiceProvider.php">boot function</a> in AppServiceProvider looks up the subsite from the subdomain in the URL and sets the subsite.
 
-The home page of all the primary blog sites is handled by the index function of the PostController. The post controller gets the posts for the subsite from the database and passes them to the view.
+The home page of all the primary blog subsites is handled by the index function of the PostController. The post controller gets the posts for the subsite from the database and passes them to the view.
 
 ## Contributing
 
@@ -28,7 +29,7 @@ Thank you for considering contributing to MetaFilter2024. The contribution guide
 
 ## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://github.com/MetaFilter/MetaFilter2024?tab=coc-ov-file#readme).
 
 ## License
 
