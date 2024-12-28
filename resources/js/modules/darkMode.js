@@ -1,4 +1,6 @@
 
+const HTML = document.querySelector('html');
+
 function toggleDarkMode(eventTarget) {
     const DARK_MODE_TOGGLE = eventTarget;
 
@@ -7,13 +9,13 @@ function toggleDarkMode(eventTarget) {
     const DARK_MODE_ON_CLASS = 'dark-mode-on';
     const DARK_MODE_OFF_CLASS = 'dark-mode-off';
 
-    const body = document.body;
+    const BODY = document.body;
 
     if (DARK_MODE_TOGGLE.getAttribute(ARIA_PRESSED) === 'false') {
         DARK_MODE_TOGGLE.setAttribute(ARIA_PRESSED, 'true');
 
-        if (!body.classList.contains(DARK_MODE_CLASS)) {
-            body.classList.add(DARK_MODE_CLASS);
+        if (!BODY.classList.contains(DARK_MODE_CLASS)) {
+            BODY.classList.add(DARK_MODE_CLASS);
         }
 
         if (!DARK_MODE_TOGGLE.classList.contains(DARK_MODE_OFF_CLASS)) {
@@ -24,8 +26,8 @@ function toggleDarkMode(eventTarget) {
     } else {
         DARK_MODE_TOGGLE.setAttribute(ARIA_PRESSED, 'false');
 
-        if (body.classList.contains(DARK_MODE_CLASS)) {
-            body.classList.remove(DARK_MODE_CLASS);
+        if (BODY.classList.contains(DARK_MODE_CLASS)) {
+            BODY.classList.remove(DARK_MODE_CLASS);
         }
 
         if (DARK_MODE_TOGGLE.classList.contains(DARK_MODE_ON_CLASS)) {
@@ -35,5 +37,6 @@ function toggleDarkMode(eventTarget) {
         DARK_MODE_TOGGLE.classList.add(DARK_MODE_OFF_CLASS);
     }
 }
+
 
 export {toggleDarkMode};

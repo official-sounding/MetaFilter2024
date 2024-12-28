@@ -4,7 +4,6 @@ import Alpine from 'alpinejs';
 import Precognition from 'laravel-precognition-alpine';
 
 import {getExpanded, toggleDropdown} from './modules/toggleDropdowns.js';
-import {toggleDarkMode} from './modules/darkMode.js';
 
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 const globalNavigationToggle = document.getElementById('global-navigation-toggle');
@@ -20,15 +19,16 @@ document.addEventListener('click', event => {
 
     let eventTarget = event.target;
 
-    if (eventTarget === darkModeToggle) {
-        toggleDarkMode(eventTarget);
-    }
 
+/*
     let globalNavigationExpanded = getExpanded(globalNavigationToggle);
     let utilityNavigationExpanded = false;
 
     if (utilityNavigationToggle !== null) {
         utilityNavigationExpanded = getExpanded(utilityNavigationToggle);
+    }
+    if (eventTarget === darkModeToggle) {
+        toggleDarkMode(eventTarget);
     }
 
     do {
@@ -40,7 +40,6 @@ document.addEventListener('click', event => {
         eventTarget = eventTarget.parentNode;
     } while (eventTarget);
 
-
     if (globalNavigationExpanded) {
         toggleDropdown(globalNavigationToggle);
     }
@@ -48,6 +47,7 @@ document.addEventListener('click', event => {
     if (utilityNavigationExpanded) {
         toggleDropdown(utilityNavigationToggle);
     }
+*/
 
-    console.log('Clicked outside!');
+//    console.log('Clicked outside!');
 }, false);
