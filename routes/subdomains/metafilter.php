@@ -37,11 +37,11 @@ Route::middleware('auth')->group(function () {
         ->name(RouteNameEnum::ProfileDelete->value);
 });
 
-Route::get('about', [PageController::class, 'show'])
-    ->name(RouteNameEnum::AboutIndex->value);
+Route::get('about', [PageController::class, 'about'])
+    ->name(RouteNameEnum::MetaFilterAboutIndex->value);
 
-Route::get('archives', [ArchivesController::class, 'index'])
-    ->name(RouteNameEnum::PostArchivesIndex->value);
+Route::get('archives/{year?}/{month?}/{day?}', [ArchivesController::class, 'index'])
+    ->name(RouteNameEnum::MetaFilterArchivesIndex->value);
 
 Route::get('contact', [ContactController::class, 'create'])
     ->name(RouteNameEnum::ContactMessageCreate->value);

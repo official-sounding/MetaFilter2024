@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Enums\RouteNameEnum;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +17,8 @@ $middleware = [
 require __DIR__ . '/auth.php';
 
 // Route::feeds();
+Route::get('chat', [PageController::class, 'show'])
+    ->name(RouteNameEnum::MetaFilterChatIndex->value);
 
 Route::get('search', [SearchController::class, 'create'])
     ->name('search.create');
