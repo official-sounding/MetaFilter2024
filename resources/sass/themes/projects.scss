@@ -5,4 +5,11 @@
     --color: var(--teal);
     --light-color: var(--light-teal);
     --lighter-color: var(--lighter-teal);
+    --lightest-base-color: var(--lightest-teal);
+}
+
+.rss .icon,
+.rss .icon {
+    // Filter for lighter-teal
+    filter: invert(88%) sepia(20%) saturate(169%) hue-rotate(131deg) brightness(84%) contrast(90%);
 }

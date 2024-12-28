@@ -2,14 +2,7 @@
 .site-banner {
     color: var(--black);
     background-color: var(--yellow-green);
-    padding: 0.25rem;
     text-align: center;
-}
-
-.site-banner ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
 }
 
 .site-banner li {
@@ -17,7 +10,7 @@
 }
 
 .site-banner li::after {
-    content: ' || ';
+    content: '||';
 }
 
 .site-banner li:last-child::after {

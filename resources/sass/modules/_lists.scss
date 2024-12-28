@@ -1,5 +1,7 @@
 
 ul.bulleted {
+    margin: 0 0 1rem 1rem;
+    padding: 0;
     list-style: disc;
 }
 
@@ -10,4 +12,18 @@ ul.bulleted {
 
 .inline {
     list-style: none;
+}
+
+.tag-list li,
+.years-ago li {
+    display: inline;
+}
+
+.years-ago {
+    text-align: center;
+}
+
+.years-ago ol {
+    margin: 0 auto 0.15rem auto;
+    width: fit-content;
 }

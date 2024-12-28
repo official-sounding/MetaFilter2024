@@ -1,19 +1,45 @@
 
 button,
-.button {
+.button,
+.site-footer a.button {
     inline-size: fit-content;
     touch-action: manipulation;
     user-select: none;
     padding: 0.5rem 1rem 0.5rem 1rem;
     outline: none;
     border: none;
-    color: var(--white);
-    background-color: #4070f4;
+    color: inherit;
+    height: auto;
+    line-height: 1;
+    background-color: inherit;
     border-radius: 0.33rem;
-    cursor: pointer;w
     transition: 0.3s;
 }
+
+button .primary-button,
+.button.primary-button,
+.site-footer a.button {
+    display: block;
+    color: var(--black);
+    background-color: var(--yellow-green);
+}
+
+button .primary-button:hover,
+.button.primary-button:hover {
+    color: var(--yellow-green);
+    background-color: var(--black);
+    text-decoration: none;
+}
+
+.logout-button {
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    border-radius: 0;
+}
+
 /*
+
 .button.footer-button {
     color: inherit;
     background-color: inherit;
@@ -111,11 +137,5 @@ form .button.icon-search {
     background-color: var(--yellow-green);
 }
 
-.logout-button {
-    border: none;
-    display: inline-block;
-    text-align: left;
-    width: 100%;
-}
 */
 

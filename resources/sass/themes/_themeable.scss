@@ -5,11 +5,63 @@ body {
     background-color: light-dark(var(--white), var(--base-color));
 }
 
-.comments a,
-.comments a:hover,
-.posts a,
-.posts a:hover {
+.dark-mode-toggle,
+.dark-mode-toggle::after {
+    background-color: var(--lighter-base-color);
+}
+
+.dark-mode-toggle::before {
+    background-color: var(--gold);
+}
+
+.dark-mode-toggle:checked::before {
+    background-color: var(--light-gray);
+}
+
+.dark-mode-toggle:checked,
+.dark-mode-toggle:checked::after {
+    background-color: var(--darker-base-color);
+}
+
+//noinspection CssInvalidFunction
+form small {
+    color: light-dark(var(--base-color), var(--lightest-base-color));
     background-color: inherit;
+}
+
+//noinspection CssInvalidFunction
+label {
+    color: light-dark(var(--black), var(--white));
+    background-color: inherit;
+}
+
+//noinspection CssInvalidFunction
+.main-contents a,
+.main-contents a:hover {
+    color: light-dark(var(--blue), var(--yellow-green));
+    background-color: inherit;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="text"],
+input[type="url"],
+select,
+textarea {
+    color: var(--darker-base-color);
+    background-color: var(--lightest-base-color);
+    border: 1px solid var(--darker-base-color);
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+    color: var(--black);
+    background-color: var(--white);
 }
 
 //noinspection CssInvalidFunction
@@ -24,23 +76,122 @@ body {
     color: light-dark(var(--base-color), var(--white));
 }
 
-.global-navigation a {
-    color: var(--white);
-    background-color: var(--base-color);
+.next,
+.previous {
+    border: 1px solid var(--lighter-base-color);
 }
 
-.global-navigation a:hover {
-    color: var(--black);
-    background-color: var(--yellow-green);
+// TODO: Need red colors
+.notification.is-danger {
+    color: #710627;
+    background-color: #fdd8e4;
+    border-color: #710627;
+}
+
+.notification.is-success {
+    background-color: #e5faf3;
+    border-color: #00cc88;
+}
+
+.notification.is-warning {
+    background-color: #fff7bf;
+    border-color: #ff9d00;
+}
+
+//noinspection CssInvalidFunction
+.notification.is-info {
+    color: light-dark(var(--base-color), var(--base-color));
+    background-color: light-dark(var(--lightest-base-color), var(--lightest-base-color));
+    border-color: var(--darker-base-color);
+}
+
+.notification.is-info a:link,
+.notification.is-info a:visited {
+    color: var(--white);
+    background-color: var(--dark-base-color);
+}
+
+.notification.is-info a:active,
+.notification.is-info a:hover {
+    color: var(--dark-base-color);
+    background-color: var(--white);
+}
+
+//noinspection CssInvalidFunction
+.main-sidebar section {
+    color: light-dark(var(--dark-gray), var(--lightest-base-color));
+    background-color: light-dark(var(--lightest-gray), var(--dark-base-color));
+}
+
+//noinspection CssInvalidFunction
+.main-sidebar summary {
+    color: light-dark(var(--dark-gray), var(--white));
+    background-color: light-dark(var(--lighter-gray), var(--darker-base-color));
+}
+
+//noinspection CssInvalidFunction
+.comment a:active,
+.comment a:hover,
+.post a:active,
+.post a:hover {
+    color: light-dark(var(--white), var(--yellow-green));
+    background-color: light-dark(var(--dark-base-color), var(--darker-base-color));
+}
+
+//noinspection CssInvalidFunction
+.post-footer,
+.post-navigation,
+.post-navigation-menu a:link,
+.post-navigation-menu a:visited {
+    color: light-dark(var(--base-color), var(--yellow-green));
+    background-color: light-dark(var(--lightest-gray), var(--dark-base-color));
+}
+
+//noinspection CssInvalidFunction
+.post-navigation-menu a:active,
+.post-navigation-menu a:hover {
+    color: light-dark(var(--base-color), var(--dark-base-color));
+    background-color: light-dark(var(--white), var(--yellow-green));
+}
+
+//noinspection CssInvalidFunction
+.post-navigation-menu a[aria-current='page'] {
+    color: light-dark(var(--white), var(--yellow-green));
+    background-color: light-dark(var(--base-color), var(--darker-base-color));
+}
+
+//noinspection CssInvalidFunction
+.post-navigation-menu a[aria-current='page']::after {
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: light-dark(var(--base-color), var(--base-color));
+}
+
+.profile h2 {
+    border-bottom-color: var(--lighter-base-color);
+}
+
+//noinspection CssInvalidFunction
+.striped tbody tr:nth-child(even) {
+    color: light-dark(var(--base-color), var(--white));
+    background-color: light-dark(var(--white), var(--base-color));
+}
+
+//noinspection CssInvalidFunction
+.striped tbody tr:nth-child(even) {
+    color: light-dark(var(--base-color), var(--white));
+    background-color: light-dark(var(--white), var(--base-color));
 }
 
 .subsite-navigation,
-.subsite-navigation-menu a {
+.subsite-navigation-menu a:link,
+.subsite-navigation-menu a:visited {
     color: var(--base-color);
     background-color: var(--lighter-base-color);
 }
 
 //noinspection CssInvalidFunction
+.subsite-navigation-menu a:active,
 .subsite-navigation-menu a:hover {
     color: light-dark(var(--base-color), var(--white));
     background-color: light-dark(var(--white), var(--base-color));
@@ -53,6 +204,7 @@ body {
 }
 
 //noinspection CssInvalidFunction
+.subsite-navigation-menu a[aria-current='page']:active,
 .subsite-navigation-menu a[aria-current='page']:hover {
     color: light-dark(var(--base-color), var(--white));
     background-color: light-dark(var(--white), var(--base-color));
@@ -61,4 +213,18 @@ body {
 .tagline {
     color: var(--lighter-base-color);
     background-color: inherit;
+}
+
+//noinspection CssInvalidFunction
+.years-ago a:link,
+.years-ago a:visited {
+    color: light-dark(var(--base-color), var(--white));
+    background-color: light-dark(var(--white), var(--base-color));
+}
+
+//noinspection CssInvalidFunction
+.years-ago a:active,
+.years-ago a:hover {
+    color: light-dark(var(--white), var(--base-color));
+    background-color: light-dark(var(--base-color), var(--white));
 }

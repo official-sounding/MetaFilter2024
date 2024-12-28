@@ -5,4 +5,11 @@
     --color: var(--music-black);
     --light-color: var(--light-music-black);
     --lighter-color: var(--lighter-music-black);
+    --lightest-base-color: var(--lightest-music-black);
+}
+
+.rss .icon,
+.rss .icon {
+    // Filter for lighter-music-black
+    filter: invert(93%) sepia(0%) saturate(116%) hue-rotate(205deg) brightness(80%) contrast(76%);
 }

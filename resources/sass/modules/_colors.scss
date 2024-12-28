@@ -2,6 +2,7 @@
     // Global colors
     --black: #333;
     --white: #fff;
+    --gold: #ffd400;
     --neutral-gray: #f2f2f2;
     --yellow-green: #9bc654;
     --is-danger: #710627;
@@ -39,7 +40,6 @@
     --light-brown: #8b7054;
     --lighter-brown: #c9b8a6;
     --lightest-brown: #dcd1c6;
-    color-scheme: light dark;
 
     // MetaFilter
     --darker-blue: #033d63;
@@ -73,20 +73,10 @@
     --lighter-teal: #acc2c2;
     --lightest-teal: #c9d8d8;
 
-    --dark-mode-border-color: #3f4450;
-    --light-mode-border-color: #e0e2e2;
-
     --darker-base-color: var(--darker-blue);
     --dark-base-color: var(--dark-blue);
     --base-color: var(--blue);
     --light-base-color: var(--light-blue);
     --lighter-base-color: var(--lighter-blue);
-}
-
-.black {
-    color: var(--black);
-}
-
-.white {
-    color: var(--white);
+    --lightest-base-color: var(--lightest-blue);
 }

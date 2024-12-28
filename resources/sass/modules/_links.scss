@@ -31,24 +31,47 @@ a:not([class]) {
 }
 
 .global-navigation a,
-.primary-navigation a,
 .utility-navigation a {
     padding: 0.625rem;
 }
 
-.primary-navigation a {
-    display: inline-flex;
-    text-align: center;
+.notification a {
+    border-radius: 4px;
+    padding: 0 0.25rem 0 0.25rem;
 }
 
-.secondary-navigation a {
-    display: inherit;
-    padding: 0.25rem 0.875rem 0.25rem 0.875rem;
+.post-navigation-menu a {
+    display: inline-block;
+    height: 2rem;
+    padding: 0.5rem;
+}
+
+.post-navigation-menu a[aria-current='page']::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin: 0 0 -8px -8px;
+    border-width: 8px 8px 0 8px;
+    border-style: solid solid none solid;
+    border-top: 8px solid var(--lightest-gray);
+}
+
+.site-banner a {
+    display: inline-block;
+    padding: 0.25rem;
 }
 
 .subsite-navigation-menu a {
     display: block;
-    padding: 0.25rem;
+    padding: 0.5rem;
+}
+
+.years-ago a:link,
+.years-ago a:visited {
+    display: inline-block;
+    margin: 0;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
 }
 
 @include breakpoints.phone-only() {
@@ -65,8 +88,6 @@ a:not([class]) {
 
 button:focus,
 .global-navigation a:focus,
-.primary-navigation a:focus,
-.secondary-navigation a:focus,
 .utility-navigation a:focus {
     outline: max(1px, 0.1em) dashed currentColor;
     outline-offset: -0.25em;
@@ -84,6 +105,6 @@ button:focus,
     width: fit-content;
 }
 
-.site-footer ul.has-rss a {
+.site-footer .footer-subsite-menu a {
     display: inline-block;
 }

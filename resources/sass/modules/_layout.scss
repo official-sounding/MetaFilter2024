@@ -5,16 +5,139 @@
 }
 
 body {
-    min-height: 100vh;
-    padding: 0;
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
+}
+
+.container {
+    width: 90%;
+    max-width: 1170px;
+    margin: 0 auto 0 auto;
 }
 
 .fine-print {
     padding: 0.5rem 0 0.5rem 0;
     text-align: center;
 }
+
+.global-footer {
+    padding: 2rem 0 2rem 0;
+}
+
+.global-footer h3 {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-bottom: 0.25rem;
+    padding-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.global-header .container {
+    justify-content: space-between;
+}
+
+.level {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main-sidebar {
+    margin: 0 0 3rem 0;
+}
+
+.main-sidebar section {
+    margin: 0 0 1rem 0;
+}
+
+.main-sidebar details {
+    position: relative;
+    padding: 3rem 1.5rem 1rem 1.5rem;
+}
+/*
+// TODO: Figure out minimizing when closed
+.main-sidebar details[open] {
+    padding: 0;
+}
+*/
+
+.main-sidebar summary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.main-sidebar summary h3 {
+    line-height: 1;
+}
+
+.profile section {
+    width: 33%;
+}
+
+.site-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.tagline {
+    display: none;
+}
+
+//noinspection SassScssResolvedByNameOnly
+@include breakpoints.tablet-portrait-up() {
+    .global-footer .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    #global-navigation-toggle,
+    .responsive-br,
+    .site-header .dropdown-toggle {
+        display: none;
+    }
+
+    .main-contents-wrapper {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        gap: 4rem;
+    }
+
+    .main-contents {
+        width: 75%;
+    }
+
+    .main-sidebar {
+        width: 25%;
+    }
+
+    .global-header {
+        order: 2;
+    }
+
+    .global-navigation {
+        order: 3;
+    }
+
+    .site-banner {
+        order: 1;
+    }
+
+    .subsite-navigation {
+        order: 4;
+    }
+
+    .tagline {
+        display: block;
+    }
+}
+
+/*
 
 .level {
     display: flex;
@@ -26,39 +149,17 @@ body {
     background-color: var(--white);
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto 0 auto;
-}
-
-.primary-sidebar {
-    padding: var(--global-spacing) var(--global-spacing) 0 0;
-}
-
-.secondary-sidebar {
-    padding: var(--global-spacing) 0 0 var(--global-spacing);
-}
 
 .global-header {
     display: flex;
     flex-direction: column;
 }
 
-.tagline {
-    display: none;
+.sidebar {
+    padding: var(--global-spacing);
 }
-//noinspection SassScssResolvedByNameOnly
-@include breakpoints.tablet-portrait-up() {
-    .tagline {
-        display: block;
-    }
 
-    .site-banner {
-        order: 1;
-    }
-
-    .site-header {
-        order: 2;
-    }
+.subsite-header {
+    margin: 0 0 1.5rem 0;
 }
+*/

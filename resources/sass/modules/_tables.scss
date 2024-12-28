@@ -2,3 +2,13 @@
 tbody th {
     text-align: left;
 }
+
+.contributions thead th,
+.contributions tbody td {
+    text-align: center;
+}
+
+.contributions tbody th,
+.contributions thead th:first-of-type {
+    text-align: left;
+}

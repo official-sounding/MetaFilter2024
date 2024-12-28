@@ -16,13 +16,22 @@ input:focus::placeholder {
 
 // Classes
 
-.fine-print {
-    color: var(--white);
-}
-
+.fine-print,
+.global-navigation,
 .global-navigation a:link,
 .global-navigation a:visited {
     color: var(--white);
+    background-color: var(--light-base-color);
+}
+
+.global-footer h3 {
+    color: var(--lightest-base-color);
+    background-color: inherit;
+}
+
+.global-header{
+    color: var(--white);
+    background-color: var(--base-color);
 }
 
 .global-navigation a[aria-current='page']:link,
@@ -37,21 +46,28 @@ input:focus::placeholder {
     background-color: var(--yellow-green);
 }
 
+.dropdown-toggle:hover,
+.global-navigation a:active,
+.global-navigation a:hover,
+.global-navigation a[aria-current='page']:active,
+.global-navigation a[aria-current='page']:hover,
+.global-navigation .dropdown-menu a:active,
+.global-navigation .dropdown-menu a:hover,
+.logout-button:hover,
+.site-banner a:hover,
+.utility-navigation a:active,
+.utility-navigation a:hover {
+    color: var(--yellow-green);
+    background-color: var(--black);
+}
+
 .global-navigation a[aria-current='page']:active,
 .global-navigation a[aria-current='page']:hover {
     outline-offset: -0.25rem;
 }
 
-.dropdown-toggle:hover,
-.global-navigation a:active,
-.global-navigation a:hover,
-.global-navigation .dropdown-menu a:active,
-.global-navigation .dropdown-menu a:hover,
-.logout-button:hover,
-.utility-navigation a:active,
-.utility-navigation a:hover {
-    color: var(--yellow-green);
-    background-color: var(--black);
+.global-footer h3 {
+    border-bottom-color: var(--light-base-color);
 }
 
 .dropdown-toggle {
@@ -72,33 +88,6 @@ input[type='search']:focus {
     background-color: var(--white);
 }
 
-.main-contents a:link,
-.main-contents a:visited {
-    // TODO: Move to CSS variable
-    color: #005b95;
-    background-color: inherit;
-}
-
-.main-contents a:hover {
-    text-decoration: underline;
-}
-
-.dark-mode .main-contents a:link,
-.dark-mode .main-contents a:visited {
-    // TODO: Move to CSS variable
-    color: #9cc754;
-}
-
-.dark-mode .primary-navigation a[aria-current='page']:link,
-.primary-navigation a[aria-current='page']:visited {
-    color: var(--white);
-}
-
-.secondary-navigation a:link,
-.secondary-navigation a:visited {
-    position: relative;
-}
-
 ::selection {
     color: var(--yellow-green);
     background: var(--blue);
@@ -111,6 +100,8 @@ input[type='search']:focus {
 
 .site-footer {
     color: var(--white);
+    background-color: var(--dark-base-color);
+    border-top: 5px solid var(--light-base-color);
 }
 
 .site-footer a {
@@ -127,12 +118,6 @@ input[type='search']:focus {
 .site-footer .rss {
     background-color: transparent;
     margin-right: 0.25rem;
-}
-
-.site-footer .rss:hover {
-    color: var(--rss-orange);
-    background-color: transparent;
-    text-decoration: none;
 }
 
 .site-header {
@@ -153,21 +138,22 @@ input[type='search']:focus {
     color: #fff;
 }
 
+.logout-button:active .icon,
+.logout-button:hover .icon,
+.utility-navigation a:active .icon,
+.utility-navigation a:hover .icon {
+    // Filter for yellow-green
+    // https://csscolorize.com/
+    filter: invert(67%) sepia(59%) saturate(368%) hue-rotate(41deg) brightness(97%) contrast(89%);
+}
+
+.rss:active .icon,
+.rss:hover .icon {
+    // Filter for rss-orange
+    filter: invert(63%) sepia(82%) saturate(2553%) hue-rotate(345deg) brightness(91%) contrast(103%);
+}
+
 ::placeholder {
     // TODO: Pick color
     color: #767676;
-}
-
-// Dark mode
-
-.dark-mode .main-contents {
-    background-color: inherit;
-}
-
-.dark-mode .main-contents,
-.dark-mode .primary-navigation a[aria-current='page']:link,
-.primary-navigation a[aria-current='page']:visited,
-.dark-mode .secondary-navigation a:active,
-.dark-mode .secondary-navigation a:hover {
-    color: var(--white);
 }

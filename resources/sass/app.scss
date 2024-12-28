@@ -17,21 +17,22 @@
 @use 'modules/links';
 @use 'modules/lists';
 @use 'modules/navigation';
+@use 'modules/notifications';
+@use 'modules/posts';
+@use 'modules/previous-next';
+@use 'modules/profile';
 @use 'modules/responsive';
+@use 'modules/sidebar';
 @use 'modules/site-banner';
 @use 'modules/site-title';
 @use 'modules/tables';
+@use 'modules/tabs';
+@use 'modules/theme-switcher';
+@use 'modules/toast';
 @use 'modules/typography';
 @use 'modules/usability';
 
 /*
-@use 'modules/notifications';
-@use 'modules/posts';
-@use 'modules/previous-next';
-@use 'modules/sidebar';
 @use 'modules/site-footer';
 @use 'modules/site-header';
-@use 'modules/tabs';
-@use 'modules/toast';
-@use 'modules/theme-switcher';
 */
