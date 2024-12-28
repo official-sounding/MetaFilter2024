@@ -1,5 +1,5 @@
 {
-    "name": "metafilter/metafilter-docs",
+    "name": "metafilter/docs",
     "description": "A LaRecipe theme.",
     "keywords": [
         "laravel",
@@ -11,13 +11,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Metafilter\\MetafilterDocs\\": "src/"
+            "Metafilter\\Docs\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Metafilter\\MetafilterDocs\\ThemeServiceProvider"
+                "Metafilter\\Docs\\ThemeServiceProvider"
             ]
         }
     },
