@@ -1,8 +1,8 @@
 <div class="flag">
     @if ($flagged === true)
-        <img src="{{ asset($iconPath) }}"
-             class="icon"
-             alt="">
+        <span class="icon">
+            <img src="{{ asset($iconPath) }}" alt="">
+        </span>
         [Flagged]
     @endif
 
@@ -23,12 +23,14 @@
                 @endif
             @endauth
         >
-            <img
-                src="{{ asset($iconPath) }}"
-                class="icon"
-                alt="">
-            @if ($flags > 0)
+            <span class="icon">
+                <img src="{{ asset($iconPath) }}" alt="">
+            </span>
+
+            @if ($flags > 1)
                 {{ __('Flags') }} ({{ $flags }})
+            @elseif ($flags === 1)
+                {{ __('Flags') }} (1)
             @else
                 {{ __('Flags') }} (0)
             @endif

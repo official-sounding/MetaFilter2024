@@ -1,6 +1,6 @@
-@include('layouts.partials.fund-mefi')
+@include('layouts.partials.help-fund-mefi')
 
-<a href="{{ session('fundingIndexRoute') }}" class="fund-metafilter">
+<a href="{{ $fundingIndexRoute }}">
     {{-- TODO: Get number of supporters from view composer --}}
     <small>Join 8,206 supporters in helping fund MetaFilter</small>
 </a>

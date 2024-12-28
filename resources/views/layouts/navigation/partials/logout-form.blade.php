@@ -3,7 +3,9 @@
     class="logout-form"
     showRequiredFieldsNote="false">
     <button type="submit" class="logout-button">
-        <img src="{{ asset('images/icons/box-arrow-right.svg') }}" class="icon" alt="">
+        <span class="icon">
+            <img src="{{ asset('images/icons/box-arrow-right.svg') }}" alt="">
+        </span>
         {{ __('Log Out') }}
     </button>
 </x-forms.form>

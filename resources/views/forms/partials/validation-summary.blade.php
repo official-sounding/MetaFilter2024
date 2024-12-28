@@ -3,7 +3,8 @@
         <p>
             Sorry, there @if ($errors->count() > 1) are some issues @else is an issue @endif with your form.
         </p>
-        <ul>
+
+        <ul class="bulleted">
             @foreach ($errors->all() as $error)
                 <li>
                     {{ $error }}

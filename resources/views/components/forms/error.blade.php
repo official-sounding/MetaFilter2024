@@ -3,5 +3,5 @@
 ])
 
 @error($name)
-    <p>{{ $message }}</p>
+    <small class="text-danger error">{{ $message }}</small>
 @enderror

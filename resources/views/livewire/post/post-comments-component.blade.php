@@ -9,14 +9,13 @@
                     'favoritesCount' => $comment->favorites()->count(),
                     'flagsCount' => $comment->flags()->count(),
                     'flagReasons' => $flagReasons,
-                    'type' => 'comment'
                 ])
             </article>
         @endforeach
     @else
         <div class="notification is-info">
             <p>
-                No comments
+                {{ __('No comments') }}
             </p>
         </div>
     @endif

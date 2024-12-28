@@ -1,7 +1,3 @@
 <nav class="utility-navigation" id="utility-navigation">
-    @auth
-        {!! $utilityNavigation ?? 'Utility navigation unavailable' !!}
-    @endauth
-    @guest
-    @endguest
+    {!! $utilityNavigation ?? 'Utility navigation unavailable' !!}
 </nav>

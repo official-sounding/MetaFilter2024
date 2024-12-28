@@ -9,9 +9,9 @@
         ])
     @endguest
 
-    @if (count($posts) > 0)
+    @if (count($datePosts) > 0)
         @include('posts.partials.index-list', [
-            'posts' => $posts
+            'dayPosts' => $datePosts
         ])
     @else
         @include('notifications.none-listed', [

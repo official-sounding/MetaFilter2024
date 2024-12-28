@@ -1,3 +1,3 @@
-<a href="">
+<a href="{{ route($contactFormRoute) }}">
     Contact Us
 </a>

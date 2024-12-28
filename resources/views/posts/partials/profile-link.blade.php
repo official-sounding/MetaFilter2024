@@ -1,6 +1,4 @@
-<a href="{{ session('profileShowRoute', ['user' => $userId]) }}"
-   class="button footer-button"
+<a href="{{ route($profileShowRoute, ['user' => $userId]) }}"
    title="View {{ $username }}'s profile">
-    <img src="{{ asset("images/icons/$iconFilename") }}" class="icon" alt="">
     {{ $username }}
 </a>

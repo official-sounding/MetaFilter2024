@@ -2,30 +2,39 @@
 <html lang="{{ app()->getLocale() }}" data-theme="light">
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>@include('layouts.partials.window-title')</title>
+    <title>@include('layouts.partials.window-title')</title>
 
-@include('layouts.partials.styles')
+    @include('layouts.partials.styles')
 
 </head>
 <body class="guest">
 
 @include('layouts.partials.set-theme')
 @include('layouts.partials.skip-navigation')
-@include('layouts.partials.site-header')
 
-<div class="container wrapper">
+<header class="site-header">
+    @include('layouts.partials.global-header')
+    @include('layouts.partials.site-banner')
+    @include('layouts.navigation.global-navigation')
+    @include('layouts.navigation.subsite-navigation')
+</header>
+
+<div class="container main-contents-wrapper">
     <main class="main-contents" id="main-contents">
         <h1>{!! $title !!}</h1>
-
         @include('layouts.partials.flash-messages')
         @yield('contents')
     </main>
 </div>
 
-@include('layouts.partials.site-footer')
+<footer class="site-footer" id="site-footer">
+    @include('layouts.partials.global-footer')
+    @include('layouts.partials.fine-print')
+</footer>
+
 @include('layouts.partials.scripts')
 
 </body>

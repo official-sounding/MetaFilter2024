@@ -1,39 +1,20 @@
-@php
-    $currentDate = $posts->first()->created_at->format('F j');
-@endphp
+@foreach ($dayPosts as $date => $posts)
+    <h2>{{ $date }}</h2>
 
-@foreach ($posts as $post)
-{{--
-    @if ($loop->first)
-        <h2>{{ $currentDate }}</h2>
-    @endif
+    @foreach ($posts as $post)
+        <article class="post" wire:key="post-{{ $post->id }}">
+            @include('posts.partials.post-header', [
+            ])
 
-    @if ($currentDate !== $post->created_at->format('F j, Y'))
-        <h2>{{ $currentDate }}</h2>
-    @endif
---}}
+            {{ $post->body }}
 
-    <article class="post" wire:key="post-{{ $post->id }}">
-        <header>
-            <h3>
-                <a href="{{ route("$subdomain.post.show", [
-                    'post' => $post,
-                    'slug' => $post->slug
-                ]) }}">
-                    {{ $post->title }}
-                </a>
-            </h3>
-        </header>
-
-        {{ $post->body }}
-
-        @include('posts.partials.post-footer', [
-            'userId' => $post->user_id,
-            'username' => $post->username,
-            'commentsCount' => $post->comments_count,
-            'favoritesCount' => $post->favorites_count,
-            'flagsCount' => $post->flags_count,
-            'showFlags' => false
-        ])
-    </article>
+            @include('posts.partials.post-index-footer', [
+                'userId' => $post->user_id,
+                'username' => $post->username,
+                'commentsCount' => $post->comments_count,
+                'favoritesCount' => $post->favorites_count,
+                'flagsCount' => $post->flags_count,
+            ])
+        </article>
+    @endforeach
 @endforeach

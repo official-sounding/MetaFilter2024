@@ -15,30 +15,30 @@
         label="{{ __('Password') }}"/>
 
     <x-forms.field>
-        <button type="submit">
+        <button type="submit" class="button primary-button">
             {{ __('Log In') }}
         </button>
     </x-forms.field>
 
-    <div>
+    <p>
         {!! __('Don&rsquo;t have an account?') !!}
-        <a href="{{ session('registerCreateRoute') }}">
+        <a href="{{ route($registerCreateRoute) }}">
             <strong>
                 {{ __('Sign up here') }}
             </strong>
         </a>
-    </div>
+    </p>
 
-    <div>
-        <a href="{{ session('forgotPasswordRoute') }}">
+    <p>
+        <a href="{{ route($forgotPasswordRoute) }}">
             {{ __('Forgot your password?') }}
         </a>
-    </div>
+    </p>
 
-    <div>
+    <p>
         {{ __('Need help?') }}
-        <a href="{{ session('contactFormRoute') }}">
+        <a href="{{ route($contactFormRoute) }}">
             {{ __('Contact the admins.') }}
         </a>
-    </div>
+    </p>
 </form>
