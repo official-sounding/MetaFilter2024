@@ -19,11 +19,11 @@ final class PopularPostController extends BaseController
 
     public function index(): View
     {
-        $posts = [];
+        $datePosts = $this->postRepository->getPopularPosts();
 
         return view('posts.index', [
             'title' => 'Popular Posts',
-            'posts' => $posts,
+            'datePosts' => $datePosts,
         ]);
     }
 }

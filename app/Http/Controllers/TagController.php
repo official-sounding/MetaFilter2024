@@ -18,13 +18,16 @@ final class TagController extends BaseController
 
     public function index(): View
     {
-        return view('tags.index');
+        return view('tags.index', [
+            'title' => 'Tags',
+        ]);
     }
 
     public function show(Tag $tag): View
     {
         return view('tags.show', [
-            'page' => compact($tag),
+            'title' => $tag->name,
+            'tag' => compact($tag),
         ]);
     }
 }

@@ -37,6 +37,8 @@ final class AuthenticatedSessionController extends BaseAuthController
 
         $request->session()->regenerateToken();
 
+        Auth::logout();
+
         return redirect(route(parent::REDIRECT_TO_ROUTE_NAME, absolute: false));
     }
 }

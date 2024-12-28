@@ -24,4 +24,9 @@ final class PageController extends BaseController
             'title' => $page->title,
         ]);
     }
+
+    public function about(): View
+    {
+        return $this->show();
+    }
 }

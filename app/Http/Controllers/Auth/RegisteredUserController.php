@@ -23,7 +23,7 @@ final class RegisteredUserController extends BaseAuthController
     public function create(): View
     {
         return view('auth.register', [
-            'title' => __('Register'),
+            'title' => __('Sign Up'),
         ]);
     }
 

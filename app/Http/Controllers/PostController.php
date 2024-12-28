@@ -31,11 +31,12 @@ final class PostController extends BaseController
 
     public function index(): View
     {
-        $posts = $this->postRepository->getBySubdomain();
+        $datePosts = $this->postRepository->getBySubdomain();
 
         return view('posts.index', [
             'title' => 'Posts',
-            'posts' => $posts,
+            'datePosts' => $datePosts,
+            'showPostNavigation' => true,
         ]);
     }
 
@@ -52,6 +53,7 @@ final class PostController extends BaseController
             'username' => $post->user->username,
             'useWysiwyg' => true,
             'flagReasons' => $this->flagReasons,
+            'isArchived' => $this->isArchived($post),
             'iconFilename' => $this->getUserIcon($post->user->id),
             'canonicalUrl' => $this->getCanonicalUrl($post),
         ]);
