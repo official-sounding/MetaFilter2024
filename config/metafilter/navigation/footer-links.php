@@ -27,7 +27,7 @@ return [
     ],
     [
         'name' => 'About',
-        'route' => RouteNameEnum::AboutIndex->value,
+        'route' => RouteNameEnum::MetaFilterAboutIndex->value,
     ],
     [
         'name' => 'Archives',

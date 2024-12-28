@@ -16,11 +16,11 @@ return [
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::AboutIndex->value,
+            'route' => RouteNameEnum::MetaFilterAboutIndex->value,
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::PostArchivesIndex->value,
+            'route' => RouteNameEnum::MetaFilterArchivesIndex->value,
         ],
         [
             'name' => 'Tags',

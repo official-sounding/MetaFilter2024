@@ -11,28 +11,28 @@ return [
             'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
+            'name' => 'FAQ',
+            'route' => RouteNameEnum::FaqIndex->value,
+        ],
+        [
             'name' => 'About',
-            'route' => RouteNameEnum::AboutIndex->value,
+            'route' => RouteNameEnum::MetaFilterAboutIndex->value,
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::PostArchivesIndex->value,
+            'route' => RouteNameEnum::MetaFilterArchivesIndex->value,
         ],
         [
             'name' => 'Tags',
             'route' => RouteNameEnum::TagsIndex->value,
         ],
         [
-            'name' => 'Home',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'name' => 'Popular',
+            'route' => RouteNameEnum::MetaFilterPopularPostIndex->value,
         ],
         [
-            'name' => 'About',
-            'route' => RouteNameEnum::AboutIndex->value,
-        ],
-        [
-            'name' => 'Archives',
-            'route' => RouteNameEnum::PostArchivesIndex->value,
+            'name' => 'Random',
+            'route' => RouteNameEnum::MetaFilterRandomPostShow->value,
         ],
     ],
     'ask' => [

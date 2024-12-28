@@ -79,7 +79,7 @@ return [
     */
 
     'cache' => [
-        'enabled' => false,
+        'enabled' => true,
         'period' => 5,
     ],
 
@@ -123,9 +123,9 @@ return [
     */
 
     'ui' => [
-        'code_theme' => 'dark', // or: light
+        'code_theme' => 'light', // or: light
         'fav' => '',     // eg: fav.png
-        'fa_v4_shims' => true, // Add FontAwesome v4 shims prevent BC break
+        'fa_v4_shims' => false, // Add FontAwesome v4 shims prevent BC break
         'show_side_bar' => true,
         'colors' => [
             'primary' => '#787AF6',
@@ -178,7 +178,7 @@ return [
         'default' => 'disqus',
         'services' => [
             'disqus' => [
-                'site_name' => '', // yoursite.disqus.com
+                'site_name' => '',
             ],
         ],
     ],

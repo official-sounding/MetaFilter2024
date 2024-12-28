@@ -24,7 +24,11 @@ return [
         [
             'name' => 'Favorites',
             'route' => RouteNameEnum::FavoritesIndex->value,
-            'icon' => 'heart-fill',
+        ],
+        [
+            'name' => 'Recent Activity',
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'icon' => 'clock',
         ],
     ],
     'guest' => [
@@ -34,9 +38,9 @@ return [
             'icon' => 'box-arrow-in-right',
         ],
         [
-            'name' => 'Register',
+            'name' => 'Sign Up',
             'route' => RouteNameEnum::AuthRegisterCreate->value,
-            'icon' => 'box-arrow-in-right',
+            'icon' => 'person-plus-fill',
         ],
     ],
 ];
