@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Enums\RouteNameEnum;
 use Throwable;
 
 trait NavigationTrait
@@ -23,7 +24,10 @@ trait NavigationTrait
                 $item .= $this->getRssLink($itemData);
             }
 
-            if ($itemData['route'] === session('preferencesEditRoute') || $itemData['route'] === session('profileShowRoute')) {
+            if (
+                $itemData['route'] === RouteNameEnum::PreferencesEdit->value ||
+                $itemData['route'] === RouteNameEnum::ProfileShow->value
+            ) {
                 if (auth()->user()) {
                     $item .= '<a href="' . route($itemData['route'], [
                         'user' => auth()->user(),
@@ -42,7 +46,7 @@ trait NavigationTrait
             if (isset($itemData['icon'])) {
                 $source = '/images/icons/' . $itemData['icon'] . '.svg';
 
-                $item .= '<img src="' . $source . '" class="icon ' . $itemData['icon'] . '" alt="">';
+                $item .= '<span class="icon"><img src="' . $source . '" alt=""></span>';
             }
 
             $item .= $itemData['name'] ?? $itemData['nickname'] ?? $itemData['text'];
@@ -53,10 +57,14 @@ trait NavigationTrait
         return $item;
     }
 
-    public function appendLogoutButton(): string
+    public function getLogoutButton(): string
     {
         try {
-            return view('layouts.navigation.partials.logout-form')->render();
+            $item = '<li>';
+            $item .= view('layouts.navigation.partials.logout-form')->render();
+            $item .= '</li>';
+
+            return $item;
         } catch (Throwable $exception) {
             $this->logError($exception);
 
@@ -64,14 +72,24 @@ trait NavigationTrait
         }
     }
 
+    public function getNewPostButton(): string
+    {
+        $itemData = [
+            'route' => RouteNameEnum::MetaFilterPostCreate->value,
+            'icon' => 'plus',
+            'name' => 'New Post',
+        ];
+
+        return $this->getNavigationItem($itemData);
+    }
+
     private function getRssLink(array $itemData): string
     {
         $rssUrl = $this->getRssUrl($itemData['subdomain']);
         $rssTitle = $itemData['name'] . ' RSS feed';
 
-        $rssLink = '<a href="' . $rssUrl . '" title="' . $rssTitle . '">';
-        $rssLink .= '<img src="' . asset('images/icons/rss-fill.svg') . '" class="icon rss" alt="">
-';
+        $rssLink = '<a href="' . $rssUrl . '" class="rss" title="' . $rssTitle . '">';
+        $rssLink .= '<span class="icon"><img src="' . asset('images/icons/rss-fill.svg') . '" alt=""></span>';
         $rssLink .= '<span class="visually-hidden">' . $rssTitle . '</span>';
         $rssLink .= '</a>';
 

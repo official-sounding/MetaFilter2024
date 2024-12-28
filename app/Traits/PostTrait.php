@@ -11,9 +11,10 @@ trait PostTrait
 {
     use UrlTrait;
 
-    public function isArchived(Post $post): bool
+    public function isArchived(Post $post, int $days = 30): bool
     {
-        $archiveDate = now()->subDays(30);
+        $archiveDate = now()->subDays($days);
+
         $postDate = $post->created_at;
 
         return $postDate <= $archiveDate;

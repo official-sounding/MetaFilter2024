@@ -6,6 +6,14 @@ namespace App\Traits;
 
 trait UrlTrait
 {
+    public function getDateUrl(int $targetYear): string
+    {
+        $url = '/' . date('Y') - $targetYear;
+        $url .= date('/m/d/');
+
+        return $url;
+    }
+
     public function getSubdomainFromUrl(): string
     {
         $currentUrl = url()->current();
