@@ -14,6 +14,7 @@
         "filament/filament": "^3.2",
         "filament/spatie-laravel-tags-plugin": "^3.2",
         "laravel/cashier": "^15.4",
+        "laravel/fortify": "^1.25",
         "laravel/framework": "^11.9",
         "laravel/horizon": "^5.0",
         "laravel/passport": "^12.0",
@@ -47,11 +48,11 @@
         "barryvdh/laravel-debugbar": "^3.13",
         "dragon-code/pretty-routes": "^3.4",
         "fakerphp/faker": "^1.23",
-        "laravel/breeze": "^2.1",
         "laravel/dusk": "^8.2",
         "laravel/homestead": "^15.0",
         "laravel/pint": "^1.16",
         "laravel/sail": "^1.26",
+        "metafilter/docs": "dev-main",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
         "pestphp/pest": "^3.0",
@@ -106,7 +107,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "./larecipe-components/MetafilterDocs"
+            "url": "./larecipe-components/Docs"
         }
     ]
 }
