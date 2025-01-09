@@ -47,6 +47,10 @@ body {
     align-items: center;
 }
 
+.minimal .main-contents {
+    flex: 1;
+}
+
 .main-contents-wrapper {
     padding: 0 0 3rem 0;
 }
@@ -126,6 +130,15 @@ body {
 
     .main-contents {
         width: 75%;
+    }
+
+    .minimal .main-contents {
+        width: 50%;
+        margin: 3rem auto 3rem auto;
+    }
+
+    .minimal .site-header .container {
+        padding: 1rem 0 0 0;
     }
 
     .main-sidebar {
