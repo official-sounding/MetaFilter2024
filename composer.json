@@ -48,6 +48,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",
+        "deployer/deployer": "^7.5",
         "dragon-code/pretty-routes": "^3.4",
         "fakerphp/faker": "^1.23",
         "laravel/dusk": "^8.2",
