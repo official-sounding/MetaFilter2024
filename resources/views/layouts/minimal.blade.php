@@ -10,16 +10,24 @@
 @include('layouts.partials.styles')
 
 </head>
-<body>
+<body class="minimal">
 
 @include('layouts.partials.set-theme')
 
-<div class="wrapper container">
-    <main class="main-contents " id="main-contents">
-        @include('layouts.partials.flash-messages')
-        @yield('contents')
-    </main>
-</div>
+<header class="site-header">
+    <div class="container">
+        @include('layouts.partials.site-title')
+    </div>
+</header>
+
+<main class="main-contents" id="main-contents">
+    @include('layouts.partials.flash-messages')
+    @yield('contents')
+</main>
+
+<footer class="site-footer" id="site-footer">
+    @include('layouts.partials.fine-print')
+</footer>
 
 @include('layouts.partials.scripts')
 
