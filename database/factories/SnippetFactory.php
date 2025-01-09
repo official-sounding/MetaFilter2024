@@ -15,7 +15,7 @@ final class SnippetFactory extends Factory
     {
         return [
             'title' => $this->faker->words(3, true),
-            'contents' => $this->faker->paragraphs(2, true),
+            'body' => $this->faker->paragraphs(2, true),
         ];
     }
 }

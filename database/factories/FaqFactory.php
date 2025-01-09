@@ -6,12 +6,12 @@ namespace Database\Factories;
 
 use App\Models\Faq;
 use App\Models\Subsite;
-use App\Traits\StringFormattingTrait;
+use App\Traits\PunctuationTrait;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 final class FaqFactory extends Factory
 {
-    use StringFormattingTrait;
+    use PunctuationTrait;
 
     protected $model = Faq::class;
 

@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Models\Page;
-use App\Traits\StringFormattingTrait;
+use App\Traits\PunctuationTrait;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 final class PageFactory extends Factory
 {
-    use StringFormattingTrait;
+    use PunctuationTrait;
 
     protected $model = Page::class;
 
@@ -21,7 +21,7 @@ final class PageFactory extends Factory
         return [
             'title' => $title,
             'slug' => $this->getSlug($title),
-            'contents' => $this->faker->paragraphs(3, true),
+            'body' => $this->faker->paragraphs(3, true),
         ];
     }
 }

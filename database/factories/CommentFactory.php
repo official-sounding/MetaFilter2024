@@ -16,7 +16,7 @@ final class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            'contents' => $this->faker->paragraph(),
+            'body' => $this->faker->paragraph(),
             'post_id' => Post::inRandomOrder()->first(),
             'user_id' => User::inRandomOrder()->first(),
             'created_at' => $this->faker->dateTimeThisYear(),

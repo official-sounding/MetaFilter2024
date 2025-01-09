@@ -20,17 +20,24 @@ final class UserFactory extends Factory
             'name' => fake()->name(),
             'username' => fake()->unique()->userName(),
             'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            'email_verified_at' => null,
             'legacy_id' => fake()->unique()->randomNumber(9, true),
             'password' => self::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'remember_token' => null,
         ];
     }
 
-    public function unverified(): UserFactory
+    public function remember(): UserFactory
     {
         return $this->state(fn(array $attributes) => [
-            'email_verified_at' => null,
+            'remember_token' => Str::random(10),
+        ]);
+    }
+
+    public function verifiedEmail(): UserFactory
+    {
+        return $this->state(fn(array $attributes) => [
+            'email_verified_at' => now(),
         ]);
     }
 }
