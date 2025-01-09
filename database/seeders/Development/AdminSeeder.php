@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Traits\LoggingTrait;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 
 final class AdminSeeder extends Seeder
 {
@@ -19,8 +20,19 @@ final class AdminSeeder extends Seeder
 
         $json = File::get($path);
 
-        $admins = json_decode($json);
+        $admins = json_decode($json, true);
 
-        User::upsert($admins, ['email']);
+        collect($admins)->each(function ($admin) {
+            User::updateOrCreate([
+                'email' => $admin['email'],
+            ], [
+                'name' => $admin['name'],
+                'username' => $admin['username'],
+                'email' => $admin['email'],
+                'is_admin' => $admin['is_admin'],
+                'legacy_id' => $admin['legacy_id'],
+                'password' => Hash::make('password'),
+            ]);
+        });
     }
 }

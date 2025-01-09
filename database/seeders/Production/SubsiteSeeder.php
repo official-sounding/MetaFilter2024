@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Database\Seeders\Production;
 
 use App\Models\Subsite;
-use App\Traits\StringFormattingTrait;
+use App\Traits\PunctuationTrait;
 use Illuminate\Database\Seeder;
 
 final class SubsiteSeeder extends Seeder
 {
-    use StringFormattingTrait;
+    use PunctuationTrait;
 
     public function run(): void
     {

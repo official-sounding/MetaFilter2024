@@ -25,7 +25,7 @@ final class DatabaseSeeder extends Seeder
 
         $this->seedProductionData();
 
-        if (config('app.env') !== EnvironmentEnum::Production->value) {
+        if (config('app.env') !== EnvironmentEnum::Production) {
             $this->seedDevelopmentData();
         }
 
