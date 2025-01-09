@@ -4,15 +4,16 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Traits\SearchTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Mpociot\Versionable\VersionableTrait;
+use Oddvalue\LaravelDrafts\Concerns\HasDrafts;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Tags\HasTags;
@@ -30,9 +31,11 @@ use Spatie\Tags\HasTags;
  */
 final class Post extends BaseModel
 {
+    use HasDrafts;
     use HasFactory;
     use HasTags;
     use LogsActivity;
+    use SearchTrait;
     use Sluggable;
     use SoftDeletes;
     use VersionableTrait;
@@ -49,13 +52,14 @@ final class Post extends BaseModel
         'user_id',
     ];
 
+    protected array $searchable = [
+        'title',
+        'body',
+    ];
+
     public function sluggable(): array
     {
-        return [
-            'slug' => [
-                'source' => 'title',
-            ],
-        ];
+        return $this->getSlugFrom('title');
     }
 
     protected function isArchived(): Attribute
@@ -83,6 +87,7 @@ final class Post extends BaseModel
     {
         return $this->morphMany(Favorite::class, 'favoriteable');
     }
+
     /*
         public function userFavorites(): HasOne
         {

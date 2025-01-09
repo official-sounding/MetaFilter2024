@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Traits\SearchTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,11 +13,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $id
  * @property string $title
  * @property string $slug
- * @property string $contents
+ * @property string $body
  */
 final class Page extends BaseModel
 {
     use HasFactory;
+    use SearchTrait;
     use Sluggable;
     use SoftDeletes;
 
@@ -25,15 +27,16 @@ final class Page extends BaseModel
     protected $fillable = [
         'title',
         'slug',
-        'contents',
+        'body',
+    ];
+
+    protected array $searchable = [
+        'title',
+        'body',
     ];
 
     public function sluggable(): array
     {
-        return [
-            'slug' => [
-                'source' => 'title',
-            ],
-        ];
+        return $this->getSlugFrom('title');
     }
 }

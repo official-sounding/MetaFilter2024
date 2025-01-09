@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Traits\SearchTrait;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
@@ -33,6 +34,7 @@ final class User extends Authenticatable implements FilamentUser
     use HasFactory;
     use HasRoles;
     use Notifiable;
+    use SearchTrait;
     use SoftDeletes;
 
     private const string DOMAIN = '@metafilter.com';
@@ -52,6 +54,10 @@ final class User extends Authenticatable implements FilamentUser
     protected $hidden = [
         'password',
         'remember_token',
+    ];
+
+    protected array $searchable = [
+        'username',
     ];
 
     protected function casts(): array

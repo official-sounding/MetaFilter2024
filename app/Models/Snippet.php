@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @property int $id
  * @property string $title
- * @property string $contents
+ * @property string $body
  */
 final class Snippet extends BaseModel
 {
@@ -23,7 +23,7 @@ final class Snippet extends BaseModel
 
     protected $fillable = [
         'title',
-        'contents',
+        'body',
     ];
 
     public function sluggable(): array
