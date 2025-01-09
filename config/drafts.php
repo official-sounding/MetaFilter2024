@@ -1,8 +1,11 @@
 <?php
+
+declare(strict_types=1);
+
 // config for Oddvalue/LaravelDrafts
 return [
     'revisions' => [
-        'keep' => 10,
+        'keep' => 5,
     ],
 
     'column_names' => [

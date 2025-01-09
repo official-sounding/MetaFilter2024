@@ -11,7 +11,7 @@ return [
      * value for this name will be discarded. Make sure this name does not
      * collide with a form field that is actually used.
      */
-    'name_field_name' => env('HONEYPOT_NAME', 'my_name'),
+    'name_field_name' => env('HONEYPOT_NAME', 'full-name'),
 
     /*
      * When this is activated there will be a random string added
@@ -62,7 +62,7 @@ return [
      * if so the request will be stamped as spam. Be careful! When using the
      * global middleware be sure to add honeypot fields to each form.
      */
-    'honeypot_fields_required_for_all_forms' => true,
+    'honeypot_fields_required_for_all_forms' => false,
 
     /*
      * This switch determines if the honeypot protection should be activated.

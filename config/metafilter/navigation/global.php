@@ -8,69 +8,56 @@ return [
     'menu_items' => [
         [
             'name' => 'MetaFilter',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
-            'in_dropdown' => false,
+            'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
             'name' => 'Ask MeFi',
-            'route' => RouteNameEnum::AskPostIndex->value,
-            'in_dropdown' => false,
+            'route' => RouteNameEnum::AskPostIndex,
         ],
         [
             'name' => 'FanFare',
-            'route' => RouteNameEnum::FanfarePostIndex->value,
-            'in_dropdown' => false,
+            'route' => RouteNameEnum::FanfarePostIndex,
         ],
         [
             'name' => 'Projects',
-            'route' => RouteNameEnum::ProjectsPostIndex->value,
-            'in_dropdown' => false,
+            'route' => RouteNameEnum::ProjectsPostIndex,
         ],
         [
             'name' => 'Music',
-            'route' => RouteNameEnum::MusicPostIndex->value,
-            'in_dropdown' => false,
+            'route' => RouteNameEnum::MusicPostIndex,
         ],
         [
             'name' => 'Jobs',
-            'route' => RouteNameEnum::JobsPostIndex->value,
-            'in_dropdown' => false,
+            'route' => RouteNameEnum::JobsPostIndex,
         ],
         [
             'name' => 'IRL',
-            'route' => RouteNameEnum::IrlPostIndex->value,
-            'in_dropdown' => false,
+            'route' => RouteNameEnum::IrlPostIndex,
         ],
         [
             'name' => 'MetaTalk',
-            'route' => RouteNameEnum::MetaTalkPostIndex->value,
-            'in_dropdown' => false,
+            'route' => RouteNameEnum::MetaTalkPostIndex,
         ],
         [
             'name' => 'Best Of',
-            'route' => RouteNameEnum::BestOfHomeIndex->value,
-            'in_dropdown' => true,
-
+            'route' => RouteNameEnum::BestOfHomeIndex,
+            'start_dropdown' => true,
         ],
         [
             'name' => 'Podcast',
-            'route' => RouteNameEnum::PodcastPostIndex->value,
-            'in_dropdown' => true,
+            'route' => RouteNameEnum::PodcastPostIndex,
         ],
         [
             'name' => 'Chat',
-            'route' => RouteNameEnum::ChatHomeIndex->value,
-            'in_dropdown' => true,
+            'route' => RouteNameEnum::ChatHomeIndex,
         ],
         [
             'name' => 'Labs',
-            'route' => RouteNameEnum::LabsHomeIndex->value,
-            'in_dropdown' => true,
+            'route' => RouteNameEnum::LabsHomeIndex,
         ],
         [
             'name' => 'Mall',
-            'route' => RouteNameEnum::MallHomeIndex->value,
-            'in_dropdown' => true,
+            'route' => RouteNameEnum::MallHomeIndex,
         ],
     ],
 ];

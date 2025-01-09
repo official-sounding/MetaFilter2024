@@ -8,38 +8,38 @@ return [
     'auth' => [
         [
             'name' => 'Profile',
-            'route' => RouteNameEnum::ProfileShow->value,
+            'route' => RouteNameEnum::ProfileShow,
             'icon' => 'person-fill',
         ],
         [
             'name' => 'Preferences',
-            'route' => RouteNameEnum::PreferencesEdit->value,
+            'route' => RouteNameEnum::PreferencesEdit,
             'icon' => 'gear-fill',
         ],
         [
             'name' => 'Mail',
-            'route' => RouteNameEnum::MailIndex->value,
+            'route' => RouteNameEnum::MailIndex,
             'icon' => 'envelope-fill',
         ],
         [
             'name' => 'Favorites',
-            'route' => RouteNameEnum::FavoritesIndex->value,
+            'route' => RouteNameEnum::FavoritesIndex,
         ],
         [
             'name' => 'Recent Activity',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => RouteNameEnum::MetaFilterPostIndex,
             'icon' => 'clock',
         ],
     ],
     'guest' => [
         [
             'name' => 'Log In',
-            'route' => RouteNameEnum::AuthLoginCreate->value,
+            'route' => RouteNameEnum::AuthLoginCreate,
             'icon' => 'box-arrow-in-right',
         ],
         [
             'name' => 'Sign Up',
-            'route' => RouteNameEnum::AuthRegisterCreate->value,
+            'route' => RouteNameEnum::AuthRegisterCreate,
             'icon' => 'person-plus-fill',
         ],
     ],
