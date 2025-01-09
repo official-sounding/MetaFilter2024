@@ -21,15 +21,23 @@ final class GlobalNavigationViewComposer implements ViewComposerInterface
 
     private function getNavigationItems(): string
     {
-        $navigationItems = '<ul class="dropdown">';
+        $navigationItems = '<ul>';
 
         $menuItems = config('metafilter.navigation.global.menu_items');
 
         foreach ($menuItems as $itemData) {
+            if (isset($itemData['start_dropdown']) && $itemData['start_dropdown']) {
+                $navigationItems .= '<li class="has-dropdown">';
+                $navigationItems .= '<button class="dropdown-toggle" aria-expanded="false" aria-controls="global-navigation-menu">';
+                $navigationItems .= 'Menu';
+                $navigationItems .= '</button>';
+                $navigationItems .= '<ul class="dropdown-menu global-navigation-menu" id="global-navigation-menu">';
+            }
+
             $navigationItems .= $this->getNavigationItem($itemData);
         }
 
-        $navigationItems .= '</ul>';
+        $navigationItems .= '</ul></ul>';
 
         return $navigationItems;
     }

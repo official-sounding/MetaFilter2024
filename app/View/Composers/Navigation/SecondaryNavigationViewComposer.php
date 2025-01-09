@@ -9,7 +9,7 @@ use App\Traits\SubsiteTrait;
 use App\View\Composers\ViewComposerInterface;
 use Illuminate\Contracts\View\View;
 
-final class PostNavigationViewComposer implements ViewComposerInterface
+final class SecondaryNavigationViewComposer implements ViewComposerInterface
 {
     use NavigationTrait;
     use SubsiteTrait;
@@ -25,16 +25,16 @@ final class PostNavigationViewComposer implements ViewComposerInterface
     {
         $navigation = '';
 
-        $items = config("metafilter.navigation.post-navigation.$this->subdomain");
+        $items = config("metafilter.navigation.secondary-navigation.$this->subdomain");
 
         if ($items) {
-            $navigation = '<ul class="post-navigation-menu">';
+            $navigation = '<ul class="secondary-navigation-menu">';
 
             foreach ($items as $item) {
                 $navigation .= $this->getNavigationItem($item);
             }
         }
 
-        $view->with('postNavigation', $navigation);
+        $view->with('secondaryNavigation', $navigation);
     }
 }

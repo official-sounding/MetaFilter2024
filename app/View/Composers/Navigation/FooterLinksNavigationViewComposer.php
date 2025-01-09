@@ -19,7 +19,7 @@ final class FooterLinksNavigationViewComposer implements ViewComposerInterface
         $items = config('metafilter.navigation.footer-links');
 
         foreach ($items as $item) {
-            $navigation .= '<li>' . $this->getNavigationItem($item) . '</li>';
+            $navigation .= $this->getNavigationItem($item);
         }
 
         $navigation .= '</ul>';

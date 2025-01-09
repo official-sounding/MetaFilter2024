@@ -20,7 +20,7 @@ final class FooterSubsiteNavigationViewComposer implements ViewComposerInterface
 
         foreach ($items as $item) {
             if ($item['inFooterNav'] === true) {
-                $navigation .= '<li>' . $this->getNavigationItem($item, true) . '</li>';
+                $navigation .= $this->getNavigationItem($item, true);
             }
         }
 

@@ -24,7 +24,11 @@ final class PrimaryNavigationViewComposer implements ViewComposerInterface
 
         $subdomain = $this->getSubdomainFromUrl();
 
-        $items = config("metafilter.navigation.primary.$subdomain");
+        $key = "metafilter.navigation.primary.$subdomain";
+
+        $this->logDebugMessage("Primary navigation key: $key");
+
+        $items = config($key);
 
         if ($items === null) {
             $this->logError('Primary navigation items are null.');
