@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 
-import laravel from 'laravel-vite-plugin';
+import laravel, { refreshPaths } from 'laravel-vite-plugin'
 import { resolve } from 'path';
 
 // noinspection JSUnusedGlobalSymbols
@@ -28,8 +28,10 @@ export default defineConfig({
                 'resources/css/filament/admin/theme.css',
                 'resources/js/app.js',
             ],
+            refresh: [
+                'app/Livewire/**',
+            ],
             publicDirectory: 'public_html',
-            refresh: true
         })
     ],
     resolve: {
