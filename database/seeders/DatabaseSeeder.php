@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Enums\EnvironmentEnum;
 use Database\Seeders\Development\FakeCommentSeeder;
 use Database\Seeders\Development\FakePostSeeder;
+use Database\Seeders\Development\FakeTagSeeder;
 use Database\Seeders\Development\FakeUserSeeder;
 use Database\Seeders\Development\FavoriteSeeder;
 use Database\Seeders\Development\FlagSeeder;
@@ -45,6 +46,7 @@ final class DatabaseSeeder extends Seeder
 
             FavoriteSeeder::class,
             FlagSeeder::class,
+            FakeTagSeeder::class,
 
         ]);
     }
