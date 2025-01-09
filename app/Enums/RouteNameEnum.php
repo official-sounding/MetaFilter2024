@@ -7,19 +7,20 @@ namespace App\Enums;
 enum RouteNameEnum: string
 {
     // Auth
-    case AuthLoginCreate = 'auth.login.create';
-    case AuthLoginStore = 'auth.login.store';
-    case AuthLogout = 'auth.logout';
-    case AuthForgotPasswordCreate = 'auth.forgot-password.create';
-    case AuthForgotPasswordStore = 'auth.forgot-password.store';
+    case AuthConfirmPasswordShow = 'auth.confirm-password.show';
+    case AuthConfirmPasswordStore = 'auth.confirm-password.store';
+    case AuthForgotPasswordCreate = 'forgot-password';
+    case AuthLoginCreate = 'login';
+    case AuthLoginStore = 'login.store';
+    case AuthLogout = 'logout';
     case AuthResetPasswordCreate = 'auth.reset-password.create';
     case AuthResetPasswordStore = 'auth.reset-password.store';
     case AuthResetPassword = 'auth.password.update';
-    case AuthRegisterCreate = 'auth.register.create';
+    case AuthRegisterCreate = 'register';
     case AuthRegisterStore = 'auth.register.store';
     case AuthVerifyEmail = 'auth.verify-email';
 
-    case MetaFilterAboutIndex = 'metafilter.about.index';
+    case AboutMetaFilter = 'about.metafilter';
 
     case AskPopularFavoritesIndex = 'ask.popular-favorites.index';
     case AskPopularPostIndex = 'ask.post.popular.index';
@@ -82,7 +83,7 @@ enum RouteNameEnum: string
 
     case LabsHomeIndex = 'labs.home.index';
 
-    case LanguageSwitcher = 'language-switcher';
+    case LanguageSwitcher = 'language';
 
     case MailIndex = 'metafilter.mail.index';
     case MailHomeIndex = 'mail.home.index';
@@ -90,7 +91,6 @@ enum RouteNameEnum: string
     case MallHomeIndex = 'mall.home.index';
 
     case MetaFilterArchivesIndex = 'metafilter.archives.index';
-    case MetaFilterChatIndex = 'metafilter.chat.index';
     case MetaFilterCommentIndex = 'metafilter.comment.index';
     case MetaFilterPostIndex = 'metafilter.post.index';
     case MetaFilterPopularPostIndex = 'metafilter.post.popular.index';
