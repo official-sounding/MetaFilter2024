@@ -1,15 +1,14 @@
 
 <form method="post">
-    @csrf
+    @include('forms.partials.csrf-token')
 
-    {{-- // TODO: Get actual languages --}}
-    @foreach ($languages as $language)
+    @foreach ($languages as $abbreviation => $language)
         <button
             type="submit"
             name="language"
-            {{-- // TODO: Get actual route --}}
-            formaction="/SWITCH_LANGUAGE/{{ $language }}"
-            value="{{ $language }}">
+            class="language"
+            formaction="{{ route($switchLanguageRoute, ['language' => $abbreviation]) }}"
+            value="{{ $abbreviation }}">
             {{ $language }}
         </button>
     @endforeach
