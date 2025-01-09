@@ -1,26 +1,38 @@
 import './bootstrap';
 
-import Alpine from 'alpinejs';
 import Precognition from 'laravel-precognition-alpine';
 
-import {getExpanded, toggleDropdown} from './modules/toggleDropdowns.js';
-
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-const globalNavigationToggle = document.getElementById('global-navigation-toggle');
-const utilityNavigationToggle = document.getElementById('flyout-example');
+import {toggleDropdowns} from './modules/toggleDropdowns.js';
 
 window.Alpine = Alpine;
 
 Alpine.plugin(Precognition);
-Alpine.start();
+
+toggleDropdowns();
 
 document.addEventListener('click', event => {
     console.log('Click event listener');
 
     let eventTarget = event.target;
 
+    if (!eventTarget.closest('.global-navigation-menu')) {
+        console.log('Clicked outside!');
+    }
 
 /*
+document.addEventListener('click', function (event) {
+    if (!event.target.closest('.some-selector')) {
+        // Clicked outside the element...
+    }
+}, false);
+      click on dropdown toggle
+      add id of dropdown to list of open dropdowns
+      add event listener to document
+        if click is outside of dropdown
+          remove id of dropdown from list of open dropdowns
+
+
+
     let globalNavigationExpanded = getExpanded(globalNavigationToggle);
     let utilityNavigationExpanded = false;
 

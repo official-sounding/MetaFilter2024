@@ -1,26 +1,29 @@
 /* jshint esversion: 6 */
 
-let currentTheme = document.getElementById('current-theme').textContent;
 let htmlTheme = document.documentElement.dataset.theme;
-
-function getTheme() {
-    return htmlTheme;
-}
+let themeToggle = document.getElementById('theme-toggle');
 
 function toggleTheme() {
-    let theme = getTheme();
+    let currentThemeText = document.getElementById('current-theme').textContent;
+    let theme = '';
 
-    if (theme === 'light') {
-        htmlTheme = 'dark';
-    } else {
-        htmlTheme = 'light';
-    }
+    themeToggle.addEventListener('change', (event) => {
 
-    applyTheme(htmlTheme);
+        if (event.target.checked) {
+            theme = 'dark';
+            console.log('theme is dark');
+        } else {
+            theme = 'light';
+            console.log('theme is light');
+        }
+    });
+
+    currentThemeText = theme;
+    applyTheme(theme);
 }
 
 function applyTheme(theme) {
-    currentTheme = theme;
+    console.log('applyTheme called: ' + theme);
     htmlTheme = theme;
 }
 
