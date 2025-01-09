@@ -34,7 +34,7 @@ final class SnippetResource extends Resource
                 TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
-                RichEditor::make('contents')
+                RichEditor::make('body')
                     ->required()
                     ->columnSpanFull(),
             ]);

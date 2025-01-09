@@ -1,19 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources\BannerLinkResource\Pages;
 
 use App\Filament\Resources\BannerLinkResource;
-use Filament\Actions;
+use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-class EditBannerLink extends EditRecord
+final class EditBannerLink extends EditRecord
 {
     protected static string $resource = BannerLinkResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            DeleteAction::make(),
         ];
     }
 }

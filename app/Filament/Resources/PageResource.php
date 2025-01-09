@@ -34,7 +34,7 @@ final class PageResource extends Resource
                 TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
-                RichEditor::make('contents')
+                RichEditor::make('body')
                     ->required()
                     ->columnSpanFull(),
             ]);
@@ -45,8 +45,6 @@ final class PageResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('title')
-                    ->searchable(),
-                TextColumn::make('slug')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

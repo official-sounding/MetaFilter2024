@@ -1,19 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BannerLinkResource\Pages;
-use App\Filament\Resources\BannerLinkResource\RelationManagers;
+use App\Filament\Resources\BannerLinkResource\Pages\CreateBannerLink;
+use App\Filament\Resources\BannerLinkResource\Pages\EditBannerLink;
+use App\Filament\Resources\BannerLinkResource\Pages\ListBannerLinks;
 use App\Models\BannerLink;
-use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class BannerLinkResource extends Resource
+final class BannerLinkResource extends Resource
 {
     protected static ?string $model = BannerLink::class;
 
@@ -23,10 +27,10 @@ class BannerLinkResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
+                TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('url')
+                TextInput::make('url')
                     ->required()
                     ->columnSpanFull(),
             ]);
@@ -36,17 +40,9 @@ class BannerLinkResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('deleted_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -55,11 +51,11 @@ class BannerLinkResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -74,9 +70,9 @@ class BannerLinkResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBannerLinks::route('/'),
-            'create' => Pages\CreateBannerLink::route('/create'),
-            'edit' => Pages\EditBannerLink::route('/{record}/edit'),
+            'index' => ListBannerLinks::route('/'),
+            'create' => CreateBannerLink::route('/create'),
+            'edit' => EditBannerLink::route('/{record}/edit'),
         ];
     }
 }
