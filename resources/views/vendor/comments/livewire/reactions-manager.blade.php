@@ -167,7 +167,7 @@
                         }
                      "
                 >
-                    <x-comments::link class="align-text-bottom text-sm" type="popup">{{  __('reply) }}</x-comments::link>
+                    <x-comments::link class="align-text-bottom text-sm" type="popup">{{  trans('reply) }}</x-comments::link>
                 </div>
             @endif
         </div>
@@ -206,9 +206,9 @@
         >
             <div x-show="showMsg" x-transition class="mt-2 align-top text-xs text-green-500 sm:text-sm">
                 <span x-show="approvalRequired">
-                    {{ __("Reply created and will be displayed once approved") }}
+                    {{ trans("Reply created and will be displayed once approved") }}
                 </span>
-                <span x-show="!approvalRequired">{{ __("Reply created") }}</span>
+                <span x-show="!approvalRequired">{{ trans("Reply created") }}</span>
             </div>
         </div>
     </div>
@@ -279,7 +279,7 @@
                                         type="button"
                                         size="sm"
                                     >
-                                        {{  __('Load') }}
+                                        {{  trans('Load') }}
                                     </x-comments::button>
                                 </div>
                             @endif

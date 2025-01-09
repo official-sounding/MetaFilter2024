@@ -1,5 +1,5 @@
 <section>
-    <h2>{{ __('Info') }}</h2>
+    <h2>{{ trans('Info') }}</h2>
 
     <table class="profile">
         <tbody>

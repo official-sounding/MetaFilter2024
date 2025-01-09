@@ -1,5 +1,5 @@
 <details>
     <summary>
-        <h3>{{  __('Events Near You') }}</h3>
+        <h3>{{  trans('Events Near You') }}</h3>
     </summary>
 </details>

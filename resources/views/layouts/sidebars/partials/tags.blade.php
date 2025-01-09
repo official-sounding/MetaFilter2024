@@ -1,5 +1,5 @@
 <details>
     <summary>
-        <h3>{{  __('Tags') }}</h3>
+        <h3>{{  trans('Tags') }}</h3>
     </summary>
 </details>

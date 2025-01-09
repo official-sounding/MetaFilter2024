@@ -3,44 +3,44 @@
     @include('forms.partials.validation-summary')
 
     <fieldset class="required-fields">
-        <legend>{{ __('Required') }}</legend>
+        <legend>{{ trans('Required') }}</legend>
 
         <x-forms.input
             name="email"
             type="email"
-            label="{{ __('Email Address') }}" />
+            label="{{ trans('Email Address') }}" />
 
         <x-forms.input
             name="username"
-            label="{{ __('Username') }}" />
+            label="{{ trans('Username') }}" />
 
         <x-forms.input
             name="password"
             type="password"
-            label="{{ __('Password') }}" />
+            label="{{ trans('Password') }}" />
 
         <x-forms.input
             name="password-confirm"
             type="password"
-            label="{{ __('Confirm Password') }}" />
+            label="{{ trans('Confirm Password') }}" />
     </fieldset>
 
     <fieldset class="optional-fields">
-        <legend>{{ __('Optional') }}</legend>
+        <legend>{{ trans('Optional') }}</legend>
         <x-forms.input
             name="name"
             required="false"
             autocomplete="true"
-            label="{{ __('Name') }}" />
+            label="{{ trans('Name') }}" />
 
         <x-forms.input
             name="website_url"
             required="false"
             autocomplete="true"
-            label="{{ __('Website URL') }}" />
+            label="{{ trans('Website URL') }}" />
     </fieldset>
 
     <button type="submit">
-        {{ __('Register') }}
+        {{ trans('Register') }}
     </button>
 </x-forms.form>

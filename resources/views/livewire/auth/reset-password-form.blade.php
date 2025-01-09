@@ -4,19 +4,19 @@
         type="email"
         autocomplete="true"
         autofocus="true"
-        text="{{ __('Email Address') }}"/>
+        text="{{ trans('Email Address') }}" />
 
     <x-forms.input
         name="password"
         type="password"
-        text="{{ __('Password') }}"/>
+        text="{{ trans('Password') }}" />
 
     <x-forms.input
         name="password_confirmation"
         type="password"
-        text="{{ __('Confirm Password') }}"/>
+        text="{{ trans('Confirm Password') }}" />
 
     <x-forms.button>
-        {{ __('Reset Password') }}
+        {{ trans('Reset Password') }}
     </x-forms.button>
 </form>

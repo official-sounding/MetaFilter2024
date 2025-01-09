@@ -1,23 +1,23 @@
-<footer class="post-footer">
-    <div class="level">
-        <div>
-            {{ __('posted by') }}
+<footer class="post-footer post-show-footer">
+    {{ trans('posted by') }}
 
-            @include('posts.partials.profile-link', [
-                'userId' => $userId,
-                'username' => $username,
-            ])
-            at {{ $post->created_at->format('g:i a') }} -
-            ({{ $commentsCount > 0 ?: 0 }} comments total)
-        </div>
+    @include('posts.partials.profile-link', [
+        'userId' => $post->user->id,
+        'username' => $post->user->username,
+    ])
 
-        <livewire:post.favorite-post-component
-            :post="$post"
-            :favorites="$favoritesCount"
-            :key="$post->id" />
-    </div>
+    @if ($commentsCount === 0)
+        ({{ trans('no comments') }})
+    @else
+        ({{ $commentsCount }}
+        {{ Str::plural('comment', $commentsCount) }}
+        {{ trans('total') }})
+    @endif
+
+    @if ($favoritesCount > 0)
+        {{ $favoritesCount }}
+
+        {{ Str::plural('member', $favoritesCount) }}
+        {{ trans('marked this as a favorite') }}
+    @endif
 </footer>
-
-{{--
-posted by thecincinnatikid (20 comments total) 7 users marked this as a favorite
---}}

@@ -5,22 +5,22 @@
         @if ($guestMode)
             <div class="flex flex-col gap-x-8 sm:flex-row">
                 <div class="flex w-full flex-col">
-                    <x-comments::input wire:model="guest_name" placeholder="{{ __('Reply as') }}" />
+                    <x-comments::input wire:model="guest_name" placeholder="{{ trans('Reply as') }}" />
                     <div class="min-h-6">
                         @if ($errors->has('guest_name'))
                             <span class="align-top text-xs text-red-500 sm:text-sm">
-                                {{ __($errors->first('guest_name')) }}
+                                {{ trans($errors->first('guest_name')) }}
                             </span>
                         @endif
                     </div>
                 </div>
                 @if (config('comments.reply.email_enabled'))
                     <div class="flex w-full flex-col">
-                        <x-comments::input wire:model="guest_email" type="email" placeholder="{{ __('Email') }}" />
+                        <x-comments::input wire:model="guest_email" type="email" placeholder="{{ trans('Email') }}" />
                         <div class="min-h-6">
                             @if ($errors->has('guest_email'))
                                 <span class="align-top text-xs text-red-500 sm:text-sm">
-                                    {{ __($errors->first('guest_email')) }}
+                                    {{ trans($errors->first('guest_email')) }}
                                 </span>
                             @endif
                         </div>
@@ -36,7 +36,7 @@
         <div class="min-h-6">
             <div>
                 @if ($errors->has('text'))
-                    <span class="align-top text-xs text-red-500 sm:text-sm">{{ __($errors->first('text')) }}</span>
+                    <span class="align-top text-xs text-red-500 sm:text-sm">{{ trans($errors->first('text')) }}</span>
                 @endif
             </div>
             <div
@@ -46,9 +46,9 @@
             >
                 <span x-show="show" x-transition class="align-top text-xs text-green-500 sm:text-sm">
                     @if ($approvalRequired)
-                        {{ __('Reply created and will be displayed once approved.') }}
+                        {{ trans('Reply created and will be displayed once approved.') }}
                     @else
-                        {{ __('Reply created.') }}
+                        {{ trans('Reply created.') }}
                     @endif
                 </span>
             </div>
@@ -57,20 +57,20 @@
             @if ($loginRequired)
                 <div>
                     <span>
-                        {{ __('Please') }}
+                        {{ trans('Please') }}
                         <x-comments::link
                             wire:click.prevent="redirectToLogin(window.location.href)"
                             class="font-bold text-blue-600"
                         >
-                            {{ __('login') }}
+                            {{ trans('login') }}
                         </x-comments::link>
-                        {{ __('to reply !') }}
+                        {{ trans('to reply !') }}
                     </span>
                 </div>
             @else
                 <div class="flex gap-x-2">
                     <x-comments::button loadingTarget="create" class="w-full sm:w-auto" size="sm">
-                        {{ __('Create') }}
+                        {{ trans('Create') }}
                     </x-comments::button>
                     <x-comments::button
                         wire:click="discard"
@@ -79,14 +79,14 @@
                         class="w-full sm:w-auto"
                         size="sm"
                     >
-                        {{ __('Discard') }}
+                        {{ trans('Discard') }}
                     </x-comments::button>
                 </div>
             @endif
         @else
             <div>
                 <span class="text-red-500">
-                    {{ __('Allowed reply limit') }} ({{ $this->replyLimit() }}) {{ __('exceeded !') }}
+                    {{ trans('Allowed reply limit') }} ({{ $this->replyLimit() }}) {{ trans('exceeded !') }}
                 </span>
             </div>
         @endif

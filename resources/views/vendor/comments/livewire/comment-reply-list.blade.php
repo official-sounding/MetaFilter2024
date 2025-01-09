@@ -11,7 +11,7 @@
                         'bg-gray-500' => $sortBy === Sort::LATEST && Helpers::isGithubTheme(),
                     ])
                 >
-                    {{ __('Newest') }}
+                    {{ trans('Newest') }}
                 </x-comments::chip>
                 <x-comments::chip
                     wire:click="setSortBy('oldest')"
@@ -21,7 +21,7 @@
                         'bg-gray-500' => $sortBy === Sort::OLDEST && Helpers::isGithubTheme(),
                     ])
                 >
-                    {{ __('Oldest') }}
+                    {{ trans('Oldest') }}
                 </x-comments::chip>
                 <x-comments::chip
                     wire:click="setFilter('my_replies')"
@@ -30,7 +30,7 @@
                         'bg-gray-200' => $filter === 'my_replies' && Helpers::isDefaultTheme(),
                         'bg-gray-500' => $filter === 'my_replies' && Helpers::isGithubTheme(),
                     ]) >
-                    {{ __('My Replies') }}
+                    {{ trans('My Replies') }}
                 </x-comments::chip>
             </div>
         @endif
@@ -53,17 +53,17 @@
     @endif
 
     @if ($replies->isEmpty() && $filter === 'my_replies')
-        <div>{{ __('You haven\'t made/approved any replies yet !') }}</div>
+        <div>{{ trans('You haven\'t made/approved any replies yet !') }}</div>
     @endif
 
     @if ($replies->isNotEmpty() && config('comments.reply.pagination.enabled') && $paginationRequired)
         <div class="flex items-center justify-center">
             @if ($limit < $total)
                 <x-comments::button wire:click="paginate" size="sm" type="button" loadingTarget="paginate">
-                    {{ __('Load More') }}
+                    {{ trans('Load More') }}
                 </x-comments::button>
             @else
-                <div class="font-bold">{{ __('End of replies') }}</div>
+                <div class="font-bold">{{ trans('End of replies') }}</div>
             @endif
         </div>
     @endif

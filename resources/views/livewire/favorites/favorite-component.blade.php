@@ -4,7 +4,7 @@
     @endguest
     type="button"
     wire:click="toggleFavorite()"
-    title="Favorites">
+    title="{{ trans('Favorites') }}">
     @if ($favorites > 0)
         {{ $favorites }}
     @else

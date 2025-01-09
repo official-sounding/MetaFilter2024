@@ -3,35 +3,35 @@
 @endphp
 
 <h2 class="sr-only">
-    {{ $subsiteName }} {{  __('Sidebar') }}
+    {{ $subsiteName }} {{  trans('Sidebar') }}
 </h2>
 
 @include('layouts.partials.help-fund-mefi')
 @include('layouts.sidebars.partials.appearance')
 
 @switch($subdomain)
-    @case(SubsiteEnum::Ask->value)
+    @case(SubsiteEnum::Ask)
         @include('layouts.sidebars.ask-sidebar')
         @break
-    @case(SubsiteEnum::FanFare->value)
+    @case(SubsiteEnum::FanFare)
         @include('layouts.sidebars.fanfare-sidebar')
         @break
-    @case(SubsiteEnum::Irl->value)
+    @case(SubsiteEnum::Irl)
         @include('layouts.sidebars.irl-sidebar')
         @break
-    @case(SubsiteEnum::Jobs->value)
+    @case(SubsiteEnum::Jobs)
         @include('layouts.sidebars.jobs-sidebar')
         @break
-    @case(SubsiteEnum::MetaTalk->value)
+    @case(SubsiteEnum::MetaTalk)
         @include('layouts.sidebars.metatalk-sidebar')
         @break
-    @case(SubsiteEnum::Music->value)
+    @case(SubsiteEnum::Music)
         @include('layouts.sidebars.music-sidebar')
         @break
-    @case(SubsiteEnum::Podcast->value)
+    @case(SubsiteEnum::Podcast)
         @include('layouts.sidebars.podcast-sidebar')
         @break
-    @case(SubsiteEnum::Projects->value)
+    @case(SubsiteEnum::Projects)
         @include('layouts.sidebars.projects-sidebar')
         @break
     @default

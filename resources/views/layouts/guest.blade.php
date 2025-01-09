@@ -19,12 +19,12 @@
     @include('layouts.partials.global-header')
     @include('layouts.partials.site-banner')
     @include('layouts.navigation.global-navigation')
-    @include('layouts.navigation.subsite-navigation')
+    @include('layouts.navigation.primary-navigation')
 </header>
 
 <div class="container main-contents-wrapper">
     <main class="main-contents" id="main-contents">
-        <h1>{!! $title !!}</h1>
+        <h1>{!! $title ?? 'Untitled' !!}</h1>
         @include('layouts.partials.flash-messages')
         @yield('contents')
     </main>

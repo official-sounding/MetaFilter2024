@@ -52,7 +52,7 @@
 
                     @if ($reply->isEdited())
                         <span class="inline-block h-2 w-[1px] bg-black"></span>
-                        <span class="text-xs">{{ __('Edited') }}</span>
+                        <span class="text-xs">{{ trans('Edited') }}</span>
                     @endif
                 </div>
 
@@ -90,7 +90,7 @@
                                     >
                                         <x-comments::pencil height="13" width="13" strokeColor="blue" />
                                         <x-comments::action class="text-sm hover:!no-underline sm:text-sm">
-                                            {{ __('Edit') }}
+                                            {{ trans('Edit') }}
                                         </x-comments::action>
                                     </li>
                                 @endif
@@ -98,7 +98,7 @@
                                 @if ($this->canDeleteReply($reply))
                                     <li
                                         wire:click="delete({{ $reply }})"
-                                        wire:confirm="{{ __('Are you sure you want to delete this reply?') }}"
+                                        wire:confirm="{{ trans('Are you sure you want to delete this reply?') }}"
                                         @click="showEditMenu=false"
                                         class="flex items-center items-center space-x-2 space-x-2 rounded p-2 hover:!bg-gray-200"
                                     >
@@ -108,7 +108,7 @@
                                             wire:target="delete({{$reply}})"
                                             class="!text-red align-text-bottom text-xs hover:!no-underline sm:text-sm"
                                         >
-                                            {{ __('Delete') }}
+                                            {{ trans('Delete') }}
                                         </x-comments::action>
                                     </li>
                                 @endif

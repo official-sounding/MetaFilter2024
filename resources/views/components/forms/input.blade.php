@@ -2,6 +2,7 @@
     'label',
     'name',
     'autofocus' => false,
+    'icon' => null,
     'note' => null,
     'required' => true,
     'type' => 'text',
@@ -22,13 +23,7 @@
         @if ($autofocus)
             autofocus
         @endif
-    >
-
-    @if ($note !== null)
-        <small>
-            {!! $note !!}
-        </small>
-    @endif
+    />
 
     @error($name)
         <small class="text-danger error">

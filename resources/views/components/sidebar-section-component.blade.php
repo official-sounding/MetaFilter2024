@@ -5,7 +5,7 @@
         <details>
     @endif
         <summary>
-            <h3>{{  __($heading) }}</h3>
+            <h3>{{  trans($heading) }}</h3>
         </summary>
 
         {{ $slot }}

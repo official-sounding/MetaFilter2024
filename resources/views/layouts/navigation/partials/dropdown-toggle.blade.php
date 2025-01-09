@@ -1,7 +1,7 @@
 <button
     id="{{ $id }}"
     class="dropdown-toggle"
-    aria-controls="{{ $ariaControls }} }}"
+    aria-controls="{{ $ariaControls }}"
     aria-label="{{ $ariaLabel }}"
     aria-haspopup="true"
     aria-expanded="false"

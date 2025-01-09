@@ -3,22 +3,22 @@
 
     <x-forms.input
         name="name"
-        label="{{ __('Name') }}" />
+        label="{{ trans('Name') }}" />
 
     <x-forms.input
         name="email"
         type="email"
-        label="{{ __('Email Address') }}" />
+        label="{{ trans('Email Address') }}" />
 
     <x-forms.input
         name="subject"
-        label="{{ __('Subject') }}" />
+        label="{{ trans('Subject') }}" />
 
     <x-forms.textarea
         name="message"
-        label="{{ __('Message') }}" />
+        label="{{ trans('Message') }}" />
 
     <x-forms.button>
-        {{ __('Send') }}
+        {{ trans('Send') }}
     </x-forms.button>
 </x-forms.form>

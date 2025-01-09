@@ -45,9 +45,9 @@
         title="{{ $key }}"
     >
         @if ($reactions[$key]["reacted"])
-            <x-dynamic-component component="comments::icons.{{$key}}" :fill="$this->fillColor($key)"/>
+            <x-dynamic-component component="comments::icons.{{$key}}" :fill="$this->fillColor($key)" />
         @else
-            <x-dynamic-component component="comments::icons.{{$key}}"/>
+            <x-dynamic-component component="comments::icons.{{$key}}" />
         @endif
 
         <span class="text-sm">{{ Number::abbreviate($reactions[$key]["count"]) }}</span>

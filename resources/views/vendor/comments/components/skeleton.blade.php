@@ -1,6 +1,6 @@
 <div class="space-y-6">
     <div class="text-lg font-bold">
-        {{ __('Comments') }}
+        {{ trans('Comments') }}
     </div>
     @for($i=0; $i<5; $i++)
         <div class="flex animate-pulse ">

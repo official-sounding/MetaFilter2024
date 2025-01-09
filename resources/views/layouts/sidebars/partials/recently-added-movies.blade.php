@@ -1,5 +1,5 @@
 <details>
     <summary>
-        <h3>{{  __('Recently Added Movies') }}</h3>
+        <h3>{{  trans('Recently Added Movies') }}</h3>
     </summary>
 </details>

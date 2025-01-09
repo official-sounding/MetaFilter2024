@@ -1,5 +1,5 @@
 <details>
     <summary>
-        <h3>{{  __('Most Playlisted Tracks') }}</h3>
+        <h3>{{  trans('Most Playlisted Tracks') }}</h3>
     </summary>
 </details>

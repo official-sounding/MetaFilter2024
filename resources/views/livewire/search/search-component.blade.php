@@ -1,9 +1,9 @@
 <search>
     <form action="">
-        <label for="query" class="sr-only">Search</label>
-        <input id="query" name="q" type="search">
+        <label for="{{ $inputId }}" class="sr-only">Search</label>
+        <input id="{{ $inputId }}" name="q" type="search">
         <button type="submit">
-            {{ __('Go') }}
+            {{ trans('Go') }}
         </button>
     </form>
 </search>

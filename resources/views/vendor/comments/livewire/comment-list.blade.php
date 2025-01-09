@@ -10,7 +10,7 @@
     class="space-y-6"
 >
     <div class="text-lg font-bold">
-        {{ __('Comments') }}
+        {{ trans('Comments') }}
         <span x-text="getTotal()"></span>
     </div>
     <div class="flex flex-col gap-y-2 sm:flex-row sm:items-center sm:justify-between">
@@ -25,7 +25,7 @@
                         'bg-gray-500' => $sortBy === Sort::TOP && Helpers::isGithubTheme(),
                     ])
                 >
-                    {{ __('Top') }}
+                    {{ trans('Top') }}
                 </x-comments::chip>
                 <x-comments::chip
                     wire:click="setSortBy('latest')"
@@ -35,7 +35,7 @@
                          'bg-gray-500' => $sortBy === Sort::LATEST && Helpers::isGithubTheme(),
                      ])
                 >
-                    {{ __('Newest') }}
+                    {{ trans('Newest') }}
                 </x-comments::chip>
                 <x-comments::chip
                     wire:click="setSortBy('oldest')"
@@ -45,7 +45,7 @@
                         'bg-gray-500' => $sortBy === Sort::OLDEST && Helpers::isGithubTheme(),
                     ])
                 >
-                    {{ __('Oldest') }}
+                    {{ trans('Oldest') }}
                 </x-comments::chip>
                 <x-comments::chip
                     wire:click="setSortBy('replies')"
@@ -55,7 +55,7 @@
                         'bg-gray-500' => $sortBy === Sort::REPLIES && Helpers::isGithubTheme(),
                     ])
                 >
-                    {{ __('Replies') }}
+                    {{ trans('Replies') }}
                 </x-comments::chip>
 
                 <x-comments::chip
@@ -66,12 +66,12 @@
                         'bg-gray-500' => $filter === 'my_comments' && Helpers::isGithubTheme(),
                     ])
                 >
-                    {{ __('My Comments') }}
+                    {{ trans('My Comments') }}
                 </x-comments::chip>
             </div>
         @endif
 
-        <x-comments::link type="a" route="#create-comment-form">{{ __('Create Comment') }}</x-comments::link>
+        <x-comments::link type="a" route="#create-comment-form">{{ trans('Create Comment') }}</x-comments::link>
     </div>
 
     <div wire:loading.flex class="flex items-center gap-x-2 sm:gap-x-4">
@@ -90,19 +90,19 @@
             />
         @endforeach
     @elseif ($filter === 'my_comments')
-        <div class="text-lg">{{ __('You haven\'t made/approved any comments yet !') }}</div>
+        <div class="text-lg">{{ trans('You haven\'t made/approved any comments yet !') }}</div>
     @else
-        <div class="text-lg">{{ __('Be the first one to make a comment !') }}</div>
+        <div class="text-lg">{{ trans('Be the first one to make a comment !') }}</div>
     @endif
 
     @if ($comments->isNotEmpty() && $model->paginationEnabled() && $paginationRequired)
         <div class="flex items-center justify-center">
             @if ($limit < $total)
                 <x-comments::button wire:click="paginate" type="button" loadingTarget="paginate">
-                    {{ __('Load More') }}
+                    {{ trans('Load More') }}
                 </x-comments::button>
             @else
-                <div class="font-bold">{{ __('End of comments') }}</div>
+                <div class="font-bold">{{ trans('End of comments') }}</div>
             @endif
         </div>
     @endif

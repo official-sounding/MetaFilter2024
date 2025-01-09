@@ -1,5 +1,5 @@
 <x-sidebar-section-component
-    heading="{{  __('Today in MeFi History') }}"
+    heading="{{  trans('Today in MeFi History') }}"
     class="years-ago"
     open="true">
 

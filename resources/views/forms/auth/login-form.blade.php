@@ -1,44 +1,47 @@
-<form method="POST" action="{{ route('auth.login.store') }}">
+<form method="POST" action="{{ route($loginCreateRoute) }}">
     @include('forms.partials.csrf-token')
-    @include('forms.partials.validation-summary')
-    @include('forms.partials.required-fields-note')
 
-    <x-forms.input
-        name="username"
-        type="text"
-        autofocus="true"
-        label="{{ __('Username') }}"/>
+    <fieldset>
 
-    <x-forms.input
-        name="password"
-        type="password"
-        label="{{ __('Password') }}"/>
+        @include('forms.partials.validation-summary')
+        @include('forms.partials.required-fields-note')
 
-    <x-forms.field>
-        <button type="submit" class="button primary-button">
-            {{ __('Log In') }}
-        </button>
-    </x-forms.field>
+        <x-forms.input
+            name="username"
+            type="text"
+            autofocus="true"
+            label="{{ trans('Username') }}" />
 
-    <p>
-        {!! __('Don&rsquo;t have an account?') !!}
-        <a href="{{ route($registerCreateRoute) }}">
-            <strong>
-                {{ __('Sign up here') }}
-            </strong>
-        </a>
-    </p>
+        <x-forms.input
+            name="password"
+            type="password"
+            label="{{ trans('Password') }}" />
 
-    <p>
-        <a href="{{ route($forgotPasswordRoute) }}">
-            {{ __('Forgot your password?') }}
-        </a>
-    </p>
+        <x-forms.field>
+            <button type="submit" class="button primary-button">
+                {{ trans('Log In') }}
+            </button>
+        </x-forms.field>
 
-    <p>
-        {{ __('Need help?') }}
-        <a href="{{ route($contactFormRoute) }}">
-            {{ __('Contact the admins.') }}
-        </a>
-    </p>
+        <p>
+            {!! trans('Don&rsquo;t have an account?') !!}
+            <a href="{{ route($registerCreateRoute) }}">
+                {{ trans('Sign up here') }}
+            </a>
+        </p>
+    {{--
+        // TODO: Fix existing route not loading
+        <p>
+            <a href="{{ route('forgot-password') }}">
+                {{ trans('Forgot your password?') }}
+            </a>
+        </p>
+    --}}
+        <p>
+            {{ trans('Need help?') }}
+            <a href="{{ route($contactFormRoute) }}">
+                {{ trans('Contact the admins.') }}
+            </a>
+        </p>
+    </fieldset>
 </form>

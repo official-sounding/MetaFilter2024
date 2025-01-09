@@ -29,11 +29,11 @@
     @include('layouts.partials.global-header')
     @include('layouts.partials.site-banner')
     @include('layouts.navigation.global-navigation')
-    @include('layouts.navigation.subsite-navigation')
+    @include('layouts.navigation.primary-navigation')
 </header>
 
-@if (isset($showPostNavigation) && $showPostNavigation === true)
-    @include('layouts.navigation.post-navigation')
+@if (isset($showSecondaryNavigation) && $showSecondaryNavigation === true)
+    @include('layouts.navigation.secondary-navigation')
 @endif
 
 <div class="container main-contents-wrapper">

@@ -28,11 +28,11 @@
             </span>
 
             @if ($flags > 1)
-                {{ __('Flags') }} ({{ $flags }})
+                {{ trans('Flags') }} ({{ $flags }})
             @elseif ($flags === 1)
-                {{ __('Flags') }} (1)
+                {{ trans('Flags') }} (1)
             @else
-                {{ __('Flags') }} (0)
+                {{ trans('Flags') }} (0)
             @endif
         </button>
     @endif

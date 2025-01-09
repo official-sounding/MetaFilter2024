@@ -7,12 +7,12 @@
                     <x-comments::input
                         wire:model="guest_name"
                         :shouldDisable="$limitExceeded"
-                        placeholder="{{  __('Comment as') }}"
+                        placeholder="{{  trans('Comment as') }}"
                     />
                     <div class="min-h-6">
                         @if ($errors->has('guest_name'))
                             <span class="align-top text-xs text-red-500 sm:text-sm">
-                                {{ __($errors->first('guest_name')) }}
+                                {{ trans($errors->first('guest_name')) }}
                             </span>
                         @endif
                     </div>
@@ -23,12 +23,12 @@
                             wire:model="guest_email"
                             :shouldDisable="$limitExceeded"
                             type="email"
-                            placeholder="{{  __('Email') }}"
+                            placeholder="{{  trans('Email') }}"
                         />
                         <div class="min-h-6">
                             @if ($errors->has('guest_email'))
                                 <span class="align-top text-xs text-red-500 sm:text-sm">
-                                    {{ __($errors->first('guest_email')) }}
+                                    {{ trans($errors->first('guest_email')) }}
                                 </span>
                             @endif
                         </div>
@@ -45,15 +45,15 @@
             <div x-cloak x-data="successMsg" @comment-created.window="set(true, $event)">
                 <span x-show="show" x-transition class="align-top text-xs text-green-500 sm:text-sm">
                     @if ($approvalRequired)
-                        {{ __('Comment created and will be displayed once approved.') }}
+                        {{ trans('Comment created and will be displayed once approved.') }}
                     @else
-                        {{ __('Comment created.') }}
+                        {{ trans('Comment created.') }}
                     @endif
                 </span>
             </div>
             <div>
                 @if ($errors->has('text'))
-                    <span class="align-top text-xs text-red-500 sm:text-sm">{{ __($errors->first('text')) }}</span>
+                    <span class="align-top text-xs text-red-500 sm:text-sm">{{ trans($errors->first('text')) }}</span>
                 @endif
             </div>
         </div>
@@ -61,25 +61,25 @@
             @if ($loginRequired)
                 <div>
                     <span>
-                        {{ __('Please') }}
+                        {{ trans('Please') }}
                         <x-comments::link
                             wire:click.prevent="redirectToLogin(window.location.href)"
                             class="font-bold text-blue-600"
                         >
-                            {{ __('Log In') }}
+                            {{ trans('Log In') }}
                         </x-comments::link>
-                        {{ __('to comment !') }}
+                        {{ trans('to comment !') }}
                     </span>
                 </div>
             @else
                 <x-comments::button loadingTarget="create" class="w-full sm:w-auto">
-                    {{ __('Create') }}
+                    {{ trans('Create') }}
                 </x-comments::button>
             @endif
         @else
             <div>
                 <span class="text-red-500">
-                    {{ __('Allowed comment limit') }} ({{ $model->getCommentLimit() }}) {{ __('exceeded !') }}
+                    {{ trans('Allowed comment limit') }} ({{ $model->getCommentLimit() }}) {{ trans('exceeded !') }}
                 </span>
             </div>
         @endif

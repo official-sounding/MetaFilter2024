@@ -15,7 +15,7 @@
     @else
         <div class="notification is-info">
             <p>
-                {{ __('No comments') }}
+                {{ trans('No comments') }}
             </p>
         </div>
     @endif

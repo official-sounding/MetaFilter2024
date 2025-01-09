@@ -1,7 +1,7 @@
 <section>
-    <h2>{{ __('Social') }}</h2>
+    <h2>{{ trans('Social') }}</h2>
 
-    <h3>{{ __('Links') }}</h3>
+    <h3>{{ trans('Links') }}</h3>
 
     <table>
         <tbody>
@@ -16,9 +16,9 @@
         </tbody>
     </table>
 
-    <h3>{{ __('Tags') }}</h3>
+    <h3>{{ trans('Tags') }}</h3>
 
-    <h4>{{ __('MeFi Tags') }}</h4>
+    <h4>{{ trans('MeFi Tags') }}</h4>
 
     <ol class="tag-list">
         <li>transgender (5) </li>
@@ -34,7 +34,7 @@
     </ol>
 
 
-    <h4>{{ __('Ask MeFi Tags') }}</h4>
+    <h4>{{ trans('Ask MeFi Tags') }}</h4>
 
     <ol class="tag-list">
         <li>libel (1)</li>

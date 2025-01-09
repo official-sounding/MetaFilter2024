@@ -1,5 +1,5 @@
 <details>
     <summary>
-        <h3>{{  __('Share') }}</h3>
+        <h3>{{  trans('Share') }}</h3>
     </summary>
 </details>

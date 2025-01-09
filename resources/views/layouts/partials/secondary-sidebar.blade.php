@@ -4,14 +4,14 @@
     $subdomain = $subsite['subdomain'];
 @endphp
 
-<h2 class="sr-only">{{  __('Sidebar') }}</h2>
+<h2 class="sr-only">{{  trans('Sidebar') }}</h2>
 
 @include('layouts.partials.help-fund-mefi')
 
 <section>
     <details>
         <summary>
-            <h3>{{  __('Appearance') }}</h3>
+            <h3>{{  trans('Appearance') }}</h3>
         </summary>
 
         @include('layouts.partials.toggle-dark-mode')

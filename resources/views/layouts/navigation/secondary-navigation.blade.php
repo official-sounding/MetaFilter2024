@@ -1,5 +1,5 @@
-@if ($postNavigation)
-    <nav class="post-navigation container" id="post-navigation">
-        {!! $postNavigation !!}
+@if ($secondaryNavigation)
+    <nav class="secondary-navigation container" id="secondary-navigation">
+        {!! $secondaryNavigation !!}
     </nav>
 @endif

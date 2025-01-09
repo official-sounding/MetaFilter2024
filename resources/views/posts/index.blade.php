@@ -3,6 +3,10 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
+    @if (isset($showTitle) && $showTitle === true)
+        <h1>{{ $title }}</h1>
+    @endif
+
     @guest
         @include('posts.partials.show-not-logged-in', [
             'context' => 'index'

@@ -1,5 +1,5 @@
 
-<input type="checkbox" class="dark-mode-toggle" id="dark-mode-toggle">
-<label for="dark-mode-toggle">
-    Dark mode is <span class="dark-mode-status" id="dark-mode-status">off</span>
+<input type="checkbox" class="theme-toggle" id="theme-toggle">
+<label for="theme-toggle">
+    Dark mode is <span class="current-theme" id="current-theme">off</span>
 </label>

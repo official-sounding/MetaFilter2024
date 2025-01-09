@@ -22,25 +22,25 @@
         name="username"
         type="text"
         autofocus="true"
-        label="{{ __('Username') }}" />
+        label="{{ trans('Username') }}" />
 
     <x-forms.input
         name="email"
         type="email"
-        label="{{ __('Email address') }}"
+        label="{{ trans('Email address') }}"
         :note="$emailNote" />
 
     <x-forms.input
         name="password"
         type="password"
-        label="{{ __('Password') }}" />
+        label="{{ trans('Password') }}" />
 
     <x-forms.input
         name="confirm-password"
         type="password"
-        label="{{ __('Confirm password') }}" />
+        label="{{ trans('Confirm password') }}" />
 
     <x-forms.button>
-        {{ __('Register') }}
+        {{ trans('Register') }}
     </x-forms.button>
 </form>

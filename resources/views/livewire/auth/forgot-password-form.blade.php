@@ -8,9 +8,9 @@
         type="email"
         autocomplete="true"
         autofocus="true"
-        label="{{ __('Email Address') }}"/>
+        label="{{ trans('Email Address') }}" />
 
     <x-forms.button>
-        {{ __('Send Password Reset Link') }}
+        {{ trans('Send Password Reset Link') }}
     </x-forms.button>
 </form>

@@ -7,7 +7,7 @@
             <span class="icon">
                 <img src="{{ asset('images/icons/box-arrow-in-right.svg') }}" alt="">
             </span>
-            {{ __('Log In') }}
+            {{ trans('Log In') }}
         </a>
     </li>
     <li>
@@ -18,7 +18,7 @@
             <span class="icon">
                 <img src="{{ asset('images/icons/person-plus-fill.svg') }}" alt="">
             </span>
-            {{ __('Sign Up') }}
+            {{ trans('Sign Up') }}
         </a>
     </li>
 </ul>

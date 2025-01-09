@@ -1,5 +1,5 @@
 <details>
     <summary>
-        <h3>{{  __('Synopses') }}</h3>
+        <h3>{{  trans('Synopses') }}</h3>
     </summary>
 </details>

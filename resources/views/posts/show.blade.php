@@ -10,7 +10,11 @@
     @endguest
 
     <article class="post post-show">
-        @include('posts.partials.post-header')
+        <h1>{!! $post->title !!}</h1>
+
+        <p class="dateline">
+            {{ $post->created_at->format('F j, Y g:i a') }}
+        </p>
 
         {!! $post->body !!}
 
@@ -19,23 +23,16 @@
         @endif
 
         @include('posts.partials.post-show-footer', [
-            'userId' => $userId,
-            'username' => $username,
+            'post' => $post,
             'commentsCount' => $post->comments()->count(),
             'favoritesCount' => $post->favorites()->count(),
-            'flagsCount' => $post->flags()->count(),
         ])
     </article>
 
-    <livewire:post.post-comments-component :post="$post" :flagReasons="$flagReasons" />
+    <section class="comments" id="comments">
+        <livewire:comments.comment-index-component :post="$post" />
+    </section>
 
-    @if (isset($isArchived) && $isArchived === true)
-        @include('posts.partials.show-archived')
-    @else
-        @auth
-            <livewire:post.comment-form-component :post="$post" />
-        @endauth
-    @endif
-
+    @include('posts.partials.related-posts')
     @include('posts.partials.previous-next')
 @endsection

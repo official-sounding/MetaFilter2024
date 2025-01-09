@@ -54,7 +54,7 @@
 
                     @if ($comment->isEdited())
                         <span class="inline-block h-2 w-[1px] bg-black"></span>
-                        <span class="text-xs">{{ __('Edited') }}</span>
+                        <span class="text-xs">{{ trans('Edited') }}</span>
                     @endif
                 </div>
 
@@ -89,7 +89,7 @@
                                         <x-comments::pencil height="13" width="13" strokeColor="blue" />
 
                                         <x-comments::action class="text-xs hover:!no-underline sm:text-sm">
-                                            {{ __('Edit') }}
+                                            {{ trans('Edit') }}
                                         </x-comments::action>
                                     </li>
                                 @endif
@@ -97,7 +97,7 @@
                                 @if ($model->canDeleteComment($comment))
                                     <li
                                         wire:click="delete({{ $comment }})"
-                                        wire:confirm="{{ __('Are you sure you want to delete this comment?') }}"
+                                        wire:confirm="{{ trans('Are you sure you want to delete this comment?') }}"
                                         @click="showEditMenu=false"
                                         class="flex items-center items-center space-x-2 space-x-2 rounded p-2 hover:!bg-gray-200"
                                     >
@@ -107,7 +107,7 @@
                                             wire:target="delete({{$comment}})"
                                             class="!text-red align-text-bottom text-xs hover:!no-underline sm:text-sm"
                                         >
-                                            {{ __('Delete') }}
+                                            {{ trans('Delete') }}
                                         </x-comments::action>
                                     </li>
                                 @endif
@@ -191,7 +191,7 @@
                         <x-comments::icons.chevron-down x-show="!showReplyList" />
                         <x-comments::icons.chevron-up x-show="showReplyList" />
                         <span x-text="replyCount"></span>
-                        <span>{{ __('replies') }}</span>
+                        <span>{{ trans('replies') }}</span>
                     </x-comments::link>
                 </div>
 

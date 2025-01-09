@@ -6,9 +6,9 @@
         name="email"
         type="email"
         autocomplete="true"
-        label="{{ __('Email Address') }}"/>
+        label="{{ trans('Email Address') }}" />
 
     <x-forms.button>
-        {{ __('Send Password Reset Link') }}
+        {{ trans('Send Password Reset Link') }}
     </x-forms.button>
 </x-forms.form>
