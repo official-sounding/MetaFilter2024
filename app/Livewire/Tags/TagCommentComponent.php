@@ -10,6 +10,6 @@ final class TagCommentComponent extends BaseTagComponent
 {
     public function render(): View
     {
-        return view('livewire.post.tag-comment-component');
+        return view('livewire.tags.tag-comment-component');
     }
 }

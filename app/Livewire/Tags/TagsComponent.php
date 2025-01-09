@@ -30,7 +30,7 @@ final class TagsComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.post.tags-component');
+        return view('livewire.tags.tags-component');
     }
 
     public function showModal($Model, $Id): void
