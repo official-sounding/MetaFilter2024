@@ -1,17 +1,7 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\View\View;
+class LabsController {
 
-final class LabsController extends BaseController
-{
-    public function index(): View
-    {
-        return view('labs.index', [
-            'title' => 'Labs',
-        ]);
-    }
 }

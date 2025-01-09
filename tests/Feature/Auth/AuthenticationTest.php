@@ -28,7 +28,7 @@ test('users can authenticate using the login screen', function () {
     // Assert
     $this->assertAuthenticated();
 
-    $response->assertRedirect(route(RouteNameEnum::MetaFilterPostIndex->value, absolute: false));
+    $response->assertRedirect(route(RouteNameEnum::MetaFilterPostIndex, absolute: false));
 });
 
 test('users cannot authenticate with invalid password', function () {
