@@ -13,11 +13,17 @@
     background-color: var(--white);
     list-style: none;
     position: absolute;
+    display: none;
     top: 100%;
     right: 0;
     margin: 0;
     padding: 0;
     z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.dropdown-menu.expanded {
+    display: block;
 }
 
 .dropdown-menu li {

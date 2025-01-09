@@ -32,9 +32,23 @@ h4,
     font-style: normal;
 }
 
+cite,
+em {
+    font-style: italic;
+}
+
+.sidebar h3 {
+    font-size: var(--font-size-normal);
+}
+
 .next,
-.previous {
+.previous,
+.main-contents h2 {
     font-size: var(--font-size-plus-1);
+}
+
+.main-contents h1 {
+    font-size: var(--font-size-plus-3);
 }
 
 .site-title-text {
@@ -47,15 +61,21 @@ hgroup {
 }
 
 .comment-footer,
+.dateline,
 .dropdown-menu,
 label,
-nav.post-navigation a,
 .next .title,
+.nickname-prompt,
 .post-footer,
+.post-navigation,
 .previous .title,
 small,
 .utility-navigation {
     font-size: var(--font-size-minus-1);
+}
+
+.nickname-prompt {
+    max-width: 44rem;
 }
 
 .site-title {
@@ -76,9 +96,13 @@ h4 {
     overflow-wrap: break-word;
 }
 
-.main-contents h1,
-.main-contents h2 {
+.main-contents h1 {
     margin-bottom: 1rem;
+}
+
+.main-contents h2 {
+    line-height: 1;
+    margin-bottom: 0.5rem;
 }
 
 .main-contents h3 {
@@ -87,6 +111,7 @@ h4 {
 }
 
 .main-contents p {
+    line-height: 1.5;
     margin-bottom: 1rem;
 }
 
@@ -122,8 +147,9 @@ nav.post-navigation a,
 
 button,
 .button,
-.dark-mode-status,
+.current-theme,
 .dropdown-toggle,
+legend,
 .logout-button,
 nav a,
 .notification a,
@@ -136,7 +162,7 @@ th,
     font-weight: 600;
 }
 
-.dark-mode-status {
+.current-theme {
     font-weight: 700;
 }
 

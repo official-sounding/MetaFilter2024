@@ -56,13 +56,17 @@ input:focus::placeholder {
 .logout-button:hover,
 .site-banner a:hover,
 .utility-navigation a:active,
-.utility-navigation a:hover {
+.utility-navigation a:hover,
+.utility-navigation a[aria-current='page']:link,
+.utility-navigation a[aria-current='page']:visited {
     color: var(--yellow-green);
     background-color: var(--black);
 }
 
 .global-navigation a[aria-current='page']:active,
-.global-navigation a[aria-current='page']:hover {
+.global-navigation a[aria-current='page']:hover,
+.utility-navigation a[aria-current='page']:active,
+.utility-navigation a[aria-current='page']:hover {
     outline-offset: -0.25rem;
 }
 
@@ -73,6 +77,15 @@ input:focus::placeholder {
 .dropdown-toggle {
     color: var(--white);
     background-color: inherit;
+}
+
+.logout-button {
+    border-bottom-color: var(--yellow-green);
+}
+
+.logout-button:active,
+.logout-button:hover {
+    border-bottom-color: var(--black);
 }
 
 .site-header .dropdown-toggle {

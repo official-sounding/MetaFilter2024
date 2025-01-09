@@ -1,7 +1,7 @@
 
 .previous-next {
     gap: 2rem;
-    margin: 0 1rem 1rem 1rem;
+    margin: 0 0 1rem 0;
 }
 
 .next,
@@ -16,13 +16,13 @@
 }
 
 .next {
-    margin: 0 1rem 0 0;
+    margin: 0;
     padding: 1rem 2rem 1rem 1rem;
     text-align: right;
 }
 
 .previous {
-    margin: 0 0 0 1rem;
+    margin: 0;
     padding: 1rem 1rem 1rem 2rem;
 }
 

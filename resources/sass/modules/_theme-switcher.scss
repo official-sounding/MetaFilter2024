@@ -1,5 +1,5 @@
 
-.dark-mode-toggle {
+.theme-toggle {
     position: relative;
     appearance: none;
     outline: none;
@@ -12,7 +12,7 @@
     transition: 0.3s ease-in-out;
 }
 
-.dark-mode-toggle::before {
+.theme-toggle::before {
     content: '';
     position: absolute;
     top: 2px;
@@ -23,7 +23,7 @@
     transition: inherit;
 }
 
-.dark-mode-toggle::after {
+.theme-toggle::after {
     content: '';
     position: absolute;
     top: -6px;
@@ -34,11 +34,11 @@
     transition: inherit;
 }
 
-.dark-mode-toggle:checked::before {
+.theme-toggle:checked::before {
     left: calc(100% - 38px);
 }
 
-.dark-mode-toggle:checked::after {
+.theme-toggle:checked::after {
     right: 12px;
 }
 

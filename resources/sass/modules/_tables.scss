@@ -3,8 +3,9 @@ tbody th {
     text-align: left;
 }
 
-.contributions thead th,
-.contributions tbody td {
+.contributions tbody td,
+thead th.numbers,
+tbody td.numbers {
     text-align: center;
 }
 

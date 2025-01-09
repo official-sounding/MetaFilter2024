@@ -3,20 +3,38 @@
 
 :root {
     --input-border-width: 1.5px;
-    --input-border-radius: 2px;
+    --input-border-radius: 0.25rem;
     --input-padding: 0.5em;
 }
 
 select,
 textarea,
-main input[type="email"],
-main input[type="password"],
-main input[type="search"],
-main input[type="text"],
-main input[type="url"] {
+main input[type='email'],
+main input[type='password'],
+main input[type='search'],
+main input[type='text'],
+main input[type='url'] {
     border-radius: var(--input-border-radius);
     padding: var(--input-padding);
     width: 100%;
+}
+
+.ck.ck-reset[role='application'] {
+    margin: 0 0 1rem 0;
+}
+
+.input-icon-wrap {
+    display: flex;
+    flex-direction: row;
+}
+
+.input-with-icon {
+    border: none;
+    flex: 1;
+}
+
+.input-icon, .input-with-icon {
+    padding: 10px;
 }
 
 .input:not(textarea) {
@@ -30,7 +48,7 @@ main input[type="url"] {
     border-bottom-left-radius: 0;
 }
 
-input[type="search"] {
+input[type='search'] {
     border: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -56,7 +74,7 @@ label:disabled {
 
 fieldset {
     margin: 0 0 2rem 0;
-    padding: 0.75rem 0.75rem 0.25rem 0.75rem;
+    padding: 1.5rem 1.25rem 0.5rem 1.25rem;
     border-radius: 0.25rem;
 }
 
@@ -74,6 +92,11 @@ input + small {
 label {
     display: block;
     margin-bottom: 0.25rem;
+}
+
+legend {
+    position: relative;
+    top: 1rem;
 }
 
 search form {
@@ -100,9 +123,8 @@ form.mode-switcher,
     margin-bottom: 0;
 }
 
-.global-navigation form input[type="search"] {
-    padding-top: 0;
-    padding-bottom: 0;
+.global-navigation form input[type='search'] {
+    padding: 0.25rem;
 }
 
 .global-navigation form .input-add-on {

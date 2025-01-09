@@ -5,34 +5,41 @@ body {
     background-color: light-dark(var(--white), var(--base-color));
 }
 
-.dark-mode-toggle,
-.dark-mode-toggle::after {
+.theme-toggle,
+.theme-toggle::after {
     background-color: var(--lighter-base-color);
 }
 
-.dark-mode-toggle::before {
+.theme-toggle::before {
     background-color: var(--gold);
 }
 
-.dark-mode-toggle:checked::before {
+.theme-toggle:checked::before {
     background-color: var(--light-gray);
 }
 
-.dark-mode-toggle:checked,
-.dark-mode-toggle:checked::after {
+.theme-toggle:checked,
+.theme-toggle:checked::after {
     background-color: var(--darker-base-color);
 }
 
 //noinspection CssInvalidFunction
 form small {
-    color: light-dark(var(--base-color), var(--lightest-base-color));
+    color: light-dark(var(--base-color), var(--dark-base-color));
     background-color: inherit;
 }
 
 //noinspection CssInvalidFunction
-label {
-    color: light-dark(var(--black), var(--white));
-    background-color: inherit;
+fieldset {
+    background-color: light-dark(var(--black), var(--lightest-base-color));
+    border: none;
+}
+
+//noinspection CssInvalidFunction
+label,
+legend {
+    color: light-dark(var(--black), var(--dark-base-color));
+    background-color: transparent;
 }
 
 //noinspection CssInvalidFunction
@@ -65,15 +72,15 @@ textarea:focus {
 }
 
 //noinspection CssInvalidFunction
-.comments a,
-.posts a {
-    color: light-dark(var(--base-color), var(--white));
+.main-contents form {
+    color: light-dark(var(--dark-base-color), var(--dark-base-color));
+    background-color: transparent;
 }
 
 //noinspection CssInvalidFunction
-.comments a:hover,
-.posts a:hover {
-    color: light-dark(var(--base-color), var(--white));
+.main-contents form .button {
+    color: light-dark(var(--white), var(--white));
+    background-color: light-dark(var(--dark-base-color), var(--dark-base-color));
 }
 
 .next,
@@ -105,12 +112,16 @@ textarea:focus {
     border-color: var(--darker-base-color);
 }
 
+.main-contents form a:link,
+.main-contents form a:visited,
 .notification.is-info a:link,
 .notification.is-info a:visited {
     color: var(--white);
     background-color: var(--dark-base-color);
 }
 
+.main-contents form a:active,
+.main-contents form a:hover,
 .notification.is-info a:active,
 .notification.is-info a:hover {
     color: var(--dark-base-color);
@@ -136,6 +147,12 @@ textarea:focus {
 .post a:hover {
     color: light-dark(var(--white), var(--yellow-green));
     background-color: light-dark(var(--dark-base-color), var(--darker-base-color));
+}
+
+//noinspection CssInvalidFunction
+.nickname-prompt {
+    color: light-dark(var(--gray), var(--lightest-base-color));
+    background-color: inherit;
 }
 
 //noinspection CssInvalidFunction
@@ -183,29 +200,29 @@ textarea:focus {
     background-color: light-dark(var(--white), var(--base-color));
 }
 
-.subsite-navigation,
-.subsite-navigation-menu a:link,
-.subsite-navigation-menu a:visited {
+.primary-navigation,
+.primary-navigation-menu a:link,
+.primary-navigation-menu a:visited {
     color: var(--base-color);
     background-color: var(--lighter-base-color);
 }
 
 //noinspection CssInvalidFunction
-.subsite-navigation-menu a:active,
-.subsite-navigation-menu a:hover {
+.primary-navigation-menu a:active,
+.primary-navigation-menu a:hover {
     color: light-dark(var(--base-color), var(--white));
     background-color: light-dark(var(--white), var(--base-color));
 }
 
 //noinspection CssInvalidFunction
-.subsite-navigation-menu a[aria-current='page'] {
+.primary-navigation-menu a[aria-current='page'] {
     color: light-dark(var(--white), var(--base-color));
     background-color: light-dark(var(--base-color), var(--white));
 }
 
 //noinspection CssInvalidFunction
-.subsite-navigation-menu a[aria-current='page']:active,
-.subsite-navigation-menu a[aria-current='page']:hover {
+.primary-navigation-menu a[aria-current='page']:active,
+.primary-navigation-menu a[aria-current='page']:hover {
     color: light-dark(var(--base-color), var(--white));
     background-color: light-dark(var(--white), var(--base-color));
 }

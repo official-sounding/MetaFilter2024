@@ -2,9 +2,20 @@
 
 // TODO: Use focus-within to highlight the dropdown menu when it is open
 
+nav ul,
+.site-banner ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 nav ul li {
     display: inline-block;
     white-space: nowrap;
+}
+
+.has-dropdown {
+    position: relative;
 }
 
 .site-footer nav ul li {
@@ -20,7 +31,7 @@ nav ul li {
     position: relative;
 }
 
-.subsite-navigation {
+.primary-navigation {
     margin-bottom: 2rem;
 }
 
@@ -41,12 +52,12 @@ nav ul li {
 }
 
 @include breakpoints.phone-only() {
-    nav ul.subsite-navigation {
+    nav ul.primary-navigation {
         width: 100%;
         display: inline-flex;
     }
 
-    nav ul.subsite-navigation li {
+    nav ul.primary-navigation li {
         flex: auto;
         width: 25%;
     }

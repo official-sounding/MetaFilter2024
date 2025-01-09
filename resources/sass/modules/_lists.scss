@@ -1,8 +1,13 @@
 
-ul.bulleted {
-    margin: 0 0 1rem 1rem;
+main dd,
+main li {
+    margin: 0 0 1rem 0;
     padding: 0;
-    list-style: disc;
+}
+
+main .notification ul li,
+main li:last-of-type {
+    margin-bottom: 0;
 }
 
 .site-footer ul.two-columns {
