@@ -9,6 +9,7 @@ use Carbon\Carbon;
 
 trait PostTrait
 {
+    use SubsiteTrait;
     use UrlTrait;
 
     public function isArchived(Post $post, int $days = 30): bool
@@ -43,8 +44,8 @@ trait PostTrait
         ];
     }
 
-    public function getUserIcon(int $userId): string
+    public function getNewPostText(): string
     {
-        return $userId === auth()->id() ? 'person-fill.svg' : 'person.svg';
+        return 'New Post';
     }
 }

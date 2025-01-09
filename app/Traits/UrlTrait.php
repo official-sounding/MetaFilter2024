@@ -14,17 +14,6 @@ trait UrlTrait
         return $url;
     }
 
-    public function getSubdomainFromUrl(): string
-    {
-        $currentUrl = url()->current();
-
-        $urlParts = parse_url($currentUrl);
-
-        $baseDomain = '.' . config('app.host');
-
-        return str_replace(search: $baseDomain, replace: '', subject: $urlParts['host']);
-    }
-
     public function getUrlSegment(int $segment): ?string
     {
         return request()->segment($segment);

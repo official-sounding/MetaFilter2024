@@ -8,6 +8,19 @@ trait SubsiteTrait
 {
     use UrlTrait;
 
+    public function getSubdomainFromUrl(): string
+    {
+        $currentUrl = url()->current();
+
+        $urlParts = parse_url($currentUrl);
+
+        $baseDomain = '.' . config('app.host');
+
+        $subdomain = str_replace(search: $baseDomain, replace: '', subject: $urlParts['host']);
+
+        return $subdomain === 'www' ? 'metafilter' : $subdomain;
+    }
+
     public function getSubsiteFromUrl(): array
     {
         $subdomain = $this->getSubdomainFromUrl();
@@ -19,6 +32,7 @@ trait SubsiteTrait
     {
         if (
             $subdomain === 'localhost' ||
+            $subdomain === 'metafilter' ||
             $subdomain === 'metafilter.test' ||
             $subdomain === 'metastaging.net'
         ) {

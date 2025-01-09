@@ -25,8 +25,8 @@ trait NavigationTrait
             }
 
             if (
-                $itemData['route'] === RouteNameEnum::PreferencesEdit->value ||
-                $itemData['route'] === RouteNameEnum::ProfileShow->value
+                $itemData['route'] === RouteNameEnum::PreferencesEdit ||
+                $itemData['route'] === RouteNameEnum::ProfileShow
             ) {
                 if (auth()->user()) {
                     $item .= '<a href="' . route($itemData['route'], [
@@ -74,8 +74,9 @@ trait NavigationTrait
 
     public function getNewPostButton(): string
     {
+        // TODO: Add all subsites
         $itemData = [
-            'route' => RouteNameEnum::MetaFilterPostCreate->value,
+            'route' => RouteNameEnum::MetaFilterPostCreate,
             'icon' => 'plus',
             'name' => 'New Post',
         ];
