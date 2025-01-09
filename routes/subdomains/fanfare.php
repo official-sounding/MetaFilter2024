@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
-        ->name(RouteNameEnum::FanfarePostIndex->value);
+        ->name(RouteNameEnum::FanfarePostIndex);
 
     Route::get('create', 'create')
-        ->name(RouteNameEnum::FanFarePostCreate->value);
+        ->name(RouteNameEnum::FanFarePostCreate);
 
     Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::FanFarePostShow->value);
+        ->name(RouteNameEnum::FanFarePostShow);
 });

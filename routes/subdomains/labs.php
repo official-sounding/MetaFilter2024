@@ -7,4 +7,4 @@ use App\Http\Controllers\LabsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LabsController::class, 'index'])
-    ->name(RouteNameEnum::LabsHomeIndex->value);
+    ->name(RouteNameEnum::LabsHomeIndex);

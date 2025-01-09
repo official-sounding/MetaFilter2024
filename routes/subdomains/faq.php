@@ -8,5 +8,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(FaqController::class)->group(function () {
     Route::get('', 'index')
-        ->name(RouteNameEnum::FaqIndex->value);
+        ->name(RouteNameEnum::FaqIndex);
 });
