@@ -20,13 +20,17 @@ final class PostFactory extends Factory
     {
         $url = $this->faker->url();
 
+        $timestamp = $this->faker->dateTimeAD();
+
         return [
             'title' => $this->faker->sentence(),
             'url' => str_replace(search: 'http://', replace: 'https://', subject: $url),
             'body' => $this->faker->paragraph(),
             'subsite_id' => Subsite::inRandomOrder()->first(),
             'user_id' => User::inRandomOrder()->first(),
-            'created_at' => $this->faker->dateTimeThisYear(),
+            'created_at' => $timestamp,
+            'published_at' => $timestamp,
+            'is_published' => true,
         ];
     }
 
