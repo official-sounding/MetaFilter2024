@@ -12,6 +12,10 @@ final class LanguageMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
+        $language = session('language');
+
+        app()->setLocale($language);
+
         return $next($request);
     }
 }
