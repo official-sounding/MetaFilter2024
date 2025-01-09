@@ -11,13 +11,14 @@ use Illuminate\Support\Facades\Cache;
 
 final class BannerLinkViewComposer implements ViewComposerInterface
 {
-
     public function compose(View $view): void
     {
         $bannerLinks = Cache::rememberForever('banner-links', function () {
             return BannerLink::all()->collect();
         });
 
-        $view->with(['bannerLinks' => $bannerLinks]);
+        $view->with([
+            'bannerLinks' => $bannerLinks,
+        ]);
     }
 }
