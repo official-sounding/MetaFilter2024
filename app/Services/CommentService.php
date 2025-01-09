@@ -4,18 +4,25 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Http\Requests\Comment\StoreCommentRequest;
+use App\Dto\CommentDto;
 use App\Http\Requests\Comment\UpdateCommentRequest;
 use App\Models\Comment;
 use App\Traits\LoggingTrait;
+use Exception;
 
 final class CommentService
 {
     use LoggingTrait;
 
-    public function store(StoreCommentRequest $request): Comment
+    public function store(CommentDto $dto): ?Comment
     {
-        return Comment::create($request->validated());
+        try {
+            return Comment::create((array) $dto);
+        } catch (Exception $exception) {
+            $this->logError($exception);
+
+            return null;
+        }
     }
 
     public function update(UpdateCommentRequest $request): bool
