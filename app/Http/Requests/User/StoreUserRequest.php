@@ -22,13 +22,14 @@ final class StoreUserRequest extends BaseFormRequest
                 'required',
                 'string',
                 'max:255',
+                'unique:' . User::class,
             ],
             'email' => [
                 'required',
                 'string',
+                'max:255',
                 'lowercase',
                 'email',
-                'max:255',
                 'unique:' . User::class,
             ],
             'password' => [
@@ -36,12 +37,15 @@ final class StoreUserRequest extends BaseFormRequest
                 'confirmed', Password::defaults(),
             ],
             'name' => [
+                'nullable',
                 'string',
                 'max:255',
             ],
             'homepage_url' => [
+                'nullable',
                 'string',
                 'max:255',
+                'active_url',
             ],
         ];
     }

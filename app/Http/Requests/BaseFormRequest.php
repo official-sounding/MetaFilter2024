@@ -14,4 +14,5 @@ abstract class BaseFormRequest extends FormRequest
             'email' => 'email address',
         ];
     }
+
 }
