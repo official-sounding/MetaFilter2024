@@ -36,7 +36,7 @@ final class PostController extends BaseController
         return view('posts.index', [
             'title' => 'Posts',
             'datePosts' => $datePosts,
-            'showPostNavigation' => true,
+            'showSecondaryNavigation' => true,
         ]);
     }
 
@@ -49,12 +49,9 @@ final class PostController extends BaseController
             'post' => $post,
             'next' => $post->next(),
             'previous' => $post->previous(),
-            'userId' => $post->user->id,
-            'username' => $post->user->username,
             'useWysiwyg' => true,
             'flagReasons' => $this->flagReasons,
             'isArchived' => $this->isArchived($post),
-            'iconFilename' => $this->getUserIcon($post->user->id),
             'canonicalUrl' => $this->getCanonicalUrl($post),
         ]);
     }
@@ -62,7 +59,7 @@ final class PostController extends BaseController
     public function create(): View
     {
         return view('posts.create', [
-            'title' => 'New Post',
+            'title' => $this->getNewPostText(),
         ]);
     }
 

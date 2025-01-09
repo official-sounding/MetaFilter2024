@@ -5,17 +5,31 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Repositories\PageRepositoryInterface;
+use App\Traits\SubsiteTrait;
 use Illuminate\Contracts\View\View;
 
 final class PageController extends BaseController
 {
+    use SubsiteTrait;
+
     public function __construct(protected PageRepositoryInterface $pageRepository)
     {
         parent::__construct();
     }
+
     public function show(): View
     {
         $slug = request()->segment(1);
+
+        $subdomain = $this->getSubdomainFromUrl();
+
+        if ($subdomain === 'labs') {
+            $slug = 'labs';
+        }
+
+        if ($subdomain === 'mall') {
+            $slug = 'mefi-mall';
+        }
 
         $page = $this->pageRepository->getBySlug($slug);
 

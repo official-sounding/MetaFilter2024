@@ -22,16 +22,16 @@ final class ApiPostController extends BaseApiController
         $stored = $this->postService->store($request->validated());
 
         if ($stored) {
-            $message = StatusEnum::PostAdded->value;
-            $status = StatusEnum::Success->value;
+            $message = StatusEnum::PostAdded;
+            $status = StatusEnum::Success;
         } else {
-            $message = StatusEnum::AddingPostFailed->value;
-            $status = StatusEnum::Failure->value;
+            $message = StatusEnum::AddingPostFailed;
+            $status = StatusEnum::Failure;
         }
 
         $data = [
-            'message' => $message,
-            'status' => $status,
+            'message' => trans($message),
+            'status' => trans($status),
         ];
 
         return response()->json($data);

@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Enums\RouteNameEnum;
 use App\Enums\StatusEnum;
 use App\Http\Requests\User\UpdateProfileRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 final class ProfileController extends BaseController
 {
     public function show(User $user): View
     {
+        // TODO: Add pagination for user's posts
+
         return view('profile.show', [
             'title' => $user->username . '&rsquo;s profile',
             'user' => $user,
@@ -40,7 +42,7 @@ final class ProfileController extends BaseController
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', StatusEnum::ProfileUpdated);
+        return redirect()->route('profile.edit')->with('status', StatusEnum::ProfileUpdated);
     }
 
     public function delete(Request $request): RedirectResponse
@@ -61,6 +63,6 @@ final class ProfileController extends BaseController
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return redirect()->route(RouteNameEnum::MetaFilterPostIndex)->with('status', StatusEnum::ProfileDeleted);
     }
 }
