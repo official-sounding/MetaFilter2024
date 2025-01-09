@@ -22,6 +22,9 @@
 
 <main class="main-contents" id="main-contents">
     @include('layouts.partials.flash-messages')
+
+    <h1>{{ $title }}</h1>
+
     @yield('contents')
 </main>
 
