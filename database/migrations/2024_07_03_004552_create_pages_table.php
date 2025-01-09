@@ -7,6 +7,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
+
     public function up(): void
     {
         Schema::create('pages', function (Blueprint $table) {
@@ -14,7 +15,7 @@ return new class extends Migration {
 
             $table->string('title')->unique();
             $table->string('slug')->unique();
-            $table->text('contents');
+            $table->text('body');
 
             $table->nullableTimestamps();
             $table->softDeletes();

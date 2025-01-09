@@ -7,22 +7,25 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
+
     public function up(): void
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
 
-            $table->text('contents');
+            $table->text('body');
 
             $table->foreignId('post_id')
-                ->constrained('posts')
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
+                ->constrained('posts');
 
             $table->foreignId('user_id')
+                ->nullable()
                 ->constrained('users')
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
+                ->nullOnDelete();
+
+            $table->foreignId('parent_id')
+                ->nullable()
+                ->constrained('comments');
 
             $table->nullableTimestamps();
             $table->softDeletes();
