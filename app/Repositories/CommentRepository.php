@@ -28,7 +28,7 @@ final class CommentRepository extends BaseRepository implements CommentRepositor
             ->select([
                 'comments.id',
                 'comments.user_id',
-                'comments.contents',
+                'comments.body',
                 'comments.created_at',
                 'users.username',
             ])
