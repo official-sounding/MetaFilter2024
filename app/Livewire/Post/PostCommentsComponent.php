@@ -39,19 +39,19 @@ final class PostCommentsComponent extends Component
         ]);
     }
 
-    #[On(LivewireEventEnum::CommentAdded->value)]
+    #[On(LivewireEventEnum::CommentAdded)]
     public function getComments(): void
     {
         $this->comments = $this->commentRepository->getCommentsByPostId($this->post->id);
     }
 
-    #[On(LivewireEventEnum::HideFlagCommentForm->value)]
+    #[On(LivewireEventEnum::HideFlagCommentForm)]
     public function hideFlagCommentForm(): void
     {
         $this->showFlagCommentForm = false;
     }
 
-    #[On(LivewireEventEnum::ToggleFlagCommentForm->value)]
+    #[On(LivewireEventEnum::ToggleFlagCommentForm)]
     public function toggleFlagCommentForm(): void
     {
         $this->showFlagCommentForm = ! $this->showFlagCommentForm;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Post;
+namespace App\Livewire\Flags;
 
 use App\Http\Requests\Flag\StoreFlagRequest;
 use App\Traits\FlagFormTrait;

@@ -41,16 +41,16 @@ final class LoginComponent extends Component
         ])) {
             $this->reset();
 
-            session()->flash('message', __('Login successful'));
+            session()->flash('message', trans('Login successful'));
 
-            $redirectUrl = route(RouteNameEnum::MetaFilterPostIndex->value);
+            $redirectUrl = route(RouteNameEnum::MetaFilterPostIndex);
 
             $this->redirect($redirectUrl, navigate: true);
 
         } else {
             $this->logDebugMessage('Failed validation.');
 
-            session()->flash('error', __('Sorry, those credentials do not match our records'));
+            session()->flash('error', trans('Sorry, those credentials do not match our records'));
         }
     }
 }

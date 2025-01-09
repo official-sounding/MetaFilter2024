@@ -15,6 +15,8 @@ final class ContactMessageComponent extends Component
     public string $email = '';
     public string $subject = '';
     public string $message = '';
+    public string $status = '';
+    public bool $stored = false;
 
     protected function rules(): array
     {
@@ -39,10 +41,12 @@ final class ContactMessageComponent extends Component
 
         $stored = $emailService->store($data);
 
+        $this->reset();
+
         if ($stored) {
-            session()->flash('message', 'Message stored successfully.');
+            $this->status = 'Message stored successfully.';
         } else {
-            session()->flash('error', 'Failed to send message.');
+            $this->status = 'Failed to send message.';
         }
     }
 }

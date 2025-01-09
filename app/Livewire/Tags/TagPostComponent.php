@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Post;
+namespace App\Livewire\Tags;
 
+use App\Livewire\Tags\BaseTagComponent;
 use Illuminate\Contracts\View\View;
 
 final class TagPostComponent extends BaseTagComponent

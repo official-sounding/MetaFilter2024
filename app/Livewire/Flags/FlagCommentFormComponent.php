@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Post;
+namespace App\Livewire\Flags;
 
 use App\Enums\LivewireEventEnum;
 use App\Livewire\Flags\BaseFlagFormComponent;
@@ -48,7 +48,7 @@ final class FlagCommentFormComponent extends BaseFlagFormComponent
         $stored = $this->flagCommentService->create($data);
 
         if ($stored) {
-            $this->dispatch(LivewireEventEnum::CommentFlagAdded->value, id: $commentId);
+            $this->dispatch(LivewireEventEnum::CommentFlagAdded, id: $commentId);
         } else {
             $this->logError('Failed to store comment flag');
         }

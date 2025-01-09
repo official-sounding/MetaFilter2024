@@ -10,6 +10,12 @@ use Spatie\LivewireWizard\Components\StepComponent;
 
 final class CreateUserStepComponent extends StepComponent
 {
+    public ?string $name;
+    public ?string $username;
+    public ?string $email;
+    public ?string $password;
+    public ?string $homepage_url;
+
     public function stepInfo(): array
     {
         return [
@@ -22,7 +28,7 @@ final class CreateUserStepComponent extends StepComponent
         return (new StoreUserRequest())->rules();
     }
 
-    public function submit(): void
+    public function store(): void
     {
         $this->validate();
 
@@ -31,6 +37,6 @@ final class CreateUserStepComponent extends StepComponent
 
     public function render(): View
     {
-        return view('livewire.register.steps.create-user');
+        return view('livewire.register.steps.signup-form');
     }
 }

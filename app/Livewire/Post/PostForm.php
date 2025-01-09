@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Post\Forms;
+namespace App\Livewire\Post;
 
 use App\Http\Requests\Post\StoreMetaFilterPostRequest;
 use Livewire\Form;

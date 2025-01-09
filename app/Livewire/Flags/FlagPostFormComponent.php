@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Post;
+namespace App\Livewire\Flags;
 
 use App\Enums\LivewireEventEnum;
 use App\Livewire\Flags\BaseFlagFormComponent;
@@ -48,7 +48,7 @@ final class FlagPostFormComponent extends BaseFlagFormComponent
         $stored = $this->flagPostService->create($data);
 
         if ($stored) {
-            $this->dispatch(LivewireEventEnum::PostFlagAdded->value, id: $postId);
+            $this->dispatch(LivewireEventEnum::PostFlagAdded, id: $postId);
         } else {
             $this->logError('Failed to store post flag');
         }

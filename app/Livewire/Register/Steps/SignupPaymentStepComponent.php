@@ -8,7 +8,7 @@ use App\Services\UserService;
 use Illuminate\Contracts\View\View;
 use Spatie\LivewireWizard\Components\StepComponent;
 
-final class RegisterPaymentStepComponent extends StepComponent
+final class SignupPaymentStepComponent extends StepComponent
 {
     protected UserService $userService;
 

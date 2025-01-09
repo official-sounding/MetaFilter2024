@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Post;
+namespace App\Livewire\Flags;
 
 use App\Livewire\Flags\BaseFlagComponent;
 use App\Models\Comment;
@@ -43,7 +43,7 @@ final class FlagCommentComponent extends BaseFlagComponent
     {
         $iconPath = $this->getIconPath();
 
-        return view('livewire.post.flag-component')->with([
+        return view('livewire.flags.flag-component')->with([
             'iconPath' => $iconPath,
             'title' => $this->title,
             'type' => $this->type,

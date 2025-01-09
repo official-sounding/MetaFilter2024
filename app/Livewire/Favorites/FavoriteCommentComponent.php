@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Post;
+namespace App\Livewire\Favorites;
 
+use App\Livewire\Post\BaseFavoriteComponent;
 use App\Models\Comment;
 use App\Services\FavoriteCommentService;
 use Illuminate\Contracts\View\View;
@@ -32,7 +33,7 @@ final class FavoriteCommentComponent extends BaseFavoriteComponent
     {
         $iconPath = $this->getIconPath();
 
-        return view('livewire.post.favorite-component')->with([
+        return view('livewire.favorites.favorite-component')->with([
             'iconPath' => $iconPath,
         ]);
     }
