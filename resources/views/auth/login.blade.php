@@ -1,4 +1,4 @@
-@extends('layouts.guest')
+@extends('layouts.minimal')
 
 @section('title', $title ?? 'Untitled')
 
