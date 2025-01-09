@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\View\Composers\BannerLinks\BannerLinkViewComposer;
 use App\View\Composers\Navigation\CreatePostButtonViewComposer;
 use App\View\Composers\Navigation\FooterLinksNavigationViewComposer;
 use App\View\Composers\Navigation\FooterMemberLinksViewComposer;
 use App\View\Composers\Navigation\FooterSubsiteNavigationViewComposer;
 use App\View\Composers\Navigation\GlobalNavigationViewComposer;
-use App\View\Composers\Navigation\PostNavigationViewComposer;
+use App\View\Composers\Navigation\SecondaryNavigationViewComposer;
 use App\View\Composers\Navigation\PrimaryNavigationViewComposer;
-use App\View\Composers\Navigation\SubsiteNavigationViewComposer;
 use App\View\Composers\Navigation\UtilityNavigationViewComposer;
 use App\View\Composers\Sidebar\TodayInHistoryViewComposer;
 use App\View\Composers\Snippets\SnippetViewComposer;
@@ -47,8 +47,8 @@ final class ViewComposerServiceProvider extends ServiceProvider
         );
 
         view()->composer(
-            'layouts.navigation.post-navigation',
-            PostNavigationViewComposer::class,
+            'layouts.navigation.secondary-navigation',
+            SecondaryNavigationViewComposer::class,
         );
 
         view()->composer(
@@ -59,8 +59,13 @@ final class ViewComposerServiceProvider extends ServiceProvider
         );
 
         view()->composer(
-            'layouts.navigation.subsite-navigation',
-            SubsiteNavigationViewComposer::class,
+            'layouts.partials.site-banner',
+            BannerLinkViewComposer::class,
+        );
+
+        view()->composer(
+            'layouts.navigation.primary-navigation',
+            PrimaryNavigationViewComposer::class,
         );
 
         view()->composer(
