@@ -71,6 +71,8 @@ Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
         ->name(RouteNameEnum::MetaFilterPostIndex);
 
+    Route::get('page/{page}', 'index');
+
     Route::get('create', 'create')
         ->name(RouteNameEnum::MetaFilterPostCreate);
 
