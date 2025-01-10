@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Livewire\Flags;
 
 use App\Enums\LivewireEventEnum;
-use App\Livewire\Flags\BaseFlagFormComponent;
 use App\Models\Comment;
 use App\Services\FlagCommentService;
 

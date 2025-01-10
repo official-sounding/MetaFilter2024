@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Requests\Comment;
 
 use App\Http\Requests\BaseFormRequest;
+
 class StoreCommentRequest extends BaseFormRequest
 {
     public function authorize(): bool

@@ -6,7 +6,8 @@ namespace App\Http\Requests\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-abstract class BaseStorePostFormRequest extends FormRequest {
+abstract class BaseStorePostFormRequest extends FormRequest
+{
     public function __construct()
     {
         parent::__construct();

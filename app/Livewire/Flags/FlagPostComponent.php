@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Livewire\Flags;
 
-use App\Livewire\Flags\BaseFlagComponent;
 use App\Models\Post;
 use App\Services\FlagPostService;
 use App\Traits\FlagTrait;
