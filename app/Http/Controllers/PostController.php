@@ -29,7 +29,7 @@ final class PostController extends BaseController
         parent::__construct();
     }
 
-    public function index(): View
+    public function index(int $page = 1): View
     {
         $datePosts = $this->postRepository->getBySubdomain();
 
