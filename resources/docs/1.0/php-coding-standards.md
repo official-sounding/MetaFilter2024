@@ -1,4 +1,4 @@
-## PHP Coding Standards
+# PHP Coding Standards
 
 PHP is coded to <a href="https://www.php-fig.org/per/coding-style/">PER Coding Style 2.0</a>. You can run <code>php artisan pint</code> to reformat all the PHP code to  PER 2.
 
