@@ -24,7 +24,7 @@ final class PostFactory extends Factory
 
         return [
             'title' => $this->faker->sentence(),
-            'url' => str_replace(search: 'http://', replace: 'https://', subject: $url),
+            'url' => $this->useSecureProtocol($url),
             'body' => $this->faker->paragraph(),
             'subsite_id' => Subsite::inRandomOrder()->first(),
             'user_id' => User::inRandomOrder()->first(),
