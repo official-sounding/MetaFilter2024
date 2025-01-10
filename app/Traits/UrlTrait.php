@@ -4,14 +4,19 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Enums\RouteNameEnum;
+
 trait UrlTrait
 {
     public function getDateUrl(int $targetYear): string
     {
-        $url = '/' . date('Y') - $targetYear;
-        $url .= date('/m/d/');
+        $currentYear = date('Y');
 
-        return $url;
+        return route(RouteNameEnum::MetaFilterArchivesIndex, [
+            'day' => date('d'),
+            'month' => date('m'),
+            'year' => $currentYear - $targetYear,
+        ]);
     }
 
     public function getUrlSegment(int $segment): ?string

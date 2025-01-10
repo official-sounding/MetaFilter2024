@@ -4,13 +4,22 @@ declare(strict_types=1);
 
 namespace App\View\Composers\Sidebar;
 
+use App\Traits\SubsiteTrait;
 use App\Traits\UrlTrait;
 use App\View\Composers\ViewComposerInterface;
 use Illuminate\Contracts\View\View;
 
 final class TodayInHistoryViewComposer implements ViewComposerInterface
 {
+    use SubsiteTrait;
     use UrlTrait;
+
+    protected string $subdomain;
+
+    public function __construct()
+    {
+        $this->subdomain = $this->getSubdomainFromUrl();
+    }
 
     public function compose(View $view): void
     {
@@ -20,9 +29,9 @@ final class TodayInHistoryViewComposer implements ViewComposerInterface
         $navigation .= '<ul>';
 
         foreach ($yearsAgo as $year) {
-            $url = $this->getDateUrl($year);
+            $dateUrl = $this->getDateUrl($year);
 
-            $navigation .= '<li><a href="' . $url . '">' . $year . '</a></li>';
+            $navigation .= '<li><a href="' . $dateUrl . '">' . $year . '</a></li>';
         }
 
         $navigation .= '</ul>';
