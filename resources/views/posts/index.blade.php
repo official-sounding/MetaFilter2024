@@ -14,7 +14,7 @@
     @endguest
 
     @if (count($datePosts) > 0)
-        @include('posts.partials.index-list', [
+        @include('posts.partials.list-posts-by-date', [
             'dayPosts' => $datePosts
         ])
     @else
