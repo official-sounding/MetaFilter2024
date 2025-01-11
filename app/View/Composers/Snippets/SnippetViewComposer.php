@@ -17,6 +17,8 @@ final class SnippetViewComposer implements ViewComposerInterface
             return Snippet::all()->collect();
         });
 
-        $view->with(['snippets' => $snippets]);
+        $view->with([
+            'snippets' => $snippets,
+        ]);
     }
 }
