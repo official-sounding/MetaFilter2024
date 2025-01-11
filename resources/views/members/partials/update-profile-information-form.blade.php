@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ trans("Update your account's profile information and email address.") }}
+            {{ trans("Update your account's members information and email address.") }}
         </p>
     </header>
 
@@ -13,7 +13,7 @@
         @include('forms.partials.csrf-token')
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('members.update') }}" class="mt-6 space-y-6">
         @include('forms.partials.csrf-token')
         @method('patch')
 
@@ -50,7 +50,7 @@
         <div class="flex items-center gap-4">
             <x-primary-button>{{ trans('Save') }}</x-primary-button>
 
-            @if (session('status') === 'profile-updated')
+            @if (session('status') === 'members-updated')
                 <p
                     x-data="{ show: true }"
                     x-show="show"
