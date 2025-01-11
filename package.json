@@ -5,6 +5,12 @@
         "dev": "vite",
         "build": "vite build"
     },
+    "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^43.1.1",
+        "ckeditor5": "^43.1.1",
+        "laravel-precognition-alpine": "^0.5.14",
+        "webtour": "^1.1.0"
+    },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.9",
         "@tailwindcss/typography": "^0.5.15",
@@ -18,11 +24,5 @@
         "tailwindcss": "^3.4.17",
         "vite": "^5.0",
         "vite-plugin-static-copy": "^1.0.6"
-    },
-    "dependencies": {
-        "@ckeditor/ckeditor5-build-classic": "^43.1.1",
-        "ckeditor5": "^43.1.1",
-        "laravel-precognition-alpine": "^0.5.14",
-        "webtour": "^1.1.0"
     }
 }
