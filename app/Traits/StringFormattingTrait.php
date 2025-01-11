@@ -33,4 +33,9 @@ trait StringFormattingTrait
     {
         return Hash::make($string);
     }
+
+    public function removePunctuation(string $string): string
+    {
+        return preg_replace('/[[:punct:]]/', '', $string);
+    }
 }
