@@ -16,6 +16,12 @@ abstract class BaseModel extends Model
 {
     use HasTags;
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+        'published_at' => 'datetime:Y-m-d H:i:s',
+    ];
+
     public function getSlugFrom(string $string): array
     {
         return [
