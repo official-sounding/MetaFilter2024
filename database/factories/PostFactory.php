@@ -19,7 +19,9 @@ final class PostFactory extends Factory
     public function definition(): array
     {
         $url = $this->faker->url();
-        $timestamp = $this->faker->dateTimeBetween('-20 years');
+
+        $timestamp = $this->faker->dateTimeBetween('-20 years')->format('Y-m-d H:i:s');
+        $timestamp = date('Y-m-d H:i:s', strtotime($timestamp));
 
         return [
             'title' => $this->faker->sentence(),
@@ -27,9 +29,10 @@ final class PostFactory extends Factory
             'url' => $this->useSecureProtocol($url),
             'subsite_id' => Subsite::inRandomOrder()->first(),
             'user_id' => User::inRandomOrder()->first(),
-            'created_at' => $timestamp->format('Y-m-d H:i:s'),
-            'published_at' => $timestamp->format('Y-m-d H:i:s'),
+            'created_at' => $timestamp,
+            'published_at' => $timestamp,
             'updated_at' => null,
+            'deleted_at' => null,
             'is_published' => true,
         ];
     }

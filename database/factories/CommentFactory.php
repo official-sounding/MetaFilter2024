@@ -15,11 +15,16 @@ final class CommentFactory extends Factory
 
     public function definition(): array
     {
+        $timestamp = $this->faker->dateTimeBetween('-20 years')->format('Y-m-d H:i:s');
+        $timestamp = date('Y-m-d H:i:s', strtotime($timestamp));
+
         return [
             'body' => $this->faker->paragraph(),
             'post_id' => Post::inRandomOrder()->first(),
             'user_id' => User::inRandomOrder()->first(),
-            'created_at' => $this->faker->dateTimeThisYear(),
+            'created_at' => $timestamp,
+            'updated_at' => null,
+            'deleted_at' => null,
         ];
     }
 }
