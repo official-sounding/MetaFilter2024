@@ -29,6 +29,7 @@ final class AppServiceProvider extends ServiceProvider
         ]);
 
         view()->share([
+            'appLocale' => app()->getLocale(),
             'contactFormRoute' => RouteNameEnum::ContactMessageCreate,
             'forgotPasswordRoute' => RouteNameEnum::AuthForgotPasswordCreate,
             'fundingIndexRoute' => RouteNameEnum::MetaFilterFundingIndex,
