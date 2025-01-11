@@ -10,6 +10,9 @@ use Spatie\Tags\HasTags;
 
 /**
  * @property string $created_at
+ * @property string $deleted_at
+ * @property string $published_at
+ * @property string $updated_at
  * @mixin Builder
 */
 abstract class BaseModel extends Model
@@ -18,8 +21,9 @@ abstract class BaseModel extends Model
 
     protected $casts = [
         'created_at' => 'datetime:Y-m-d H:i:s',
-        'updated_at' => 'datetime:Y-m-d H:i:s',
+        'deleted_at' => 'datetime:Y-m-d H:i:s',
         'published_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
     ];
 
     public function getSlugFrom(string $string): array
