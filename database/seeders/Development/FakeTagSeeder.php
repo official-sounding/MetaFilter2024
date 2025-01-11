@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Seeders\Development;
 
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
-use Spatie\Tags\Tag;
 
 final class FakeTagSeeder extends Seeder
 {
