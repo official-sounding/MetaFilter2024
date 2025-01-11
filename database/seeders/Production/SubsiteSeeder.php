@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Database\Seeders\Production;
 
 use App\Models\Subsite;
-use App\Traits\PunctuationTrait;
+use App\Traits\StringFormattingTrait;
 use Illuminate\Database\Seeder;
 
 final class SubsiteSeeder extends Seeder
 {
-    use PunctuationTrait;
+    use StringFormattingTrait;
 
     public function run(): void
     {
@@ -21,7 +21,7 @@ final class SubsiteSeeder extends Seeder
         $now = now();
 
         foreach ($subsiteData as $subsite) {
-            // TODO: Move to DTO
+            // TODO: Move to DTO?
             $subsites[] = [
                 'name' => $subsite['name'],
                 'slug' => $this->getSlug($subsite['name']),
