@@ -1,5 +1,7 @@
-<section>
-    <h2>{{ trans('About') }}</h2>
+<section class="profile">
+    <h2>
+        {{ trans('About') }}
+    </h2>
 
     <p class="nickname-prompt">What&rsquo;s the deal with your nickname? How did you get it? If your nickname is self-explanatory,
         then tell everyone when you first started using the internet, and what was the first thing
