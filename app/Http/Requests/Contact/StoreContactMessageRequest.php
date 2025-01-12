@@ -6,7 +6,7 @@ namespace App\Http\Requests\Contact;
 
 use App\Http\Requests\BaseFormRequest;
 
-final class SendContactMessageRequest extends BaseFormRequest
+final class StoreContactMessageRequest extends BaseFormRequest
 {
     public function authorize(): bool
     {
@@ -35,6 +35,10 @@ final class SendContactMessageRequest extends BaseFormRequest
             'message' => [
                 'required',
                 'string',
+            ],
+            'copy_sender' => [
+                'nullable',
+                'boolean',
             ],
         ];
     }
