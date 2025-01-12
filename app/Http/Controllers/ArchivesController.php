@@ -11,7 +11,7 @@ final class ArchivesController extends BaseController
 {
     use ArchivesTrait;
 
-    public function index(int $year = null, int $month = null, int $day = null): View
+    public function index(?int $year = null, ?int $month = null, ?int $day = null): View
     {
         $posts = $this->getPosts($year, $month, $day);
         $title = $this->getTitle($year, $month, $day);
