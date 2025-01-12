@@ -1,7 +1,7 @@
 <section>
     <h2>{{ trans('Contributions') }}</h2>
 
-    <table class="striped">
+    <table class="contributions striped">
         <thead>
             <tr>
                 <th scope="col">{{ trans('Subsite') }}</th>
