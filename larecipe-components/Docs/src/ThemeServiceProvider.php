@@ -7,7 +7,7 @@ namespace Metafilter\Docs;
 use BinaryTorch\LaRecipe\LaRecipe;
 use Illuminate\Support\ServiceProvider;
 
-class ThemeServiceProvider extends ServiceProvider
+final class ThemeServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
