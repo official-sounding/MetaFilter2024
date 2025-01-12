@@ -21,6 +21,8 @@ final class FortifyServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        Fortify::ignoreRoutes();
+
         Fortify::loginView(function () {
             return view('auth.login', [
                 'title' => trans('Log In'),
