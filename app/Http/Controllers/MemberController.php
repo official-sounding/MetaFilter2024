@@ -26,10 +26,8 @@ final class MemberController extends BaseController
 
     public function show(User $user): View
     {
-        // TODO: Add pagination for user's posts
-
         return view('members.show', [
-            'title' => $user->username . '&rsquo;s members',
+            'title' => $user->username . '&rsquo;s profile',
             'user' => $user,
         ]);
     }
