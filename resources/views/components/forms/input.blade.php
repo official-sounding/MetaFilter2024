@@ -12,7 +12,14 @@
     <x-forms.label
         :for="$name"
         :label="$label"
-        :required="(bool) $required" />
+        :required="(bool) $required"
+    />
+
+    @if ($note)
+        <small class="form-note">
+            {!! $note !!}
+        </small>
+    @endif
 
     <input
         type="{{ $type }}"
