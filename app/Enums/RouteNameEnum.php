@@ -16,8 +16,8 @@ enum RouteNameEnum: string
     case AuthResetPasswordCreate = 'auth.reset-password.create';
     case AuthResetPasswordStore = 'auth.reset-password.store';
     case AuthResetPassword = 'auth.password.update';
-    case AuthRegisterCreate = 'register';
-    case AuthRegisterStore = 'auth.register.store';
+    case SignupCreate = 'signup';
+    case SignupStore = 'signup.store';
     case AuthVerifyEmail = 'auth.verify-email';
 
     case AboutMetaFilter = 'about.metafilter';
@@ -138,13 +138,13 @@ enum RouteNameEnum: string
 
     case PreferencesEdit = 'preferences.edit';
 
-    case ProfileIndex = 'profile.index';
-    case ProfileShow = 'profile.show';
-    case ProfileCreate = 'profile.create';
-    case ProfileStore = 'profile.store';
-    case ProfileEdit = 'profile.edit';
-    case ProfileUpdate = 'profile.update';
-    case ProfileDelete = 'profile.delete';
+    case ProfileIndex = 'members.index';
+    case ProfileShow = 'members.show';
+    case ProfileCreate = 'members.create';
+    case ProfileStore = 'members.store';
+    case ProfileEdit = 'members.edit';
+    case ProfileUpdate = 'members.update';
+    case ProfileDelete = 'members.delete';
 
     case ProjectsPopularPostIndex = 'projects.post.popular.index';
     case ProjectsPostIndex = 'projects.post.index';
