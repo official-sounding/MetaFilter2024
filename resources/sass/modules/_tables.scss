@@ -9,6 +9,10 @@ tbody td.numbers {
     text-align: center;
 }
 
+.contributions tbody th {
+    white-space: nowrap;
+}
+
 .contributions tbody th,
 .contributions thead th:first-of-type {
     text-align: left;
