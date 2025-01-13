@@ -38,8 +38,8 @@ final class AppServiceProvider extends ServiceProvider
             'preferencesEditRoute' => RouteNameEnum::PreferencesEdit,
             'profileEditRoute' => RouteNameEnum::ProfileEdit,
             'profileShowRoute' => RouteNameEnum::ProfileShow,
-            'registerCreateRoute' => RouteNameEnum::AuthRegisterCreate,
-            'registerStoreRoute' => RouteNameEnum::AuthRegisterStore,
+            'signupCreateRoute' => RouteNameEnum::SignupCreate,
+            'signupStoreRoute' => RouteNameEnum::SignupStore,
         ]);
 
         view()->share('stylesheets', $this->getStylesheets($subsite));

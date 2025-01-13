@@ -11,8 +11,8 @@
         </a>
     </li>
     <li>
-        <a href="{{ route($registerCreateRoute) }}"
-           @if (request()->segment(1) === 'register')
+        <a href="{{ route($signupCreateRoute) }}"
+           @if (request()->segment(1) === 'signup')
                aria-current="page"
             @endif>
             <span class="icon">

@@ -8,13 +8,13 @@
         <x-forms.input
             name="username"
             type="text"
-            note="Your username will be displayed on the site and can&nbsp;t be changed. Usernames may consist of English letters, numbers, and most punctuation."
+            note="Your username will be displayed on the site and can&rsquo;t be changed. Usernames may consist of English letters, numbers, and most punctuation."
             label="{{ trans('Username') }}" />
 
         <x-forms.input
             name="email"
             type="email"
-            note="Required. We won&nbsp;t spam you, and we&nbsp;ll <strong>never</strong> give away your address to anyone. By default this address is hidden from users and the public."
+            note="Required. We won&rsquo;t spam you, and we&rsquo;ll <strong>never</strong> give away your address to anyone. By default this address is hidden from users and the public."
             label="{{ trans('Email address') }}" />
 
         <x-forms.input
@@ -31,7 +31,7 @@
     <fieldset class="optional-fields">
         <legend>{{ trans('Optional fields') }}</legend>
 
-        <small>{!! trans('Shown on your public profile page; it&rsquo;s fine to leave these blank') !!}</small>
+        <small>{!! trans('Shown on your public members page; it&rsquo;s fine to leave these blank') !!}</small>
 
         <x-forms.input
             name="name"

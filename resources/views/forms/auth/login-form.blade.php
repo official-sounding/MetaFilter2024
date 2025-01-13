@@ -25,7 +25,7 @@
 
         <p>
             {!! trans('Don&rsquo;t have an account?') !!}
-            <a href="{{ route($registerCreateRoute) }}">
+            <a href="{{ route($signupCreateRoute) }}">
                 {{ trans('Sign up here') }}
             </a>
         </p>

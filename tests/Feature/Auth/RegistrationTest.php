@@ -5,12 +5,12 @@ declare(strict_types=1);
 use App\Enums\RouteNameEnum;
 
 test('registration screen can be rendered', function () {
-    $response = $this->get(config('app.testUrl') . '/register');
+    $response = $this->get(config('app.testUrl') . '/signup');
 
     $response->assertOk();
 });
 
-test('new users can register', function () {
+test('new users can signup', function () {
     // Arrange
     $data = [
         [
@@ -23,7 +23,7 @@ test('new users can register', function () {
     ];
 
     // Act
-    $response = $this->post(config('app.testUrl') . '/register', $data);
+    $response = $this->post(config('app.testUrl') . '/signup', $data);
 
     // Assert
     $this->assertAuthenticated();

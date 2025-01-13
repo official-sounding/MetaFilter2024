@@ -24,8 +24,9 @@
     </li>
     <li>Su nombre de usuario no se puede cambiar una vez creada su cuenta.</li>
     <li>
-        No se permiten promociones, incluidas autopromociones o enlaces (excepto en su perfil), SEO, relaciones públicas, marketing o publicidad.
-        @include('livewire.register.steps.partials.banning-venn-diagram')
+        No se permiten promociones, incluidas autopromociones o enlaces (excepto en su perfil), SEO, relaciones
+        públicas, marketing o publicidad.
+        @include('livewire.signup.steps.partials.banning-venn-diagram')
     </li>
 </ul>
 

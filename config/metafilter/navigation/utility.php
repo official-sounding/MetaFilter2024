@@ -39,7 +39,7 @@ return [
         ],
         [
             'name' => 'Sign Up',
-            'route' => RouteNameEnum::AuthRegisterCreate,
+            'route' => RouteNameEnum::SignupCreate,
             'icon' => 'person-plus-fill',
         ],
     ],

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Register\Steps;
+namespace App\Livewire\Signup\Steps;
 
 use Illuminate\Contracts\View\View;
 use Spatie\LivewireWizard\Components\StepComponent;
@@ -23,6 +23,6 @@ final class SignupMessageStepComponent extends StepComponent
 
     public function render(): View
     {
-        return view('livewire.register.steps.signup-info');
+        return view('livewire.signup.steps.signup-info');
     }
 }

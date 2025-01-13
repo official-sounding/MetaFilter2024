@@ -3,7 +3,7 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    @livewire('register-wizard')
+    @livewire('signup-wizard')
 @endsection
 
 @section('sidebar')

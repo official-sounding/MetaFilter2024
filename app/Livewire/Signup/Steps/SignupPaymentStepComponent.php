@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Register\Steps;
+namespace App\Livewire\Signup\Steps;
 
 use App\Services\UserService;
 use Illuminate\Contracts\View\View;
@@ -41,6 +41,6 @@ final class SignupPaymentStepComponent extends StepComponent
 
     public function render(): View
     {
-        return view('livewire.register.steps.register-payment');
+        return view('livewire.signup.steps.register-payment');
     }
 }
