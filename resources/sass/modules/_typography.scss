@@ -37,6 +37,24 @@ em {
     font-style: italic;
 }
 
+.comment-footer,
+.dateline,
+.dropdown-menu,
+label,
+.next .title,
+.nickname-prompt,
+.post-footer,
+.post-navigation,
+.previous .title,
+small,
+.utility-navigation {
+    font-size: var(--font-size-minus-1);
+}
+
+small.form-note {
+    font-size: var(--font-size-minus-2);
+}
+
 .sidebar h3 {
     font-size: var(--font-size-normal);
 }
@@ -58,20 +76,6 @@ em {
 hgroup {
     margin: 0;
     padding: 0;
-}
-
-.comment-footer,
-.dateline,
-.dropdown-menu,
-label,
-.next .title,
-.nickname-prompt,
-.post-footer,
-.post-navigation,
-.previous .title,
-small,
-.utility-navigation {
-    font-size: var(--font-size-minus-1);
 }
 
 .nickname-prompt {
@@ -143,6 +147,10 @@ nav.post-navigation a,
 .site-title,
 .tagline {
     font-weight: 400;
+}
+
+tbody th {
+    font-weight: 500;
 }
 
 button,
