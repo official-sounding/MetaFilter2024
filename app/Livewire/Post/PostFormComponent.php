@@ -28,7 +28,7 @@ final class PostFormComponent extends Component
 
     protected function rules(): array
     {
-        return (new StoreMetaFilterPostRequest())->rules();
+        return new StoreMetaFilterPostRequest()->rules();
     }
 
     public function render(): View

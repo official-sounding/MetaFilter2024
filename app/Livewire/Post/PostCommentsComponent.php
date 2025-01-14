@@ -20,6 +20,7 @@ final class PostCommentsComponent extends Component
     public bool $showFlagCommentForm = false;
 
     private CommentRepositoryInterface $commentRepository;
+
     public function boot(CommentRepositoryInterface $commentRepository): void
     {
         $this->commentRepository = $commentRepository;

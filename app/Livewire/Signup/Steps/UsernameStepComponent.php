@@ -33,6 +33,6 @@ final class UsernameStepComponent extends StepComponent
 
     public function render(): View
     {
-        return view('livewire.signup.steps.username');
+        return view('livewire.signup.steps.username-step-component');
     }
 }

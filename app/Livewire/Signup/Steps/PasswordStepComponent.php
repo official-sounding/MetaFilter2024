@@ -11,6 +11,7 @@ use Spatie\LivewireWizard\Components\StepComponent;
 final class PasswordStepComponent extends StepComponent
 {
     public string $password = '';
+    public string $password_confirmation = '';
 
     public function stepInfo(): array
     {
@@ -33,6 +34,6 @@ final class PasswordStepComponent extends StepComponent
 
     public function render(): View
     {
-        return view('livewire.signup.steps.password');
+        return view('livewire.signup.steps.password-step-component');
     }
 }

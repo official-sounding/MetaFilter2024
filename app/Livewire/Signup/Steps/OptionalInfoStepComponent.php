@@ -34,6 +34,6 @@ final class OptionalInfoStepComponent extends StepComponent
 
     public function render(): View
     {
-        return view('livewire.signup.steps.optional-info');
+        return view('livewire.signup.steps.optional-info-step-component');
     }
 }

@@ -46,9 +46,9 @@ final class ContactMessageComponent extends Component
         $this->reset();
 
         if ($stored) {
-            $this->status = 'Message stored successfully.';
+            $this->status = trans('Message stored successfully.');
         } else {
-            $this->status = 'Failed to send message.';
+            $this->status = trans('Failed to send message.');
         }
     }
 }
