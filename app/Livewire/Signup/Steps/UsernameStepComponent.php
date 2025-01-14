@@ -21,7 +21,7 @@ final class UsernameStepComponent extends StepComponent
 
     protected function rules(): array
     {
-        return new StoreUsernameRequest()->rules();
+        return (new StoreUsernameRequest())->rules();
     }
 
     public function submit(): void

@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\View\Composers\BannerLinks\BannerLinkViewComposer;
-use App\View\Composers\Language\SwitchLanguageViewComposer;
 use App\View\Composers\Navigation\CreatePostButtonViewComposer;
 use App\View\Composers\Navigation\FooterLinksNavigationViewComposer;
-use App\View\Composers\Navigation\FooterMemberLinksViewComposer;
 use App\View\Composers\Navigation\FooterSubsiteNavigationViewComposer;
 use App\View\Composers\Navigation\GlobalNavigationViewComposer;
 use App\View\Composers\Navigation\SecondaryNavigationViewComposer;
