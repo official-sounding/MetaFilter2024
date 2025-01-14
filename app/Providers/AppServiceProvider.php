@@ -30,7 +30,7 @@ final class AppServiceProvider extends ServiceProvider
 
         view()->share([
             'appLocale' => app()->getLocale(),
-            'contactFormRoute' => RouteNameEnum::ContactMessageCreate,
+            'contactMessageRoute' => RouteNameEnum::ContactMessageCreate,
             'forgotPasswordRoute' => RouteNameEnum::AuthForgotPasswordCreate,
             'fundingIndexRoute' => RouteNameEnum::MetaFilterFundingIndex,
             'loginCreateRoute' => RouteNameEnum::AuthLoginCreate,
@@ -39,7 +39,8 @@ final class AppServiceProvider extends ServiceProvider
             'profileEditRoute' => RouteNameEnum::ProfileEdit,
             'profileShowRoute' => RouteNameEnum::ProfileShow,
             'signupCreateRoute' => RouteNameEnum::SignupCreate,
-            'signupStoreRoute' => RouteNameEnum::SignupStore,
+            'signupThanksRoute' => RouteNameEnum::SignupWizard,
+            'signupWizardRoute' => RouteNameEnum::SignupWizard,
         ]);
 
         view()->share('stylesheets', $this->getStylesheets($subsite));
