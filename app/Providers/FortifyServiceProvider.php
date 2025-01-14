@@ -30,7 +30,7 @@ final class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::registerView(function () {
-            return view('auth.signup', [
+            return view('signup.index', [
                 'title' => trans('Sign Up'),
             ]);
         });
