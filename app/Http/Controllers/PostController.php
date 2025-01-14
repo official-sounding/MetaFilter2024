@@ -31,7 +31,7 @@ final class PostController extends BaseController
 
     public function index(int $page = 1): View
     {
-        $datePosts = $this->postRepository->getBySubdomain();
+        $datePosts = $this->postRepository->getBySubdomain($page);
 
         return view('posts.index', [
             'title' => 'Posts',
@@ -78,7 +78,7 @@ final class PostController extends BaseController
 
     public function update(UpdateMetaFilterPostRequest $request, Post $post)
     {
-        $updated = $this->postService->update($post, $request->validated());
+        $updated = $this->postService->update($request->validated());
     }
 
     public function delete(Post $post)
