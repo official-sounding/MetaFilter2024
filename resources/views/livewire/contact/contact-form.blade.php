@@ -11,18 +11,29 @@
         <form wire:submit="store()">
             @include('forms.partials.validation-summary')
             @include('forms.partials.required-fields-note')
-
             @honeypot
 
             <x-forms.input
                 name="name"
                 type="text"
-                label="{{ trans('Name') }}" />
+                label="{{ trans('Name') }}"
+                {{--
+                    @auth
+                        value="{{ auth()->user()->username }}"
+                    @endauth
+    --}}
+            />
 
             <x-forms.input
                 name="email"
                 type="email"
-                label="{{ trans('Email address') }}" />
+                label="{{ trans('Email address') }}"
+{{--
+                @auth
+                    value="{{ auth()->user()->email }}"
+                @endauth
+--}}
+            />
 
             <x-forms.input
                 name="subject"
@@ -32,7 +43,13 @@
             <x-forms.textarea
                 name="message"
                 label="{{ trans('Message') }}" />
-
+{{--
+            @auth
+                <x-forms.checkbox
+                    name="copy_sender"
+                    label="{{ trans('Send a copy to my verified email address (' . auth()->user()->email . ')' }}" />
+            @endauth
+--}}
             <x-forms.button>
                 {{ trans('Send') }}
             </x-forms.button>

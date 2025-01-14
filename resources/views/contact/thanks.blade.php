@@ -3,8 +3,5 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    @livewire('signup-wizard')
-@endsection
-
-@section('sidebar')
+    @livewire('contact.contact-message-component')
 @endsection

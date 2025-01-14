@@ -39,7 +39,7 @@
     --}}
         <p>
             {{ trans('Need help?') }}
-            <a href="{{ route($contactFormRoute) }}">
+            <a href="{{ route($contactMessageRoute) }}">
                 {{ trans('Contact the admins.') }}
             </a>
         </p>

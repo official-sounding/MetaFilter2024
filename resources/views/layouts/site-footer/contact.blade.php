@@ -1,3 +1,3 @@
-<a href="{{ route($contactFormRoute) }}">
-    Contact Us
+<a class="button button-primary" href="{{ route($contactMessageRoute) }}">
+    {{ trans('Contact Us') }}
 </a>

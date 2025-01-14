@@ -27,6 +27,10 @@
             'commentsCount' => $post->comments()->count(),
             'favoritesCount' => $post->favorites()->count(),
         ])
+
+        <button>
+            {{ trans('Edit post') }}
+        </button>
     </article>
 
     <section class="comments" id="comments">
