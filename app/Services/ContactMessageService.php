@@ -4,16 +4,26 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Http\Requests\Contact\SendContactMessageRequest;
+use App\Http\Requests\Contact\StoreContactMessageRequest;
 use App\Models\ContactMessage;
 use App\Traits\LoggingTrait;
+use Exception;
 
 final class ContactMessageService
 {
     use LoggingTrait;
 
-    public function store(SendContactMessageRequest $request): ContactMessage
+    public function store(StoreContactMessageRequest $request): bool
     {
-        return ContactMessage::create($request->validated());
+        try {
+            ContactMessage::create($request->validated());
+
+
+            return true;
+        } catch (Exception $exception) {
+            $this->logError($exception);
+
+            return false;
+        }
     }
 }
