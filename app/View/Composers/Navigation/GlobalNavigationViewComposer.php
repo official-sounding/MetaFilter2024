@@ -29,7 +29,7 @@ final class GlobalNavigationViewComposer implements ViewComposerInterface
             if (isset($itemData['start_dropdown']) && $itemData['start_dropdown']) {
                 $navigationItems .= '<li class="has-dropdown">';
                 $navigationItems .= '<button class="dropdown-toggle" aria-expanded="false" aria-controls="global-navigation-menu">';
-                $navigationItems .= 'Menu';
+                $navigationItems .= trans('Menu');
                 $navigationItems .= '</button>';
                 $navigationItems .= '<ul class="dropdown-menu global-navigation-menu" id="global-navigation-menu">';
             }
