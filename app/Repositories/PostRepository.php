@@ -38,7 +38,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
         parent::__construct($model);
     }
 
-    public function getBySubdomain(): Collection
+    public function getBySubdomain(int $page = 1): Collection
     {
         // TODO: Add categories
         return $this->model->newQuery()
