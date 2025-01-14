@@ -16,11 +16,13 @@ use Illuminate\View\View;
 
 final class MemberController extends BaseController
 {
+    private const int PER_PAGE = 10;
+
     public function index(): View
     {
         return view('members.index', [
             'title' => 'Members',
-            'users' => User::latest()->paginate(10),
+            'users' => User::latest()->paginate(self::PER_PAGE),
         ]);
     }
 
