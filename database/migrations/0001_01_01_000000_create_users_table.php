@@ -12,6 +12,9 @@ return new class extends Migration {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
 
+            // MetaFilter-specific fields
+            $table->string('username')->nullable()->unique();
+
             // Default Laravel fields
             $table->string('name')->nullable();
             $table->string('email')->unique();
@@ -20,7 +23,6 @@ return new class extends Migration {
             $table->rememberToken();
 
             // MetaFilter-specific fields
-            $table->string('username')->nullable()->unique();
             $table->string('homepage_url')->nullable();
             $table->integer('legacy_id')->nullable()->unique();
 
