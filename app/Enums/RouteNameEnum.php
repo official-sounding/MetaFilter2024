@@ -17,7 +17,8 @@ enum RouteNameEnum: string
     case AuthResetPasswordStore = 'auth.reset-password.store';
     case AuthResetPassword = 'auth.password.update';
     case SignupCreate = 'signup';
-    case SignupStore = 'signup.store';
+    case SignupThanks = 'signup.thanks';
+    case SignupWizard = 'signup.wizard';
     case AuthVerifyEmail = 'auth.verify-email';
 
     case AboutMetaFilter = 'about.metafilter';
@@ -96,6 +97,7 @@ enum RouteNameEnum: string
     case MetaFilterPopularPostIndex = 'metafilter.post.popular.index';
     case MetaFilterPopularFavoritesIndex = 'metafilter.popular-favorites.index';
     case MetaFilterRandomPostShow = 'metafilter.random.show';
+    case MetaFilterRecentActivityShow = 'metafilter.recent-activity.show';
     case MetaFilterPostShow = 'metafilter.post.show';
     case MetaFilterPostCreate = 'metafilter.post.create';
     case MetaFilterPostStore = 'metafilter.post.store';
