@@ -84,6 +84,8 @@ Route::domain('projects.' . $appUrl)
 
 Route::domain('www.' . $appUrl)
     ->middleware($middleware)
-    ->group(base_path('routes/subdomains/metafilter.php'));
+    ->group(base_path('routes/auth.php'));
 
-Route::webhooks('webhook-receiving-url');
+Route::domain('www.' . $appUrl)
+    ->middleware($middleware)
+    ->group(base_path('routes/subdomains/metafilter.php'));
