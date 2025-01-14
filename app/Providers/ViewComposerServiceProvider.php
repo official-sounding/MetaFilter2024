@@ -28,11 +28,6 @@ final class ViewComposerServiceProvider extends ServiceProvider
         );
 
         view()->composer(
-            'layouts.site-footer.footer-member-links-navigation',
-            FooterMemberLinksViewComposer::class,
-        );
-
-        view()->composer(
             'layouts.site-footer.footer-subsite-navigation',
             FooterSubsiteNavigationViewComposer::class,
         );
@@ -50,11 +45,6 @@ final class ViewComposerServiceProvider extends ServiceProvider
         view()->composer(
             'layouts.navigation.secondary-navigation',
             SecondaryNavigationViewComposer::class,
-        );
-
-        view()->composer(
-            'forms.language.switch-language',
-            SwitchLanguageViewComposer::class,
         );
 
         view()->composer(
