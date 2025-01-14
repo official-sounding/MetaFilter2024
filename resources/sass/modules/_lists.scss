@@ -15,10 +15,16 @@ main li:last-of-type {
     column-gap: 0;
 }
 
-.inline {
+.inline,
+.steps li {
     list-style: none;
 }
 
+.steps {
+    padding: 0;
+}
+
+.steps li,
 .tag-list li,
 .years-ago li {
     display: inline;
