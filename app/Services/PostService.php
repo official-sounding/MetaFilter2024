@@ -18,7 +18,9 @@ final class PostService
 
     public function update(array $data): bool
     {
-        return Post::update($data);
+        $post = Post::find($data['id']);
+
+        return $post->update($data);
     }
 
     public function delete(Post $post): bool
