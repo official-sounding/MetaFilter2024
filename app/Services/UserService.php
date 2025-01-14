@@ -4,13 +4,22 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Http\Requests\User\StoreUserRequest;
 use App\Models\User;
 
 final class UserService
 {
-    public function store(StoreUserRequest $request): User
+    public function store(array $data): User
     {
-        return User::create($request->validated());
+        $user = new User();
+
+        $user->username = $data['username'];
+        $user->email = $data['email'];
+        $user->password = $data['password'];
+        $user->name = $data['name'];
+        $user->homepage_url = $data['homepage_url'];
+
+        $user->save();
+
+        return $user;
     }
 }
