@@ -49,7 +49,9 @@ trait NavigationTrait
                 $item .= '<span class="icon"><img src="' . $source . '" alt=""></span>';
             }
 
-            $item .= $itemData['name'] ?? $itemData['nickname'] ?? $itemData['text'];
+            $text = $itemData['name'] ?? $itemData['nickname'] ?? $itemData['text'];
+
+            $item .= trans($text);
             $item .= '</a>';
             $item .= '</li>';
         }
