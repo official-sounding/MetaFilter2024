@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\Enums\RouteNameEnum;
 use App\Http\Controllers\ArchivesController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\FundingController;
 use App\Http\Controllers\LanguageController;
@@ -13,7 +13,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PopularPostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PreferencesController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\RandomPostController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
@@ -26,16 +26,13 @@ Route::middleware('auth')->group(function () {
     Route::get('preferences/{user}', [PreferencesController::class, 'edit'])
         ->name(RouteNameEnum::PreferencesEdit);
 
-    Route::get('profile/{user:id}', [ProfileController::class, 'show'])
-        ->name(RouteNameEnum::ProfileShow);
-
-    Route::get('profile', [ProfileController::class, 'edit'])
+    Route::get('members', [MemberController::class, 'edit'])
        ->name(RouteNameEnum::ProfileEdit);
 
-    Route::patch('profile', [ProfileController::class, 'update'])
+    Route::patch('members', [MemberController::class, 'update'])
         ->name(RouteNameEnum::ProfileUpdate);
 
-    Route::delete('profile', [ProfileController::class, 'delete'])
+    Route::delete('members', [MemberController::class, 'delete'])
         ->name(RouteNameEnum::ProfileDelete);
 });
 
@@ -45,7 +42,7 @@ Route::get('about', [PageController::class, 'about'])
 Route::get('archives/{year?}/{month?}/{day?}', [ArchivesController::class, 'index'])
     ->name(RouteNameEnum::MetaFilterArchivesIndex);
 
-Route::get('contact', [ContactController::class, 'create'])
+Route::get('contact', [ContactMessageController::class, 'create'])
     ->middleware(ProtectAgainstSpam::class)
     ->name(RouteNameEnum::ContactMessageCreate);
 
@@ -57,6 +54,12 @@ Route::get('language', [LanguageController::class, 'store'])
 
 Route::get('mail', [MailController::class, 'index'])
     ->name(RouteNameEnum::MailIndex);
+
+Route::get('members', [MemberController::class, 'index'])
+    ->name(RouteNameEnum::ProfileIndex);
+
+Route::get('members/{user:id}', [MemberController::class, 'show'])
+    ->name(RouteNameEnum::ProfileShow);
 
 Route::get('popular', [PopularPostController::class, 'index'])
     ->name(RouteNameEnum::MetaFilterPopularPostIndex);
