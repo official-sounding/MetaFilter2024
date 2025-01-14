@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Register;
 
-use App\Models\User;
-use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 final class StoreOptionalInfoRequest extends FormRequest
 {
@@ -19,17 +16,17 @@ final class StoreOptionalInfoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => [
+            'name' => [
                 'nullable',
                 'string',
                 'max:255',
-                Rule::unique(User::class),
             ],
-            'username' => [
+            'homepage_url' => [
                 'nullable',
                 'string',
                 'max:255',
-                Rule::unique(User::class),
+                'url:https',
+                'active_url',
             ],
         ];
     }
