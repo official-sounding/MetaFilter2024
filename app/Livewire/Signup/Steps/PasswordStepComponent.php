@@ -22,7 +22,7 @@ final class PasswordStepComponent extends StepComponent
 
     protected function rules(): array
     {
-        return new StorePasswordRequest()->rules();
+        return (new StorePasswordRequest())->rules();
     }
 
     public function submit(): void

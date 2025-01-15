@@ -22,7 +22,7 @@ final class OptionalInfoStepComponent extends StepComponent
 
     protected function rules(): array
     {
-        return new StoreOptionalInfoRequest()->rules();
+        return (new StoreOptionalInfoRequest())->rules();
     }
 
     public function submit(): void

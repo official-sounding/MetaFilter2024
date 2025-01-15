@@ -21,7 +21,7 @@ final class EmailAddressStepComponent extends StepComponent
 
     protected function rules(): array
     {
-        return new StoreEmailAddressRequest()->rules();
+        return (new StoreEmailAddressRequest())->rules();
     }
 
     public function submit(): void
