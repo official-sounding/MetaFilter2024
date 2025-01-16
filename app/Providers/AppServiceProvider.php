@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Enums\RouteNameEnum;
+use App\Models\Subsite;
 use App\Traits\SubsiteTrait;
 use App\Traits\UrlTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -25,7 +26,7 @@ final class AppServiceProvider extends ServiceProvider
         session([
             'subdomain' => $subdomain,
             'subsite' => $subsite,
-            'subsiteName' => $subsite['name'],
+            'subsiteName' => $subsite->name,
         ]);
 
         view()->share([
@@ -49,16 +50,16 @@ final class AppServiceProvider extends ServiceProvider
         view()->share('subsiteName', $subsite['name']);
     }
 
-    private function getStylesheets(array $subsite): array
+    private function getStylesheets(Subsite $subsite): array
     {
         $stylesheets = [
             'resources/sass/app.scss',
         ];
 
-        if ($subsite['hasTheme'] === true) {
-            $subsiteStylesheet = $this->getStylesheetName($subsite);
+        if ($subsite->has_theme === true) {
+            $subdomain = $subsite->subdomain;
 
-            $stylesheets[] = "resources/sass/themes/$subsiteStylesheet.scss";
+            $stylesheets[] = "resources/sass/themes/$subdomain.scss";
         } else {
             $stylesheets[] = 'resources/sass/themes/metafilter.scss';
         }
