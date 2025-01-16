@@ -13,7 +13,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
-use Spatie\Tags\HasTags;
 
 /**
  * @property int $id
@@ -25,7 +24,6 @@ use Spatie\Tags\HasTags;
 final class Comment extends BaseModel
 {
     use HasFactory;
-    use HasTags;
     use LogsActivity;
     use SearchTrait;
     use SoftDeletes;
