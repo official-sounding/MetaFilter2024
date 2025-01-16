@@ -16,16 +16,4 @@ return new class extends Migration {
             $table->timestamp('trial_ends_at')->nullable();
         });
     }
-
-    public function down(): void
-    {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn([
-                'stripe_id',
-                'pm_type',
-                'pm_last_four',
-                'trial_ends_at',
-            ]);
-        });
-    }
 };

@@ -27,10 +27,14 @@ return new class extends Migration {
             $table->dateTime('created_at')->nullable();
 
             $table->unique('uuid');
-            $table->index('batch_id');
-            $table->index('family_hash');
-            $table->index('created_at');
-            $table->index(['type', 'should_display_on_index']);
+
+            $table->index([
+                'batch_id',
+                'created_at',
+                'family_hash',
+                'should_display_on_index',
+                'type',
+            ]);
         });
 
         $schema->create('telescope_entries_tags', function (Blueprint $table) {
@@ -38,25 +42,17 @@ return new class extends Migration {
             $table->string('tag');
 
             $table->primary(['entry_uuid', 'tag']);
-            $table->index('tag');
 
             $table->foreign('entry_uuid')
                 ->references('uuid')
                 ->on('telescope_entries')
                 ->onDelete('cascade');
+
+            $table->index('tag');
         });
 
         $schema->create('telescope_monitoring', function (Blueprint $table) {
             $table->string('tag')->primary();
         });
-    }
-
-    public function down(): void
-    {
-        $schema = Schema::connection($this->getConnection());
-
-        $schema->dropIfExists('telescope_entries_tags');
-        $schema->dropIfExists('telescope_entries');
-        $schema->dropIfExists('telescope_monitoring');
     }
 };

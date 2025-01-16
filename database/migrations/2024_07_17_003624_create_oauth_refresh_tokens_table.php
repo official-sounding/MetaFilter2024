@@ -16,9 +16,4 @@ return new class extends Migration {
             $table->dateTime('expires_at')->nullable();
         });
     }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('oauth_refresh_tokens');
-    }
 };

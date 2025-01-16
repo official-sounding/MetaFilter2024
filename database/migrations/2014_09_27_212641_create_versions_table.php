@@ -16,13 +16,9 @@ return new class extends Migration {
             $table->string('user_id')->nullable();
             $table->longText('model_data');
             $table->string('reason', 100)->nullable();
-            $table->index('versionable_id');
             $table->timestamps();
-        });
-    }
 
-    public function down(): void
-    {
-        Schema::drop('versions');
+            $table->index('versionable_id');
+        });
     }
 };

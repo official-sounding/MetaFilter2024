@@ -15,9 +15,4 @@ return new class extends Migration {
             $table->timestamps();
         });
     }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('oauth_personal_access_clients');
-    }
 };

@@ -30,9 +30,4 @@ return new class extends Migration {
             $table->index('expired_at');
         });
     }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('bans');
-    }
 };

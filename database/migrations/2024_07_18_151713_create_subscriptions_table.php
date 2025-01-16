@@ -21,12 +21,10 @@ return new class extends Migration {
             $table->timestamp('ends_at')->nullable();
             $table->timestamps();
 
-            $table->index(['user_id', 'stripe_status']);
+            $table->index([
+                'stripe_status',
+                'user_id',
+            ]);
         });
-    }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('subscriptions');
     }
 };

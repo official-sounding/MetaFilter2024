@@ -14,12 +14,4 @@ return new class extends Migration {
             $table->drafts();
         });
     }
-
-    public function down(): void
-    {
-        Schema::table('posts', function (Blueprint $table) {
-            // method provided by oddvalue/laravel-drafts
-            $table->dropDrafts();
-        });
-    }
 };

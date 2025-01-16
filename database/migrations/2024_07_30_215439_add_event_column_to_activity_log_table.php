@@ -16,12 +16,4 @@ return new class extends Migration {
                     ->after('subject_type');
             });
     }
-
-    public function down(): void
-    {
-        Schema::connection(config('activitylog.database_connection'))
-            ->table(config('activitylog.table_name'), function (Blueprint $table) {
-                $table->dropColumn('event');
-            });
-    }
 };

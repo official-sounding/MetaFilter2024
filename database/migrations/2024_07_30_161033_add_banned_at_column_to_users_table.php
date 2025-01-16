@@ -13,11 +13,4 @@ return new class extends Migration {
             $table->timestamp('banned_at')->nullable();
         });
     }
-
-    public function down(): void
-    {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('banned_at');
-        });
-    }
 };
