@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Post;
+namespace App\Livewire\Posts;
 
 use App\Http\Requests\Post\StoreMetaFilterPostRequest;
 use App\Services\PostService;
@@ -55,7 +55,7 @@ final class PostFormComponent extends Component
 
             session()->flash('message', 'Post created');
 
-            $this->redirect(route('post.show', $post));
+            $this->redirect(route('posts.show', $post));
         } else {
             $this->logError('Post creation failed');
 

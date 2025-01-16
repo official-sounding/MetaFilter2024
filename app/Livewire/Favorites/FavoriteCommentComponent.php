@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Favorites;
 
-use App\Livewire\Post\BaseFavoriteComponent;
+use App\Livewire\Posts\BaseFavoriteComponent;
 use App\Models\Comment;
 use App\Services\FavoriteCommentService;
 use Illuminate\Contracts\View\View;

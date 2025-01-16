@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Post;
+namespace App\Livewire\Posts;
 
 use App\Models\User;
 use App\Traits\FavoriteTrait;

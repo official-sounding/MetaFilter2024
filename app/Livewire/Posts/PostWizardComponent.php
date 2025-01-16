@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Post;
+namespace App\Livewire\Posts;
 
-use App\Livewire\Post\Steps\PostFormStepComponent;
-use App\Livewire\Post\Steps\PostPreviewStepComponent;
+use App\Livewire\Posts\Steps\PostFormStepComponent;
+use App\Livewire\Posts\Steps\PostPreviewStepComponent;
 use Spatie\LivewireWizard\Components\WizardComponent;
 
 final class PostWizardComponent extends WizardComponent
