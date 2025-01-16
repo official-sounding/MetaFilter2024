@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Traits\SearchTrait;
+use Cog\Contracts\Ban\Bannable as BannableInterface;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
@@ -27,7 +28,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property bool $is_admin
  * @mixin Builder
  */
-final class User extends Authenticatable implements FilamentUser
+final class User extends Authenticatable implements BannableInterface, FilamentUser
 {
     use Bannable;
     use HasApiTokens;
