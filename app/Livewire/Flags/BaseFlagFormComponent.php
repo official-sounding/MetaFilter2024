@@ -28,7 +28,7 @@ class BaseFlagFormComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.post.flag-form-component')->with([
+        return view('livewire.posts.flag-form-component')->with([
             'type' => $this->type,
         ]);
     }

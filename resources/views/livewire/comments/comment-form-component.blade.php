@@ -25,6 +25,6 @@
 </form>
 {{--
 @push('scripts')
-    @include('livewire.post.partials.wysiwyg-scripts')
+    @include('livewire.posts.partials.wysiwyg-scripts')
 @endpush
 --}}
