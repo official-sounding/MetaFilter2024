@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Models\Subsite;
+
 trait SubsiteTrait
 {
     use UrlTrait;
@@ -19,14 +21,14 @@ trait SubsiteTrait
         return str_replace(search: $baseDomain, replace: '', subject: $urlParts['host']);
     }
 
-    public function getSubsiteFromUrl(): array
+    public function getSubsiteFromUrl(): Subsite
     {
         $subdomain = $this->getSubdomainFromUrl();
 
         return $this->getSubsiteBySubdomain($subdomain);
     }
 
-    public function getSubsiteBySubdomain(string $subdomain): array
+    public function getSubsiteBySubdomain(string $subdomain): Subsite
     {
         if (
             $subdomain === 'localhost' ||
@@ -37,9 +39,7 @@ trait SubsiteTrait
             $subdomain = 'www';
         }
 
-        $subsites = config('metafilter.seeders.subsites');
-
-        return $subsites[$subdomain];
+        return Subsite::where('subdomain', '=', $subdomain)->first();
     }
 
     public function getStylesheetName(array $subsite): string
