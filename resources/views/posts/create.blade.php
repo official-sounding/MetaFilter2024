@@ -4,7 +4,7 @@
 
 @section('contents')
     @auth
-        @livewire('post.post-form-component')
+        @livewire('wizards.post-wizard-component')
     @endauth
 
     @guest
