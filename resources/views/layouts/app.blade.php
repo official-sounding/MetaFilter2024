@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" data-theme="light">
+<html lang="{{ app()->getLocale() }}">
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@include('layouts.partials.window-title') - {{ $subsiteName }}</title>
+<title>@include('layouts.partials.window-title') - {{ $subsiteName }}</title>
 
-    @include('layouts.partials.styles')
-    @include('layouts.partials.social-media-meta-tags')
-    @include('layouts.partials.previous-next-meta')
-    @include('layouts.partials.favicons')
-    @if (isset($canonicalUrl))
-        <link rel="canonical" href="{{ $canonicalUrl }}">
-    @endif
+@include('layouts.partials.styles')
+@include('layouts.partials.social-media-meta-tags')
+@include('layouts.partials.previous-next-meta')
+@include('layouts.partials.favicons')
+@if (isset($canonicalUrl))
+    <link rel="canonical" href="{{ $canonicalUrl }}">
+@endif
 
-    @if (isset($useWysiwyg) && $useWysiwyg === true)
-        <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
-    @endif
+@if (isset($useWysiwyg) && $useWysiwyg === true)
+    <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+@endif
 
 </head>
-<body>
+<body class="{{ $subdomain }} {{ $defaultColorScheme }}">
 
 @include('layouts.partials.set-theme')
 @include('layouts.partials.skip-navigation')

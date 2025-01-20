@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" data-theme="light">
+<html lang="{{ app()->getLocale() }}">
 <head>
 
 <meta charset="utf-8">
@@ -10,7 +10,7 @@
 @include('layouts.partials.styles')
 
 </head>
-<body class="minimal">
+<body class="minimal {{ $subdomain }} {{ $defaultColorScheme }}">
 
 @include('layouts.partials.set-theme')
 

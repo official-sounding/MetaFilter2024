@@ -10,7 +10,7 @@
 @include('layouts.partials.styles')
 
 </head>
-<body>
+<body class="{{ $subdomain }} {{ $defaultColorScheme }}">
 
 @include('layouts.partials.set-theme')
 
