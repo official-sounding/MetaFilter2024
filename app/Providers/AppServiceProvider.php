@@ -16,6 +16,8 @@ final class AppServiceProvider extends ServiceProvider
     use SubsiteTrait;
     use UrlTrait;
 
+    private const string DEFAULT_MODE = 'light';
+
     public function boot(): void
     {
         Model::shouldBeStrict();
@@ -44,10 +46,14 @@ final class AppServiceProvider extends ServiceProvider
             'signupWizardRoute' => RouteNameEnum::SignupWizard,
         ]);
 
+        view()->share('defaultMode', self::DEFAULT_MODE);
         view()->share('stylesheets', $this->getStylesheets($subsite));
         view()->share('subdomain', $subdomain === 'www' ? 'metafilter' : $subdomain);
         view()->share('subsite', $subsite);
-        view()->share('subsiteName', $subsite['name']);
+        view()->share('subsiteName', $subsite->name);
+        view()->share('whiteText', $subsite->white_text);
+        view()->share('greenText', $subsite->green_text);
+        view()->share('tagline', $subsite->tagline);
     }
 
     private function getStylesheets(Subsite $subsite): array
