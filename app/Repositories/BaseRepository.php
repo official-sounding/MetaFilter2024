@@ -26,7 +26,6 @@ class BaseRepository implements BaseRepositoryInterface
         $this->model = $model;
         $this->singularEntity = Str::singular($model->getTable());
         $this->subdomain = $this->getSubdomainFromUrl();
-        $this->subsite = $this->getSubsiteFromUrl();
     }
 
     public function getQuery(): Builder
