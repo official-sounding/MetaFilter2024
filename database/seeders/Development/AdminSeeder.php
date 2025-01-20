@@ -18,21 +18,25 @@ final class AdminSeeder extends Seeder
     {
         $path = storage_path('app/imports/metafilter-admins.json');
 
-        $json = File::get($path);
+        if (file_exists($path)) {
+            $json = File::get($path);
 
-        $admins = json_decode($json, true);
+            $admins = json_decode($json, true);
 
-        collect($admins)->each(function ($admin) {
-            User::updateOrCreate([
-                'email' => $admin['email'],
-            ], [
-                'name' => $admin['name'],
-                'username' => $admin['username'],
-                'email' => $admin['email'],
-                'is_admin' => $admin['is_admin'],
-                'legacy_id' => $admin['legacy_id'],
-                'password' => Hash::make('password'),
-            ]);
-        });
+            collect($admins)->each(function ($admin) {
+                (new User)->updateOrCreate([
+                    'email' => $admin['email'],
+                ], [
+                    'name' => $admin['name'],
+                    'username' => $admin['username'],
+                    'email' => $admin['email'],
+                    'is_admin' => $admin['is_admin'],
+                    'legacy_id' => $admin['legacy_id'],
+                    'password' => Hash::make('password'),
+                ]);
+            });
+        } else {
+            $this->logDebugMessage('Admins JSON file does not exist at: ' . $path);
+        }
     }
 }
