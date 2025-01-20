@@ -1,21 +1,19 @@
 <a href="{{ route($subsite['route']) }}" title="Home page">
     <hgroup class="site-title">
-        @if (isset($subsite['whiteText']) && isset($subsite['greenText']))
-            @if (empty(request()->segment(1)))
-                <h1 class="site-title-text">
-                    <span class="white">{{ $subsite['whiteText'] }}</span>
-                    <span class="green">{{ $subsite['greenText'] }}</span>
-                </h1>
-            @else
-                <p class="site-title-text">
-                    <span class="white">{{ $subsite['whiteText'] }}</span>
-                    <span class="green">{{ $subsite['greenText'] }}</span>
-                </p>
-            @endif
+        @if (empty(request()->segment(1)))
+            <h1 class="site-title-text">
+                <span class="white">{{ $whiteText }}</span>
+                <span class="green">{{ $greenText }}</span>
+            </h1>
+        @else
+            <p class="site-title-text">
+                <span class="white">{{ $whiteText }}</span>
+                <span class="green">{{ $greenText }}</span>
+            </p>
         @endif
 
-        @if (isset($subsite['tagline']))
-            <p class="tagline">{{ $subsite['tagline'] }}</p>
+        @if (isset($tagline))
+            <p class="tagline">{{ $tagline }}</p>
         @endif
     </hgroup>
 </a>
