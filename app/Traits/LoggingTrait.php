@@ -13,7 +13,7 @@ trait LoggingTrait
         Log::debug($message);
     }
 
-    public function logError($exception, string $customMessage = null): void
+    public function logError($exception, ?string $customMessage = null): void
     {
         if ($customMessage !== null) {
             Log::error($customMessage);
