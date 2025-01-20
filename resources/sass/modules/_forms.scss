@@ -72,10 +72,24 @@ label:disabled {
     cursor: default;
 }
 
+form {
+    border-radius: 0.25rem;
+}
+
 fieldset {
+    position: relative;
     margin: 0 0 2rem 0;
     padding: 1.5rem 1.25rem 0.5rem 1.25rem;
-    border-radius: 0.25rem;
+}
+
+fieldset + legend {
+    padding-top: 3rem;
+}
+
+fieldset > legend {
+    position: absolute;
+    top: 0.25rem;
+    height: fit-content;
 }
 
 .field,

@@ -8,7 +8,6 @@
     --lightest-base-color: var(--lightest-russet);
 }
 
-.rss .icon,
 .rss .icon {
     // Filter for lighter-russet
     filter: invert(76%) sepia(35%) saturate(370%) hue-rotate(344deg) brightness(92%) contrast(88%);

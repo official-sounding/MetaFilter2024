@@ -8,7 +8,6 @@
     --lightest-base-color: var(--lightest-green);
 }
 
-.rss .icon,
 .rss .icon {
     // Filter for lighter-green
     filter: invert(93%) sepia(6%) saturate(518%) hue-rotate(76deg) brightness(85%) contrast(91%);

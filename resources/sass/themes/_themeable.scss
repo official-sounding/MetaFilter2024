@@ -30,7 +30,7 @@ form small {
 }
 
 //noinspection CssInvalidFunction
-fieldset {
+form {
     background-color: light-dark(var(--black), var(--lightest-base-color));
     border: none;
 }
@@ -74,7 +74,7 @@ textarea:focus {
 //noinspection CssInvalidFunction
 .main-contents form {
     color: light-dark(var(--dark-base-color), var(--dark-base-color));
-    background-color: transparent;
+    background-color: var(--lightest-base-color);
 }
 
 //noinspection CssInvalidFunction
