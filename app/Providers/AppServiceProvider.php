@@ -16,7 +16,7 @@ final class AppServiceProvider extends ServiceProvider
     use SubsiteTrait;
     use UrlTrait;
 
-    private const string DEFAULT_MODE = 'light';
+    private const string DEFAULT_COLOR_SCHEME = 'light';
 
     public function boot(): void
     {
@@ -46,7 +46,7 @@ final class AppServiceProvider extends ServiceProvider
             'signupWizardRoute' => RouteNameEnum::SignupWizard,
         ]);
 
-        view()->share('defaultMode', self::DEFAULT_MODE);
+        view()->share('defaultColorScheme', self::DEFAULT_COLOR_SCHEME);
         view()->share('stylesheets', $this->getStylesheets($subsite));
         view()->share('subdomain', $subdomain === 'www' ? 'metafilter' : $subdomain);
         view()->share('subsite', $subsite);
