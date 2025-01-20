@@ -29,8 +29,4 @@ return [
         'name' => 'Steering Committee',
         'route' => RouteNameEnum::MetaFilterPostIndex,
     ],
-    [
-        'name' => 'Wiki',
-        'route' => RouteNameEnum::MetaFilterPostIndex,
-    ],
 ];
