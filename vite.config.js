@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 
-import laravel, { refreshPaths } from 'laravel-vite-plugin'
+import laravel from 'laravel-vite-plugin';
 import { resolve } from 'path';
 
 // noinspection JSUnusedGlobalSymbols
