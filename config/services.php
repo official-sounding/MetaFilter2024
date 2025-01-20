@@ -30,6 +30,10 @@ return [
         'key' => env('RESEND_KEY'),
     ],
 */
+    'bluesky' => [
+        'username' => env('BLUESKY_USERNAME'),
+        'password' => env('BLUESKY_PASSWORD'),
+    ],
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
