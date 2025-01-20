@@ -1,5 +1,7 @@
-@extends('errors::minimal')
+@extends('layouts.minimal')
 
 @section('title', trans('Forbidden'))
-@section('code', '403')
-@section('message', trans($exception->getMessage() ?: 'Forbidden'))
+
+@section('contents')
+    403
+@endsection

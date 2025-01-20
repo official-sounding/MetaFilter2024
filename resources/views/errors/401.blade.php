@@ -1,5 +1,7 @@
-@extends('errors::minimal')
+@extends('layouts.minimal')
 
 @section('title', trans('Unauthorized'))
-@section('code', '401')
-@section('message', trans('Unauthorized'))
+
+@section('contents')
+    401
+@endsection
