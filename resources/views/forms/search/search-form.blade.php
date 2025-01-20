@@ -4,7 +4,7 @@
     showRequiredFieldsNote="false">
 
     <label class="sr-only" for="{{ $formId }}-query">
-        Search {{ config('app.name') }}…
+        {{ trans('Search') }}  {{ config('app.name') }}…
     </label>
 
     <div class="input-add-on">
@@ -12,14 +12,12 @@
             type="search"
             name="q"
             id="{{ $formId }}-query"
-            placeholder="Search…">
+            placeholder="{{ trans('Search...') }}">
 
         <button class="button icon-search" type="submit">
             <span class="sr-only">
-                Search
+                {{ trans('Search') }}
             </span>
         </button>
     </div>
-    {{-- TODO: Add site --}}
-    <input name="site" value="mefi" type="hidden">
 </x-forms.form>

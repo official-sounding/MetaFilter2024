@@ -1,5 +1,7 @@
 <section class="comments">
-    <h2 class="sr-only">Comments</h2>
+    <h2 class="sr-only">
+        {{ trans('Comments') }}
+    </h2>
 
     @forelse ($comments as $comment)
         <livewire:comments.comment-show-component

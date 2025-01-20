@@ -12,10 +12,10 @@
     </small>
 
     <button class="button primary-button" wire:click="payWithPayPal">
-        Pay $5 via PayPal button/link
+        {{ trans('Pay $5 via PayPal') }}
     </button>
 
     <button class="button primary-button" wire:click="payWithStripe">
-        Pay $5 via Stripe button/link
+        {{ trans('Pay $5 via Stripe') }}
     </button>
 </section>

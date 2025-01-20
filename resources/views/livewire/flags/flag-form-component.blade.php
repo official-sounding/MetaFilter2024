@@ -15,7 +15,7 @@
         @endforeach
 
         <label for="flag-note" class="sr-only">
-            Flag note:
+            {{ trans('Flag note:') }}
         </label>
 
         <textarea name="flag-note" id="flag-note"></textarea>
