@@ -13,10 +13,10 @@ final class SidebarSectionComponent extends Component
     public bool $open;
     public string $heading;
 
-    public function __construct($heading, $class = '', $open = false)
+    public function __construct(string $heading, string $class = '', bool $open = false)
     {
         $this->class = $class;
-        $this->open = boolval($open);
+        $this->open = $open;
         $this->heading = $heading;
     }
 
