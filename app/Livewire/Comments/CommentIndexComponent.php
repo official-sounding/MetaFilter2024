@@ -20,6 +20,7 @@ final class CommentIndexComponent extends Component
         $this->post = $post;
         $this->comments = $this->getComments();
     }
+
     public function render(): View
     {
         $comments = $this->comments;
