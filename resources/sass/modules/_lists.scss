@@ -5,6 +5,10 @@ main li {
     padding: 0;
 }
 
+main .steps li {
+    margin-bottom: 0;
+}
+
 main .notification ul li,
 main li:last-of-type {
     margin-bottom: 0;
@@ -21,6 +25,7 @@ main li:last-of-type {
 }
 
 .steps {
+    display: flex;
     padding: 0;
 }
 
@@ -28,6 +33,11 @@ main li:last-of-type {
 .tag-list li,
 .years-ago li {
     display: inline;
+}
+
+.steps li {
+    flex: 1 0 0;
+    text-align: center;
 }
 
 .years-ago {
