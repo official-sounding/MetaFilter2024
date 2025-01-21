@@ -1,0 +1,14 @@
+
+:root {
+    --darker-base-color: var(--darker-green);
+    --dark-base-color: var(--dark-green);
+    --base-color: var(--green);
+    --light-base-color: var(--light-green);
+    --lighter-base-color: var(--lighter-green);
+    --lightest-base-color: var(--lightest-green);
+}
+
+.rss .icon {
+    // Filter for lighter-green
+    filter: invert(93%) sepia(6%) saturate(518%) hue-rotate(76deg) brightness(85%) contrast(91%);
+}

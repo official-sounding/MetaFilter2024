@@ -1,0 +1,14 @@
+
+:root {
+    --darker-base-color: var(--darker-russet);
+    --dark-base-color: var(--dark-russet);
+    --base-color: var(--russet);
+    --light-base-color: var(--light-russet);
+    --lighter-base-color: var(--lighter-russet);
+    --lightest-base-color: var(--lightest-russet);
+}
+
+.rss .icon {
+    // Filter for lighter-russet
+    filter: invert(76%) sepia(35%) saturate(370%) hue-rotate(344deg) brightness(92%) contrast(88%);
+}

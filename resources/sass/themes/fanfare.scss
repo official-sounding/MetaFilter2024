@@ -1,19 +1,5 @@
 
-@use "colors";
-@use 'default';
-
-:root {
-    --darker-color: var(--darker-purple);
-    --dark-color: var(--dark-purple);
-    --color: var(--purple);
-    --light-color: var(--light-purple);
-    --lighter-color: var(--lighter-purple);
-    --lightest-base-color: var(--lightest-purple);
-}
-
-.rss .icon {
-    // Filter for lighter-purple
-    filter: invert(73%) sepia(18%) saturate(355%) hue-rotate(217deg) brightness(90%) contrast(93%);
-}
-
-@use "themeable";
+@use "modules/colors";
+@use "modules/default";
+@use "modules/fanfare";
+@use "modules/themeable";

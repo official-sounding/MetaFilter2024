@@ -1,19 +1,5 @@
 
-@use "colors";
-@use 'default';
-
-:root {
-    --darker-color: var(--darker-brown);
-    --dark-color: var(--dark-brown);
-    --color: var(--brown);
-    --light-color: var(--light-brown);
-    --lighter-color: var(--lighter-brown);
-    --lightest-base-color: var(--lightest-brown);
-}
-
-.rss .icon {
-    // Filter for lighter-brown
-    filter: invert(83%) sepia(8%) saturate(609%) hue-rotate(350deg) brightness(91%) contrast(88%);
-}
-
-@use "themeable";
+@use "modules/colors";
+@use "modules/default";
+@use "modules/jobs";
+@use "modules/themeable";

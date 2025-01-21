@@ -1,0 +1,14 @@
+
+:root {
+    --darker-base-color: var(--darker-music-black);
+    --dark-base-color: var(--dark-music-black);
+    --base-color: var(--music-black);
+    --light-base-color: var(--light-music-black);
+    --lighter-base-color: var(--lighter-music-black);
+    --lightest-base-color: var(--lightest-music-black);
+}
+
+.rss .icon {
+    // Filter for lighter-music-black
+    filter: invert(93%) sepia(0%) saturate(116%) hue-rotate(205deg) brightness(80%) contrast(76%);
+}

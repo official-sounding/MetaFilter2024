@@ -1,0 +1,14 @@
+
+:root {
+    --darker-base-color: var(--darker-purple);
+    --dark-base-color: var(--dark-purple);
+    --base-color: var(--purple);
+    --light-base-color: var(--light-purple);
+    --lighter-base-color: var(--lighter-purple);
+    --lightest-base-color: var(--lightest-purple);
+}
+
+.rss .icon {
+    // Filter for lighter-purple
+    filter: invert(73%) sepia(18%) saturate(355%) hue-rotate(217deg) brightness(90%) contrast(93%);
+}
