@@ -4,24 +4,8 @@ declare(strict_types=1);
 
 namespace App\Livewire\Wizards;
 
-use App\Models\Subsite;
-use App\Traits\LoggingTrait;
-use App\Traits\SubsiteTrait;
-use Livewire\Component;
+use Spatie\LivewireWizard\Components\WizardComponent;
 
-abstract class BaseWizardComponent extends Component
+abstract class BaseWizardComponent extends WizardComponent
 {
-    use LoggingTrait;
-    use SubsiteTrait;
-
-    public int $currentStep = 1;
-    public Subsite $subsite;
-
-    public function goToStep($step): void
-    {
-        $this->currentStep = $step;
-    }
-
-    abstract public function resetForm(): void;
-    abstract public function store(): void;
 }
