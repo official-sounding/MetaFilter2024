@@ -2,9 +2,6 @@
 
 @use 'reset';
 @use 'mixins/breakpoints';
-@use 'modules/colors';
-@use 'themes/default';
-@use 'themes/themeable';
 
 @use 'modules/accessibility';
 @use 'modules/buttons';
@@ -31,8 +28,3 @@
 @use 'modules/toast';
 @use 'modules/typography';
 @use 'modules/usability';
-
-/*
-@use 'modules/site-footer';
-@use 'modules/site-header';
-*/

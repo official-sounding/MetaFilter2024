@@ -1,4 +1,7 @@
 
+@use "colors";
+@use 'default';
+
 :root {
     --darker-color: var(--darker-teal);
     --dark-color: var(--dark-teal);
@@ -12,3 +15,5 @@
     // Filter for lighter-teal
     filter: invert(88%) sepia(20%) saturate(169%) hue-rotate(131deg) brightness(84%) contrast(90%);
 }
+
+@use "themeable";

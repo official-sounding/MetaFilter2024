@@ -1,4 +1,7 @@
 
+@use "colors";
+@use 'default';
+
 :root {
     --darker-color: var(--darker-purple);
     --dark-color: var(--dark-purple);
@@ -12,3 +15,5 @@
     // Filter for lighter-purple
     filter: invert(73%) sepia(18%) saturate(355%) hue-rotate(217deg) brightness(90%) contrast(93%);
 }
+
+@use "themeable";

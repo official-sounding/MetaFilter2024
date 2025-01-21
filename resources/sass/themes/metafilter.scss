@@ -1,4 +1,7 @@
 
+@use "colors";
+@use 'default';
+
 :root {
     --darker-base-color: var(--darker-blue);
     --dark-base-color: var(--dark-blue);
@@ -12,3 +15,5 @@
     // Filter for lighter-blue
     filter: invert(81%) sepia(21%) saturate(539%) hue-rotate(154deg) brightness(87%) contrast(95%);
 }
+
+@use "themeable";

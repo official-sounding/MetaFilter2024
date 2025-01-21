@@ -1,4 +1,7 @@
 
+@use "colors";
+@use 'default';
+
 :root {
     --darker-color: var(--darker-russet);
     --dark-color: var(--dark-russet);
@@ -12,3 +15,5 @@
     // Filter for lighter-russet
     filter: invert(76%) sepia(35%) saturate(370%) hue-rotate(344deg) brightness(92%) contrast(88%);
 }
+
+@use "themeable";
