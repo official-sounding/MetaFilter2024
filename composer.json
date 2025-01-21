@@ -36,6 +36,7 @@
         "spatie/laravel-activitylog": "^4.8",
         "spatie/laravel-feed": "^4.4",
         "spatie/laravel-honeypot": "^4.5",
+        "spatie/laravel-livewire-wizard": "^2.4",
         "spatie/laravel-permission": "^6.9",
         "spatie/laravel-sitemap": "^7.2",
         "spatie/laravel-tags": "^4.6",
