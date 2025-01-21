@@ -1,29 +1,17 @@
 <nav class="level previous-next">
     @if (isset($previous))
-        <a class="previous"
-           title="Previous post"
-           href="{{ route("$subdomain.post.show", [
-                'post' => $previous,
-                'slug' => $previous->slug
-           ]) }}">
-            Previous
-            <span class="title">
-                {{ $previous->title }}
-            </span>
-        </a>
+        @include('posts.partials.previous-next-link', [
+            'direction' => 'Previous',
+            'post' => $previous,
+            'routeName' => "$subdomain.post.show",
+        ])
     @endif
 
     @if (isset($next))
-        <a class="next"
-           title="Next post"
-            href="{{ route("$subdomain.post.show", [
-                'post' => $next,
-                'slug' => $next->slug
-            ]) }}">
-            Next
-            <span class="title">
-                {{ $next->title }}
-            </span>
-        </a>
+        @include('posts.partials.previous-next-link', [
+            'direction' => 'Next',
+            'post' => $next,
+            'routeName' => "$subdomain.post.show",
+        ])
     @endif
 </nav>
