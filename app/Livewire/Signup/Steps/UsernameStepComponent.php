@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Signup\Steps;
 
-use App\Http\Requests\Register\StoreUsernameRequest;
+use App\Http\Requests\Signup\StoreUsernameRequest;
 use Illuminate\Contracts\View\View;
 use Spatie\LivewireWizard\Components\StepComponent;
 
