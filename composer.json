@@ -27,6 +27,7 @@
         "matt-daneshvar/laravel-survey": "^0.4.0",
         "mews/purifier": "^3.4",
         "mpociot/versionable": "^4.4",
+        "nickurt/laravel-stopforumspam": "^1.9",
         "oddvalue/laravel-drafts": "^2.0",
         "opcodesio/log-viewer": "^3.10",
         "pxlrbt/filament-activity-log": "^1.1",
