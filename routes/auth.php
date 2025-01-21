@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Enums\RouteNameEnum;
 use App\Http\Controllers\SignupController;
+use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use Laravel\Fortify\Http\Controllers\NewPasswordController;
 use Laravel\Fortify\Http\Controllers\PasswordResetLinkController;
