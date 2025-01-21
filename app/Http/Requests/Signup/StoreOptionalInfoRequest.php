@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\Register;
+namespace App\Http\Requests\Signup;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
 
-final class StoreOptionalInfoRequest extends FormRequest
+final class StoreOptionalInfoRequest extends BaseFormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return $this->loggedOut();
     }
 
     public function rules(): array

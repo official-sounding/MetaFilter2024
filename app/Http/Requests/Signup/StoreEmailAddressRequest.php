@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\Register;
+namespace App\Http\Requests\Signup;
 
+use App\Http\Requests\BaseFormRequest;
 use App\Models\User;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-final class StoreEmailAddressRequest extends FormRequest
+final class StoreEmailAddressRequest extends BaseFormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return $this->loggedOut();
     }
 
     public function rules(): array

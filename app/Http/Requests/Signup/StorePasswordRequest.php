@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\Register;
+namespace App\Http\Requests\Signup;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
 use Illuminate\Validation\Rules\Password;
 
-final class StorePasswordRequest extends FormRequest
+final class StorePasswordRequest extends BaseFormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return $this->loggedOut();
     }
 
     public function rules(): array
@@ -20,7 +20,6 @@ final class StorePasswordRequest extends FormRequest
             'password' => [
                 'required',
                 'confirmed',
-                Password::defaults(),
             ],
         ];
     }
