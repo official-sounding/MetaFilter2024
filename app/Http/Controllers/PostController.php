@@ -63,7 +63,7 @@ final class PostController extends BaseController
         ]);
     }
 
-    public function store(StoreMetaFilterPostRequest $request)
+    public function store(StoreMetaFilterPostRequest $request): void
     {
         $post = $this->postService->store($request->validated());
     }
@@ -76,12 +76,12 @@ final class PostController extends BaseController
         ]);
     }
 
-    public function update(UpdateMetaFilterPostRequest $request, Post $post)
+    public function update(UpdateMetaFilterPostRequest $request, Post $post): void
     {
         $updated = $this->postService->update($request->validated());
     }
 
-    public function delete(Post $post)
+    public function delete(Post $post): void
     {
         $deleted = $this->postService->delete($post);
     }
