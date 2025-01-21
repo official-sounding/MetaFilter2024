@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Auth;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
 use Illuminate\Validation\Rules\Password;
 
-final class StorePasswordRequest extends FormRequest
+final class StorePasswordRequest extends BaseFormRequest
 {
     public function authorize(): bool
     {
@@ -18,13 +18,6 @@ final class StorePasswordRequest extends FormRequest
     {
         return [
             [
-                'token' => [
-                    'required',
-                ],
-                'email' => [
-                    'required',
-                    'email',
-                ],
                 'password' => [
                     'required',
                     'confirmed',

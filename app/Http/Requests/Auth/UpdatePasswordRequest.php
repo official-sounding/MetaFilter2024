@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Auth;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
 use Illuminate\Support\Facades\Hash;
 
-final class UpdatePasswordRequest extends FormRequest
+final class UpdatePasswordRequest extends BaseFormRequest
 {
     public function authorize(): bool
     {

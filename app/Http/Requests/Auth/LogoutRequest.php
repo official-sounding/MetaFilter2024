@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Auth;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
 
-final class LogoutRequest extends FormRequest
+final class LogoutRequest extends BaseFormRequest
 {
     public function authorize(): bool
     {

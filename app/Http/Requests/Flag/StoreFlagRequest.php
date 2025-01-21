@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Flag;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
 
-final class StoreFlagRequest extends FormRequest
+final class StoreFlagRequest extends BaseFormRequest
 {
     public function authorize(): bool
     {

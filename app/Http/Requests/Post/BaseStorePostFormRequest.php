@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Post;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseFormRequest;
 
-abstract class BaseStorePostFormRequest extends FormRequest
+abstract class BaseStorePostFormRequest extends BaseFormRequest
 {
     public function __construct()
     {
