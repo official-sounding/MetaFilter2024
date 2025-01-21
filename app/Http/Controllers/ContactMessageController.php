@@ -46,7 +46,7 @@ final class ContactMessageController extends BaseController
     public function thanks(): View
     {
         return view('contact.thanks', [
-            'title' => trans('Contact Us'),
+            'title' => trans('Thanks'),
         ]);
     }
 }
