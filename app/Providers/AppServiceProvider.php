@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Enums\RouteNameEnum;
-use App\Models\Subsite;
 use App\Traits\SubsiteTrait;
 use App\Traits\UrlTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -28,6 +27,7 @@ final class AppServiceProvider extends ServiceProvider
         session([
             'subdomain' => $subdomain,
             'subsite' => $subsite,
+            'subsiteHasTheme' => $subsite->has_theme,
             'subsiteName' => $subsite->name,
         ]);
 
@@ -47,29 +47,12 @@ final class AppServiceProvider extends ServiceProvider
         ]);
 
         view()->share('defaultColorScheme', self::DEFAULT_COLOR_SCHEME);
-        view()->share('stylesheets', $this->getStylesheets($subsite));
         view()->share('subdomain', $subdomain === 'www' ? 'metafilter' : $subdomain);
         view()->share('subsite', $subsite);
+        view()->share('subsiteHasTheme', $subsite->has_theme);
         view()->share('subsiteName', $subsite->name);
         view()->share('whiteText', $subsite->white_text);
         view()->share('greenText', $subsite->green_text);
         view()->share('tagline', $subsite->tagline);
-    }
-
-    private function getStylesheets(Subsite $subsite): array
-    {
-        $stylesheets = [
-            'resources/sass/app.scss',
-        ];
-
-        if ($subsite->has_theme === true) {
-            $subdomain = $subsite->subdomain;
-
-            $stylesheets[] = "resources/sass/themes/$subdomain.scss";
-        } else {
-            $stylesheets[] = 'resources/sass/themes/metafilter.scss';
-        }
-
-        return $stylesheets;
     }
 }
