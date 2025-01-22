@@ -51,7 +51,6 @@ abstract class BaseStorePostFormRequest extends BaseFormRequest
     {
         return [
             'title.required' => 'The title is required.',
-            'category_id.numeric' => 'Invalid category value.',
         ];
     }
 }
