@@ -2,22 +2,22 @@
 
 MetaFilter is primarily a collection of blog subsites:
 
-- Ask MetaFilter
-- Best Of
-- FanFare
-- IRL
-- Jobs
-- MetaFilter
-- MetaTalk
-- Music
-- Podcast
-- Projects
+- <a href="https://ask.metafilter.com/">Ask MetaFilter</a>
+- <a href="https://bestof.metafilter.com/">Best Of</a>
+- <a href="https://fanfare.metafilter.com/">FanFare</a>
+- <a href="https://irl.metafilter.com/">IRL</a>
+- <a href="https://jobs.metafilter.com/">Jobs</a>
+- <a href="https://www.metafilter.com/">MetaFilter</a>
+- <a href="https://metatalk.metafilter.com/">MetaTalk</a>
+- <a href="https://music.metafilter.com/">Music</a>
+- <a href="https://podcast.metafilter.com/">Podcast</a>
+- <a href="https://projects.metafilter.com/">Projects</a>
 
 There are also smaller secondary subsites:
 
-- Chat
-- Labs
-- Mall
+- <a href="https://chat.metafilter.com/">Chat</a>
+- <a href="https://labs.metafilter.com/">Labs</a>
+- <a href="https://mall.metafilter.com/">Mall</a>
 
 The home page of all the primary blog subsites is handled by <a href="https://github.com/MetaFilter/MetaFilter2024/blob/6ad35f2affec214904856ab3f2c6950663f3d2aa/app/Http/Controllers/PostController.php#L32">the index function of the PostController</a>.
 The <a href="https://github.com/MetaFilter/MetaFilter2024/blob/main/app/Providers/AppServiceProvider.php">boot function</a> in AppServiceProvider looks up the subsite from the subdomain in the URL and sets the subsite.
