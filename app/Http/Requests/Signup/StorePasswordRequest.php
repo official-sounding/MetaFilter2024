@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace App\Http\Requests\Signup;
 
 use App\Http\Requests\BaseFormRequest;
-use Illuminate\Validation\Rules\Password;
+use App\Traits\FormRequestTrait;
 
 final class StorePasswordRequest extends BaseFormRequest
 {
+    use FormRequestTrait;
+
     public function authorize(): bool
     {
         return $this->loggedOut();
@@ -20,6 +22,10 @@ final class StorePasswordRequest extends BaseFormRequest
             'password' => [
                 'required',
                 'confirmed',
+                'min:6',
+            ],
+            'password_confirmation' => [
+                'required'
             ],
         ];
     }

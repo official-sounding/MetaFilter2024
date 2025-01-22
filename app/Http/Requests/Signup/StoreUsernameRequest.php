@@ -6,10 +6,13 @@ namespace App\Http\Requests\Signup;
 
 use App\Http\Requests\BaseFormRequest;
 use App\Models\User;
+use App\Traits\FormRequestTrait;
 use Illuminate\Validation\Rule;
 
 final class StoreUsernameRequest extends BaseFormRequest
 {
+    use FormRequestTrait;
+
     public function authorize(): bool
     {
         return $this->loggedOut();
