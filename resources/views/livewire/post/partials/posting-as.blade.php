@@ -3,6 +3,8 @@
        href="{{ route($profileShowRoute, [
             'user' => auth()->user()
         ]) }}">
-        <stong>{{ auth()->user()->username }}</stong>
+        <strong>
+            {{ auth()->user()->username }}
+        </strong>
     </a>
 </small>

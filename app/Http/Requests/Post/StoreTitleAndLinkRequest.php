@@ -16,7 +16,8 @@ class StoreTitleAndLinkRequest extends BaseFormRequest
         return $this->loggedIn();
     }
 
-    public function rules(): array {
+    public function rules(): array
+    {
         return [
             'title' => [
                 'required',

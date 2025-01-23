@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace App\Livewire\Signup\Steps;
 
 use App\Services\UserService;
+use App\Traits\LoggingTrait;
 use Spatie\LivewireWizard\Components\StepComponent;
 
 final class StoreUserStepComponent extends StepComponent
 {
+    use LoggingTrait;
+
     protected UserService $userService;
 
     public function mount(UserService $userService): void
@@ -22,7 +25,9 @@ final class StoreUserStepComponent extends StepComponent
 
     public function create(): void
     {
-        $data = $this->state()->newUserData();
+        $data = [
+            'username' => $this->state()->username(),
+        ];
 
         $this->userService->store($data);
     }

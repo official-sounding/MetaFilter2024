@@ -24,7 +24,7 @@ final class AdminSeeder extends Seeder
             $admins = json_decode($json, true);
 
             collect($admins)->each(function ($admin) {
-                (new User)->updateOrCreate([
+                (new User())->updateOrCreate([
                     'email' => $admin['email'],
                 ], [
                     'name' => $admin['name'],

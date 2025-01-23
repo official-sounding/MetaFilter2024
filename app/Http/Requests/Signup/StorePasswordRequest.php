@@ -25,7 +25,7 @@ final class StorePasswordRequest extends BaseFormRequest
                 'min:6',
             ],
             'password_confirmation' => [
-                'required'
+                'required',
             ],
         ];
     }

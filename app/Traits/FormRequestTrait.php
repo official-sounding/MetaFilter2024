@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
-trait FormRequestTrait {
+trait FormRequestTrait
+{
     public function loggedIn(): bool
     {
         return auth()->check();

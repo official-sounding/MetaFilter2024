@@ -29,6 +29,8 @@ final class SwitchLocaleComponent extends Component
     public function switchLocale(string $locale): void
     {
         if (in_array($locale, $this->availableLocales)) {
+            session()->put('locale', $locale);
+
             app()->setLocale($locale);
         } else {
             $this->logError('Invalid locale selected: ' . $locale);

@@ -16,7 +16,8 @@ class StoreBodyRequest extends BaseFormRequest
         return $this->loggedIn();
     }
 
-    public function rules(): array {
+    public function rules(): array
+    {
         return [
             'body' => [
                 'required',

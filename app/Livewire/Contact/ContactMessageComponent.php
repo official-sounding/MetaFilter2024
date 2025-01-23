@@ -21,7 +21,7 @@ final class ContactMessageComponent extends Component
 
     protected function rules(): array
     {
-        return new StoreContactMessageRequest()->rules();
+        return (new StoreContactMessageRequest())->rules();
     }
 
     public function render(): View
