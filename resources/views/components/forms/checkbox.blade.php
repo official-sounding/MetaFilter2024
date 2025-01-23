@@ -1,8 +1,3 @@
-@props([
-    'label',
-    'name',
-])
-
 <x-forms.field>
     <x-forms.label
         :for="$name"

@@ -1,10 +1,10 @@
 <x-forms.form
-    action=""
+    :action=""
     role="search"
-    showRequiredFieldsNote="false">
+    :showRequiredFieldsNote="false">
 
     <label class="sr-only" for="{{ $formId }}-query">
-        {{ trans('Search') }}  {{ config('app.name') }}…
+        {{ trans('Search') }}  {{ config('app.name') }}
     </label>
 
     <div class="input-add-on">
@@ -12,7 +12,7 @@
             type="search"
             name="q"
             id="{{ $formId }}-query"
-            placeholder="{{ trans('Search...') }}">
+            placeholder="{{ trans('Search...') }}&hellip;">
 
         <button class="button icon-search" type="submit">
             <span class="sr-only">

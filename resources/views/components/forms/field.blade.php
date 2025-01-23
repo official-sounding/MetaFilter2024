@@ -1,11 +1,7 @@
-@props([
-    'note' => null,
-])
-
 <div class="field">
     {{ $slot }}
 </div>
 
-@if ($note !== null)
+@if ($note !== '')
     <p class="note">{!! $note !!}</p>
 @endif

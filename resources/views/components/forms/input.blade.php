@@ -1,12 +1,3 @@
-@props([
-    'label',
-    'name',
-    'autofocus' => false,
-    'icon' => null,
-    'note' => null,
-    'required' => true,
-    'type' => 'text',
-])
 
 <x-forms.field>
     <x-forms.label
@@ -26,7 +17,7 @@
         name="{{ $name }}"
         id="{{ $name }}"
         value="{{ old($name) }}"
-        wire:model="{{ $name }}"
+        wire:model.live="{{ $name }}"
         @if ($autofocus)
             autofocus
         @endif

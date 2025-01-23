@@ -1,9 +1,3 @@
-@props([
-    'for',
-    'label',
-    'required' => true,
-])
-
-<label for="{{ $for }}" @if ($required) class="required" @endif>
+<label for="{{ $for }}"  class=" @if ($required === true) required @else optional @endif ">
     {{ $label }}
 </label>

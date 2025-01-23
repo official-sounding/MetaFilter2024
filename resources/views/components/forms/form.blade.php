@@ -1,15 +1,7 @@
-@props([
-    'action',
-    'class' => null,
-    'method' => 'POST',
-    'showRequiredFieldsNote' => true,
-    'upload' => false,
-])
-
 <form
     method="{{ $method }}"
     action="{{ $action }}"
-    @if ($class !== null)
+    @if ($class !== '')
         class="{{ $class }}"
     @endif
     @if ($upload === true)
