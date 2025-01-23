@@ -11,8 +11,16 @@ final class PostService
 {
     use LoggingTrait;
 
+    private PurifierService $purifierService;
+
+    public function __construct(PurifierService $purifierService) {}
+
     public function store(array $data): Post
     {
+        $body = $this->purifierService->clean($data['body']);
+        $moreInside = $this->purifierService->clean($data['more_inside']);
+        $title = $this->purifierService->clean($data['title']);
+
         return Post::create($data);
     }
 
