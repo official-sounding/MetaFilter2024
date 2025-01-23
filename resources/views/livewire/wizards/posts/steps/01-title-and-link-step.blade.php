@@ -1,4 +1,5 @@
-<form>
+<form wire:submit.prevent="submit">
+    @include('forms.partials.validation-summary')
     @include('forms.partials.csrf-token')
 
     <fieldset>
@@ -9,19 +10,25 @@
     </fieldset>
 
     <fieldset>
-        <small>{{ trans('Optional if building links in the description') }}</small>
+        <legend>{{ trans('Optional') }}</legend>
 
         <x-forms.input
-            name="link_url"
+            name="url"
             type="url"
-            label="{{ trans('Link URL') }}" />
+            :required="false"
+            label="{{ trans('URL') }}" />
 
         <x-forms.input
             name="link_text"
             type="text"
-            note="{{ trans('These will be the first words of your posts, and will be a clickable link to the Link URL') }}"
+            :required="false"
+            note="{{ trans('These will be the first words of your post, and will be a clickable link to the URL') }}"
             label="{{ trans('Link text') }}" />
     </fieldset>
 
-    @include('livewire.wizards.partials.previous-next')
+    <fieldset class="level">
+        <x-forms.button type="submit">
+            {{ trans('Next') }}
+        </x-forms.button>
+    </fieldset>
 </form>
