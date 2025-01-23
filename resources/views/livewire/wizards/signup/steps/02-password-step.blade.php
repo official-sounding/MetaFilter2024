@@ -1,4 +1,4 @@
-<form wire:submit="submit">
+<form wire:submit.prevent="submit">
     @include('forms.partials.validation-summary')
     @include('forms.partials.csrf-token')
 
@@ -14,5 +14,9 @@
             label="{{ trans('And confirm your password') }}" />
     </fieldset>
 
-    @include('livewire.wizards.partials.previous-next')
+    <fieldset class="level">
+        <x-forms.button type="submit">
+            {{ trans('Next') }}
+        </x-forms.button>
+    </fieldset>
 </form>
