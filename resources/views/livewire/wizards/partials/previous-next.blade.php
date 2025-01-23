@@ -1,11 +1,15 @@
 <div class="previous-next">
-    @if (isset($nextStep))
-        <button type="button" class="button primary-button previous" wire:click="back({{ $nextStep }})">
-            {{ trans('Previous') }}
-        </button>
+    @if (isset($previousStep))
+        @include('livewire.wizards.partials.previous-next-button', [
+            'direction' => 'Previous',
+            'goToStep' => $previousStep,
+        ])
     @endif
 
-    <button type="submit" class="button primary-button next" wire:click="{{ $nextStep }}">
-        {{ trans('Next') }}
-    </button>
+    @if (isset($nextStep))
+        @include('livewire.wizards.partials.previous-next-button', [
+            'direction' => 'Next',
+            'goToStep' => $nextStep,
+        ])
+    @endif
 </div>

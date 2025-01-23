@@ -4,14 +4,22 @@
 
     <fieldset>
         <x-forms.input
-            name="password"
-            type="password"
-            label="{{ trans('Next, enter a password') }}" />
+            :label="'Next, enter a password'"
+            :name="'password'"
+            :type="'password'"
+            :note="''"
+            :autofocus="false"
+            :required="false"
+        />
 
         <x-forms.input
-            name="password_confirmation"
-            type="password"
-            label="{{ trans('And confirm your password') }}" />
+            :label="'And confirm your password'"
+            :name="'password_confirmation'"
+            :type="'password'"
+            :note="''"
+            :autofocus="false"
+            :required="false"
+        />
     </fieldset>
 
     <fieldset class="level">

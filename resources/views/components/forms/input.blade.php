@@ -3,7 +3,7 @@
     <x-forms.label
         :for="$name"
         :label="$label"
-        :required="(bool) $required"
+        :required="$required"
     />
 
     @if ($note)

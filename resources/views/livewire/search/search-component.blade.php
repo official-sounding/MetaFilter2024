@@ -1,6 +1,8 @@
 <search>
     <form action="">
-        <label for="{{ $inputId }}" class="sr-only">{{ trans('Search') }}</label>
+        <label for="{{ $inputId }}" class="sr-only">
+            {{ trans('Search') }}
+        </label>
 
         <input id="{{ $inputId }}" name="q" type="search">
         <button type="submit">

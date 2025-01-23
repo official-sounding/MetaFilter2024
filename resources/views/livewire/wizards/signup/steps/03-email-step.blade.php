@@ -4,10 +4,12 @@
 
     <fieldset class="required-fields">
         <x-forms.input
-            name="email"
-            type="text"
-            note="We won&rsquo;t spam you, and we&rsquo;ll <strong>never</strong> give away your address to anyone. This address is hidden from other members and the public."
-            label="{{ trans('Next, enter your email address') }}"
+            :label="'Next, enter your email address'"
+            :name="'email'"
+            :type="'text'"
+            :note="''"
+            :autofocus="false"
+            :required="false"
         />
     </fieldset>
 
