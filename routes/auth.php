@@ -11,6 +11,9 @@ use Laravel\Fortify\Http\Controllers\PasswordResetLinkController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 use Laravel\Fortify\RoutePath;
 
+Route::get('login', [AuthenticatedSessionController::class, 'create'])
+    ->name(RouteNameEnum::AuthLoginCreate);
+
 Route::post(RoutePath::for('login', '/login'), [AuthenticatedSessionController::class, 'store'])
     ->middleware(array_filter([
         'guest:' . config('fortify.guard'),

@@ -15,14 +15,6 @@ $middleware = [
 ];
 
 // Route::feeds();
-Route::get('about-metafilter', [PageController::class, 'show'])
-    ->name(RouteNameEnum::AboutMetaFilter);
-
-Route::get('chat', [PageController::class, 'show'])
-    ->name(RouteNameEnum::ChatHomeIndex);
-
-Route::get('chat', [PageController::class, 'show'])
-    ->name(RouteNameEnum::ChatHomeIndex);
 
 Route::get('search', [SearchController::class, 'create'])
     ->name('search.create');
