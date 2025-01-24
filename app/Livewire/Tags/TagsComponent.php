@@ -23,6 +23,7 @@ final class TagsComponent extends Component
         'showModal',
         'refreshComponent' => '$refresh',
     ];
+
     public function mount(): void
     {
         $this->allTags = Tag::all();
