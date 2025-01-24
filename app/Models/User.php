@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\States\User\UserState;
 use App\Traits\SearchTrait;
 use Cog\Contracts\Ban\Bannable as BannableInterface;
 use Cog\Laravel\Ban\Traits\Bannable;
@@ -15,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Spatie\ModelStates\HasStates;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
@@ -34,6 +36,7 @@ final class User extends Authenticatable implements BannableInterface, FilamentU
     use HasApiTokens;
     use HasFactory;
     use HasRoles;
+    use HasStates;
     use Notifiable;
     use SearchTrait;
     use SoftDeletes;
@@ -66,6 +69,7 @@ final class User extends Authenticatable implements BannableInterface, FilamentU
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'state' => UserState::class,
         ];
     }
 
