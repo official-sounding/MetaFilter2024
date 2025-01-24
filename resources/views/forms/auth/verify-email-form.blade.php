@@ -21,7 +21,7 @@
         </x-forms.button>
     </x-forms.form>
 </section>
-<x-guest-layout>
+<section>
     <div class="mb-4 text-sm text-gray-600">
         {{ trans('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
     </div>
@@ -37,9 +37,9 @@
             @include('forms.partials.csrf-token')
 
             <div>
-                <x-primary-button>
+                <button>
                     {{ trans('Resend Verification Email') }}
-                </x-primary-button>
+                </button>
             </div>
         </form>
 
@@ -51,4 +51,4 @@
             </button>
         </form>
     </div>
-</x-guest-layout>
+</section>

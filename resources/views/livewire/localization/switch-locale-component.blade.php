@@ -5,8 +5,13 @@
                 type="button"
                 class="language"
                 wire:click="switchLocale('{{ $locale }}')">
-                {{ $language }}
+                    {{ $language }}
+                <span class="icon">
+                    <img src="{{ asset('images/icons/globe.svg') }}" alt="">
+                </span>
             </button>
+
+            <p>{{ $currentLocale }}</p>
         @endif
     @endforeach
 </li>
