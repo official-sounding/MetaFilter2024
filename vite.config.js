@@ -17,7 +17,6 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/sass/themes/ask.scss',
-                'resources/sass/themes/bestof.scss',
                 'resources/sass/themes/fanfare.scss',
                 'resources/sass/themes/irl.scss',
                 'resources/sass/themes/jobs.scss',
