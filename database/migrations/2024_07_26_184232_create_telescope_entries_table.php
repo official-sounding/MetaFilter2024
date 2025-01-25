@@ -34,7 +34,7 @@ return new class extends Migration {
                 'family_hash',
                 'should_display_on_index',
                 'type',
-            ]);
+            ], 'telescope_entries_idx');
         });
 
         $schema->create('telescope_entries_tags', function (Blueprint $table) {
