@@ -30,6 +30,7 @@ return new class extends Migration {
             $table->boolean('is_admin')->default(false);
 
             // Project-specific fields
+            $table->string('status');
             $table->nullableTimestamps();
             $table->softDeletes();
         });
