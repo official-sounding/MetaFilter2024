@@ -6,7 +6,15 @@ main li {
 }
 
 main .steps li {
-    margin-bottom: 0;
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
+    text-align: center;
+}
+
+main .steps li .stepNumber {
+    display: block;
+    width: 1rem;
+    margin: 0 auto;
 }
 
 main .notification ul li,
@@ -27,6 +35,7 @@ main li:last-of-type {
 .steps {
     margin: 0;
     padding: 0;
+    width: fit-content;
 }
 
 .steps li,

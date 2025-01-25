@@ -149,7 +149,8 @@ nav.post-navigation a,
     font-weight: 400;
 }
 
-tbody th {
+tbody th,
+main .steps li .stepNumber {
     font-weight: 500;
 }
 
@@ -164,6 +165,7 @@ nav a,
 .posts h4,
 .site-banner,
 .site-footer a.button,
+main .steps li,
 .tagline,
 th,
 .years-ago a {

@@ -12,3 +12,18 @@
     // Filter for lighter-blue
     filter: invert(81%) sepia(21%) saturate(539%) hue-rotate(154deg) brightness(87%) contrast(95%);
 }
+
+main .steps li {
+    color: var(--lightest-blue);
+    background-color: var(--darker-blue);
+}
+
+main .steps li.pastStep {
+    color: var(--lighter-blue);
+    background-color: var(--dark-blue);
+}
+
+main .steps li[aria-current="step"] {
+    color: var(--darker-blue);
+    background-color: var(--lightest-blue);
+}
