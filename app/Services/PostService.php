@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Dtos\PostDto;
 use App\Models\Post;
 use App\Traits\LoggingTrait;
 
@@ -15,13 +16,19 @@ final class PostService
 
     public function __construct(PurifierService $purifierService) {}
 
-    public function store(array $data): Post
+    public function store(PostDto $dto): bool
     {
-        $body = $this->purifierService->clean($data['body']);
-        $moreInside = $this->purifierService->clean($data['more_inside']);
-        $title = $this->purifierService->clean($data['title']);
+        $post = new Post();
 
-        return Post::create($data);
+        $post->title = $this->purifierService->clean($dto->title);
+        $post->body = $this->purifierService->clean($dto->body);
+        $post->more_inside = $this->purifierService->clean($dto->more_inside);
+        $post->subsite_id = $dto->subsite_id;
+        $post->status = $dto->status;
+        $post->published_at = $dto->published_at;
+        $post->is_published = $dto->is_published;
+
+        return $post->save();
     }
 
     public function update(array $data): bool
