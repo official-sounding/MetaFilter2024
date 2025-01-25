@@ -1,4 +1,6 @@
-@php use LakM\Comments\Helpers; @endphp
+@php
+    use LakM\Comments\Helpers;
+@endphp
 
 <div
     x-ref="comment{{ $comment->getKey() }}"
@@ -118,7 +120,7 @@
                                 <x-comments::user-check height="14" width="14"/>
                             </div>
 
-                            <x-comments::spin wire:loading wire:target="delete({{$comment}})" class="!text-blue-500"/>
+                            <x-comments::spin wire:loading="" wire:target="delete({{$comment}})" class="!text-blue-500"/>
 
                             <div
                                 x-data="{ showEditMenu: false }"
