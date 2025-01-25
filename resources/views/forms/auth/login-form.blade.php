@@ -9,12 +9,14 @@
         <x-forms.input
             name="username"
             type="text"
-            autofocus="true"
+            :autofocus="true"
+            :required="true"
             label="{{ trans('Username') }}" />
 
         <x-forms.input
             name="password"
             type="password"
+            :required="true"
             label="{{ trans('Password') }}" />
 
         <x-forms.field>
