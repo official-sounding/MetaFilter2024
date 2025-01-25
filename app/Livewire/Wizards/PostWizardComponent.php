@@ -4,11 +4,20 @@ declare(strict_types=1);
 
 namespace App\Livewire\Wizards;
 
+use App\Dtos\PostDto;
+use App\Enums\StatusEnum;
+use App\Http\Requests\Post\StoreBodyRequest;
+use App\Http\Requests\Post\StoreMoreInsideRequest;
+use App\Http\Requests\Post\StoreTitleAndLinkRequest;
 use App\Models\Post;
+use App\Services\PostService;
+use App\Traits\SubsiteTrait;
 use Illuminate\Contracts\View\View;
 
 final class PostWizardComponent extends BaseWizardComponent
 {
+    use SubsiteTrait;
+
     public string $title = '';
     public string $link_url;
     public string $link_text;
@@ -17,14 +26,12 @@ final class PostWizardComponent extends BaseWizardComponent
     public Post $post;
     public int $subsiteId;
 
-    public function boot(): void
+    private PostService $postService;
+
+    public function boot(PostService $postService): void
     {
-        $this->post = Post::make();
-
-        $subsite = $this->getSubsiteFromUrl();
-
-        $this->post->subsite_id = $subsite->id;
-        $this->post->user_id = auth()->id();
+        $this->postService = $postService;
+        $this->subsiteId = $this->getSubsiteFromUrl()->id;
     }
 
     public function render(): View
@@ -35,31 +42,9 @@ final class PostWizardComponent extends BaseWizardComponent
     // Step 1
     public function submitTitleAndLink(): void
     {
-        // TODO: Match max lengths with database field lengths
+        $rules = (new StoreTitleAndLinkRequest())->rules();
 
-        $this->validate([
-            'title' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'link_text' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-            'link_url' => [
-                'required',
-                'string',
-                'max:255',
-                'url:https',
-                'active_url',
-            ],
-        ]);
-
-        $this->post->title = $this->title;
-        $this->post->link_text = $this->link_text ?? null;
-        $this->post->link_url = $this->link_url ?? null;
+        $this->validate($rules);
 
         $this->currentStep = 2;
     }
@@ -67,15 +52,9 @@ final class PostWizardComponent extends BaseWizardComponent
     // Step 2
     public function submitBody(): void
     {
-        $this->validate([
-            'body' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-        ]);
+        $rules = (new StoreBodyRequest())->rules();
 
-        $this->post->body = $this->body;
+        $this->validate($rules);
 
         $this->currentStep = 3;
     }
@@ -83,15 +62,11 @@ final class PostWizardComponent extends BaseWizardComponent
     // Step 3
     public function submitMoreInside(): void
     {
-        $this->validate([
-            'more_inside' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-        ]);
+        $rules = (new StoreMoreInsideRequest())->rules();
 
-        $this->post->more_inside = $this->more_inside;
+        $this->validate($rules);
+
+        $this->saveAsPending();
 
         $this->currentStep = 4;
     }
@@ -99,47 +74,36 @@ final class PostWizardComponent extends BaseWizardComponent
     // Step 4
     public function submitTags(): void
     {
-        $this->validate([
-            'name' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'homepage_url' => [
-                'nullable',
-                'string',
-                'max:255',
-                'url:https',
-                'active_url',
-            ],
-        ]);
-
         $this->currentStep = 5;
     }
 
-    public function saveAsDraft(): void {}
+    public function saveAsDraft(): void {
+        $this->storePost(StatusEnum::Draft->value);
+    }
+
+    public function saveAsPending(): void {
+        $this->storePost(StatusEnum::Pending->value);
+    }
 
     public function publish(): void
     {
-        $this->post->published_at = now();
-        $this->post->is_published = true;
+        $now = now()->format('Y-m-d H:i:s');
 
-        $this->store();
+        $this->storePost(StatusEnum::Published->value, $now, true);
     }
 
-    public function store(): void
+    public function storePost(string $status, ?string $publishedAt = null, bool $isPublished = false): bool
     {
-        $this->post->save();
-    }
+        $dto = new PostDto(
+            title: $this->title,
+            body: $this->body,
+            more_inside: $this->more_inside,
+            subsite_id: $this->subsiteId,
+            status: $status,
+            published_at: $publishedAt,
+            is_published: $isPublished,
+        );
 
-    public function resetForm(): void
-    {
-        $this->title = '';
-        $this->link_text = '';
-        $this->link_url = '';
-        $this->body = '';
-        $this->more_inside = '';
-
-        $this->post = Post::make();
+        return $this->postService->store($dto);
     }
 }

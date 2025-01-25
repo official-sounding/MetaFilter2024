@@ -4,21 +4,39 @@ declare(strict_types=1);
 
 namespace App\Livewire\Wizards;
 
+use App\Dtos\UserDto;
+use App\Enums\RouteNameEnum;
+use App\Http\Requests\Auth\StorePasswordRequest;
+use App\Http\Requests\Signup\StoreEmailAddressRequest;
+use App\Http\Requests\Signup\StoreOptionalInfoRequest;
+use App\Http\Requests\Signup\StoreUsernameRequest;
 use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Contracts\View\View;
 
 final class SignupWizardComponent extends BaseWizardComponent
 {
+    public string $username;
+    public string $password;
+    public string $password_confirmation;
     public string $email;
     public string $name;
     public string $homepage_url;
-    public string $password;
-    public string $username;
-    public User $user;
 
-    public function boot(): void
+    public array $steps = [
+        'Username',
+        'Password',
+        'Email Address',
+        'Optional Info',
+        'Payment',
+    ];
+
+    protected User $user;
+    protected UserService $userService;
+
+    public function boot(UserService $userService): void
     {
-        $this->user = User::make();
+        $this->userService = $userService;
     }
 
     public function render(): View
@@ -29,49 +47,29 @@ final class SignupWizardComponent extends BaseWizardComponent
     // Step 1
     public function submitUsername(): void
     {
-        // TODO: Match max lengths with database field lengths
+        $rules = (new StoreUsernameRequest())->rules();
 
-        $this->validate([
-            'username' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-        ]);
-
-        $this->user->username = $this->username;
+        $this->validate($rules);
 
         $this->currentStep = 2;
     }
 
     // Step 2
-    public function submitEmail(): void
+    public function submitPassword(): void
     {
-        $this->validate([
-            'email' => [
-                'required',
-                'string',
-                'max:255',
-                'email',
-            ],
-        ]);
+        $rules = (new StorePasswordRequest())->rules();
 
-        $this->user->email = $this->email;
+        $this->validate($rules);
 
         $this->currentStep = 3;
     }
 
     // Step 3
-    public function submitPassword(): void
+    public function submitEmailAddress(): void
     {
-        $this->validate([
-            'password' => [
-                'required',
-                'confirmed',
-            ],
-        ]);
+        $rules = (new StoreEmailAddressRequest())->rules();
 
-        $this->user->password = bcrypt($this->password);
+        $this->validate($rules);
 
         $this->currentStep = 4;
     }
@@ -79,62 +77,33 @@ final class SignupWizardComponent extends BaseWizardComponent
     // Step 4
     public function submitOptionalInfo(): void
     {
-        $this->validate([
-            'name' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'homepage_url' => [
-                'nullable',
-                'string',
-                'max:255',
-                'url:https',
-                'active_url',
-            ],
-        ]);
+        $rules = (new StoreOptionalInfoRequest())->rules();
 
-        $this->user->name = $this->name ?? null;
-        $this->user->homepage_url = $this->homepage_url ?? null;
+        $this->validate($rules);
+
+        $this->user = $this->storeUser();
 
         $this->currentStep = 5;
     }
 
     // Step 5
-    public function submitPayment(): void
+    public function submitPayment(string $method): void
     {
-        $this->currentStep = 6;
+        // TODO: Send validation email
+
+        $this->redirectRoute(RouteNameEnum::SignupThanks);
     }
 
-    public function store(): void
+    public function storeUser(): User
     {
-        $stored = $this->user->save();
+        $dto = new UserDto(
+            username: $this->username,
+            password: $this->password,
+            email: $this->password_confirmation,
+            name: $this->name ?? null,
+            homepage_url: $this->homepage_url ?? null
+        );
 
-        if ($stored) {
-            // TODO: Move to messages enum and translate
-
-            $this->logInfo('User created');
-
-            session()->flash('message', 'User created');
-        } else {
-            $this->logError('User creation failed');
-
-            session()->flash('error', 'User creation failed');
-        }
-
-        $this->resetForm();
-
-        // TODO: Redirect to thanks page
-    }
-
-    public function resetForm(): void
-    {
-        $this->email = '';
-        $this->homepage_url = '';
-        $this->name = '';
-        $this->password = '';
-        $this->username = '';
-
-        $this->user = User::make();
+        return $this->userService->store($dto);
     }
 }
