@@ -30,6 +30,7 @@ use Spatie\Tags\HasTags;
  * @property int $user_id
  * @property string $published_at
  * @property bool $is_published
+ * @property string $status
  */
 final class Post extends BaseModel
 {
@@ -54,6 +55,7 @@ final class Post extends BaseModel
         'user_id',
         'published_at',
         'is_published',
+        'status'
     ];
 
     protected array $searchable = [

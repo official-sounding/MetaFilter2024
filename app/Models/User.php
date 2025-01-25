@@ -28,6 +28,8 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $email
  * @property string $password
  * @property bool $is_admin
+ * @property string $status
+ * 
  * @mixin Builder
  */
 final class User extends Authenticatable implements BannableInterface, FilamentUser
@@ -53,6 +55,7 @@ final class User extends Authenticatable implements BannableInterface, FilamentU
         'email',
         'password',
         'is_admin',
+        'status',
     ];
 
     protected $hidden = [
@@ -68,7 +71,6 @@ final class User extends Authenticatable implements BannableInterface, FilamentU
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
             'state' => UserState::class,
         ];
     }
