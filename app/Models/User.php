@@ -29,7 +29,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $password
  * @property bool $is_admin
  * @property string $status
- * 
+ *
  * @mixin Builder
  */
 final class User extends Authenticatable implements BannableInterface, FilamentUser
