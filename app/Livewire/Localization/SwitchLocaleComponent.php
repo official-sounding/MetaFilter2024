@@ -18,7 +18,8 @@ final class SwitchLocaleComponent extends Component
     public function mount(): void
     {
         $this->availableLocales = config('app.available_locales');
-        $this->currentLocale = app()->getLocale();
+
+        $this->getCurrentLocale();
     }
 
     public function render(): View
@@ -35,5 +36,10 @@ final class SwitchLocaleComponent extends Component
         } else {
             $this->logError('Invalid locale selected: ' . $locale);
         }
+    }
+
+    private function getCurrentLocale(): void
+    {
+        $this->currentLocale = app()->getLocale();
     }
 }
