@@ -11,6 +11,7 @@ enum StatusEnum: string
     case AddingPostFailed = 'Adding post failed';
     case Banned = 'Banned';
     case CommentAdded = 'Comment added';
+    case Deleted = 'deleted';
     case Draft = 'draft';
     case Failure = 'failure';
     case PasswordUpdated = 'password-updated';
