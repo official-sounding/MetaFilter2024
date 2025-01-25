@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Http\Requests\Auth;
 
 use App\Http\Requests\BaseFormRequest;
+use App\Models\User;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
 final class StorePasswordRequest extends BaseFormRequest
@@ -17,12 +19,10 @@ final class StorePasswordRequest extends BaseFormRequest
     public function rules(): array
     {
         return [
-            [
-                'password' => [
-                    'required',
-                    'confirmed',
-                    Password::defaults(),
-                ],
+            'password' => [
+                'required',
+                'confirmed',
+                Password::defaults(),
             ],
         ];
     }
