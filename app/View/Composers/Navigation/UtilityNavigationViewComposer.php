@@ -8,7 +8,6 @@ use App\Traits\LoggingTrait;
 use App\Traits\NavigationTrait;
 use App\View\Composers\ViewComposerInterface;
 use Illuminate\Contracts\View\View;
-use Throwable;
 
 final class UtilityNavigationViewComposer implements ViewComposerInterface
 {
@@ -31,14 +30,6 @@ final class UtilityNavigationViewComposer implements ViewComposerInterface
             $navigation .= $this->getNewPostButton();
             $navigation .= $this->getLogoutButton();
         }
-
-        /*
-                try {
-                    $navigation .= view('livewire.localization.switch-locale-component')->render();
-                } catch (Throwable $exception) {
-                    $this->logError('Failed to render switch locale component: ' . $exception->getMessage());
-                }
-        */
 
         $navigation .= '</ul>';
 
