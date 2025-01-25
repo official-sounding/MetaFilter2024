@@ -4,7 +4,7 @@
         'post' => $post,
         'slug' => $post->slug
    ]) }}">
-    {{ trans('$direction') }}
+    {{ trans($direction) }}
     <span class="title">
         {{ $post->title }}
     </span>
