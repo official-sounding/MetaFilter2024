@@ -16,14 +16,14 @@
 --}}
 
         <div class="level">
-            <button class="button primary-button" wire:click="payWithPayPal">
+            <button class="button primary-button" wire:click="submitPayment('paypal')">
                 <span class="icon">
                     <img src="{{ asset('images/icons/paypal.svg') }}" alt="">
                 </span>
                 Pay $5 via PayPal
             </button>
 
-            <button class="button primary-button" wire:click="payWithStripe">
+            <button class="button primary-button" wire:click="submitPayment('stripe')">
                 <span class="icon">
                     <img src="{{ asset('images/icons/stripe.svg') }}" alt="">
                 </span>

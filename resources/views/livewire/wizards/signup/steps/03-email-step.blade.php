@@ -1,4 +1,4 @@
-<form wire:submit.prevent="submit">
+<form wire:submit.prevent="submitEmailAddress()">
     @include('forms.partials.validation-summary')
     @include('forms.partials.csrf-token')
 
