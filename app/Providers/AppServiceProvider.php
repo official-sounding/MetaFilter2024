@@ -5,13 +5,17 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Enums\RouteNameEnum;
+use App\Traits\LoggingTrait;
 use App\Traits\SubsiteTrait;
 use App\Traits\UrlTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 final class AppServiceProvider extends ServiceProvider
 {
+    use LoggingTrait;
     use SubsiteTrait;
     use UrlTrait;
 
@@ -19,6 +23,16 @@ final class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        try {
+            $sessionLocale = session()->get('locale') ?? null;
+
+            if (!is_null($sessionLocale)) {
+                app()->setLocale($sessionLocale);
+            }
+        } catch (NotFoundExceptionInterface|ContainerExceptionInterface $exception) {
+            $this->logError($exception);
+        }
+
         Model::shouldBeStrict();
 
         $subdomain = $this->getSubdomainFromUrl();
