@@ -34,7 +34,10 @@
     </article>
 
     <section class="comments" id="comments">
+        <x-comments::index :model="$post" />
+        {{--
         <livewire:comments.comment-index-component :post="$post" />
+        --}}
     </section>
 
     @include('posts.partials.related-posts')

@@ -1,4 +1,8 @@
 @if (isset($useLivewire) && $useLivewire === true)
+    @if (isset($useComments) && $useComments === true)
+        @commentsScripts
+    @endif
+
     @livewireScripts
 @endif
 

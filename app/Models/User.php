@@ -12,9 +12,12 @@ use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use LakM\Comments\Contracts\CommenterContract;
 use Laravel\Passport\HasApiTokens;
 use Spatie\ModelStates\HasStates;
 use Spatie\Permission\Traits\HasRoles;
@@ -32,7 +35,7 @@ use Spatie\Permission\Traits\HasRoles;
  *
  * @mixin Builder
  */
-final class User extends Authenticatable implements BannableInterface, FilamentUser
+final class User extends Authenticatable implements BannableInterface, CommenterContract, FilamentUser
 {
     use Bannable;
     use HasApiTokens;
@@ -78,5 +81,35 @@ final class User extends Authenticatable implements BannableInterface, FilamentU
     public function canAccessPanel(Panel $panel): bool
     {
         return str_ends_with($this->email, self::DOMAIN);
+    }
+
+    public function comments(): MorphMany
+    {
+        // TODO: Implement comments() method.
+    }
+
+    public function replies(): HasMany
+    {
+        // TODO: Implement replies() method.
+    }
+
+    public function profileUrl(): false|string
+    {
+        // TODO: Implement profileUrl() method.
+    }
+
+    public function photoUrl(): string
+    {
+        // TODO: Implement photoUrl() method.
+    }
+
+    public function name(): string
+    {
+        // TODO: Implement name() method.
+    }
+
+    public function email(): string
+    {
+        // TODO: Implement email() method.
     }
 }
