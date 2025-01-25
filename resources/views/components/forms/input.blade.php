@@ -6,7 +6,7 @@
         :required="$required"
     />
 
-    @if ($note)
+    @if (isset($note) && $note)
         <small class="form-note">
             {!! $note !!}
         </small>
@@ -18,7 +18,7 @@
         id="{{ $name }}"
         value="{{ old($name) }}"
         wire:model.live="{{ $name }}"
-        @if ($autofocus)
+        @if (isset($autofocus) && $autofocus)
             autofocus
         @endif
     />
