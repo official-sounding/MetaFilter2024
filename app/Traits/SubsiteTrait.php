@@ -28,7 +28,7 @@ trait SubsiteTrait
         return $this->getSubsiteBySubdomain($subdomain);
     }
 
-    public function getSubsiteBySubdomain(string $subdomain): Subsite
+    public function getSubsiteBySubdomain(string $subdomain): ?Subsite
     {
         if (
             $subdomain === 'localhost' ||
