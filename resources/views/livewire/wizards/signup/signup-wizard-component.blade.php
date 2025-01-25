@@ -18,17 +18,4 @@
             LOADING
         </div>
     </div>
-
-    <div>
-        <button class="p-2 rounded {{ $currentStep === 1 ? 'bg-gray-200' : 'bg-purple-300' }}"
-                wire:click="previous">Previous</button>
-        @if ($currentStep < $totalSteps)
-            <button
-                class="p-2 rounded {{ $currentStep === $totalSteps ? 'bg-gray-200' : 'bg-purple-300' }}"
-                wire:click="next">Next</button>
-        @endif
-        @if ($currentStep == $totalSteps)
-            <button class="p-2 rounded bg-purple-400" wire:click="submit">Submit</button>
-        @endif
-    </div>
 </section>
