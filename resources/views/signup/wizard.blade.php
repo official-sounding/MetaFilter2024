@@ -3,5 +3,5 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    <livewire:wizards.signup.signup-wizard-component />
+    <livewire:wizards.signup-wizard-component />
 @endsection
