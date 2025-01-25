@@ -41,8 +41,8 @@ final class AppServiceProvider extends ServiceProvider
         session([
             'subdomain' => $subdomain,
             'subsite' => $subsite,
-            'subsiteHasTheme' => $subsite->has_theme,
-            'subsiteName' => $subsite->name,
+            'subsiteHasTheme' => $subsite->has_theme ?? null,
+            'subsiteName' => $subsite->name ?? null,
         ]);
 
         view()->share([
@@ -63,10 +63,10 @@ final class AppServiceProvider extends ServiceProvider
         view()->share('defaultColorScheme', self::DEFAULT_COLOR_SCHEME);
         view()->share('subdomain', $subdomain === 'www' ? 'metafilter' : $subdomain);
         view()->share('subsite', $subsite);
-        view()->share('subsiteHasTheme', $subsite->has_theme);
-        view()->share('subsiteName', $subsite->name);
-        view()->share('whiteText', $subsite->white_text);
-        view()->share('greenText', $subsite->green_text);
-        view()->share('tagline', $subsite->tagline);
+        view()->share('subsiteHasTheme', $subsite->has_theme ?? null);
+        view()->share('subsiteName', $subsite->name ?? null);
+        view()->share('whiteText', $subsite->white_text ?? null);
+        view()->share('greenText', $subsite->green_text ?? null);
+        view()->share('tagline', $subsite->tagline ?? null);
     }
 }
