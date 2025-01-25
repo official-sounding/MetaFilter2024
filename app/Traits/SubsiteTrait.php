@@ -21,14 +21,14 @@ trait SubsiteTrait
         return str_replace(search: $baseDomain, replace: '', subject: $urlParts['host']);
     }
 
-    public function getSubsiteFromUrl(): Subsite
+    public function getSubsiteFromUrl(): ?Subsite
     {
         $subdomain = $this->getSubdomainFromUrl();
 
         return $this->getSubsiteBySubdomain($subdomain);
     }
 
-    public function getSubsiteBySubdomain(string $subdomain): Subsite
+    public function getSubsiteBySubdomain(string $subdomain): ?Subsite
     {
         if (
             $subdomain === 'localhost' ||
@@ -39,7 +39,7 @@ trait SubsiteTrait
             $subdomain = 'www';
         }
 
-        return Subsite::where('subdomain', '=', $subdomain)->first();
+        return (new Subsite)->where('subdomain', '=', $subdomain)->first();
     }
 
     public function getStylesheetName(array $subsite): string
