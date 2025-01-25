@@ -24,6 +24,7 @@ return [
         [
             'name' => 'Favorites',
             'route' => RouteNameEnum::FavoritesIndex,
+            'icon' => '',
         ],
         [
             'name' => 'Recent Activity',
