@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Requests\Auth;
 
 use App\Http\Requests\BaseFormRequest;
-use App\Models\User;
-use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
 final class StorePasswordRequest extends BaseFormRequest

@@ -6,7 +6,6 @@ namespace App\Http\Requests\Signup;
 
 use App\Http\Requests\BaseFormRequest;
 use App\Traits\FormRequestTrait;
-use Illuminate\Validation\Rules\Password;
 
 final class StoreOptionalInfoRequest extends BaseFormRequest
 {

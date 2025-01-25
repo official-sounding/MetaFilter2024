@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Enums\RouteNameEnum;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;

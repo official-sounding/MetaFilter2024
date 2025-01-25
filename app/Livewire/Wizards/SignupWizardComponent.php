@@ -101,7 +101,7 @@ final class SignupWizardComponent extends BaseWizardComponent
             password: $this->password,
             email: $this->password_confirmation,
             name: $this->name ?? null,
-            homepage_url: $this->homepage_url ?? null
+            homepage_url: $this->homepage_url ?? null,
         );
 
         return $this->userService->store($dto);

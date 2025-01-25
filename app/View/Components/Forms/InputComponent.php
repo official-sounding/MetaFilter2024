@@ -24,7 +24,7 @@ final class InputComponent extends Component
         string $note = '',
         string $icon = '',
         bool $required = false,
-        bool $autofocus = false
+        bool $autofocus = false,
     ) {
         $this->label = $label;
         $this->name = $name;

@@ -77,11 +77,13 @@ final class PostWizardComponent extends BaseWizardComponent
         $this->currentStep = 5;
     }
 
-    public function saveAsDraft(): void {
+    public function saveAsDraft(): void
+    {
         $this->storePost(StatusEnum::Draft->value);
     }
 
-    public function saveAsPending(): void {
+    public function saveAsPending(): void
+    {
         $this->storePost(StatusEnum::Pending->value);
     }
 

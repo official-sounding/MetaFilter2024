@@ -55,7 +55,7 @@ final class Post extends BaseModel
         'user_id',
         'published_at',
         'is_published',
-        'status'
+        'status',
     ];
 
     protected array $searchable = [

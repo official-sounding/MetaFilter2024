@@ -20,7 +20,7 @@ final class FormComponent extends Component
         string $method = 'POST',
         string $class = '',
         bool $showRequiredFieldsNote = false,
-        bool $upload = false
+        bool $upload = false,
     ) {
         $this->action = $action;
         $this->method = $method;

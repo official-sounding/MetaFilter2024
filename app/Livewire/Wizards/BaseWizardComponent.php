@@ -14,7 +14,7 @@ abstract class BaseWizardComponent extends Component
     public array $steps = [
         'Step One',
         'Step Two',
-        'Step Three'
+        'Step Three',
     ];
 
     public int $currentStep = 1;
@@ -35,4 +35,3 @@ abstract class BaseWizardComponent extends Component
         $this->pushToSession($sessionKey, $value);
     }
 }
-

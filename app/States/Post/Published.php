@@ -6,6 +6,7 @@ namespace App\States\Post;
 
 use App\Enums\StatusEnum;
 
-final class Published extends PostState {
+final class Published extends PostState
+{
     protected static string|StatusEnum $name = StatusEnum::Published->value;
 }

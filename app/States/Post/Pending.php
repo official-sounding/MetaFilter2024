@@ -6,6 +6,7 @@ namespace App\States\Post;
 
 use App\Enums\StatusEnum;
 
-final class Pending extends PostState {
+final class Pending extends PostState
+{
     protected static string|StatusEnum $name = StatusEnum::Pending->value;
 }
