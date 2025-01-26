@@ -32,7 +32,7 @@ use Spatie\Tags\HasTags;
  * @property int $user_id
  * @property string $published_at
  * @property bool $is_published
- * @property string $status
+ * @property string $state
  */
 final class Post extends BaseModel implements CommentableContract
 {
@@ -58,7 +58,7 @@ final class Post extends BaseModel implements CommentableContract
         'user_id',
         'published_at',
         'is_published',
-        'status',
+        'state',
     ];
 
     protected array $searchable = [

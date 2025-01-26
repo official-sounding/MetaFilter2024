@@ -31,7 +31,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $email
  * @property string $password
  * @property bool $is_admin
- * @property string $status
+ * @property string $state
  *
  * @mixin Builder
  */
