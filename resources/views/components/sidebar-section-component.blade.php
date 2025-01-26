@@ -1,4 +1,4 @@
-<section @if (!empty($class)) class="{{ $class }} @endif">
+<section @if (!empty($class)) class="{{ $class }}" @endif>
     @if ($open === true)
         <details open>
     @else
