@@ -37,7 +37,7 @@ trait NavigationTrait
                 $item .= '<a href="' . route($itemData['route']) . '"';
             }
 
-            if (request()->route()->getName() === $itemData['route']) {
+            if (request()->route()->getName() === $itemData['route']->value) {
                 $item .= ' aria-current="page"';
             }
 
