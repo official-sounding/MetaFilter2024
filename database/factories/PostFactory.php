@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Enums\PostStateEnum;
 use App\Models\Post;
 use App\Models\Subsite;
 use App\Models\User;
@@ -27,13 +28,14 @@ final class PostFactory extends Factory
             'title' => $this->faker->sentence(),
             'body' => $this->faker->paragraph(),
             'url' => $this->useSecureProtocol($url),
-            'subsite_id' => Subsite::inRandomOrder()->first(),
-            'user_id' => User::inRandomOrder()->first(),
+            'subsite_id' => (new Subsite)->inRandomOrder()->first(),
+            'user_id' => (new User)->inRandomOrder()->first(),
             'created_at' => $timestamp,
             'published_at' => $timestamp,
             'updated_at' => null,
             'deleted_at' => null,
             'is_published' => true,
+            'state' => PostStateEnum::Published->value,
         ];
     }
 

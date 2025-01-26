@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Enums\UserStateEnum;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -24,6 +25,7 @@ final class UserFactory extends Factory
             'legacy_id' => fake()->unique()->randomNumber(9, true),
             'password' => self::$password ??= Hash::make('password'),
             'remember_token' => null,
+            'state' => UserStateEnum::Active->value,
         ];
     }
 
