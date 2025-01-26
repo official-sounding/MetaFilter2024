@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\States\Post;
 
-use App\Enums\StatusEnum;
+use App\Enums\PostStatusEnum;
 
 final class Draft extends PostState
 {
-    protected static string|StatusEnum $name = StatusEnum::Draft->value;
+    protected static string|PostStatusEnum $name = PostStatusEnum::Draft->value;
 }

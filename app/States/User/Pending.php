@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\States\User;
 
-use App\Enums\StatusEnum;
+use App\Enums\UserStatusEnum;
 
 final class Pending extends UserState
 {
-    public static string|StatusEnum $name = StatusEnum::Pending->value;
+    public static string|UserStatusEnum $name = UserStatusEnum::Pending->value;
 }
