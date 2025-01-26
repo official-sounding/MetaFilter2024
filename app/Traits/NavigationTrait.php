@@ -25,10 +25,10 @@ trait NavigationTrait
             }
 
             if (
-                $itemData['route'] === RouteNameEnum::PreferencesEdit ||
-                $itemData['route'] === RouteNameEnum::ProfileShow
+                $itemData['route']->value === 'preferences.edit' ||
+                $itemData['route']->value === 'members.show'
             ) {
-                if (auth()->user()) {
+                if (auth()->check()) {
                     $item .= '<a href="' . route($itemData['route'], [
                         'user' => auth()->user(),
                     ]) . '"';
@@ -37,21 +37,20 @@ trait NavigationTrait
                 $item .= '<a href="' . route($itemData['route']) . '"';
             }
 
-            if (request()->route()->getName() === route($itemData['route'])) {
+            if (request()->route()->getName() === $itemData['route']) {
                 $item .= ' aria-current="page"';
             }
 
             $item .= '>';
 
             if (isset($itemData['icon'])) {
-                $source = '/images/icons/' . $itemData['icon'] . '.svg';
-
-                $item .= '<span class="icon"><img src="' . $source . '" alt=""></span>';
+                $item .= $this->getIcon($itemData['icon']);
             }
 
             $text = $itemData['name'] ?? $itemData['nickname'] ?? $itemData['text'];
 
             $item .= trans($text);
+
             $item .= '</a>';
             $item .= '</li>';
         }
@@ -97,5 +96,13 @@ trait NavigationTrait
         $rssLink .= '</a>';
 
         return $rssLink;
+    }
+
+
+    private function getIcon(string $iconFilename): string
+    {
+        $source = '/images/icons/' . $iconFilename . '.svg';
+
+        return '<span class="icon"><img src="' . $source . '" alt=""></span>';
     }
 }
