@@ -6,9 +6,9 @@ namespace App\Models;
 
 use App\Traits\SearchTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\LogOptions;
@@ -51,7 +51,7 @@ final class Comment extends BaseModel
     ];
 
     protected $with = [
-        'user',
+        'commenter',
     ];
 
     public function getActivitylogOptions(): LogOptions
@@ -86,8 +86,8 @@ final class Comment extends BaseModel
         return $this->hasMany(Comment::class, 'parent_id');
     }
 
-    public function user(): BelongsTo
+    public function commenter(): MorphTo
     {
-        return $this->belongsTo(User::class);
+        return $this->morphTo();
     }
 }

@@ -24,11 +24,11 @@ final class CommentRepository extends BaseRepository implements CommentRepositor
     public function getCommentsByPostId(int $postId): Collection
     {
         return $this->model->newQuery()
-            ->join('users', 'comments.user_id', '=', 'users.id')
+            ->join('users', 'comments.commenter_id', '=', 'users.id')
             ->select([
                 'comments.id',
-                'comments.user_id',
-                'comments.body',
+                'comments.commenter_id',
+                'comments.text',
                 'comments.created_at',
                 'users.username',
             ])
