@@ -34,7 +34,7 @@ final class AdminSeeder extends Seeder
                     'is_admin' => $admin['is_admin'],
                     'legacy_id' => $admin['legacy_id'],
                     'password' => Hash::make('password'),
-                    'state' => UserStateEnum::Active,
+                    'state' => UserStateEnum::Active->value,
                 ]);
             });
         } else {
