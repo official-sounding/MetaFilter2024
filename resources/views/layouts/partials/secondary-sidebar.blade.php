@@ -9,13 +9,6 @@
 @include('layouts.partials.help-fund-mefi')
 
 <section>
-    <details>
-        <summary>
-            <h3>{{  trans('Appearance') }}</h3>
-        </summary>
-
-        @include('layouts.partials.toggle-dark-mode')
-    </details>
 </section>
 
 @switch($subdomain)
