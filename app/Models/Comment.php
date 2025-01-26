@@ -18,8 +18,12 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property int $id
  * @property string $body
  * @property int $parent_id
- * @property int $post_id
- * @property int $user_id
+ * @property int $reply_id
+ * @property string $commentable_type
+ * @property int $commentable_id
+ * @property string $commenter_type
+ * @property int $commenter_id
+ * @property bool $approved
  */
 final class Comment extends BaseModel
 {
@@ -32,14 +36,18 @@ final class Comment extends BaseModel
     // Properties
 
     protected $fillable = [
-        'body',
+        'text',
         'parent_id',
-        'post_id',
-        'user_id',
+        'reply_id',
+        'commentable_type',
+        'commentable_id',
+        'commenter_type',
+        'commenter_id',
+        'approved',
     ];
 
     protected array $searchable = [
-        'body',
+        'text',
     ];
 
     protected $with = [

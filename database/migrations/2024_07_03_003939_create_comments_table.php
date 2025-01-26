@@ -12,19 +12,21 @@ return new class extends Migration {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
 
-            $table->text('body');
-
-            $table->foreignId('post_id')
-                ->constrained('posts');
-
-            $table->foreignId('user_id')
-                ->nullable()
-                ->constrained('users')
-                ->nullOnDelete();
+            $table->text('text');
 
             $table->foreignId('parent_id')
                 ->nullable()
                 ->constrained('comments');
+
+            $table->foreignId('reply_id')
+                ->nullable()
+                ->constrained('comments')
+                ->cascadeOnDelete();
+
+            $table->nullableMorphs('commentable');
+            $table->nullableMorphs('commenter');
+
+            $table->boolean('approved')->default(true)->index();
 
             $table->nullableTimestamps();
             $table->softDeletes();

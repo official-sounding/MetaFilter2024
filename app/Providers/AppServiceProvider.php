@@ -9,6 +9,7 @@ use App\Traits\LoggingTrait;
 use App\Traits\SubsiteTrait;
 use App\Traits\UrlTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -34,6 +35,11 @@ final class AppServiceProvider extends ServiceProvider
         }
 
         Model::shouldBeStrict();
+
+        Relation::morphMap([
+            'posts' => 'App\Models\Post',
+            'users' => 'App\Models\User',
+        ]);
 
         $subdomain = $this->getSubdomainFromUrl();
         $subsite = $this->getSubsiteBySubdomain($subdomain);
