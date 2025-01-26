@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\States\User;
 
-use App\Enums\UserStatusEnum;
+use App\Enums\UserStateEnum;
 
 final class Active extends UserState
 {
-    protected static string|UserStatusEnum $name = UserStatusEnum::Active->value;
+    protected static string|UserStateEnum $name = UserStateEnum::Active->value;
 }

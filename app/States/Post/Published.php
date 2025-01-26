@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\States\Post;
 
-use App\Enums\PostStatusEnum;
+use App\Enums\PostStateEnum;
 
 final class Published extends PostState
 {
-    protected static string|PostStatusEnum $name = PostStatusEnum::Published->value;
+    protected static string|PostStateEnum $name = PostStateEnum::Published->value;
 }
