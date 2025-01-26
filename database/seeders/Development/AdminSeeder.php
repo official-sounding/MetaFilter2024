@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders\Development;
 
+use App\Enums\UserStateEnum;
 use App\Models\User;
 use App\Traits\LoggingTrait;
 use Illuminate\Database\Seeder;
@@ -33,6 +34,7 @@ final class AdminSeeder extends Seeder
                     'is_admin' => $admin['is_admin'],
                     'legacy_id' => $admin['legacy_id'],
                     'password' => Hash::make('password'),
+                    'state' => UserStateEnum::Active,
                 ]);
             });
         } else {

@@ -58,7 +58,7 @@ final class User extends Authenticatable implements BannableInterface, Commenter
         'email',
         'password',
         'is_admin',
-        'status',
+        'state',
     ];
 
     protected $hidden = [

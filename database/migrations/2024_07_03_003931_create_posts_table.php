@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->text('link_text')->nullable();
             $table->text('body');
             $table->text('more_inside')->nullable();
-            $table->string('status');
+            $table->string('state');
 
             $table->foreignId('subsite_id')
                 ->constrained('subsites')

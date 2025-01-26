@@ -3,10 +3,9 @@
 declare(strict_types=1);
 
 namespace App\Enums;
-
-enum UserStatusEnum: string
+enum PostStateEnum: string
 {
-    case Active = 'active';
-    case Banned = 'banned';
+    case Draft = 'draft';
     case Pending = 'pending';
+    case Published = 'published';
 }
