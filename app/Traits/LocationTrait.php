@@ -3,9 +3,11 @@
 declare(strict_types=1);
 
 namespace App\Traits;
+
 use App\Dtos\LocationDto;
 
-trait LocationTrait {
+trait LocationTrait
+{
     public function getRandomizedLocation(string $latitude, string $longitude): LocationDto
     {
         $angle = rand() * 2 * pi();
@@ -16,7 +18,7 @@ trait LocationTrait {
 
         return new LocationDto(
             latitude: $newLatitude,
-            longitude: $newLongitude
+            longitude: $newLongitude,
         );
     }
 }

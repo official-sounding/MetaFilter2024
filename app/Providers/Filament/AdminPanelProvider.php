@@ -50,17 +50,18 @@ final class AdminPanelProvider extends PanelProvider
                 ->plugins([
                     DebuggerPlugin::make(),
                     FilamentCheckSslWidgetPlugin::make()
-                        ->domains([
-                            'ask.metafilter.com',
-                            'bestof.metafilter.com',
-                            'fanfare.metafilter.com',
-                            'irl.metafilter.com',
-                            'jobs.metafilter.com',
-                            'music.metafilter.com',
-                            'projects.metafilter.com',
-                            'www.metafilter.com',
-                        ]
-                    ),
+                        ->domains(
+                            [
+                                'ask.metafilter.com',
+                                'bestof.metafilter.com',
+                                'fanfare.metafilter.com',
+                                'irl.metafilter.com',
+                                'jobs.metafilter.com',
+                                'music.metafilter.com',
+                                'projects.metafilter.com',
+                                'www.metafilter.com',
+                            ],
+                        ),
                     FilamentSimplePagesPlugin::make()
                         ->prefixSlug('page'),
                 ])

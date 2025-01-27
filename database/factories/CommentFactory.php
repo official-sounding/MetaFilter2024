@@ -9,7 +9,8 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-final class CommentFactory extends Factory {
+final class CommentFactory extends Factory
+{
     protected $model = Comment::class;
 
     public function definition(): array
@@ -21,11 +22,11 @@ final class CommentFactory extends Factory {
             'text' => $this->faker->paragraph(),
             'parent_id' => null,
             'reply_id' => null,
-            'post_id' => (new Post)->inRandomOrder()->first(),
-            'user_id' => (new User)->inRandomOrder()->first(),
+            'post_id' => (new Post())->inRandomOrder()->first(),
+            'user_id' => (new User())->inRandomOrder()->first(),
             'created_at' => $timestamp,
             'updated_at' => null,
-            'deleted_at' => null
+            'deleted_at' => null,
         ];
     }
 
@@ -33,7 +34,7 @@ final class CommentFactory extends Factory {
     {
         return $this->state(function () {
             return [
-                'reply_id' => (new Comment)->inRandomOrder()->first(),
+                'reply_id' => (new Comment())->inRandomOrder()->first(),
             ];
         });
     }

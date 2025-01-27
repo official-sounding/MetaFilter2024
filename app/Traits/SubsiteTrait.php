@@ -39,7 +39,7 @@ trait SubsiteTrait
             $subdomain = 'www';
         }
 
-        return (new Subsite)->where('subdomain', '=', $subdomain)->first();
+        return (new Subsite())->where('subdomain', '=', $subdomain)->first();
     }
 
     public function getStylesheetName(array $subsite): string
