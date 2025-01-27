@@ -14,6 +14,7 @@ final class CommentFormComponent extends Component
 {
     public Authenticatable $user;
     public ?Comment $storedComment = null;
+    public string $buttonText;
     public string $text = '';
     public int $postId;
     public ?int $parentId = null;
