@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use LakM\Comments\Contracts\CommenterContract;
 use Laravel\Passport\HasApiTokens;
 use Spatie\ModelStates\HasStates;
 use Spatie\Permission\Traits\HasRoles;
@@ -35,7 +34,7 @@ use Spatie\Permission\Traits\HasRoles;
  *
  * @mixin Builder
  */
-final class User extends Authenticatable implements BannableInterface, CommenterContract, FilamentUser
+final class User extends Authenticatable implements BannableInterface, FilamentUser
 {
     use Bannable;
     use HasApiTokens;
@@ -83,33 +82,11 @@ final class User extends Authenticatable implements BannableInterface, Commenter
         return str_ends_with($this->email, self::DOMAIN);
     }
 
-    public function comments(): MorphMany
+    // Relationships
+
+    public function comments(): HasMany
     {
-        // TODO: Implement comments() method.
+        return $this->hasMany(Comment::class);
     }
 
-    public function replies(): HasMany
-    {
-        // TODO: Implement replies() method.
-    }
-
-    public function profileUrl(): false|string
-    {
-        // TODO: Implement profileUrl() method.
-    }
-
-    public function photoUrl(): string
-    {
-        // TODO: Implement photoUrl() method.
-    }
-
-    public function name(): string
-    {
-        // TODO: Implement name() method.
-    }
-
-    public function email(): string
-    {
-        // TODO: Implement email() method.
-    }
 }

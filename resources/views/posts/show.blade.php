@@ -25,19 +25,12 @@
         @include('posts.partials.post-show-footer', [
             'post' => $post,
             'commentsCount' => $post->comments()->count(),
-            'favoritesCount' => $post->favorites()->count(),
+//            'favoritesCount' => $post->favorites()->count(),
         ])
-
-        <button>
-            {{ trans('Edit post') }}
-        </button>
     </article>
 
     <section class="comments" id="comments">
-        <x-comments::index :model="$post" />
-        {{--
         <livewire:comments.comment-index-component :post="$post" />
-        --}}
     </section>
 
     @include('posts.partials.related-posts')

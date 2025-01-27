@@ -6,9 +6,9 @@ namespace App\Models;
 
 use App\Traits\SearchTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\LogOptions;
@@ -16,14 +16,11 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @property int $id
- * @property string $body
+ * @property string $text
  * @property int $parent_id
+ * @property int $post_id
  * @property int $reply_id
- * @property string $commentable_type
- * @property int $commentable_id
- * @property string $commenter_type
- * @property int $commenter_id
- * @property bool $approved
+ * @property int $user_id
  */
 final class Comment extends BaseModel
 {
@@ -39,19 +36,11 @@ final class Comment extends BaseModel
         'text',
         'parent_id',
         'reply_id',
-        'commentable_type',
-        'commentable_id',
-        'commenter_type',
-        'commenter_id',
-        'approved',
+        'user_id',
     ];
 
     protected array $searchable = [
         'text',
-    ];
-
-    protected $with = [
-        'commenter',
     ];
 
     public function getActivitylogOptions(): LogOptions
@@ -73,7 +62,7 @@ final class Comment extends BaseModel
 
     public function parent(): BelongsTo
     {
-        return $this->belongsTo(Comment::class);
+        return $this->belongsTo(Comment::class, 'parent_id');
     }
 
     public function post(): BelongsTo
@@ -86,8 +75,8 @@ final class Comment extends BaseModel
         return $this->hasMany(Comment::class, 'parent_id');
     }
 
-    public function commenter(): MorphTo
+    public function user(): BelongsTo
     {
-        return $this->morphTo();
+        return $this->belongsTo(User::class);
     }
 }

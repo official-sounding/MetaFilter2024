@@ -18,15 +18,19 @@ return new class extends Migration {
                 ->nullable()
                 ->constrained('comments');
 
+            $table->foreignId('post_id')
+                ->nullable()
+                ->constrained('posts');
+
             $table->foreignId('reply_id')
                 ->nullable()
                 ->constrained('comments')
                 ->cascadeOnDelete();
 
-            $table->nullableMorphs('commentable');
-            $table->nullableMorphs('commenter');
-
-            $table->boolean('approved')->default(true)->index();
+            $table->foreignId('user_id')
+                ->nullable()
+                ->constrained('users')
+                ->cascadeOnDelete();
 
             $table->nullableTimestamps();
             $table->softDeletes();
