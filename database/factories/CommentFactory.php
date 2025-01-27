@@ -9,8 +9,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-final class CommentFactory extends Factory
-{
+final class CommentFactory extends Factory {
     protected $model = Comment::class;
 
     public function definition(): array
@@ -26,7 +25,7 @@ final class CommentFactory extends Factory
             'user_id' => (new User)->inRandomOrder()->first(),
             'created_at' => $timestamp,
             'updated_at' => null,
-            'deleted_at' => null,
+            'deleted_at' => null
         ];
     }
 
