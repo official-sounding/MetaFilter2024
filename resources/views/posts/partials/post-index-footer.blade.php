@@ -12,6 +12,6 @@
             'slug' => $post->slug
         ]) }}#comments"
         title="Comments">
-        {{ $commentsCount > 0 ?: 0 }} comments
+        {{ $commentsCount > 0 ?: 0 }} {{ trans('comments') }}
     </a>
 </footer>

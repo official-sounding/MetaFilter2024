@@ -1,5 +1,5 @@
 <a class="{{ mb_strtolower($direction) }}"
-   title="{{ trans('$direction') }} {{ trans('post') }}"
+   title="{{ trans($direction) }} {{ trans('post') }}"
    href="{{ route($routeName, [
         'post' => $post,
         'slug' => $post->slug

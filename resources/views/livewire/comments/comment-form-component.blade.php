@@ -1,5 +1,4 @@
 <form wire:submit="store">
-    @include('forms.partials.required-fields-note')
     @include('forms.partials.validation-summary')
     @include('livewire.post.partials.posting-as')
 
@@ -19,9 +18,11 @@
         @endif
     </button>
 
+{{--
     <button type="button" class="button secondary-button" wire:click="{{ $cancelAction }}">
         {{ trans('Cancel') }}
     </button>
+--}}
 </form>
 {{--
 @push('scripts')

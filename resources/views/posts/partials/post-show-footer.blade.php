@@ -4,17 +4,15 @@
     @include('posts.partials.profile-link', [
         'userId' => $post->user->id,
         'username' => $post->user->username,
-    ])
+    ]) -
 
     @if ($commentsCount === 0)
-        ({{ trans('no comments') }})
+        &lpar;{{ trans('no comments') }}&rpar;
     @else
-        ({{ $commentsCount }}
-        {{ Str::plural('comment', $commentsCount) }}
-        {{ trans('total') }})
+        &lpar;{{ $commentsCount }} {{ Str::plural('comment', $commentsCount) }}&rpar;
     @endif
 
-    @if ($favoritesCount > 0)
+    @if (isset($favoritesCount) && $favoritesCount > 0)
         {{ $favoritesCount }}
 
         {{ Str::plural('member', $favoritesCount) }}
