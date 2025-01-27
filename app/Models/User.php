@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use LakM\Comments\Contracts\CommenterContract;
 use Laravel\Passport\HasApiTokens;
 use Spatie\ModelStates\HasStates;
 use Spatie\Permission\Traits\HasRoles;
@@ -35,7 +34,7 @@ use Spatie\Permission\Traits\HasRoles;
  *
  * @mixin Builder
  */
-final class User extends Authenticatable implements BannableInterface, CommenterContract, FilamentUser
+final class User extends Authenticatable implements BannableInterface, FilamentUser
 {
     use Bannable;
     use HasApiTokens;

@@ -9,11 +9,8 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use LakM\Comments\Concerns\Commentable;
-use LakM\Comments\Contracts\CommentableContract;
 use Mpociot\Versionable\VersionableTrait;
 use Oddvalue\LaravelDrafts\Concerns\HasDrafts;
 use Spatie\Activitylog\LogOptions;
@@ -34,9 +31,8 @@ use Spatie\Tags\HasTags;
  * @property bool $is_published
  * @property string $state
  */
-final class Post extends BaseModel implements CommentableContract
+final class Post extends BaseModel
 {
-    use Commentable;
     use HasDrafts;
     use HasFactory;
     use HasTags;
