@@ -25,8 +25,8 @@ trait NavigationTrait
             }
 
             if (
-                $itemData['route']->value === 'preferences.edit' ||
-                $itemData['route']->value === 'members.show'
+                $itemData['route'] === 'preferences.edit' ||
+                $itemData['route'] === 'members.show'
             ) {
                 if (auth()->check()) {
                     $item .= '<a href="' . route($itemData['route'], [
@@ -37,7 +37,7 @@ trait NavigationTrait
                 $item .= '<a href="' . route($itemData['route']) . '"';
             }
 
-            if (request()->route()->getName() === $itemData['route']->value) {
+            if (request()->route()->getName() === $itemData['route']) {
                 $item .= ' aria-current="page"';
             }
 
