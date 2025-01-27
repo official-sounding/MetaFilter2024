@@ -49,6 +49,7 @@
         "srmklive/paypal": "^3.0",
         "stechstudio/filament-impersonate": "^3.13",
         "stephenjude/filament-debugger": "^3.0",
+        "tomatophp/filament-issues": "^1.0",
         "vormkracht10/filament-mails": "*",
         "vormkracht10/laravel-mails": "^1.0"
     },
