@@ -8,6 +8,8 @@ use App\Models\Post;
 use App\Traits\LoggingTrait;
 use App\Traits\SubsiteTrait;
 use Carbon\Carbon;
+use Illuminate\Contracts\Pagination\CursorPaginator;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -38,6 +40,29 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
         parent::__construct($model);
     }
 
+    public function getPosts($popular = false): CursorPaginator
+    {
+        $query = $this->model->newQuery()
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
+            ->where('subsites.subdomain', '=', $this->subdomain)
+            ->select(self::COLUMNS)
+            ->withCount([
+                'comments',
+//                'favorites',
+//                'flags',
+            ])
+        ;
+
+        $query->orderBy('posts.created_at', 'desc')->get();
+
+        if ($popular) {
+            // TODO: Add logic to get popular posts
+        }
+
+        return $query->cursorPaginate(self::POSTS_PER_PAGE);
+    }
+
     public function getBySubdomain(int $page = 1): Collection
     {
         // TODO: Add categories
@@ -48,11 +73,13 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             ->select(self::COLUMNS)
             ->withCount([
                 'comments',
-                'favorites',
-                'flags',
+//                'favorites',
+//                'flags',
             ])
+
             ->limit(self::POSTS_PER_PAGE)
-            ->orderBy('posts.created_at', 'desc')->get()
+            ->orderBy('posts.created_at', 'desc')
+            ->get()
             ->groupBy(function ($val) {
                 return Carbon::parse($val->created_at)->format('F j');
             });
