@@ -22,6 +22,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentCheckSslWidget\FilamentCheckSslWidgetPlugin;
 use Stephenjude\FilamentDebugger\DebuggerPlugin;
+use Tobiasla78\FilamentSimplePages\FilamentSimplePagesPlugin;
 
 final class AdminPanelProvider extends PanelProvider
 {
@@ -58,7 +59,10 @@ final class AdminPanelProvider extends PanelProvider
                             'music.metafilter.com',
                             'projects.metafilter.com',
                             'www.metafilter.com',
-                        ]),
+                        ]
+                    ),
+                    FilamentSimplePagesPlugin::make()
+                        ->prefixSlug('page'),
                 ])
                 ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
                 ->widgets([
