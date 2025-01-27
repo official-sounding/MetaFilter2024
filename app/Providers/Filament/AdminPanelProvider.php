@@ -20,6 +20,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Joaopaulolndev\FilamentCheckSslWidget\FilamentCheckSslWidgetPlugin;
 use Stephenjude\FilamentDebugger\DebuggerPlugin;
 
 final class AdminPanelProvider extends PanelProvider
@@ -47,6 +48,17 @@ final class AdminPanelProvider extends PanelProvider
                 ])
                 ->plugins([
                     DebuggerPlugin::make(),
+                    FilamentCheckSslWidgetPlugin::make()
+                        ->domains([
+                            'ask.metafilter.com',
+                            'bestof.metafilter.com',
+                            'fanfare.metafilter.com',
+                            'irl.metafilter.com',
+                            'jobs.metafilter.com',
+                            'music.metafilter.com',
+                            'projects.metafilter.com',
+                            'www.metafilter.com',
+                        ]),
                 ])
                 ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
                 ->widgets([
