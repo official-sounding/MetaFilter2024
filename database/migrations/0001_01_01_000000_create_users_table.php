@@ -31,6 +31,7 @@ return new class extends Migration {
 
             // Project-specific fields
             $table->string('state');
+
             $table->nullableTimestamps();
             $table->softDeletes();
         });
