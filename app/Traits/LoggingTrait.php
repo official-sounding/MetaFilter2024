@@ -13,6 +13,7 @@ trait LoggingTrait
         Log::debug($message);
     }
 
+    // TODO: Change to Throwable
     public function logError($exception, ?string $customMessage = null): void
     {
         if ($customMessage !== null) {
