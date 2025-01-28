@@ -10,4 +10,14 @@ enum EnvironmentEnum: string
     case Production = 'production';
     case Remote = 'remote';
     case Staging = 'staging';
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::Local => 'Local',
+            self::Production => 'Production',
+            self::Remote => 'Remote',
+            self::Staging => 'Staging',
+        };
+    }
 }
