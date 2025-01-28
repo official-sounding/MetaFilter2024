@@ -16,6 +16,8 @@ use Mpociot\Versionable\VersionableTrait;
 use Oddvalue\LaravelDrafts\Concerns\HasDrafts;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Tags\HasTags;
 
 /**
@@ -32,11 +34,12 @@ use Spatie\Tags\HasTags;
  * @property bool $is_published
  * @property string $state
  */
-final class Post extends BaseModel
+final class Post extends BaseModel implements HasMedia
 {
     use HasDrafts;
     use HasFactory;
     use HasTags;
+    use InteractsWithMedia;
     use LogsActivity;
     use SearchTrait;
     use Sluggable;

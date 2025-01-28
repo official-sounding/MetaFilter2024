@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Enums\PermissionEnum;
 use App\States\User\UserState;
 use App\Traits\SearchTrait;
 use Cog\Contracts\Ban\Bannable as BannableInterface;
@@ -19,6 +18,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\ModelStates\HasStates;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -35,13 +36,14 @@ use Spatie\Permission\Traits\HasRoles;
  *
  * @mixin Builder
  */
-final class User extends Authenticatable implements BannableInterface, FilamentUser, HasName
+final class User extends Authenticatable implements BannableInterface, FilamentUser, HasMedia, HasName
 {
     use Bannable;
     use HasApiTokens;
     use HasFactory;
     use HasRoles;
     use HasStates;
+    use InteractsWithMedia;
     use Notifiable;
     use SearchTrait;
     use SoftDeletes;
