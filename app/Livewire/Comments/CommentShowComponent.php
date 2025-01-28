@@ -64,9 +64,6 @@ final class CommentShowComponent extends Component
 
     public function deleteComment(): void
     {
-        $id = $this->comment->id;
         $this->comment->delete();
-
-        $this->emitUp('commentDeleted', $id);
     }
 }

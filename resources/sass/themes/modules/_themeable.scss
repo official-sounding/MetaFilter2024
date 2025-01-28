@@ -35,6 +35,10 @@ form {
     border: none;
 }
 
+form.logout-form {
+    background-color: transparent;
+}
+
 //noinspection CssInvalidFunction
 label,
 legend {
@@ -156,7 +160,6 @@ textarea:focus {
 }
 
 //noinspection CssInvalidFunction
-.post-footer,
 .post-navigation,
 .post-navigation-menu a:link,
 .post-navigation-menu a:visited {

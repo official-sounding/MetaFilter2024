@@ -16,10 +16,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @property int $id
- * @property string $body
+ * @property string $text
  * @property int $parent_id
- * @property int $reply_id
  * @property int $post_id
+ * @property int $reply_id
  * @property int $user_id
  */
 final class Comment extends BaseModel
@@ -36,16 +36,11 @@ final class Comment extends BaseModel
         'text',
         'parent_id',
         'reply_id',
-        'post_id',
         'user_id',
     ];
 
     protected array $searchable = [
         'text',
-    ];
-
-    protected $with = [
-        'commenter',
     ];
 
     public function getActivitylogOptions(): LogOptions
@@ -67,7 +62,7 @@ final class Comment extends BaseModel
 
     public function parent(): BelongsTo
     {
-        return $this->belongsTo(Comment::class);
+        return $this->belongsTo(Comment::class, 'parent_id');
     }
 
     public function post(): BelongsTo

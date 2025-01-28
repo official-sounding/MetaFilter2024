@@ -82,33 +82,11 @@ final class User extends Authenticatable implements BannableInterface, FilamentU
         return str_ends_with($this->email, self::DOMAIN);
     }
 
-    public function comments(): MorphMany
+    // Relationships
+
+    public function comments(): HasMany
     {
-        // TODO: Implement comments() method.
+        return $this->hasMany(Comment::class);
     }
 
-    public function replies(): HasMany
-    {
-        // TODO: Implement replies() method.
-    }
-
-    public function profileUrl(): false|string
-    {
-        // TODO: Implement profileUrl() method.
-    }
-
-    public function photoUrl(): string
-    {
-        // TODO: Implement photoUrl() method.
-    }
-
-    public function name(): string
-    {
-        // TODO: Implement name() method.
-    }
-
-    public function email(): string
-    {
-        // TODO: Implement email() method.
-    }
 }

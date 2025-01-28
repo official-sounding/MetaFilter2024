@@ -101,9 +101,15 @@ input[type='search']:focus {
     background-color: var(--white);
 }
 
+.comment-footer,
+.post-footer {
+    color: var(--lighter-gray);
+    background-color: inherit;
+}
+
 ::selection {
     color: var(--yellow-green);
-    background: var(--blue);
+    background-color: var(--blue);
 }
 
 .sidebar section {
@@ -141,14 +147,14 @@ input[type='search']:focus {
     color: var(--yellow-green);
 }
 
-.site-title .white {
+.site-title .white,
+.skip-navigation {
     color: var(--white);
 }
 
 .skip-navigation {
     // TODO: Pick color
-    background: green;
-    color: #fff;
+    background-color: green;
 }
 
 .logout-button:active .icon,

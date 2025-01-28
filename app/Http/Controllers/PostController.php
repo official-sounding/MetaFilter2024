@@ -50,7 +50,6 @@ final class PostController extends BaseController
             'flagReasons' => $this->flagReasons,
             'isArchived' => $this->isArchived($post),
             'canonicalUrl' => $this->getCanonicalUrl($post),
-            'useComments' => true,
             'useLivewire' => true,
             'useWysiwyg' => true,
         ]);

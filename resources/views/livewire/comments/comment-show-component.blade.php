@@ -8,7 +8,7 @@
             cancel-action="cancelEditing"
         />
     @else
-        {{ $comment->body }}
+        {{ $comment->text }}
 
         @auth
             <button class="button reply-button" wire:click.prevent="startReplying">

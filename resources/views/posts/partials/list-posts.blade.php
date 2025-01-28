@@ -9,7 +9,7 @@
             'post' => $post,
             'userId' => $post->user_id,
             'username' => $post->username,
-//            'commentsCount' => $post->comments_count,
+            'commentsCount' => $post->comments()->count(),
         ])
     </article>
 @endforeach

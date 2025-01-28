@@ -46,7 +46,7 @@ final class CommentIndexComponent extends Component
 
     public function commentDeleted(int $id): void
     {
-        $this->comments = $this->comments->reject(function ($comment, int $key) use ($id) {
+        $this->comments = $this->comments->reject(function ($comment) use ($id) {
             return $comment->id === $id;
         });
     }

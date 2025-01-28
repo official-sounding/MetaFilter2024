@@ -83,6 +83,11 @@ final class Post extends BaseModel
 
     // Relationships
 
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function favorites(): MorphMany
     {
         return $this->morphMany(Favorite::class, 'favoriteable');

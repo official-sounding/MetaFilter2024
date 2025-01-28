@@ -6,18 +6,17 @@ namespace App\Livewire\Comments;
 
 use App\Http\Requests\Comment\StoreCommentRequest;
 use App\Models\Comment;
-use App\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 final class CommentFormComponent extends Component
 {
-    public User $user;
+    public Authenticatable $user;
     public ?Comment $storedComment = null;
-    public string $body = '';
+    public string $text = '';
     public int $postId;
     public ?int $parentId = null;
-    public ?string $buttonText = null;
     public string $cancelAction;
     public ?string $message = null;
 
@@ -30,7 +29,7 @@ final class CommentFormComponent extends Component
         $this->postId = $postId;
         $this->parentId = $parentId;
         $this->storedComment = $storedComment;
-        $this->body = $this->storedComment->body ?? '';
+        $this->text = $this->storedComment->text ?? '';
     }
 
     public function render(): View
