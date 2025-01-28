@@ -7,6 +7,7 @@ namespace App\Enums;
 enum RouteNameEnum: string
 {
     // Auth
+    case AdminPanel = 'filament.admin.auth.login';
     case AuthConfirmPasswordShow = 'auth.confirm-password.show';
     case AuthConfirmPasswordStore = 'auth.confirm-password.store';
     case AuthForgotPasswordCreate = 'forgot-password';
