@@ -12,10 +12,10 @@ final class CsvService
 {
     use LoggingTrait;
 
-    public function read(string $filePath): ?Reader
+    public function read(string $path): ?Reader
     {
         try {
-            return Reader::createFromPath($filePath);
+            return Reader::createFromPath($path);
         } catch (UnavailableStream $exception) {
             $this->logError($exception);
 
@@ -23,4 +23,3 @@ final class CsvService
         }
     }
 }
-$csv = Reader::createFromPath(database_path() . '/csv/yourfile.csv', 'r');
