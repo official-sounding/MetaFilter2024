@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\PermissionEnum;
 use App\States\User\UserState;
 use App\Traits\SearchTrait;
 use Cog\Contracts\Ban\Bannable as BannableInterface;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasName;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -33,7 +35,7 @@ use Spatie\Permission\Traits\HasRoles;
  *
  * @mixin Builder
  */
-final class User extends Authenticatable implements BannableInterface, FilamentUser
+final class User extends Authenticatable implements BannableInterface, FilamentUser, HasName
 {
     use Bannable;
     use HasApiTokens;
@@ -79,6 +81,7 @@ final class User extends Authenticatable implements BannableInterface, FilamentU
     public function canAccessPanel(Panel $panel): bool
     {
         return str_ends_with($this->email, self::DOMAIN);
+        // return $this->can(PermissionEnum::AccessPanel->value);
     }
 
     // Relationships
@@ -88,4 +91,8 @@ final class User extends Authenticatable implements BannableInterface, FilamentU
         return $this->hasMany(Comment::class);
     }
 
+    public function getFilamentName(): string
+    {
+        return $this->username;
+    }
 }
