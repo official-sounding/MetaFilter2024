@@ -7,16 +7,26 @@ namespace App\Models;
 use App\Traits\SearchTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property int $id
- * @property string $title
+ * @property ?string $title
  * @property string $slug
- * @property string $body
+ * @property ?string $image_url
+ * @property string $content
+ * @property bool $is_public
+ * @property bool $indexable
+ * @property bool $register_outside_filament
+ * @property ?string $layout
+ * @property ?string $extends
+ * @property ?string $section
  */
-final class Page extends BaseModel
+final class SimplePage extends BaseModel
 {
+    protected $table = 'filament_simple_pages';
+
     use HasFactory;
     use SearchTrait;
     use Sluggable;
@@ -27,12 +37,19 @@ final class Page extends BaseModel
     protected $fillable = [
         'title',
         'slug',
-        'body',
+        'image_url',
+        'content',
+        'is_public',
+        'indexable',
+        'register_outside_filament',
+        'layout',
+        'extends',
+        'section',
     ];
 
     protected array $searchable = [
         'title',
-        'body',
+        'content',
     ];
 
     public function sluggable(): array

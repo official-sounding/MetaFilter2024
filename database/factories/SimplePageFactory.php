@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Models\Page;
+use App\Models\SimplePage;
 use App\Traits\StringFormattingTrait;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-final class PageFactory extends Factory
+final class SimplePageFactory extends Factory
 {
     use StringFormattingTrait;
 
-    protected $model = Page::class;
+    protected $model = SimplePage::class;
 
     public function definition(): array
     {
@@ -21,7 +21,7 @@ final class PageFactory extends Factory
         return [
             'title' => $title,
             'slug' => $this->getSlug($title),
-            'body' => $this->faker->paragraphs(3, true),
+            'content' => $this->faker->paragraphs(3, true),
         ];
     }
 }

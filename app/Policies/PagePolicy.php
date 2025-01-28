@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Policies;
 
-use App\Models\Page;
+use App\Models\SimplePage;
 use App\Models\User;
 
 final class PagePolicy
 {
-    public function view(User $user, Page $page): bool
+    public function view(User $user, SimplePage $page): bool
     {
         return true;
     }
@@ -24,22 +24,22 @@ final class PagePolicy
         return true;
     }
 
-    public function update(User $user, Page $page): bool
+    public function update(User $user, SimplePage $page): bool
     {
         return true;
     }
 
-    public function delete(User $user, Page $page): bool
+    public function delete(User $user, SimplePage $page): bool
     {
         return true;
     }
 
-    public function forceDelete(User $user, Page $page): bool
+    public function forceDelete(User $user, SimplePage $page): bool
     {
         return true;
     }
 
-    public function restore(User $user, Page $page): bool
+    public function restore(User $user, SimplePage $page): bool
     {
         return true;
     }
