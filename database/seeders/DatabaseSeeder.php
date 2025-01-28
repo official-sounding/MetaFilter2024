@@ -15,6 +15,8 @@ use Database\Seeders\Development\FavoriteSeeder;
 use Database\Seeders\Development\FlagSeeder;
 use Database\Seeders\Production\FlagReasonSeeder;
 use Database\Seeders\Production\PageSeeder;
+use Database\Seeders\Production\PermissionSeeder;
+use Database\Seeders\Production\RoleSeeder;
 use Database\Seeders\Production\SnippetSeeder;
 use Database\Seeders\Production\SubsiteSeeder;
 use Illuminate\Database\Eloquent\Model;
@@ -61,6 +63,11 @@ final class DatabaseSeeder extends Seeder
             SubsiteSeeder::class,
             PageSeeder::class,
             SnippetSeeder::class,
+
+            PermissionSeeder::class,
+
+            // Needs PermissionSeeder
+            RoleSeeder::class,
         ]);
     }
 }
