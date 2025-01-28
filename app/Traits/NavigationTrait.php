@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Enums\PermissionEnum;
 use App\Enums\RouteNameEnum;
+use App\Models\User;
 use Throwable;
 
 trait NavigationTrait
@@ -56,6 +58,23 @@ trait NavigationTrait
         }
 
         return $item;
+    }
+
+    public function getAdminButton(): ?string
+    {
+        $user = (new User)->find(auth()->id());
+        // TODO: Fix hasPermission
+        if ($user->hasPermission(PermissionEnum::AccessPanel->value)) {
+            $itemData = [
+                'route' => RouteNameEnum::AdminPanel,
+                'icon' => 'plus',
+                'name' => 'Admin',
+            ];
+
+            return $this->getNavigationItem($itemData);
+        }
+
+        return null;
     }
 
     public function getLogoutButton(): string
