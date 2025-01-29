@@ -6,6 +6,7 @@ namespace App\Livewire\Comments;
 
 use App\Models\Comment;
 use App\Models\Post;
+use App\Repositories\CommentRepositoryInterface;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Livewire\Component;
@@ -14,11 +15,14 @@ final class CommentIndexComponent extends Component
 {
     public Post $post;
     public Collection $comments;
+    protected CommentRepositoryInterface $commentRepository;
 
-    public function mount(Post $post): void
+    public function mount(Post $post, CommentRepositoryInterface $commentRepository): void
     {
+        $this->commentRepository = $commentRepository;
+
         $this->post = $post;
-        $this->comments = $this->getComments();
+        $this->getComments();
     }
 
     public function render(): View
@@ -51,16 +55,8 @@ final class CommentIndexComponent extends Component
         });
     }
 
-    private function getComments(): Collection
+    private function getComments(): void
     {
-        return Comment::query()
-            ->with([
-                'user',
-                'replies',
-            ])
-            ->where('post_id', '=', $this->post->id)
-            ->whereNull('parent_id')
-            ->orderByDesc('created_at')
-            ->get();
+        $this->comments = $this->commentRepository->getCommentsByPostId($this->post->id);
     }
 }
