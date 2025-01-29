@@ -9,10 +9,6 @@
         }
     </style>
 
-    @if (isset($useComments) && $useComments === true)
-        @commentsStyles
-    @endif
-
     @livewireStyles
 @endif
 
