@@ -1,6 +1,6 @@
 @if (isset($useLivewire) && $useLivewire === true)
-    @if (isset($useComments) && $useComments === true)
-        @commentsScripts
+    @if (isset($useFilepondScripts) && $useFilepondScripts === true)
+        @filepondScripts
     @endif
 
     @livewireScripts

@@ -48,6 +48,7 @@
         "spatie/laravel-sitemap": "^7.2",
         "spatie/laravel-tags": "^4.6",
         "spatie/laravel-webhook-client": "^3.4",
+        "spatie/livewire-filepond": "^1.4",
         "spatie/schema-org": "^3.23",
         "spatie/ssl-certificate": "^2.6",
         "spatie/valuestore": "^1.3",
