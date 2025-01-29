@@ -19,7 +19,7 @@ final class FooterSubsiteNavigationViewComposer implements ViewComposerInterface
         $items = $this->getItems();
 
         foreach ($items as $item) {
-            if ($item['inFooterNav'] === true) {
+            if ($item['in_footer_nav'] === true) {
                 $navigation .= $this->getNavigationItem($item, true);
             }
         }
@@ -43,13 +43,13 @@ final class FooterSubsiteNavigationViewComposer implements ViewComposerInterface
     */
     private function isFooterItem($key): bool
     {
-        return array_key_exists('inFooterNav', $key) && $key['inFooterNav'] === true;
+        return array_key_exists('in_footer_nav', $key) && $key['in_footer_nav'] === true;
     }
 
     private function sortItems(array $items): array
     {
         usort($items, function ($a, $b) {
-            return $a['footerNavigationSortOrder'] <=> $b['footerNavigationSortOrder'];
+            return $a['footer_navigation_sort_order'] <=> $b['footer_navigation_sort_order'];
         });
 
         return $items;
