@@ -46,8 +46,6 @@ final class UserResource extends Resource
                 TextInput::make('username')
                     ->required()
                     ->maxLength(255),
-                Toggle::make('is_admin')
-                    ->required(),
             ]);
     }
 
@@ -61,8 +59,6 @@ final class UserResource extends Resource
                     ->searchable(),
                 TextColumn::make('email')
                     ->searchable(),
-                IconColumn::make('is_admin')
-                    ->boolean(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

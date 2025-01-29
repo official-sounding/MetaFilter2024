@@ -31,7 +31,6 @@ use Spatie\Permission\Traits\HasRoles;
  * @property int $legacy_id
  * @property string $email
  * @property string $password
- * @property bool $is_admin
  * @property string $state
  *
  * @mixin Builder
@@ -59,7 +58,6 @@ final class User extends Authenticatable implements BannableInterface, FilamentU
         'legacy_id',
         'email',
         'password',
-        'is_admin',
         'state',
     ];
 

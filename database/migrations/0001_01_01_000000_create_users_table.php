@@ -26,9 +26,6 @@ return new class extends Migration {
             $table->string('homepage_url')->nullable();
             $table->integer('legacy_id')->nullable()->unique();
 
-            // Filament-specific fields
-            $table->boolean('is_admin')->default(false);
-
             // Project-specific fields
             $table->string('state');
 
