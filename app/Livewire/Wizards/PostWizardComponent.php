@@ -6,7 +6,6 @@ namespace App\Livewire\Wizards;
 
 use App\Dtos\PostDto;
 use App\Enums\PostStateEnum;
-use App\Enums\StatusEnum;
 use App\Http\Requests\Post\StoreBodyRequest;
 use App\Http\Requests\Post\StoreMoreInsideRequest;
 use App\Http\Requests\Post\StoreTitleAndLinkRequest;
@@ -95,14 +94,14 @@ final class PostWizardComponent extends BaseWizardComponent
         $this->storePost(PostStateEnum::Published->value, $now, true);
     }
 
-    public function storePost(string $status, ?string $publishedAt = null, bool $isPublished = false): bool
+    public function storePost(string $state, ?string $publishedAt = null, bool $isPublished = false): bool
     {
         $dto = new PostDto(
             title: $this->title,
             body: $this->body,
             more_inside: $this->more_inside,
             subsite_id: $this->subsiteId,
-            status: $status, // TODO: Figure out status vs. state
+            state: $state,
             published_at: $publishedAt,
             is_published: $isPublished,
         );

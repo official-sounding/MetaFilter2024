@@ -11,7 +11,7 @@ readonly class PostDto
         public string $body,
         public string $more_inside,
         public int $subsite_id,
-        public string $status,
+        public string $state,
         public string $published_at,
         public bool $is_published,
     ) {}
