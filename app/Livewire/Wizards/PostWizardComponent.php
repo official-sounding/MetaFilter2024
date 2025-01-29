@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\Wizards;
 
 use App\Dtos\PostDto;
+use App\Enums\PostStateEnum;
 use App\Enums\StatusEnum;
 use App\Http\Requests\Post\StoreBodyRequest;
 use App\Http\Requests\Post\StoreMoreInsideRequest;
@@ -79,19 +80,19 @@ final class PostWizardComponent extends BaseWizardComponent
 
     public function saveAsDraft(): void
     {
-        $this->storePost(StatusEnum::Draft->value);
+        $this->storePost(PostStateEnum::Draft->value);
     }
 
     public function saveAsPending(): void
     {
-        $this->storePost(StatusEnum::Pending->value);
+        $this->storePost(PostStateEnum::Pending->value);
     }
 
     public function publish(): void
     {
         $now = now()->format('Y-m-d H:i:s');
 
-        $this->storePost(StatusEnum::Published->value, $now, true);
+        $this->storePost(PostStateEnum::Published->value, $now, true);
     }
 
     public function storePost(string $status, ?string $publishedAt = null, bool $isPublished = false): bool
@@ -101,7 +102,7 @@ final class PostWizardComponent extends BaseWizardComponent
             body: $this->body,
             more_inside: $this->more_inside,
             subsite_id: $this->subsiteId,
-            status: $status,
+            status: $status, // TODO: Figure out status vs. state
             published_at: $publishedAt,
             is_published: $isPublished,
         );
