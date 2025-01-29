@@ -1,5 +1,4 @@
 <form wire:submit="store()">
-    @include('forms.partials.required-fields-note')
     @include('forms.partials.validation-summary')
     @include('livewire.posts.partials.posting-as')
 
@@ -7,12 +6,22 @@
         <x-forms.input
                 name="title"
                 type="text"
-                label="{{ trans('Question Title') }}"/>
+                label="{{ trans('Post Title') }}"/>
+
+        <x-forms.input
+                name="url"
+                type="url"
+                label="{{ trans('URL') }}"/>
+
+        <x-forms.input
+                name="link_text"
+                type="text"
+                label="{{ trans('Link Text') }}"/>
 
         <div wire:ignore>
             <x-forms.textarea
                     name="body"
-                    label="{{ trans('Your Question') }}"/>
+                    label="{{ trans('Body') }}"/>
         </div>
     </fieldset>
 
@@ -28,3 +37,7 @@
         {{ trans('Add Post') }}
     </button>
 </form>
+
+@push('scripts')
+    @include('livewire.posts.partials.wysiwyg-scripts')
+@endpush
