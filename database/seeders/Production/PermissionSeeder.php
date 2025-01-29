@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Database\Seeders\Production;
 
-use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\PermissionRegistrar;

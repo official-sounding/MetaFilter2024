@@ -7,7 +7,6 @@ namespace App\Models;
 use App\Traits\SearchTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -25,12 +24,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 final class SimplePage extends BaseModel
 {
-    protected $table = 'filament_simple_pages';
-
     use HasFactory;
     use SearchTrait;
     use Sluggable;
     use SoftDeletes;
+
+    protected $table = 'filament_simple_pages';
 
     // Properties
 

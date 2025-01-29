@@ -8,8 +8,8 @@ use App\Models\User;
 
 enum PermissionResourceEnum: string
 {
-//$model = new User;
-//$table = $model->getTable();
+    //$model = new User;
+    //$table = $model->getTable();
 
     // TODO: Replace with models
     case Draft = 'draft';

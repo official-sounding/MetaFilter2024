@@ -6,7 +6,8 @@ namespace App\Traits;
 
 use Illuminate\Support\Facades\File;
 
-trait ModeratorSeederTrait {
+trait ModeratorSeederTrait
+{
     use LoggingTrait;
 
     public function getModeratorsFromJson(): mixed

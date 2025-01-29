@@ -10,7 +10,8 @@ use App\Traits\LoggingTrait;
 use App\Traits\ModeratorSeederTrait;
 use Spatie\Permission\PermissionRegistrar;
 
-final class ModeratorRoleSeeder {
+final class ModeratorRoleSeeder
+{
     use LoggingTrait;
     use ModeratorSeederTrait;
 
@@ -19,7 +20,7 @@ final class ModeratorRoleSeeder {
         $moderators = $this->getModeratorsFromJson();
 
         collect($moderators)->each(function ($moderator) {
-            $user = (new User)->where('email', '=', $moderator['email'])->first();
+            $user = (new User())->where('email', '=', $moderator['email'])->first();
 
             if ($user) {
                 app()[PermissionRegistrar::class]->forgetCachedPermissions();

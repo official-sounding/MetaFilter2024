@@ -71,7 +71,7 @@ final class RoleSeeder extends Seeder
     private function createDeveloperRoleWithPermissions(): void
     {
         $role = Role::create([
-            'name' => RoleNameEnum::DEVELOPER->value
+            'name' => RoleNameEnum::DEVELOPER->value,
         ]);
 
         $role->givePermissionTo(Permission::all());

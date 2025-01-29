@@ -9,7 +9,6 @@ use App\Traits\LoggingTrait;
 use App\Traits\SubsiteTrait;
 use Carbon\Carbon;
 use Illuminate\Contracts\Pagination\CursorPaginator;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -49,8 +48,8 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             ->select(self::COLUMNS)
             ->withCount([
                 'comments',
-//                'favorites',
-//                'flags',
+                //                'favorites',
+                //                'flags',
             ])
         ;
 

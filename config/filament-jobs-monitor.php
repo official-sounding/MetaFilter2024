@@ -21,6 +21,6 @@ return [
         'retention_days' => 7,
     ],
     'queues' => [
-        'default'
+        'default',
     ],
 ];
