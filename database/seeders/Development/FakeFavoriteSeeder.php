@@ -6,7 +6,7 @@ namespace Database\Seeders\Development;
 
 use Illuminate\Database\Seeder;
 
-final class FavoriteSeeder extends Seeder
+final class FakeFavoriteSeeder extends Seeder
 {
     public function run(): void
     {

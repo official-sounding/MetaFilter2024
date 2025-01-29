@@ -6,7 +6,7 @@ namespace Database\Seeders\Development;
 
 use Illuminate\Database\Seeder;
 
-final class FlagSeeder extends Seeder
+final class FakeFlagSeeder extends Seeder
 {
     public function run(): void
     {
