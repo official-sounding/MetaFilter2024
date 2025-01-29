@@ -14,10 +14,10 @@ return new class extends Migration {
             ],
         ],
         [
-            'name' => 'pages',
+            'name' => 'filament_simple_pages',
             'fields' => [
                 'title',
-                'body',
+                'content',
             ],
         ],
         [
