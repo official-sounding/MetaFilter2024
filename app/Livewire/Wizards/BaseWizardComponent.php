@@ -27,11 +27,4 @@ abstract class BaseWizardComponent extends Component
 
         $this->uuid = $this->getUuid();
     }
-
-    protected function storeValueInSession(string $key, string|bool|null $value): void
-    {
-        $sessionKey = "$this->uuid.$key";
-
-        $this->pushToSession($sessionKey, $value);
-    }
 }
