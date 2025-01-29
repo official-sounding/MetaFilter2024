@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 use App\Enums\EnvironmentEnum;
-use Database\Seeders\Development\AdminSeeder;
+use Database\Seeders\Development\ModeratorSeeder;
 use Database\Seeders\Development\FakeBannerLinkSeeder;
 use Database\Seeders\Development\FakeCommentSeeder;
 use Database\Seeders\Development\FakePostSeeder;
@@ -13,10 +13,11 @@ use Database\Seeders\Development\FakeTagSeeder;
 use Database\Seeders\Development\FakeUserSeeder;
 use Database\Seeders\Development\FavoriteSeeder;
 use Database\Seeders\Development\FlagSeeder;
+use Database\Seeders\Production\ModeratorRoleSeeder;
 use Database\Seeders\Production\FlagReasonSeeder;
-use Database\Seeders\Production\PageSeeder;
 use Database\Seeders\Production\PermissionSeeder;
 use Database\Seeders\Production\RoleSeeder;
+use Database\Seeders\Production\SimplePageSeeder;
 use Database\Seeders\Production\SnippetSeeder;
 use Database\Seeders\Production\SubsiteSeeder;
 use Illuminate\Database\Eloquent\Model;
@@ -40,7 +41,7 @@ final class DatabaseSeeder extends Seeder
     private function seedDevelopmentData(): void
     {
         $this->call([
-            AdminSeeder::class,
+            ModeratorSeeder::class,
             FakeBannerLinkSeeder::class,
             FakeTagSeeder::class,
             FakeUserSeeder::class,
@@ -53,6 +54,9 @@ final class DatabaseSeeder extends Seeder
 
             FavoriteSeeder::class,
             FlagSeeder::class,
+
+            ModeratorRoleSeeder::class,
+            // Needs AdminSeeder and RoleSeeder
         ]);
     }
 
@@ -61,7 +65,7 @@ final class DatabaseSeeder extends Seeder
         $this->call([
             FlagReasonSeeder::class,
             SubsiteSeeder::class,
-            PageSeeder::class,
+            SimplePageSeeder::class,
             SnippetSeeder::class,
 
             PermissionSeeder::class,
