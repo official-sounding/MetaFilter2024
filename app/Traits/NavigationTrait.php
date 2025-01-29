@@ -62,7 +62,7 @@ trait NavigationTrait
     {
         $itemData = [
             'route' => RouteNameEnum::AdminPanel,
-            'icon' => 'plus',
+            'icon' => 'lock-fill',
             'name' => 'Admin',
         ];
 
