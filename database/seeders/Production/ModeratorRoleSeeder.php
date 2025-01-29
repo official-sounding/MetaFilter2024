@@ -8,9 +8,10 @@ use App\Enums\RoleNameEnum;
 use App\Models\User;
 use App\Traits\LoggingTrait;
 use App\Traits\ModeratorSeederTrait;
+use Illuminate\Database\Seeder;
 use Spatie\Permission\PermissionRegistrar;
 
-final class ModeratorRoleSeeder
+final class ModeratorRoleSeeder extends Seeder
 {
     use LoggingTrait;
     use ModeratorSeederTrait;
