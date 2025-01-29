@@ -15,12 +15,16 @@ final class PermissionSeeder extends Seeder
 
     public function run(): void
     {
-        $permissions = config('metafilter.seeders.resource_permissions');
+        $permissions = config('metafilter.seeders.permissions');
 
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
-        foreach ($permissions as $permission) {
-            Permission::create($permission);
+        foreach ($permissions as $name) {
+            $permission = new Permission();
+
+            $permission->name = $name;
+
+            $permission->save();
         }
 
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
