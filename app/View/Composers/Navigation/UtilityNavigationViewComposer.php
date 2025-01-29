@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\View\Composers\Navigation;
 
 use App\Enums\PermissionEnum;
-use App\Models\User;
 use App\Traits\LoggingTrait;
 use App\Traits\NavigationTrait;
 use App\View\Composers\ViewComposerInterface;
@@ -31,7 +30,10 @@ final class UtilityNavigationViewComposer implements ViewComposerInterface
         if (auth()->check()) {
             $navigation .= $this->getNewPostButton();
             $navigation .= $this->getLogoutButton();
-            $navigation .= $this->getAdminButton();
+
+            if (auth()->user()->can(PermissionEnum::AccessPanel->value)) {
+                $navigation .= $this->getAdminButton();
+            }
         }
 
         $navigation .= '</ul>';
