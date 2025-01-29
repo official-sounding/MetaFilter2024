@@ -6,6 +6,7 @@ namespace App\Providers\Filament;
 
 use App\Traits\LoggingTrait;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
+use Croustibat\FilamentJobsMonitor\FilamentJobsMonitorPlugin;
 use Exception;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -63,6 +64,7 @@ final class AdminPanelProvider extends PanelProvider
                                 'www.metafilter.com',
                             ],
                         ),
+                    FilamentJobsMonitorPlugin::make(),
                     FilamentShieldPlugin::make(),
                     FilamentSimplePagesPlugin::make()
                         ->prefixSlug('page'),

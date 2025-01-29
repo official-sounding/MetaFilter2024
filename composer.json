@@ -9,6 +9,7 @@
         "ext-pdo": "*",
         "bezhansalleh/filament-shield": "^3.2",
         "binarytorch/larecipe": "^2.7",
+        "croustibat/filament-jobs-monitor": "^2.5",
         "cviebrock/eloquent-sluggable": "^11.0",
         "cybercog/laravel-ban": "^4.9",
         "filament/filament": "^3.2",
