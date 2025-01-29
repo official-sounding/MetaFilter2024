@@ -1,28 +1,28 @@
 <form wire:submit="store">
     @include('forms.partials.validation-summary')
-    @include('livewire.post.partials.posting-as')
+    @include('livewire.posts.partials.posting-as')
 
     <div wire:ignore>
-        <label for="body" class="sr-only">
+        <label for="text" class="sr-only">
             {{ trans('Comment') }}
         </label>
 
-        <textarea wire:model="body" name="body" id="body"></textarea>
+        <textarea wire:model="text" name="text" id="text"></textarea>
     </div>
 
-    <button type="submit" class="button primary-button" wire:keydown.escape="{{ $cancelAction }}">
-        @if (!is_null($buttonText))
-            {{ trans($buttonText) }}
-        @else
-            {{ trans('Add Comment') }}
-        @endif
-    </button>
+    <div class="level">
+        <button type="button" class="button secondary-button" wire:click="{{ $cancelAction }}">
+            {{ trans('Cancel') }}
+        </button>
 
-{{--
-    <button type="button" class="button secondary-button" wire:click="{{ $cancelAction }}">
-        {{ trans('Cancel') }}
-    </button>
---}}
+        <button type="submit" class="button primary-button" wire:keydown.escape="{{ $cancelAction }}">
+            @if (!empty($buttonText))
+                {{ trans($buttonText) }}
+            @else
+                {{ trans('Add Comment') }}
+            @endif
+        </button>
+    </div>
 </form>
 {{--
 @push('scripts')
