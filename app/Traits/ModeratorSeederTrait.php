@@ -18,7 +18,7 @@ trait ModeratorSeederTrait {
 
             return json_decode($json, true);
         } else {
-            $this->logDebugMessage('Admins JSON file does not exist at: ' . $path);
+            $this->logDebugMessage('Moderators JSON file does not exist at: ' . $path);
 
             return null;
         }
