@@ -36,9 +36,6 @@ Route::middleware('auth')->group(function () {
         ->name(RouteNameEnum::ProfileDelete);
 });
 
-Route::get('about', [PageController::class, 'about'])
-    ->name(RouteNameEnum::AboutMetaFilter);
-
 Route::get('archives/{year?}/{month?}/{day?}', [ArchivesController::class, 'index'])
     ->name(RouteNameEnum::MetaFilterArchivesIndex);
 
@@ -69,6 +66,9 @@ Route::get('recent-activity', [RecentActivityController::class, 'show'])
 
 Route::get('tags', [TagController::class, 'index'])
     ->name(RouteNameEnum::TagsIndex);
+
+Route::any('/{slug}', [PageController::class, 'show'])
+    ->where('any', '^((?!about|donate).)*$');
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')

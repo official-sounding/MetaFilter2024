@@ -4,43 +4,30 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Repositories\SimplePageRepositoryInterface;
+use App\Repositories\SimplePageRepository;
 use App\Traits\SubsiteTrait;
+use App\Traits\UrlTrait;
 use Illuminate\Contracts\View\View;
 
 final class PageController extends BaseController
 {
     use SubsiteTrait;
+    use UrlTrait;
 
-    public function __construct(protected SimplePageRepositoryInterface $pageRepository)
+    public function __construct(protected SimplePageRepository $simplePageRepository)
     {
         parent::__construct();
     }
 
     public function show(): View
     {
-        $slug = request()->segment(1);
+        $slug = $this->getUrlSegment(1);
 
-        $subdomain = $this->getSubdomainFromUrl();
-
-        if ($subdomain === 'labs') {
-            $slug = 'labs';
-        }
-
-        if ($subdomain === 'mall') {
-            $slug = 'mefi-mall';
-        }
-
-        $page = $this->pageRepository->getBySlug($slug);
+        $page = $this->simplePageRepository->getBySlug($slug);
 
         return view('pages.show', [
             'page' => $page,
             'title' => $page->title,
         ]);
-    }
-
-    public function about(): View
-    {
-        return $this->show();
     }
 }
