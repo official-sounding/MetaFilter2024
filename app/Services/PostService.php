@@ -16,7 +16,7 @@ final class PostService
 
     public function __construct(PurifierService $purifierService) {}
 
-    public function store(PostDto $dto): bool
+    public function store(PostDto $dto): Post
     {
         $post = new Post();
 
@@ -24,11 +24,11 @@ final class PostService
         $post->body = $this->purifierService->clean($dto->body);
         $post->more_inside = $this->purifierService->clean($dto->more_inside);
         $post->subsite_id = $dto->subsite_id;
-        $post->status = $dto->status;
+        $post->state = $dto->state;
         $post->published_at = $dto->published_at;
         $post->is_published = $dto->is_published;
 
-        return $post->save();
+        return $post;
     }
 
     public function update(array $data): bool
