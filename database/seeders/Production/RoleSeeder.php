@@ -48,7 +48,7 @@ final class RoleSeeder extends Seeder
     private function createModeratorRole(): Role
     {
         return Role::create([
-            'name' => RoleNameEnum::MODERATOR->label(),
+            'name' => RoleNameEnum::MODERATOR->value,
         ]);
     }
 
