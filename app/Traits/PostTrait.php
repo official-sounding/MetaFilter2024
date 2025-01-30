@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Enums\RouteNameEnum;
+use App\Enums\SubsiteEnum;
 use App\Models\Post;
-use Carbon\Carbon;
 
 trait PostTrait
 {
@@ -35,17 +36,36 @@ trait PostTrait
         ]);
     }
 
-    public function getTimestamp(Post $post): array
-    {
-        return [
-            'icon' => $post->created_at->gt(Carbon::now()->subDay()) ? 'icon-clock' : 'icon-calendar',
-            'datetime' => $post->created_at->format('Y-m-d H:i:d'),
-            'diffForHumans' => $post->created_at->diffForHumans(),
-        ];
-    }
-
     public function getNewPostText(): string
     {
         return 'New Post';
     }
+
+    public function getPostShowUrl(Post $post): string
+    {
+        $routeName = $this->getShowRouteName($post);
+
+        return route($routeName, [
+            'post' => $post,
+            'slug' => $post->slug
+        ]);
+    }
+
+    private function getShowRouteName(Post $post): string
+    {
+        $subdomain = $post->subsite()->value('subdomain');
+
+        return match ($subdomain) {
+            SubsiteEnum::Ask->value => RouteNameEnum::AskPostShow->value,
+            SubsiteEnum::FanFare->value => RouteNameEnum::FanFarePostShow->value,
+            SubsiteEnum::Irl->value => RouteNameEnum::IrlPostShow->value,
+            SubsiteEnum::Jobs->value => RouteNameEnum::JobsPostShow->value,
+            SubsiteEnum::MetaFilter->value => RouteNameEnum::MetaFilterPostShow->value,
+            SubsiteEnum::MetaTalk->value => RouteNameEnum::MetaTalkPostShow->value,
+            SubsiteEnum::Music->value => RouteNameEnum::MusicPostShow->value,
+            SubsiteEnum::Podcast->value => RouteNameEnum::PodcastPostShow->value,
+            SubsiteEnum::Projects->value => RouteNameEnum::ProjectsPostShow->value,
+        };
+    }
 }
+
