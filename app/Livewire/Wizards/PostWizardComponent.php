@@ -5,22 +5,28 @@ declare(strict_types=1);
 namespace App\Livewire\Wizards;
 
 use App\Dtos\PostDto;
+use App\Enums\NotificationMessageEnum;
+use App\Enums\NotificationTypeEnum;
 use App\Enums\PostStateEnum;
 use App\Http\Requests\Post\StoreBodyRequest;
 use App\Http\Requests\Post\StoreMoreInsideRequest;
 use App\Http\Requests\Post\StoreTitleAndLinkRequest;
 use App\Models\Post;
 use App\Services\PostService;
+use App\Traits\PostTrait;
+use App\Traits\RedirectTrait;
 use App\Traits\SubsiteTrait;
 use Illuminate\Contracts\View\View;
 
 final class PostWizardComponent extends BaseWizardComponent
 {
+    use PostTrait;
+    use RedirectTrait;
     use SubsiteTrait;
 
     public string $title = '';
-    public string $link_url;
-    public string $link_text;
+    public ?string $link_url;
+    public ?string $link_text;
     public string $body;
     public string $more_inside;
     public Post $post;
@@ -72,14 +78,25 @@ final class PostWizardComponent extends BaseWizardComponent
     }
 
     // Step 4
-    public function submitTags(): void
+    public function preview(): void
     {
-        $this->currentStep = 5;
     }
 
     public function saveAsDraft(): void
     {
-        $this->storePost(PostStateEnum::Draft->value);
+        $post = $this->storePost(PostStateEnum::Draft->value);
+
+        if ($post->id) {
+            $url = $this->getPostShowUrl($post);
+            $type = NotificationTypeEnum::Success->value;
+            $message = NotificationMessageEnum::PostDraftSuccess->value;
+        } else {
+            $url = route('aa');
+            $type = NotificationTypeEnum::Error->value;
+            $message = NotificationMessageEnum::PostDraftFailure->value;
+        }
+
+        $this->redirectToUrlWithNotification($url, $type, $message);
     }
 
     public function saveAsPending(): void
@@ -91,10 +108,22 @@ final class PostWizardComponent extends BaseWizardComponent
     {
         $now = now()->format('Y-m-d H:i:s');
 
-        $this->storePost(PostStateEnum::Published->value, $now, true);
+        $post = $this->storePost(PostStateEnum::Published->value, $now, true);
+
+        if ($post->id) {
+            $url = $this->getPostShowUrl($post);
+            $type = NotificationTypeEnum::Success->value;
+            $message = NotificationMessageEnum::PostPublishSuccess->value;
+        } else {
+            $url = route('aa');
+            $type = NotificationTypeEnum::Error->value;
+            $message = NotificationMessageEnum::PostPublishFailure->value;
+        }
+
+        $this->redirectToUrlWithNotification($url, $type, $message);
     }
 
-    public function storePost(string $state, ?string $publishedAt = null, bool $isPublished = false): bool
+    public function storePost(string $state, ?string $publishedAt = null, bool $isPublished = false): Post
     {
         $dto = new PostDto(
             title: $this->title,
