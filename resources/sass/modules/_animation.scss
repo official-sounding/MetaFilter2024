@@ -1,0 +1,45 @@
+
+.fade-out,
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s linear;
+}
+
+.fade-out,
+.hidden,
+.visible {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.fade-out > div,
+.hidden > div,
+.visible > div {
+    margin-top: -100rem;
+}
+
+.fade-out {
+    transition: visibility 0s 3s, opacity 3s linear;
+}
+
+.fade-out > div {
+    transition: margin-top 0s 3s;
+}
+
+.hidden {
+    transition: visibility 0s 1s, opacity 1s linear;
+}
+
+.hidden > div {
+    transition: margin-top 0s 2s;
+}
+
+// https://fvsch.com/articles/transition-fade/test5.html
