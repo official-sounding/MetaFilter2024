@@ -6,13 +6,16 @@ namespace App\Livewire\Wizards;
 
 use App\Dtos\UserDto;
 use App\Enums\RouteNameEnum;
+use App\Enums\UserStateEnum;
 use App\Http\Requests\Auth\StorePasswordRequest;
 use App\Http\Requests\Signup\StoreEmailAddressRequest;
 use App\Http\Requests\Signup\StoreOptionalInfoRequest;
 use App\Http\Requests\Signup\StoreUsernameRequest;
+use App\Jobs\SendVerificationEmail;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Mail;
 
 final class SignupWizardComponent extends BaseWizardComponent
 {
@@ -81,20 +84,35 @@ final class SignupWizardComponent extends BaseWizardComponent
 
         $this->validate($rules);
 
-        $this->user = $this->storeUser();
+        $state = UserStateEnum::Pending->value;
+
+        $this->user = $this->store($state);
 
         $this->currentStep = 5;
     }
 
     // Step 5
-    public function submitPayment(string $method): void
-    {
-        // TODO: Send validation email
 
-        $this->redirectRoute(RouteNameEnum::SignupThanks);
+    public function payWithPayPal(): void
+    {
+        $this->submitPayment();
     }
 
-    public function storeUser(): User
+    public function payWithStipe(): void
+    {
+        $this->submitPayment();
+    }
+
+    public function submitPayment(): void
+    {
+        // TODO: Send verification email
+        Mail::to()->queue(new SendVerificationEmail());
+
+        $this->redirectRoute(RouteNameEnum::SignupThanks->value);
+    }
+
+
+    public function store(string $state): User
     {
         $dto = new UserDto(
             username: $this->username,
@@ -102,6 +120,7 @@ final class SignupWizardComponent extends BaseWizardComponent
             email: $this->password_confirmation,
             name: $this->name ?? null,
             homepage_url: $this->homepage_url ?? null,
+            state: $state,
         );
 
         return $this->userService->store($dto);
