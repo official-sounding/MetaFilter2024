@@ -23,7 +23,8 @@ return new class extends Migration {
             $table->string('extends')->nullable();
             $table->string('section')->nullable();
 
-            $table->timestamps();
+            $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 };
