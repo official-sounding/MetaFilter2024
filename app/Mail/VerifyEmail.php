@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-final class ContactFormMessage extends Mailable
+final class VerifyEmail extends Mailable
 {
     use Queueable;
     use SerializesModels;
@@ -23,14 +23,14 @@ final class ContactFormMessage extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Contact Form Message',
+            subject: 'Verify Email Address for MetaFilter',
         );
     }
 
     public function content(): Content
     {
         return new Content(
-            view: 'emails.contact-form-message',
+            view: 'emails.verify-email',
         );
     }
 }
