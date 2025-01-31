@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 return [
     [
-        'reason' => 'Fantastic comment',
+        'reason' => 'Fantastic',
         'sort_order' => 1,
     ],
     [
