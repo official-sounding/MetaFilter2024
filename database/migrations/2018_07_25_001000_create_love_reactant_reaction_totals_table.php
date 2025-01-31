@@ -16,8 +16,7 @@ use Cog\Laravel\Love\Reactant\ReactionTotal\Models\ReactionTotal;
 use Cog\Laravel\Love\Support\Database\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-return new class extends Migration
-{
+return new class extends Migration {
     public function up(): void
     {
         $this->schema->create((new ReactionTotal())->getTable(), function (Blueprint $table) {

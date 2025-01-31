@@ -78,9 +78,7 @@ final class PostWizardComponent extends BaseWizardComponent
     }
 
     // Step 4
-    public function preview(): void
-    {
-    }
+    public function preview(): void {}
 
     public function saveAsDraft(): void
     {

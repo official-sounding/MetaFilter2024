@@ -47,7 +47,7 @@ trait PostTrait
 
         return route($routeName, [
             'post' => $post,
-            'slug' => $post->slug
+            'slug' => $post->slug,
         ]);
     }
 
@@ -68,4 +68,3 @@ trait PostTrait
         };
     }
 }
-

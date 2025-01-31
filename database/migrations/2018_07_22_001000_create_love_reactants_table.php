@@ -15,8 +15,7 @@ use Cog\Laravel\Love\Reactant\Models\Reactant;
 use Cog\Laravel\Love\Support\Database\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-return new class extends Migration
-{
+return new class extends Migration {
     public function up(): void
     {
         $this->schema->create((new Reactant())->getTable(), function (Blueprint $table) {

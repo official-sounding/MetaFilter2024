@@ -4,7 +4,8 @@ namespace App\Traits;
 
 use Illuminate\Http\RedirectResponse;
 
-trait RedirectTrait {
+trait RedirectTrait
+{
     public function redirectToRoute(string $route): RedirectResponse
     {
         return redirect()->route($route);
