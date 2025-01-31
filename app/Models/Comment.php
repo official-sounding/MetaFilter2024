@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Traits\SearchTrait;
+use Cog\Contracts\Love\Reactable\Models\Reactable as ReactableInterface;
+use Cog\Laravel\Love\Reactable\Models\Traits\Reactable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -22,10 +24,11 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property int $reply_id
  * @property int $user_id
  */
-final class Comment extends BaseModel
+final class Comment extends BaseModel implements ReactableInterface
 {
     use HasFactory;
     use LogsActivity;
+    use Reactable;
     use SearchTrait;
     use SoftDeletes;
     use VersionableTrait;

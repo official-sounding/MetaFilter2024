@@ -16,6 +16,7 @@
         "croustibat/filament-jobs-monitor": "^2.5",
         "cviebrock/eloquent-sluggable": "^11.0",
         "cybercog/laravel-ban": "^4.9",
+        "cybercog/laravel-love": "^10.0",
         "filament/filament": "^3.2",
         "filament/spatie-laravel-media-library-plugin": "^3.2",
         "filament/spatie-laravel-tags-plugin": "^3.2",

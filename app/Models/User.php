@@ -6,6 +6,8 @@ namespace App\Models;
 
 use App\States\User\UserState;
 use App\Traits\SearchTrait;
+use Cog\Contracts\Love\Reacterable\Models\Reacterable as ReacterableInterface;
+use Cog\Laravel\Love\Reacterable\Models\Traits\Reacterable;
 use Cog\Contracts\Ban\Bannable as BannableInterface;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Filament\Models\Contracts\FilamentUser;
@@ -33,9 +35,13 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $password
  * @property string $state
  *
- * @mixin Builder
  */
-final class User extends Authenticatable implements BannableInterface, FilamentUser, HasMedia, HasName
+final class User extends Authenticatable implements
+    BannableInterface,
+    FilamentUser,
+    HasMedia,
+    HasName,
+    ReacterableInterface
 {
     use Bannable;
     use HasApiTokens;
@@ -44,12 +50,19 @@ final class User extends Authenticatable implements BannableInterface, FilamentU
     use HasStates;
     use InteractsWithMedia;
     use Notifiable;
+    use Reacterable;
     use SearchTrait;
     use SoftDeletes;
 
     private const string DOMAIN = '@metafilter.com';
 
     // Properties
+
+    public function newEloquentBuilder($query): UserEloquentBuilder
+    {
+        return new UserEloquentBuilder($query);
+    }
+
 
     protected $fillable = [
         'name',
