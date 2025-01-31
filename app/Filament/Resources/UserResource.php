@@ -7,7 +7,9 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\UserResource\Pages\CreateUser;
 use App\Filament\Resources\UserResource\Pages\EditUser;
 use App\Filament\Resources\UserResource\Pages\ListUsers;
+use App\Filament\Resources\UserResource\Pages\ListUserActivities;
 use App\Models\User;
+use Filament\Actions\Action;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -74,8 +76,11 @@ final class UserResource extends Resource
                 //
             ])
             ->actions([
-                Impersonate::make(),
+                //                Action::make('activities')->url(fn ($record) => UserResource::getUrl('activities', [
+                //                    'record' => $record
+                //                ])),
                 EditAction::make(),
+                Impersonate::make(),
             ])
             ->bulkActions([
                 BulkActionGroup::make([
@@ -94,6 +99,7 @@ final class UserResource extends Resource
     public static function getPages(): array
     {
         return [
+            'activities' => ListUserActivities::route('/{record}/activities'),
             'index' => ListUsers::route('/'),
             'create' => CreateUser::route('/create'),
             'edit' => EditUser::route('/{record}/edit'),

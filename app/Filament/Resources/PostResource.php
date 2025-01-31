@@ -6,10 +6,12 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages\CreatePost;
 use App\Filament\Resources\PostResource\Pages\EditPost;
+use App\Filament\Resources\PostResource\Pages\ListPostActivities;
 use App\Filament\Resources\PostResource\Pages\ListPosts;
 use App\Models\Post;
 use App\Traits\LoggingTrait;
 use Exception;
+use Filament\Actions\Action;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -91,6 +93,9 @@ final class PostResource extends Resource
                         ->relationship('subsite', 'name'),
                 ])
                 ->actions([
+                    //                    Action::make('activities')->url(fn ($record) => PostResource::getUrl('activities', [
+                    //                        'record' => $record
+                    //                    ])),
                     EditAction::make(),
                 ])
                 ->bulkActions([
@@ -115,6 +120,7 @@ final class PostResource extends Resource
     public static function getPages(): array
     {
         return [
+            'activities' => ListPostActivities::route('/{record}/activities'),
             'index' => ListPosts::route('/'),
             'comments' => ListPosts::route('/{comment}'),
             'create' => CreatePost::route('/create'),
