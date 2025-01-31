@@ -28,7 +28,7 @@ final class FlagCommentComponent extends Component
     public function mount(
         Comment $comment,
         FlagReasonRepositoryInterface $flagReasonRepository,
-        FlagRepositoryInterface $flagRepository
+        FlagRepositoryInterface $flagRepository,
     ): void {
         $this->comment = $comment;
 
