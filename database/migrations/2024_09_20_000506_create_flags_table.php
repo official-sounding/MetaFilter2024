@@ -12,18 +12,19 @@ return new class extends Migration {
         Schema::create('flags', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('comment_id')
+                ->constrained()
+                ->onDelete('cascade');
+
+            $table->foreignId('reason_id')
+                ->constrained()
+                ->onDelete('cascade');
+
             $table->foreignId('user_id')
                 ->constrained()
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
+                ->onDelete('cascade');
 
-            $table->morphs('flaggable');
             $table->text('note')->nullable();
-
-            $table->foreignId('flag_reason_id')
-                ->constrained()
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
 
             $table->nullableTimestamps();
         });
