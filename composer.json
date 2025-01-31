@@ -1,8 +1,12 @@
 {
     "name": "metafilter/metafilter2024",
-    "type": "project",
+    "homepage": "https://www.metafilter.com/",
     "description": "Source code for MetaFilter websites.",
     "license": "MIT",
+    "support": {
+        "issues": "https://github.com/MetaFilter/MetaFilter2024/issues",
+        "source": "https://github.com/MetaFilter/MetaFilter2024/"
+    },
     "require": {
         "php": "^8.3",
         "ext-mbstring": "*",
