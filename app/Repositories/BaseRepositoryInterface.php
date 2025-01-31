@@ -30,6 +30,8 @@ interface BaseRepositoryInterface
 
     public function update(int $id, array $data);
 
+    public function updateOrCreate(array $data);
+
     public function where($column, $id, $first = false);
 
     public function with($relation);
