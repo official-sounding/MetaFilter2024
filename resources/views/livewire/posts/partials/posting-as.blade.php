@@ -1,6 +1,6 @@
 <small>posting as
     <a title="{{ trans('View profile') }}"
-       href="{{ route($profileShowRoute, [
+       href="{{ route($memberShowRoute, [
             'user' => auth()->user()
         ]) }}">
         <strong>
