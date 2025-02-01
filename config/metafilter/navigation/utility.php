@@ -8,12 +8,12 @@ return [
     'auth' => [
         [
             'name' => 'Profile',
-            'route' => 'members.show',
+            'route' => RouteNameEnum::MemberShow->value,
             'icon' => 'person-fill',
         ],
         [
             'name' => 'Preferences',
-            'route' => 'preferences.edit',
+            'route' => RouteNameEnum::PreferencesEdit->value,
             'icon' => 'gear-fill',
         ],
         [
@@ -24,11 +24,11 @@ return [
         [
             'name' => 'Favorites',
             'route' => RouteNameEnum::FavoritesIndex->value,
-            'icon' => '',
+            'icon' => 'heart-fill',
         ],
         [
             'name' => 'Recent Activity',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => RouteNameEnum::RecentActivityShow->value,
             'icon' => 'clock',
         ],
     ],
