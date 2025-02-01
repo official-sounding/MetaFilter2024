@@ -25,6 +25,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentCheckSslWidget\FilamentCheckSslWidgetPlugin;
 use Stephenjude\FilamentDebugger\DebuggerPlugin;
 use Tobiasla78\FilamentSimplePages\FilamentSimplePagesPlugin;
+use TomatoPHP\FilamentIssues\FilamentIssuesPlugin;
 
 final class AdminPanelProvider extends PanelProvider
 {
@@ -64,6 +65,7 @@ final class AdminPanelProvider extends PanelProvider
                                 'www.metafilter.com',
                             ],
                         ),
+                    FilamentIssuesPlugin::make(),
                     FilamentJobsMonitorPlugin::make(),
                     FilamentShieldPlugin::make(),
                     FilamentSimplePagesPlugin::make()
