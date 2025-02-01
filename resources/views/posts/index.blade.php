@@ -7,6 +7,10 @@
         <h1>{{ $title }}</h1>
     @endif
 
+    @auth
+        <x-new-post-button />
+    @endauth
+
     @guest
         @include('posts.partials.show-not-logged-in', [
             'context' => 'index'
