@@ -19,6 +19,8 @@ trait NavigationTrait
     ): ?string {
         $item = '<li>';
 
+        $subdomain = $this->getSubdomainFromUrl();
+
         if (isset($itemData['route'])) {
             if ($showRssLink) {
                 $item .= $this->getRssLink($itemData);
