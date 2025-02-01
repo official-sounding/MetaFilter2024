@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\View;
 
 final class RecentActivityController extends BaseController
 {
-    public function index(): View
+    public function show(): View
     {
         return view('recent-activity.show', [
             'title' => trans('Recent Activity'),
