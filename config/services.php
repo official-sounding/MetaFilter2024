@@ -34,6 +34,13 @@ return [
         'username' => env('BLUESKY_USERNAME'),
         'password' => env('BLUESKY_PASSWORD'),
     ],
+    'github' => [
+        'repository' => env('GITHUB_REPOSITORY_NAME'),
+        'owner' => env('GITHUB_REPOSITORY_OWNER'),
+        'username' => env('GITHUB_USERNAME'),
+        'token' => env('GITHUB_TOKEN'),
+        'api_version' => env('GITHUB_API_VERSION'),
+    ],
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
