@@ -39,6 +39,9 @@ enum RouteNameEnum: string
     case BestOfHomeIndex = 'bestof.home.index';
     case BestOfPostShow = 'bestof.post.show';
 
+    case BugsIndex = 'bugs.index';
+    case BugsCreate = 'bugs.create';
+
     case ChatHomeIndex = 'chat.home.index';
 
     case CommentStore = 'comment.store';
@@ -87,8 +90,9 @@ enum RouteNameEnum: string
 
     case LanguageSwitcher = 'language';
 
-    case MailIndex = 'metafilter.mail.index';
-    case MailHomeIndex = 'mail.home.index';
+    case MailIndex = 'mefi.mail.index';
+    case MailCreate = 'mefi.mail.create';
+    case MailShow = 'mefi.mail.show';
 
     case MallHomeIndex = 'mall.home.index';
 
@@ -98,7 +102,7 @@ enum RouteNameEnum: string
     case MetaFilterPopularPostIndex = 'metafilter.post.popular.index';
     case MetaFilterPopularFavoritesIndex = 'metafilter.popular-favorites.index';
     case MetaFilterRandomPostShow = 'metafilter.random.show';
-    case MetaFilterRecentActivityShow = 'metafilter.recent-activity.show';
+    case RecentActivityShow = 'metafilter.recent-activity.show';
     case MetaFilterPostShow = 'metafilter.post.show';
     case MetaFilterPostCreate = 'metafilter.post.create';
     case MetaFilterPostStore = 'metafilter.post.store';
@@ -141,13 +145,13 @@ enum RouteNameEnum: string
 
     case PreferencesEdit = 'preferences.edit';
 
-    case ProfileIndex = 'members.index';
-    case ProfileShow = 'members.show';
-    case ProfileCreate = 'members.create';
-    case ProfileStore = 'members.store';
-    case ProfileEdit = 'members.edit';
-    case ProfileUpdate = 'members.update';
-    case ProfileDelete = 'members.delete';
+    case MemberIndex = 'members.index';
+    case MemberShow = 'members.show';
+    case MemberCreate = 'members.create';
+    case MemberStore = 'members.store';
+    case MemberEdit = 'members.edit';
+    case MemberUpdate = 'members.update';
+    case MemberDelete = 'members.delete';
 
     case ProjectsPopularPostIndex = 'projects.post.popular.index';
     case ProjectsPostIndex = 'projects.post.index';
