@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use App\Enums\RouteNameEnum;
 use App\Models\Subsite;
 
 trait SubsiteTrait
@@ -49,5 +50,29 @@ trait SubsiteTrait
         }
 
         return $subsite['subdomain'];
+    }
+
+    public function getPostButtonText(string $subdomain): string
+    {
+        return match ($subdomain) {
+            'ask' => trans('New Question'),
+            'irl' => trans('New Event'),
+            'projects' => trans('Add Project'),
+            default => trans('New Post'),
+        };
+    }
+
+    public function getNewPostRouteName(string $subdomain): string
+    {
+        if ($subdomain === 'exception') {
+            // Some subsites have more than one post route
+        }
+
+        return match ($subdomain) {
+            'ask' => RouteNameEnum::AskPostCreate->value,
+            'irl' => RouteNameEnum::IrlPostCreate->value,
+            'projects' => RouteNameEnum::ProjectsPostCreate->value,
+            default => RouteNameEnum::MetaFilterPostCreate->value,
+        };
     }
 }
