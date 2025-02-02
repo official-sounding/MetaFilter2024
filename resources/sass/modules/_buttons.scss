@@ -31,6 +31,11 @@ button .primary-button:hover,
     text-decoration: none;
 }
 
+main > .primary-button {
+    margin-bottom: 1rem;
+}
+
+.main-sidebar
 .global-navigation button.dropdown-toggle {
     padding: 0.625rem 1.25rem 0.625rem 0.625rem;
     border: none;
@@ -56,6 +61,10 @@ button .primary-button:hover,
 
 .global-navigation button.dropdown-toggle:hover::after {
     border-top-color: var(--yellow-green);
+}
+
+.help-fund-mefi .primary-button {
+    margin: 0 auto 0 auto;
 }
 
 .logout-button {

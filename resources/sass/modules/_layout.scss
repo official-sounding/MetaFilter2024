@@ -86,12 +86,20 @@ body {
     line-height: 1;
 }
 
+.main-sidebar .help-fund-mefi {
+    padding-top: 1rem;
+}
+
 .profile {
     gap: 3rem;
 }
 
 .profile section {
     width: 33%;
+}
+
+.search-and-contact {
+    max-width: 25%;
 }
 
 .site-banner {
