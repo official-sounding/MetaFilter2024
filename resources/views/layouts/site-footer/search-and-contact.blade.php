@@ -1,4 +1,4 @@
-<section>
+<section class="search-and-contact">
     <h3 class="sr-only">
         {{ trans('Search and Contact') }}
     </h3>
