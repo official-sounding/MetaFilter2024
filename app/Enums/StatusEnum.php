@@ -17,11 +17,4 @@ enum StatusEnum: string
     case ProfileUpdated = 'profile-updated';
     case Success = 'success';
     case VerificationLinkSent = 'verification-link-sent';
-
-    public function label(): string
-    {
-        return match ($this) {
-            self::Active => 'Active',
-        };
-    }
 }
