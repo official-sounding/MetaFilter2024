@@ -15,7 +15,7 @@ final class UserService
 
         $user->username = $dto->username;
         $user->email = $dto->email;
-        $user->password = $dto->password;
+        $user->password = bcrypt($dto->password);
         $user->name = $dto->name;
         $user->homepage_url = $dto->homepage_url;
 
@@ -23,4 +23,10 @@ final class UserService
 
         return $user;
     }
+
+    public function update(User $user, array $data): void
+    {
+        $user->update($data);
+    }
+
 }
