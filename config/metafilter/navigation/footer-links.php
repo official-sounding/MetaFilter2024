@@ -25,8 +25,4 @@ return [
         'name' => 'BIPOC Board',
         'route' => RouteNameEnum::MetaFilterPostIndex,
     ],
-    [
-        'name' => 'Steering Committee',
-        'route' => RouteNameEnum::MetaFilterPostIndex,
-    ],
 ];
