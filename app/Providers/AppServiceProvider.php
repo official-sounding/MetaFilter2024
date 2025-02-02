@@ -54,25 +54,26 @@ final class AppServiceProvider extends ServiceProvider
         view()->share([
             'appLocale' => app()->getLocale(),
             'contactMessageRoute' => RouteNameEnum::ContactMessageCreate,
+            'defaultColorScheme' => self::DEFAULT_COLOR_SCHEME,
             'forgotPasswordRoute' => RouteNameEnum::AuthForgotPasswordCreate,
             'fundingIndexRoute' => RouteNameEnum::MetaFilterFundingIndex,
+            'metaFilterPostIndexRoute' => RouteNameEnum::MetaFilterPostIndex->value,
             'loginCreateRoute' => RouteNameEnum::AuthLoginCreate,
             'logoutRoute' => RouteNameEnum::AuthLogout,
+            'logoutRoute111' => RouteNameEnum::MetaFilterPostShow,
             'preferencesEditRoute' => RouteNameEnum::PreferencesEdit,
             'memberEditRoute' => RouteNameEnum::MemberEdit,
             'memberShowRoute' => RouteNameEnum::MemberShow,
             'signupCreateRoute' => RouteNameEnum::SignupCreate,
-            'signupThanksRoute' => RouteNameEnum::SignupWizard,
+            'signupThanksRoute' => RouteNameEnum::SignupThanks,
             'signupWizardRoute' => RouteNameEnum::SignupWizard,
+            'subdomain' => $subdomain === 'www' ? 'metafilter' : $subdomain,
+            'subsite' => $subsite,
+            'subsiteHasTheme' => $subsite->has_theme ?? null,
+            'subsiteName' => $subsite->name ?? null,
+            'greenText' => $subsite->green_text ?? null,
+            'whiteText' => $subsite->white_text ?? null,
+            'tagline' => $subsite->tagline ?? null,
         ]);
-
-        view()->share('defaultColorScheme', self::DEFAULT_COLOR_SCHEME);
-        view()->share('subdomain', $subdomain === 'www' ? 'metafilter' : $subdomain);
-        view()->share('subsite', $subsite);
-        view()->share('subsiteHasTheme', $subsite->has_theme ?? null);
-        view()->share('subsiteName', $subsite->name ?? null);
-        view()->share('whiteText', $subsite->white_text ?? null);
-        view()->share('greenText', $subsite->green_text ?? null);
-        view()->share('tagline', $subsite->tagline ?? null);
     }
 }
