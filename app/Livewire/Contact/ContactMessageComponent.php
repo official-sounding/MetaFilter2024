@@ -13,10 +13,11 @@ final class ContactMessageComponent extends Component
 {
     public string $name = '';
     public string $email = '';
-    public string $subject = '';
     public string $message = '';
+    public string $subject = '';
     public string $status = '';
     public bool $copy_sender = false;
+    public bool $required = false;
     public bool $stored = false;
 
     protected function rules(): array
@@ -46,7 +47,7 @@ final class ContactMessageComponent extends Component
         $this->reset();
 
         if ($stored) {
-            $this->status = trans('Message stored successfully.');
+            $this->status = trans('Message sent successfully.');
         } else {
             $this->status = trans('Failed to send message.');
         }
