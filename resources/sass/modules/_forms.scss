@@ -72,6 +72,11 @@ label:disabled {
     cursor: default;
 }
 
+.buttons {
+    margin: 0 0 1rem 0;
+    padding: 0;
+}
+
 form {
     padding: 1.5rem;
     border-radius: 0.25rem;
@@ -162,6 +167,10 @@ form small,
 .form-group label {
     display: block;
     margin-bottom: 0;
+}
+
+form small.space {
+    margin-bottom: 1rem;
 }
 
 form small.form-note {
