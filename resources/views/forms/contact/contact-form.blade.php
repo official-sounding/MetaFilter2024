@@ -3,20 +3,24 @@
 
     <x-forms.input
         name="name"
-        label="{{ trans('Name') }}" />
+        label="{{ trans('Name') }}"
+        required="true" />
 
     <x-forms.input
         name="email"
         type="email"
-        label="{{ trans('Email Address') }}" />
+        label="{{ trans('Email Address') }}"
+        required="true" />
 
     <x-forms.input
         name="subject"
-        label="{{ trans('Subject') }}" />
+        label="{{ trans('Subject') }}"
+        required="true" />
 
     <x-forms.textarea
         name="message"
-        label="{{ trans('Message') }}" />
+        label="{{ trans('Message') }}"
+        required="true"  />
 
     <x-forms.button>
         {{ trans('Send') }}
