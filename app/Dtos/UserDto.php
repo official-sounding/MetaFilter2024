@@ -11,7 +11,7 @@ readonly class UserDto
         public string $password,
         public string $email,
         public ?string $name,
-        public ?bool $homepage_url,
+        public ?string $homepage_url,
         public string $state,
     ) {}
 }
