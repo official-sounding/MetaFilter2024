@@ -4,4 +4,8 @@ declare(strict_types=1);
 
 namespace App\Repositories;
 
-interface UserRepositoryInterface extends BaseRepositoryInterface {}
+use App\Models\User;
+
+interface UserRepositoryInterface extends BaseRepositoryInterface {
+    public function updateState(User $user, string $state);
+}

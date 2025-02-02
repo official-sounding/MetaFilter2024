@@ -12,4 +12,13 @@ final class UserRepository extends BaseRepository implements UserRepositoryInter
     {
         parent::__construct($model);
     }
+
+    public function updateState(User $user, string $state): void
+    {
+        $data = [
+            'state' => $state,
+        ];
+
+        $user->update($data);
+    }
 }
