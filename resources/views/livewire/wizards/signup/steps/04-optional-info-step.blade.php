@@ -7,7 +7,9 @@
             {{ trans('Optional Info') }}
         </legend>
 
-        <small>{!! trans('These will be shown on your public profile, but it&rsquo;s fine to skip this.') !!}</small>
+        <small class="space">
+            {!! trans('These will be shown on your public profile, but it&rsquo;s fine to skip this.') !!}
+        </small>
 
         <x-forms.input
             :label="'Name'"
