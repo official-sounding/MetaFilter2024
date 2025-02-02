@@ -5,5 +5,5 @@
 @section('contents')
     <h1>{{ $title }}</h1>
 
-    {!! $page->body !!}
+    {!! $page->content !!}
 @endsection
