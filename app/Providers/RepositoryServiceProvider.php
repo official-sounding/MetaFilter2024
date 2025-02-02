@@ -24,6 +24,8 @@ use App\Repositories\SimplePageRepository;
 use App\Repositories\SimplePageRepositoryInterface;
 use App\Repositories\PostRepository;
 use App\Repositories\PostRepositoryInterface;
+use App\Repositories\SnippetRepository;
+use App\Repositories\SnippetRepositoryInterface;
 use App\Repositories\SubsiteRepository;
 use App\Repositories\SubsiteRepositoryInterface;
 use App\Repositories\TagRepository;
@@ -46,6 +48,7 @@ final class RepositoryServiceProvider extends ServiceProvider
             FlagRepositoryInterface::class => FlagRepository::class,
             MeFiMailRepositoryInterface::class => MeFiMailRepository::class,
             SimplePageRepositoryInterface::class => SimplePageRepository::class,
+            SnippetRepositoryInterface::class => SnippetRepository::class,
             PostRepositoryInterface::class => PostRepository::class,
             SubsiteRepositoryInterface::class => SubsiteRepository::class,
             TagRepositoryInterface::class => TagRepository::class,

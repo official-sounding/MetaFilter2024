@@ -1,0 +1,31 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\View\Components;
+
+use App\Repositories\SnippetRepositoryInterface;
+use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
+
+final class SnippetComponent extends Component
+{
+    public string $slug;
+    public ?bool $smallText;
+
+    public function __construct(string $slug, bool $smallText = false, protected SnippetRepositoryInterface $snippetRepository)
+    {
+        $this->slug = $slug;
+        $this->smallText = $smallText;
+    }
+
+    public function render(): View
+    {
+        $snippet = $this->snippetRepository->getBySlug($this->slug);
+
+        return view('components.snippets.snippet-component', [
+            'snippet' => $snippet,
+            'smallText' => $this->smallText,
+        ]);
+    }
+}

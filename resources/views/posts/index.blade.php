@@ -3,6 +3,10 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
+    @if ($subdomain ==='fanfare')
+        <x-snippet-component slug="fanfare-spoilers-note" small-text=true />
+    @endif
+
     @if (isset($showTitle) && $showTitle === true)
         <h1>{{ $title }}</h1>
     @endif

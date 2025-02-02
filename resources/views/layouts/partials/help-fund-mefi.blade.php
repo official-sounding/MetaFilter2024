@@ -5,5 +5,5 @@
         {{ trans('Help fund MeFi!') }}
     </a>
 
-    {!! $snippets->whereStrict('slug', '=', 'help-fund-mefi') !!}
+    <x-snippet-component slug="help-fund-mefi" small-text=false />
 </section>
