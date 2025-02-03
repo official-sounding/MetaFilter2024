@@ -54,34 +54,4 @@ final class PostController extends BaseController
             'useWysiwyg' => true,
         ]);
     }
-
-    public function create(): View
-    {
-        return view('posts.create', [
-            'title' => $this->getNewPostText(),
-        ]);
-    }
-
-    public function store(StoreMetaFilterPostRequest $request): void
-    {
-        $post = $this->postService->store($request->validated());
-    }
-
-    public function edit(Post $post): View
-    {
-        return view('posts.edit', [
-            'title' => 'Edit Post',
-            'post' => compact($post),
-        ]);
-    }
-
-    public function update(UpdateMetaFilterPostRequest $request, Post $post): void
-    {
-        $updated = $this->postService->update($request->validated());
-    }
-
-    public function delete(Post $post): void
-    {
-        $deleted = $this->postService->delete($post);
-    }
 }
