@@ -1,4 +1,4 @@
-<form wire:submit.prevent="submit">
+<form wire:submit.prevent="submitTitleAndLink()">
     @include('forms.partials.validation-summary')
     @include('forms.partials.csrf-token')
 
@@ -6,24 +6,28 @@
         <x-forms.input
             name="title"
             type="text"
-            label="{{ trans('First, enter a title') }}" />
+            :required="true"
+            label="{{ trans('First, enter a title') }}"
+        />
     </fieldset>
 
-    <fieldset>
+    <fieldset class="optional">
         <legend>{{ trans('Optional') }}</legend>
 
         <x-forms.input
-            name="url"
+            name="link_url"
             type="url"
             :required="false"
-            label="{{ trans('URL') }}" />
+            label="{{ trans('URL') }}"
+        />
 
         <x-forms.input
             name="link_text"
             type="text"
             :required="false"
             note="{{ trans('These will be the first words of your post, and will be a clickable link to the URL') }}"
-            label="{{ trans('Link text') }}" />
+            label="{{ trans('Link text') }}"
+        />
     </fieldset>
 
     <fieldset class="level">

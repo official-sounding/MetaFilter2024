@@ -2,7 +2,7 @@
     @include('forms.partials.validation-summary')
     @include('forms.partials.csrf-token')
     <section>
-preview
+        preview
     </section>
 
     <fieldset class="level">
