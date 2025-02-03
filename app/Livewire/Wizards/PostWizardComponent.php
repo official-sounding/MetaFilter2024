@@ -8,7 +8,7 @@ use App\Dtos\PostDto;
 use App\Enums\NotificationMessageEnum;
 use App\Enums\NotificationTypeEnum;
 use App\Enums\PostStateEnum;
-use App\Http\Requests\Post\StoreBodyRequest;
+use App\Http\Requests\Post\StoreBodyAndMoreInsideRequest;
 use App\Http\Requests\Post\StoreMoreInsideRequest;
 use App\Http\Requests\Post\StoreTitleAndLinkRequest;
 use App\Models\Post;
@@ -23,6 +23,13 @@ final class PostWizardComponent extends BaseWizardComponent
     use PostTrait;
     use RedirectTrait;
     use SubsiteTrait;
+
+    public array $steps = [
+        'Title',
+        'Body/More Inside',
+        'Tags',
+        'Preview',
+    ];
 
     public string $title = '';
     public ?string $link_url;
@@ -58,7 +65,7 @@ final class PostWizardComponent extends BaseWizardComponent
     // Step 2
     public function submitBody(): void
     {
-        $rules = (new StoreBodyRequest())->rules();
+        $rules = (new StoreBodyAndMoreInsideRequest())->rules();
 
         $this->validate($rules);
 
