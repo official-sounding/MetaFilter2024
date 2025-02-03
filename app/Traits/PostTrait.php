@@ -41,9 +41,9 @@ trait PostTrait
         return 'New Post';
     }
 
-    public function getPostShowUrl(Post $post): string
+    public function getPostShowUrl(Post $post, bool $mine = false): string
     {
-        $routeName = $this->getShowRouteName($post);
+        $routeName = $mine === true ? $this->getMyShowRouteName($post) : $this->getShowRouteName($post);
 
         return route($routeName, [
             'post' => $post,
@@ -65,6 +65,22 @@ trait PostTrait
             SubsiteEnum::Music->value => RouteNameEnum::MusicPostShow->value,
             SubsiteEnum::Podcast->value => RouteNameEnum::PodcastPostShow->value,
             SubsiteEnum::Projects->value => RouteNameEnum::ProjectsPostShow->value,
+        };
+    }
+    private function getMyShowRouteName(Post $post): string
+    {
+        $subdomain = $post->subsite()->value('subdomain');
+
+        return match ($subdomain) {
+            SubsiteEnum::Ask->value => RouteNameEnum::AskMyPostShow->value,
+            SubsiteEnum::FanFare->value => RouteNameEnum::FanFareMyPostShow->value,
+            SubsiteEnum::Irl->value => RouteNameEnum::IrlMyPostShow->value,
+            SubsiteEnum::Jobs->value => RouteNameEnum::JobsMyPostShow->value,
+            SubsiteEnum::MetaFilter->value => RouteNameEnum::MetaFilterMyPostShow->value,
+            SubsiteEnum::MetaTalk->value => RouteNameEnum::MetaTalkMyPostShow->value,
+            SubsiteEnum::Music->value => RouteNameEnum::MusicMyPostShow->value,
+            SubsiteEnum::Podcast->value => RouteNameEnum::PodcastMyPostShow->value,
+            SubsiteEnum::Projects->value => RouteNameEnum::ProjectsMyPostShow->value,
         };
     }
 }
