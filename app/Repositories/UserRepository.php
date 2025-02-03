@@ -15,10 +15,8 @@ final class UserRepository extends BaseRepository implements UserRepositoryInter
 
     public function updateState(User $user, string $state): void
     {
-        $data = [
-            'state' => $state,
-        ];
+        $user->state = $state;
 
-        $user->update($data);
+        $user->save();
     }
 }
