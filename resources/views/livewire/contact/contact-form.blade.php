@@ -18,6 +18,7 @@
                     name="name"
                     type="text"
                     label="{{ trans('Name') }}"
+                    :required="true"
                     {{--
                         @auth
                             value="{{ auth()->user()->username }}"
@@ -29,6 +30,7 @@
                     name="email"
                     type="email"
                     label="{{ trans('Email address') }}"
+                    :required="true"
     {{--
                     @auth
                         value="{{ auth()->user()->email }}"
@@ -39,11 +41,15 @@
                 <x-forms.input
                     name="subject"
                     type="text"
-                    label="{{ trans('Subject') }}" />
+                    label="{{ trans('Subject') }}"
+                    :required="true"
+                />
 
                 <x-forms.textarea
                     name="message"
-                    label="{{ trans('Message') }}" />
+                    label="{{ trans('Message') }}"
+                    :required="true"
+                />
     {{--
                 @auth
                     <x-forms.checkbox
@@ -51,7 +57,7 @@
                         label="{{ trans('Send a copy to my verified email address (' . auth()->user()->email . ')' }}" />
                 @endauth
     --}}
-                <x-forms.button>
+                <x-forms.button type="submit">
                     {{ trans('Send') }}
                 </x-forms.button>
             </fieldset>

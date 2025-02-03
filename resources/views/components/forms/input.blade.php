@@ -1,3 +1,10 @@
+@props([
+    'autofocus',
+    'label',
+    'name',
+    'required',
+    'type',
+])
 
 <x-forms.field>
     <x-forms.label
