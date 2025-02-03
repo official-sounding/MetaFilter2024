@@ -24,7 +24,8 @@ use Spatie\Tags\HasTags;
  * @property int $id
  * @property string $title
  * @property string $slug
- * @property string $url
+ * @property string $link_text
+ * @property string $link_url
  * @property string $body
  * @property string $more_inside
  * @property int $legacy_id
@@ -50,7 +51,8 @@ final class Post extends BaseModel implements HasMedia
 
     protected $fillable = [
         'title',
-        'url',
+        'link_text',
+        'link_url',
         'body',
         'more_inside',
         'legacy_id',
@@ -64,6 +66,9 @@ final class Post extends BaseModel implements HasMedia
     protected array $searchable = [
         'title',
         'body',
+        'link_text',
+        'link_url',
+        'more_inside',
     ];
 
     public function sluggable(): array
