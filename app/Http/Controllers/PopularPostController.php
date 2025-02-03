@@ -25,10 +25,9 @@ final class PopularPostController extends BaseController
     public function index(): View
     {
         $datePosts = $this->postRepository->getPopularPosts();
-        $subdomain = $this->getSubdomainFromUrl();
 
         return view('posts.index', [
-            'title' => $this->getTitle($subdomain),
+            'title' => $this->getTitle(),
             'showTitle' => true,
             'datePosts' => $datePosts,
         ]);

@@ -6,8 +6,12 @@ namespace App\Traits;
 
 trait PopularPostTrait
 {
-    public function getTitle(string $subdomain): string
+    use SubsiteTrait;
+
+    public function getTitle(): string
     {
+        $subdomain = $this->getSubdomainFromUrl();
+
         return match ($subdomain) {
             'ask' => 'Popular Questions',
             default => 'Popular Posts',
