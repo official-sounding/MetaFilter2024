@@ -60,7 +60,6 @@ final class AppServiceProvider extends ServiceProvider
             'metaFilterPostIndexRoute' => RouteNameEnum::MetaFilterPostIndex->value,
             'loginCreateRoute' => RouteNameEnum::AuthLoginCreate,
             'logoutRoute' => RouteNameEnum::AuthLogout,
-            'logoutRoute111' => RouteNameEnum::MetaFilterPostShow,
             'preferencesEditRoute' => RouteNameEnum::PreferencesEdit,
             'memberEditRoute' => RouteNameEnum::MemberEdit,
             'memberShowRoute' => RouteNameEnum::MemberShow,
