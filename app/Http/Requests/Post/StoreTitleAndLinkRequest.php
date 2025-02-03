@@ -30,7 +30,7 @@ class StoreTitleAndLinkRequest extends BaseFormRequest
                 'string',
                 'max:255',
             ],
-            'url' => [
+            'link_url' => [
                 'nullable',
                 'string',
                 'max:255',
