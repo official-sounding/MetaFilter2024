@@ -3,16 +3,35 @@
 declare(strict_types=1);
 
 use App\Enums\RouteNameEnum;
+use App\Http\Controllers\MyPostController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
-Route::controller(PostController::class)->group(function () {
-    Route::get('', 'index')
-        ->name(RouteNameEnum::ProjectsPostIndex);
+Route::controller(PostController::class)
+    ->group(function () {
+        Route::get('', 'index')
+            ->name(RouteNameEnum::ProjectsPostIndex);
 
-    Route::get('create', 'create')
-        ->name(RouteNameEnum::ProjectsPostCreate);
+        Route::get('{post}/{slug}', 'show')
+            ->name(RouteNameEnum::ProjectsPostShow);
+});
+
+Route::controller(MyPostController::class)->prefix('my-posts')->group(function () {
+    Route::get('', 'index')
+        ->name(RouteNameEnum::ProjectsMyPostsIndex);
 
     Route::get('{post}/{slug}', 'show')
         ->name(RouteNameEnum::ProjectsPostShow);
+
+    Route::get('create', 'create')
+        ->name(RouteNameEnum::ProjectsMyPostsCreate);
+
+    Route::post('store', 'store')
+        ->name(RouteNameEnum::ProjectsMyPostsStore);
+
+    Route::get('edit', 'edit')
+        ->name(RouteNameEnum::ProjectsMyPostsEdit);
+
+    Route::post('update', 'update')
+        ->name(RouteNameEnum::ProjectsMyPostsUpdate);
 });

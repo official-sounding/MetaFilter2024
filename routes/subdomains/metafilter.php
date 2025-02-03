@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\FundingController;
 use App\Http\Controllers\MeFiMailController;
+use App\Http\Controllers\MyPostController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PopularPostController;
 use App\Http\Controllers\PostController;
@@ -37,13 +38,13 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(MeFiMailController::class)->group(function () {
         Route::get('mefi-mail', 'index')
-            ->name(RouteNameEnum::MailIndex);
+            ->name(RouteNameEnum::MeFiMailIndex);
 
         Route::get('mefi-mail/create', 'create')
-            ->name(RouteNameEnum::MailCreate);
+            ->name(RouteNameEnum::MeFiMailCreate);
 
         Route::get('mefi-mail/{mail}', 'show')
-            ->name(RouteNameEnum::MailShow);
+            ->name(RouteNameEnum::MeFiMailShow);
     });
 
     Route::get('members', [MemberController::class, 'edit'])
@@ -90,11 +91,28 @@ Route::controller(PostController::class)->group(function () {
 
     Route::get('page/{page}', 'index');
 
-    Route::get('create', 'create')
-        ->name(RouteNameEnum::MetaFilterPostCreate);
+    Route::get('{post}/{slug}', 'show')
+        ->name(RouteNameEnum::MetaFilterPostShow);
+});
+
+Route::controller(MyPostController::class)->prefix('my-posts')->group(function () {
+    Route::get('', 'index')
+        ->name(RouteNameEnum::MetaFilterMyPostsIndex);
 
     Route::get('{post}/{slug}', 'show')
         ->name(RouteNameEnum::MetaFilterPostShow);
+
+    Route::get('create', 'create')
+        ->name(RouteNameEnum::MetaFilterMyPostsCreate);
+
+    Route::post('store', 'store')
+        ->name(RouteNameEnum::MetaFilterMyPostsStore);
+
+    Route::get('edit', 'edit')
+        ->name(RouteNameEnum::MetaFilterMyPostsEdit);
+
+    Route::post('update', 'update')
+        ->name(RouteNameEnum::MetaFilterMyPostsUpdate);
 });
 
 Route::any('/{slug}', [PageController::class, 'show'])

@@ -9,54 +9,54 @@ return [
     SubsiteEnum::Ask->value => [
         [
             'text' => 'Post a Question',
-            'route' => RouteNameEnum::AskPostCreate,
+            'route' => RouteNameEnum::AskMyPostsCreate,
         ],
     ],
     SubsiteEnum::FanFare->value => [
         [
-            'route' => RouteNameEnum::FanFarePostCreate,
+            'route' => RouteNameEnum::FanFareMyPostsCreate,
         ],
     ],
     SubsiteEnum::Irl->value => [
         [
             'text' => 'Post an Event',
-            'route' => RouteNameEnum::IrlPostCreate,
+            'route' => RouteNameEnum::IrlMyPostsCreate,
         ],
     ],
     SubsiteEnum::Jobs->value => [
         [
             'text' => 'Post a Job',
-            'route' => RouteNameEnum::JobsPostJobCreate,
+            'route' => RouteNameEnum::JobsMyPostsJobCreate,
         ],
         [
             'text' => 'Post Your Availability',
-            'route' => RouteNameEnum::JobsPostAvailabilityCreate,
+            'route' => RouteNameEnum::JobsMyPostsAvailabilityCreate,
         ],
     ],
     SubsiteEnum::MetaFilter->value => [
         [
-            'route' => RouteNameEnum::MetaFilterPostCreate,
+            'route' => RouteNameEnum::MetaFilterMyPostsCreate,
         ],
     ],
     SubsiteEnum::MetaTalk->value => [
         [
-            'route' => RouteNameEnum::MetaTalkPostCreate,
+            'route' => RouteNameEnum::MetaTalkMyPostsCreate,
         ],
     ],
     SubsiteEnum::Music->value => [
         [
             'text' => 'Post a Song',
-            'route' => RouteNameEnum::MusicPostSongCreate,
+            'route' => RouteNameEnum::MusicMyPostsSongCreate,
         ],
         [
             'text' => 'Post to Music Talk',
-            'route' => RouteNameEnum::MusicPostTalkCreate,
+            'route' => RouteNameEnum::MusicMyPostsTalkCreate,
         ],
     ],
     SubsiteEnum::Projects->value => [
         [
             'text' => 'Post a Project',
-            'route' => RouteNameEnum::ProjectsPostCreate,
+            'route' => RouteNameEnum::ProjectsMyPostsCreate,
         ],
     ],
 ];

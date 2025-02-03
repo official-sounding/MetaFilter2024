@@ -17,134 +17,106 @@ enum RouteNameEnum: string
     case AuthResetPasswordCreate = 'auth.reset-password.create';
     case AuthResetPasswordStore = 'auth.reset-password.store';
     case AuthResetPassword = 'auth.password.update';
-    case SignupCreate = 'signup';
-    case SignupThanks = 'signup.thanks';
-    case SignupWizard = 'signup.wizard';
-    case AuthVerifyEmail = 'auth.verify-email';
 
     case AboutMetaFilter = 'about.metafilter';
 
+    // Ask
     case AskPopularFavoritesIndex = 'ask.popular-favorites.index';
     case AskPopularPostIndex = 'ask.post.popular.index';
     case AskRandomPostShow = 'ask.random.show';
 
     case AskPostIndex = 'ask.post.index';
     case AskPostShow = 'ask.post.show';
-    case AskPostCreate = 'ask.post.create';
-    case AskPostStore = 'ask.post.store';
-    case AskPostEdit = 'ask.post.edit';
-    case AskPostUpdate = 'ask.post.update';
-    case AskPostDelete = 'ask.post.delete';
 
+    // Ask MetaFilter My Posts
+    case AskMyPostsIndex = 'ask.my-posts.index';
+    case AskMyPostsShow = 'ask.my-posts.show';
+    case AskMyPostsCreate = 'ask.my-posts.create';
+    case AskMyPostsStore = 'ask.my-posts.store';
+    case AskMyPostsEdit = 'ask.my-posts.edit';
+    case AskMyPostsUpdate = 'ask.my-posts.update';
+    case AskMyPostsDelete = 'ask.my-posts.delete';
+
+
+    // Best Of
     case BestOfHomeIndex = 'bestof.home.index';
     case BestOfPostShow = 'bestof.post.show';
 
+    // Bugs
     case BugsIndex = 'bugs.index';
     case BugsCreate = 'bugs.create';
 
+    // Chat
     case ChatHomeIndex = 'chat.home.index';
 
-    case CommentStore = 'comment.store';
-    case CommentEdit = 'comment.edit';
-    case CommentUpdate = 'comment.update';
-    case CommentDelete = 'comment.delete';
-
+    // Contact Message
     case ContactMessageCreate = 'contact.create';
     case ContactMessageStore = 'contact.store';
 
+    // Contacts
     case ContactsIndex = 'contacts.index';
 
+    // FanFare
     case FanFarePopularFavoritesIndex = 'fanfare.popular-favorites.index';
     case FanfarePostIndex = 'fanfare.post.index';
     case FanFarePostShow = 'fanfare.post.show';
-    case FanFarePostCreate = 'fanfare.post.create';
-    case FanFarePostStore = 'fanfare.post.store';
-    case FanFarePostEdit = 'fanfare.post.edit';
-    case FanFarePostUpdate = 'fanfare.post.update';
-    case FanFarePostDelete = 'fanfare.post.delete';
 
+    // FanFare My Posts
+    case FanFareMyPostsIndex = 'fanfare.my-posts.index';
+    case FanFareMyPostsShow = 'fanfare.my-posts.show';
+    case FanFareMyPostsCreate = 'fanfare.my-posts.create';
+    case FanFareMyPostsStore = 'fanfare.my-posts.store';
+    case FanFareMyPostsEdit = 'fanfare.my-posts.edit';
+    case FanFareMyPostsUpdate = 'fanfare.my-posts.update';
+    case FanFareMyPostsDelete = 'fanfare.my-posts.delete';
+
+    // FAQ
     case FaqIndex = 'faq.index';
 
     case FavoritesIndex = 'favorites.index';
 
-    case MetaFilterFundingIndex = 'metafilter.funding.index';
-
+    // IRL
     case IrlPostIndex = 'irl.post.index';
     case IrlPostShow = 'irl.post.show';
-    case IrlPostCreate = 'irl.post.create';
-    case IrlPostStore = 'irl.post.store';
-    case IrlPostEdit = 'irl.post.edit';
-    case IrlPostUpdate = 'irl.post.update';
-    case IrlPostDelete = 'irl.post.delete';
 
+    // IRL My Posts
+    case IrlMyPostsIndex = 'irl.my-posts.index';
+    case IrlMyPostsShow = 'irl.my-posts.show';
+    case IrlMyPostsCreate = 'irl.my-posts.create';
+    case IrlMyPostsStore = 'irl.my-posts.store';
+    case IrlMyPostsEdit = 'irl.my-posts.edit';
+    case IrlMyPostsUpdate = 'irl.my-posts.update';
+    case IrlMyPostsDelete = 'irl.my-posts.delete';
+
+    // Jobs
     case JobsPostIndex = 'jobs.post.index';
     case JobsPostShow = 'jobs.post.show';
-    case JobsPostJobCreate = 'jobs.post-job.create';
-    case JobsPostAvailabilityCreate = 'jobs.post-availability.create';
-    case JobsPostStore = 'jobs.post.store';
-    case JobsPostEdit = 'jobs.post.edit';
-    case JobsPostUpdate = 'jobs.post.update';
-    case JobsPostDelete = 'jobs.post.delete';
 
+    // Jobs My Posts
+    case JobsMyPostsIndex = 'jobs.my-posts.index';
+    case JobsMyPostsShow = 'jobs.my-posts.show';
+    case JobsMyPostsJobCreate = 'jobs.my-post-job.create';
+    case JobsMyPostsAvailabilityCreate = 'jobs.my-post-availability.create';
+    case JobsMyPostsStore = 'jobs.my-posts.store';
+    case JobsMyPostsEdit = 'jobs.my-posts.edit';
+    case JobsMyPostsUpdate = 'jobs.my-posts.update';
+    case JobsMyPostsDelete = 'jobs.my-posts.delete';
+
+    // Labs
     case LabsHomeIndex = 'labs.home.index';
 
+    // Language Switcher
     case LanguageSwitcher = 'language';
 
-    case MailIndex = 'mefi.mail.index';
-    case MailCreate = 'mefi.mail.create';
-    case MailShow = 'mefi.mail.show';
-
+    // Mall
     case MallHomeIndex = 'mall.home.index';
 
-    case MetaFilterArchivesIndex = 'metafilter.archives.index';
-    case MetaFilterCommentIndex = 'metafilter.comment.index';
-    case MetaFilterPostIndex = 'metafilter.post.index';
-    case MetaFilterPopularPostIndex = 'metafilter.post.popular.index';
-    case MetaFilterPopularFavoritesIndex = 'metafilter.popular-favorites.index';
-    case MetaFilterRandomPostShow = 'metafilter.random.show';
-    case RecentActivityShow = 'metafilter.recent-activity.show';
-    case MetaFilterPostShow = 'metafilter.post.show';
-    case MetaFilterPostCreate = 'metafilter.post.create';
-    case MetaFilterPostStore = 'metafilter.post.store';
-    case MetaFilterPostEdit = 'metafilter.post.edit';
-    case MetaFilterPostUpdate = 'metafilter.post.update';
-    case MetaFilterPostDelete = 'metafilter.post.delete';
+    // MeFi Mail
+    case MeFiMailIndex = 'mefi.mail.index';
+    case MeFiMailCreate = 'mefi.mail.create';
+    case MeFiMailShow = 'mefi.mail.show';
 
-    case MetaTalkPopularPostIndex = 'metatalk.post.popular.index';
-    case MetaTalkPopularFavoritesIndex = 'metatalk.popular-favorites.index';
-    case MetaTalkPostIndex = 'metatalk.post.index';
-    case MetaTalkPostShow = 'metatalk.post.show';
-    case MetaTalkPostCreate = 'metatalk.post.create';
-    case MetaTalkPostStore = 'metatalk.post.store';
-    case MetaTalkPostEdit = 'metatalk.post.edit';
-    case MetaTalkPostUpdate = 'metatalk.post.update';
-    case MetaTalkPostDelete = 'metatalk.post.delete';
-
-    case MusicPopularPostIndex = 'music.post.popular.index';
-    case MusicPopularFavoritesIndex = 'music.popular-favorites.index';
-    case MusicPostIndex = 'music.post.index';
-    case MusicPostShow = 'music.post.show';
-    case MusicPostSongCreate = 'music.post-song.create';
-    case MusicPostTalkCreate = 'music.post-talk.create';
-    case MusicPostStore = 'music.post.store';
-    case MusicPostEdit = 'music.post.edit';
-    case MusicPostUpdate = 'music.post.update';
-    case MusicPostDelete = 'music.post.delete';
-
-    case MyMeFiComments = 'metafilter.my.comments';
-    case MyMeFiFavorites = 'metafilter.my.favorites';
-    case MyMeFiIndex = 'metafilter.my.index';
-
-    case PodcastPostIndex = 'podcast.post.index';
-    case PodcastPostShow = 'podcast.post.show';
-    case PodcastPostCreate = 'podcast.post.create';
-    case PodcastPostStore = 'podcast.post.store';
-    case PodcastPostEdit = 'podcast.post.edit';
-    case PodcastPostUpdate = 'podcast.post.update';
-    case PodcastPostDelete = 'podcast.post.delete';
-
-    case PreferencesEdit = 'preferences.edit';
-
+    // Members
     case MemberIndex = 'members.index';
     case MemberShow = 'members.show';
     case MemberCreate = 'members.create';
@@ -153,17 +125,100 @@ enum RouteNameEnum: string
     case MemberUpdate = 'members.update';
     case MemberDelete = 'members.delete';
 
+    // MetaFilter
+    case MetaFilterArchivesIndex = 'metafilter.archives.index';
+    // Funding
+    case MetaFilterFundingIndex = 'metafilter.funding.index';
+    case MetaFilterPopularPostIndex = 'metafilter.post.popular.index';
+    case MetaFilterPopularFavoritesIndex = 'metafilter.popular-favorites.index';
+    case MetaFilterPostIndex = 'metafilter.post.index';
+    case MetaFilterPostShow = 'metafilter.post.show';
+    case MetaFilterRandomPostShow = 'metafilter.random.show';
+    case RecentActivityShow = 'metafilter.recent-activity.show';
+
+    // MetaFilter My Posts
+    case MetaFilterMyPostsIndex = 'metafilter.my-posts.index';
+    case MetaFilterMyPostsShow = 'metafilter.my-posts.show';
+    case MetaFilterMyPostsCreate = 'metafilter.my-posts.create';
+    case MetaFilterMyPostsStore = 'metafilter.my-posts.store';
+    case MetaFilterMyPostsEdit = 'metafilter.my-posts.edit';
+    case MetaFilterMyPostsUpdate = 'metafilter.my-posts.update';
+    case MetaFilterMyPostsDelete = 'metafilter.my-posts.delete';
+
+    // Jobs
+    case MetaTalkPostIndex = 'metatalk.post.index';
+    case MetaTalkPostShow = 'metatalk.post.show';
+
+    // MetaTalk My Posts
+    case MetaTalkMyPostsIndex = 'metatalk.my-posts.index';
+    case MetaTalkMyPostsShow = 'metatalk.my-posts.show';
+    case MetaTalkMyPostsCreate = 'metatalk.my-posts.create';
+    case MetaTalkMyPostsStore = 'metatalk.my-posts.store';
+    case MetaTalkMyPostsEdit = 'metatalk.my-posts.edit';
+    case MetaTalkMyPostsUpdate = 'metatalk.my-posts.update';
+    case MetaTalkMyPostsDelete = 'metatalk.my-posts.delete';
+
+    // Music
+    case MusicPopularPostIndex = 'music.post.popular.index';
+    case MusicPopularFavoritesIndex = 'music.popular-favorites.index';
+    case MusicPostIndex = 'music.post.index';
+    case MusicPostShow = 'music.post.show';
+
+    // Music My Posts
+    case MusicMyPostsIndex = 'music.my-posts.index';
+    case MusicMyPostsShow = 'music.my-posts.show';
+    case MusicMyPostsSongCreate = 'music.my-post-song.create';
+    case MusicMyPostsTalkCreate = 'music.my-post-talk.create';
+    case MusicMyPostsStore = 'music.my-posts.store';
+    case MusicMyPostsEdit = 'music.my-posts.edit';
+    case MusicMyPostsUpdate = 'music.my-posts.update';
+    case MusicMyPostsDelete = 'music.my-posts.delete';
+
+    // My MeFi
+    case MyMeFiIndex = 'metafilter.my.index';
+    case MyMeFiComments = 'metafilter.my.comments';
+    case MyMeFiFavorites = 'metafilter.my.favorites';
+
+    // Podcast
+    case PodcastPostIndex = 'podcast.post.index';
+    case PodcastPostShow = 'podcast.post.show';
+
+    // Podcast My Posts
+    case PodcastMyPostsIndex = 'podcast.my-posts.index';
+    case PodcastMyPostsShow = 'podcast.my-posts.show';
+    case PodcastMyPostsCreate = 'podcast.my-posts.create';
+    case PodcastMyPostsStore = 'podcast.my-posts.store';
+    case PodcastMyPostsEdit = 'podcast.my-posts.edit';
+    case PodcastMyPostsUpdate = 'podcast.my-posts.update';
+    case PodcastMyPostsDelete = 'podcast.my-posts.delete';
+
+    // Preferences
+    case PreferencesEdit = 'preferences.edit';
+
+    // Projects
     case ProjectsPopularPostIndex = 'projects.post.popular.index';
     case ProjectsPostIndex = 'projects.post.index';
     case ProjectsPostShow = 'projects.post.show';
-    case ProjectsPostCreate = 'projects.post.create';
-    case ProjectsPostStore = 'projects.post.store';
-    case ProjectsPostEdit = 'projects.post.edit';
-    case ProjectsPostUpdate = 'projects.post.update';
-    case ProjectsPostDelete = 'projects.post.delete';
 
+    // Projects My Posts
+    case ProjectsMyPostsIndex = 'projects.my-posts.index';
+    case ProjectsMyPostsShow = 'projects.my-posts.show';
+    case ProjectsMyPostsCreate = 'projects.my-posts.create';
+    case ProjectsMyPostsStore = 'projects.my-posts.store';
+    case ProjectsMyPostsEdit = 'projects.my-posts.edit';
+    case ProjectsMyPostsUpdate = 'projects.my-posts.update';
+    case ProjectsMyPostsDelete = 'projects.my-posts.delete';
+
+    // Search
     case SearchCreate = 'search.create';
     case SearchShow = 'search.show';
 
+    // Signup
+    case SignupCreate = 'signup';
+    case SignupThanks = 'signup.thanks';
+    case SignupWizard = 'signup.wizard';
+    case AuthVerifyEmail = 'auth.verify-email';
+
+    // Tags
     case TagsIndex = 'metafilter.tags.index';
 }
