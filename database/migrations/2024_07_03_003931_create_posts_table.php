@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string('title');
             $table->string('slug')->unique();
             $table->integer('legacy_id')->nullable();
-            $table->text('url')->nullable();
+            $table->text('link_url')->nullable();
             $table->text('link_text')->nullable();
             $table->text('body');
             $table->text('more_inside')->nullable();
