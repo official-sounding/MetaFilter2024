@@ -122,7 +122,7 @@ return [
     'mail' => [
         [
             'name' => 'Mail Home',
-            'route' => RouteNameEnum::MailIndex,
+            'route' => RouteNameEnum::MeFiMailIndex,
         ],
     ],
     'metatalk' => [

@@ -18,7 +18,7 @@ return [
         ],
         [
             'name' => 'Mail',
-            'route' => RouteNameEnum::MailIndex->value,
+            'route' => RouteNameEnum::MeFiMailIndex->value,
             'icon' => 'envelope-fill',
         ],
         [
