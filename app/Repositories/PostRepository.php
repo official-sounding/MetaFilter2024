@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Repositories;
 
+use App\Enums\PostStateEnum;
 use App\Models\Post;
+use App\States\Post\PostState;
 use App\Traits\LoggingTrait;
 use App\Traits\SubsiteTrait;
 use Carbon\Carbon;
@@ -85,6 +87,21 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             });
     }
 
+    public function getDraftPosts(): Collection
+    {
+        $query = $this->model->newQuery()
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
+            ->where('subsites.subdomain', '=', $this->subdomain)
+            ->where('posts.user_id', '=', auth()->user()->id)
+            ->where('state', '!=', PostStateEnum::Draft->value)
+            ->select(self::COLUMNS);
+
+        $query->orderBy('posts.created_at', 'desc')->get();
+
+        return $query->get();
+    }
+
     public function getPopularPosts(): Collection
     {
         // TODO: rewrite to get popular posts
@@ -135,5 +152,12 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             ->orderBy('posts.created_at', 'desc')
             ->get()
             ->groupBy(fn($item) => $item->created_at->format('F j'));
+    }
+
+    public function updateState(Post $post, string $state): void
+    {
+        $post->state = $state;
+
+        $post->save();
     }
 }
