@@ -4,6 +4,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" id="color-scheme" content="light dark">
 
 <title>@include('layouts.partials.window-title') - {{ $subsiteName }}</title>
 
@@ -20,21 +21,22 @@
 @endif
 
 </head>
-<body class="{{ $subdomain }} {{ $defaultColorScheme }}">
+<body>
 
-@include('layouts.partials.set-theme')
 @include('layouts.partials.skip-navigation')
 
 <header class="site-header">
     @include('layouts.partials.global-header')
     @include('layouts.partials.site-banner')
     @include('layouts.navigation.global-navigation')
-    @include('layouts.navigation.primary-navigation')
 </header>
 
-@if (isset($showSecondaryNavigation) && $showSecondaryNavigation === true)
-    @include('layouts.navigation.secondary-navigation')
-@endif
+<header class="subsite-header">
+    @include('layouts.navigation.primary-navigation')
+    @if (isset($showSecondaryNavigation) && $showSecondaryNavigation === true)
+        @include('layouts.navigation.secondary-navigation')
+    @endif
+</header>
 
 <div class="container main-contents-wrapper">
     <!-- He's the DJ; I'm the wrapper -->
