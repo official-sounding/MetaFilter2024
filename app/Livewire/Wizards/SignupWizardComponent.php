@@ -11,11 +11,11 @@ use App\Http\Requests\Auth\StorePasswordRequest;
 use App\Http\Requests\Signup\StoreEmailAddressRequest;
 use App\Http\Requests\Signup\StoreOptionalInfoRequest;
 use App\Http\Requests\Signup\StoreUsernameRequest;
-use App\Jobs\SendVerificationEmail;
 use App\Models\User;
+use App\Repositories\UserRepositoryInterface;
 use App\Services\UserService;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 final class SignupWizardComponent extends BaseWizardComponent
 {
@@ -35,10 +35,14 @@ final class SignupWizardComponent extends BaseWizardComponent
     ];
 
     protected User $user;
+    protected UserRepositoryInterface $userRepository;
     protected UserService $userService;
 
-    public function boot(UserService $userService): void
+    public function boot(UserRepositoryInterface $userRepository, UserService $userService): void
     {
+        $this->user = new User();
+
+        $this->userRepository = $userRepository;
         $this->userService = $userService;
     }
 
@@ -95,29 +99,34 @@ final class SignupWizardComponent extends BaseWizardComponent
 
     public function payWithPayPal(): void
     {
-        $this->submitPayment();
+        Log::debug('Pay with PayPal');
+        $this->paymentSubmitted();
     }
 
     public function payWithStipe(): void
     {
-        $this->submitPayment();
+        Log::debug('Pay with Stripe');
+        $this->paymentSubmitted();
     }
 
-    public function submitPayment(): void
+    private function paymentSubmitted(): void
     {
+        Log::debug('Payment submitted');
+        // Assuming successful payment
+        $this->userRepository->updateState($this->user, UserStateEnum::Active->value);
+
         // TODO: Send verification email
-        Mail::to()->queue(new SendVerificationEmail());
+//        Mail::to()->queue(new SendVerificationEmail());
 
         $this->redirectRoute(RouteNameEnum::SignupThanks->value);
     }
-
 
     public function store(string $state): User
     {
         $dto = new UserDto(
             username: $this->username,
             password: $this->password,
-            email: $this->password_confirmation,
+            email: $this->email,
             name: $this->name ?? null,
             homepage_url: $this->homepage_url ?? null,
             state: $state,
