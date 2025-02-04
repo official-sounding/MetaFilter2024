@@ -21,7 +21,7 @@ final class MemberController extends BaseController
     public function index(): View
     {
         return view('members.index', [
-            'title' => 'Members',
+            'title' => trans('Members'),
             'users' => User::latest()->paginate(self::PER_PAGE),
         ]);
     }

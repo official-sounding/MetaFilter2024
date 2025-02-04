@@ -11,7 +11,7 @@ final class FavoritesController extends BaseController
     public function index(): View
     {
         return view('favorites.index', [
-            'title' => 'Favorites',
+            'title' => trans('Favorites'),
         ]);
     }
 }

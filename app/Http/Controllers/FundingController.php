@@ -11,7 +11,7 @@ final class FundingController extends BaseController
     public function index(): View
     {
         return view('funding.index', [
-            'title' => 'Funding',
+            'title' => trans('Funding'),
         ]);
     }
 }

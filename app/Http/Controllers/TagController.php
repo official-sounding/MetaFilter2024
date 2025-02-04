@@ -19,7 +19,7 @@ final class TagController extends BaseController
     public function index(): View
     {
         return view('tags.index', [
-            'title' => 'Tags',
+            'title' => trans('Tags'),
         ]);
     }
 

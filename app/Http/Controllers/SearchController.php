@@ -11,14 +11,14 @@ final class SearchController extends BaseController
     public function create(): View
     {
         return view('search.create', [
-            'title' => 'Search',
+            'title' => trans('Search'),
         ]);
     }
 
     public function show(): View
     {
         return view('search.show', [
-            'title' => 'Search Results',
+            'title' => trans('Search Results'),
         ]);
     }
 }

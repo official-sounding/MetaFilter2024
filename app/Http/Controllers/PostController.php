@@ -32,7 +32,7 @@ final class PostController extends BaseController
         $datePosts = $this->postRepository->getBySubdomain($page);
 
         return view('posts.index', [
-            'title' => 'Posts',
+            'title' => trans('Posts'),
             'datePosts' => $datePosts,
             'showSecondaryNavigation' => true,
         ]);

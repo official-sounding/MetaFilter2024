@@ -11,7 +11,7 @@ final class MallController extends BaseController
     public function index(): View
     {
         return view('mall.index', [
-            'title' => 'Mall',
+            'title' => trans('Mall'),
         ]);
     }
 }

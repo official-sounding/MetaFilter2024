@@ -11,7 +11,7 @@ class TestController extends Controller
     public function index(): View
     {
         return view('test.index', [
-            'title' => 'Test',
+            'title' => trans('Test'),
         ]);
     }
 }

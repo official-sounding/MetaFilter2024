@@ -50,7 +50,7 @@ final class MeFiMailController extends BaseController
     public function edit(MeFiMail $mail): View
     {
         return view('mail.edit', [
-            'title' => 'Bugs',
+            'title' => trans('Edit Email'),
             'mail' => $mail,
         ]);
     }

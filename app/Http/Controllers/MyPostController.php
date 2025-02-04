@@ -49,7 +49,7 @@ final class MyPostController extends BaseController
     public function edit(Post $post): View
     {
         return view('my-posts.edit', [
-            'title' => 'Edit Post',
+            'title' => trans('Edit Post'),
             'post' => compact($post),
         ]);
     }

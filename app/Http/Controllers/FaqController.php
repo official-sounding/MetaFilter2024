@@ -12,7 +12,7 @@ final class FaqController extends BaseController
     public function index(): View
     {
         return view('faqs.index', [
-            'title' => 'FAQs',
+            'title' => trans('FAQs'),
         ]);
     }
 

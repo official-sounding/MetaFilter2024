@@ -11,7 +11,7 @@ final class ContactsController extends BaseController
     public function create(): View
     {
         return view('contacts.index', [
-            'title' => 'Contacts',
+            'title' => trans('Contacts'),
         ]);
     }
 }

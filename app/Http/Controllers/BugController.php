@@ -12,14 +12,14 @@ final class BugController extends Controller
     public function index(): View
     {
         return view('bugs.index', [
-            'title' => 'Bugs',
+            'title' => trans('Bugs'),
         ]);
     }
 
     public function create(): View
     {
         return view('bugs.create', [
-            'title' => 'Report a Bug',
+            'title' => trans('Report a Bug'),
         ]);
     }
 
