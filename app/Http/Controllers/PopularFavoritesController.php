@@ -26,19 +26,16 @@ final class PopularFavoritesController extends BaseController
 
     public function index(): View
     {
-        $subsite = $this->getSubsiteMetadata();
-
         $urlSegment = request()->segment(1);
 
-        $subdomain = $subsite['subdomain'];
+        $subdomain = $this->getSubdomain();
 
-        $posts = $this->postService->index($subdomain, $urlSegment);
+        $posts = $this->postRepository->getPopularFavorites();
 
         return view('posts.index', [
-            'title' => 'Popular Favorites',
+            'title' => trans('Popular Favorites'),
             'posts' => $posts,
             'sidebarView' => 'sidebars.' . $subdomain,
-            'subsite' => $subsite,
         ]);
     }
 }
