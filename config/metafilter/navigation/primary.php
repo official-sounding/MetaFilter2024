@@ -8,155 +8,182 @@ use App\Enums\SubsiteEnum;
 return [
     SubsiteEnum::Ask->value => [
         [
-            'name' => 'Recent Posts',
+            'name' => 'Home',
             'route' => RouteNameEnum::AskPostIndex,
         ],
         [
-            'name' => 'Popular Questions',
-            'route' => RouteNameEnum::AskPopularPostIndex,
-        ],
-        [
-            'name' => 'Answered',
+            'name' => 'About',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'Unanswered',
+            'name' => 'Archives',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'My Favorites',
-            'route' => RouteNameEnum::MetaFilterPostIndex,
-        ],
-        [
-            'name' => 'My Ask',
+            'name' => 'Tags',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
     ],
     SubsiteEnum::FanFare->value => [
         [
-            'name' => 'Recent Posts',
+            'name' => 'Home',
             'route' => RouteNameEnum::FanfarePostIndex,
         ],
         [
-            'name' => 'Recent Comments',
+            'name' => 'About',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'FanFare Talk',
+            'name' => 'Archives',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'Clubs',
+            'name' => 'Tags',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
+    ],
+    'faq' => [
         [
-            'name' => 'Water cooler',
-            'route' => RouteNameEnum::MetaFilterPostIndex,
-        ],
-        [
-            'name' => 'My FanFare',
-            'route' => RouteNameEnum::MetaFilterPostIndex,
+            'name' => 'Home',
+            'route' => RouteNameEnum::FaqIndex,
         ],
     ],
     SubsiteEnum::Irl->value => [
         [
-            'name' => 'Upcoming Events',
+            'name' => 'Home',
             'route' => RouteNameEnum::IrlPostIndex,
         ],
         [
-            'name' => 'Past Events',
+            'name' => 'About',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'Future Events',
+            'name' => 'Archives',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'Proposed Events',
+            'name' => 'Tags',
+            'route' => RouteNameEnum::MetaFilterPostIndex,
+        ],
+    ],
+    SubsiteEnum::Jobs->value => [
+        [
+            'name' => 'Home',
+            'route' => RouteNameEnum::JobsPostIndex,
+        ],
+        [
+            'name' => 'About',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'Recently Posted',
+            'name' => 'Archives',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'My IRL',
+            'name' => 'Tags',
             'route' => RouteNameEnum::MetaFilterPostIndex,
+        ],
+    ],
+    SubsiteEnum::Labs->value => [
+        [
+            'name' => 'Home',
+            'route' => RouteNameEnum::LabsHomeIndex,
+        ],
+    ],
+    SubsiteEnum::Mail->value => [
+        [
+            'name' => 'Mail Home',
+            'route' => RouteNameEnum::MeFiMailIndex,
         ],
     ],
     SubsiteEnum::MetaFilter->value => [
         [
-            'name' => 'Recent Posts',
+            'name' => 'Home',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'Popular Posts',
+            'name' => 'FAQ',
+            'route' => RouteNameEnum::FaqIndex,
+        ],
+        [
+            'name' => 'About',
+//            'route' => RouteNameEnum::AboutMetaFilter,
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'Recent Comments',
-            'route' => RouteNameEnum::MetaFilterPostIndex,
+            'name' => 'Archives',
+            'route' => RouteNameEnum::MetaFilterArchivesIndex,
         ],
         [
-            'name' => 'My MeFi',
-            'route' => RouteNameEnum::MetaFilterPostIndex,
+            'name' => 'Tags',
+            'route' => RouteNameEnum::TagsIndex,
         ],
         [
-            'name' => 'My Favorites',
-            'route' => RouteNameEnum::MetaFilterPostIndex,
+            'name' => 'Popular',
+            'route' => RouteNameEnum::MetaFilterPopularPostsIndex,
         ],
         [
-            'name' => 'My Comments',
-            'route' => RouteNameEnum::MetaFilterPostIndex,
+            'name' => 'Random',
+            'route' => RouteNameEnum::MetaFilterRandomPostShow,
         ],
     ],
     SubsiteEnum::MetaTalk->value => [
         [
-            'name' => 'Recent Posts',
+            'name' => 'Home',
             'route' => RouteNameEnum::MetaTalkPostIndex,
         ],
         [
-            'name' => 'Popular Posts',
+            'name' => 'About',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'Recent Comments',
+            'name' => 'Archives',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'My Favorites',
+            'name' => 'Tags',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
     ],
     SubsiteEnum::Music->value => [
         [
-            'name' => 'Songs',
+            'name' => 'Home',
             'route' => RouteNameEnum::MusicPostIndex,
         ],
         [
-            'name' => 'Talk',
+            'name' => 'About',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'Charts',
+            'name' => 'Archives',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'Challenges',
+            'name' => 'Tags',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
     ],
     SubsiteEnum::Podcast->value => [
         [
-            'name' => 'Recent Posts',
+            'name' => 'Home',
             'route' => RouteNameEnum::PodcastPostIndex,
         ],
+    ],
+    SubsiteEnum::Projects->value => [
         [
-            'name' => 'Best of the Web',
+            'name' => 'Home',
+            'route' => RouteNameEnum::ProjectsPostIndex,
+        ],
+        [
+            'name' => 'About',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
         [
-            'name' => 'Out of the Blue',
+            'name' => 'Archives',
+            'route' => RouteNameEnum::MetaFilterPostIndex,
+        ],
+        [
+            'name' => 'Tags',
             'route' => RouteNameEnum::MetaFilterPostIndex,
         ],
     ],
