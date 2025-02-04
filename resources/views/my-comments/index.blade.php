@@ -3,7 +3,7 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    my mefi comments
+    my comments index
 @endsection
 
 @section('sidebar')

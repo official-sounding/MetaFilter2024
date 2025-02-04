@@ -3,7 +3,7 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-my mefi favorites
+my favorites index
 @endsection
 
 @section('sidebar')
