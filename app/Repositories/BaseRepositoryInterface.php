@@ -20,6 +20,8 @@ interface BaseRepositoryInterface
 
     public function getBySlug(string $slug);
 
+    public function getPopularPosts();
+
     public function first();
 
     public function firstOrCreate(array $attributes = [], array $values = []);

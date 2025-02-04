@@ -12,6 +12,8 @@ interface PostRepositoryInterface extends BaseRepositoryInterface
 
     public function getDraftPosts();
 
+    public function getPopularFavorites();
+
     public function getPopularPosts();
 
     public function getRandomPost();

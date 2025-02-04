@@ -160,4 +160,9 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
 
         $post->save();
     }
+
+    public function getPopularFavorites(): array
+    {
+        return [];
+    }
 }
