@@ -1,30 +1,32 @@
 /* jshint esversion: 6 */
 
-let htmlTheme = document.documentElement.dataset.theme;
-let themeToggle = document.getElementById('theme-toggle');
-
 function toggleTheme() {
-    let currentThemeText = document.getElementById('current-theme').textContent;
-    let theme = '';
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('toggleTheme loaded');
+        let colorScheme = document.getElementById('color-scheme');
+        let currentTheme = document.getElementById('current-theme').innerText;
 
-    themeToggle.addEventListener('change', (event) => {
+        const themeToggle = document.getElementById('theme-toggle');
+        const savedTheme = localStorage.getItem('color-scheme') || 'light';
 
-        if (event.target.checked) {
-            theme = 'dark';
-            console.log('theme is dark');
-        } else {
-            theme = 'light';
-            console.log('theme is light');
-        }
+        colorScheme.setAttribute('content', savedTheme);
+
+        themeToggle.checked = savedTheme === 'dark';
+
+        themeToggle.addEventListener('change', function () {
+            console.log('toggleTheme clicked');
+            const newTheme = themeToggle.checked ? 'dark' : 'light';
+            console.log('newTheme: ', newTheme);
+
+            currentTheme = newTheme;
+
+            colorScheme.setAttribute('content', savedTheme);
+
+            colorScheme = newTheme;
+
+            localStorage.setItem('color-scheme', newTheme);
+        });
     });
-
-    currentThemeText = theme;
-    applyTheme(theme);
-}
-
-function applyTheme(theme) {
-    console.log('applyTheme called: ' + theme);
-    htmlTheme = theme;
 }
 
 export {toggleTheme};

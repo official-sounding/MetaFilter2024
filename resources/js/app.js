@@ -3,12 +3,14 @@ import './bootstrap';
 import Precognition from 'laravel-precognition-alpine';
 
 import {toggleDropdowns} from './modules/toggleDropdowns.js';
+import {toggleTheme} from './modules/toggleTheme.js';
 
 window.Alpine = Alpine;
 
 Alpine.plugin(Precognition);
 
 toggleDropdowns();
+toggleTheme();
 
 document.addEventListener('click', event => {
     console.log('Click event listener');
