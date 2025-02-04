@@ -22,6 +22,10 @@ enum RouteNameEnum: string
 
     // Ask
     case AskPopularFavoritesIndex = 'ask.popular-favorites.index';
+    case AskPopularQuestionsIndex = 'ask.popular-questions.index';
+    case AskAnsweredQuestionsIndex = 'ask.answered-questions.index';
+    case AskUnansweredQuestionsIndex = 'ask.unanswered-questions.index';
+
     case AskPopularPostIndex = 'ask.post.popular.index';
     case AskRandomPostShow = 'ask.random.show';
 
@@ -60,6 +64,9 @@ enum RouteNameEnum: string
     case FanFarePopularFavoritesIndex = 'fanfare.popular-favorites.index';
     case FanfarePostIndex = 'fanfare.post.index';
     case FanFarePostShow = 'fanfare.post.show';
+    case FanFareClubsIndex = 'fanfare.clubs.index';
+    case FanFareTalkIndex = 'fanfare.talk.index';
+    case FanFareWaterCoolerIndex = 'fanfare.water-cooler.index';
 
     // FanFare My Posts
     case FanFareMyPostsIndex = 'fanfare.my-posts.index';
@@ -76,6 +83,9 @@ enum RouteNameEnum: string
     case FavoritesIndex = 'favorites.index';
 
     // IRL
+    case IrlPastEventsIndex = 'irl.past-events.index';
+    case IrlFutureEventsIndex = 'irl.future-events.index';
+    case IrlProposedEventsIndex = 'irl.proposed-events.index';
     case IrlPostIndex = 'irl.post.index';
     case IrlPostShow = 'irl.post.show';
 
@@ -129,12 +139,18 @@ enum RouteNameEnum: string
     case MetaFilterArchivesIndex = 'metafilter.archives.index';
     // Funding
     case MetaFilterFundingIndex = 'metafilter.funding.index';
-    case MetaFilterPopularPostIndex = 'metafilter.post.popular.index';
+    case MetaFilterPopularPostsIndex = 'metafilter.popular-posts.index';
     case MetaFilterPopularFavoritesIndex = 'metafilter.popular-favorites.index';
     case MetaFilterPostIndex = 'metafilter.post.index';
     case MetaFilterPostShow = 'metafilter.post.show';
     case MetaFilterRandomPostShow = 'metafilter.random.show';
+    case MetaFilterRecentCommentsIndex = 'metafilter.recent-comments.index';
     case RecentActivityShow = 'metafilter.recent-activity.show';
+
+    // My MeFi
+    case MetaFilterMyMeFiIndex = 'metafilter.my-mefi.index';
+    case MetaFilterMyFavoritesIndex = 'metafilter.my-favorites.index';
+    case MetaFilterMyCommentsIndex = 'metafilter.my-comments.index';
 
     // MetaFilter My Posts
     case MetaFilterMyPostsIndex = 'metafilter.my-posts.index';
@@ -148,6 +164,9 @@ enum RouteNameEnum: string
     // Jobs
     case MetaTalkPostIndex = 'metatalk.post.index';
     case MetaTalkPostShow = 'metatalk.post.show';
+    case MetaTalkMyFavoritesIndex = 'metatalk.my-favorites.index';
+    case MetaTalkPopularPostsIndex = 'metatalk.popular-posts.index';
+    case MetaTalkRecentCommentsIndex = 'metatalk.recent-comments.index';
 
     // MetaTalk My Posts
     case MetaTalkMyPostsIndex = 'metatalk.my-posts.index';
@@ -161,8 +180,11 @@ enum RouteNameEnum: string
     // Music
     case MusicPopularPostIndex = 'music.post.popular.index';
     case MusicPopularFavoritesIndex = 'music.popular-favorites.index';
+    case MusicChartsIndex = 'music.charts.index';
+    case MusicChallengesIndex = 'music.challenges.index';
     case MusicPostIndex = 'music.post.index';
     case MusicPostShow = 'music.post.show';
+    case MusicTalkIndex = 'music.talk.index';
 
     // Music My Posts
     case MusicMyPostsIndex = 'music.my-posts.index';
@@ -174,12 +196,9 @@ enum RouteNameEnum: string
     case MusicMyPostsUpdate = 'music.my-posts.update';
     case MusicMyPostsDelete = 'music.my-posts.delete';
 
-    // My MeFi
-    case MyMeFiIndex = 'metafilter.my.index';
-    case MyMeFiComments = 'metafilter.my.comments';
-    case MyMeFiFavorites = 'metafilter.my.favorites';
-
     // Podcast
+    case PodcastBestOfTheWebIndex = 'podcast.best-of-the-web.index';
+    case PodcastOutOfTheBlueIndex = 'podcast.out-of-the-blue.index';
     case PodcastPostIndex = 'podcast.post.index';
     case PodcastPostShow = 'podcast.post.show';
 
