@@ -18,14 +18,14 @@ final class SecondaryNavigationViewComposer implements ViewComposerInterface
 
     public function __construct()
     {
-        $this->subdomain = $this->getSubdomainFromUrl();
+        $this->subdomain = $this->getSubdomain();
     }
 
     public function compose(View $view): void
     {
         $navigation = '';
 
-        $items = config("metafilter.navigation.secondary-navigation.$this->subdomain");
+        $items = config("metafilter.navigation.secondary.$this->subdomain");
 
         if ($items) {
             $navigation = '<ul class="secondary-navigation-menu">';

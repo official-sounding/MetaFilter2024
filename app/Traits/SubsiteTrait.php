@@ -11,7 +11,7 @@ trait SubsiteTrait
 {
     use UrlTrait;
 
-    public function getSubdomainFromUrl(): string
+    public function getSubdomain(): string
     {
         $currentUrl = url()->current();
 
@@ -24,7 +24,7 @@ trait SubsiteTrait
 
     public function getSubsiteFromUrl(): ?Subsite
     {
-        $subdomain = $this->getSubdomainFromUrl();
+        $subdomain = $this->getSubdomain();
 
         return $this->getSubsiteBySubdomain($subdomain);
     }
@@ -64,15 +64,16 @@ trait SubsiteTrait
 
     public function getNewPostRouteName(string $subdomain): string
     {
+        /*
         if ($subdomain === 'exception') {
             // Some subsites have more than one post route
         }
-
+        */
         return match ($subdomain) {
-            'ask' => RouteNameEnum::AskPostCreate->value,
-            'irl' => RouteNameEnum::IrlPostCreate->value,
-            'projects' => RouteNameEnum::ProjectsPostCreate->value,
-            default => RouteNameEnum::MetaFilterPostCreate->value,
+            'ask' => RouteNameEnum::AskMyPostsCreate->value,
+            'irl' => RouteNameEnum::IrlMyPostsCreate->value,
+            'projects' => RouteNameEnum::ProjectsMyPostsCreate->value,
+            default => RouteNameEnum::MetaFilterMyPostsCreate->value,
         };
     }
 }

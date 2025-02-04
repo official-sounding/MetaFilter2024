@@ -22,7 +22,7 @@ final class PrimaryNavigationViewComposer implements ViewComposerInterface
     {
         $navigation = '<ul class="primary-navigation-menu">';
 
-        $subdomain = $this->getSubdomainFromUrl();
+        $subdomain = $this->getSubdomain();
 
         $key = "metafilter.navigation.primary.$subdomain";
 

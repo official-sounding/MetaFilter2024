@@ -24,7 +24,7 @@ trait PostTrait
 
     public function getCanonicalUrl(Post $post): string
     {
-        $subdomain = $this->getSubdomainFromUrl();
+        $subdomain = $this->getSubdomain();
 
         if ($subdomain = 'www') {
             $subdomain = 'metafilter';

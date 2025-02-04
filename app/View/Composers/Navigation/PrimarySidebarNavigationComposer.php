@@ -20,7 +20,7 @@ final class PrimarySidebarNavigationComposer implements ViewComposerInterface
 
     public function __construct()
     {
-        $this->subdomain = $this->getSubdomainFromUrl();
+        $this->subdomain = $this->getSubdomain();
     }
 
     public function compose(View $view): void

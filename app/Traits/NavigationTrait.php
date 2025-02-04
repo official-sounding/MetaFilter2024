@@ -19,8 +19,6 @@ trait NavigationTrait
     ): ?string {
         $item = '<li>';
 
-        $subdomain = $this->getSubdomainFromUrl();
-
         if (isset($itemData['route'])) {
             if ($showRssLink) {
                 $item .= $this->getRssLink($itemData);
@@ -88,11 +86,12 @@ trait NavigationTrait
 
     public function getNewPostButton(): string
     {
-        // TODO: Add all subsites
+        $subdomain = $this->getSubdomain();
+
         $itemData = [
-            'route' => RouteNameEnum::MetaFilterPostCreate,
-            'icon' => 'plus',
-            'name' => 'New Post',
+            'route' => $this->getNewPostRouteName($subdomain),
+            'icon' => 'plus-square-fill',
+            'name' => $this->getPostButtonText($subdomain),
         ];
 
         return $this->getNavigationItem($itemData);

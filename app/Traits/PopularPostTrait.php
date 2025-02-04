@@ -10,11 +10,11 @@ trait PopularPostTrait
 
     public function getTitle(): string
     {
-        $subdomain = $this->getSubdomainFromUrl();
+        $subdomain = $this->getSubdomain();
 
         return match ($subdomain) {
-            'ask' => 'Popular Questions',
-            default => 'Popular Posts',
+            'ask' => trans('Popular Questions'),
+            default => trans('Popular Posts'),
         };
     }
 }

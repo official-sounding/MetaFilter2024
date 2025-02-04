@@ -41,11 +41,10 @@ final class AppServiceProvider extends ServiceProvider
             'users' => 'App\Models\User',
         ]);
 
-        $subdomain = $this->getSubdomainFromUrl();
+        $subdomain = $this->getSubdomain();
         $subsite = $this->getSubsiteBySubdomain($subdomain);
 
         session([
-            'subdomain' => $subdomain,
             'subsite' => $subsite,
             'subsiteHasTheme' => $subsite->has_theme ?? null,
             'subsiteName' => $subsite->name ?? null,

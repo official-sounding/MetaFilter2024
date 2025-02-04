@@ -25,7 +25,7 @@ class BaseRepository implements BaseRepositoryInterface
     {
         $this->model = $model;
         $this->singularEntity = Str::singular($model->getTable());
-        $this->subdomain = $this->getSubdomainFromUrl();
+        $this->subdomain = $this->getSubdomain();
     }
 
     public function getQuery(): Builder
@@ -68,6 +68,11 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->getQuery()->where('slug', '=', $slug)->firstOrFail();
     }
 
+    public function getDropdownValues(string $column, string $key = 'id'): array
+    {
+        return $this->getQuery()->pluck($column, $key)->toArray();
+    }
+
     public function first(): Model
     {
         return $this->getQuery()->first();
@@ -76,11 +81,6 @@ class BaseRepository implements BaseRepositoryInterface
     public function firstOrCreate(array $attributes = [], array $values = []): Builder|Model
     {
         return $this->getQuery()->firstOrCreate($attributes, $values);
-    }
-
-    public function getDropdownValues(string $column, string $key = 'id'): array
-    {
-        return $this->getQuery()->pluck($column, $key)->toArray();
     }
 
     public function paginate($limit = 20): LengthAwarePaginator
@@ -109,5 +109,10 @@ class BaseRepository implements BaseRepositoryInterface
     public function with($relation): Builder
     {
         return $this->getQuery()->with($relation);
+    }
+
+    public function getPopularPosts()
+    {
+        // TODO: Implement getPopularPosts() method.
     }
 }

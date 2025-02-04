@@ -19,7 +19,7 @@ final class CreatePostButtonComponent extends Component
 
     public function __construct()
     {
-        $this->subdomain = $this->getSubdomainFromUrl();
+        $this->subdomain = $this->getSubdomain();
 
         $this->links = config("metafilter.navigation.create-post-links.$this->subdomain");
     }
