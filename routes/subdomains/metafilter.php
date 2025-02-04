@@ -9,6 +9,9 @@ use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\FundingController;
 use App\Http\Controllers\MeFiMailController;
+use App\Http\Controllers\MyCommentsController;
+use App\Http\Controllers\MyFavoritesController;
+use App\Http\Controllers\MyMeFiController;
 use App\Http\Controllers\MyPostController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PopularPostController;
@@ -17,6 +20,7 @@ use App\Http\Controllers\PreferencesController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\RandomPostController;
 use App\Http\Controllers\RecentActivityController;
+use App\Http\Controllers\RecentCommentsController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
@@ -36,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get('preferences/{user}', [PreferencesController::class, 'edit'])
         ->name(RouteNameEnum::PreferencesEdit);
 
+
     Route::controller(MeFiMailController::class)->group(function () {
         Route::get('mefi-mail', 'index')
             ->name(RouteNameEnum::MeFiMailIndex);
@@ -47,14 +52,16 @@ Route::middleware('auth')->group(function () {
             ->name(RouteNameEnum::MeFiMailShow);
     });
 
-    Route::get('members', [MemberController::class, 'edit'])
-       ->name(RouteNameEnum::MemberEdit);
+    Route::controller(MemberController::class)->group(function () {
+        Route::get('members', [MemberController::class, 'edit'])
+            ->name(RouteNameEnum::MemberEdit);
 
-    Route::patch('members', [MemberController::class, 'update'])
-        ->name(RouteNameEnum::MemberUpdate);
+        Route::patch('members', [MemberController::class, 'update'])
+            ->name(RouteNameEnum::MemberUpdate);
 
-    Route::delete('members', [MemberController::class, 'delete'])
-        ->name(RouteNameEnum::MemberDelete);
+        Route::delete('members', [MemberController::class, 'delete'])
+            ->name(RouteNameEnum::MemberDelete);
+    });
 });
 
 Route::get('archives/{year?}/{month?}/{day?}', [ArchivesController::class, 'index'])
@@ -73,14 +80,17 @@ Route::get('members', [MemberController::class, 'index'])
 Route::get('members/{user:id}', [MemberController::class, 'show'])
     ->name(RouteNameEnum::MemberShow);
 
-Route::get('popular', [PopularPostController::class, 'index'])
-    ->name(RouteNameEnum::MetaFilterPopularPostIndex);
+Route::get('popular-posts', [PopularPostController::class, 'index'])
+    ->name(RouteNameEnum::MetaFilterPopularPostsIndex);
 
 Route::get('random', [RandomPostController::class, 'show'])
     ->name(RouteNameEnum::MetaFilterRandomPostShow);
 
 Route::get('recent-activity', [RecentActivityController::class, 'show'])
     ->name(RouteNameEnum::RecentActivityShow);
+
+Route::get('recent-comments', [RecentCommentsController::class, 'index'])
+    ->name(RouteNameEnum::MetaFilterRecentCommentsIndex);
 
 Route::get('tags', [TagController::class, 'index'])
     ->name(RouteNameEnum::TagsIndex);
@@ -94,6 +104,15 @@ Route::controller(PostController::class)->group(function () {
     Route::get('{post}/{slug}', 'show')
         ->name(RouteNameEnum::MetaFilterPostShow);
 });
+
+Route::get('my-comments', [MyCommentsController::class, 'index'])
+    ->name(RouteNameEnum::MetaFilterMyCommentsIndex);
+
+Route::get('my-favorites', [MyFavoritesController::class, 'index'])
+    ->name(RouteNameEnum::MetaFilterMyFavoritesIndex);
+
+Route::get('my-mefi', [MyMeFiController::class, 'index'])
+    ->name(RouteNameEnum::MetaFilterMyMeFiIndex);
 
 Route::controller(MyPostController::class)->prefix('my-posts')->group(function () {
     Route::get('', 'index')

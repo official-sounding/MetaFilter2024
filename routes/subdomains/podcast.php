@@ -4,8 +4,16 @@ declare(strict_types=1);
 
 use App\Enums\RouteNameEnum;
 use App\Http\Controllers\MyPostController;
+use App\Http\Controllers\Podcast\BestOfTheWebController;
+use App\Http\Controllers\Podcast\OutOfTheBlueController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('best-of-the-web', [BestOfTheWebController::class, 'index'])
+    ->name(RouteNameEnum::PodcastBestOfTheWebIndex);
+
+Route::get('out-of-the-blue', [OutOfTheBlueController::class, 'index'])
+    ->name(RouteNameEnum::PodcastOutOfTheBlueIndex);
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
