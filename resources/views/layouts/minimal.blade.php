@@ -10,9 +10,7 @@
 @include('layouts.partials.styles')
 
 </head>
-<body class="minimal {{ $subdomain }} {{ $defaultColorScheme }}">
-
-@include('layouts.partials.set-theme')
+<body class="minimal">
 
 <header class="site-header">
     <div class="container">
