@@ -13,6 +13,7 @@ use Cog\Laravel\Ban\Traits\Bannable;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasName;
 use Filament\Panel;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -34,6 +35,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $password
  * @property string $state
  *
+ * @mixin Builder
  */
 final class User extends Authenticatable implements
     BannableInterface,
