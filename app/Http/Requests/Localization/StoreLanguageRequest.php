@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace App\Http\Requests\Localization;
 
 use App\Http\Requests\BaseFormRequest;
+use App\Traits\FormRequestTrait;
 
 final class StoreLanguageRequest extends BaseFormRequest
 {
+    use FormRequestTrait;
+
     public function authorize(): bool
     {
         return true;

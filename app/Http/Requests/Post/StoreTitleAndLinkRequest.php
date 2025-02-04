@@ -7,7 +7,7 @@ namespace App\Http\Requests\Post;
 use App\Http\Requests\BaseFormRequest;
 use App\Traits\FormRequestTrait;
 
-class StoreTitleAndLinkRequest extends BaseFormRequest
+final class StoreTitleAndLinkRequest extends BaseFormRequest
 {
     use FormRequestTrait;
 

@@ -4,6 +4,21 @@ declare(strict_types=1);
 
 namespace App\Http\Requests;
 
-final class StoreBugReportRequest {
+use App\Traits\FormRequestTrait;
 
+final class StoreBugReportRequest extends BaseFormRequest
+{
+    use FormRequestTrait;
+
+    public function authorize(): bool
+    {
+        return false;
+    }
+
+    public function rules(): array
+    {
+        return [
+            //
+        ];
+    }
 }

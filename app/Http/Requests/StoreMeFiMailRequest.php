@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\ValidationRule;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Traits\FormRequestTrait;
 
-final class StoreMeFiMailRequest extends FormRequest
+final class StoreMeFiMailRequest extends BaseFormRequest
 {
+    use FormRequestTrait;
+
     public function authorize(): bool
     {
         return false;

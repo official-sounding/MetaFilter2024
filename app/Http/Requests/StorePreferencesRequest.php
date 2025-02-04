@@ -6,7 +6,7 @@ namespace App\Http\Requests;
 
 use App\Traits\FormRequestTrait;
 
-final class UpdateMeFiMailRequest extends BaseFormRequest
+final class StorePreferencesRequest extends BaseFormRequest
 {
     use FormRequestTrait;
 

@@ -1,7 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Requests;
 
-class UpdateMailRequest {
+use App\Traits\FormRequestTrait;
 
+final class UpdateMailRequest extends BaseFormRequest
+{
+    use FormRequestTrait;
+
+    public function authorize(): bool
+    {
+        return false;
+    }
+
+    public function rules(): array
+    {
+        return [
+            //
+        ];
+    }
 }

@@ -7,7 +7,7 @@ namespace App\Http\Requests\Post;
 use App\Http\Requests\BaseFormRequest;
 use App\Traits\FormRequestTrait;
 
-class StoreMoreInsideRequest extends BaseFormRequest
+final class StoreMoreInsideRequest extends BaseFormRequest
 {
     use FormRequestTrait;
 
