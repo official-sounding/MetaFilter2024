@@ -10,8 +10,8 @@ final class MyFavoritesController extends BaseController
 {
     public function index(): View
     {
-        return view('my-mefi.comments', [
-            'title' => 'My MeFi Favorites',
+        return view('my-favorites.index', [
+            'title' => trans('My Favorites'),
         ]);
     }
 }

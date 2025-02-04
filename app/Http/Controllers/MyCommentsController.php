@@ -10,8 +10,8 @@ final class MyCommentsController extends BaseController
 {
     public function index(): View
     {
-        return view('my-mefi.comments', [
-            'title' => trans('My MeFi Comments'),
+        return view('my-comments.index', [
+            'title' => trans('My Comments'),
         ]);
     }
 }
