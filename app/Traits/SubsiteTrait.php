@@ -64,14 +64,14 @@ trait SubsiteTrait
 
     public function getNewPostRouteName(string $subdomain): string
     {
-        /*
-        if ($subdomain === 'exception') {
-            // Some subsites have more than one post route
-        }
-        */
         return match ($subdomain) {
             'ask' => RouteNameEnum::AskMyPostsCreate->value,
+            'fanfare' => RouteNameEnum::FanFareMyPostsCreate->value,
             'irl' => RouteNameEnum::IrlMyPostsCreate->value,
+            'jobs' => RouteNameEnum::JobsMyPostsJobCreate->value,
+            'metatalk' => RouteNameEnum::MetaTalkMyPostsCreate->value,
+            'music' => RouteNameEnum::MusicMyPostsCreate->value,
+            'podcast' => RouteNameEnum::PodcastMyPostsCreate->value,
             'projects' => RouteNameEnum::ProjectsMyPostsCreate->value,
             default => RouteNameEnum::MetaFilterMyPostsCreate->value,
         };
