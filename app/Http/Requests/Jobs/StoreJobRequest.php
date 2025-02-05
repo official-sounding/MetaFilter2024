@@ -2,16 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Jobs;
 
-use Illuminate\Contracts\Validation\ValidationRule;
+use App\Traits\FormRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 final class StoreJobRequest extends FormRequest
 {
+    use FormRequestTrait;
+
     public function authorize(): bool
     {
-        return false;
+        return $this->loggedIn();
     }
 
     public function rules(): array

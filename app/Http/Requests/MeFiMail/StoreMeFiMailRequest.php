@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\MeFiMail;
 
+use App\Http\Requests\BaseFormRequest;
 use App\Traits\FormRequestTrait;
 
 final class StoreMeFiMailRequest extends BaseFormRequest
@@ -12,7 +13,7 @@ final class StoreMeFiMailRequest extends BaseFormRequest
 
     public function authorize(): bool
     {
-        return false;
+        return $this->loggedIn();
     }
 
     public function rules(): array

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreMailRequest;
-use App\Http\Requests\UpdateMailRequest;
+use App\Http\Requests\Mail\StoreMailRequest;
+use App\Http\Requests\Mail\UpdateMailRequest;
 use App\Models\MeFiMail;
 use App\Services\MeFiMailService;
 use Illuminate\Contracts\View\View;

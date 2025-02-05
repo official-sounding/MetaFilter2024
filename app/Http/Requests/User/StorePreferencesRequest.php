@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\User;
 
+use App\Http\Requests\BaseFormRequest;
 use App\Traits\FormRequestTrait;
 
 final class StorePreferencesRequest extends BaseFormRequest
@@ -12,7 +13,7 @@ final class StorePreferencesRequest extends BaseFormRequest
 
     public function authorize(): bool
     {
-        return false;
+        return $this->loggedIn();
     }
 
     public function rules(): array

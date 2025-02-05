@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreBugReportRequest;
+use App\Http\Requests\Bugs\StoreBugReportRequest;
 use Illuminate\Contracts\View\View;
 
 final class BugController extends Controller
