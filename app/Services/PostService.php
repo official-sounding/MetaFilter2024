@@ -7,9 +7,9 @@ namespace App\Services;
 use App\Dtos\PostDto;
 use App\Models\Post;
 
-final class PostService
+final readonly class PostService
 {
-    public function __construct(private readonly PurifierService $purifierService) {}
+    public function __construct(private PurifierService $purifierService) {}
 
     public function store(PostDto $dto): Post
     {
