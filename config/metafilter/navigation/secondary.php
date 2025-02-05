@@ -38,7 +38,7 @@ return [
             'route' => RouteNameEnum::FanFareClubsIndex,
         ],
         [
-            'name' => 'Water cooler',
+            'name' => 'Water Cooler',
             'route' => RouteNameEnum::FanFareWaterCoolerIndex,
         ],
     ],
