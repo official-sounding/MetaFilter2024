@@ -64,7 +64,8 @@ form a,
     padding: 0.25rem;
 }
 
-.primary-navigation-menu a {
+.primary-navigation-menu a,
+.secondary-navigation-menu a {
     display: block;
     padding: 0.5rem;
 }
@@ -88,11 +89,6 @@ button:focus,
 .utility-navigation a:focus {
     outline: max(1px, 0.1em) dashed currentColor;
     outline-offset: -0.25em;
-}
-
-.comment-footer a,
-.post-footer a {
-    font-weight: bold;
 }
 
 .site-footer a {

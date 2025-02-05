@@ -5,6 +5,11 @@ body {
     background-color: light-dark(var(--white), var(--base-color));
 }
 
+.main-contents p.snippet {
+    color: var(--lighter-base-color);
+    background-color: inherit;
+}
+
 .theme-toggle,
 .theme-toggle::after {
     background-color: var(--lighter-base-color);
@@ -230,6 +235,21 @@ textarea:focus {
     background-color: light-dark(var(--white), var(--base-color));
 }
 
+//noinspection CssInvalidFunction
+.secondary-navigation,
+.secondary-navigation-menu a:link,
+.secondary-navigation a:visited {
+    color: light-dark(var(--base-color), var(--yellow-green));
+    background-color: light-dark(var(--white), var(--dark-base-color));
+}
+
+//noinspection CssInvalidFunction
+.secondary-navigation-menu a:active,
+.secondary-navigation-menu a:hover {
+    color: light-dark(var(--base-color), var(--dark-base-color));
+    background-color: light-dark(var(--white), var(--white));
+}
+
 .tagline {
     color: var(--lighter-base-color);
     background-color: inherit;
@@ -247,4 +267,16 @@ textarea:focus {
 .years-ago a:hover {
     color: light-dark(var(--white), var(--base-color));
     background-color: light-dark(var(--base-color), var(--white));
+}
+
+body.subsite-metatalk.dark-mode nav.tertiary li.current a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin-left: -8px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #323232;
+    margin-bottom: -8px;
 }
