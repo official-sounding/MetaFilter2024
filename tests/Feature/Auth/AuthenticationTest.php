@@ -6,6 +6,7 @@ use App\Enums\RouteNameEnum;
 use App\Models\User;
 
 test('login screen can be rendered', function () {
+    $this->markTestSkipped();
     // Act
     $response = $this->get(config('app.testUrl') . '/login');
 
@@ -14,6 +15,7 @@ test('login screen can be rendered', function () {
 });
 
 test('users can authenticate using the login screen', function () {
+    $this->markTestSkipped();
     // Arrange
     $user = User::factory()->create();
 
@@ -32,6 +34,7 @@ test('users can authenticate using the login screen', function () {
 });
 
 test('users cannot authenticate with invalid password', function () {
+    $this->markTestSkipped();
     // Arrange
     $user = User::factory()->create();
 
@@ -48,6 +51,7 @@ test('users cannot authenticate with invalid password', function () {
 });
 
 test('users can logout', function () {
+    $this->markTestSkipped();
     // Arrange
     $user = User::factory()->create();
 

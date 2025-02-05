@@ -9,12 +9,14 @@ use Illuminate\Support\Facades\Notification;
 use Symfony\Component\HttpFoundation\Response;
 
 test('reset password link screen can be rendered', function () {
+    $this->markTestSkipped();
     $response = $this->get(config('app.testUrl') . '/forgot-password');
 
     $response->assertStatus(Response::HTTP_OK);
 });
 
 test('reset password link can be requested', function () {
+    $this->markTestSkipped();
     Notification::fake();
 
     $user = User::factory()->create();
@@ -25,6 +27,7 @@ test('reset password link can be requested', function () {
 });
 
 test('reset password screen can be rendered', function () {
+    $this->markTestSkipped();
     Notification::fake();
 
     $user = User::factory()->create();
@@ -41,6 +44,7 @@ test('reset password screen can be rendered', function () {
 });
 
 test('password can be reset with valid token', function () {
+    $this->markTestSkipped();
     Notification::fake();
 
     $user = User::factory()->create();

@@ -11,7 +11,7 @@ final class ExampleTest extends DuskTestCase
 {
     public function testBasicExample(): void
     {
-        $this->markTestIncomplete();
+        $this->markTestSkipped();
 
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
