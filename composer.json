@@ -79,7 +79,8 @@
         "nunomaduro/collision": "^8.0",
         "pestphp/pest": "^3.0",
         "pestphp/pest-plugin-laravel": "^3.0",
-        "spatie/laravel-error-solutions": "^1.0"
+        "spatie/laravel-error-solutions": "^1.0",
+        "spatie/pest-plugin-route-testing": "^1.1"
     },
     "autoload": {
         "psr-4": {
