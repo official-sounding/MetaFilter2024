@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Repositories\BannerLinkRepository;
+use App\Repositories\BannerLinkRepositoryInterface;
 use App\Repositories\CategoryRepository;
 use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\CommentRepository;
@@ -39,6 +41,7 @@ final class RepositoryServiceProvider extends ServiceProvider
     public function register(): void
     {
         $repositories = [
+            BannerLinkRepositoryInterface::class => BannerLinkRepository::class,
             CategoryRepositoryInterface::class => CategoryRepository::class,
             CommentRepositoryInterface::class => CommentRepository::class,
             ContactMessageRepositoryInterface::class => ContactMessageRepository::class,
