@@ -16,7 +16,7 @@ Route::middleware('auth')->group(function () {
             ->name(RouteNameEnum::FanFareMyPostsIndex);
 
         Route::get('{post}/{slug}', 'show')
-            ->name(RouteNameEnum::FanFarePostShow);
+            ->name(RouteNameEnum::FanFareMyPostsShow);
 
         Route::get('create', 'create')
             ->name(RouteNameEnum::FanFareMyPostsCreate);

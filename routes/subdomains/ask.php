@@ -16,7 +16,7 @@ Route::middleware('auth')->group(function () {
             ->name(RouteNameEnum::AskMyPostsIndex);
 
         Route::get('{post}/{slug}', 'show')
-            ->name(RouteNameEnum::AskPostShow);
+            ->name(RouteNameEnum::AskMyPostsShow);
 
         Route::get('create', 'create')
             ->name(RouteNameEnum::AskMyPostsCreate);

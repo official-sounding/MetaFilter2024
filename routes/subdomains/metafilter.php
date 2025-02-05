@@ -66,7 +66,7 @@ Route::middleware('auth')->group(function () {
             ->name(RouteNameEnum::MetaFilterMyPostsIndex);
 
         Route::get('{post}/{slug}', 'show')
-            ->name(RouteNameEnum::MetaFilterPostShow);
+            ->name(RouteNameEnum::MetaFilterMyPostsShow);
         Route::get('create', 'create')
             ->name(RouteNameEnum::MetaFilterMyPostsCreate);
         Route::post('store', 'store')

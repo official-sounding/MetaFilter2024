@@ -17,7 +17,7 @@ Route::middleware('auth')->group(function () {
                 ->name(RouteNameEnum::PodcastMyPostsIndex);
 
             Route::get('{post}/{slug}', 'show')
-                ->name(RouteNameEnum::PodcastPostShow);
+                ->name(RouteNameEnum::PodcastMyPostsShow);
 
             Route::get('create', 'create')
                 ->name(RouteNameEnum::PodcastMyPostsCreate);

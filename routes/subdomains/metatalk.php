@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
                 ->name(RouteNameEnum::MetaTalkMyPostsIndex);
 
             Route::get('{post}/{slug}', 'show')
-                ->name(RouteNameEnum::MetaTalkPostShow);
+                ->name(RouteNameEnum::MetaTalkMyPostsShow);
 
             Route::get('create', 'create')
                 ->name(RouteNameEnum::MetaTalkMyPostsCreate);

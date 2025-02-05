@@ -7,6 +7,28 @@ use App\Http\Controllers\MyPostController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
+Route::middleware('auth')->group(function () {
+    Route::controller(MyPostController::class)->prefix('my-posts')->group(function () {
+        Route::get('', 'index')
+            ->name(RouteNameEnum::ProjectsMyPostsIndex);
+
+        Route::get('{post}/{slug}', 'show')
+            ->name(RouteNameEnum::ProjectsMyPostsShow);
+
+        Route::get('create', 'create')
+            ->name(RouteNameEnum::ProjectsMyPostsCreate);
+
+        Route::post('store', 'store')
+            ->name(RouteNameEnum::ProjectsMyPostsStore);
+
+        Route::get('edit', 'edit')
+            ->name(RouteNameEnum::ProjectsMyPostsEdit);
+
+        Route::post('update', 'update')
+            ->name(RouteNameEnum::ProjectsMyPostsUpdate);
+    });
+});
+
 Route::controller(PostController::class)
     ->group(function () {
         Route::get('', 'index')
@@ -15,23 +37,3 @@ Route::controller(PostController::class)
         Route::get('{post}/{slug}', 'show')
             ->name(RouteNameEnum::ProjectsPostShow);
     });
-
-Route::controller(MyPostController::class)->prefix('my-posts')->group(function () {
-    Route::get('', 'index')
-        ->name(RouteNameEnum::ProjectsMyPostsIndex);
-
-    Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::ProjectsPostShow);
-
-    Route::get('create', 'create')
-        ->name(RouteNameEnum::ProjectsMyPostsCreate);
-
-    Route::post('store', 'store')
-        ->name(RouteNameEnum::ProjectsMyPostsStore);
-
-    Route::get('edit', 'edit')
-        ->name(RouteNameEnum::ProjectsMyPostsEdit);
-
-    Route::post('update', 'update')
-        ->name(RouteNameEnum::ProjectsMyPostsUpdate);
-});
