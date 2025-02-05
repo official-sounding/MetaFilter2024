@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 
-interface UserRepositoryInterface extends BaseRepositoryInterface {
+interface UserRepositoryInterface extends BaseRepositoryInterface
+{
     public function updateState(User $user, string $state);
 }

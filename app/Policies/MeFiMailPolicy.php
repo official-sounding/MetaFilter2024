@@ -6,7 +6,6 @@ namespace App\Policies;
 
 use App\Models\MeFiMail;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 final class MeFiMailPolicy
 {

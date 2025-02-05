@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\Dtos;
 
-final class MeFiMailDto {
+final class MeFiMailDto
+{
     public function __construct(
         public string $subject,
         public string $body,

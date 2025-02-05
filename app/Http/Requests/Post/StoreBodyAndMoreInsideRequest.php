@@ -23,10 +23,10 @@ final class StoreBodyAndMoreInsideRequest extends BaseFormRequest
                 'required',
                 'string',
             ],
-        'more_inside' => [
-            'nullable',
-            'string',
-        ],
+            'more_inside' => [
+                'nullable',
+                'string',
+            ],
         ];
     }
 }

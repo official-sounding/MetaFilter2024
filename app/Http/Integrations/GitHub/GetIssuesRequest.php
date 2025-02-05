@@ -29,7 +29,7 @@ final class GetIssuesRequest extends Request
             'owner' => $owner,
             'repo' => $repository,
             'headers' => [
-                'X-GitHub-Api-Version' => $apiVersion
+                'X-GitHub-Api-Version' => $apiVersion,
             ],
         ];
     }

@@ -18,13 +18,13 @@ final class CreateIssueRequest extends Request implements HasBody
     protected Method $method = Method::POST;
 
     private const array LABELS = [
-        'bug'
+        'bug',
     ];
 
     public function __construct(
         protected string $title,
         protected string $issueBody,
-    ){}
+    ) {}
 
     public function resolveEndpoint(): string
     {
@@ -44,7 +44,7 @@ final class CreateIssueRequest extends Request implements HasBody
             'body' => $this->issueBody,
             'labels' => self::LABELS,
             'headers' => [
-                'X-GitHub-Api-Version' => $apiVersion
+                'X-GitHub-Api-Version' => $apiVersion,
             ],
         ];
     }

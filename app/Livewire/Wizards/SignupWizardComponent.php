@@ -116,7 +116,7 @@ final class SignupWizardComponent extends BaseWizardComponent
         $this->userRepository->updateState($this->user, UserStateEnum::Active->value);
 
         // TODO: Send verification email
-//        Mail::to()->queue(new SendVerificationEmail());
+        //        Mail::to()->queue(new SendVerificationEmail());
 
         $this->redirectRoute(RouteNameEnum::SignupThanks->value);
     }

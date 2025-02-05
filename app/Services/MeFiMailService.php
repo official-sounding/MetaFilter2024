@@ -11,7 +11,8 @@ final class MeFiMailService
 {
     private readonly PurifierService $purifierService;
 
-    public function __construct(PurifierService $purifierService) {
+    public function __construct(PurifierService $purifierService)
+    {
         $this->purifierService = $purifierService;
     }
 

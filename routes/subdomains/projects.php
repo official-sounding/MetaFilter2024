@@ -14,7 +14,7 @@ Route::controller(PostController::class)
 
         Route::get('{post}/{slug}', 'show')
             ->name(RouteNameEnum::ProjectsPostShow);
-});
+    });
 
 Route::controller(MyPostController::class)->prefix('my-posts')->group(function () {
     Route::get('', 'index')

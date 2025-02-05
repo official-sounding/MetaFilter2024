@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
 
             Route::post('update', 'update')
                 ->name(RouteNameEnum::MetaTalkMyPostsUpdate);
-    });
+        });
 });
 
 Route::get('my-favorites', [MyFavoritesController::class, 'index'])

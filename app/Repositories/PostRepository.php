@@ -6,7 +6,6 @@ namespace App\Repositories;
 
 use App\Enums\PostStateEnum;
 use App\Models\Post;
-use App\States\Post\PostState;
 use App\Traits\LoggingTrait;
 use App\Traits\SubsiteTrait;
 use Carbon\Carbon;

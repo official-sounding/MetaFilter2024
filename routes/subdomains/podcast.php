@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 
             Route::post('update', 'update')
                 ->name(RouteNameEnum::PodcastMyPostsUpdate);
-    });
+        });
 });
 
 Route::get('best-of-the-web', [BestOfTheWebController::class, 'index'])

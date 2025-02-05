@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
 
             Route::post('update', 'update')
                 ->name(RouteNameEnum::MusicMyPostsUpdate);
-    });
+        });
 });
 
 Route::get('charts', [ChartsController::class, 'index'])
@@ -57,4 +57,3 @@ Route::controller(PostController::class)->group(function () {
     Route::get('{post}/{slug}', 'show')
         ->name(RouteNameEnum::MusicPostShow);
 });
-
