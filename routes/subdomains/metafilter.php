@@ -52,6 +52,33 @@ Route::middleware('auth')->group(function () {
             ->name(RouteNameEnum::MeFiMailShow);
     });
 
+    Route::get('my-comments', [MyCommentsController::class, 'index'])
+        ->name(RouteNameEnum::MetaFilterMyCommentsIndex);
+
+    Route::get('my-favorites', [MyFavoritesController::class, 'index'])
+        ->name(RouteNameEnum::MetaFilterMyFavoritesIndex);
+
+    Route::get('my-mefi', [MyMeFiController::class, 'index'])
+        ->name(RouteNameEnum::MetaFilterMyMeFiIndex);
+
+    Route::controller(MyPostController::class)->prefix('my-posts')->group(function () {
+        Route::get('', 'index')
+            ->name(RouteNameEnum::MetaFilterMyPostsIndex);
+
+        Route::get('{post}/{slug}', 'show')
+            ->name(RouteNameEnum::MetaFilterPostShow);
+        Route::get('create', 'create')
+            ->name(RouteNameEnum::MetaFilterMyPostsCreate);
+        Route::post('store', 'store')
+            ->name(RouteNameEnum::MetaFilterMyPostsStore);
+
+        Route::get('edit', 'edit')
+            ->name(RouteNameEnum::MetaFilterMyPostsEdit);
+
+        Route::post('update', 'update')
+            ->name(RouteNameEnum::MetaFilterMyPostsUpdate);
+    });
+
     Route::controller(MemberController::class)->group(function () {
         Route::get('members', [MemberController::class, 'edit'])
             ->name(RouteNameEnum::MemberEdit);
@@ -103,35 +130,6 @@ Route::controller(PostController::class)->group(function () {
 
     Route::get('{post}/{slug}', 'show')
         ->name(RouteNameEnum::MetaFilterPostShow);
-});
-
-Route::get('my-comments', [MyCommentsController::class, 'index'])
-    ->name(RouteNameEnum::MetaFilterMyCommentsIndex);
-
-Route::get('my-favorites', [MyFavoritesController::class, 'index'])
-    ->name(RouteNameEnum::MetaFilterMyFavoritesIndex);
-
-Route::get('my-mefi', [MyMeFiController::class, 'index'])
-    ->name(RouteNameEnum::MetaFilterMyMeFiIndex);
-
-Route::controller(MyPostController::class)->prefix('my-posts')->group(function () {
-    Route::get('', 'index')
-        ->name(RouteNameEnum::MetaFilterMyPostsIndex);
-
-    Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::MetaFilterPostShow);
-
-    Route::get('create', 'create')
-        ->name(RouteNameEnum::MetaFilterMyPostsCreate);
-
-    Route::post('store', 'store')
-        ->name(RouteNameEnum::MetaFilterMyPostsStore);
-
-    Route::get('edit', 'edit')
-        ->name(RouteNameEnum::MetaFilterMyPostsEdit);
-
-    Route::post('update', 'update')
-        ->name(RouteNameEnum::MetaFilterMyPostsUpdate);
 });
 
 Route::any('/{slug}', [PageController::class, 'show'])

@@ -10,6 +10,27 @@ use App\Http\Controllers\MyPostController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
+Route::middleware('auth')->group(function () {
+    Route::controller(MyPostController::class)->prefix('my-posts')->group(function () {
+        Route::get('', 'index')
+            ->name(RouteNameEnum::IrlMyPostsIndex);
+
+        Route::get('{post}/{slug}', 'show')
+            ->name(RouteNameEnum::IrlMyPostsShow);
+
+        Route::get('create', 'create')
+            ->name(RouteNameEnum::IrlMyPostsCreate);
+
+        Route::post('store', 'store')
+            ->name(RouteNameEnum::IrlMyPostsStore);
+
+        Route::get('edit', 'edit')
+            ->name(RouteNameEnum::IrlMyPostsEdit);
+
+        Route::post('update', 'update')
+            ->name(RouteNameEnum::IrlMyPostsUpdate);
+    });
+});
 
 Route::get('future-events', [FutureEventsController::class, 'index'])
     ->name(RouteNameEnum::IrlFutureEventsIndex);
@@ -26,24 +47,4 @@ Route::controller(PostController::class)->group(function () {
 
     Route::get('{post}/{slug}', 'show')
         ->name(RouteNameEnum::IrlPostShow);
-});
-
-Route::controller(MyPostController::class)->prefix('my-posts')->group(function () {
-    Route::get('', 'index')
-        ->name(RouteNameEnum::IrlMyPostsIndex);
-
-    Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::IrlMyPostsShow);
-
-    Route::get('create', 'create')
-        ->name(RouteNameEnum::IrlMyPostsCreate);
-
-    Route::post('store', 'store')
-        ->name(RouteNameEnum::IrlMyPostsStore);
-
-    Route::get('edit', 'edit')
-        ->name(RouteNameEnum::IrlMyPostsEdit);
-
-    Route::post('update', 'update')
-        ->name(RouteNameEnum::IrlMyPostsUpdate);
 });
