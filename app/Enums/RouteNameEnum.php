@@ -105,6 +105,7 @@ enum RouteNameEnum: string
     // Jobs My Posts
     case JobsMyPostsIndex = 'jobs.my-posts.index';
     case JobsMyPostsShow = 'jobs.my-posts.show';
+    case JobsMyPostsCreate = 'jobs.my-posts.create';
     case JobsMyPostsJobCreate = 'jobs.my-post-job.create';
     case JobsMyPostsAvailabilityCreate = 'jobs.my-post-availability.create';
     case JobsMyPostsStore = 'jobs.my-posts.store';
@@ -189,8 +190,9 @@ enum RouteNameEnum: string
     // Music My Posts
     case MusicMyPostsIndex = 'music.my-posts.index';
     case MusicMyPostsShow = 'music.my-posts.show';
-    case MusicMyPostsSongCreate = 'music.my-post-song.create';
-    case MusicMyPostsTalkCreate = 'music.my-post-talk.create';
+    case MusicMyPostsCreate = 'music.my-posts-create';
+    case MusicMyPostsSongCreate = 'music.my-posts-song.create';
+    case MusicMyPostsTalkCreate = 'music.my-posts-talk.create';
     case MusicMyPostsStore = 'music.my-posts.store';
     case MusicMyPostsEdit = 'music.my-posts.edit';
     case MusicMyPostsUpdate = 'music.my-posts.update';
