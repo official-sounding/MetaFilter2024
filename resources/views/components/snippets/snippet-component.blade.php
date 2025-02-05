@@ -1,9 +1,9 @@
-<p>
+<p class="snippet">
     @if ($smallText === true)
         <small>
-            {!! $snippet->body !!}
+            {!! $snippet !!}
         </small>
     @else
-        {!! $snippet->body !!}
+        {!! $snippet !!}
     @endif
 </p>
