@@ -108,6 +108,12 @@ body {
     position: relative;
 }
 
+.site-banner > button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .site-header {
     display: flex;
     flex-direction: column;

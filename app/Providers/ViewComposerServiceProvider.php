@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\View\Composers\BannerLinks\BannerLinkViewComposer;
 use App\View\Composers\Navigation\CreatePostButtonViewComposer;
 use App\View\Composers\Navigation\FooterLinksNavigationViewComposer;
 use App\View\Composers\Navigation\FooterSubsiteNavigationViewComposer;
@@ -50,11 +49,6 @@ final class ViewComposerServiceProvider extends ServiceProvider
                 'layouts.partials.help-fund-mefi',
             ],
             SnippetViewComposer::class,
-        );
-
-        view()->composer(
-            'layouts.partials.site-banner',
-            BannerLinkViewComposer::class,
         );
 
         view()->composer(

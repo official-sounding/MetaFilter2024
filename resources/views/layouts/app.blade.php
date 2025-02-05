@@ -27,7 +27,7 @@
 
 <header class="site-header">
     @include('layouts.partials.global-header')
-    @include('layouts.partials.site-banner')
+    <livewire:site-banner.site-banner-component />
     @include('layouts.navigation.global-navigation')
 </header>
 
