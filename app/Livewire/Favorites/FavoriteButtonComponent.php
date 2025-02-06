@@ -8,7 +8,7 @@ use App\Models\BaseModel;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-final class FavoriteButton extends Component
+final class FavoriteButtonComponent extends Component
 {
     public BaseModel $model;
     public int $authorizedUserId;
