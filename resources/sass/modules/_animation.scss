@@ -43,3 +43,17 @@
 }
 
 // https://fvsch.com/articles/transition-fade/test5.html
+
+.collapsible-container {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.2s ease-out;
+}
+
+.collapsible-container.is-expanded {
+    grid-template-rows: 1fr;
+}
+
+.collapsible-contents {
+    overflow: hidden;
+}

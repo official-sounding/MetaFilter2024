@@ -18,8 +18,9 @@ final class SiteBannerComponent extends Component
 
     private const int LINKS_TO_SHOW = 3;
 
-    public bool $collapsed = false;
+    public string $action = 'Collapse';
     public string $altText = 'Collapse';
+    public bool $isExpanded = true;
     public string $iconFilename = 'arrows-collapse';
     public Collection $bannerLinks;
 
@@ -37,10 +38,10 @@ final class SiteBannerComponent extends Component
     }
 
     public function toggleBanner(): void {
-        $this->collapsed = !$this->collapsed;
+        $this->isExpanded = !$this->isExpanded;
 
-        $this->altText = $this->collapsed ? trans('Expand') : trans('Collapse');
+        $this->altText = $this->isExpanded ? trans('Collapse') : trans('Expand');
 
-        $this->iconFilename = $this->collapsed ? trans('arrows-expand') : trans('arrows-collapse');
+        $this->iconFilename = $this->isExpanded ? trans('arrows-collapse') : trans('arrows-expand');
     }
 }
