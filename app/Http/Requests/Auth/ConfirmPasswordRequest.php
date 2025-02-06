@@ -13,7 +13,7 @@ final class ConfirmPasswordRequest extends BaseFormRequest
 
     public function authorize(): bool
     {
-        return true;
+        return $this->loggedIn();
     }
 
     public function rules(): array

@@ -13,7 +13,7 @@ final class UpdateMeFiMailRequest extends BaseFormRequest
 
     public function authorize(): bool
     {
-        return false;
+        return $this->loggedIn();
     }
 
     public function rules(): array

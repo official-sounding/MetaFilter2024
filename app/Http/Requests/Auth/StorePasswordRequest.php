@@ -14,7 +14,7 @@ final class StorePasswordRequest extends BaseFormRequest
 
     public function authorize(): bool
     {
-        return true;
+        return $this->loggedIn();
     }
 
     public function rules(): array

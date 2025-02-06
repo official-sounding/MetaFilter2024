@@ -10,7 +10,7 @@ final class UpdateCommentRequest extends StoreCommentRequest
     {
         // TODO: Add check for user's ownership of the comment
         // TODO: Add check for permission
-        return auth()->check();
+        return $this->loggedIn();
     }
 
     public function rules(): array

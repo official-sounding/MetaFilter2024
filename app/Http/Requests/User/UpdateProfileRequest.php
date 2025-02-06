@@ -6,14 +6,17 @@ namespace App\Http\Requests\User;
 
 use App\Http\Requests\BaseFormRequest;
 use App\Models\User;
+use App\Traits\FormRequestTrait;
 use Illuminate\Validation\Rule;
 
 final class UpdateProfileRequest extends BaseFormRequest
 {
+    use FormRequestTrait;
+
     public function authorize(): bool
     {
         // TODO: Add check for user or admin
-        return auth()->check();
+        return$this->loggedIn();
     }
 
     public function rules(): array

@@ -13,7 +13,7 @@ final class StoreFlagRequest extends BaseFormRequest
 
     public function authorize(): bool
     {
-        return auth()->check();
+        return $this->loggedIn();
     }
 
     public function rules(): array
