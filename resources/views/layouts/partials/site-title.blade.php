@@ -2,13 +2,11 @@
     <hgroup class="site-title">
         @if (empty(request()->segment(1)))
             <h1 class="site-title-text">
-                <span class="white">{{ $whiteText }}</span>
-                <span class="green">{{ $greenText }}</span>
+                @include('layouts.partials.site-title-text')
             </h1>
         @else
             <p class="site-title-text">
-                <span class="white">{{ $whiteText }}</span>
-                <span class="green">{{ $greenText }}</span>
+                @include('layouts.partials.site-title-text')
             </p>
         @endif
 
