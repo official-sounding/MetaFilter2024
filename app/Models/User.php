@@ -6,8 +6,6 @@ namespace App\Models;
 
 use App\States\User\UserState;
 use App\Traits\SearchTrait;
-use Cog\Contracts\Love\Reacterable\Models\Reacterable as ReacterableInterface;
-use Cog\Laravel\Love\Reacterable\Models\Traits\Reacterable;
 use Cog\Contracts\Ban\Bannable as BannableInterface;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Filament\Models\Contracts\FilamentUser;
@@ -41,8 +39,7 @@ final class User extends Authenticatable implements
     BannableInterface,
     FilamentUser,
     HasMedia,
-    HasName,
-    ReacterableInterface
+    HasName
 {
     use Bannable;
     use HasApiTokens;
@@ -51,7 +48,6 @@ final class User extends Authenticatable implements
     use HasStates;
     use InteractsWithMedia;
     use Notifiable;
-    use Reacterable;
     use SearchTrait;
     use SoftDeletes;
 
