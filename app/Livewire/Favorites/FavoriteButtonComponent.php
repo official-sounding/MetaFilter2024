@@ -26,6 +26,11 @@ final class FavoriteButtonComponent extends Component
         $this->isFavorited = $model->isFavorited();
     }
 
+    public function render(): View
+    {
+        return view('livewire.favorites.favorite-button');
+    }
+
     public function toggleFavorite(): void
     {
         if ($this->isFavorited) {
@@ -49,8 +54,15 @@ final class FavoriteButtonComponent extends Component
         $this->iconFilename = $this->isFavorited ? trans('heart-fill') : trans('heart');
     }
 
-    public function render(): View
+    private function setTitleText(): void
     {
-        return view('livewire.favorites.favorite-button');
+        $modelName = mb_strtolower($this->model::class);
+
+        $this->titleText = $this->isFavorited ? trans('Remove favorite') : trans('Add favorite ') . trans($modelName);
+    }
+
+    private function getIconFilename(): void
+    {
+        $this->iconFilename = $this->isFavorited ? trans('heart-fill') : trans('heart');
     }
 }

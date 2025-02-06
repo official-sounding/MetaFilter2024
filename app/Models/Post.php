@@ -9,6 +9,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
@@ -72,9 +73,14 @@ final class Post extends BaseModel implements HasMedia
         'more_inside',
     ];
 
-    public function userFavorited(): bool
+    public function isFavoritedBy(User $user): bool
     {
-        return $this->favorites()->where('user_id', '=', auth()->id())->exists();
+        return $this->favorites()->where('user_id', '=', $user->id)->exists();
+    }
+
+    public function isFlaggedBy(User $user): bool
+    {
+        return $this->favorites()->where('user_id', '=', $user->id)->exists();
     }
 
     public function sluggable(): array

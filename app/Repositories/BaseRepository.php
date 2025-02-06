@@ -58,7 +58,7 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->getQuery()->find($id);
     }
 
-    public function getById(int $id): Model
+    public function getById(int $id): Builder
     {
         return $this->getQuery()->where('id', '=', $id);
     }
