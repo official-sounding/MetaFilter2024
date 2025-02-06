@@ -17,7 +17,7 @@ return new class extends Migration {
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
-            $table->morphs('favoriteable');
+            $table->morphs('favoritable');
 
             $table->nullableTimestamps();
         });

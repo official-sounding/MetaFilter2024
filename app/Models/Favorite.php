@@ -13,11 +13,9 @@ final class Favorite extends BaseModel
 
     protected $fillable = [
         'user_id',
-        'favoriteable_id',
-        'favoriteable_type',
     ];
 
-    public function favoriteable(): MorphTo
+    public function favoritable(): MorphTo
     {
         return $this->morphTo();
     }
@@ -26,11 +24,11 @@ final class Favorite extends BaseModel
 
     public function comments(): MorphToMany
     {
-        return $this->morphedByMany(Comment::class, 'favoriteable');
+        return $this->morphedByMany(Comment::class, 'favoritable');
     }
 
     public function posts(): MorphToMany
     {
-        return $this->morphedByMany(Post::class, 'favoriteable');
+        return $this->morphedByMany(Post::class, 'favoritable');
     }
 }

@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Mpociot\Versionable\VersionableTrait;
 use Oddvalue\LaravelDrafts\Concerns\HasDrafts;
@@ -71,6 +72,11 @@ final class Post extends BaseModel implements HasMedia
         'more_inside',
     ];
 
+    public function userFavorited(): bool
+    {
+        return $this->favorites()->where('user_id', '=', auth()->id())->exists();
+    }
+
     public function sluggable(): array
     {
         return $this->getSlugFrom('title');
@@ -85,7 +91,7 @@ final class Post extends BaseModel implements HasMedia
         );
     }
 
-    public function getActivitylogOptions(): LogOptions
+    public function getActivityLogOptions(): LogOptions
     {
         return LogOptions::defaults()->logFillable();
     }
@@ -97,17 +103,11 @@ final class Post extends BaseModel implements HasMedia
         return $this->hasMany(Comment::class);
     }
 
-    public function favorites(): MorphMany
+    public function favorites(): MorphOne
     {
-        return $this->morphMany(Favorite::class, 'favoriteable');
+        return $this->morphOne(Favorite::class, 'favoritable');
     }
 
-    /*
-        public function userFavorites(): HasOne
-        {
-            //        return $this->favorites()->one()->where('user_id', '=', auth()->id());
-        }
-    */
     public function flags(): MorphMany
     {
         return $this->morphMany(Flag::class, 'flaggable');
