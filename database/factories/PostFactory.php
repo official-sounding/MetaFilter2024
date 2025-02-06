@@ -19,15 +19,13 @@ final class PostFactory extends Factory
 
     public function definition(): array
     {
-        $url = $this->faker->url();
-
         $timestamp = $this->faker->dateTimeBetween('-20 years')->format('Y-m-d H:i:s');
         $timestamp = date('Y-m-d H:i:s', strtotime($timestamp));
 
         return [
             'title' => $this->faker->sentence(),
             'body' => $this->faker->paragraph(),
-            'url' => $this->useSecureProtocol($url),
+            'more_inside' => $this->faker->paragraphs(3, true),
             'subsite_id' => (new Subsite())->inRandomOrder()->first(),
             'user_id' => (new User())->inRandomOrder()->first(),
             'created_at' => $timestamp,
@@ -43,6 +41,23 @@ final class PostFactory extends Factory
     {
         return $this->state(fn(array $attributes) => [
             'more_inside' => $this->faker->paragraph(),
+        ]);
+    }
+
+    public function legacyId(): PostFactory
+    {
+        return $this->state(fn(array $attributes) => [
+            'legacy_id' => $this->faker->randomDigitNotNull
+        ]);
+    }
+
+    public function linkTextAndUrl(): PostFactory
+    {
+        $url = $this->faker->url();
+
+        return $this->state(fn(array $attributes) => [
+            'link_text' => $this->faker->sentence(),
+            'link_url' => $this->useSecureProtocol($url),
         ]);
     }
 }
