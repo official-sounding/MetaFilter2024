@@ -82,6 +82,13 @@ body {
     left: 0;
     width: 100%;
     padding: 0.5rem;
+    border-top-left-radius: 0.33rem;
+    border-top-right-radius: 0.33rem;
+}
+
+.secondary-navigation {
+    border-bottom-left-radius: 0.33rem;
+    border-bottom-right-radius: 0.33rem;
 }
 
 .main-sidebar summary h3 {

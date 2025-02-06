@@ -26,9 +26,6 @@
     margin-top: -100rem;
 }
 
-.fade-out {
-    transition: visibility 0s 3s, opacity 3s linear;
-}
 
 .fade-out > div {
     transition: margin-top 0s 3s;
@@ -42,18 +39,33 @@
     transition: margin-top 0s 2s;
 }
 
-// https://fvsch.com/articles/transition-fade/test5.html
-
 .collapsible-container {
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows 0.2s ease-out;
 }
 
-.collapsible-container.is-expanded {
-    grid-template-rows: 1fr;
+// https://fvsch.com/articles/transition-fade/test5.html
+
+@media (prefers-reduced-motion: no-preference) {
+    .collapsible-container.is-expanded {
+        grid-template-rows: 1fr;
+    }
+
+    .collapsible-contents {
+        overflow: hidden;
+    }
+
+    .fade-out {
+        transition: visibility 0s 3s, opacity 3s linear;
+    }
+
+    @view-transition {
+        navigation: auto;
+    }
+
+    .transition-fast {
+        transition-duration: 0.2s;
+    }
 }
 
-.collapsible-contents {
-    overflow: hidden;
-}
