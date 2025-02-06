@@ -55,12 +55,6 @@ final class User extends Authenticatable implements
 
     // Properties
 
-    public function newEloquentBuilder($query): UserEloquentBuilder
-    {
-        return new UserEloquentBuilder($query);
-    }
-
-
     protected $fillable = [
         'name',
         'username',
