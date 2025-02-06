@@ -10,7 +10,8 @@
                 {{ trans('Go') }}
             </button>
         </form>
+
+        <div class="search-results">
+        </div>
     </search>
-    <div class="search-results">
-    </div>
 </div>
