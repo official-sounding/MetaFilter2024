@@ -10,6 +10,14 @@ body {
     background-color: inherit;
 }
 
+//noinspection CssInvalidFunction
+.comment-footer,
+.post-footer {
+    color: light-dark(var(--dark-base-color), var(--lighter-gray));
+    background-color: light-dark(var(--lighter-gray), var(--dark-base-color));
+}
+
+
 .theme-toggle,
 .theme-toggle::after {
     background-color: var(--lighter-base-color);

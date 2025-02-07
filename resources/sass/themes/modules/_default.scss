@@ -101,12 +101,6 @@ input[type='search']:focus {
     background-color: var(--white);
 }
 
-.comment-footer,
-.post-footer {
-    color: var(--lighter-gray);
-    background-color: var(--dark-base-color);
-}
-
 ::selection {
     color: var(--yellow-green);
     background-color: var(--blue);
@@ -141,6 +135,10 @@ input[type='search']:focus {
 
 .site-header {
     border-top: 3px solid var(--yellow-green);
+}
+
+.site-title {
+    background-color: var(--base-color);
 }
 
 .site-title .green {
