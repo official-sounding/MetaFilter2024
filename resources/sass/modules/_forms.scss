@@ -119,6 +119,18 @@ form {
     padding: 1.5rem;
 }
 
+.link-button {
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.link-button:hover {
+    text-decoration: underline;
+}
+
 .logout-form {
     width: 100%;
     margin: 0;
