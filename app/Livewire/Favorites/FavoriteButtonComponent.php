@@ -17,11 +17,12 @@ final class FavoriteButtonComponent extends Component
     public bool $isFavorited;
     public string $titleText;
 
-    public function mount($model): void
+    public function mount(BaseModel $model): void
     {
         $this->authorizedUserId = auth()->id();
 
         $this->model = $model;
+
         $this->favoritesCount = $model->favorites()->count();
         $this->isFavorited = $model->isFavorited();
     }

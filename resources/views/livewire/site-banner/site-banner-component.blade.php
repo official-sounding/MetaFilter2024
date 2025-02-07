@@ -1,4 +1,4 @@
-<section class="site-banner collapsible-container @if($isExpanded === true) is-expanded @endif">
+<section class="site-banner collapsible-container @if ($isExpanded === true) is-expanded @endif">
     @if ($bannerLinks)
         <ul class="site-banner-links collapsible-contents">
             @foreach ($bannerLinks as $link)

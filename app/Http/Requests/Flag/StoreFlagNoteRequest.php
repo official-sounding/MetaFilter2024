@@ -7,7 +7,7 @@ namespace App\Http\Requests\Flag;
 use App\Http\Requests\BaseFormRequest;
 use App\Traits\FormRequestTrait;
 
-final class StoreFlagRequest extends BaseFormRequest
+final class StoreFlagNoteRequest extends BaseFormRequest
 {
     use FormRequestTrait;
 
@@ -19,10 +19,11 @@ final class StoreFlagRequest extends BaseFormRequest
     public function rules(): array
     {
         return [
-            'flag_reason_id' => [
+            'reason' => [
                 'required',
-                'integer',
-            ],
+                'string',
+                'max:500',
+            ]
         ];
     }
 }
