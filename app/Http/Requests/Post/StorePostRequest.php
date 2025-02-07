@@ -4,14 +4,41 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Post;
 
+use App\Enums\SubsiteEnum;
 use App\Http\Requests\BaseFormRequest;
 use App\Traits\FormRequestTrait;
+use App\Traits\SubsiteTrait;
 
 class StorePostRequest extends BaseFormRequest
 {
     use FormRequestTrait;
+    use SubsiteTrait;
+
+    protected array $baseRules;
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     public function rules(): array
+    {
+        return $this->getRulesBySubdomain();
+    }
+
+    private function getRulesBySubdomain(): array
+    {
+        $subdomain = $this->getSubdomain();
+
+        $baseRules = $this->getBaseRules();
+
+        return match ($subdomain) {
+//            SubsiteEnum::Ask->value => $this->getAskRules(),
+            default => $baseRules,
+        };
+    }
+
+    private function getBaseRules(): array
     {
         return [
             'title' => [
@@ -40,5 +67,14 @@ class StorePostRequest extends BaseFormRequest
                 'string',
             ],
         ];
+    }
+
+    private function getAskRules(): array
+    {
+        $baseRules = $this->getBaseRules();
+
+        $rules = [];
+
+        return array_merge($baseRules, $rules);
     }
 }
