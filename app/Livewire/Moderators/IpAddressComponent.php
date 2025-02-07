@@ -9,8 +9,15 @@ use Livewire\Component;
 
 final class IpAddressComponent extends Component
 {
+    public string $ipAddress = '';
+
+    public function mount(string $ipAddress): void
+    {
+        $this->ipAddress = $ipAddress;
+    }
+
     public function render(): View
     {
-        return view('livewire.ip-address-component');
+        return view('livewire.moderators.ip-address-component');
     }
 }
