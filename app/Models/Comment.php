@@ -17,6 +17,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 /**
  * @property int $id
  * @property string $text
+ * @property bool $mod_comment
  * @property int $parent_id
  * @property int $post_id
  * @property int $reply_id
@@ -34,6 +35,7 @@ final class Comment extends BaseModel
 
     protected $fillable = [
         'text',
+        'mod_comment',
         'parent_id',
         'reply_id',
         'user_id',

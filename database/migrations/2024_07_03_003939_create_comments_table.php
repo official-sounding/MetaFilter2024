@@ -14,6 +14,8 @@ return new class extends Migration {
 
             $table->text('text');
 
+            $table->boolean('mod_comment')->default(false);
+
             $table->foreignId('parent_id')
                 ->nullable()
                 ->constrained('comments');
