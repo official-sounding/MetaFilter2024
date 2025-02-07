@@ -4,23 +4,21 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Post;
 
-use App\Http\Requests\BaseFormRequest;
 use App\Traits\FormRequestTrait;
 
-final class UpdatePostRequest extends BaseFormRequest
+final class UpdatePostRequest extends StorePostRequest
 {
     use FormRequestTrait;
 
     public function authorize(): bool
     {
-        return $this->loggedOut();
+        return $this->loggedIn();
     }
 
     public function rules(): array
     {
-        $bodyAndMoreInsideRules = StoreBodyAndMoreInsideRequest::rules();
-        $titleAndLinkRules = StoreTitleAndLinkRequest::rules();
+        $rules = parent::rules();
 
-        return array_merge($bodyAndMoreInsideRules, $titleAndLinkRules);
+        return $rules;
     }
 }
