@@ -1,7 +1,5 @@
-@extends('layouts.minimal')
+@extends('layouts.errors')
 
 @section('title', trans('Service Unavailable'))
-
-@section('contents')
-    503
-@endsection
+@section('code', '503')
+@section('message', trans('Service Unavailable'))

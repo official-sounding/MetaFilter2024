@@ -1,7 +1,5 @@
-@extends('layouts.minimal')
+@extends('layouts.errors')
 
 @section('title', trans('Not Found'))
-
-@section('contents')
-    404
-@endsection
+@section('code', '404')
+@section('message', trans('Not Found'))

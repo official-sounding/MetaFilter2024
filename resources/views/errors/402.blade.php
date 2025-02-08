@@ -1,7 +1,5 @@
-@extends('layouts.minimal')
+@extends('layouts.errors')
 
 @section('title', trans('Payment Required'))
-
-@section('contents')
-    402
-@endsection
+@section('code', '402')
+@section('message', trans('Payment Required'))

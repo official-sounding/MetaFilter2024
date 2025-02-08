@@ -1,7 +1,5 @@
-@extends('layouts.minimal')
+@extends('layouts.errors')
 
 @section('title', trans('Page Expired'))
-
-@section('contents')
-    419
-@endsection
+@section('code', '419')
+@section('message', trans('Page Expired'))

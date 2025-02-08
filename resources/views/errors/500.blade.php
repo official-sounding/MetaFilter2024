@@ -1,7 +1,5 @@
-@extends('layouts.minimal')
+@extends('layouts.errors')
 
 @section('title', trans('Server Error'))
-
-@section('contents')
-    500
-@endsection
+@section('code', '500')
+@section('message', trans('Server Error'))

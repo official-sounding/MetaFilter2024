@@ -1,7 +1,5 @@
-@extends('layouts.minimal')
+@extends('layouts.errors')
 
 @section('title', trans('Too Many Requests'))
-
-@section('contents')
-    429
-@endsection
+@section('code', '429')
+@section('message', trans('Too Many Requests'))
