@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Http\Requests\Contact;
 
 use App\Http\Requests\BaseFormRequest;
-use App\Traits\FormRequestTrait;
+use App\Traits\AuthStatusTrait;
 
 final class StoreContactMessageRequest extends BaseFormRequest
 {
-    use FormRequestTrait;
+    use AuthStatusTrait;
 
     public function authorize(): bool
     {

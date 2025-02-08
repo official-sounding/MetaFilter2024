@@ -6,12 +6,12 @@ namespace App\Http\Requests\Signup;
 
 use App\Http\Requests\BaseFormRequest;
 use App\Models\User;
-use App\Traits\FormRequestTrait;
+use App\Traits\AuthStatusTrait;
 use Illuminate\Validation\Rule;
 
 final class StoreUsernameRequest extends BaseFormRequest
 {
-    use FormRequestTrait;
+    use AuthStatusTrait;
 
     public function authorize(): bool
     {

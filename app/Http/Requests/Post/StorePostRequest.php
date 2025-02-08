@@ -6,12 +6,12 @@ namespace App\Http\Requests\Post;
 
 use App\Enums\SubsiteEnum;
 use App\Http\Requests\BaseFormRequest;
-use App\Traits\FormRequestTrait;
+use App\Traits\AuthStatusTrait;
 use App\Traits\SubsiteTrait;
 
 class StorePostRequest extends BaseFormRequest
 {
-    use FormRequestTrait;
+    use AuthStatusTrait;
     use SubsiteTrait;
 
     protected array $baseRules;

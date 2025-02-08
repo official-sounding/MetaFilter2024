@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Requests\Auth;
 
 use App\Http\Requests\BaseFormRequest;
-use App\Traits\FormRequestTrait;
+use App\Traits\AuthStatusTrait;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
@@ -14,7 +14,7 @@ use Illuminate\Validation\ValidationException;
 
 final class LoginRequest extends BaseFormRequest
 {
-    use FormRequestTrait;
+    use AuthStatusTrait;
 
     public function authorize(): bool
     {

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Jobs;
 
-use App\Traits\FormRequestTrait;
+use App\Traits\AuthStatusTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 final class StoreJobRequest extends FormRequest
 {
-    use FormRequestTrait;
+    use AuthStatusTrait;
 
     public function authorize(): bool
     {
