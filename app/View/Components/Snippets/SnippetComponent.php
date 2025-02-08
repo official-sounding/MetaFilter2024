@@ -13,8 +13,11 @@ final class SnippetComponent extends Component
     public string $slug;
     public ?bool $smallText;
 
-    public function __construct(string $slug, bool $smallText = false, protected SnippetRepositoryInterface $snippetRepository)
-    {
+    public function __construct(
+        string $slug,
+        bool $smallText = false,
+        protected SnippetRepositoryInterface $snippetRepository
+    ) {
         $this->slug = $slug;
         $this->smallText = $smallText;
     }
@@ -24,7 +27,7 @@ final class SnippetComponent extends Component
         $snippet = $this->snippetRepository->getBySlug($this->slug);
 
         return view('components.snippets.snippet-component', [
-            'snippet' => $snippet,
+            'snippet' => $snippet->body ?? null,
             'smallText' => $this->smallText,
         ]);
     }
