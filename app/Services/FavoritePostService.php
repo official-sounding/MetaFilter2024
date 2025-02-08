@@ -12,7 +12,7 @@ final class FavoritePostService
 {
     use LoggingTrait;
 
-    private const string FAVORITEABLE_TYPE = 'App\Models\Post';
+    private const string FAVORITABLE_TYPE = 'App\Models\Post';
 
     public function __construct(
         protected FavoriteRepositoryInterface $favoriteRepository,
@@ -24,14 +24,14 @@ final class FavoritePostService
             return false;
         }
 
-        return $this->favoriteRepository->favorited(self::FAVORITEABLE_TYPE, $postId, $userId);
+        return $this->favoriteRepository->favorited(self::FAVORITABLE_TYPE, $postId, $userId);
     }
 
     public function create(int $postId, int $userId): bool
     {
         $data = [
-            'favoriteable_type' => self::FAVORITEABLE_TYPE,
-            'favoriteable_id' => $postId,
+            'favoritable_type' => self::FAVORITABLE_TYPE,
+            'favoritable_id' => $postId,
             'user_id' => $userId,
         ];
 
@@ -49,8 +49,8 @@ final class FavoritePostService
     public function delete(int $commentId, int $userId): bool
     {
         $data = [
-            'favoriteable_type' => self::FAVORITEABLE_TYPE,
-            'favoriteable_id' => $commentId,
+            'favoritable_type' => self::FAVORITABLE_TYPE,
+            'favoritable_id' => $commentId,
             'user_id' => $userId,
         ];
 

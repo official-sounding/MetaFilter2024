@@ -12,7 +12,7 @@ final class FavoriteCommentService
 {
     use LoggingTrait;
 
-    private const string FAVORITEABLE_TYPE = 'App\Models\Comment';
+    private const string FAVORITABLE_TYPE = 'App\Models\Comment';
     public function __construct(
         protected FavoriteRepositoryInterface $favoriteRepository,
     ) {}
@@ -23,14 +23,14 @@ final class FavoriteCommentService
             return false;
         }
 
-        return $this->favoriteRepository->favorited(self::FAVORITEABLE_TYPE, $commentId, $userId);
+        return $this->favoriteRepository->favorited(self::FAVORITABLE_TYPE, $commentId, $userId);
     }
 
     public function create(int $commentId, int $userId): bool
     {
         $data = [
-            'favoriteable_type' => self::FAVORITEABLE_TYPE,
-            'favoriteable_id' => $commentId,
+            'favoritable_type' => self::FAVORITABLE_TYPE,
+            'favoritable_id' => $commentId,
             'user_id' => $userId,
         ];
 
@@ -48,8 +48,8 @@ final class FavoriteCommentService
     public function delete(int $commentId, int $userId): bool
     {
         $data = [
-            'favoriteable_type' => self::FAVORITEABLE_TYPE,
-            'favoriteable_id' => $commentId,
+            'favoritable_type' => self::FAVORITABLE_TYPE,
+            'favoritable_id' => $commentId,
             'user_id' => $userId,
         ];
 
