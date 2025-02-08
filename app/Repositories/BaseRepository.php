@@ -63,7 +63,7 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->getQuery()->where('id', '=', $id);
     }
 
-    public function getBySlug(string $slug): string|Model
+    public function getBySlug(string $slug): Model|null
     {
         return $this->getQuery()->where('slug', '=', $slug)->firstOrFail();
     }
