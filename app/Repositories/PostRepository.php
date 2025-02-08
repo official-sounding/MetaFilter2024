@@ -23,13 +23,14 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
         'posts.id',
         'posts.title',
         'posts.slug',
-        'posts.url',
+        'posts.link_text',
+        'posts.link_url',
         'posts.body',
         'posts.created_at',
         'posts.deleted_at',
-        'subsites.subdomain as subdomain',
-        'subsites.name as subsite',
-        'users.id as user_id',
+        'subsites.subdomain AS subdomain',
+        'subsites.name AS subsite',
+        'users.id AS user_id',
         'users.username',
     ];
 
