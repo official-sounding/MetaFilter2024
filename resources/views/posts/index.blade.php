@@ -30,4 +30,13 @@
             'items' => 'posts'
         ])
     @endif
+
+    {{--
+    <button class="danger-button">
+        <span class="icon">
+            <img src="{{ asset('images/icons/exclamation-triangle-fill.svg') }}" alt="">
+        </span>
+        {{ trans('Do not click this button.') }}
+    </button>
+    --}}
 @endsection
