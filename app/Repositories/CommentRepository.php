@@ -17,7 +17,7 @@ final class CommentRepository extends BaseRepository implements CommentRepositor
     public function getCommentByUserId(int $userId): int
     {
         return $this->model
-            ->where('user_id', $userId)
+            ->where('user_id', '=', $userId)
             ->count();
     }
 
@@ -37,6 +37,7 @@ final class CommentRepository extends BaseRepository implements CommentRepositor
                 'favorites',
                 'flags',
             ])
+
             ->where('comments.post_id', '=', $postId)
             ->orderBy('comments.created_at')
             ->get();
