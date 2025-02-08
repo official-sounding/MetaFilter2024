@@ -19,10 +19,8 @@ final class NewPostButton extends Component
 
     public function __construct()
     {
-        $this->subdomain = $this->getSubdomain();
-
-        $this->buttonText = $this->getPostButtonText($this->subdomain);
-        $this->routeName = $this->getNewPostRouteName($this->subdomain);
+        $this->buttonText = $this->getNewPostText();
+        $this->routeName = $this->getNewPostRouteName();
     }
 
     public function render(): View|Closure|string

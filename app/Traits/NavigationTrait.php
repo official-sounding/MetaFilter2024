@@ -86,12 +86,10 @@ trait NavigationTrait
 
     public function getNewPostButton(): string
     {
-        $subdomain = $this->getSubdomain();
-
         $itemData = [
-            'route' => $this->getNewPostRouteName($subdomain),
+            'route' => $this->getNewPostRouteName(),
             'icon' => 'plus-square-fill',
-            'name' => $this->getPostButtonText($subdomain),
+            'name' => $this->getNewPostText(),
         ];
 
         return $this->getNavigationItem($itemData);

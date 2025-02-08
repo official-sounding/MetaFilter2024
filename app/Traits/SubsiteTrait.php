@@ -11,6 +11,30 @@ trait SubsiteTrait
 {
     use UrlTrait;
 
+    public function getNewPostText(): string
+    {
+        $subdomain = $this->getSubdomain();
+
+        return match ($subdomain) {
+            'ask' => trans('New Question'),
+            'irl' => trans('New Event'),
+            'projects' => trans('Add Project'),
+            default => trans('New Post'),
+        };
+    }
+
+    public function getEditPostText(): string
+    {
+        $subdomain = $this->getSubdomain();
+
+        return match ($subdomain) {
+            'ask' => trans('Edit Question'),
+            'irl' => trans('Edit Event'),
+            'projects' => trans('Edit Project'),
+            default => trans('Edit Post'),
+        };
+    }
+
     public function getSubdomain(): string
     {
         $currentUrl = url()->current();
@@ -43,27 +67,21 @@ trait SubsiteTrait
         return (new Subsite())->where('subdomain', '=', $subdomain)->first();
     }
 
-    public function getStylesheetName(array $subsite): string
+    public function getStylesheetName(): string
     {
-        if ($subsite['subdomain'] === 'www') {
+        $subdomain = $this->getSubdomain();
+
+        if ($subdomain === 'www') {
             return 'metafilter';
         }
 
-        return $subsite['subdomain'];
+        return $subdomain;
     }
 
-    public function getPostButtonText(string $subdomain): string
+    public function getNewPostRouteName(): string
     {
-        return match ($subdomain) {
-            'ask' => trans('New Question'),
-            'irl' => trans('New Event'),
-            'projects' => trans('Add Project'),
-            default => trans('New Post'),
-        };
-    }
+        $subdomain = $this->getSubdomain();
 
-    public function getNewPostRouteName(string $subdomain): string
-    {
         return match ($subdomain) {
             'ask' => RouteNameEnum::AskMyPostsCreate->value,
             'fanfare' => RouteNameEnum::FanFareMyPostsCreate->value,
