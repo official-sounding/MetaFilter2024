@@ -24,6 +24,7 @@ return new class extends Migration {
 
             // MetaFilter-specific fields
             $table->string('homepage_url')->nullable();
+            $table->boolean('agrees_to_terms')->nullable();
             $table->integer('legacy_id')->nullable()->unique();
 
             // Project-specific fields

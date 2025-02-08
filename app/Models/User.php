@@ -25,6 +25,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 /**
  * @property int $id
+ * @property bool $agrees_to_terms
  * @property string $name
  * @property string $username
  * @property string $homepage_url
@@ -56,6 +57,7 @@ final class User extends Authenticatable implements
     // Properties
 
     protected $fillable = [
+        'agrees_to_terms',
         'name',
         'username',
         'homepage_url',
