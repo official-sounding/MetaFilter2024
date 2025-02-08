@@ -8,6 +8,7 @@ use App\Enums\RoleNameEnum;
 use App\Models\User;
 use App\Traits\LoggingTrait;
 use App\Traits\ModeratorSeederTrait;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\PermissionRegistrar;
 
@@ -15,6 +16,7 @@ final class ModeratorRoleSeeder extends Seeder
 {
     use LoggingTrait;
     use ModeratorSeederTrait;
+    use WithoutModelEvents;
 
     public function run(): void
     {

@@ -6,11 +6,13 @@ namespace Database\Seeders\Production;
 
 use App\Models\Subsite;
 use App\Traits\StringFormattingTrait;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 final class SubsiteSeeder extends Seeder
 {
     use StringFormattingTrait;
+    use WithoutModelEvents;
 
     public function run(): void
     {

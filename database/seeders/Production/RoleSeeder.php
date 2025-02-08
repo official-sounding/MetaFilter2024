@@ -29,8 +29,6 @@ final class RoleSeeder extends Seeder
         try {
             $moderatorRole = $this->createModeratorRole();
 
-            $this->assignModeratorPermissions($moderatorRole);
-
             $this->createDeveloperRoleWithPermissions();
 
             $this->assignControlPanelAccess();
@@ -52,21 +50,6 @@ final class RoleSeeder extends Seeder
         ]);
     }
 
-    private function assignModeratorPermissions(Role $role): void
-    {
-        $permissions = config('metafilter.seeders.permissions');
-        $resources = config('metafilter.seeders.resources');
-
-        foreach ($permissions as $permission) {
-            foreach ($resources as $resource) {
-                $permission = mb_strtolower($permission);
-
-                $compoundPermission = "$permission $resource";
-
-                $this->givePermissionToRole($role, $compoundPermission);
-            }
-        }
-    }
 
     private function createDeveloperRoleWithPermissions(): void
     {
