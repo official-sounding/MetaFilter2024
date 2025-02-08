@@ -22,6 +22,6 @@ final class SidebarSectionComponent extends Component
 
     public function render(): View
     {
-        return view('components.sidebar-section-component');
+        return view('components.layout.sidebar-section-component');
     }
 }
