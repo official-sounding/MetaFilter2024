@@ -33,7 +33,7 @@ final class UtilityNavigationViewComposer implements ViewComposerInterface
             $navigation .= $this->getNewPostButton();
             $navigation .= $this->getLogoutButton();
 
-            if (auth()->user()->can(PermissionEnum::AccessPanel->value)) {
+            if (auth()->user()->can(PermissionEnum::AccessAdminPanel->value)) {
                 $navigation .= $this->getAdminButton();
             }
         }
