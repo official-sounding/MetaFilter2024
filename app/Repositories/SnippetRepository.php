@@ -12,10 +12,4 @@ final class SnippetRepository extends BaseRepository implements SnippetRepositor
     {
         parent::__construct($model);
     }
-
-    public function getBySlug(string $slug): string
-    {
-        return $this->model->where('slug', '=', $slug)->value('body');
-    }
-
 }
