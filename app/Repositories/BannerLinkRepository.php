@@ -8,7 +8,8 @@ use App\Models\BannerLink;
 use App\Traits\CacheTimeTrait;
 use Illuminate\Support\Facades\Cache;
 
-final class BannerLinkRepository extends BaseRepository implements BannerLinkRepositoryInterface {
+final class BannerLinkRepository extends BaseRepository implements BannerLinkRepositoryInterface
+{
     use CacheTimeTrait;
 
     private const int LINKS_TO_SHOW = 3;
@@ -20,7 +21,7 @@ final class BannerLinkRepository extends BaseRepository implements BannerLinkRep
 
     public function getBannerLinks(): mixed
     {
-        return Cache::remember('banner-links', $this->oneHour(), function() {
+        return Cache::remember('banner-links', $this->oneHour(), function () {
             return BannerLink::select([
                 'id',
                 'title',

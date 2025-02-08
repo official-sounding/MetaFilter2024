@@ -37,7 +37,7 @@ final class ReplyToCommentComponent extends Component
     {
         $this->validate();
 
-        (new Comment)->create([
+        (new Comment())->create([
             'content' => $this->replyText,
             'parent_id' => $this->comment->id,
         ]);

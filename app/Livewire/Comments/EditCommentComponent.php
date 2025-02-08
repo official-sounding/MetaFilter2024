@@ -51,7 +51,7 @@ final class EditCommentComponent extends Component
         $this->validate();
 
         $this->comment->update([
-            'content' => $this->content
+            'content' => $this->content,
         ]);
 
         $this->isEditing = false;

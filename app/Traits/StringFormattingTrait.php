@@ -39,8 +39,5 @@ trait StringFormattingTrait
         return preg_replace('/[[:punct:]]/', '', $string);
     }
 
-    public function swapPunctuation(string $string): string
-    {
-
-    }
+    public function swapPunctuation(string $string): string {}
 }

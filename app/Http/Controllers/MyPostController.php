@@ -47,8 +47,7 @@ final class MyPostController extends BaseController
         ]);
     }
 
-    public function store(StorePostRequest $request): void
-    {}
+    public function store(StorePostRequest $request): void {}
 
     public function edit(Post $post): View
     {

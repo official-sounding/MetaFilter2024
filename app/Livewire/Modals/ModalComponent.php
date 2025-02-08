@@ -13,7 +13,7 @@ class ModalComponent extends Component
     public $isOpen = false;
 
     protected $listeners = [
-        'show' => 'show'
+        'show' => 'show',
     ];
 
     public function openModal(): void

@@ -53,7 +53,8 @@ final class TopBottomButtonComponent extends Component
         $this->targetId = '#' . $this->getTargetId();
     }
 
-    private function getButtonClass(): string {
+    private function getButtonClass(): string
+    {
         return $this->location . '-button';
     }
 

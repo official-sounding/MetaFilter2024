@@ -16,7 +16,7 @@ final class SnippetComponent extends Component
     public function __construct(
         string $slug,
         bool $smallText = false,
-        protected SnippetRepositoryInterface $snippetRepository
+        protected SnippetRepositoryInterface $snippetRepository,
     ) {
         $this->slug = $slug;
         $this->smallText = $smallText;

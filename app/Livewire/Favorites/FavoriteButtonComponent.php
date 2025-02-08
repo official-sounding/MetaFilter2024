@@ -42,7 +42,7 @@ final class FavoriteButtonComponent extends Component
             $this->favoritesCount--;
         } else {
             $this->model->favorites()->create([
-                'user_id' => $this->authorizedUserId
+                'user_id' => $this->authorizedUserId,
             ]);
 
             $this->isFavorited = true;

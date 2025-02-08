@@ -7,7 +7,8 @@ namespace App\Traits;
 use App\Enums\PermissionEnum;
 use App\Enums\RoleNameEnum;
 
-trait PermissionAndRoleTrait {
+trait PermissionAndRoleTrait
+{
     public function canAccessAdminPanel(): bool
     {
         return auth()->check() && auth()->user()->can(PermissionEnum::AccessAdminPanel->value);

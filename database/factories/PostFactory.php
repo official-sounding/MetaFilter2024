@@ -45,7 +45,7 @@ final class PostFactory extends BaseFactory
     public function legacyId(): PostFactory
     {
         return $this->state(fn(array $attributes) => [
-            'legacy_id' => $this->faker->randomDigitNotNull
+            'legacy_id' => $this->faker->randomDigitNotNull,
         ]);
     }
 

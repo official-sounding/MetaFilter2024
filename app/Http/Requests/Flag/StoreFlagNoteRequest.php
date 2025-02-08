@@ -23,7 +23,7 @@ final class StoreFlagNoteRequest extends BaseFormRequest
                 'required',
                 'string',
                 'max:500',
-            ]
+            ],
         ];
     }
 }
