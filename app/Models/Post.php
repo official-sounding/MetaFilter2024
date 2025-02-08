@@ -9,7 +9,6 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
@@ -80,7 +79,7 @@ final class Post extends BaseModel implements HasMedia
 
     public function isFlaggedBy(User $user): bool
     {
-        return $this->favorites()->where('user_id', '=', $user->id)->exists();
+        return $this->flags()->where('user_id', '=', $user->id)->exists();
     }
 
     public function sluggable(): array
@@ -118,12 +117,7 @@ final class Post extends BaseModel implements HasMedia
     {
         return $this->morphMany(Flag::class, 'flaggable');
     }
-    /*
-        public function userFlags(): HasOne
-        {
-            //        return $this->flags()->one()->where('user_id', '=', auth()->id());
-        }
-    */
+
     public function next(): Post|null
     {
         return $this->orderBy('id')
