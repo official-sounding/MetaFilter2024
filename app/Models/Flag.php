@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 /**
  * @property int $id
  * @property int $user_id
+ * @property int $flag_reason_id
  * @property string $note
  * @property int $flaggable_id
  * @property string $flaggable_type
@@ -21,6 +22,7 @@ final class Flag extends BaseModel
 
     protected $fillable = [
         'user_id',
+        'flag_reason_id',
         'note',
         'flaggable_id',
         'flaggable_type',
