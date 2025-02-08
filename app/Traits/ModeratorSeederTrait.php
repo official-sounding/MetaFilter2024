@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\File;
 
 trait ModeratorSeederTrait
 {
     use LoggingTrait;
+    use WithoutModelEvents;
 
     public function getModeratorsFromJson(): mixed
     {
