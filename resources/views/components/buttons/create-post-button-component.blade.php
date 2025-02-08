@@ -6,7 +6,7 @@
         @if (isset($links[0]['text']))
             {{ $links[0]['text'] }}
         @else
-            {{ $defaultCreatePostText }}
+            {{ $createPostText }}
         @endif
     </a>
 @endif

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\View\Components;
+namespace App\View\Components\Buttons;
 
 use App\Traits\SubsiteTrait;
 use Illuminate\Contracts\View\View;
@@ -15,7 +15,6 @@ final class CreatePostButtonComponent extends Component
     public array $links;
 
     protected string $subdomain;
-    protected const string DEFAULT_CREATE_POST_TEXT = 'Create Post';
 
     public function __construct()
     {
@@ -26,8 +25,8 @@ final class CreatePostButtonComponent extends Component
 
     public function render(): View
     {
-        return view('components.create-post-button-component', [
-            'defaultCreatePostText' => self::DEFAULT_CREATE_POST_TEXT,
+        return view('components.buttons.create-post-button-component', [
+            'createPostText' => $this->getNewPostText(),
             'links' => $this->links,
         ]);
     }
