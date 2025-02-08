@@ -24,10 +24,9 @@ final class PermissionSeeder extends Seeder
 
         foreach ($basePermissions as $basePermission) {
             foreach ($resources as $resource) {
-                $permissionName = "$basePermission-$resource";
+                $permissionName = "$basePermission $resource";
 
                 $this->addPermission($permissionName);
-//                $this->givePermissionToRole($role, $compoundPermission);
             }
         }
 
