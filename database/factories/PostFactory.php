@@ -9,9 +9,8 @@ use App\Models\Post;
 use App\Models\Subsite;
 use App\Models\User;
 use App\Traits\UrlTrait;
-use Illuminate\Database\Eloquent\Factories\Factory;
 
-final class PostFactory extends Factory
+final class PostFactory extends BaseFactory
 {
     use UrlTrait;
 
@@ -19,8 +18,7 @@ final class PostFactory extends Factory
 
     public function definition(): array
     {
-        $timestamp = $this->faker->dateTimeBetween('-20 years')->format('Y-m-d H:i:s');
-        $timestamp = date('Y-m-d H:i:s', strtotime($timestamp));
+        $timestamp = $this->getFakeTimestamp();
 
         return [
             'title' => $this->faker->sentence(),

@@ -38,13 +38,4 @@ final class CommentFactory extends Factory
             ];
         });
     }
-
-    public function isModComment(): Factory
-    {
-        return $this->state(function () {
-            return [
-                'mod_comment' => true,
-            ];
-        });
-    }
 }
