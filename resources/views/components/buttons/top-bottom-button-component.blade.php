@@ -1,3 +1,7 @@
-<div>
-    <!-- When there is no desire, all things are at peace. - Laozi -->
-</div>
+<a class="top-bottom-button {{ $buttonClass }}"
+   href="{{ $targetId }}"
+   title="{{ ucfirst($buttonText) }}">
+    <span class="icon">
+        <img src="{{ $iconPath }}" alt="">
+    </span>
+</a>

@@ -1,3 +1,3 @@
-<x-sidebar-section-component heading="{{  trans('Contact Activity') }}" open="true">
+<x-layout.sidebar-section-component heading="{{  trans('Contact Activity') }}" open="true">
     Contact activity
-</x-sidebar-section-component>
+</x-layout.sidebar-section-component>

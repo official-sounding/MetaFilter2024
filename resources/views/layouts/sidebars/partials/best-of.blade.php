@@ -1,3 +1,3 @@
-<x-sidebar-section-component heading="{{  trans('Best Of') }}" open="true">
+<x-layout.sidebar-section-component heading="{{  trans('Best Of') }}" open="true">
     Best Of
-</x-sidebar-section-component>
+</x-layout.sidebar-section-component>

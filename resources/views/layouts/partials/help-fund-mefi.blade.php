@@ -5,5 +5,5 @@
         {{ trans('Help fund MeFi!') }}
     </a>
 
-    <x-snippet-component slug="help-fund-mefi" small-text=false />
+    <x-snippets.snippet-component slug="help-fund-mefi" small-text=false />
 </section>

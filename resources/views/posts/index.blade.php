@@ -4,7 +4,7 @@
 
 @section('contents')
     @if ($subdomain ==='fanfare')
-        <x-snippet-component slug="fanfare-spoilers-note" small-text=true />
+        <x-snippets.snippet-component slug="fanfare-spoilers-note" small-text=true />
     @endif
 
     @if (isset($showTitle) && $showTitle === true)
@@ -12,7 +12,7 @@
     @endif
 
     @auth
-        <x-new-post-button />
+        <x-buttons.new-post-button />
     @endauth
 
     @guest
