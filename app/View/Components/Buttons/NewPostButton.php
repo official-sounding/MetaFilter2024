@@ -15,7 +15,6 @@ final class NewPostButton extends Component
 
     public string $buttonText;
     public string $routeName;
-    public string $subdomain;
 
     public function __construct()
     {
