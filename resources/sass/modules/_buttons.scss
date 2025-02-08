@@ -1,19 +1,67 @@
+:root {
+    --button-border-radius: 0.33rem;
+    --button-border-width: 3px;
+}
 
 button,
-.button,
-.site-footer a.button {
+.button {
     inline-size: fit-content;
     touch-action: manipulation;
     user-select: none;
     padding: 0.5rem 1rem 0.5rem 1rem;
     outline: none;
-    border: none;
     color: inherit;
     height: auto;
     line-height: 1;
     background-color: inherit;
-    border-radius: 0.33rem;
+    border-color: transparent;
+    border-radius: var(--button-border-radius);
+    border-style: solid;
     transition: 0.3s;
+    text-decoration: none;
+}
+
+.cta-button,
+.main-contents .cta-button {
+    display: block;
+    color: var(--black);
+    background-color: var(--yellow-green);
+    border-color: var(--yellow-green);
+    border-width: var(--button-border-width);
+}
+
+button .cta-button:hover,
+.button.cta-button:hover {
+    color: var(--yellow-green);
+    background-color: var(--black);
+    border-color: var(--yellow-green);
+    border-width: var(--button-border-width);
+}
+
+.danger-button {
+    color: var(--white);
+    background-color: var(--is-danger);
+    border-color: var(--is-danger);
+    border-width: var(--button-border-width);
+}
+
+.danger-button:hover {
+    color: var(--is-danger);
+    background-color: var(--white);
+    border-color: var(--is-danger);
+    border-width: var(--button-border-width);
+}
+
+.link-button {
+
+}
+
+.primary-button {
+
+}
+
+.secondary-button {
+
 }
 
 button .primary-button,
@@ -76,81 +124,3 @@ main > .primary-button {
     border-bottom-style: solid;
     border-bottom-width: 2px;
 }
-
-/*
-
-.button.footer-button {
-    color: inherit;
-    background-color: inherit;
-}
-
-.dropdown-button {
-    white-space: nowrap;
-    text-align: left;
-}
-
-.post-footer .button.footer-button {
-    margin: 0 0.5rem 0 0;
-}
-
-button .primary-button,
-.button.primary-button {
-    color: var(--black);
-    background-color: var(--yellow-green);
-    border-radius: 8px;
-    border-style: none;
-    display: block;
-    height: 40px;
-    // TODO: Use decimals and rems
-    line-height: 20px;
-    margin: 0 auto 1.25rem auto;
-    outline: none;
-    padding: 10px 16px 10px 16px;
-    position: relative;
-    font-weight: bold;
-    text-align: center;
-    transition: color 100ms;
-    vertical-align: baseline;
-}
-
-button .primary-button:hover,
-.button.primary-button:hover {
-    color: var(--yellow-green);
-    background-color: var(--black);
-}
-
-.footer-button:hover,
-a.footer-button:hover {
-    color: var(--black);
-    background-color: var(--lightest-gray);
-}
-
-.footer-button:disabled:hover,
-a.footer-button:disabled:hover {
-    background-color: transparent;
-}
-
-
-form .button.icon-search {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.site-header button {
-    width: inherit;
-    border: none;
-    border-radius: 0;
-}
-
-.site-header .button.icon-search {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.site-header .button.icon-search:hover {
-    color: var(--black);
-    background-color: var(--yellow-green);
-}
-
-*/
-

@@ -1,3 +1,12 @@
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+.icon {
+    color: inherit;
+}
 
 .icon img {
     display: inline-flex;
@@ -6,16 +15,9 @@
     margin: 0 0.025rem 0 0;
     position: relative;
     bottom: -0.2rem;
+    color: currentColor;
 }
 
 svg {
     fill: currentColor;
 }
-
-/*
-.dropdown-toggle .icon {
-    fill: var(--yellow-green);
-    width: 2rem;
-    height: 2rem;
-}
-*/
