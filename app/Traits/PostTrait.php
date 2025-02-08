@@ -36,11 +36,6 @@ trait PostTrait
         ]);
     }
 
-    public function getNewPostText(): string
-    {
-        return 'New Post';
-    }
-
     public function getPostShowUrl(Post $post, bool $mine = false): string
     {
         $routeName = $mine === true ? $this->getMyShowRouteName($post) : $this->getShowRouteName($post);
@@ -67,20 +62,21 @@ trait PostTrait
             SubsiteEnum::Projects->value => RouteNameEnum::ProjectsPostShow->value,
         };
     }
+
     private function getMyShowRouteName(Post $post): string
     {
         $subdomain = $post->subsite()->value('subdomain');
 
         return match ($subdomain) {
-            SubsiteEnum::Ask->value => RouteNameEnum::AskMyPostShow->value,
-            SubsiteEnum::FanFare->value => RouteNameEnum::FanFareMyPostShow->value,
-            SubsiteEnum::Irl->value => RouteNameEnum::IrlMyPostShow->value,
-            SubsiteEnum::Jobs->value => RouteNameEnum::JobsMyPostShow->value,
-            SubsiteEnum::MetaFilter->value => RouteNameEnum::MetaFilterMyPostShow->value,
-            SubsiteEnum::MetaTalk->value => RouteNameEnum::MetaTalkMyPostShow->value,
-            SubsiteEnum::Music->value => RouteNameEnum::MusicMyPostShow->value,
-            SubsiteEnum::Podcast->value => RouteNameEnum::PodcastMyPostShow->value,
-            SubsiteEnum::Projects->value => RouteNameEnum::ProjectsMyPostShow->value,
+            SubsiteEnum::Ask->value => RouteNameEnum::AskMyPostsShow->value,
+            SubsiteEnum::FanFare->value => RouteNameEnum::FanFareMyPostsShow->value,
+            SubsiteEnum::Irl->value => RouteNameEnum::IrlMyPostsShow->value,
+            SubsiteEnum::Jobs->value => RouteNameEnum::JobsMyPostsShow->value,
+            SubsiteEnum::MetaFilter->value => RouteNameEnum::MetaFilterMyPostsShow->value,
+            SubsiteEnum::MetaTalk->value => RouteNameEnum::MetaTalkMyPostsShow->value,
+            SubsiteEnum::Music->value => RouteNameEnum::MusicMyPostsShow->value,
+            SubsiteEnum::Podcast->value => RouteNameEnum::PodcastMyPostsShow->value,
+            SubsiteEnum::Projects->value => RouteNameEnum::ProjectsMyPostsShow->value,
         };
     }
 }
