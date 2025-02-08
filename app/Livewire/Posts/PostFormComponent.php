@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Posts;
 
-use App\Http\Requests\Post\StoreMetaFilterPostRequest;
+use App\Http\Requests\Post\StorePostRequest;
 use App\Services\PostService;
 use App\Traits\LoggingTrait;
 use Illuminate\Contracts\View\View;
@@ -28,12 +28,12 @@ final class PostFormComponent extends Component
 
     protected function rules(): array
     {
-        return new StoreMetaFilterPostRequest()->rules();
+        return (new StorePostRequest())->rules();
     }
 
     public function render(): View
     {
-        return view('livewire.post.post-form-component');
+        return view('livewire.posts.post-form-component');
     }
 
     public function store(): void

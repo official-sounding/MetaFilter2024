@@ -30,6 +30,22 @@
         />
     </fieldset>
 
+    <div wire:ignore>
+        <x-forms.textarea
+            name="body"
+            label="{{ trans('Body') }}"
+            :required="true"
+        />
+    </div>
+
+    <div wire:ignore>
+        <x-forms.textarea
+            name="more_inside"
+            label="{{ trans('More Inside') }}"
+            :required="false"
+        />
+    </div>
+
     <fieldset class="level">
         <x-forms.button type="submit">
             {{ trans('Next') }}

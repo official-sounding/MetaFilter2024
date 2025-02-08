@@ -25,9 +25,8 @@ final class PostWizardComponent extends BaseWizardComponent
     use SubsiteTrait;
 
     public array $steps = [
-        'Title',
-        'Body/More Inside',
-        'Tags',
+        'Write Post',
+        'Add Tags',
         'Preview',
     ];
 
