@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Post\StorePostRequest;
 use App\Http\Requests\Post\UpdatePostRequest;
 use App\Models\Post;
 use App\Repositories\PostRepositoryInterface;
@@ -25,7 +26,7 @@ final class MyPostController extends BaseController
     public function index(): View
     {
         return view('my-posts.index', [
-            'posts' => $this->getNewPostText(),
+            'posts' => [],
         ]);
     }
 
@@ -46,10 +47,13 @@ final class MyPostController extends BaseController
         ]);
     }
 
+    public function store(StorePostRequest $request): void
+    {}
+
     public function edit(Post $post): View
     {
         return view('my-posts.edit', [
-            'title' => trans('Edit Post'),
+            'title' => $this->getEditPostText(),
             'post' => compact($post),
         ]);
     }
@@ -61,6 +65,6 @@ final class MyPostController extends BaseController
 
     public function delete(Post $post): void
     {
-        $deleted = $this->postService->delete($post);
+        $this->postService->delete($post);
     }
 }
