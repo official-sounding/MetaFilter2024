@@ -12,14 +12,18 @@
 
         @auth
             <button class="button reply-button" wire:click.prevent="startReplying()">
-                <img src="{{ asset('images/icons/reply-fill.svg') }}" alt="">
+                <span class="icon">
+                    <img src="{{ asset('images/icons/reply-fill.svg') }}" alt="">
+                </span>
                 {{ trans('Reply') }}
             </button>
         @endauth
 
         @if (auth()->check() && auth()->id() == $comment->user_id)
             <button class="button edit-button" wire:click.prevent="startEditing()">
-                <img src="{{ asset('images/icons/pencil-square.svg') }}" alt="">
+                <span class="icon">
+                    <img src="{{ asset('images/icons/pencil-square.svg') }}" alt="">
+                </span>
                 {{ trans('Edit') }}
             </button>
 
@@ -28,7 +32,9 @@
                 class="button delete-button"
                 wire:click="deleteComment()"
                 wire:confirm="Are you sure you want to delete this comment?">
-                <img src="{{ asset('images/icons/trash3.svg') }}" alt="">
+                <span class="icon">
+                    <img src="{{ asset('images/icons/trash3.svg') }}" alt="">
+                </span>
                 {{ trans('Delete') }}
             </button>
         @endif
@@ -39,7 +45,7 @@
             wire:key="'reply-' . $comment->id"
             :post-id="$comment->post_id"
             :parent-id="$comment->id"
-            cancel-action="cancelReplying"
+            cancel-action="cancelReplying()"
         />
     @endif
 
