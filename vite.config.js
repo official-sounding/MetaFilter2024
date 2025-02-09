@@ -8,7 +8,7 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
-                api: 'modern-compiler' // or "modern"
+                api: 'modern-compiler'
             }
         }
     },
@@ -16,6 +16,7 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/sass/app.scss',
+                'resources/sass/email.scss',
                 'resources/sass/themes/ask.scss',
                 'resources/sass/themes/fanfare.scss',
                 'resources/sass/themes/irl.scss',
