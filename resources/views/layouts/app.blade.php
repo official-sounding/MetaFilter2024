@@ -29,8 +29,6 @@
     @include('layouts.partials.global-header')
     <livewire:site-banner.site-banner-component />
     @include('layouts.navigation.global-navigation')
-
-    <x-buttons.top-bottom-button-component location='top' />
 </header>
 
 <header class="subsite-header">
