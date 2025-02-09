@@ -26,7 +26,8 @@ final class MyPostController extends BaseController
     public function index(): View
     {
         return view('my-posts.index', [
-            'posts' => [],
+            'title' => trans('My Draft Posts'),
+            'posts' => $this->postRepository->getDraftPosts(),
         ]);
     }
 
