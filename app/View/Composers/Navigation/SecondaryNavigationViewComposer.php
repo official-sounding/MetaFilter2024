@@ -33,6 +33,8 @@ final class SecondaryNavigationViewComposer implements ViewComposerInterface
             foreach ($items as $item) {
                 $navigation .= $this->getNavigationItem($item);
             }
+
+            $navigation .= '</ul>';
         }
 
         $view->with('secondaryNavigation', $navigation);
