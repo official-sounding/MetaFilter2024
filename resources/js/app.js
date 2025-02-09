@@ -20,8 +20,26 @@ document.addEventListener('click', event => {
     if (!eventTarget.closest('.global-navigation-menu')) {
         console.log('Clicked outside!');
     }
+}, false);
+
+document.addEventListener('livewire:init', () => {
+    Livewire.on('onkeydown', (event) => {
+        if (event.key === 'Escape') {
+            Livewire.dispatch('escape-key-clicked', false);
+        }
+    });
+});
 
 /*
+
+    <script>
+        document.onkeydown = function(event) {
+            if (event.key === 'Escape') {
+                window.livewire.emit('cancelReplying');
+            }
+        };
+    </script>
+
 document.addEventListener('click', function (event) {
     if (!event.target.closest('.some-selector')) {
         // Clicked outside the element...
@@ -64,4 +82,3 @@ document.addEventListener('click', function (event) {
 */
 
 //    console.log('Clicked outside!');
-}, false);
