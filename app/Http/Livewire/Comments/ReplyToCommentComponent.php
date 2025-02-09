@@ -12,6 +12,7 @@ use App\Models\Comment;
 final class ReplyToCommentComponent extends Component
 {
     public Comment $comment;
+    public string $replyFormId = '';
     public string $replyText = '';
     public string $selectedText = '';
     public bool $isVisible = false;
@@ -52,5 +53,10 @@ final class ReplyToCommentComponent extends Component
     public function render(): View
     {
         return view('livewire.comments.reply-to-comment-component');
+    }
+
+    private function getReplyFormId(): string
+    {
+        return 'reply-form-' . $this->comment->id;
     }
 }

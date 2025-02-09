@@ -6,6 +6,7 @@ namespace App\Livewire\Comments;
 
 use App\Models\Comment;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 final class CommentShowComponent extends Component
@@ -30,12 +31,17 @@ final class CommentShowComponent extends Component
         $this->replying = false;
     }
 
-    public function startReplying(): void
+    public function toggleReplying(): void
     {
-        $this->editing = false;
-        $this->replying = true;
+        if ($this->replying === true) {
+            $this->cancelReplying();
+        } else {
+            $this->editing = false;
+            $this->replying = true;
+        }
     }
 
+    #[On('escape-key-clicked')]
     public function cancelEditing(): void
     {
         $this->editing = false;

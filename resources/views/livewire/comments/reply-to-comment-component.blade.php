@@ -1,9 +1,10 @@
 <div x-data="{ selectedText: '' }">
     <button wire:click="toggleForm">
+        yay
         {{ trans('Reply') }}
     </button>
 
-    <div x-show="$wire.isVisible">
+    <form x-show="$wire.isVisible">
         <textarea wire:model="replyText" placeholder="Write your reply..."></textarea>
 
         <blockquote class="" x-text="selectedText"></blockquote>
@@ -17,7 +18,7 @@
                 {{ trans(' Save Reply') }}
             </button>
         </div>
-    </div>
+    </form>
 
     <script>
         document.addEventListener('mouseup', function () {
@@ -27,6 +28,7 @@
 
             if (selected) {
                 selectedText = selected;
+
                 @this.selectedText = selected;
             }
         });

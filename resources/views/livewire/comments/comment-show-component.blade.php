@@ -11,11 +11,15 @@
         {{ $comment->text }}
 
         @auth
-            <button class="button reply-button" wire:click.prevent="startReplying()">
+            <button
+                class="button reply-button"
+                wire:click.prevent="toggleReplying()"
+                aria-controls="comment-reply-form-{{ $comment->id }}"
+                aria-expanded="{{ $this->replying ? 'true' : 'false' }}">
                 <span class="icon">
                     <img src="{{ asset('images/icons/reply-fill.svg') }}" alt="">
                 </span>
-                {{ trans('Reply') }}
+                {{ trans('reply') }}
             </button>
         @endauth
 
