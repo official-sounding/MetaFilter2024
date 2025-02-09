@@ -1,5 +1,8 @@
 <x-forms.field>
-    <button type="{{ $type ?? 'button' }}" class="button primary-button" wire:loading.attr="disabled">
+    <button
+        type="{{ $type ?? 'button' }}"
+        class="button @if (isset($class)) {{ $class }} @endif"
+        wire:loading.attr="disabled">
         {{ $slot }}
     </button>
 </x-forms.field>
