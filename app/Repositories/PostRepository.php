@@ -94,7 +94,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
             ->where('subsites.subdomain', '=', $this->subdomain)
             ->where('posts.user_id', '=', auth()->user()->id)
-            ->where('state', '!=', PostStateEnum::Draft->value)
+            ->where('posts.state', '!=', PostStateEnum::Draft->value)
             ->select(self::COLUMNS);
 
         $query->orderBy('posts.created_at', 'desc')->get();
