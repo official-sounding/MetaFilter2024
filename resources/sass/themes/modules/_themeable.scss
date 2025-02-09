@@ -17,6 +17,19 @@ body {
     background-color: light-dark(var(--lighter-gray), var(--dark-base-color));
 }
 
+//noinspection CssInvalidFunction
+.secondary-navigation a.top-bottom-button:link,
+.secondary-navigation a.top-bottom-button:visited {
+    color: light-dark(var(--dark-base-color), var(--light-base-color));
+    background-color: transparent;
+}
+
+//noinspection CssInvalidFunction
+.secondary-navigation a.top-bottom-button:hover {
+    color: light-dark(var(--dark-base-color), var(--yellow-green));
+    background-color: transparent;
+}
+
 
 //noinspection CssInvalidFunction
 .link-button {

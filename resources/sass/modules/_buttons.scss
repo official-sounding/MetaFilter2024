@@ -1,6 +1,6 @@
 :root {
     --button-border-radius: 0.33rem;
-    --button-border-width: 3px;
+    --button-border-width: 0.25rem;
 }
 
 button,
@@ -123,4 +123,17 @@ main > .primary-button {
     border-radius: 0;
     border-bottom-style: solid;
     border-bottom-width: 2px;
+}
+
+.top-bottom-button {
+    position: absolute;
+}
+
+.bottom-button {
+    bottom: 3rem;
+}
+
+.top-button {
+    top: 0.5rem;
+    right: -2rem;
 }
