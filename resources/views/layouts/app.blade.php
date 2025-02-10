@@ -43,6 +43,11 @@
 
     <main class="main-contents" id="main-contents">
         @include('layouts.partials.flash-messages')
+
+        @if (isset($showTitle) && $showTitle === true)
+            <h1>{{ $title }}</h1>
+        @endif
+
         @yield('contents')
     </main>
 
