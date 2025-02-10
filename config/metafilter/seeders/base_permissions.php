@@ -6,6 +6,8 @@ return [
     'Create',
     'Delete',
     'Delete Any',
+    'Edit',
+    'Edit Any',
     'Reorder',
     'Replicate',
     'Restore',
