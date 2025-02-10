@@ -1,4 +1,9 @@
 <form>
+    <button></button>
+</form>
+
+{{--
+<form>
     <button
         @auth
             wire:click="toggleForm()"
@@ -47,3 +52,4 @@
         @endif
     </div>
 </form>
+--}}

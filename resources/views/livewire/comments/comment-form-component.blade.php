@@ -12,11 +12,21 @@
         </div>
 
         <div class="level">
-            <button type="button" class="button secondary-button" wire:click="{{ $cancelAction }}">
-                {{ trans('Cancel') }}
-            </button>
+            @if ($isEditing === true || $isReplying === true)
+                <button
+                    type="button"
+                    class="button secondary-button"
+                    wire:click="$parent.closeForm({{ $comment->id ?? null }})"
+                >
+                    {{ trans('Cancel') }}
+                </button>
+            @endif
 
-            <button type="submit" class="button primary-button" wire:keydown.escape="{{ $cancelAction }}">
+            <button
+                type="submit"
+                class="button primary-button"
+                wire:keydown.escape="$parent.closeForm({{ $comment->id ?? null }})"
+            >
                 @if (!empty($buttonText))
                     {{ trans($buttonText) }}
                 @else

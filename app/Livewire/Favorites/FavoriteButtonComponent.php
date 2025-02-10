@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace App\Livewire\Favorites;
 
 use App\Models\BaseModel;
+use App\Traits\AuthStatusTrait;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 final class FavoriteButtonComponent extends Component
 {
+    use AuthStatusTrait;
+
     public BaseModel $model;
     public int $authorizedUserId;
     public int $favoritesCount;
@@ -19,7 +22,7 @@ final class FavoriteButtonComponent extends Component
 
     public function mount(BaseModel $model): void
     {
-        $this->authorizedUserId = auth()->id();
+        $this->authorizedUserId = $this->getAuthorizedUserId();
 
         $this->model = $model;
 

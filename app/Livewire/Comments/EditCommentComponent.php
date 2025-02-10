@@ -6,11 +6,14 @@ namespace App\Livewire\Comments;
 
 use App\Models\Comment;
 use App\Repositories\CommentRepository;
+use App\Traits\AuthStatusTrait;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 final class EditCommentComponent extends Component
 {
+    use AuthStatusTrait;
+
     public Comment $comment;
     public int $authorizedUserId;
     public string $commentText;
@@ -23,7 +26,7 @@ final class EditCommentComponent extends Component
 
     public function mount(Comment $comment, CommentRepository $commentRepository): void
     {
-        $this->authorizedUserId = auth()->id();
+        $this->authorizedUserId = $this->getAuthorizedUserId();
 
         $this->comment = $comment;
 
@@ -40,14 +43,16 @@ final class EditCommentComponent extends Component
         if ($this->authorizedUserId !== $this->comment->user_id) {
             return;
         }
+
         $this->isEditing = !$this->isEditing;
     }
 
     public function updateComment(): void
     {
         if ($this->authorizedUserId !== $this->comment->user_id) {
-            return; // Prevent unauthorized updates
+            return;
         }
+
         $this->validate();
 
         $this->comment->update([
@@ -56,7 +61,6 @@ final class EditCommentComponent extends Component
 
         $this->isEditing = false;
 
-        session()->flash('message', 'Comment updated successfully.');
+        session()->flash('message', trans('Comment updated successfully.'));
     }
-
 }

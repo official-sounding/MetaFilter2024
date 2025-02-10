@@ -13,11 +13,13 @@ use Livewire\Component;
 final class CommentFormComponent extends Component
 {
     public Authenticatable $user;
+    public string $buttonText = '';
     public ?Comment $storedComment = null;
+    public bool $isEditing = false;
+    public bool $isReplying = false;
     public string $text = '';
     public int $postId;
     public ?int $parentId = null;
-    public string $cancelAction;
     public ?string $message = null;
 
     public function mount(
@@ -40,5 +42,19 @@ final class CommentFormComponent extends Component
     protected function rules(): array
     {
         return (new StoreCommentRequest())->rules();
+    }
+
+    public function store(): void
+    {
+        $this->validate();
+
+        $this->storedComment = Comment::create([
+            'user_id' => $this->user->id,
+            'post_id' => $this->postId,
+            'parent_id' => $this->parentId,
+            'text' => $this->text,
+        ]);
+
+        $this->message = trans('Comment created successfully.');
     }
 }

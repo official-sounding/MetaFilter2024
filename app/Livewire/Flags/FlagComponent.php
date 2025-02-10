@@ -9,21 +9,24 @@ use App\Models\BaseModel;
 use App\Models\Flag;
 use App\Repositories\FlagReasonRepositoryInterface;
 use App\Repositories\FlagRepositoryInterface;
+use App\Traits\AuthStatusTrait;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-#[AllowDynamicProperties] final class FlagComponent extends Component
+#[AllowDynamicProperties]
+final class FlagComponent extends Component
 {
-    public BaseModel $model;
+    use AuthStatusTrait;
 
+    public BaseModel $model;
     public int $authorizedUserId;
     public int $flagCount = 0;
+    public $flagged = false;
     public string $iconFilename = 'flag';
+    public string $note = '';
     public array $reasons = [];
-    public string $titleText;
-    public bool $userFlagged = false;
-
     public int $reasonId = 0;
+    public string $titleText;
 
     protected FlagRepositoryInterface $flagRepository;
     protected FlagReasonRepositoryInterface $flagReasonRepository;
@@ -33,15 +36,14 @@ use Livewire\Component;
         FlagRepositoryInterface $flagRepository,
         FlagReasonRepositoryInterface $flagReasonRepository
     ): void {
-        $this->authorizedUserId = auth()->id();
+        $this->authorizedUserId = $this->getAuthorizedUserId();
 
+        $this->flagRepository = $flagRepository;
         $this->flagReasonRepository = $flagReasonRepository;
 
         $this->reasons = $this->flagReasonRepository->getDropdownValues('text');
 
         $this->model = $model;
-
-        $this->userFlagged = $model->userFlagged();
 
         $this->updateFlagData();
     }
@@ -54,7 +56,7 @@ use Livewire\Component;
     public function updateFlagData(): void
     {
         $this->flagCount = $this->model->flags()->count();
-        $this->userFlagged = $this->model->flags()->where('user_id', '=', $this->authorizedUserId)->exists();
+        $this->flagged = $this->model->flags()->where('user_id', '=', $this->authorizedUserId)->exists();
 
         $this->setTitleText();
 
@@ -72,6 +74,7 @@ use Livewire\Component;
             'comment_id' => $this->model->id,
             'user_id' => $this->authorizedUserId,
             'reason_id' => $reasonId,
+            'note' => null
         ]);
 
         $this->flagged = true;
@@ -85,8 +88,25 @@ use Livewire\Component;
             ->delete();
 
         $this->flagged = false;
-        $this->flagCount--;
+
+        $this->flagCount = $this->flagCount <= 1 ? 0 : $this->flagCount--;
     }
+
+    private function setTitleText(): void
+    {
+        $modelName = mb_strtolower($this->model::class);
+
+        $this->titleText =  $this->userFlagged ? trans('Remove flag') : trans('Flag this ') . trans($modelName);
+    }
+
+    private function getIconFilename(): void
+    {
+        $this->iconFilename = $this->userFlagged ? trans('flag-fill') : trans('flag');
+    }
+}
+// app/Http/Livewire/CommentFlags.php
+
+/*
 
     public function addFlag(): void
     {
@@ -112,22 +132,6 @@ use Livewire\Component;
 
         $this->updateFlagData();
     }
-
-    private function setTitleText(): void
-    {
-        $modelName = mb_strtolower($this->model::class);
-
-        $this->titleText =  $this->userFlagged ? trans('Remove flag') : trans('Flag this ') . trans($modelName);
-    }
-
-    private function getIconFilename(): void
-    {
-        $this->iconFilename = $this->userFlagged ? trans('flag-fill') : trans('flag');
-    }
-}
-// app/Http/Livewire/CommentFlags.php
-
-/*
 class CommentFlags extends Component
 {
 

@@ -12,8 +12,8 @@ use Livewire\Component;
 final class CommentShowComponent extends Component
 {
     public Comment $comment;
-    public bool $editing = false;
-    public bool $replying = false;
+    public bool $isEditing = false;
+    public bool $isReplying = false;
 
     public function mount(Comment $comment): void
     {
@@ -25,51 +25,50 @@ final class CommentShowComponent extends Component
         return view('livewire.comments.comment-show-component');
     }
 
-    public function startEditing(): void
+    public function toggleEditing(): void
     {
-        $this->editing = true;
-        $this->replying = false;
+        if ($this->isEditing === true) {
+            $this->stopEditing();
+        } else {
+            $this->startEditing();
+        }
     }
 
     public function toggleReplying(): void
     {
-        if ($this->replying === true) {
-            $this->cancelReplying();
+        if ($this->isReplying === true) {
+            $this->stopReplying();
         } else {
-            $this->editing = false;
-            $this->replying = true;
+            $this->startReplying();
         }
     }
 
+    public function startEditing(): void
+    {
+        $this->isEditing = true;
+        $this->stopReplying();
+    }
+
+    public function stopEditing(): void
+    {
+        $this->isEditing = false;
+    }
+
+    public function startReplying(): void
+    {
+        $this->isReplying = true;
+        $this->stopEditing();
+    }
+
+    public function stopReplying(): void
+    {
+        $this->isReplying = false;
+    }
+
     #[On('escape-key-clicked')]
-    public function cancelEditing(): void
+    public function closeForm(): void
     {
-        $this->editing = false;
-    }
-
-    public function cancelReplying(): void
-    {
-        $this->replying = false;
-    }
-
-    private function commentCreated(): void
-    {
-        $this->cancelReplying();
-    }
-
-    private function commentUpdated(): void
-    {
-        $this->editing = false;
-    }
-
-    public function hideCommentForm(): void
-    {
-        $this->cancelReplying();
-        $this->cancelEditing();
-    }
-
-    public function deleteComment(): void
-    {
-        $this->comment->delete();
+        $this->stopEditing();
+        $this->stopReplying();
     }
 }

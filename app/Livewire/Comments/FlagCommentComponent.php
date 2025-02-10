@@ -7,11 +7,14 @@ namespace App\Livewire\Comments;
 use App\Models\Comment;
 use App\Repositories\FlagReasonRepositoryInterface;
 use App\Repositories\FlagRepositoryInterface;
+use App\Traits\AuthStatusTrait;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 final class FlagCommentComponent extends Component
 {
+    use AuthStatusTrait;
+
     public Comment $comment;
     public array $flagReasons = [];
     public string $note = '';
@@ -33,10 +36,11 @@ final class FlagCommentComponent extends Component
         $this->comment = $comment;
 
         $this->flagReasonRepository = $flagReasonRepository;
+        $this->flagRepository = $flagRepository;
 
         $this->flagReasons = $this->flagReasonRepository->all();
 
-        $this->authorizedUserId = auth()->id();
+        $this->authorizedUserId = $this->getAuthorizedUserId();
 
         $this->updateFlagData();
     }
