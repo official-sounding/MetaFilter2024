@@ -6,6 +6,11 @@ namespace App\Traits;
 
 trait AuthStatusTrait
 {
+    public function getAuthorizedUserId(): int
+    {
+        return auth()->id();
+    }
+
     public function loggedIn(): bool
     {
         return auth()->check() === true;
