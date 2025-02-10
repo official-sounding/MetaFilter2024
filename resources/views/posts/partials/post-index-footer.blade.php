@@ -12,6 +12,7 @@
             'slug' => $post->slug
         ]) }}#comments"
         title="Comments">
-{{-- {{ $commentsCount > 0 ?: 0 }} --}} comments
-</a>
+        {{ $commentsCount > 0 ?: 0 }}
+        {{ Str::plural('comment', $commentsCount) }}
+    </a>
 </footer>
