@@ -72,13 +72,11 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
             ->where('subsites.subdomain', '=', $this->subdomain)
             ->select(self::COLUMNS)
-/*
             ->withCount([
                 'comments',
                 'favorites',
                 'flags',
             ])
-*/
             ->limit(self::POSTS_PER_PAGE)
             ->orderBy('posts.created_at', 'desc')
             ->get()
