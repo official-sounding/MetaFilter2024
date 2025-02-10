@@ -22,12 +22,11 @@ final class FlagRepository extends BaseRepository implements FlagRepositoryInter
             ->exists();
     }
 
-    public function deleteFlag(array $data): mixed
+    public function removeFlag(int $flagId, int $userId): bool
     {
         return $this->model->newQuery()
-            ->where('flaggable_type', '=', $data['flaggable_type'])
-            ->where('flaggable_id', '=', $data['flaggable_id'])
-            ->where('user_id', '=', $data['user_id'])
+            ->where('id', '=', $flagId)
+            ->where('user_id', '=', $userId)
             ->delete();
     }
 }

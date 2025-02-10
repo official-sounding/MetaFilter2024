@@ -8,5 +8,5 @@ interface FlagRepositoryInterface extends BaseRepositoryInterface
 {
     public function flagged(string $flaggableType, int $flaggableId, int $userId): bool;
 
-    public function deleteFlag(array $data): mixed;
+    public function removeFlag(int $flagId, int $userId): bool;
 }
