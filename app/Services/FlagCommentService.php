@@ -20,7 +20,7 @@ final class FlagCommentService
 
     public function flagged(int $commentId, int $userId): bool
     {
-        return $this->flagRepository->flagged(self::FLAGGABLE_TYPE, $commentId, $userId);
+        return $this->flagRepository->userFlagged(self::FLAGGABLE_TYPE, $commentId, $userId);
     }
 
     public function create(array $data): bool

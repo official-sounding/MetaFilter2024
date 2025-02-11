@@ -20,7 +20,7 @@ final class FlagPostService
 
     public function flagged(int $postId, int $userId): bool
     {
-        return $this->flagRepository->flagged(self::FLAGGABLE_TYPE, $postId, $userId);
+        return $this->flagRepository->userFlagged(self::FLAGGABLE_TYPE, $postId, $userId);
     }
 
     public function create(array $data): bool
