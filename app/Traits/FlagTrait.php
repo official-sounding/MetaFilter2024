@@ -6,20 +6,20 @@ namespace App\Traits;
 
 trait FlagTrait
 {
-    public function getIconPath(): string
+    public function getIconPath(bool $userFlagged): string
     {
-        $iconPath = $this->flagged ? 'flag-fill.svg' : 'flag.svg';
+        $iconPath = $userFlagged ? 'flag-fill.svg' : 'flag.svg';
 
         return "images/icons/$iconPath";
     }
 
-    public function decrementFlags(): void
+    public function decrementFlagCount(): void
     {
-        $this->flags--;
+        $this->flagCount--;
     }
 
-    public function incrementFlags(): void
+    public function incrementFlagCount(): void
     {
-        $this->flags++;
+        $this->flagCount++;
     }
 }
