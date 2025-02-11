@@ -1,4 +1,4 @@
-<form wire:submit="store">
+<form wire:submit.prevent="store">
     @include('forms.partials.validation-summary')
     @include('livewire.posts.partials.posting-as')
 
@@ -36,8 +36,3 @@
         </div>
     </fieldset>
 </form>
-{{--
-@push('scripts')
-    @include('livewire.posts.partials.wysiwyg-scripts')
-@endpush
---}}

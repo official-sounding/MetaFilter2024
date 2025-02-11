@@ -5,52 +5,51 @@ declare(strict_types=1);
 namespace App\Livewire\Flags;
 
 use App\Models\Post;
-use App\Services\FlagPostService;
-use App\Traits\FlagTrait;
-use Illuminate\Contracts\View\View;
 use Livewire\Attributes\On;
 
 final class FlagPostComponent extends BaseFlagComponent
 {
-    use FlagTrait;
+    private const string FLAGGABLE_TYPE = 'post';
 
-    public string $title;
     public Post $post;
-    private FlagPostService $flagPostService;
-    public string $flagEvent;
-
-    public function boot(FlagPostService $flagPostService): void
-    {
-        $this->flagPostService = $flagPostService;
-    }
-
     public function mount(Post $post): void
     {
         $this->post = $post;
-        $this->title = 'Flags this post';
-        $this->user = auth()->user();
-        $this->type = 'post';
 
-        $this->flagged = $this->user !== null
-            ? $this->flagPostService->flagged($this->post->id, $this->user->id)
-            : false;
+        $this->title = trans('Flag this post');
 
-        $this->iconPath = $this->getIconPath();
-    }
+        $this->userFlagged = $this->hasUserFlagged(
+            flaggableType: self::FLAGGABLE_TYPE,
+            flaggableId: $this->post->id
+        );
 
-    public function render(): View
-    {
-        return view('livewire.flags.flag-component')->with([
-            'iconPath' => $this->iconPath,
-            'title' => $this->title,
-            'type' => $this->type,
-        ]);
+        $this->iconPath = $this->getIconPath($this->userFlagged);
     }
 
     #[On('post-flag-added.{post.id}')]
-    public function flagPost(): void
+    public function storePostFlag(): void
     {
-        $this->incrementFlags();
-        $this->flagged = true;
+        $this->flagService->store([
+            'flaggable_type' => self::FLAGGABLE_TYPE,
+            'flaggable_id' => $this->post->id,
+            'user_id' => $this->authorizedUserId,
+            'note' => $this->note,
+        ]);
+    }
+
+    #[On('post-flag-deleted.{post.id}')]
+    public function deletePostFlag(): void
+    {
+        $deleted = $this->flagService->delete(
+            flaggableType: self::FLAGGABLE_TYPE,
+            flaggableId: $this->post->id,
+            userId: $this->authorizedUserId
+        );
+
+        if ($deleted === true) {
+            $this->decrementFlagCount();
+
+            $this->userFlagged = false;
+        }
     }
 }

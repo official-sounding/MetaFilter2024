@@ -1,4 +1,4 @@
-<form wire:submit="store()">
+<form wire:submit.prevent="store()">
     @include('forms.partials.required-fields-note')
     @include('forms.partials.validation-summary')
     @include('livewire.posts.partials.posting-as')

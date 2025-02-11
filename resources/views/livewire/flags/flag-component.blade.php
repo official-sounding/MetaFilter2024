@@ -1,55 +1,72 @@
-<form>
-    <button></button>
-</form>
+<div>
+    @auth
+        @if ($userFlagged === true)
+            <button wire:click="delete($flaggableId)" title="{{ trans('Remove flag') }}">
+                <span class="icon">
+                    <img src="{{ asset("images/icons/$iconFilename.svg") }}"
+                         alt="{{ trans('Flag icon') }}"
+                         title="{{ $titleText }}">
+                </span>
+                {{ $flagCount }}
+            </button>
+        @else
+            <button wire:click="toggleForm()">
+                <span class="icon">
+                    <img src="{{ asset("images/icons/$iconFilename.svg") }}"
+                         alt="{{ trans('Flag icon') }}"
+                         title="{{ $titleText }}">
+                </span>
+            </button>
+        @endif
+    @endauth
 
-{{--
-<form>
-    <button
-        @auth
-            wire:click="toggleForm()"
-        @endauth
-        @guest
+    @guest
+        <button
             disabled="disabled"
-        @endguest
-        class="button">
-    <span class="icon">
-        <img src="{{ asset("images/icons/$iconFilename.svg") }}"
-             alt="{{ trans('Flag icon') }}"
-             title="{{ $titleText }}">
-    </span>
-        {{ $flagCount }}
-    </button>
+            class="button">
+            {{ $flagCount }}
+        </button>
+    @endguest
 
     @if ($showForm)
-        <form>
+        <form wire:submit.prevent="store($flaggableId)">
             <fieldset>
+                <legend>
+                    {{ $titleText }}
+                </legend>
 
-            <legend>
-                {{ $titleText }}
-            </legend>
+                @foreach ($flagReasons as $key => $label)
+                    <label class="block">
+                        <input type="checkbox" wire:model="selectedReasons" value="{{ $key }}"> {{ $label }}
+                    </label>
+                @endforeach
 
-            @foreach ($flagReasons as $key => $label)
-                <label class="block">
-                    <input type="checkbox" wire:model="selectedReasons" value="{{ $key }}"> {{ $label }}
+                <label for="note" class="optional">
+                    {{ trans('Note') }}
                 </label>
-            @endforeach
 
-            <textarea wire:model="note" placeholder="Additional details (optional)" ></textarea>
+                <textarea
+                    wire:model="note"
+                    name="note"
+                    id="note"
+                    placeholder="Additional details (optional)" >
+                </textarea>
 
-            <button wire:click="flagComment">
-                Submit Flag
-            </button>
+                <div class="level">
+                    <button
+                        type="button"
+                        class="button secondary-button"
+                        wire:click="toggleForm()">
+                        {{ trans('Cancel') }}
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="button primary-button">
+                        {{ trans('Add Flag') }}
+                    </button>
+                </div>
             </fieldset>
         </form>
     @endif
-
-    <div class="mt-2">
-        <span class="text-sm text-gray-600">Flags: </span>
-        @if ($userFlagged)
-            <button wire:click="removeFlag()">
-                Remove Flag
-            </button>
-        @endif
-    </div>
-</form>
---}}
+</div>
