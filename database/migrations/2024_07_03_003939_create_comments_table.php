@@ -22,11 +22,6 @@ return new class extends Migration {
                 ->nullable()
                 ->constrained('posts');
 
-            $table->foreignId('reply_id')
-                ->nullable()
-                ->constrained('comments')
-                ->cascadeOnDelete();
-
             $table->foreignId('user_id')
                 ->nullable()
                 ->constrained('users')

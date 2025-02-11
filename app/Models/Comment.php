@@ -19,7 +19,6 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property string $text
  * @property int $parent_id
  * @property int $post_id
- * @property int $reply_id
  * @property int $user_id
  */
 final class Comment extends BaseModel
@@ -35,7 +34,7 @@ final class Comment extends BaseModel
     protected $fillable = [
         'text',
         'parent_id',
-        'reply_id',
+        'post_id',
         'user_id',
     ];
 
@@ -43,7 +42,7 @@ final class Comment extends BaseModel
         'text',
     ];
 
-    public function getActivitylogOptions(): LogOptions
+    public function getActivityLogOptions(): LogOptions
     {
         return LogOptions::defaults()->logFillable();
     }
