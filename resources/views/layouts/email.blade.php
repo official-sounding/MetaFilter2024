@@ -7,8 +7,11 @@
 
 <title>{!! $title ?? 'Untitled' !!}</title>
 
-</head>
+<style>
+    {{ file_get_contents(public_path('bui')) }}
+</style>
 
+</head>
 <body>
 
 @yield('contents')

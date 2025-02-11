@@ -5,54 +5,52 @@ declare(strict_types=1);
 namespace App\Livewire\Flags;
 
 use App\Models\Comment;
-use App\Services\FlagCommentService;
-use App\Traits\FlagTrait;
-use Illuminate\Contracts\View\View;
 use Livewire\Attributes\On;
 
 final class FlagCommentComponent extends BaseFlagComponent
 {
-    use FlagTrait;
+    private const string FLAGGABLE_TYPE = 'comment';
 
-    public string $title;
     public Comment $comment;
-    private FlagCommentService $flagCommentService;
-    public string $flagEvent;
-
-    public function boot(FlagCommentService $flagCommentService): void
-    {
-        $this->flagCommentService = $flagCommentService;
-    }
 
     public function mount(Comment $comment): void
     {
         $this->comment = $comment;
-        $this->title = 'Flags this comment';
-        $this->type = 'comment';
-        $this->user = auth()->user() ?? null;
 
-        $this->flagged = $this->user !== null
-            ? $this->flagCommentService->flagged($this->comment->id, $this->user->id)
-            : false;
+        $this->title = trans('Flag this comment');
 
-        $this->iconPath = $this->getIconPath();
-    }
+        $this->userFlagged = $this->hasUserFlagged(
+            flaggableType: self::FLAGGABLE_TYPE,
+            flaggableId: $this->comment->id
+        );
 
-    public function render(): View
-    {
-        $iconPath = $this->getIconPath();
-
-        return view('livewire.flags.flag-component')->with([
-            'iconPath' => $iconPath,
-            'title' => $this->title,
-            'type' => $this->type,
-        ]);
+        $this->iconPath = $this->getIconPath($this->userFlagged);
     }
 
     #[On('comment-flag-added.{comment.id}')]
-    public function flagComment(): void
+    public function storeCommentFlag(): void
     {
-        $this->incrementFlags();
-        $this->flagged = true;
+        $this->flagService->store([
+            'flaggable_type' => self::FLAGGABLE_TYPE,
+            'flaggable_id' => $this->comment->id,
+            'user_id' => $this->authorizedUserId,
+            'note' => $this->note,
+        ]);
+    }
+
+    #[On('comment-flag-deleted.{comment.id}')]
+    public function deleteCommentFlag(): void
+    {
+        $deleted = $this->flagService->delete(
+            flaggableType: self::FLAGGABLE_TYPE,
+            flaggableId: $this->comment->id,
+            userId: $this->authorizedUserId
+        );
+
+        if ($deleted === true) {
+            $this->decrementFlagCount();
+
+            $this->userFlagged = false;
+        }
     }
 }
