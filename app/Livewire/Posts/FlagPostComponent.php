@@ -2,42 +2,45 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Flags;
+namespace App\Livewire\Posts;
 
+use App\Models\Post;
 use App\Repositories\FlagReasonRepositoryInterface;
-use App\Services\FlagService;
+use App\Repositories\FlagRepositoryInterface;
 use App\Traits\AuthStatusTrait;
-use App\Traits\FlagTrait;
-use App\Traits\LoggingTrait;
-use Livewire\Component;
 
-class BaseFlagComponent extends Component
+class FlagPostComponent
 {
     use AuthStatusTrait;
-    use FlagTrait;
-    use LoggingTrait;
+
+    public Post $post;
 
     public array $flagReasons = [];
-    public string $iconPath;
-    public bool $flagged;
-    public int $flagCount;
     public string $note = '';
     public int $authorizedUserId;
     public int $selectedReasonId;
+    public int $flagCount = 0;
     public bool $userFlagged = false;
     public bool $showForm = false;
 
     protected FlagReasonRepositoryInterface $flagReasonRepository;
-    protected FlagService $flagService;
 
-    public function __construct(
+    protected FlagRepositoryInterface $flagRepository;
+
+    public function mount(
+        Post                          $post,
         FlagReasonRepositoryInterface $flagReasonRepository,
-        FlagService $flagService
-    ) {
+        FlagRepositoryInterface       $flagRepository,
+    ): void {
+        $this->post = $post;
+
         $this->flagReasonRepository = $flagReasonRepository;
-        $this->flagService = $flagService;
+        $this->flagRepository = $flagRepository;
+
+        $this->flagReasons = $this->flagReasonRepository->getDropdownValues('text');
 
         $this->authorizedUserId = $this->getAuthorizedUserId();
-        $this->flagReasons = $this->flagReasonRepository->getDropdownValues('text');
+
+        $this->updateFlagData();
     }
 }

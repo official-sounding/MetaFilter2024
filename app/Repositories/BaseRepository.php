@@ -17,8 +17,11 @@ class BaseRepository implements BaseRepositoryInterface
     use SubsiteTrait;
 
     protected Model|BaseModel $model;
+
     protected string $singularEntity;
+
     protected string $subdomain;
+
     protected array $subsite;
 
     public function __construct(Model|BaseModel $model)
@@ -63,7 +66,7 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->getQuery()->where('id', '=', $id);
     }
 
-    public function getBySlug(string $slug): Model|null
+    public function getBySlug(string $slug): ?Model
     {
         return $this->getQuery()->where('slug', '=', $slug)->firstOrFail();
     }

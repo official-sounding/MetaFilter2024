@@ -8,19 +8,18 @@ use App\Repositories\FlagRepositoryInterface;
 use App\Traits\LoggingTrait;
 use Exception;
 
-final class FlagCommentService
+final class FlagService
 {
     use LoggingTrait;
 
-    private const string FLAGGABLE_TYPE = 'App\Models\Comment';
-
     public function __construct(
         protected FlagRepositoryInterface $flagRepository,
-    ) {}
+    ) {
+    }
 
-    public function flagged(int $commentId, int $userId): bool
+    public function flagged(string $flaggableType, int $flaggableId, int $userId): bool
     {
-        return $this->flagRepository->flagged(self::FLAGGABLE_TYPE, $commentId, $userId);
+        return $this->flagRepository->flagged($flaggableType, $flaggableId, $userId);
     }
 
     public function create(array $data): bool
@@ -36,11 +35,11 @@ final class FlagCommentService
         }
     }
 
-    public function delete(int $commentId, int $userId): bool
+    public function delete(string $flaggableType, int $flaggableId, int $userId): bool
     {
         $data = [
-            'flaggable_type' => self::FLAGGABLE_TYPE,
-            'flaggable_id' => $commentId,
+            'flaggable_type' => $flaggableType,
+            'flaggable_id' => $flaggableId,
             'user_id' => $userId,
         ];
 
