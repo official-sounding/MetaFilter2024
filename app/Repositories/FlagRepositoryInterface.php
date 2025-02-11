@@ -6,7 +6,7 @@ namespace App\Repositories;
 
 interface FlagRepositoryInterface extends BaseRepositoryInterface
 {
-    public function flagged(string $flaggableType, int $flaggableId, int $userId): bool;
+    public function userFlagged(string $flaggableType, int $flaggableId, int $userId): bool;
 
-    public function removeFlag(int $flagId, int $userId): bool;
+    public function deleteFlag(string $flaggableType, int $flagId, int $userId): bool;
 }
