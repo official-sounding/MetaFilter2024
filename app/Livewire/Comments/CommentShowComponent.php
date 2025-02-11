@@ -12,16 +12,12 @@ use Livewire\Component;
 final class CommentShowComponent extends Component
 {
     public Comment $comment;
-    public int $flagCount;
     public bool $isEditing = false;
-    public bool $isFlagging = false;
     public bool $isReplying = false;
 
     public function mount(Comment $comment): void
     {
         $this->comment = $comment;
-
-        $this->flagCount = $comment->flags()->count();
     }
 
     public function render(): View
@@ -35,15 +31,6 @@ final class CommentShowComponent extends Component
             $this->stopEditing();
         } else {
             $this->startEditing();
-        }
-    }
-
-    public function toggleFlagging(): void
-    {
-        if ($this->isFlagging === true) {
-            $this->stopFlagging();
-        } else {
-            $this->startFlagging();
         }
     }
 
@@ -67,16 +54,6 @@ final class CommentShowComponent extends Component
         $this->isEditing = false;
     }
 
-    public function startFlagging(): void
-    {
-        $this->isFlagging = true;
-    }
-
-    public function stopFlagging(): void
-    {
-        $this->isFlagging = false;
-    }
-
     public function startReplying(): void
     {
         $this->isReplying = true;
@@ -92,7 +69,6 @@ final class CommentShowComponent extends Component
     public function closeForm(): void
     {
         $this->stopEditing();
-        $this->stopFlagging();
         $this->stopReplying();
     }
 }

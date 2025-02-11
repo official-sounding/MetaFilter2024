@@ -31,13 +31,6 @@
             </span>
             {{ trans('Edit') }}
         </button>
-
-        <button class="button flag-button" wire:click.prevent="toggleFlagging()">
-            <span class="icon">
-                <img src="{{ asset('images/icons/flag.svg') }}" alt="">
-            </span>
-            {{ trans('Flag') }}
-        </button>
         @can('edit-comment', $comment)
         @endcan
     </footer>
@@ -49,13 +42,6 @@
             :stored-comment="$comment"
             button-text="{{ trans('Update') }}"
             is-editing="true"
-        />
-    @endif
-
-    @if ($isFlagging === true)
-        <livewire:comments.flag-comment-component
-            wire:key="'flag-comment-' . $comment->id"
-            is-flagging="true"
         />
     @endif
 

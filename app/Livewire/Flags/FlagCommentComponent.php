@@ -4,72 +4,55 @@ declare(strict_types=1);
 
 namespace App\Livewire\Flags;
 
-use App\Http\Requests\Flag\StoreCommentFlagRequest;
 use App\Models\Comment;
-use App\Repositories\FlagReasonRepositoryInterface;
-use App\Services\FlagService;
+use App\Services\FlagCommentService;
+use App\Traits\FlagTrait;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\On;
 
 final class FlagCommentComponent extends BaseFlagComponent
 {
-    private const string FLAGGABLE_TYPE = 'App\Models\Comment';
+    use FlagTrait;
 
+    public string $title;
     public Comment $comment;
-    protected FlagReasonRepositoryInterface $flagReasonRepository;
-    protected FlagService $flagService;
+    private FlagCommentService $flagCommentService;
+    public string $flagEvent;
 
-    public function __construct(
-        FlagReasonRepositoryInterface $flagReasonRepository,
-        FlagService $flagService
-    ) {
-        parent::__construct($flagReasonRepository, $flagService);
+    public function boot(FlagCommentService $flagCommentService): void
+    {
+        $this->flagCommentService = $flagCommentService;
     }
 
-    public function mount(
-        Comment $comment,
-    ): void {
+    public function mount(Comment $comment): void
+    {
         $this->comment = $comment;
+        $this->title = 'Flags this comment';
+        $this->type = 'comment';
+        $this->user = auth()->user() ?? null;
+
+        $this->flagged = $this->user !== null
+            ? $this->flagCommentService->flagged($this->comment->id, $this->user->id)
+            : false;
+
+        $this->iconPath = $this->getIconPath();
     }
 
     public function render(): View
     {
-        return view('livewire.comments.flag-comment-component');
+        $iconPath = $this->getIconPath();
+
+        return view('livewire.flags.flag-component')->with([
+            'iconPath' => $iconPath,
+            'title' => $this->title,
+            'type' => $this->type,
+        ]);
     }
 
-    public function rules(): array
-    {
-        return (new StoreCommentFlagRequest())->rules();
-    }
-
+    #[On('comment-flag-added.{comment.id}')]
     public function flagComment(): void
     {
-        $this->validate();
-
-        $data = [
-            'user_id' => $this->authorizedUserId,
-            'comment_id' => $this->comment->id,
-            'reason_id' => $this->selectedReasonId,
-            'note' => $this->note,
-        ];
-
-        $this->flagRepository->updateOrCreate($data);
-
-        $this->updateFlagData();
-
-        $this->showForm = false;
-    }
-
-    public function removeFlag(): void
-    {
-        $this->comment->flags()->where('user_id', '=', $this->authorizedUserId)->delete();
-
-        $this->updateFlagData();
-    }
-
-    public function updateFlagData(): void
-    {
-        $this->flagCount = $this->comment->flags()->count();
-
-        $this->userFlagged = $this->comment->flags()->where('user_id', '=', $this->authorizedUserId)->exists();
+        $this->incrementFlags();
+        $this->flagged = true;
     }
 }

@@ -6,9 +6,8 @@ namespace App\Http\Requests\Flag;
 
 use App\Http\Requests\BaseFormRequest;
 use App\Traits\AuthStatusTrait;
-use Illuminate\Foundation\Http\FormRequest;
 
-class BaseStoreFlagRequest extends BaseFormRequest
+final class StoreFlagNoteRequest extends BaseFormRequest
 {
     use AuthStatusTrait;
 
@@ -20,15 +19,10 @@ class BaseStoreFlagRequest extends BaseFormRequest
     public function rules(): array
     {
         return [
-            'flag_reason_id' => [
+            'reason' => [
                 'required',
-                'integer',
-                // TODO: Check that ID exists in DB
-            ],
-            'note' => [
-                'nullable',
                 'string',
-                'max:100',
+                'max:500',
             ],
         ];
     }
