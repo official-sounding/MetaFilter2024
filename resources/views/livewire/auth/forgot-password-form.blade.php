@@ -1,4 +1,4 @@
-<form wire:submit="save">
+<form wire:submit.prevent="save">
     forgot password form
     @include('forms.partials.required-fields-note')
     @include('forms.partials.validation-summary')

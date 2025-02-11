@@ -1,4 +1,4 @@
-<form wire:submit="save">
+<form wire:submit.prevent="save">
     <x-forms.input
         name="email"
         type="email"
