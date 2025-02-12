@@ -32,5 +32,4 @@ final class NoneListedComponent extends Component
 
         return trans($text);
     }
-
 }
