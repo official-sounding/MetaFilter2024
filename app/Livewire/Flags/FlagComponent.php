@@ -7,12 +7,14 @@ namespace App\Livewire\Flags;
 use App\Models\BaseModel;
 use App\Services\FlagService;
 use App\Traits\AuthStatusTrait;
+use App\Traits\TypeTrait;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 final class FlagComponent extends Component
 {
     use AuthStatusTrait;
+    use TypeTrait;
 
     private const string MODEL_PATH = 'App\Models\/';
 
@@ -28,7 +30,7 @@ final class FlagComponent extends Component
     public bool $showForm = false;
     public string $titleText;
     public string $type = 'zz';
-    public $userFlagged = false;
+    public bool $userFlagged = false;
 
     protected FlagService $flagService;
 

@@ -5,7 +5,8 @@
         </legend>
 
         <small>
-            {{ trans('What does it mean to flag a post?') }}
+            <x-popovers.popover-component />
+            {{ trans('What does it mean to flag a comment or post?') }}
         </small>
 
         @foreach ($flagReasons as $key => $label)
