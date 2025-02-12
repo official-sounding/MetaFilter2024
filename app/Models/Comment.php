@@ -20,6 +20,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property int $parent_id
  * @property int $post_id
  * @property int $user_id
+ * @property User $user
  */
 final class Comment extends BaseModel
 {
