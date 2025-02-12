@@ -10,11 +10,11 @@
         <button
             type="button"
             class="button footer-button"
+            title="{{ $title }}"
             @guest
                 disabled="disabled"
             @endguest
             @auth
-                title="{{ $title }}"
                 @if ($type === 'comment')
                     @click="$dispatch('toggle-flag-comment-form')"
                 @endif

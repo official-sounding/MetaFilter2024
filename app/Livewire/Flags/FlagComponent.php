@@ -14,6 +14,8 @@ final class FlagComponent extends Component
 {
     use AuthStatusTrait;
 
+    private const string MODEL_PATH = 'App\Models\/';
+
     // TODO: Check that model is post or comment
     public BaseModel $model;
     public int $authorizedUserId;
@@ -25,7 +27,7 @@ final class FlagComponent extends Component
     public array $flagReasons = [];
     public bool $showForm = false;
     public string $titleText;
-    public string $type;
+    public string $type = 'zz';
     public $userFlagged = false;
 
     protected FlagService $flagService;
@@ -36,14 +38,14 @@ final class FlagComponent extends Component
     ): void {
         $this->model = $model;
         $this->flaggableId = $this->model->id;
-        $this->type = mb_strtolower($this->model::class);
 
         $this->authorizedUserId = $this->getAuthorizedUserId();
         $this->flagService = $flagService;
         $this->flagReasons = $this->flagService->getFlagReasons();
 
+        $this->setIconFilename();
         $this->setTitleText();
-        $this->getIconFilename();
+        $this->type = $this->getType();
         $this->updateFlagData();
     }
 
@@ -95,13 +97,22 @@ final class FlagComponent extends Component
         $this->showForm = !$this->showForm;
     }
 
-    private function setTitleText(): void
-    {
-        $this->titleText =  $this->userFlagged ? trans('Remove flag') : trans('Flag this ') . trans($this->type);
-    }
-
-    private function getIconFilename(): void
+    private function setIconFilename(): void
     {
         $this->iconFilename = $this->userFlagged ? 'flag-fill' : 'flag';
+    }
+
+    private function getType(): string
+    {
+        $type = str_replace(self::MODEL_PATH, '', $this->model::class);
+
+        return 'Type: ' . mb_strtolower($type);
+    }
+
+    private function setTitleText(): void
+    {
+        $flagText = 'Flag this ' . $this->type;
+
+        $this->titleText =  $this->userFlagged ? trans('Remove flag') : trans($flagText);
     }
 }
