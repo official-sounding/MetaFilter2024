@@ -1,4 +1,9 @@
-<form wire:submit.prevent="store">
+<form
+    wire:submit.prevent="store"
+    @if ($isEditing === true || $isReplying === true)
+        id="comment-reply-form-{{ $comment->id }}"
+    @endif
+>
     @include('forms.partials.validation-summary')
     @include('livewire.posts.partials.posting-as')
 
@@ -16,17 +21,14 @@
                 <button
                     type="button"
                     class="button secondary-button"
-                    wire:click="$parent.closeForm({{ $comment->id ?? null }})"
-                >
+                    wire:click="$parent.closeForm({{ $comment->id }})">
                     {{ trans('Cancel') }}
                 </button>
             @endif
 
             <button
                 type="submit"
-                class="button primary-button"
-                wire:keydown.escape="$parent.closeForm({{ $comment->id ?? null }})"
-            >
+                class="button primary-button">
                 @if (!empty($buttonText))
                     {{ trans($buttonText) }}
                 @else

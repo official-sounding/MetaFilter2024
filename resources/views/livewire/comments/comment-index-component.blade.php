@@ -10,11 +10,20 @@
         />
     @empty
         @include('notifications.none-listed', [
+        // TODO: Need to change the text based on the subsite; Ask uses "answers" instead of "comments"
             'items' => 'comments'
         ])
     @endforelse
 
     @auth
-        <livewire:comments.comment-form-component :post-id="$post->id" />
+        <h2>
+            {{ trans('Add a comment') }}
+        </h2>
+
+        <livewire:comments.comment-form-component
+            :authorized-user-id="$authorizedUserId"
+            :comment="$comment"
+            :post-id="$post->id"
+        />
     @endauth
 </section>

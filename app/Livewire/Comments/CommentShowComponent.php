@@ -5,24 +5,36 @@ declare(strict_types=1);
 namespace App\Livewire\Comments;
 
 use App\Models\Comment;
+use App\Traits\AuthStatusTrait;
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
 final class CommentShowComponent extends Component
 {
+    use AuthStatusTrait;
+
     public Comment $comment;
+    public ?int $authorizedUserId;
+    public int $flagCount = 0;
+    public string $flagIconFilename = 'flag';
+    public string $flagTitleText = 'Flag';
     public bool $isEditing = false;
+    public bool $isFlagging = false;
     public bool $isReplying = false;
+    public bool $userFlagged = false;
 
     public function mount(Comment $comment): void
     {
+        $this->authorizedUserId = $this->getAuthorizedUserId();
         $this->comment = $comment;
     }
 
     public function render(): View
     {
-        return view('livewire.comments.comment-show-component');
+        return view('livewire.comments.comment-show-component', [
+            'authorizedUserId' => $this->authorizedUserId,
+        ]);
     }
 
     public function toggleEditing(): void
@@ -31,6 +43,15 @@ final class CommentShowComponent extends Component
             $this->stopEditing();
         } else {
             $this->startEditing();
+        }
+    }
+
+    public function toggleFlagging(): void
+    {
+        if ($this->isFlagging === true) {
+            $this->stopFlagging();
+        } else {
+            $this->startFlagging();
         }
     }
 
@@ -46,6 +67,7 @@ final class CommentShowComponent extends Component
     public function startEditing(): void
     {
         $this->isEditing = true;
+        $this->stopFlagging();
         $this->stopReplying();
     }
 
@@ -54,10 +76,23 @@ final class CommentShowComponent extends Component
         $this->isEditing = false;
     }
 
+    public function startFlagging(): void
+    {
+        $this->isFlagging = true;
+        $this->stopEditing();
+        $this->stopReplying();
+    }
+
+    public function stopFlagging(): void
+    {
+        $this->isFlagging = false;
+    }
+
     public function startReplying(): void
     {
         $this->isReplying = true;
         $this->stopEditing();
+        $this->stopFlagging();
     }
 
     public function stopReplying(): void
@@ -69,6 +104,7 @@ final class CommentShowComponent extends Component
     public function closeForm(): void
     {
         $this->stopEditing();
+        $this->stopFlagging();
         $this->stopReplying();
     }
 }

@@ -7,18 +7,23 @@ namespace App\Livewire\Comments;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Repositories\CommentRepositoryInterface;
+use App\Traits\AuthStatusTrait;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 
 final class CommentIndexComponent extends Component
 {
+    use AuthStatusTrait;
+
+    public ?int $authorizedUserId;
     public Post $post;
     public Collection $comments;
     protected CommentRepositoryInterface $commentRepository;
 
     public function mount(Post $post, CommentRepositoryInterface $commentRepository): void
     {
+        $this->authorizedUserId = $this->getAuthorizedUserId();
         $this->commentRepository = $commentRepository;
 
         $this->post = $post;

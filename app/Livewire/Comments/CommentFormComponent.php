@@ -6,15 +6,14 @@ namespace App\Livewire\Comments;
 
 use App\Http\Requests\Comment\StoreCommentRequest;
 use App\Models\Comment;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 final class CommentFormComponent extends Component
 {
-    public Authenticatable $user;
+    public int $authorizedUserId;
     public string $buttonText = '';
-    public ?Comment $storedComment = null;
+    public Comment $comment;
     public bool $isEditing = false;
     public bool $isReplying = false;
     public string $text = '';
@@ -23,15 +22,18 @@ final class CommentFormComponent extends Component
     public ?string $message = null;
 
     public function mount(
+        int $authorizedUserId,
         int $postId,
+        Comment $comment,
         ?int $parentId = null,
-        $storedComment = null,
     ): void {
-        $this->user = auth()->user();
+        $this->authorizedUserId = $authorizedUserId;
+
         $this->postId = $postId;
         $this->parentId = $parentId;
-        $this->storedComment = $storedComment;
-        $this->text = $this->storedComment->text ?? '';
+
+        $this->comment = $comment;
+        $this->text = $this->comment->text ?? '';
     }
 
     public function render(): View
@@ -48,7 +50,7 @@ final class CommentFormComponent extends Component
     {
         $this->validate();
 
-        $this->storedComment = Comment::create([
+        $this->comment = Comment::create([
             'user_id' => $this->user->id,
             'post_id' => $this->postId,
             'parent_id' => $this->parentId,

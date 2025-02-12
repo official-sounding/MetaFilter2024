@@ -23,23 +23,68 @@
                 </span>
                 {{ trans('reply') }}
             </button>
+
+            <button
+                class="button edit-button"
+                wire:click.prevent="toggleEditing()"
+                aria-controls="edit-comment-form-{{ $comment->id }}"
+                aria-expanded="{{ $this->isEditing ? 'true' : 'false' }}">
+                <span class="icon">
+                    <img src="{{ asset('images/icons/pencil-square.svg') }}" alt="">
+                </span>
+                {{ trans('Edit') }}
+            </button>
+            @can('edit-comment', $comment)
+            @endcan
+
+            @auth
+                @if ($userFlagged === true)
+                    <button
+                        class="button reply-button"
+                        title="{{ trans('Remove flag') }}">
+                        <span class="icon">
+                            <img src="{{ asset("images/icons/$flagIconFilename.svg") }}"
+                                 alt="{{ trans('Flag icon') }}"
+                                 title="{{ $titleText }}">
+                        </span>
+                        {{ $flagCount }}
+                    </button>
+                @else
+                    <button
+                        wire:click="toggleFlagging()"
+                        aria-controls="flag-comment-form-{{ $comment->id }}"
+                        aria-expanded="{{ $this->isFlagging ? 'true' : 'false' }}">
+                        <span class="icon">
+                            <img src="{{ asset("images/icons/$flagIconFilename.svg") }}"
+                                 alt="{{ trans('Flag icon') }}"
+                                 title="{{ $flagTitleText }}">
+                        </span>
+                    </button>
+                @endif
+            @endauth
         @endauth
 
-        <button class="button edit-button" wire:click.prevent="toggleEditing()">
-            <span class="icon">
-                <img src="{{ asset('images/icons/pencil-square.svg') }}" alt="">
-            </span>
-            {{ trans('Edit') }}
-        </button>
-        @can('edit-comment', $comment)
-        @endcan
+        @guest
+            <button
+                disabled="disabled"
+                class="button">
+                <span class="icon">
+                    <img src="{{ asset("images/icons/flag.svg") }}"
+                         alt="{{ trans('Flag icon') }}"
+                         {{-- TODO: Add a function in the component to translate and singular/plural --}}
+                         title="{{ $flagCount }} {{ trans('flags') }}">
+                </span>
+                {{ $flagCount }}
+            </button>
+        @endguest
     </footer>
 
     @if ($isEditing === true)
         <livewire:comments.comment-form-component
             wire:key="'edit-comment-' . $comment->id"
+            :authorized-user-id="$authorizedUserId"
             :post-id="$comment->post_id"
-            :stored-comment="$comment"
+            :comment="$comment"
             button-text="{{ trans('Update') }}"
             is-editing="true"
         />
@@ -48,9 +93,19 @@
     @if ($isReplying === true)
         <livewire:comments.comment-form-component
             wire:key="'reply-to-comment-' . $comment->id"
+            :authorized-user-id="$authorizedUserId"
             :post-id="$comment->post_id"
             :parent-id="$comment->id"
             is-replying="true"
+        />
+    @endif
+
+    @if ($isFlagging === true)
+        <livewire:flags.flag-component
+            wire:key="'reply-to-comment-' . $comment->id"
+            :comment-id="$comment->id"
+            :model="$comment"
+            is-flagging="true"
         />
     @endif
 </article>
