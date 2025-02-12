@@ -130,10 +130,12 @@ textarea:focus {
 
 .next,
 .previous {
-    border: 1px solid var(--lighter-base-color);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--lighter-base-color);
 }
 
-// TODO: Need red colors
+// TODO: Need color vars
 .notification.is-danger {
     color: #710627;
     background-color: #fdd8e4;
@@ -305,6 +307,7 @@ textarea:focus {
     background-color: light-dark(var(--base-color), var(--white));
 }
 
+// TODO: Adapt to aria-current='page' triangle
 body.subsite-metatalk.dark-mode nav.tertiary li.current a::after {
     content: "";
     position: absolute;
