@@ -16,12 +16,16 @@ final class CommentShowComponent extends Component
 
     public Comment $comment;
     public ?int $authorizedUserId;
+    public int $favoriteCount = 0;
+    public string $favoriteIconFilename = 'heart';
     public int $flagCount = 0;
+    public string $favoriteTitleText = 'Favorite';
     public string $flagIconFilename = 'flag';
     public string $flagTitleText = 'Flag';
     public bool $isEditing = false;
     public bool $isFlagging = false;
     public bool $isReplying = false;
+    public bool $userFavorited = false;
     public bool $userFlagged = false;
 
     public function mount(Comment $comment): void

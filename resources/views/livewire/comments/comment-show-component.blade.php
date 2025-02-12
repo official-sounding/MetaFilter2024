@@ -38,9 +38,31 @@
             @endcan
 
             @auth
+                @if ($userFavorited === true)
+                    <button
+                        class="button"
+                        title="{{ trans('Remove favorite') }}">
+                        <span class="icon">
+                            <img src="{{ asset("images/icons/$favoriteIconFilename.svg") }}"
+                                 alt="{{ trans('Favorite icon') }}"
+                                 title="{{ $favoriteTitleText }}">
+                        </span>
+                        {{ $favoriteCount }}
+                    </button>
+                @else
+                    <button>
+                        <span class="icon">
+                            <img src="{{ asset("images/icons/$favoriteIconFilename.svg") }}"
+                                 alt="{{ trans('Favorite icon') }}"
+                                 title="{{ $favoriteTitleText }}">
+                        </span>
+                        {{ $favoriteCount }}
+                    </button>
+                @endif
+
                 @if ($userFlagged === true)
                     <button
-                        class="button reply-button"
+                        class="button"
                         title="{{ trans('Remove flag') }}">
                         <span class="icon">
                             <img src="{{ asset("images/icons/$flagIconFilename.svg") }}"
