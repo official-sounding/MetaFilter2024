@@ -6,7 +6,7 @@ namespace App\Traits;
 
 trait AuthStatusTrait
 {
-    public function getAuthorizedUserId(): int
+    public function getAuthorizedUserId(): int|null
     {
         return auth()->id();
     }
