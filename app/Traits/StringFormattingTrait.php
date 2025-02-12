@@ -39,5 +39,8 @@ trait StringFormattingTrait
         return preg_replace('/[[:punct:]]/', '', $string);
     }
 
-    public function swapPunctuation(string $string): string {}
+    public function swapPunctuation(string $string): string {
+        // TODO: Replace dumb quotes with smart quotes
+        return $string;
+    }
 }
