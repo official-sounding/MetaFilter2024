@@ -3,5 +3,5 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    members list
+    <livewire:members.member-search-component />
 @endsection
