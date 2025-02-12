@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Repositories;
 
+use App\Enums\UserStateEnum;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 
 final class UserRepository extends BaseRepository implements UserRepositoryInterface
 {
@@ -18,5 +20,10 @@ final class UserRepository extends BaseRepository implements UserRepositoryInter
         $user->state = $state;
 
         $user->save();
+    }
+
+    public function getActiveMembers(): Collection
+    {
+        return $this->model->where('state', '=', UserStateEnum::Active->value)->get();
     }
 }
