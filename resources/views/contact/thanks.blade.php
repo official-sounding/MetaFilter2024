@@ -3,5 +3,5 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    @livewire('contact.contact-message-component')
+    <p>{{ trans('Thanks for contacting us') }}</p>
 @endsection
