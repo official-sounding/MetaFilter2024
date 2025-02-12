@@ -152,6 +152,11 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             ->groupBy(fn($item) => $item->created_at->format('F j'));
     }
 
+    public function getRelatedPosts(Post $post): Collection
+    {
+        return Collection::empty();
+    }
+
     public function updateState(Post $post, string $state): void
     {
         $post->state = $state;

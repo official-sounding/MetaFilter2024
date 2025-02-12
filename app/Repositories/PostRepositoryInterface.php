@@ -20,5 +20,7 @@ interface PostRepositoryInterface extends BaseRepositoryInterface
 
     public function getRecentPosts();
 
+    public function getRelatedPosts(Post $post);
+
     public function updateState(Post $post, string $state);
 }

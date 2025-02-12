@@ -40,7 +40,10 @@ final class PostController extends BaseController
 
     public function show(Post $post): View
     {
+        // TODO: Cache the results
         $this->flagReasons = $this->flagReasonRepository->getDropdownValues('reason');
+
+        $relatedPosts = $this->postRepository->getRelatedPosts($post);
 
         return view('posts.show', [
             'title' => $post->title,
@@ -50,6 +53,7 @@ final class PostController extends BaseController
             'flagReasons' => $this->flagReasons,
             'isArchived' => $this->isArchived($post),
             'canonicalUrl' => $this->getCanonicalUrl($post),
+            'relatedPosts' => $relatedPosts,
             'useLivewire' => true,
             'useWysiwyg' => true,
         ]);
