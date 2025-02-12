@@ -92,7 +92,7 @@ final class Post extends BaseModel implements HasMedia
         $archiveDate = now()->subDays(30);
 
         return Attribute::make(
-            get: fn(bool $value) => $this->created_at <= $archiveDate,
+            get: fn (bool $value) => $this->created_at <= $archiveDate,
         );
     }
 
@@ -108,9 +108,9 @@ final class Post extends BaseModel implements HasMedia
         return $this->hasMany(Comment::class);
     }
 
-    public function favorites(): MorphOne
+    public function favorites(): MorphMany
     {
-        return $this->morphOne(Favorite::class, 'favoritable');
+        return $this->morphMany(Favorite::class, 'favoritable');
     }
 
     public function flags(): MorphMany
