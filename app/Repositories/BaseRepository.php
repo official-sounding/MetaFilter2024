@@ -110,9 +110,4 @@ class BaseRepository implements BaseRepositoryInterface
     {
         return $this->getQuery()->with($relation);
     }
-
-    public function getPopularPosts()
-    {
-        // TODO: Implement getPopularPosts() method.
-    }
 }
