@@ -19,7 +19,7 @@ final class FlagService {
 
     public function getFlagReasons(): array
     {
-        return $this->flagReasonRepository->getDropdownValues('text');
+        return $this->flagReasonRepository->getDropdownValues('reason');
     }
 
     public function userFlagged(string $flaggableType, int $flaggableId, int $userId): bool
