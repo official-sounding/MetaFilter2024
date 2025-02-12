@@ -60,7 +60,7 @@ input:focus::placeholder {
 .utility-navigation a[aria-current='page']:link,
 .utility-navigation a[aria-current='page']:visited {
     color: var(--yellow-green);
-    background-color: var(--black);
+    background-color: var(--dark-gray);
 }
 
 .global-navigation a[aria-current='page']:active,
