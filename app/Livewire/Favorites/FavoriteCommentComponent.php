@@ -33,7 +33,7 @@ final class FavoriteCommentComponent extends BaseFavoriteComponent
     {
         $iconPath = $this->getIconPath();
 
-        return view('livewire.favorites.favorite-component')->with([
+        return view('livewire.favorites.favorites-component')->with([
             'iconPath' => $iconPath,
         ]);
     }

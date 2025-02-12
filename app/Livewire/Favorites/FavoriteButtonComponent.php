@@ -32,7 +32,7 @@ final class FavoriteButtonComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.favorites.favorite-button');
+        return view('livewire.favorites.favorites-component');
     }
 
     public function toggleFavorite(): void
