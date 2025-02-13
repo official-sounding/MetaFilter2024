@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Dtos\FavoriteDto;
 use App\Models\Favorite;
 use App\Repositories\FavoriteRepositoryInterface;
 use App\Traits\LoggingTrait;
+use Exception;
 
 final class FavoriteService
 {
@@ -17,8 +19,35 @@ final class FavoriteService
     ) {
     }
 
-    public function toggleFavorite(string $favoritableType, int $favoritableId, int $userId): void
-    {}
+    public function create(FavoriteDto $favoriteDto): bool
+    {
+        try {
+            $this->favoriteRepository->create((array) $favoriteDto);
+
+            return true;
+        } catch (Exception $exception) {
+            $this->logError($exception);
+
+            return false;
+        }
+    }
+
+    public function delete(string $favoritableType, int $favoritableId, int $userId): bool
+    {
+        try {
+            (new Favorite())->where([
+                 'favoritable_type' => $favoritableType,
+                 'favoritable_id' => $favoritableId,
+                 'user_id' => $userId
+             ])->delete();
+
+            return true;
+        } catch (Exception $exception) {
+            $this->logError($exception);
+
+            return false;
+        }
+    }
 
     public function userFavorited(string $favoritableType, int $favoritableId, int $userId): bool
     {

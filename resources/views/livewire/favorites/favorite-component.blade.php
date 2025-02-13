@@ -9,5 +9,6 @@
         disabled="disabled"
     @endif
     >
+    <x-icons.icon-component filename="{{ $iconFilename }}" />
     {{ $favoriteCount }}
 </button>
