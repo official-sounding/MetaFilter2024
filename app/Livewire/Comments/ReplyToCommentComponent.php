@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Comments;
+namespace App\Livewire\Comments;
 
+use App\Models\Comment;
 use App\Repositories\CommentRepositoryInterface;
 use Illuminate\View\View;
 use Livewire\Component;
-use App\Models\Comment;
 
 final class ReplyToCommentComponent extends Component
 {
