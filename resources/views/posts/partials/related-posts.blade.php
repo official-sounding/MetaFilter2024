@@ -4,6 +4,8 @@
     @forelse ($relatedPosts as $post)
         {{ $post->title }}<br>
     @empty
-        <x-notifications.none-listed-component items='posts' />
+        @include('notifications.none-listed', [
+            'records' => 'related posts'
+        ])
     @endforelse
 </section>
