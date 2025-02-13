@@ -55,13 +55,13 @@
     <aside class="main-sidebar">
         @include('layouts.partials.main-sidebar')
     </aside>
+
+    <x-buttons.top-bottom-button-component location="bottom" />
 </div>
 
 <footer class="site-footer" id="site-footer">
     @include('layouts.partials.global-footer')
     @include('layouts.partials.fine-print')
-
-    <x-buttons.top-bottom-button-component location="bottom" />
 </footer>
 
 @include('layouts.partials.scripts')
