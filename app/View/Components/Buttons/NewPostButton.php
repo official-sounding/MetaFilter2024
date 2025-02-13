@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\View\Components\Buttons;
 
 use App\Traits\SubsiteTrait;
-use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
@@ -22,7 +21,7 @@ final class NewPostButton extends Component
         $this->routeName = $this->getNewPostRouteName();
     }
 
-    public function render(): View|Closure|string
+    public function render(): View
     {
         return view('components.buttons.new-post-button', [
             'buttonText' => $this->buttonText,
