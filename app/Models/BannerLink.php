@@ -26,9 +26,9 @@ final class BannerLink extends BaseModel
     ];
 
     // Builders
-
+/*
     public function newEloquentBuilder($query): BannerLinkQueryBuilder
     {
         return new BannerLinkQueryBuilder($query);
-    }
+    }*/
 }

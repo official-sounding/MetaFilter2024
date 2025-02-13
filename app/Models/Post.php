@@ -103,11 +103,12 @@ final class Post extends BaseModel implements HasMedia
 
     // Builders
 
+/*
     public function newEloquentBuilder($query): PostQueryBuilder
     {
         return new PostQueryBuilder($query);
     }
-
+*/
     // Relationships
 
     public function comments(): HasMany

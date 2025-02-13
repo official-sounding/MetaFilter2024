@@ -50,12 +50,12 @@ final class Comment extends BaseModel
     }
 
     // Builders
-
+/*
     public function newEloquentBuilder($query): CommentQueryBuilder
     {
         return new CommentQueryBuilder($query);
     }
-
+*/
     // Relationships
 
     public function favorites(): MorphMany

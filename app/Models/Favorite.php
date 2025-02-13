@@ -30,12 +30,12 @@ final class Favorite extends BaseModel
     }
 
     // Builders
-
+/*
     public function newEloquentBuilder($query): FavoriteQueryBuilder
     {
         return new FavoriteQueryBuilder($query);
     }
-
+*/
     // Relationships
 
     public function comments(): MorphToMany
