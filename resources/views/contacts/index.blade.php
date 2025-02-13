@@ -3,5 +3,11 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    contacts index
+    @forelse ($contacts as $contact)
+        contacts
+    @empty
+        @include('notifications.none-listed', [
+            'records' => 'contacts'
+        ])
+    @endforelse
 @endsection
