@@ -4,18 +4,14 @@ declare(strict_types=1);
 
 namespace App\View\Components\Buttons;
 
-use App\Traits\IconTrait;
-use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 final class TopBottomButtonComponent extends Component
 {
-    use IconTrait;
-
     public string $buttonClass = '';
     public string $buttonText = '';
-    public string $iconPath = '';
+    public string $filename = '';
     public string $location = '';
     public string $targetId = '';
 
@@ -37,13 +33,11 @@ final class TopBottomButtonComponent extends Component
     {
         $this->location = $location;
 
-        $iconFilename = $this->getIconFilename();
-
-        $this->iconPath = $this->getIconPath($iconFilename);
-
         $this->buttonClass = $this->getButtonClass();
 
         $this->buttonText = $this->getButtonText();
+
+        $this->filename = $this->getFilename();
 
         $this->targetId = '#' . $this->getTargetId();
     }
@@ -63,7 +57,7 @@ final class TopBottomButtonComponent extends Component
         return $this->location === 'top' ? trans('Bottom of page') : trans('Top of page');
     }
 
-    private function getIconFilename(): string
+    private function getFilename(): string
     {
         return $this->location === 'top' ? trans('arrow-down-square') : trans('arrow-up-square');
     }

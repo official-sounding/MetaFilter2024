@@ -12,25 +12,25 @@ final class IconComponent extends Component
 {
     use IconTrait;
 
-    public string $iconFilename = '';
+    public string $filename = '';
     public string $iconPath = '';
     public ?string $altText = null;
     public ?string $titleText = null;
 
     public function __construct(
-        string $iconFilename,
+        string $filename,
         ?string $altText = null,
         ?string $titleText = null
     ) {
-        $this->iconFilename = $iconFilename;
+        $this->filename = $filename;
         $this->altText = $altText;
         $this->titleText = $titleText;
     }
 
     public function render(): View
     {
-        $this->iconPath = $this->getIconPath($this->iconFilename) ?? 'icon-path';
-        \Log::debug('filename: ' . $this->iconFilename);
+        $this->iconPath = $this->getIconPath($this->filename) ?? 'icon-path';
+        \Log::debug('filename: ' . $this->filename);
         \Log::debug('iconPath: ' . $this->iconPath);
         return view('components.icons.icon-component', [
             'iconPath' => $this->iconPath,
