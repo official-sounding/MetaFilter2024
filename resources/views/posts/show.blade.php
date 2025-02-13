@@ -10,7 +10,9 @@
     @endguest
 
     <article class="post post-show">
-        <h1>{!! $post->title !!}</h1>
+        <h1>
+            {!! $post->title !!}
+        </h1>
 
         <p class="dateline">
             {{ $post->created_at->format('F j, Y g:i a') }}
@@ -21,7 +23,6 @@
         @if ($post->more_inside)
             {!! $post->more_inside !!}
         @endif
-
         @include('posts.partials.post-show-footer', [
             'post' => $post,
             'commentsCount' => $post->comments()->count(),

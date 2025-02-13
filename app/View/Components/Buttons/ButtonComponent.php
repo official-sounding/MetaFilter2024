@@ -15,8 +15,8 @@ final class ButtonComponent extends Component
         //
     }
 
-    public function render(): View|Closure|string
+    public function render(): View
     {
-        return view('components.button-component');
+        return view('components.buttons.button-component');
     }
 }

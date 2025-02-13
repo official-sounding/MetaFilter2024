@@ -40,14 +40,14 @@
 
 <div class="container main-contents-wrapper">
     <!-- He's the DJ; I'm the wrapper -->
-    <x-buttons.top-bottom-button-component location='top' />
+    <x-buttons.top-bottom-button-component location="top" />
 
     <main class="main-contents" id="main-contents">
-        @include('layouts.partials.flash-messages')
-
         @if (isset($showTitle) && $showTitle === true)
             <h1>{{ $title }}</h1>
         @endif
+
+        @include('layouts.partials.flash-messages')
 
         @yield('contents')
     </main>
@@ -61,7 +61,7 @@
     @include('layouts.partials.global-footer')
     @include('layouts.partials.fine-print')
 
-    <x-buttons.top-bottom-button-component location='bottom' />
+    <x-buttons.top-bottom-button-component location="bottom" />
 </footer>
 
 @include('layouts.partials.scripts')

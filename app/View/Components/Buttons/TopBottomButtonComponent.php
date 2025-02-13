@@ -13,11 +13,11 @@ final class TopBottomButtonComponent extends Component
 {
     use IconTrait;
 
-    public string $buttonClass;
-    public string $buttonText;
-    public string $iconPath;
-    public string $location;
-    public string $targetId;
+    public string $buttonClass = '';
+    public string $buttonText = '';
+    public string $iconPath = '';
+    public string $location = '';
+    public string $targetId = '';
 
     private const array LOCATIONS = [
         'top',
@@ -33,11 +33,6 @@ final class TopBottomButtonComponent extends Component
         $this->handle($location);
     }
 
-    public function render(): View|Closure|string
-    {
-        return view('components.buttons.top-bottom-button-component');
-    }
-
     private function handle(string $location): void
     {
         $this->location = $location;
@@ -51,6 +46,11 @@ final class TopBottomButtonComponent extends Component
         $this->buttonText = $this->getButtonText();
 
         $this->targetId = '#' . $this->getTargetId();
+    }
+
+    public function render(): View
+    {
+        return view('components.buttons.top-bottom-button-component');
     }
 
     private function getButtonClass(): string

@@ -17,7 +17,7 @@ final class NoneListedComponent extends Component
         public string $items,
     ) {}
 
-    public function render(): View|Closure|string
+    public function render(): View
     {
         $preparedText = $this->getPreparedText($this->items);
 
