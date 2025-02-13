@@ -9,9 +9,27 @@ use Livewire\Component;
 
 class ModalComponent extends Component
 {
-    public $show = false;
-    public $isOpen = false;
+    public bool $show = false;
 
+    protected $listeners = [
+        'show' => 'show'
+    ];
+
+    public function show(): void
+    {
+        $this->show = true;
+    }
+
+    public function render(): View
+    {
+        return view('livewire.modals.modal-component');
+    }
+}
+
+/*
+ *     public bool $show = false;
+    public bool $isOpen = false;
+    public string $modalTitle = '';
     protected $listeners = [
         'show' => 'show',
     ];
@@ -31,8 +49,5 @@ class ModalComponent extends Component
         $this->show = true;
     }
 
-    public function render(): View
-    {
-        return view('livewire.modals.modal-component');
-    }
-}
+
+ */

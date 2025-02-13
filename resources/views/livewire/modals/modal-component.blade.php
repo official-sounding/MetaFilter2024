@@ -6,10 +6,15 @@
     @if ($isOpen)
         <div class="modal">
             <div class="modal-content">
-                <h2>Your Modal Title</h2>
+                @if ($modalTitle)
+                    <h2>
+                        {{ trans($modalTitle) }}
+                    </h2>
+                @endif
 
                 <button wire:click="closeModal">
-                    Close Modal
+                    {{-- TODO: Add x icon --}}
+                    {{ trans('Close') }}
                 </button>
             </div>
         </div>
