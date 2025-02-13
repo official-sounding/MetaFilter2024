@@ -10,5 +10,8 @@
     @endif
     tabindex="0"
     >
+{{--
     <x-icons.icon filename="{{ $icon }}" />
+
+--}}
 </button>

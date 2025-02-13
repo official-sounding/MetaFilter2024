@@ -6,7 +6,7 @@
     @include('forms.partials.csrf-token')
 
     <button type="submit" class="logout-button">
-        <x-icons.icon filename="{{ 'box-arrow-right' }}" />
+        <x-icons.icon filename="box-arrow-right" />
         {{ trans('Log Out') }}
     </button>
 </form>
