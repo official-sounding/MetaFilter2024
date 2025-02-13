@@ -18,7 +18,7 @@
                 wire:click.prevent="toggleReplying()"
                 aria-controls="comment-reply-form-{{ $comment->id }}"
                 aria-expanded="{{ $this->isReplying ? 'true' : 'false' }}">
-                <x-icons.icon filename="{{ 'reply-fill' }}" />
+                <x-icons.icon-component filename="reply-fill" />
                 {{ trans('reply') }}
             </button>
 
@@ -27,7 +27,7 @@
                 wire:click.prevent="toggleEditing()"
                 aria-controls="edit-comment-form-{{ $comment->id }}"
                 aria-expanded="{{ $this->isEditing ? 'true' : 'false' }}">
-                <x-icons.icon filename="{{ 'pencil-square' }}" />
+                <x-icons.icon-component filename="pencil-square" />
                 {{ trans('Edit') }}
             </button>
             @can('edit-comment', $comment)
@@ -39,7 +39,7 @@
                         class="button"
                         title="{{ trans('Remove favorite') }}">
                         <span class="icon">
-                            <x-icons.icon filename="{{ $favoriteIconFilename }}" />
+                            <x-icons.icon-component filename="{{ $favoriteIconFilename }}" />
                             <img src="{{ asset("images/icons/$favoriteIconFilename.svg") }}"
                                  alt="{{ trans('Favorite icon') }}"
                                  title="{{ $favoriteTitleText }}">
@@ -48,7 +48,7 @@
                     </button>
                 @else
                     <button>
-                        <x-icons.icon filename="{{ $favoriteIconFilename }}" />
+                        <x-icons.icon-component filename="{{ $favoriteIconFilename }}" />
                         <span class="icon">
                             <img src="{{ asset("images/icons/$favoriteIconFilename.svg") }}"
                                  alt="{{ trans('Favorite icon') }}"
@@ -62,7 +62,7 @@
                     <button
                         class="button"
                         title="{{ trans('Remove flag') }}">
-                        <x-icons.icon filename="{{ $flagIconFilename  }}" />
+                        <x-icons-icon-component filename="{{ $flagIconFilename  }}" />
                         <span class="icon">
                             <img src="{{ asset("images/icons/$flagIconFilename.svg") }}"
                                  alt="{{ trans('Flag icon') }}"
@@ -75,7 +75,7 @@
                         wire:click="toggleFlagging()"
                         aria-controls="flag-comment-form-{{ $comment->id }}"
                         aria-expanded="{{ $this->isFlagging ? 'true' : 'false' }}">
-                        <x-icons.icon filename="{{ $flagIconFilename }}" />
+                        <x-icons.icon-component filename="{{ $flagIconFilename }}" />
                     </button>
                 @endif
             @endauth
@@ -85,7 +85,7 @@
             <button
                 disabled="disabled"
                 class="button">
-                <x-icons.icon filename="{{ 'flag' }}" />
+                <x-icons.icon-component filename="flag" />
                 <span class="icon">
                     <img src="{{ asset("images/icons/flag.svg") }}"
                          alt="{{ trans('Flag icon') }}"

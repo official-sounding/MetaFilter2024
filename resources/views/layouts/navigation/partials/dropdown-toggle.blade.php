@@ -11,7 +11,7 @@
     tabindex="0"
     >
 {{--
-    <x-icons.icon filename="{{ $icon }}" />
+    <x-icons.icons.icon-component filename="{{ $icon }}" />
 
 --}}
 </button>

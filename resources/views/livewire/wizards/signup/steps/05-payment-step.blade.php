@@ -11,12 +11,12 @@
 
         <div class="level buttons">
             <button class="button primary-button" wire:click="payWithPayPal()">
-                <x-icons.icon filename="{{ 'paypal' }}" />
+                <x-icons.icon-component filename="paypal" />
                 Pay $5 via PayPal
             </button>
 
             <button class="button primary-button" wire:click="payWithStripe()">
-                <x-icons.icon filename="{{ 'stripe' }}" />
+                <x-icons.icon-component filename="stripe" />
                 Pay $5 via Stripe
             </button>
         </div>

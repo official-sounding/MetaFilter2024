@@ -5,17 +5,17 @@
                 <th scope="col" wire:click="sortBy('username')">
                     {{ trans('Username') }}
                     @if ($this->order == 'asc' && $this->orderByColumn == 'description')
-                        <x-icons.icon filename="{{ 'caret-up-fill' }}" />
+                        <x-icons.icon-component filename="caret-up-fill" />
                     @elseif ($this->order == 'desc' && $this->orderByColumn == 'description')
-                        <x-icons.icon filename="{{ 'caret-down-fill' }}" />
+                        <x-icons.icon-component filename="caret-down-fill" />
                     @endif
                 </th>
                 <th scope="col" wire:click="sortBy('id')">
                     {{ trans('User ID') }}
                     @if ($this->order == 'asc' && $this->orderByColumn == 'id')
-                        <x-icons.icon filename="{{ 'caret-up-fill' }}" />
+                        <x-icons.icon-component filename="caret-up-fill" />
                     @elseif ($this->order == 'desc' && $this->orderByColumn == 'id')
-                        <x-icons.icon filename="{{ 'caret-down-fill' }}" />
+                        <x-icons.icon-component filename="caret-down-fill" />
                     @endif
                 </th>
             </tr>
@@ -23,14 +23,14 @@
                 <td>
                     <input
                         type="text"
-                        placeholder="Search..."
+                        placeholder="{{ trans('Filter') }}..."
                         autocomplete="off"
                         wire:model.live="searchColumns.username">
                 </td>
                 <td>
                     <input
                         type="text"
-                        placeholder="Search..."
+                        placeholder="{{ trans('Filter') }}..."
                         autocomplete="off"
                         wire:model.live="searchColumns.id">
                 </td>

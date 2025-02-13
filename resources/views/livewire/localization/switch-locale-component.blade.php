@@ -6,7 +6,7 @@
                 class="language"
                 wire:click="switchLocale('{{ $locale }}')">
                     {{ $language }}
-                    <x-icons.icon filename="{{ 'globe' }}" />
+                    <x-icons.icon-component filename="globe" />
             </button>
 
             <p>{{ $currentLocale }}</p>
