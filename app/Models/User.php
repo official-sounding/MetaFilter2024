@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Builders\UserQueryBuilder;
 use App\States\User\UserState;
 use App\Traits\SearchTrait;
 use Cog\Contracts\Ban\Bannable as BannableInterface;
@@ -88,6 +89,13 @@ final class User extends Authenticatable implements
     {
         return str_ends_with($this->email, self::DOMAIN);
         // return $this->can(PermissionEnum::AccessPanel->value);
+    }
+
+    // Builders
+
+    public function newEloquentBuilder($query): UserQueryBuilder
+    {
+        return new UserQueryBuilder($query);
     }
 
     // Relationships

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Builders\FlagQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -23,4 +24,11 @@ final class FlagReason extends BaseModel
         'reason',
         'note',
     ];
+
+    // Builders
+
+    public function newEloquentBuilder($query): FlagQueryBuilder
+    {
+        return new FlagQueryBuilder($query);
+    }
 }

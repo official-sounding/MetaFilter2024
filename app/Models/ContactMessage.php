@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Builders\ContactMessageQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -28,4 +29,11 @@ final class ContactMessage extends Model
         'subject',
         'message',
     ];
+
+    // Builders
+
+    public function newEloquentBuilder($query): ContactMessageQueryBuilder
+    {
+        return new ContactMessageQueryBuilder($query);
+    }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Builders\MeFiMailQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -28,6 +29,13 @@ final class MeFiMail extends BaseModel
         'sender_id',
         'recipient_id',
     ];
+
+    // Builders
+
+    public function newEloquentBuilder($query): MeFiMailQueryBuilder
+    {
+        return new MeFiMailQueryBuilder($query);
+    }
 
     // Relationships
 

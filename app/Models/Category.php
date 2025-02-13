@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Builders\CategoryQueryBuilder;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -33,6 +34,15 @@ final class Category extends BaseModel
     {
         return $this->getSlugFrom('name');
     }
+
+    // Builders
+
+    public function newEloquentBuilder($query): CategoryQueryBuilder
+    {
+        return new CategoryQueryBuilder($query);
+    }
+
+    // Relationships
 
     public function parent(): BelongsTo
     {

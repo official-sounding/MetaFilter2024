@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Builders\PostQueryBuilder;
 use App\Traits\SearchTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -11,7 +12,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Mpociot\Versionable\VersionableTrait;
 use Oddvalue\LaravelDrafts\Concerns\HasDrafts;
@@ -99,6 +99,13 @@ final class Post extends BaseModel implements HasMedia
     public function getActivityLogOptions(): LogOptions
     {
         return LogOptions::defaults()->logFillable();
+    }
+
+    // Builders
+
+    public function newEloquentBuilder($query): PostQueryBuilder
+    {
+        return new PostQueryBuilder($query);
     }
 
     // Relationships

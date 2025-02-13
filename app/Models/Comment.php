@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Builders\CommentQueryBuilder;
 use App\Traits\SearchTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -46,6 +47,13 @@ final class Comment extends BaseModel
     public function getActivityLogOptions(): LogOptions
     {
         return LogOptions::defaults()->logFillable();
+    }
+
+    // Builders
+
+    public function newEloquentBuilder($query): CommentQueryBuilder
+    {
+        return new CommentQueryBuilder($query);
     }
 
     // Relationships

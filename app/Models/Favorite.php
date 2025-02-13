@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Builders\FavoriteQueryBuilder;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
@@ -26,6 +27,13 @@ final class Favorite extends BaseModel
     public function favoritable(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    // Builders
+
+    public function newEloquentBuilder($query): FavoriteQueryBuilder
+    {
+        return new FavoriteQueryBuilder($query);
     }
 
     // Relationships

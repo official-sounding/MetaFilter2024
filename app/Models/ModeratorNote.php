@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Builders\ModeratorNoteQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -27,6 +28,13 @@ final class ModeratorNote extends Model
         'notable_type',
         'text',
     ];
+
+    // Builders
+
+    public function newEloquentBuilder($query): ModeratorNoteQueryBuilder
+    {
+        return new ModeratorNoteQueryBuilder($query);
+    }
 
     // Relationships
 

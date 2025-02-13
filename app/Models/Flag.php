@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Builders\FlagQueryBuilder;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
@@ -32,6 +33,14 @@ final class Flag extends BaseModel
     {
         return $this->morphTo();
     }
+
+    // Builders
+
+    public function newEloquentBuilder($query): FlagQueryBuilder
+    {
+        return new FlagQueryBuilder($query);
+    }
+
 
     // Relationships
 
