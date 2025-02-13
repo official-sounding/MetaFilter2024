@@ -5,25 +5,17 @@
                 <th scope="col" wire:click="sortBy('username')">
                     {{ trans('Username') }}
                     @if ($this->order == 'asc' && $this->orderByColumn == 'description')
-                        <span class="icon">
-                            <img src="{{ asset('images/icons/caret-up-fill.svg') }}" alt="">
-                        </span>
+                        <x-icons.icon filename="{{ 'caret-up-fill' }}" />
                     @elseif ($this->order == 'desc' && $this->orderByColumn == 'description')
-                        <span class="icon">
-                            <img src="{{ asset('images/icons/caret-down-fill.svg') }}" alt="">
-                        </span>
+                        <x-icons.icon filename="{{ 'caret-down-fill' }}" />
                     @endif
                 </th>
                 <th scope="col" wire:click="sortBy('id')">
                     {{ trans('User ID') }}
                     @if ($this->order == 'asc' && $this->orderByColumn == 'id')
-                        <span class="icon">
-                            <img src="{{ asset('images/icons/caret-up-fill.svg') }}" alt="">
-                        </span>
+                        <x-icons.icon filename="{{ 'caret-up-fill' }}" />
                     @elseif ($this->order == 'desc' && $this->orderByColumn == 'id')
-                        <span class="icon">
-                            <img src="{{ asset('images/icons/caret-down-fill.svg') }}" alt="">
-                        </span>
+                        <x-icons.icon filename="{{ 'caret-down-fill' }}" />
                     @endif
                 </th>
             </tr>

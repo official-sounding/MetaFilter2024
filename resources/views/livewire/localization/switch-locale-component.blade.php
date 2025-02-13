@@ -6,9 +6,7 @@
                 class="language"
                 wire:click="switchLocale('{{ $locale }}')">
                     {{ $language }}
-                <span class="icon">
-                    <img src="{{ asset('images/icons/globe.svg') }}" alt="">
-                </span>
+                    <x-icons.icon filename="{{ 'globe' }}" />
             </button>
 
             <p>{{ $currentLocale }}</p>

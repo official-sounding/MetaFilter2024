@@ -6,6 +6,7 @@
         disabled="disabled"
     @endguest
     class="button">
+    <x-icons.icon filename="{{ $iconFilename }}" />
     <span class="icon">
         <img src="{{ asset("images/icons/$iconFilename.svg") }}"
              alt="{{ trans('Favorite icon') }}"

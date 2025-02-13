@@ -10,7 +10,5 @@
     @endif
     tabindex="0"
     >
-    <span class="icon">
-        <img src="{{ asset("images/icons/$icon.svg") }}" alt="">
-    </span>
+    <x-icons.icon filename="{{ $icon }}" />
 </button>

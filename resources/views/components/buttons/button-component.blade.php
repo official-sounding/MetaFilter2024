@@ -1,7 +1,4 @@
 <a href="{{ route($routeName) }}" class="button {{ $class }}">
-    <span class="icon">
-        <img src="{{ asset($iconFilename) }}" alt="">
-    </span>
-
+    <x-icons.icon filename="{{ $iconFilename }}" />
     {{ $buttonText }}
 </a>
