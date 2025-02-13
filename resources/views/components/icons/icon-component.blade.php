@@ -1,6 +1,5 @@
 <span class="icon">
     @if (isset($iconPath))
-        [
         @if (!empty($titleText))
             <img
                 src="{{ asset($iconPath) }}"
@@ -11,7 +10,6 @@
                 src="{{ asset($iconPath) }}"
                 alt="{{ $altText }}">
         @endif
-        ]
     @else
         iconPath is not set
     @endif
