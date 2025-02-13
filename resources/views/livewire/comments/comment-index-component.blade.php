@@ -11,7 +11,7 @@
     @empty
         @include('notifications.none-listed', [
         // TODO: Need to change the text based on the subsite; Ask uses "answers" instead of "comments"
-            'items' => 'comments'
+            'records' => 'comments'
         ])
     @endforelse
 

@@ -9,7 +9,7 @@
         posts
     @empty
         @include('notifications.none-listed', [
-            'items' => 'draft posts'
+            'records' => 'draft posts'
         ])
 
         <x-buttons.new-post-button />

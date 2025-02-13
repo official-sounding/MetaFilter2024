@@ -1,5 +1,5 @@
 <div class="notification is-info">
     <p class="info-circled">
-        No {{ $items }} are listed.
+        {{ trans("No $records are listed." }}
     </p>
 </div>

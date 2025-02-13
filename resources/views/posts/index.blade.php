@@ -27,7 +27,7 @@
         ])
     @else
         @include('notifications.none-listed', [
-            'items' => 'posts'
+            'records' => 'posts'
         ])
     @endif
 
