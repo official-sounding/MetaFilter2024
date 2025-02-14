@@ -9,6 +9,7 @@ use Throwable;
 
 trait NavigationTrait
 {
+    use AuthStatusTrait;
     use LoggingTrait;
     use RssTrait;
     use SubsiteTrait;
@@ -17,6 +18,8 @@ trait NavigationTrait
         array $itemData,
         bool $showRssLink = false,
     ): ?string {
+        $loggedIn = $this->loggedIn();
+
         $item = '<li>';
 
         if (isset($itemData['route'])) {
@@ -28,7 +31,7 @@ trait NavigationTrait
                 $itemData['route'] === 'preferences.edit' ||
                 $itemData['route'] === 'members.show'
             ) {
-                if (auth()->check()) {
+                if ($loggedIn) {
                     $item .= '<a href="' . route($itemData['route'], [
                         'user' => auth()->user(),
                     ]) . '"';
