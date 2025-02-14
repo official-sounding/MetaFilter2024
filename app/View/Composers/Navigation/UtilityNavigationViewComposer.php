@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\View\Composers\Navigation;
 
 use App\Enums\PermissionEnum;
+use App\Traits\AuthStatusTrait;
 use App\Traits\LoggingTrait;
 use App\Traits\NavigationTrait;
 use App\Traits\SubsiteTrait;
@@ -13,6 +14,7 @@ use Illuminate\Contracts\View\View;
 
 final class UtilityNavigationViewComposer implements ViewComposerInterface
 {
+    use AuthStatusTrait;
     use LoggingTrait;
     use NavigationTrait;
     use SubsiteTrait;
@@ -21,7 +23,7 @@ final class UtilityNavigationViewComposer implements ViewComposerInterface
     {
         $navigation = '<ul id="utility-navigation-menu">';
 
-        $items = auth()->check()
+        $items = $this->loggedIn() === true
             ? config('metafilter.navigation.utility.auth')
             : config('metafilter.navigation.utility.guest');
 
@@ -29,7 +31,7 @@ final class UtilityNavigationViewComposer implements ViewComposerInterface
             $navigation .= $this->getNavigationItem($itemData);
         }
 
-        if (auth()->check()) {
+        if ($this->loggedIn() === true) {
             $navigation .= $this->getNewPostButton();
             $navigation .= $this->getLogoutButton();
 
