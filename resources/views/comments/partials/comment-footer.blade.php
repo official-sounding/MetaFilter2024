@@ -1,7 +1,7 @@
 <footer class="comment-footer">
     <div class="level">
         <div>
-            posted by
+            {{ trans('posted by') }}
             @include('posts.partials.profile-link', [
                 'userId' => $comment->user->id,
                 'username' => $comment->user->username,
@@ -17,7 +17,7 @@
             />
         </div>
 
-        <livewire:post.flag-comment-component
+        <livewire:post.flag-component
             :comment="$comment"
             :flags="$flagsCount"
         />
