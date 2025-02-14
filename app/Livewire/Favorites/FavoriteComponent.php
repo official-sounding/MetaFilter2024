@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpPossiblePolymorphicInvocationInspection */
+<?php
+
+/** @noinspection PhpPossiblePolymorphicInvocationInspection */
 
 declare(strict_types=1);
 
@@ -30,7 +32,7 @@ final class FavoriteComponent extends Component
 
     public function mount(
         $model,
-        FavoriteService $favoriteService
+        FavoriteService $favoriteService,
     ): void {
         $this->model = $model;
 
@@ -100,7 +102,7 @@ final class FavoriteComponent extends Component
         $this->userFavorited = $this->favoriteService->userFavorited(
             favoritableType: $this->type,
             favoritableId: $this->favoriteCount,
-            userId:  $this->authorizedUserId
+            userId: $this->authorizedUserId,
         );
     }
 }

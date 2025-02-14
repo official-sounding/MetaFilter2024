@@ -12,7 +12,7 @@ class ModalComponent extends Component
     public bool $show = false;
 
     protected $listeners = [
-        'show' => 'show'
+        'show' => 'show',
     ];
 
     public function show(): void

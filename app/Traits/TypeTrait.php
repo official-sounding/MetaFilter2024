@@ -12,7 +12,7 @@ trait TypeTrait
     {
         $class = $model::class;
 
-        $type = str_replace(search: 'App\Models\/', replace:'', subject: $class);
+        $type = str_replace(search: 'App\Models\/', replace: '', subject: $class);
 
         return mb_strtolower($type);
     }

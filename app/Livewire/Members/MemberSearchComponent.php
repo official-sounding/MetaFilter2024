@@ -34,7 +34,7 @@ final class MemberSearchComponent extends Component
         $activeMembers = $this->userRepository->getActiveMembers();
 
         return view('livewire.members.member-search-component', [
-            'activeMembers' => $activeMembers
+            'activeMembers' => $activeMembers,
         ]);
     }
 

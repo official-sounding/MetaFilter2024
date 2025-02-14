@@ -92,7 +92,7 @@ final class Post extends BaseModel implements HasMedia
         $archiveDate = now()->subDays(30);
 
         return Attribute::make(
-            get: fn (bool $value) => $this->created_at <= $archiveDate,
+            get: fn(bool $value) => $this->created_at <= $archiveDate,
         );
     }
 
@@ -103,12 +103,12 @@ final class Post extends BaseModel implements HasMedia
 
     // Builders
 
-/*
-    public function newEloquentBuilder($query): PostQueryBuilder
-    {
-        return new PostQueryBuilder($query);
-    }
-*/
+    /*
+        public function newEloquentBuilder($query): PostQueryBuilder
+        {
+            return new PostQueryBuilder($query);
+        }
+    */
     // Relationships
 
     public function comments(): HasMany

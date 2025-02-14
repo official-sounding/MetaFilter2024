@@ -21,7 +21,7 @@ final class FlagCommentComponent extends BaseFlagComponent
 
         $this->userFlagged = $this->hasUserFlagged(
             flaggableType: self::FLAGGABLE_TYPE,
-            flaggableId: $this->comment->id
+            flaggableId: $this->comment->id,
         );
 
         $this->iconPath = $this->getIconPath($this->userFlagged);
@@ -44,7 +44,7 @@ final class FlagCommentComponent extends BaseFlagComponent
         $deleted = $this->flagService->delete(
             flaggableType: self::FLAGGABLE_TYPE,
             flaggableId: $this->comment->id,
-            userId: $this->authorizedUserId
+            userId: $this->authorizedUserId,
         );
 
         if ($deleted === true) {

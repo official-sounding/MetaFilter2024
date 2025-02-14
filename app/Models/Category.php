@@ -36,12 +36,12 @@ final class Category extends BaseModel
     }
 
     // Builders
-/*
-    public function newEloquentBuilder($query): CategoryQueryBuilder
-    {
-        return new CategoryQueryBuilder($query);
-    }
-*/
+    /*
+        public function newEloquentBuilder($query): CategoryQueryBuilder
+        {
+            return new CategoryQueryBuilder($query);
+        }
+    */
     // Relationships
 
     public function parent(): BelongsTo

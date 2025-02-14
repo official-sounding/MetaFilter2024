@@ -48,7 +48,7 @@ class BaseFlagComponent extends Component
         $deleted = $this->flagService->delete(
             flaggableType: $flaggableType,
             flaggableId: $flaggableId,
-            userId: $this->authorizedUserId
+            userId: $this->authorizedUserId,
         );
 
         if ($deleted === true) {
@@ -81,7 +81,7 @@ class BaseFlagComponent extends Component
         return $this->flagService->userFlagged(
             flaggableType: $flaggableType,
             flaggableId: $flaggableId,
-            userId: $this->authorizedUserId
+            userId: $this->authorizedUserId,
         );
     }
 }

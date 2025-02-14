@@ -26,9 +26,9 @@ final class FlagReason extends BaseModel
     ];
 
     // Builders
-/*
-    public function newEloquentBuilder($query): FlagQueryBuilder
-    {
-        return new FlagQueryBuilder($query);
-    }*/
+    /*
+        public function newEloquentBuilder($query): FlagQueryBuilder
+        {
+            return new FlagQueryBuilder($query);
+        }*/
 }

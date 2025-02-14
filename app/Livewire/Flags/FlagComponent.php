@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpPossiblePolymorphicInvocationInspection */
+<?php
+
+/** @noinspection PhpPossiblePolymorphicInvocationInspection */
 
 declare(strict_types=1);
 
@@ -36,7 +38,7 @@ final class FlagComponent extends Component
 
     public function mount(
         $model,
-        FlagService $flagService
+        FlagService $flagService,
     ): void {
         $this->model = $model;
         $this->flaggableId = $this->model->id;

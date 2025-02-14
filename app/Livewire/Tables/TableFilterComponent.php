@@ -6,7 +6,4 @@ namespace App\Livewire\Tables;
 
 use Livewire\Component;
 
-class TableFilterComponent extends Component
-{
-
-}
+class TableFilterComponent extends Component {}

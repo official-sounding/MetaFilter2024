@@ -20,7 +20,7 @@ final class IconComponent extends Component
     public function __construct(
         string $filename,
         ?string $altText = null,
-        ?string $titleText = null
+        ?string $titleText = null,
     ) {
         $this->filename = $filename;
         $this->altText = $altText;

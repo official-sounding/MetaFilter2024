@@ -31,12 +31,12 @@ final class MeFiMail extends BaseModel
     ];
 
     // Builders
-/*
-    public function newEloquentBuilder($query): MeFiMailQueryBuilder
-    {
-        return new MeFiMailQueryBuilder($query);
-    }
-*/
+    /*
+        public function newEloquentBuilder($query): MeFiMailQueryBuilder
+        {
+            return new MeFiMailQueryBuilder($query);
+        }
+    */
     // Relationships
 
     public function sender(): BelongsTo

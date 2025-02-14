@@ -21,7 +21,7 @@ final class ContactsController extends BaseController
 
         return view('contacts.index', [
             'title' => trans('Contacts', [
-                'contacts' => $contacts
+                'contacts' => $contacts,
             ]),
         ]);
     }

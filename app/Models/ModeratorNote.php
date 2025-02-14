@@ -30,12 +30,12 @@ final class ModeratorNote extends Model
     ];
 
     // Builders
-/*
-    public function newEloquentBuilder($query): ModeratorNoteQueryBuilder
-    {
-        return new ModeratorNoteQueryBuilder($query);
-    }
-*/
+    /*
+        public function newEloquentBuilder($query): ModeratorNoteQueryBuilder
+        {
+            return new ModeratorNoteQueryBuilder($query);
+        }
+    */
     // Relationships
 
     public function moderator(): BelongsTo

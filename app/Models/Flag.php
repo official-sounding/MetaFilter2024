@@ -35,12 +35,12 @@ final class Flag extends BaseModel
     }
 
     // Builders
-/*
-    public function newEloquentBuilder($query): FlagQueryBuilder
-    {
-        return new FlagQueryBuilder($query);
-    }
-*/
+    /*
+        public function newEloquentBuilder($query): FlagQueryBuilder
+        {
+            return new FlagQueryBuilder($query);
+        }
+    */
     // Relationships
 
     public function comments(): MorphToMany

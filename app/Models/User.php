@@ -92,12 +92,12 @@ final class User extends Authenticatable implements
     }
 
     // Builders
-/*
-    public function newEloquentBuilder($query): UserQueryBuilder
-    {
-        return new UserQueryBuilder($query);
-    }
-*/
+    /*
+        public function newEloquentBuilder($query): UserQueryBuilder
+        {
+            return new UserQueryBuilder($query);
+        }
+    */
     // Relationships
 
     public function comments(): HasMany

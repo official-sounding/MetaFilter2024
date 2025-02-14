@@ -34,9 +34,9 @@ final class Faq extends BaseModel
     }
 
     // Builders
-/*
-    public function newEloquentBuilder($query): FaqQueryBuilder
-    {
-        return new FaqQueryBuilder($query);
-    }*/
+    /*
+        public function newEloquentBuilder($query): FaqQueryBuilder
+        {
+            return new FaqQueryBuilder($query);
+        }*/
 }

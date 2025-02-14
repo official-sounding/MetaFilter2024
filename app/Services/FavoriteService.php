@@ -16,8 +16,7 @@ final class FavoriteService
 
     public function __construct(
         protected FavoriteRepositoryInterface $favoriteRepository,
-    ) {
-    }
+    ) {}
 
     public function create(FavoriteDto $favoriteDto): bool
     {
@@ -36,10 +35,10 @@ final class FavoriteService
     {
         try {
             (new Favorite())->where([
-                 'favoritable_type' => $favoritableType,
-                 'favoritable_id' => $favoritableId,
-                 'user_id' => $userId
-             ])->delete();
+                'favoritable_type' => $favoritableType,
+                'favoritable_id' => $favoritableId,
+                'user_id' => $userId,
+            ])->delete();
 
             return true;
         } catch (Exception $exception) {

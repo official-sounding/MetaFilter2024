@@ -9,7 +9,8 @@ use App\Repositories\FlagRepositoryInterface;
 use App\Traits\LoggingTrait;
 use Exception;
 
-final class FlagService {
+final class FlagService
+{
     use LoggingTrait;
 
     public function __construct(

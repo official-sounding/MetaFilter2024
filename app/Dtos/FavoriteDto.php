@@ -9,6 +9,6 @@ readonly class FavoriteDto
     public function __construct(
         public string $favoritableType,
         public int $favoritableId,
-        public int $userId
+        public int $userId,
     ) {}
 }

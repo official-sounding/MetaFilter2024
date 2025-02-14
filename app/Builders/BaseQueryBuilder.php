@@ -6,7 +6,4 @@ namespace App\Builders;
 
 use Illuminate\Database\Query\Builder;
 
-class BaseQueryBuilder extends Builder
-{
-
-}
+class BaseQueryBuilder extends Builder {}

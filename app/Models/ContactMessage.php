@@ -31,9 +31,9 @@ final class ContactMessage extends Model
     ];
 
     // Builders
-/*
-    public function newEloquentBuilder($query): ContactMessageQueryBuilder
-    {
-        return new ContactMessageQueryBuilder($query);
-    }*/
+    /*
+        public function newEloquentBuilder($query): ContactMessageQueryBuilder
+        {
+            return new ContactMessageQueryBuilder($query);
+        }*/
 }
