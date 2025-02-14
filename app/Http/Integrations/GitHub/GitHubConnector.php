@@ -4,23 +4,39 @@ declare(strict_types=1);
 
 namespace App\Http\Integrations\GitHub;
 
+use App\Http\Integrations\ConnectorInterface;
 use Saloon\Http\Connector;
 use Saloon\Traits\Plugins\AcceptsJson;
 
-final class GitHubConnector extends Connector
+final class GitHubConnector extends Connector implements ConnectorInterface
 {
     use AcceptsJson;
 
-    public function resolveBaseUrl(): string
+    private const int TIMEOUT = 30;
+
+
+    public function defineBaseUrl(): string
     {
-        return '';
+        return (string) config('services.github_api.url');
     }
 
-    protected function defaultHeaders(): array
+    public function defaultConfig(): array
+    {
+        return [
+            'timeout' => self::TIMEOUT,
+        ];
+    }
+
+    public function defaultHeaders(): array
     {
         return [
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
         ];
+    }
+
+    public function resolveBaseUrl(): string
+    {
+        return '';
     }
 }

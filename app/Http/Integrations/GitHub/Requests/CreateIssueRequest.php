@@ -2,17 +2,29 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Integrations\GitHub;
+namespace App\Http\Integrations\GitHub\Requests;
 
 use App\Traits\GitHubTrait;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 
-final class GetIssuesRequest extends Request
+final class CreateIssueRequest extends Request implements HasBody
 {
     use GitHubTrait;
+    use HasJsonBody;
 
-    protected Method $method = Method::GET;
+    protected Method $method = Method::POST;
+
+    private const array LABELS = [
+        'bug',
+    ];
+
+    public function __construct(
+        protected string $title,
+        protected string $issueBody,
+    ) {}
 
     public function resolveEndpoint(): string
     {
@@ -28,6 +40,9 @@ final class GetIssuesRequest extends Request
         return [
             'owner' => $owner,
             'repo' => $repository,
+            'title' => $this->title,
+            'body' => $this->issueBody,
+            'labels' => self::LABELS,
             'headers' => [
                 'X-GitHub-Api-Version' => $apiVersion,
             ],
