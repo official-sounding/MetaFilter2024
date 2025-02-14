@@ -62,7 +62,7 @@
                     <button
                         class="button"
                         title="{{ trans('Remove flag') }}">
-                        <x-icons-icon-component filename="{{ $flagIconFilename  }}" />
+                        <x-icons.icon-component filename="{{ $flagIconFilename  }}" />
                         <span class="icon">
                             <img src="{{ asset("images/icons/$flagIconFilename.svg") }}"
                                  alt="{{ trans('Flag icon') }}"

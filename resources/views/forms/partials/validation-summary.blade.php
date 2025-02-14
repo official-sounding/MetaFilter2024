@@ -1,7 +1,7 @@
 @if ($errors->any())
     <div class="notification is-danger" role="alert">
         <p>
-            <x-icons-icon-component filename="exclamation-triangle-fill" />
+            <x-icons.icon-component filename="exclamation-triangle-fill" />
             Sorry, there @if ($errors->count() > 1) are some issues @else is an issue @endif with your form.
         </p>
 
