@@ -14,7 +14,7 @@ body {
 .comment-footer,
 .post-footer {
     color: light-dark(var(--dark-base-color), var(--lighter-gray));
-    background-color: light-dark(var(--lighter-gray), var(--dark-base-color));
+    background-color: light-dark(var(--lightest-gray), var(--dark-base-color));
 }
 
 //noinspection CssInvalidFunction
@@ -278,14 +278,14 @@ textarea:focus {
 .secondary-navigation-menu a:link,
 .secondary-navigation a:visited {
     color: light-dark(var(--base-color), var(--yellow-green));
-    background-color: light-dark(var(--white), var(--dark-base-color));
+    background-color: light-dark(var(--lightest-gray), var(--dark-base-color));
 }
 
 //noinspection CssInvalidFunction
 .secondary-navigation-menu a:active,
 .secondary-navigation-menu a:hover {
-    color: light-dark(var(--base-color), var(--dark-base-color));
-    background-color: light-dark(var(--white), var(--white));
+    color: light-dark(var(--white), var(--dark-base-color));
+    background-color: light-dark(var(--base-color), var(--white));
 }
 
 .tagline {

@@ -39,10 +39,14 @@ input:focus::placeholder {
 .logout-button:hover,
 .site-banner a:link,
 .site-banner a:visited,
-.utility-navigation a:link,
-.utility-navigation a:visited,
 .logout-button {
     color: var(--black);
+    background-color: var(--yellow-green);
+}
+
+.utility-navigation a:link,
+.utility-navigation a:visited {
+    color: var(--dark-gray);
     background-color: var(--yellow-green);
 }
 
@@ -131,6 +135,10 @@ input[type='search']:focus {
 .site-footer .rss {
     background-color: transparent;
     margin-right: 0.25rem;
+}
+
+.minimal .site-header {
+    background-color: var(--base-color);
 }
 
 .site-header {
