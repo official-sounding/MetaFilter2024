@@ -82,20 +82,13 @@
         @endauth
 
         @guest
-            <button
-                disabled="disabled"
-                class="button">
-                <x-icons.icon-component filename="flag" />
+            <button disabled="disabled" class="button">
                 <span class="icon">
-                    <img src="{{ asset("images/icons/flag.svg") }}"
-                         alt="{{ trans('Flag icon') }}"
-                         {{-- TODO: Add a function in the component to translate and singular/plural --}}
-                         title="{{ $flagCount }} {{ trans('flags') }}">
+                    <x-icons.icon-component filename="flag" />
                 </span>
                 {{ $flagCount }}
             </button>
         @endguest
-    </footer>
 
     @if ($isEditing === true)
         <livewire:comments.comment-form-component
