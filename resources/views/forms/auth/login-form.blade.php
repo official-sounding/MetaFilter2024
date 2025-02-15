@@ -31,14 +31,14 @@
                 {{ trans('Sign up here') }}
             </a>
         </p>
-    {{--
-        // TODO: Fix existing route not loading
+        {{--
+        TODO: Fix errors on forgot password page
         <p>
-            <a href="{{ route('forgot-password') }}">
+            <a href="{{ route($forgotPasswordRoute) }}">
                 {{ trans('Forgot your password?') }}
             </a>
         </p>
-    --}}
+        --}}
         <p>
             {{ trans('Need help?') }}
             <a href="{{ route($contactMessageRoute) }}">
