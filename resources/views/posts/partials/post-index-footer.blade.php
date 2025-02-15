@@ -1,18 +1,21 @@
 <footer class="post-footer post-index-footer">
-    {{ trans('posted by') }}
-
     @include('posts.partials.profile-link', [
         'userId' => $userId,
         'username' => $username,
     ])
-    at {{ $post->created_at->format('g:i a') }} -
 
-    <a href="{{ route("$subdomain.post.show", [
+    <span>
+        <x-icons.icon-component filename="clock" />
+        {{ $post->created_at->format('g:i a') }}
+    </span>
+
+    <a class="button"
+        href="{{ route("$subdomain.post.show", [
             'post' => $post,
             'slug' => $post->slug
         ]) }}#comments"
         title="Comments">
+        <x-icons.icon-component filename="chat" />
         {{ $commentsCount > 0 ?: 0 }}
-        {{ Str::plural('comment', $commentsCount) }}
     </a>
 </footer>

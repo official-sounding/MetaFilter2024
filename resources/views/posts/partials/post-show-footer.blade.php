@@ -1,16 +1,13 @@
 <footer class="post-footer post-show-footer">
-    {{ trans('posted by') }}
-
     @include('posts.partials.profile-link', [
         'userId' => $post->user->id,
         'username' => $post->user->username,
-    ]) -
+    ])
 
-    @if ($commentsCount === 0)
-        &lpar;{{ trans('no comments') }}&rpar;
-    @else
-        &lpar;{{ $commentsCount }} {{ Str::plural('comment', $commentsCount) }}&rpar;
-    @endif
+    <span>
+        <x-icons.icon-component filename="chat" />
+        {{ $commentsCount > 0 ?: 0 }}
+    </span>
 
     @if (isset($favoritesCount) && $favoritesCount > 0)
         {{ $favoritesCount }}

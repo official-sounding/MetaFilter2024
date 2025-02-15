@@ -1,7 +1,6 @@
 <footer class="comment-footer">
     <div class="level">
         <div>
-            {{ trans('posted by') }}
             @include('posts.partials.profile-link', [
                 'userId' => $comment->user->id,
                 'username' => $comment->user->username,
