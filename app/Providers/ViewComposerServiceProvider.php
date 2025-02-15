@@ -10,6 +10,7 @@ use App\View\Composers\Navigation\FooterSubsiteNavigationViewComposer;
 use App\View\Composers\Navigation\GlobalNavigationViewComposer;
 use App\View\Composers\Navigation\SecondaryNavigationViewComposer;
 use App\View\Composers\Navigation\PrimaryNavigationViewComposer;
+use App\View\Composers\Navigation\UserSidebarViewComposer;
 use App\View\Composers\Navigation\UtilityNavigationViewComposer;
 use App\View\Composers\Sidebar\TodayInHistoryViewComposer;
 use App\View\Composers\Snippets\SnippetViewComposer;
@@ -44,8 +45,7 @@ final class ViewComposerServiceProvider extends ServiceProvider
             SecondaryNavigationViewComposer::class,
         );
 
-        view()->composer(
-            [
+        view()->composer([
                 'layouts.partials.help-fund-mefi',
             ],
             SnippetViewComposer::class,
@@ -59,6 +59,11 @@ final class ViewComposerServiceProvider extends ServiceProvider
         view()->composer(
             'layouts.sidebars.partials.today-in-mefi-history',
             TodayInHistoryViewComposer::class,
+        );
+
+        view()->composer(
+            'layouts.sidebars.user-sidebar',
+            UserSidebarViewComposer::class,
         );
 
         view()->composer(
