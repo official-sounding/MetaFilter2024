@@ -15,13 +15,6 @@ final class UserRepository extends BaseRepository implements UserRepositoryInter
         parent::__construct($model);
     }
 
-    public function updateState(User $user, string $state): void
-    {
-        $user->state = $state;
-
-        $user->save();
-    }
-
     public function getActiveMembers(): Collection
     {
         return $this->model->where('state', '=', UserStateEnum::Active->value)->get();
