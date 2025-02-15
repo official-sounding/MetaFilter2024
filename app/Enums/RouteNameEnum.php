@@ -10,13 +10,14 @@ enum RouteNameEnum: string
     case AdminPanel = 'filament.admin.auth.login';
     case AuthConfirmPasswordShow = 'auth.confirm-password.show';
     case AuthConfirmPasswordStore = 'auth.confirm-password.store';
-    case AuthForgotPasswordCreate = 'forgot-password';
+    case AuthForgotPasswordCreate = 'auth.forgot-password.create';
+    case AuthForgotPasswordStore = 'auth.forgot-password.store';
     case AuthLoginCreate = 'login';
     case AuthLoginStore = 'login.store';
     case AuthLogout = 'logout';
     case AuthResetPasswordCreate = 'auth.reset-password.create';
     case AuthResetPasswordStore = 'auth.reset-password.store';
-    case AuthResetPassword = 'auth.password.update';
+    case AuthResetPasswordUpdate = 'auth.reset-password.update';
 
     case AboutMetaFilter = 'about.metafilter';
 
