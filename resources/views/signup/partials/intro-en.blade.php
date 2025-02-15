@@ -33,6 +33,6 @@
     alt="Venn diagram">
 --}}
 <a href="{{ route($signupWizardRoute) }}"
-   class="button primary-button">
+   class="button cta-button">
     Ready to sign up?
 </a>

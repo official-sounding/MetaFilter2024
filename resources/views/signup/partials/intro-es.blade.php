@@ -31,6 +31,6 @@
 </ul>
 
 <a href="{{ route($signupWizardRoute) }}"
-   class="button primary-button">
+   class="button cta-button">
     ¿Listo para registrarte? ¡Vamos allá!
 </a>
