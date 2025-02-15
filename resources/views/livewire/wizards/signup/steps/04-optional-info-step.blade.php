@@ -31,11 +31,6 @@
     </fieldset>
 
     <div class="level">
-        <x-forms.button type="submit">
-            {{ trans('Next') }}
-        </x-forms.button>
-    </div>
-    <div class="level">
         <x-forms.button
             class="secondary-button previous-step"
             type="button">
