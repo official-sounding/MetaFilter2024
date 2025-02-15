@@ -12,7 +12,6 @@ use App\Http\Requests\Signup\StoreEmailAddressRequest;
 use App\Http\Requests\Signup\StoreOptionalInfoRequest;
 use App\Http\Requests\Signup\StoreUsernameRequest;
 use App\Models\User;
-use App\Repositories\UserRepositoryInterface;
 use App\Services\UserService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Log;
@@ -24,6 +23,7 @@ final class SignupWizardComponent extends BaseWizardComponent
     public string $password_confirmation;
     public string $email;
     public string $name;
+    public string $state;
     public string $homepage_url;
 
     public array $steps = [
@@ -35,14 +35,12 @@ final class SignupWizardComponent extends BaseWizardComponent
     ];
 
     protected User $user;
-    protected UserRepositoryInterface $userRepository;
     protected UserService $userService;
 
-    public function boot(UserRepositoryInterface $userRepository, UserService $userService): void
+    public function boot(UserService $userService): void
     {
         $this->user = new User();
 
-        $this->userRepository = $userRepository;
         $this->userService = $userService;
     }
 
@@ -88,32 +86,29 @@ final class SignupWizardComponent extends BaseWizardComponent
 
         $this->validate($rules);
 
-        $state = UserStateEnum::Pending->value;
+        $this->state = UserStateEnum::Pending->value;
 
-        $this->user = $this->store($state);
+        $this->store();
 
         $this->currentStep = 5;
     }
 
     // Step 5
-
     public function payWithPayPal(): void
     {
-        Log::debug('Pay with PayPal');
         $this->paymentSubmitted();
     }
 
-    public function payWithStipe(): void
+    public function payWithStripe(): void
     {
-        Log::debug('Pay with Stripe');
         $this->paymentSubmitted();
     }
 
     private function paymentSubmitted(): void
     {
-        Log::debug('Payment submitted');
+        \Log::debug('user ID: ' . $this->user->id);
         // Assuming successful payment
-        $this->userRepository->updateState($this->user, UserStateEnum::Active->value);
+//        $this->userService->updateState($this->user, UserStateEnum::Active->value);
 
         // TODO: Send verification email
         //        Mail::to()->queue(new SendVerificationEmail());
@@ -121,7 +116,7 @@ final class SignupWizardComponent extends BaseWizardComponent
         $this->redirectRoute(RouteNameEnum::SignupThanks->value);
     }
 
-    public function store(string $state): User
+    public function store(): void
     {
         $dto = new UserDto(
             username: $this->username,
@@ -129,9 +124,9 @@ final class SignupWizardComponent extends BaseWizardComponent
             email: $this->email,
             name: $this->name ?? null,
             homepage_url: $this->homepage_url ?? null,
-            state: $state,
+            state: $this->state,
         );
 
-        return $this->userService->store($dto);
+        $this->user = $this->userService->store($dto);
     }
 }
