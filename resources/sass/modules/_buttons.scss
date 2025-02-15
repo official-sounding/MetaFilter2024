@@ -13,70 +13,19 @@ button,
     color: inherit;
     height: auto;
     line-height: 1;
-    background-color: inherit;
-    border-color: transparent;
     border-radius: var(--button-border-radius);
+    border-width: var(--button-border-width);
     border-style: solid;
-    transition: 0.3s;
+    transition: 0.25s;
     text-decoration: none;
 }
 
-.cta-button,
-.main-contents .cta-button {
+article .comment-footer a.button,
+article .post-footer a.button {
+}
+
+.cta-button {
     display: block;
-    color: var(--black);
-    background-color: var(--yellow-green);
-    border-color: var(--yellow-green);
-    border-width: var(--button-border-width);
-}
-
-button .cta-button:hover,
-.button.cta-button:hover {
-    color: var(--yellow-green);
-    background-color: var(--black);
-    border-color: var(--yellow-green);
-    border-width: var(--button-border-width);
-}
-
-.danger-button {
-    color: var(--white);
-    background-color: var(--is-danger);
-    border-color: var(--is-danger);
-    border-width: var(--button-border-width);
-}
-
-.danger-button:hover {
-    color: var(--is-danger);
-    background-color: var(--white);
-    border-color: var(--is-danger);
-    border-width: var(--button-border-width);
-}
-
-.link-button {
-
-}
-
-.primary-button {
-
-}
-
-.secondary-button {
-
-}
-
-button .primary-button,
-.button.primary-button,
-.site-footer a.button {
-    display: block;
-    color: var(--black);
-    background-color: var(--yellow-green);
-}
-
-button .primary-button:hover,
-.button.primary-button:hover {
-    color: var(--yellow-green);
-    background-color: var(--black);
-    text-decoration: none;
 }
 
 main > .primary-button {
@@ -120,9 +69,9 @@ main > .primary-button {
     text-align: left;
     width: 100%;
     padding: 0.625rem;
-    border-bottom-style: solid;
     border-bottom-width: 2px;
     border-radius: 0 0 0.25rem 0;
+    border-color: var(--yellow-green);
 }
 
 .top-bottom-button {
