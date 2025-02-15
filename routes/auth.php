@@ -25,7 +25,7 @@ Route::post(RoutePath::for('logout', '/logout'), [AuthenticatedSessionController
 
 Route::get(RoutePath::for('password.request', '/forgot-password'), [PasswordResetLinkController::class, 'create'])
     ->middleware(['guest:' . config('fortify.guard')])
-    ->name('password.request');
+    ->name(RouteNameEnum::AuthForgotPasswordCreate);
 
 Route::post(RoutePath::for('password.email', '/forgot-password'), [PasswordResetLinkController::class, 'store'])
     ->middleware(['guest:' . config('fortify.guard')])
