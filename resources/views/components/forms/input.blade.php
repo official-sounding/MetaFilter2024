@@ -4,6 +4,7 @@
     'name',
     'required',
     'type',
+    'note' => null,
 ])
 
 <x-forms.field>
@@ -13,7 +14,7 @@
         :required="$required"
     />
 
-    @if (isset($note) && $note)
+    @if (!empty($note))
         <small class="form-note">
             {!! $note !!}
         </small>
