@@ -7,6 +7,6 @@
         class="button primary-button {{ mb_strtolower($direction) }}"
         wire:click="goToStep({{ $goToStep }})">
     <span>
-        {{ $direction }}
+        {{ trans($direction) }}
     </span>
 </button>

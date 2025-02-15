@@ -1,4 +1,4 @@
-<form wire:submit.prevent="submitPassword()">
+<form class="has-steps" wire:submit.prevent="submitPassword()">
     @include('forms.partials.validation-summary')
     @include('forms.partials.csrf-token')
 
@@ -7,7 +7,7 @@
             :label="'Next, enter a password'"
             :name="'password'"
             :type="'password'"
-            :note="''"
+            :note="'Minimum 8 characters'"
             :autofocus="false"
             :required="false"
         />
@@ -22,9 +22,17 @@
         />
     </fieldset>
 
-    <fieldset class="level">
-        <x-forms.button type="submit">
+    <div class="level">
+        <x-forms.button
+            class="secondary-button previous-step"
+            type="button">
+            {{ trans('Previous') }}
+        </x-forms.button>
+
+        <x-forms.button
+            class="primary-button next-step"
+            type="submit">
             {{ trans('Next') }}
         </x-forms.button>
-    </fieldset>
+    </div>
 </form>

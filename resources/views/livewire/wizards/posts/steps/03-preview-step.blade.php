@@ -1,17 +1,35 @@
-<form>
-    @include('forms.partials.validation-summary')
-    @include('forms.partials.csrf-token')
-    <section>
+<form class="has-steps">
+    <article class="post">
+        <header class="post-header">
+            <h3>
+                <a href="#">
+                    {{ $post->title ?? '' }}
+                </a>
+            </h3>
+        </header>
         preview
-    </section>
+    </article>
 
-    <fieldset class="level">
-        <x-forms.button type="button">
+    <div class="level">
+        <x-forms.button
+            class="tertiary-button previous-step"
+            type="button"
+            wire:click="goToStep(1)">
+            {{ trans('Edit') }}
+        </x-forms.button>
+
+        <x-forms.button
+            class="secondary-button previous-step"
+            type="button"
+            wire:click="saveAsDraft()">
             {{ trans('Save as Draft') }}
         </x-forms.button>
 
-        <x-forms.button type="button">
+        <x-forms.button
+            type="submit"
+            class="primary-button next-step"
+            wire:click="publishPost()">
             {{ trans('Post') }}
         </x-forms.button>
-    </fieldset>
+    </div>
 </form>

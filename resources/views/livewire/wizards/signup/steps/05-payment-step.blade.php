@@ -1,4 +1,4 @@
-<form>
+<form class="has-steps">
     @include('forms.partials.validation-summary')
     @include('forms.partials.csrf-token')
     <fieldset>
@@ -10,14 +10,19 @@
         </p>
 
         <div class="level buttons">
-            <button class="button primary-button" wire:click="payWithPayPal()">
-                <x-icons.icon-component filename="paypal" />
-                Pay $5 via PayPal
+            <button
+                type="button"
+                class="button primary-button"
+                wire:click="payWithPayPal()">
+                    <x-icons.icon-component filename="paypal" />
+                    Pay $5 via PayPal
             </button>
 
-            <button class="button primary-button" wire:click="payWithStripe()">
-                <x-icons.icon-component filename="stripe" />
-                Pay $5 via Stripe
+            <button
+                class="button primary-button"
+                wire:click="payWithStripe()">
+                    <x-icons.icon-component filename="stripe" />
+                    Pay $5 via Stripe
             </button>
         </div>
 

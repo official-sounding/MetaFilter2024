@@ -1,4 +1,4 @@
-<form wire:submit.prevent="submitUsername()">
+<form class="has-steps" wire:submit.prevent="submitUsername()">
     @include('forms.partials.validation-summary')
     @include('forms.partials.csrf-token')
 
@@ -14,9 +14,11 @@
         />
     </fieldset>
 
-    <fieldset class="level">
-        <x-forms.button type="submit">
+    <div class="level">
+        <x-forms.button
+            type="submit"
+            class="primary-button next-step">
             {{ trans('Next') }}
         </x-forms.button>
-    </fieldset>
+    </div>
 </form>
