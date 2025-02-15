@@ -8,10 +8,6 @@
                 aria-current="step"
             @endif
         >
-            <span class="stepNumber">
-                {{ $key + 1 }}
-            </span>
-
             {{ trans($step) }}
         </li>
     @endforeach
