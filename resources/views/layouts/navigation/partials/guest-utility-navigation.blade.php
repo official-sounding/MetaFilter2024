@@ -1,4 +1,4 @@
-<ul id="utility-navigation-menu">
+<ul class="utility-navigation-menu" id="utility-navigation-menu">
     <li>
         <a href="{{ route($loginCreateRoute) }}"
            @if (request()->segment(1) === 'login')
