@@ -1,8 +1,8 @@
 <x-layout.sidebar-section-component
-    heading="{{  trans('Today in MeFi History') }}"
+    heading="{{ trans('Today in MeFi History') }}"
     class="years-ago"
     open="true">
 
     {!! $todayInHistoryNavigation !!}
-    years ago
+    {{ trans('years ago') }}
 </x-layout.sidebar-section-component>

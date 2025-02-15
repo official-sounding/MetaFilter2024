@@ -57,7 +57,9 @@
                         label="{{ trans('Send a copy to my verified email address (' . auth()->user()->email . ')' }}" />
                 @endauth
     --}}
-                <x-forms.button type="submit">
+                <x-forms.button
+                    type="submit"
+                    class="primary-button next-step">
                     {{ trans('Send') }}
                 </x-forms.button>
             </fieldset>
