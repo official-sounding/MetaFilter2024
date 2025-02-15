@@ -13,7 +13,7 @@
 
         @auth
             <button
-                class="button reply-button"
+                class="button footer-button"
                 wire:click.prevent="toggleReplying()"
                 aria-controls="comment-reply-form-{{ $comment->id }}"
                 aria-expanded="{{ $this->isReplying ? 'true' : 'false' }}">
@@ -22,7 +22,7 @@
             </button>
 
             <button
-                class="button edit-button"
+                class="button footer-button"
                 wire:click.prevent="toggleEditing()"
                 aria-controls="edit-comment-form-{{ $comment->id }}"
                 aria-expanded="{{ $this->isEditing ? 'true' : 'false' }}">
@@ -35,42 +35,30 @@
             @auth
                 @if ($userFavorited === true)
                     <button
-                        class="button"
+                        class="button footer-button"
                         title="{{ trans('Remove favorite') }}">
                         <span class="icon">
                             <x-icons.icon-component filename="{{ $favoriteIconFilename }}" />
-                            <img src="{{ asset("images/icons/$favoriteIconFilename.svg") }}"
-                                 alt="{{ trans('Favorite icon') }}"
-                                 title="{{ $favoriteTitleText }}">
                         </span>
                         {{ $favoriteCount }}
                     </button>
                 @else
-                    <button>
+                    <button class="button footer-button">
                         <x-icons.icon-component filename="{{ $favoriteIconFilename }}" />
-                        <span class="icon">
-                            <img src="{{ asset("images/icons/$favoriteIconFilename.svg") }}"
-                                 alt="{{ trans('Favorite icon') }}"
-                                 title="{{ $favoriteTitleText }}">
-                        </span>
                         {{ $favoriteCount }}
                     </button>
                 @endif
 
                 @if ($userFlagged === true)
                     <button
-                        class="button"
+                        class="button footer-button"
                         title="{{ trans('Remove flag') }}">
                         <x-icons.icon-component filename="{{ $flagIconFilename  }}" />
-                        <span class="icon">
-                            <img src="{{ asset("images/icons/$flagIconFilename.svg") }}"
-                                 alt="{{ trans('Flag icon') }}"
-                                 title="{{ $titleText }}">
-                        </span>
                         {{ $flagCount }}
                     </button>
                 @else
                     <button
+                        class="button footer-button"
                         wire:click="toggleFlagging()"
                         aria-controls="flag-comment-form-{{ $comment->id }}"
                         aria-expanded="{{ $this->isFlagging ? 'true' : 'false' }}">
