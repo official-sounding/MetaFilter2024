@@ -10,7 +10,7 @@ use App\Enums\NotificationTypeEnum;
 use App\Enums\PostStateEnum;
 use App\Http\Requests\Post\StoreBodyAndMoreInsideRequest;
 use App\Http\Requests\Post\StoreMoreInsideRequest;
-use App\Http\Requests\Post\StoreTitleAndLinkRequest;
+use App\Http\Requests\Post\StorePostRequest;
 use App\Models\Post;
 use App\Services\PostService;
 use App\Traits\PostTrait;
@@ -52,9 +52,9 @@ final class PostWizardComponent extends BaseWizardComponent
     }
 
     // Step 1
-    public function submitTitleAndLink(): void
+    public function submitPost(): void
     {
-        $rules = (new StoreTitleAndLinkRequest())->rules();
+        $rules = (new StorePostRequest())->rules();
 
         $this->validate($rules);
 
