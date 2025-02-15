@@ -24,7 +24,7 @@ interface BaseRepositoryInterface
 
     public function firstOrCreate(array $attributes = [], array $values = []);
 
-    public function getDropdownValues(string $column, string $key = 'id');
+    public function getDropdownValues(string $column, string $key = 'id', bool $cache = true);
 
     public function paginate($limit = 20);
 

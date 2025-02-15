@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories;
 
 use App\Models\BaseModel;
+use App\Traits\CacheTimeTrait;
 use App\Traits\SubsiteTrait;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
@@ -14,6 +15,7 @@ use Illuminate\Support\Str;
 
 class BaseRepository implements BaseRepositoryInterface
 {
+    use CacheTimeTrait;
     use SubsiteTrait;
 
     protected Model|BaseModel $model;
@@ -68,8 +70,16 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->getQuery()->where('slug', '=', $slug)->firstOrFail();
     }
 
-    public function getDropdownValues(string $column, string $key = 'id'): array
+    public function getDropdownValues(string $column, string $key = 'id', bool $cache = true): array
     {
+        $cacheKey = $column . '-dropdown-values';
+
+        if ($cache === true) {
+            cache()->remember(key: $cacheKey, ttl: $this->oneHour(), callback: function () use ($column, $key) {
+                return $this->getQuery()->pluck($column, $key)->toArray();
+            });
+        }
+
         return $this->getQuery()->pluck($column, $key)->toArray();
     }
 
