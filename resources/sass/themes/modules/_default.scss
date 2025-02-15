@@ -163,19 +163,25 @@ input[type='search']:focus {
     background-color: green;
 }
 
+// Filter for yellow-green
 .logout-button:active .icon,
 .logout-button:hover .icon,
 .utility-navigation a:active .icon,
 .utility-navigation a:hover .icon {
-    // Filter for yellow-green
     // https://csscolorize.com/
+    // https://cssfiltergenerator.lol/
     filter: invert(67%) sepia(59%) saturate(368%) hue-rotate(41deg) brightness(97%) contrast(89%);
-}
+        }
 
+// Filter for rss-orange
 .rss:active .icon,
 .rss:hover .icon {
-    // Filter for rss-orange
     filter: invert(63%) sepia(82%) saturate(2553%) hue-rotate(345deg) brightness(91%) contrast(103%);
+}
+
+// Filter for dark-gray
+.utility-navigation .icon {
+    filter: brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(0%) hue-rotate(243deg) brightness(95%) contrast(94%);
 }
 
 ::placeholder {

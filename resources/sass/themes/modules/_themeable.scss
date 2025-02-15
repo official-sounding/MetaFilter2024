@@ -11,10 +11,11 @@ body {
 }
 
 //noinspection CssInvalidFunction
-.comment-footer,
-.post-footer {
+.comment-footer-button,
+.post-footer-button {
     color: light-dark(var(--dark-base-color), var(--lighter-gray));
-    background-color: light-dark(var(--lightest-gray), var(--dark-base-color));
+    background-color: transparent;
+    border-color: transparent;
 }
 
 //noinspection CssInvalidFunction
@@ -29,7 +30,6 @@ body {
     color: light-dark(var(--dark-base-color), var(--yellow-green));
     background-color: transparent;
 }
-
 
 //noinspection CssInvalidFunction
 .link-button {
@@ -88,11 +88,13 @@ legend {
 }
 
 //noinspection CssInvalidFunction
+/*
 .main-contents a,
 .main-contents a:hover {
     color: light-dark(var(--blue), var(--yellow-green));
     background-color: inherit;
 }
+*/
 
 input[type="email"],
 input[type="password"],
@@ -122,10 +124,66 @@ textarea:focus {
     background-color: var(--lightest-base-color);
 }
 
-//noinspection CssInvalidFunction
-.main-contents form .button {
-    color: light-dark(var(--white), var(--white));
-    background-color: light-dark(var(--dark-base-color), var(--dark-base-color));
+.cta-button {
+    color: var(--black);
+    background-color: var(--yellow-green);
+    border-color: var(--yellow-green);
+}
+
+.cta-button:hover {
+    color: var(--yellow-green);
+    background-color: var(--black);
+}
+
+.danger-button {
+    color: var(--white);
+    background-color: var(--is-danger);
+    border-color: var(--is-danger);
+}
+
+.danger-button:hover {
+    color: var(--is-danger);
+    background-color: var(--white);
+}
+
+.primary-button {
+    color: var(--white);
+    background-color: var(--dark-base-color);
+    border-color: var(--dark-base-color);
+}
+
+.primary-button:hover {
+    color: var(--dark-base-color);
+    background-color: var(--yellow-green);
+}
+
+.secondary-button {
+    color: var(--dark-base-color);
+    background-color: var(--lightest-base-color);
+    border-color: var(--dark-base-color);
+}
+
+.secondary-button:hover {
+    color: var(--dark-base-color);
+    background-color: var(--yellow-green);
+}
+
+.tertiary-button {
+    color: var(--dark-base-color);
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.tertiary-button {
+    color: var(--dark-base-color);
+    background-color: transparent;
+    border-color: transparent;
+}
+
+*:disabled {
+    color: var(--darker-gray);
+    background-color: var(--gray);
+    opacity: 1;
 }
 
 .next,
@@ -135,12 +193,13 @@ textarea:focus {
     border-color: var(--lighter-base-color);
 }
 
-// TODO: Need color vars
 .notification.is-danger {
-    color: #710627;
-    background-color: #fdd8e4;
-    border-color: #710627;
+    color: var(--is-danger);
+    background-color: var(--white);
+    border-color: var(--is-danger);
 }
+
+// TODO: Need color vars
 
 .notification.is-success {
     background-color: #e5faf3;
