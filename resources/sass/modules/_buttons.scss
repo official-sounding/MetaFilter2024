@@ -120,9 +120,9 @@ main > .primary-button {
     text-align: left;
     width: 100%;
     padding: 0.625rem;
-    border-radius: 0;
     border-bottom-style: solid;
     border-bottom-width: 2px;
+    border-radius: 0 0 0.25rem 0;
 }
 
 .top-bottom-button {
