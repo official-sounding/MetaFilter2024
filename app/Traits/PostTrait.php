@@ -26,9 +26,7 @@ trait PostTrait
     {
         $subdomain = $this->getSubdomain();
 
-        if ($subdomain = 'www') {
-            $subdomain = 'metafilter';
-        }
+        $subdomain = 'www' === $subdomain ? 'metafilter' : $subdomain;
 
         return route("$subdomain.post.show", [
             'post' => $post,
