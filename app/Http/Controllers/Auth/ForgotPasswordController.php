@@ -8,7 +8,8 @@ use App\Http\Controllers\Controller;
 
 final class ForgotPasswordController extends Controller
 {
-    public function show() {
+    public function show()
+    {
         return view('auth.forgot-password');
     }
 }

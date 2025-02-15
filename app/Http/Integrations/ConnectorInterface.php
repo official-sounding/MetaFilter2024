@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Integrations;
 
-interface ConnectorInterface {
+interface ConnectorInterface
+{
     public function defaultConfig(): array;
 
     public function defaultHeaders(): array;

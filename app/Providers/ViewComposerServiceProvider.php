@@ -45,7 +45,8 @@ final class ViewComposerServiceProvider extends ServiceProvider
             SecondaryNavigationViewComposer::class,
         );
 
-        view()->composer([
+        view()->composer(
+            [
                 'layouts.partials.help-fund-mefi',
             ],
             SnippetViewComposer::class,
