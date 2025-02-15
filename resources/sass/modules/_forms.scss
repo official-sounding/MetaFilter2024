@@ -82,6 +82,10 @@ form {
     border-radius: 0.25rem;
 }
 
+form .has-steps {
+    border-top-left-radius: 0;
+}
+
 fieldset {
     border: none;
     position: relative;

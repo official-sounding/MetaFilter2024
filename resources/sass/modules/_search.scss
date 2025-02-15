@@ -3,6 +3,10 @@ search {
     position: relative;
 }
 
+search .search-terms {
+    border-radius: 0.25rem;
+}
+
 search > .search-results {
     position: absolute;
     width: 100%;

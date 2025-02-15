@@ -78,6 +78,24 @@ main .steps li {
     padding: 0.2rem 0.5rem 0.2rem 0.5rem;
 }
 
+main .steps li:first-of-type,
+.years-ago li:first-of-type a {
+    border-top-left-radius: 0.25rem;
+}
+
+main .steps li:last-of-type,
+.years-ago li:last-of-type a {
+    border-top-right-radius: 0.25rem;
+}
+
+.years-ago li:first-of-type a {
+    border-bottom-left-radius: 0.25rem;
+}
+
+.years-ago li:last-of-type a {
+    border-bottom-right-radius: 0.25rem;
+}
+
 @include breakpoints.phone-only() {
     .primary-navigation-menu li {
         width: 25%;

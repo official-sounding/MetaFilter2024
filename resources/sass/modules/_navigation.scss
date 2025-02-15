@@ -43,12 +43,20 @@ nav ul li {
 
 .utility-navigation {
     position: relative;
-    top: -1.15rem;
+    top: -1rem;
 }
 
 .utility-navigation .icon {
     display: inline-block;
     margin: 0 0.25rem 0 0;
+}
+
+.utility-navigation-menu li:first-child a {
+    border-bottom-left-radius: 0.25rem;
+}
+
+.utility-navigation-menu li:last-child a {
+    border-bottom-right-radius: 0.25rem;
 }
 
 @include breakpoints.phone-only() {

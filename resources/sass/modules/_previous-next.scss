@@ -34,12 +34,10 @@
 }
 
 .previous::before {
-    content: '<';
     left: 1rem;
 }
 
 .next::after {
-    content: '>';
     top: 1rem;
     right: 1rem;
 }

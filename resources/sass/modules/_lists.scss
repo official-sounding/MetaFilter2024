@@ -6,8 +6,6 @@ main li {
 }
 
 main .steps li {
-    margin-right: 0.25rem;
-    margin-left: 0.25rem;
     text-align: center;
 }
 
@@ -36,6 +34,7 @@ main li:last-of-type {
     margin: 0;
     padding: 0;
     width: fit-content;
+    white-space: nowrap;
 }
 
 .steps li,
