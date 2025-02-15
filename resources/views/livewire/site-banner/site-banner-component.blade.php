@@ -11,7 +11,7 @@
         </ul>
 
         <button class="button icon" wire:click="toggleBanner()">
-            <img src="{{ asset("images/icons/$iconFilename.svg") }}" alt="{{ $altText }} {{ trans('banner links') }}">
+            <x-icons.icon-component filename="{{ $iconFilename }}" />
         </button>
     @endif
 </section>
