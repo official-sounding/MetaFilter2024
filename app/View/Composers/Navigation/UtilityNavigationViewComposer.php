@@ -21,7 +21,7 @@ final class UtilityNavigationViewComposer implements ViewComposerInterface
 
     public function compose(View $view): void
     {
-        $navigation = '<ul id="utility-navigation-menu">';
+        $navigation = '<ul class="utility-navigation-menu" id="utility-navigation-menu">';
 
         $items = $this->loggedIn() === true
             ? config('metafilter.navigation.utility.auth')
