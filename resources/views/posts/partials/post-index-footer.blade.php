@@ -9,7 +9,7 @@
         {{ $post->created_at->format('g:i a') }}
     </span>
 
-    <a class="button"
+    <a class="button footer-button"
         href="{{ route("$subdomain.post.show", [
             'post' => $post,
             'slug' => $post->slug
