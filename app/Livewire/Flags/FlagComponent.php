@@ -31,7 +31,7 @@ final class FlagComponent extends Component
     public array $flagReasons = [];
     public bool $showForm = false;
     public string $titleText;
-    public string $type = 'zz';
+    public string $type = '';
     public bool $userFlagged = false;
 
     protected FlagService $flagService;
@@ -49,7 +49,7 @@ final class FlagComponent extends Component
 
         $this->setIconFilename();
         $this->setTitleText();
-        $this->type = $this->getType();
+        $this->type = $this->getType($model);
         $this->updateFlagData();
     }
 
@@ -104,13 +104,6 @@ final class FlagComponent extends Component
     private function setIconFilename(): void
     {
         $this->iconFilename = $this->userFlagged ? 'flag-fill' : 'flag';
-    }
-
-    private function getType(): string
-    {
-        $type = str_replace(self::MODEL_PATH, '', $this->model::class);
-
-        return 'Type: ' . mb_strtolower($type);
     }
 
     private function setTitleText(): void
