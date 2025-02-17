@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Livewire\Comments;
 
+use App\Dtos\CommentDto;
 use App\Http\Requests\Comment\StoreCommentRequest;
 use App\Models\Comment;
+use App\Services\CommentService;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
@@ -46,16 +48,18 @@ final class CommentFormComponent extends Component
         return (new StoreCommentRequest())->rules();
     }
 
-    public function store(): void
+    public function store(CommentService $commentService): void
     {
         $this->validate();
 
-        $this->comment = Comment::create([
-            'user_id' => $this->user->id,
-            'post_id' => $this->postId,
-            'parent_id' => $this->parentId,
-            'text' => $this->text,
-        ]);
+        $dto = new CommentDto(
+            text: $this->text,
+            postId: $this->postId,
+            userId: $this->authorizedUserId,
+            parentId: $this->parentId,
+        );
+
+        $stored = $commentService->store($dto);
 
         $this->message = trans('Comment created successfully.');
     }
