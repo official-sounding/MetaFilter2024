@@ -12,6 +12,7 @@
 @include('layouts.partials.social-media-meta-tags')
 @include('layouts.partials.previous-next-meta')
 @include('layouts.partials.favicons')
+
 @if (isset($canonicalUrl))
     <link rel="canonical" href="{{ $canonicalUrl }}">
 @endif
