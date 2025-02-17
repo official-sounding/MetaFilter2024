@@ -40,15 +40,18 @@
             @foreach ($this->activeMembers as $member)
                 <tr>
                     <td>
-                        {{ $member->username }}
+                        <x-members.profile-link-component :user="$member" />
                     </td>
                     <td>
-                        {{ $member->id ?? '' }}
+                        {{ $member->legacy_id ?: $member->id }}
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
+    {{--
+    // TODO: Add pagination
     {{ $this->activeMembers->links() }}
+    --}}
 </div>
