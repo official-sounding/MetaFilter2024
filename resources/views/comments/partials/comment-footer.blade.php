@@ -6,11 +6,11 @@
                 'username' => $comment->user->username,
             ])
 
-            @include('comments.partials.comment-created-at-time', [
+            @include('comments.partials.comment-created-at-time-date', [
                 'comment' => $comment,
             ])
-
-            <livewire:post.favorite-comment-component
+hello
+            <livewire:favorites.favorite-component
                 :comment="$comment"
                 :favorites="$favoritesCount"
             />
