@@ -24,7 +24,7 @@ return [
         'sort_order' => 5,
     ],
     [
-        'reason' => 'Flags with note',
+        'reason' => 'Flag with note',
         'sort_order' => 6,
     ],
 ];
