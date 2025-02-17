@@ -5,7 +5,7 @@
     @endif
 >
     @include('forms.partials.validation-summary')
-    @include('livewire.posts.partials.posting-as')
+    @include('livewire.common.partials.posting-as')
 
     <fieldset>
         <div wire:ignore>
@@ -36,5 +36,12 @@
                 @endif
             </button>
         </div>
+
+        <small class="smaller">
+            <a href="https://www.markdownguide.org/basic-syntax/">
+                <x-icons.icon-component filename="markdown-fill"/>
+                {{ trans('Styling with Markdown is supported') }}
+            </a>
+        </small>
     </fieldset>
 </form>
