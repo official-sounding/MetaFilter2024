@@ -11,11 +11,24 @@ body {
 }
 
 //noinspection CssInvalidFunction
-.comment-footer-button,
-.post-footer-button {
+.footer-button {
     color: light-dark(var(--dark-base-color), var(--lighter-gray));
     background-color: transparent;
     border-color: transparent;
+}
+
+//noinspection CssInvalidFunction
+a:link,
+a:visited {
+    color: light-dark(var(--base-color), var(--yellow-green));
+    background-color: transparent;
+}
+
+//noinspection CssInvalidFunction
+a:active,
+a:hover {
+    color: light-dark(var(--light-base-color), var(--lighter-base-color));
+    background-color: transparent;
 }
 
 //noinspection CssInvalidFunction
@@ -124,12 +137,14 @@ textarea:focus {
     background-color: var(--lightest-base-color);
 }
 
-.cta-button {
+.cta-button:link,
+.cta-button:visited {
     color: var(--black);
     background-color: var(--yellow-green);
     border-color: var(--yellow-green);
 }
 
+.cta-button:active,
 .cta-button:hover {
     color: var(--yellow-green);
     background-color: var(--black);

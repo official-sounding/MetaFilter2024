@@ -57,8 +57,13 @@ small,
     font-size: var(--font-size-minus-1);
 }
 
-small.form-note {
+small.form-note,
+small.smaller {
     font-size: var(--font-size-minus-2);
+}
+
+small.smallest {
+    font-size: var(--font-size-minus-3);
 }
 
 .sidebar h3 {
