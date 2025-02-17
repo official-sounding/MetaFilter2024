@@ -18,7 +18,7 @@ final class FavoriteService
         protected FavoriteRepositoryInterface $favoriteRepository,
     ) {}
 
-    public function create(FavoriteDto $favoriteDto): bool
+    public function store(FavoriteDto $favoriteDto): bool
     {
         try {
             $this->favoriteRepository->create((array) $favoriteDto);
