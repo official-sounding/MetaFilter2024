@@ -17,6 +17,9 @@ final class UserRepository extends BaseRepository implements UserRepositoryInter
 
     public function getActiveMembers(): Collection
     {
-        return $this->model->where('state', '=', UserStateEnum::Active->value)->get();
+        return $this->model
+            ->where('state', '=', UserStateEnum::Active->value)
+            ->orderBy('username')
+            ->get();
     }
 }
