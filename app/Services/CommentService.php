@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Dto\CommentDto;
+use App\Dtos\CommentDto;
 use App\Http\Requests\Comment\UpdateCommentRequest;
 use App\Models\Comment;
+use App\Repositories\CommentRepositoryInterface;
 use App\Traits\LoggingTrait;
 use Exception;
 
@@ -14,10 +15,12 @@ final class CommentService
 {
     use LoggingTrait;
 
+    public function __construct(protected CommentRepositoryInterface $commentRepository) {}
+
     public function store(CommentDto $dto): ?Comment
     {
         try {
-            return Comment::create((array) $dto);
+            return $this->commentRepository->create((array) $dto);
         } catch (Exception $exception) {
             $this->logError($exception);
 
