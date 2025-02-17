@@ -5,16 +5,18 @@
         </legend>
 
         <small>
-            <x-popovers.popover-component />
-            {{ trans('What does it mean to flag a comment or post?') }}
+            <x-popovers.popover-component
+                button-text="{{ trans('What does it mean to flag a comment or post?') }}"
+                popover-text="{{ trans('What does it mean to flag a comment or post?') }}"
+            />
         </small>
 
         @foreach ($flagReasons as $key => $label)
             <label class="block">
                 <input
                     type="radio"
-                    name="reason"
-                    wire:model="selectedReasons"
+                    name="flag_reason_id"
+                    wire:model="flagReasonId"
                     value="{{ $key }}">
                 {{ $label }}
             </label>
@@ -28,14 +30,14 @@
             wire:model="note"
             name="note"
             id="note"
-            placeholder="Additional details (optional)">
+            placeholder="{{ trans('Additional details (optional)') }}">
         </textarea>
 
         <div class="level">
             <button
                 type="button"
                 class="button secondary-button"
-                wire:click="toggleForm()">
+                wire:click="$parent.closeForm()">
                 {{ trans('Cancel') }}
             </button>
 
