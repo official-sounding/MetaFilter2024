@@ -4,15 +4,13 @@
     </button>
 
     <div id="{{ $popoverId }}" popover>
-        @if (!is_null($routeName))
-            @include ('components.popovers.partials.show-info-icon')
+        <x-icons.icon-component filename="info-fill" />
 
+        @if (!is_null($routeName))
             <a href="{{ route($routeName) }}">
                 {{ trans($popoverText) }}
             </a>
         @else
-            @include ('components.popovers.partials.show-info-icon')
-
             {{ trans($popoverText) }}
         @endif
     </div>
