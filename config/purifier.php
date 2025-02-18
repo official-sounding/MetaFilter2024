@@ -27,10 +27,10 @@ return [
     'cacheFileMode'      => 0755,
     'settings'      => [
         'default' => [
-            'HTML.Doctype'             => 'HTML',
-            'HTML.Allowed'             => 'div,b,strong,i,em,blockquote,cite,a[href|title],ul,ol,li,p,br,',
+            'HTML.Doctype'             => 'XHTML 1.0 Strict',
+            'HTML.Allowed'             => 'div,b,strong,i,em,blockquote,cite,a[href|title],ul,ol,li,p,br,small,table,tr,td,td,tbody,thead,tfoot',
             'CSS.AllowedProperties'    => null,
-            'AutoFormat.AutoParagraph' => true,
+            'AutoFormat.AutoParagraph' => false,
             'AutoFormat.RemoveEmpty'   => true,
         ],
         'test'    => [
