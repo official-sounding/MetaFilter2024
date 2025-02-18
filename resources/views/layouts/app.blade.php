@@ -62,6 +62,11 @@
 <footer class="site-footer" id="site-footer">
     @include('layouts.partials.global-footer')
     @include('layouts.partials.fine-print')
+    {{--
+        <x-icons.icon-component filename="balloon-fill" />
+        We all float down here.
+    --}}
+    <small class="smaller">🎈 We all float down here.</small>
 </footer>
 
 @include('layouts.partials.scripts')
