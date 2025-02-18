@@ -14,21 +14,21 @@
         <x-forms.button
             class="tertiary-button previous-step"
             type="button"
-            wire:click="goToStep(1)">
+            wire:click.prevent="goToStep(1)">
             {{ trans('Edit') }}
         </x-forms.button>
 
         <x-forms.button
             class="secondary-button previous-step"
             type="button"
-            wire:click="saveAsDraft()">
+            wire:click.prevent="saveAsDraft()">
             {{ trans('Save as Draft') }}
         </x-forms.button>
 
         <x-forms.button
             type="submit"
             class="primary-button next-step"
-            wire:click="publishPost()">
+            wire:click.prevent="publishPost()">
             {{ trans('Post') }}
         </x-forms.button>
     </div>

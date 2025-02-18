@@ -1,4 +1,4 @@
-<form class="has-steps" wire:submit.prevent="submitPost()">
+<form class="has-steps" wire:submit.prevent="saveAsPending()">
     @include('forms.partials.validation-summary')
     @include('forms.partials.csrf-token')
 

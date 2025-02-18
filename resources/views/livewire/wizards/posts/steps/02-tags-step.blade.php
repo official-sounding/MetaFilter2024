@@ -1,4 +1,4 @@
-<form class="has-steps" wire:submit.prevent="submitMoreInside()">
+<form class="has-steps" wire:submit.prevent="submitTags()">
     @include('forms.partials.validation-summary')
     @include('forms.partials.csrf-token')
 

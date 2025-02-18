@@ -1,4 +1,4 @@
-<form wire:submit.prevent="store($flaggableId)">
+<form wire:submit.prevent="store()">
     <fieldset>
         <legend>
             {{ $titleText }}
@@ -17,21 +17,24 @@
                     type="radio"
                     name="flag_reason_id"
                     wire:model="flagReasonId"
+                    wire:change="flagReasonSelected('{{ Str::slug($label) }}')"
                     value="{{ $key }}">
                 {{ $label }}
             </label>
         @endforeach
 
-        <label for="note" class="optional">
-            {{ trans('Note') }}
-        </label>
+        @if ($showNoteField === true)
+            <label for="note" class="optional">
+                {{ trans('Note') }}
+            </label>
 
-        <textarea
-            wire:model="note"
-            name="note"
-            id="note"
-            placeholder="{{ trans('Additional details (optional)') }}">
-        </textarea>
+            <textarea
+                wire:model="note"
+                name="note"
+                id="note"
+                placeholder="{{ trans('Additional details (optional)') }}">
+            </textarea>
+        @endif
 
         <div class="level">
             <button

@@ -1,5 +1,5 @@
-<h2 class="sr-only">
-    {{ $subsiteName }} {{  trans('Sidebar') }}
+<h2>
+    {{  trans('My MeFi') }}
 </h2>
 
 @auth

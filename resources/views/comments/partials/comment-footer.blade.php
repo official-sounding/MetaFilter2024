@@ -9,7 +9,7 @@
             @include('comments.partials.comment-created-at-time-date', [
                 'comment' => $comment,
             ])
-hello
+
             <livewire:favorites.favorite-component
                 :comment="$comment"
                 :favorites="$favoritesCount"
