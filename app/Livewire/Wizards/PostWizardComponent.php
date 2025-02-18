@@ -8,11 +8,10 @@ use App\Dtos\PostDto;
 use App\Enums\NotificationMessageEnum;
 use App\Enums\NotificationTypeEnum;
 use App\Enums\PostStateEnum;
-use App\Http\Requests\Post\StoreBodyAndMoreInsideRequest;
-use App\Http\Requests\Post\StoreMoreInsideRequest;
 use App\Http\Requests\Post\StorePostRequest;
 use App\Models\Post;
 use App\Services\PostService;
+use App\Traits\DateAndTimeTrait;
 use App\Traits\PostTrait;
 use App\Traits\RedirectTrait;
 use App\Traits\SubsiteTrait;
@@ -20,6 +19,7 @@ use Illuminate\Contracts\View\View;
 
 final class PostWizardComponent extends BaseWizardComponent
 {
+    use DateAndTimeTrait;
     use PostTrait;
     use RedirectTrait;
     use SubsiteTrait;
@@ -31,10 +31,14 @@ final class PostWizardComponent extends BaseWizardComponent
     ];
 
     public string $title = '';
-    public ?string $link_url;
-    public ?string $link_text;
-    public string $body;
-    public string $more_inside;
+    public ?string $link_url = '';
+    public ?string $link_text = '';
+    public string $body = '';
+    public string $more_inside = '';
+    public string $state = '';
+    public ?string $published_at = null;
+    public bool $is_published = false;
+
     public Post $post;
     public int $subsiteId;
 
@@ -51,92 +55,89 @@ final class PostWizardComponent extends BaseWizardComponent
         return view('livewire.wizards.posts.post-wizard-component');
     }
 
-    // Step 1
-    public function submitPost(): void
+    public function rules(): array
     {
-        $rules = (new StorePostRequest())->rules();
+        return (new StorePostRequest())->rules();
+    }
 
-        $this->validate($rules);
+    // Step 1
+    public function saveAsPending(): void
+    {
+        $this->validate();
 
-        $this->currentStep = 2;
+        $stored = $this->storePost();
+
+        if ($stored) {
+            $this->post = $stored;
+            $this->currentStep = 2;
+        } else {
+        }
     }
 
     // Step 2
-    public function submitBody(): void
+    public function submitTags(): void
     {
-        $rules = (new StoreBodyAndMoreInsideRequest())->rules();
-
-        $this->validate($rules);
-
         $this->currentStep = 3;
     }
 
-    // Step 3
-    public function submitMoreInside(): void
-    {
-        $rules = (new StoreMoreInsideRequest())->rules();
-
-        $this->validate($rules);
-
-        $this->saveAsPending();
-
-        $this->currentStep = 4;
-    }
-
-    // Step 4
-    public function preview(): void {}
-
     public function saveAsDraft(): void
     {
-        $post = $this->storePost(PostStateEnum::Draft->value);
+        $state = PostStateEnum::Draft->value;
 
-        if ($post->id) {
-            $url = $this->getPostShowUrl($post);
+        $data = [
+            'state' => $state,
+        ];
+
+        $updated = $this->postService->update($this->post->id, $data);
+
+        if ($updated) {
+            $url = $this->getPostShowUrl($this->post);
             $type = NotificationTypeEnum::Success->value;
             $message = NotificationMessageEnum::PostDraftSuccess->value;
+
+            $this->redirectToUrlWithNotification($url, $type, $message);
         } else {
-            $url = route('aa');
-            $type = NotificationTypeEnum::Error->value;
-            $message = NotificationMessageEnum::PostDraftFailure->value;
+            // TODO: Add error message
         }
-
-        $this->redirectToUrlWithNotification($url, $type, $message);
     }
 
-    public function saveAsPending(): void
+    public function publishPost(): void
     {
-        $this->storePost(PostStateEnum::Pending->value);
-    }
+        $publishedAt = $this->getFormattedInsertDateTime(now());
 
-    public function publish(): void
-    {
-        $now = now()->format('Y-m-d H:i:s');
+        $data = [
+            'published_at' => $publishedAt,
+            'is_published' => true,
+        ];
 
-        $post = $this->storePost(PostStateEnum::Published->value, $now, true);
+        $published = $this->postService->update($this->post->id, $data);
 
-        if ($post->id) {
-            $url = $this->getPostShowUrl($post);
+        if ($published) {
+            $url = $this->getPostShowUrl($this->post);
             $type = NotificationTypeEnum::Success->value;
             $message = NotificationMessageEnum::PostPublishSuccess->value;
-        } else {
-            $url = route('aa');
-            $type = NotificationTypeEnum::Error->value;
-            $message = NotificationMessageEnum::PostPublishFailure->value;
-        }
 
-        $this->redirectToUrlWithNotification($url, $type, $message);
+            $this->redirectToUrlWithNotification($url, $type, $message);
+        } else {
+            // TODO: Add error message
+        }
     }
 
-    public function storePost(string $state, ?string $publishedAt = null, bool $isPublished = false): Post
+    private function storePost(): ?Post
     {
+        $state = PostStateEnum::Pending->value;
+
         $dto = new PostDto(
             title: $this->title,
+            link_url: $this->link_url ?? null,
+            link_text: $this->link_text ?? null,
             body: $this->body,
             more_inside: $this->more_inside,
+            user_id: auth()->id(),
             subsite_id: $this->subsiteId,
             state: $state,
-            published_at: $publishedAt,
-            is_published: $isPublished,
+            published_at: null,
+            is_published: false,
         );
 
         return $this->postService->store($dto);

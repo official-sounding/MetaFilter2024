@@ -15,7 +15,7 @@ final class CommentFormComponent extends Component
 {
     public int $authorizedUserId;
     public string $buttonText = '';
-    public Comment $comment;
+    public ?Comment $comment;
     public bool $isEditing = false;
     public bool $isReplying = false;
     public string $text = '';
@@ -26,7 +26,7 @@ final class CommentFormComponent extends Component
     public function mount(
         int $authorizedUserId,
         int $postId,
-        Comment $comment,
+        ?Comment $comment,
         ?int $parentId = null,
     ): void {
         $this->authorizedUserId = $authorizedUserId;
@@ -34,7 +34,7 @@ final class CommentFormComponent extends Component
         $this->postId = $postId;
         $this->parentId = $parentId;
 
-        $this->comment = $comment;
+        $this->comment = $comment ?? null;
         $this->text = $this->comment->text ?? '';
     }
 
@@ -54,9 +54,9 @@ final class CommentFormComponent extends Component
 
         $dto = new CommentDto(
             text: $this->text,
-            postId: $this->postId,
-            userId: $this->authorizedUserId,
-            parentId: $this->parentId,
+            post_id: $this->postId,
+            user_id: $this->authorizedUserId,
+            parent_id: $this->parentId,
         );
 
         $stored = $commentService->store($dto);

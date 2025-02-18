@@ -18,6 +18,7 @@ final class FlagComponent extends Component
     use AuthStatusTrait;
     use TypeTrait;
 
+    private const string FLAG_WITH_NOTE = 'flag-with-note';
     private const string MODEL_PATH = 'App\Models\/';
 
     // TODO: Check that model is post or comment
@@ -29,7 +30,9 @@ final class FlagComponent extends Component
     public string $iconFilename = 'flag';
     public string $note = '';
     public array $flagReasons = [];
+    public string $selectedReason = '';
     public bool $showForm = false;
+    public bool $showNoteField = false;
     public string $titleText;
     public string $type = '';
     public bool $userFlagged = false;
@@ -42,6 +45,7 @@ final class FlagComponent extends Component
     ): void {
         $this->model = $model;
         $this->flaggableId = $this->model->id;
+        $this->type = $this->getType($model);
 
         $this->authorizedUserId = $this->getAuthorizedUserId();
         $this->flagService = $flagService;
@@ -49,13 +53,41 @@ final class FlagComponent extends Component
 
         $this->setIconFilename();
         $this->setTitleText();
-        $this->type = $this->getType($model);
         $this->updateFlagData();
     }
 
     public function render(): View
     {
         return view('livewire.flags.flag-component');
+    }
+
+    public function store(): void
+    {
+        $stored = $this->flagService->store([
+            'flaggable_type' => $this->type,
+            'flaggable_id' => $this->model->id,
+            'flag_reason_id' => $this->flagReasonId,
+            'user_id' => $this->authorizedUserId,
+            'note' => $this->note,
+        ]);
+
+        if ($stored === true) {
+            $this->userFlagged = true;
+
+            $this->updateFlagData();
+        }
+    }
+
+    public function flagReasonSelected(string $selectedReason): void
+    {
+        if ($selectedReason === self::FLAG_WITH_NOTE) {
+            $this->showNoteField = true;
+        } else {
+            $this->showNoteField = false;
+            $this->note = '';
+        }
+
+        $this->selectedReason = $selectedReason;
     }
 
     public function updateFlagData(): void
@@ -76,23 +108,6 @@ final class FlagComponent extends Component
             $this->updateFlagData();
 
             $this->userFlagged = false;
-        }
-    }
-
-    public function store(int $flaggableId): void
-    {
-        $stored = $this->flagService->store([
-            'flaggable_type' => $this->type,
-            'flaggable_id' => $flaggableId,
-            'flag_reason_id' => $this->flagReasonId,
-            'user_id' => $this->authorizedUserId,
-            'note' => $this->note,
-        ]);
-
-        if ($stored === true) {
-            $this->updateFlagData();
-
-            $this->userFlagged = true;
         }
     }
 

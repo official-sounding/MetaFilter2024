@@ -7,6 +7,7 @@ namespace App\Livewire\Members;
 use App\Models\User;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,6 +15,7 @@ final class MemberSearchComponent extends Component
 {
     use WithPagination;
 
+    public Collection $activeMembers;
     public string $orderByColumn = 'username';
     public string $order = 'asc';
     protected int $perPage = 20;
@@ -31,10 +33,10 @@ final class MemberSearchComponent extends Component
 
     public function render(): View
     {
-        $activeMembers = $this->userRepository->getActiveMembers();
+        $this->activeMembers = $this->userRepository->getActiveMembers();
 
         return view('livewire.members.member-search-component', [
-            'activeMembers' => $activeMembers,
+            'activeMembers' => $this->activeMembers,
         ]);
     }
 

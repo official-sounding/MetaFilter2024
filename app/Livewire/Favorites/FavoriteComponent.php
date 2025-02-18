@@ -25,10 +25,10 @@ final class FavoriteComponent extends Component
     public int $favoriteCount = 0;
     public string $iconFilename = 'heart';
     public string $titleText = '';
-    public string $type;
+    public string $favoritableType = '';
     public bool $userFavorited = false;
 
-    protected FavoriteService $favoriteService;
+    public FavoriteService $favoriteService;
 
     public function mount(
         $model,
@@ -36,9 +36,9 @@ final class FavoriteComponent extends Component
     ): void {
         $this->model = $model;
 
-        $this->favoriteService = $this->model->id;
+        $this->favoritableId = $this->model->id;
 
-        $this->type = $this->getType($this->model);
+        $this->favoritableType = $this->getType($this->model);
 
         $this->favoriteService = $favoriteService;
 
@@ -50,43 +50,36 @@ final class FavoriteComponent extends Component
         return view('livewire.favorites.favorite-component');
     }
 
-    public function toggleFavorite(): void
+    public function store(): void
     {
-        $this->userFavorited = !$this->userFavorited;
+        $dto = new FavoriteDto(
+            favoritableType: $this->favoritableType,
+            favoritableId: $this->model->id,
+            userId: $this->authorizedUserId,
+        );
 
-        $this->favoritableId = $this->model->id;
+        $stored = $this->favoriteService->store($dto);
 
-        if ($this->userFavorited) {
-            $dto = new FavoriteDto(
-                favoritableType: $this->type,
-                favoritableId: $this->favoritableId,
-                userId: $this->authorizedUserId,
-            );
+        if ($stored === true) {
+            $this->userFavorited = true;
 
-            $this->favoriteService->create($dto);
-        } else {
-            $this->userFavorited = !$this->userFavorited;
-
-            $this->favoriteService->delete(
-                favoritableType: $this->type,
-                favoritableId: $this->favoritableId,
-                userId: $this->authorizedUserId,
-            );
+            $this->updateFavoriteData();
         }
-
-        $this->updateFavoriteData();
     }
 
-    private function getIconFilename(): string
+    public function removeFavorite(): void
     {
-        return $this->userFavorited ? 'heart-fill' : 'heart';
-    }
+        $removed = $this->favoriteService->delete(
+            favoritableType: $this->favoritableType,
+            favoritableId: $this->model->id,
+            userId: $this->authorizedUserId,
+        );
 
-    private function getTitleText(): string
-    {
-        $favoriteText = 'Favorite this ' . $this->type;
+        if ($removed === true) {
+            $this->userFavorited = false;
 
-        return $this->userFavorited ? trans('Remove favorite') : trans($favoriteText);
+            $this->updateFavoriteData();
+        }
     }
 
     private function updateFavoriteData(): void
@@ -100,9 +93,21 @@ final class FavoriteComponent extends Component
         $this->authorizedUserId = $this->getAuthorizedUserId();
 
         $this->userFavorited = $this->favoriteService->userFavorited(
-            favoritableType: $this->type,
+            favoritableType: $this->favoritableType,
             favoritableId: $this->favoriteCount,
             userId: $this->authorizedUserId,
         );
+    }
+
+    private function getIconFilename(): string
+    {
+        return $this->userFavorited ? 'heart-fill' : 'heart';
+    }
+
+    private function getTitleText(): string
+    {
+        $favoriteText = 'Favorite this ' . $this->type;
+
+        return $this->userFavorited ? trans('Remove favorite') : trans($favoriteText);
     }
 }

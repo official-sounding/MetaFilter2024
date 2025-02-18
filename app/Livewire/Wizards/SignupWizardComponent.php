@@ -14,7 +14,6 @@ use App\Http\Requests\Signup\StoreUsernameRequest;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Log;
 
 final class SignupWizardComponent extends BaseWizardComponent
 {
@@ -108,7 +107,7 @@ final class SignupWizardComponent extends BaseWizardComponent
     {
         \Log::debug('user ID: ' . $this->user->id);
         // Assuming successful payment
-//        $this->userService->updateState($this->user, UserStateEnum::Active->value);
+        //        $this->userService->updateState($this->user, UserStateEnum::Active->value);
 
         // TODO: Send verification email
         //        Mail::to()->queue(new SendVerificationEmail());
