@@ -15,6 +15,7 @@ final class MyMeFiController extends BaseController
     {
         return view('my-mefi.index', [
             'title' => $this->getTitle(),
+            'showTitle' => true,
         ]);
     }
 }
