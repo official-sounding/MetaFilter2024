@@ -39,16 +39,19 @@ final class FlagComponent extends Component
 
     protected FlagService $flagService;
 
+    public function boot(FlagService $flagService): void
+    {
+        $this->flagService = $flagService;
+    }
+
     public function mount(
         $model,
-        FlagService $flagService,
     ): void {
         $this->model = $model;
         $this->flaggableId = $this->model->id;
         $this->type = $this->getType($model);
 
         $this->authorizedUserId = $this->getAuthorizedUserId();
-        $this->flagService = $flagService;
         $this->flagReasons = $this->flagService->getFlagReasons();
 
         $this->setIconFilename();
