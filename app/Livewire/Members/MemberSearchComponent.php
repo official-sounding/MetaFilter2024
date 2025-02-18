@@ -31,7 +31,7 @@ final class MemberSearchComponent extends Component
 
     public function render(): View
     {
-        $activeMembers = $this->userRepository->getActiveMembers();
+        $activeMembers = $this->getActiveMembers();
 
         return view('livewire.members.member-search-component', [
             'activeMembers' => $activeMembers
@@ -40,8 +40,8 @@ final class MemberSearchComponent extends Component
 
     public function sortBy(string $column): void
     {
-        if ($this->orderByColumn == $column) {
-            $this->order = $this->order == 'asc' ? 'desc' : 'asc';
+        if ($this->orderByColumn === $column) {
+            $this->order = $this->order === 'asc' ? 'desc' : 'asc';
         }
 
         $this->orderByColumn = $column;
@@ -49,37 +49,18 @@ final class MemberSearchComponent extends Component
 
     public function getActiveMembers()
     {
-        return $this->getActiveMembersQuery()->paginate($this->perPage);
+        return $this->userRepository->getActiveMembers();
     }
 
-    public function getActiveMembersQuery()
+    public function getDummyProductsQueryProperty()
     {
         return User::query()
             ->orderBy($this->orderByColumn, $this->order)
-            ->when($this->searchColumns['id'], function ($query) {
-                $query->whereLike('id', trim($this->searchColumns['id']));
-            })
             ->when($this->searchColumns['username'], function ($query) {
                 $query->whereLike('username', trim($this->searchColumns['username']));
+            })
+            ->when($this->searchColumns['id'], function ($query) {
+                $query->whereLike('id', trim($this->searchColumns['id']));
             });
     }
 }
-/*
-<?php
-
-namespace App\Livewire;
-
-use Livewire\Component;
-use App\Models\DummyProduct;
-use Livewire\WithPagination;
-
-class DataTableComponent extends Component
-{
-
-    protected $paginationTheme = 'bootstrap';
-
-
-
-
-
-} */
