@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Dtos\CommentDto;
-use App\Http\Requests\Comment\UpdateCommentRequest;
 use App\Models\Comment;
 use App\Repositories\CommentRepositoryInterface;
 use App\Traits\LoggingTrait;
@@ -15,12 +14,22 @@ final class CommentService
 {
     use LoggingTrait;
 
-    public function __construct(protected CommentRepositoryInterface $commentRepository) {}
+    public function __construct(
+        protected CommentRepositoryInterface $commentRepository,
+        protected PurifierService $purifierService,
+    ) {}
 
     public function store(CommentDto $dto): ?Comment
     {
         try {
-            return $this->commentRepository->create((array) $dto);
+            $data = [
+                'text' => $this->purifierService->clean($dto->text),
+                'post_id' => $dto->post_id,
+                'user_id' => $dto->user_id,
+                'parent_id' => $dto->parent_id,
+            ];
+
+            return $this->commentRepository->create($data);
         } catch (Exception $exception) {
             $this->logError($exception);
 
@@ -28,13 +37,15 @@ final class CommentService
         }
     }
 
-    public function update(UpdateCommentRequest $request): bool
+    public function update(int $commentId, array $data): bool
     {
-        return Comment::update($request->validated());
+        $data['text'] = $this->purifierService->clean($data['text']);
+
+        return $this->commentRepository->update($commentId, $data);
     }
 
-    public function delete(Comment $comment): bool
+    public function delete(int $commentId): bool
     {
-        return $comment->delete();
+        return $this->commentRepository->delete($commentId);
     }
 }
