@@ -21,7 +21,13 @@ final class FavoriteService
     public function store(FavoriteDto $favoriteDto): bool
     {
         try {
-            $this->favoriteRepository->create((array) $favoriteDto);
+            $data = [
+                'favoritable_type' => $favoriteDto->favoritableType,
+                'favoritable_id' => $favoriteDto->favoritableId,
+                'user_id' => $favoriteDto->userId,
+            ];
+
+            $this->favoriteRepository->create($data);
 
             return true;
         } catch (Exception $exception) {
