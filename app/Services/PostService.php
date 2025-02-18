@@ -6,35 +6,50 @@ namespace App\Services;
 
 use App\Dtos\PostDto;
 use App\Models\Post;
+use App\Repositories\PostRepositoryInterface;
+use App\Traits\LoggingTrait;
+use Exception;
 
 final readonly class PostService
 {
-    public function __construct(private PurifierService $purifierService) {}
+    use LoggingTrait;
 
-    public function store(PostDto $dto): Post
+    public function __construct(
+        protected PostRepositoryInterface $postRepository,
+        protected PurifierService $purifierService,
+    ) {}
+
+    public function store(PostDto $dto): ?Post
     {
-        $post = new Post();
+        try {
+            $data = [
+                'title' => $this->purifierService->clean($dto->title) ?? null,
+                'link_url' => $this->purifierService->clean($dto->link_url) ?? null,
+                'link_text' => $this->purifierService->clean($dto->link_text) ?? null,
+                'body' => $this->purifierService->clean($dto->body) ?? null,
+                'more_inside' => $this->purifierService->clean($dto->more_inside) ?? null,
+                'user_id' => $dto->user_id,
+                'subsite_id' => $dto->subsite_id,
+                'state' => $dto->state,
+                'published_at' => $dto->published_at,
+                'is_published' => $dto->is_published,
+            ];
 
-        $post->title = $this->purifierService->clean($dto->title);
-        $post->body = $this->purifierService->clean($dto->body);
-        $post->more_inside = $this->purifierService->clean($dto->more_inside);
-        $post->subsite_id = $dto->subsite_id;
-        $post->state = $dto->state;
-        $post->published_at = $dto->published_at;
-        $post->is_published = $dto->is_published;
+            return $this->postRepository->create($data);
+        } catch (Exception $exception) {
+            $this->logError($exception);
 
-        return $post;
+            return null;
+        }
     }
 
-    public function update(array $data): bool
+    public function update(int $id, array $data): bool
     {
-        $post = Post::find($data['id']);
-
-        return $post->update($data);
+        return $this->postRepository->update($id, $data);
     }
 
-    public function delete(Post $post): bool
+    public function delete(int $id): bool
     {
-        return $post->delete();
+        return $this->postRepository->delete($id);
     }
 }
