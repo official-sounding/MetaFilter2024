@@ -12,6 +12,7 @@ use App\Http\Requests\Post\StorePostRequest;
 use App\Models\Post;
 use App\Services\PostService;
 use App\Traits\DateAndTimeTrait;
+use App\Traits\LoggingTrait;
 use App\Traits\PostTrait;
 use App\Traits\RedirectTrait;
 use App\Traits\SubsiteTrait;
@@ -20,6 +21,7 @@ use Illuminate\Contracts\View\View;
 final class PostWizardComponent extends BaseWizardComponent
 {
     use DateAndTimeTrait;
+    use LoggingTrait;
     use PostTrait;
     use RedirectTrait;
     use SubsiteTrait;
@@ -71,6 +73,7 @@ final class PostWizardComponent extends BaseWizardComponent
             $this->post = $stored;
             $this->currentStep = 2;
         } else {
+            // TODO: Add error message
         }
     }
 
