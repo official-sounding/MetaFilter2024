@@ -1,5 +1,5 @@
 @props([
-    'autofocus',
+    'autofocus' => false,
     'label',
     'name',
     'required',
@@ -26,8 +26,8 @@
         id="{{ $name }}"
         value="{{ old($name) }}"
         wire:model.live="{{ $name }}"
-        @if (isset($autofocus) && $autofocus)
-            autofocus
+        @if ($autofocus === true)
+            autofocus="autofocus"
         @endif
     />
 
