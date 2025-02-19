@@ -9,7 +9,7 @@
             :note="'Your username will be displayed with your posts and comments and can&rsquo;t be changed.
                     Usernames may consist of English letters, numbers, and most punctuation.'"
             :label="'First, pick your username'"
-            :autofocus="false"
+            :autofocus="true"
             :required="false"
         />
     </fieldset>

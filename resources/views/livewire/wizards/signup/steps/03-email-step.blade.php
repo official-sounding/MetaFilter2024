@@ -8,7 +8,7 @@
             :name="'email'"
             :type="'text'"
             :note="''"
-            :autofocus="false"
+            :autofocus="true"
             :required="false"
         />
     </fieldset>

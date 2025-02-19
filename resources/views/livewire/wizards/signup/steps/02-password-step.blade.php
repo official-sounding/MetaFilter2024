@@ -8,7 +8,7 @@
             :name="'password'"
             :type="'password'"
             :note="'Minimum 8 characters'"
-            :autofocus="false"
+            :autofocus="true"
             :required="false"
         />
 

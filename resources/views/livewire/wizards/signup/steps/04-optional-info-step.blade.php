@@ -16,7 +16,7 @@
             :name="'name'"
             :type="'text'"
             :note="''"
-            :autofocus="false"
+            :autofocus="true"
             :required="false"
         />
 
