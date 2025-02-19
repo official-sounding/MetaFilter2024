@@ -140,7 +140,6 @@ input[type='search']:focus {
 .minimal .site-header {
     background-color: var(--base-color);
 }
-
 .site-header {
     border-top: 3px solid var(--yellow-green);
 }
@@ -171,7 +170,7 @@ input[type='search']:focus {
     // https://csscolorize.com/
     // https://cssfiltergenerator.lol/
     filter: invert(67%) sepia(59%) saturate(368%) hue-rotate(41deg) brightness(97%) contrast(89%);
-        }
+}
 
 // Filter for rss-orange
 .rss:active .icon,

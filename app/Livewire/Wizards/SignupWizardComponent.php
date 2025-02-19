@@ -85,9 +85,9 @@ final class SignupWizardComponent extends BaseWizardComponent
 
         $this->validate($rules);
 
-        $this->state = UserStateEnum::Pending->value;
+        $state = UserStateEnum::Pending->value;
 
-        $this->store();
+        $this->user = $this->store($state);
 
         $this->currentStep = 5;
     }
@@ -115,7 +115,7 @@ final class SignupWizardComponent extends BaseWizardComponent
         $this->redirectRoute(RouteNameEnum::SignupThanks->value);
     }
 
-    public function store(): void
+    public function store(string $state): User
     {
         $dto = new UserDto(
             username: $this->username,
@@ -123,9 +123,9 @@ final class SignupWizardComponent extends BaseWizardComponent
             email: $this->email,
             name: $this->name ?? null,
             homepage_url: $this->homepage_url ?? null,
-            state: $this->state,
+            state: $state,
         );
 
-        $this->user = $this->userService->store($dto);
+        return $this->userService->store($dto);
     }
 }

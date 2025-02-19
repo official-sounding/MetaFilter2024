@@ -13,7 +13,7 @@ final class PopoverComponent extends Component
         public string $buttonText,
         public string $popoverText,
         public bool $showInfoIcon = true,
-        public ?string $routeName = null,
+        public ?string $routeName,
     ) {}
 
     public function render(): View

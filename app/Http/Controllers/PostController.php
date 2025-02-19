@@ -40,6 +40,7 @@ final class PostController extends BaseController
 
     public function show(Post $post): View
     {
+        // TODO: Cache the results
         $this->flagReasons = $this->flagReasonRepository->getDropdownValues('reason');
 
         $relatedPosts = $this->postRepository->getRelatedPosts($post);

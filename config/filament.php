@@ -2,15 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Filament\Auth\Login;
-
 return [
-
-    'auth' => [
-        'pages' => [
-            'login' => Login::class,
-        ],
-    ],
 
     /*
     |--------------------------------------------------------------------------

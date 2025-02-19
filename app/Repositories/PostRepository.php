@@ -1,5 +1,7 @@
 <?php
 
+/** @noinspection PhpMultipleClassDeclarationsInspection */
+
 declare(strict_types=1);
 
 namespace App\Repositories;
@@ -66,20 +68,18 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
 
     public function getBySubdomain(int $page = 1): Collection
     {
+        $query = $this->getQuery();
+
+        $query->withCount([
+            'comments',
+            'favorites',
+            'flags',
+        ])
+        ->limit(self::POSTS_PER_PAGE)
+        ->orderBy('posts.created_at', 'desc');
+
         // TODO: Add categories
-        return $this->model->newQuery()
-            ->join('users', 'posts.user_id', '=', 'users.id')
-            ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
-            ->where('subsites.subdomain', '=', $this->subdomain)
-            ->select(self::COLUMNS)
-            ->withCount([
-                'comments',
-                'favorites',
-                'flags',
-            ])
-            ->limit(self::POSTS_PER_PAGE)
-            ->orderBy('posts.created_at', 'desc')
-            ->get()
+        return $query->get()
             ->groupBy(function ($val) {
                 return Carbon::parse($val->created_at)->format('F j');
             });
@@ -87,13 +87,13 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
 
     public function getDraftPosts(): Collection
     {
-        $query = $this->model->newQuery()
-            ->join('users', 'posts.user_id', '=', 'users.id')
-            ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
-            ->where('subsites.subdomain', '=', $this->subdomain)
-            ->where('posts.user_id', '=', auth()->user()->id)
-            ->where('posts.state', '!=', PostStateEnum::Draft->value)
-            ->select(self::COLUMNS);
+        $query = $this->getQuery();
+
+        if (isset(auth()->user()->id)) {
+            $query->where('posts.user_id', '=', auth()->user()->id);
+        }
+
+        $query->where('posts.state', '!=', PostStateEnum::Draft->value);
 
         $query->orderBy('posts.created_at', 'desc')->get();
 
@@ -122,20 +122,19 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
 
     public function getRandomPost(): Post
     {
-        $this->logDebugMessage('Getting random post');
+        $query = $this->getQuery();
 
-        return $this->model->newQuery()
-            ->join('users', 'posts.user_id', '=', 'users.id')
-            ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
-            ->where('subsites.subdomain', '=', $this->subdomain)
-            ->withCount(['comments'])
-            ->select(self::COLUMNS)
+        $query
+            ->withCount([
+                'comments',
+            ])
             ->inRandomOrder()
-            ->limit(1)
-            ->first();
+            ->limit(1);
+
+        return $query->first();
     }
 
-    public function getRecentPosts(): array|Collection
+    public function getRecentPosts(): Collection
     {
         $query = collect($this->query);
 
@@ -167,5 +166,14 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
     public function getPopularFavorites(): array
     {
         return [];
+    }
+
+    public function getQuery(): Builder
+    {
+        return $this->model->query()
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
+            ->where('subsites.subdomain', '=', $this->subdomain)
+            ->select(self::COLUMNS);
     }
 }

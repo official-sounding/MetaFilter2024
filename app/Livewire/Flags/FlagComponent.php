@@ -114,6 +114,23 @@ final class FlagComponent extends Component
         }
     }
 
+    public function store(int $flaggableId): void
+    {
+        $stored = $this->flagService->store([
+            'flaggable_type' => $this->type,
+            'flaggable_id' => $flaggableId,
+            'flag_reason_id' => $this->flagReasonId,
+            'user_id' => $this->authorizedUserId,
+            'note' => $this->note,
+        ]);
+
+        if ($stored === true) {
+            $this->updateFlagData();
+
+            $this->userFlagged = true;
+        }
+    }
+
     public function toggleForm(): void
     {
         $this->showForm = !$this->showForm;
@@ -122,6 +139,13 @@ final class FlagComponent extends Component
     private function setIconFilename(): void
     {
         $this->iconFilename = $this->userFlagged ? 'flag-fill' : 'flag';
+    }
+
+    private function getType(): string
+    {
+        $type = str_replace(self::MODEL_PATH, '', $this->model::class);
+
+        return 'Type: ' . mb_strtolower($type);
     }
 
     private function setTitleText(): void

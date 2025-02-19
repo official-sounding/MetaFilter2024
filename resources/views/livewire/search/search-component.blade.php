@@ -5,14 +5,8 @@
                 {{ trans('Search') }}
             </label>
 
-            <input
-                class="search-terms"
-                id="search-terms"
-                name="q"
-                type="search">
-            <button
-                type="button"
-                class="button primary-button">
+            <input id="search-terms" name="q" type="search">
+            <button type="button">
                 {{ trans('Go') }}
             </button>
         </form>

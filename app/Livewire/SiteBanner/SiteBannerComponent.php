@@ -14,9 +14,8 @@ final class SiteBannerComponent extends Component
 {
     use CacheTimeTrait;
 
+    private const string ALT_TEXT_SUFFIX = 'banner links';
     private const int LINKS_TO_SHOW = 3;
-
-    public string $action = 'Collapse';
     public string $altText = 'Collapse';
     public bool $isExpanded = true;
     public string $iconFilename = 'arrows-collapse';
@@ -40,7 +39,9 @@ final class SiteBannerComponent extends Component
     {
         $this->isExpanded = !$this->isExpanded;
 
-        $this->altText = $this->isExpanded ? trans('Collapse') : trans('Expand');
+        $altTextPrefix = $this->isExpanded ? 'Collapse' : 'Expand';
+
+        $this->altText = $altTextPrefix . ' ' . self::ALT_TEXT_SUFFIX;
 
         $this->iconFilename = $this->isExpanded ? trans('arrows-collapse') : trans('arrows-expand');
     }

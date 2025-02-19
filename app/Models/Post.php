@@ -35,7 +35,6 @@ use Spatie\Tags\HasTags;
  * @property string $published_at
  * @property bool $is_published
  * @property string $state
- * @property User $user
  */
 final class Post extends BaseModel implements HasMedia
 {

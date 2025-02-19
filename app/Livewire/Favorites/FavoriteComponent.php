@@ -28,7 +28,7 @@ final class FavoriteComponent extends Component
     public string $favoritableType = '';
     public bool $userFavorited = false;
 
-    public FavoriteService $favoriteService;
+    protected FavoriteService $favoriteService;
 
     public function mount(
         $model,

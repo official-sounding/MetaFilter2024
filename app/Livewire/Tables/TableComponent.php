@@ -8,8 +8,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Livewire\Component;
 
-class TableComponent extends Component
+abstract class TableComponent extends Component
 {
+    public array $columns = [];
     public array $headers = [];
     public LengthAwarePaginator $records;
 

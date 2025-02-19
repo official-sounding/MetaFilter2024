@@ -22,6 +22,7 @@
 
         <livewire:comments.comment-form-component
             :authorized-user-id="$authorizedUserId"
+            :comment="$comment"
             :post-id="$post->id"
         />
     @endauth

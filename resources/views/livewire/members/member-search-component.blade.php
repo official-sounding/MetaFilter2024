@@ -4,17 +4,17 @@
             <tr>
                 <th scope="col" wire:click="sortBy('username')">
                     {{ trans('Username') }}
-                    @if ($this->order == 'asc' && $this->orderByColumn == 'description')
+                    @if ($this->order == 'asc' && $this->orderByColumn === 'username')
                         <x-icons.icon-component filename="caret-up-fill" />
-                    @elseif ($this->order == 'desc' && $this->orderByColumn == 'description')
+                    @elseif ($this->order === 'desc' && $this->orderByColumn === 'username')
                         <x-icons.icon-component filename="caret-down-fill" />
                     @endif
                 </th>
                 <th scope="col" wire:click="sortBy('id')">
                     {{ trans('User ID') }}
-                    @if ($this->order == 'asc' && $this->orderByColumn == 'id')
+                    @if ($this->order === 'asc' && $this->orderByColumn === 'id')
                         <x-icons.icon-component filename="caret-up-fill" />
-                    @elseif ($this->order == 'desc' && $this->orderByColumn == 'id')
+                    @elseif ($this->order === 'desc' && $this->orderByColumn === 'id')
                         <x-icons.icon-component filename="caret-down-fill" />
                     @endif
                 </th>
@@ -40,18 +40,15 @@
             @foreach ($this->activeMembers as $member)
                 <tr>
                     <td>
-                        <x-members.profile-link-component :user="$member" />
+                        {{ $member->username }}
                     </td>
                     <td>
-                        {{ $member->legacy_id ?: $member->id }}
+                        {{ $member->id ?? '' }}
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
-    {{--
-    // TODO: Add pagination
     {{ $this->activeMembers->links() }}
-    --}}
 </div>

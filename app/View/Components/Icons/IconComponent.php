@@ -30,7 +30,8 @@ final class IconComponent extends Component
     public function render(): View
     {
         $this->iconPath = $this->getIconPath($this->filename) ?? 'icon-path';
-
+        \Log::debug('filename: ' . $this->filename);
+        \Log::debug('iconPath: ' . $this->iconPath);
         return view('components.icons.icon-component', [
             'iconPath' => $this->iconPath,
             'altText' => $this->altText,
