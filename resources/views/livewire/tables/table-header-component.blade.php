@@ -21,7 +21,9 @@
     @foreach($columns as $key => $value)
         @if($value['isDataColumn'])
             <th  wire:click="doSort('{{ $value['column'] }}')">
+                {{--
                 <x-datatable-column  :sortColumn="$sortColumn" :sortDirection="$sortDirection" columnName="{{ $value['label'] }}" />
+                --}}
             </th>
         @else
             <th>{{ $value['label'] }}</th>
