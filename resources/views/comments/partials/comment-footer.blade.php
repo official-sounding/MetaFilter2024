@@ -1,12 +1,9 @@
 <footer class="comment-footer">
     <div class="level">
         <div>
-            @include('posts.partials.profile-link', [
-                'userId' => $comment->user->id,
-                'username' => $comment->user->username,
-            ])
+            <x-members.profile-link-component :user="$comment->user"/>
 
-            @include('comments.partials.comment-created-at-time-date', [
+            @include('comments.partials.comment-timestamp', [
                 'comment' => $comment,
             ])
 

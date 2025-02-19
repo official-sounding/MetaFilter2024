@@ -1,8 +1,5 @@
 <footer class="post-footer post-show-footer">
-    @include('posts.partials.profile-link', [
-        'userId' => $post->user->id,
-        'username' => $post->user->username,
-    ])
+    <x-members.profile-link-component :user="$post->user" />
 
     <span>
         <x-icons.icon-component filename="chat" />

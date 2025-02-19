@@ -1,4 +1,4 @@
-<a title="{{ trans('View profile') }}"
+<a title="{{ trans($titleText) }}"
    href="{{ route($memberShowRoute, [
         'user' => $user
     ]) }}">

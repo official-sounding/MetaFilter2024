@@ -2,12 +2,9 @@
     {{ $comment->text }}
 
     <footer class="comment-footer">
-        @include('posts.partials.profile-link', [
-                'userId' => $comment->user->id,
-                'username' => $comment->user->username,
-            ])
+        <x-members.profile-link-component :user="$comment->user"/>
 
-        @include('comments.partials.comment-created-at-time-date', [
+        @include('comments.partials.comment-timestamp', [
             'comment' => $comment,
         ])
         @auth
@@ -33,7 +30,7 @@
 
             @auth
 
-            @if ($userFlagged === true)
+                @if ($userFlagged === true)
                     <button
                         class="button footer-button"
                         title="{{ trans('Remove flag') }}">
@@ -54,7 +51,7 @@
 
         @guest
             <button class="button footer-button">
-                <x-icons.icon-component filename="flag" />
+                <x-icons.icon-component filename="flag"/>
                 {{ $flagCount }}
             </button>
         @endguest

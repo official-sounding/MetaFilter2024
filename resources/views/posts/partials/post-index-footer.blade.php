@@ -1,8 +1,5 @@
 <footer class="post-footer post-index-footer">
-    @include('posts.partials.profile-link', [
-        'userId' => $userId,
-        'username' => $username,
-    ])
+    <x-members.profile-link-component :user="$post->user"/>
 
     <span>
         <x-icons.icon-component filename="clock" />
