@@ -29,7 +29,6 @@
             @endcan
 
             @auth
-
                 @if ($userFlagged === true)
                     <button
                         class="button footer-button"
