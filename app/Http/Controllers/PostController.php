@@ -48,6 +48,7 @@ final class PostController extends BaseController
         return view('posts.show', [
             'title' => $post->title,
             'post' => $post,
+            'user' => $post->user(),
             'next' => $post->next(),
             'previous' => $post->previous(),
             'flagReasons' => $this->flagReasons,
