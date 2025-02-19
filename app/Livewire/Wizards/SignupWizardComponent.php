@@ -11,9 +11,12 @@ use App\Http\Requests\Auth\StorePasswordRequest;
 use App\Http\Requests\Signup\StoreEmailAddressRequest;
 use App\Http\Requests\Signup\StoreOptionalInfoRequest;
 use App\Http\Requests\Signup\StoreUsernameRequest;
+use App\Jobs\SendVerificationEmail;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 final class SignupWizardComponent extends BaseWizardComponent
 {
@@ -38,8 +41,6 @@ final class SignupWizardComponent extends BaseWizardComponent
 
     public function boot(UserService $userService): void
     {
-        $this->user = new User();
-
         $this->userService = $userService;
     }
 
@@ -87,7 +88,7 @@ final class SignupWizardComponent extends BaseWizardComponent
 
         $state = UserStateEnum::Pending->value;
 
-        $this->user = $this->store($state);
+        $this->store($state);
 
         $this->currentStep = 5;
     }
@@ -105,12 +106,22 @@ final class SignupWizardComponent extends BaseWizardComponent
 
     private function paymentSubmitted(): void
     {
-        \Log::debug('user ID: ' . $this->user->id);
         // Assuming successful payment
-        //        $this->userService->updateState($this->user, UserStateEnum::Active->value);
+
+        \Log::debug('username: ' . $this->username);
+
+        $user = User::where('username', '=', $this->username)->first();
+        \Log::debug('user ID: ' . $user->id);
+
+        $data = [
+            'state' => UserStateEnum::Active->value,
+        ];
+
+        $this->userService->update($user->id, $data);
 
         // TODO: Send verification email
-        //        Mail::to()->queue(new SendVerificationEmail());
+        // Mail::to()->queue(new SendVerificationEmail());
+        Auth::login($user);
 
         $this->redirectRoute(RouteNameEnum::SignupThanks->value);
     }
