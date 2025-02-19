@@ -49,7 +49,7 @@ final class FlagComponent extends Component
     ): void {
         $this->model = $model;
         $this->flaggableId = $this->model->id;
-        $this->type = $this->getType($model);
+        $this->type = $this->getType();
 
         $this->authorizedUserId = $this->getAuthorizedUserId();
         $this->flagReasons = $this->flagService->getFlagReasons();
@@ -111,23 +111,6 @@ final class FlagComponent extends Component
             $this->updateFlagData();
 
             $this->userFlagged = false;
-        }
-    }
-
-    public function store(int $flaggableId): void
-    {
-        $stored = $this->flagService->store([
-            'flaggable_type' => $this->type,
-            'flaggable_id' => $flaggableId,
-            'flag_reason_id' => $this->flagReasonId,
-            'user_id' => $this->authorizedUserId,
-            'note' => $this->note,
-        ]);
-
-        if ($stored === true) {
-            $this->updateFlagData();
-
-            $this->userFlagged = true;
         }
     }
 
