@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Jobs;
 
 use App\Mail\VerifyEmail;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -19,7 +20,9 @@ final class SendVerificationEmail implements ShouldQueue
     use Queueable;
     use SerializesModels;
 
-    public function __construct()
+    public User $user;
+
+    public function __construct(User $user)
     {
         //
     }
