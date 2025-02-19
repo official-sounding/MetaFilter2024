@@ -16,7 +16,7 @@
             wire:click="toggleBanner()"
             aria-expanded="{{ $isExpanded }}"
             aria-controls="site-banner"
-            aria-label="Help about username"
+            aria-label="{{ trans($altText) }}"
             class="button icon">
             <img src="{{ asset("images/icons/$iconFilename.svg") }}" alt="{{ trans($altText) }}">
         </button>
