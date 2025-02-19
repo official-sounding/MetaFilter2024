@@ -54,8 +54,6 @@ final class FlagComponent extends Component
         $this->authorizedUserId = $this->getAuthorizedUserId();
         $this->flagReasons = $this->flagService->getFlagReasons();
 
-        $this->setIconFilename();
-        $this->setTitleText();
         $this->updateFlagData();
     }
 
@@ -97,6 +95,9 @@ final class FlagComponent extends Component
     {
         $this->flagCount = $this->model->flags()->count();
         $this->userFlagged = $this->model->flags()->where('user_id', '=', $this->authorizedUserId)->exists();
+
+        $this->setIconFilename();
+        $this->setTitleText();
     }
 
     public function delete(int $flaggableId): void
@@ -128,7 +129,7 @@ final class FlagComponent extends Component
     {
         $type = str_replace(self::MODEL_PATH, '', $this->model::class);
 
-        return 'Type: ' . mb_strtolower($type);
+        return mb_strtolower($type);
     }
 
     private function setTitleText(): void
