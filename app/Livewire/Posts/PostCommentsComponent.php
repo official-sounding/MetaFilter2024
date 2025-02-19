@@ -40,7 +40,7 @@ final class PostCommentsComponent extends Component
         ]);
     }
 
-    #[On(LivewireEventEnum::CommentAdded)]
+    #[On(LivewireEventEnum::CommentStored)]
     public function getComments(): void
     {
         $this->comments = $this->commentRepository->getCommentsByPostId($this->post->id);

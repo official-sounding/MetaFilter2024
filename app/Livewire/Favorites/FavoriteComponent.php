@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace App\Livewire\Favorites;
 
 use App\Dtos\FavoriteDto;
+use App\Enums\LivewireEventEnum;
 use App\Models\BaseModel;
 use App\Services\FavoriteService;
 use App\Traits\AuthStatusTrait;
@@ -64,6 +65,8 @@ final class FavoriteComponent extends Component
             $this->userFavorited = true;
 
             $this->updateFavoriteData();
+
+            $this->dispatch(LivewireEventEnum::FavoriteStored->value);
         }
     }
 
@@ -79,6 +82,8 @@ final class FavoriteComponent extends Component
             $this->userFavorited = false;
 
             $this->updateFavoriteData();
+
+            $this->dispatch(LivewireEventEnum::FavoriteDeleted->value);
         }
     }
 

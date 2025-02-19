@@ -6,11 +6,14 @@ namespace App\Enums;
 
 enum LivewireEventEnum: string
 {
-    case CommentAdded = 'comment-added';
-    case FavoriteAdded = 'favorite-added';
-    case FavoriteRemoved = 'favorite-removed';
-    case CommentFlagAdded = 'comment-flag-added';
-    case PostFlagAdded = 'post-flag-added';
+    case CommentDeleted = 'comment-deleted';
+    case CommentStored = 'comment-stored';
+    case CommentUpdated = 'comment-updated';
+    case EscapeKeyClicked = 'escape-key-clicked';
+    case FavoriteDeleted = 'favorite-deleted';
+    case FavoriteStored = 'favorite-stored';
+    case FlagStored = 'flag-stored';
+    case FlagDeleted = 'flag-deleted';
     case HideFlagCommentForm = 'hide-flag-comment-form';
     case ToggleFlagCommentForm = 'toggle-flag-comment-form';
     case ToggleFlagPostForm = 'toggle-flag-post-form';

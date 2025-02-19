@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\Comments;
 
 use App\Dtos\CommentDto;
+use App\Enums\LivewireEventEnum;
 use App\Http\Requests\Comment\StoreCommentRequest;
 use App\Models\Comment;
 use App\Services\CommentService;
@@ -61,6 +62,10 @@ final class CommentFormComponent extends Component
 
         $stored = $commentService->store($dto);
 
-        $this->message = trans('Comment created successfully.');
+        if ($stored) {
+            $this->dispatch(LivewireEventEnum::CommentStored->value);
+
+            $this->message = trans('Comment created successfully.');
+        }
     }
 }

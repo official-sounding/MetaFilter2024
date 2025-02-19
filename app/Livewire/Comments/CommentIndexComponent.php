@@ -4,30 +4,39 @@ declare(strict_types=1);
 
 namespace App\Livewire\Comments;
 
-use App\Models\Comment;
+use App\Enums\LivewireEventEnum;
 use App\Models\Post;
 use App\Repositories\CommentRepositoryInterface;
 use App\Traits\AuthStatusTrait;
+use App\Traits\SubsiteTrait;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 final class CommentIndexComponent extends Component
 {
     use AuthStatusTrait;
+    use SubsiteTrait;
 
     public ?int $authorizedUserId;
     public Post $post;
     public Collection $comments;
-    protected CommentRepositoryInterface $commentRepository;
+    public string $recordsText = 'comments';
 
-    public function mount(Post $post, CommentRepositoryInterface $commentRepository): void
+    protected CommentRepositoryInterface $commentRepository;
+    public function boot(CommentRepositoryInterface $commentRepository): void
+    {
+        $this->commentRepository = $commentRepository;
+    }
+
+    public function mount(Post $post): void
     {
         $this->authorizedUserId = $this->getAuthorizedUserId();
-        $this->commentRepository = $commentRepository;
 
         $this->post = $post;
         $this->getComments();
+        $this->setRecordsText();
     }
 
     public function render(): View
@@ -39,29 +48,23 @@ final class CommentIndexComponent extends Component
         ]);
     }
 
-    public $listeners = [
-        'commentCreated' => 'commentCreated',
-        'commentDeleted' => 'commentDeleted',
-    ];
-
-    public function commentCreated(int $id): void
-    {
-        $comment = Comment::query()->find($id);
-
-        if (is_null($comment->parent_id)) {
-            $this->comments = $this->comments->prepend($comment);
-        }
-    }
-
-    public function commentDeleted(int $id): void
-    {
-        $this->comments = $this->comments->reject(function ($comment) use ($id) {
-            return $comment->id === $id;
-        });
-    }
-
-    private function getComments(): void
+    #[On([
+        LivewireEventEnum::CommentStored->value,
+        LivewireEventEnum::CommentDeleted->value,
+        LivewireEventEnum::CommentUpdated->value,
+    ])]
+    public function getComments(): void
     {
         $this->comments = $this->commentRepository->getCommentsByPostId($this->post->id);
+    }
+
+    private function setRecordsText(): void
+    {
+        $subdomain = $this->getSubdomain();
+
+        $this->recordsText = match ($subdomain) {
+            'ask' => trans('answers'),
+            default => trans('comments'),
+        };
     }
 }

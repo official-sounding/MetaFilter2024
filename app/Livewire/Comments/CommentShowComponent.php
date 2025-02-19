@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Comments;
 
+use App\Enums\LivewireEventEnum;
 use App\Models\Comment;
 use App\Traits\AuthStatusTrait;
 use Illuminate\Contracts\View\View;
@@ -104,7 +105,12 @@ final class CommentShowComponent extends Component
         $this->isReplying = false;
     }
 
-    #[On('escape-key-clicked')]
+    #[On([
+        LivewireEventEnum::CommentStored->value,
+        LivewireEventEnum::CommentDeleted->value,
+        LivewireEventEnum::CommentUpdated->value,
+        LivewireEventEnum::EscapeKeyClicked->value,
+    ])]
     public function closeForm(): void
     {
         $this->stopEditing();
