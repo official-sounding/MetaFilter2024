@@ -21,18 +21,16 @@ final class UserService
     public function store(UserDto $dto): ?User
     {
         try {
-            $user = new User();
+            $data = [
+                'username' => $dto->username,
+                'password' => bcrypt($dto->password),
+                'email' => $dto->email,
+                'name' => $dto->name,
+                'homepage_url' => $dto->homepage_url,
+                'state' => $dto->state,
+            ];
 
-            $user->username = $dto->username;
-            $user->password = bcrypt($dto->password);
-            $user->email = $dto->email;
-            $user->name = $dto->name;
-            $user->homepage_url = $dto->homepage_url;
-            $user->state = $dto->state;
-
-            $user->save();
-
-            return $user;
+            return $this->userRepository->create($data);
         } catch (Exception $exception) {
             $this->logError($exception);
 
@@ -40,15 +38,8 @@ final class UserService
         }
     }
 
-    public function update(User $user, array $data): void
+    public function update(int $userId, array $data): ?User
     {
-        $user->update($data);
-    }
-
-    public function updateState(User $user, string $value): void
-    {
-        $user->state = $value;
-
-        $user->save();
+        return $this->userRepository->update($userId, $data);
     }
 }
