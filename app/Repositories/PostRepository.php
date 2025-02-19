@@ -70,7 +70,10 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
     {
         $query = $this->getQuery();
 
-        $query->withCount([
+        $query->with([
+            'user',
+        ])
+        ->withCount([
             'comments',
             'favorites',
             'flags',

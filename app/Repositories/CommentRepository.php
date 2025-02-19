@@ -32,7 +32,9 @@ final class CommentRepository extends BaseRepository implements CommentRepositor
                 'comments.created_at',
                 'users.username',
             ])
-            ->with('user')
+            ->with([
+                'user',
+            ])
             ->withCount([
                 'favorites',
                 'flags',
