@@ -46,8 +46,9 @@
         </div>
 
         <div class="flex items-center gap-4">
+            {{--
             <x-primary-button>{{ trans('Save') }}</x-primary-button>
-
+--}}
             @if (session('status') === 'members-updated')
                 <p
                     x-data="{ show: true }"
