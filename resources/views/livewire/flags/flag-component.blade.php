@@ -8,6 +8,7 @@
             <x-popovers.popover-component
                 button-text="{{ trans('What does it mean to flag a comment or post?') }}"
                 popover-text="{{ trans('What does it mean to flag a comment or post?') }}"
+                show-info-icon="true"
             />
         </small>
 
