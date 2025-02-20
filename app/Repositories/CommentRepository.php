@@ -9,6 +9,15 @@ use Illuminate\Database\Eloquent\Collection;
 
 final class CommentRepository extends BaseRepository implements CommentRepositoryInterface
 {
+    private const array COLUMNS = [
+        'comments.id',
+        'comments.text',
+        'comments.created_at',
+        'comments.deleted_at',
+        'comments.user_id',
+        'users.username',
+    ];
+
     public function __construct(Comment $model)
     {
         parent::__construct($model);
@@ -21,17 +30,11 @@ final class CommentRepository extends BaseRepository implements CommentRepositor
             ->count();
     }
 
-    public function getCommentsByPostId(int $postId): Collection
+    public function getCommentsByPostId(int $postId, ?Comment $latestComment = null): Collection
     {
-        return $this->model->newQuery()
+        $query = $this->model->newQuery()
             ->join('users', 'comments.user_id', '=', 'users.id')
-            ->select([
-                'comments.id',
-                'comments.user_id',
-                'comments.text',
-                'comments.created_at',
-                'users.username',
-            ])
+            ->select(self::COLUMNS)
             ->with([
                 'user',
             ])
@@ -39,9 +42,14 @@ final class CommentRepository extends BaseRepository implements CommentRepositor
                 'favorites',
                 'flags',
             ])
+            ->where('comments.post_id', '=', $postId);
 
-            ->where('comments.post_id', '=', $postId)
-            ->orderBy('comments.created_at')
-            ->get();
+        if ($latestComment !== null) {
+            $query->where('comments.created_at', '>', $latestComment->created_at);
+        }
+
+        $query->orderBy('comments.created_at');
+
+        return $query->get();
     }
 }
