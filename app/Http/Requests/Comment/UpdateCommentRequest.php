@@ -12,11 +12,4 @@ final class UpdateCommentRequest extends StoreCommentRequest
         // TODO: Add check for permission
         return $this->loggedIn();
     }
-
-    public function rules(): array
-    {
-        $rules = parent::rules();
-
-        return $rules;
-    }
 }

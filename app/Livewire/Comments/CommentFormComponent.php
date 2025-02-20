@@ -27,6 +27,8 @@ final class CommentFormComponent extends Component
     public function mount(
         int $authorizedUserId,
         int $postId,
+        bool $isEditing,
+        bool $isReplying,
         ?Comment $comment,
         ?int $parentId = null,
     ): void {
@@ -49,10 +51,19 @@ final class CommentFormComponent extends Component
         return (new StoreCommentRequest())->rules();
     }
 
-    public function store(CommentService $commentService): void
+    public function handle(CommentService $commentService): void
     {
         $this->validate();
 
+        if ($this->isEditing === true) {
+            $this->update($commentService);
+        } else {
+            $this->store($commentService);
+        }
+    }
+
+    public function store(CommentService $commentService): void
+    {
         $dto = new CommentDto(
             text: $this->text,
             post_id: $this->postId,
@@ -66,6 +77,21 @@ final class CommentFormComponent extends Component
             $this->dispatch(LivewireEventEnum::CommentStored->value);
 
             $this->message = trans('Comment created successfully.');
+        }
+    }
+
+    public function update(CommentService $commentService): void
+    {
+        $data = [
+            'text' => $this->text,
+        ];
+
+        $updated = $commentService->update($this->comment->id, $data);
+
+        if ($updated) {
+            $this->dispatch(LivewireEventEnum::CommentUpdated->value);
+
+            $this->message = trans('Comment updated successfully.');
         }
     }
 }
