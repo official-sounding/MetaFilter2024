@@ -49,7 +49,7 @@
         @endauth
 
         @guest
-            <button class="button footer-button">
+            <button class="button footer-button" disabled>
                 <x-icons.icon-component filename="flag"/>
                 {{ $flagCount }}
             </button>

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Livewire\Comments;
 
 use App\Livewire\Forms\CommentForm;
-use App\Traits\AuthStatusTrait;
 use Livewire\Component;
 
 final class CommentCreate extends Component
@@ -23,8 +22,7 @@ final class CommentCreate extends Component
     public function mount(
         int $parentId,
         int $userId,
-    ): void
-    {
+    ): void {
         $this->parentId = $parentId;
         $this->userId = $userId;
     }
@@ -34,5 +32,4 @@ final class CommentCreate extends Component
         $this->form->postId = $this->postId;
         $this->form->parentId = $this->parentId;
     }
-
 }

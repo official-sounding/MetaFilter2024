@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Forms;
 
+use App\Enums\LivewireEventEnum;
 use App\Http\Requests\Comment\StoreCommentRequest;
 use App\Models\Comment;
 use App\Traits\AuthStatusTrait;
@@ -35,13 +36,27 @@ final class CommentForm extends Form
         return (new StoreCommentRequest())->rules();
     }
 
+    public function store(): void
+    {
+        $this->validate();
+
+        Comment::create([
+            'text' => $this->text,
+            'post_id' => $this->postId,
+            'parent_id' => $this->parentId,
+            'user_id' => $this->authorizedUserId,
+        ]);
+
+        $this->text = '';
+
+        $this->flashMessage(LivewireEventEnum::CommentStored->value);
+    }
+
     public function update(): void
     {
-        /*
         if ($this->authorizedUserId !== $this->comment->user_id) {
             return;
         }
-        */
 
         $this->validate();
 
@@ -49,8 +64,13 @@ final class CommentForm extends Form
             'text' => $this->text,
         ]);
 
-        $this->isEditing = false;
+        $this->parent->isEditing = false;
 
-        session()->flash('message', trans('Comment updated successfully.'));
+        $this->flashMessage(LivewireEventEnum::CommentUpdated->value);
+    }
+
+    private function flashMessage(string $message): void
+    {
+        session()->flash('message', trans($message));
     }
 }
