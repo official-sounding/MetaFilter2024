@@ -19,11 +19,18 @@ body {
 .fine-print {
     padding: 0.5rem 0 0.5rem 0;
     text-align: center;
+    position: relative;
+}
+
+.fine-print .danger-button {
+    position: absolute;
+    top: -4.75rem;
+    right: 1rem;
 }
 
 .we-all-float {
     position: absolute;
-    top: 1rem;
+    top: 0.5rem;
     left: 1rem;
 }
 

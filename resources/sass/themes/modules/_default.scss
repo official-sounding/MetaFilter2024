@@ -24,6 +24,10 @@ input:focus::placeholder {
     background-color: var(--light-base-color);
 }
 
+.we-all-float {
+    color: var(--lighter-base-color);
+}
+
 .global-footer h3 {
     color: var(--lightest-base-color);
     background-color: inherit;
@@ -162,14 +166,12 @@ input[type='search']:focus {
     background-color: green;
 }
 
-// Filter for yellow-green
-.logout-button:active .icon,
-.logout-button:hover .icon,
-.utility-navigation a:active .icon,
-.utility-navigation a:hover .icon {
-    // https://csscolorize.com/
-    // https://cssfiltergenerator.lol/
-    filter: invert(67%) sepia(59%) saturate(368%) hue-rotate(41deg) brightness(97%) contrast(89%);
+// https://csscolorize.com/
+// https://cssfiltergenerator.lol/
+
+// Filter for dark-gray
+.utility-navigation .icon {
+    filter: brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(0%) hue-rotate(243deg) brightness(95%) contrast(94%);
 }
 
 // Filter for rss-orange
@@ -178,9 +180,22 @@ input[type='search']:focus {
     filter: invert(63%) sepia(82%) saturate(2553%) hue-rotate(345deg) brightness(91%) contrast(103%);
 }
 
-// Filter for dark-gray
-.utility-navigation .icon {
-    filter: brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(0%) hue-rotate(243deg) brightness(95%) contrast(94%);
+// Filter for white
+.danger-button .icon {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(7500%) hue-rotate(245deg) brightness(125%) contrast(122%);
+}
+
+// Filter for is-danger
+.danger-button:hover .icon {
+    filter: brightness(0) saturate(100%) invert(9%) sepia(55%) saturate(6722%) hue-rotate(332deg) brightness(76%) contrast(100%);
+}
+
+// Filter for yellow-green
+.logout-button:active .icon,
+.logout-button:hover .icon,
+.utility-navigation a:active .icon,
+.utility-navigation a:hover .icon {
+    filter: invert(67%) sepia(59%) saturate(368%) hue-rotate(41deg) brightness(97%) contrast(89%);
 }
 
 ::placeholder {
