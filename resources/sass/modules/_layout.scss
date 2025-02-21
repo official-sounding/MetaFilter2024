@@ -141,7 +141,6 @@ body {
     display: none;
 }
 
-//noinspection SassScssResolvedByNameOnly
 @include breakpoints.tablet-portrait-up() {
     .global-footer .container {
         display: flex;
