@@ -4,27 +4,26 @@ declare(strict_types=1);
 
 namespace App\Livewire\Tables;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 abstract class TableComponent extends Component
 {
-    public array $columns = [];
-    public array $headers = [];
-    public LengthAwarePaginator $records;
+    use WithPagination;
 
-    public function mount(LengthAwarePaginator $records, array $headers): void
-    {
-        $this->records = $records;
-        $this->headers = $headers;
-    }
+    public int $page = 1;
+    public int $perPage = 10;
 
-    public function render(): View
+    abstract public function query(): Builder;
+
+    abstract public function columns(): array;
+
+    public function data(): LengthAwarePaginator
     {
-        return view('livewire.tables.table-component', [
-            'headers' => $this->headers,
-            'records' => $this->records,
-        ]);
+        return $this
+            ->query()
+            ->paginate($this->perPage);
     }
 }
