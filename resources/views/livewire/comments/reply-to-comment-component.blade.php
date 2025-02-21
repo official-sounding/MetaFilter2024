@@ -5,7 +5,7 @@
     </button>
 
     <form x-show="$wire.isVisible">
-        <textarea wire:model="replyText" placeholder="Write your reply..."></textarea>
+        <textarea wire:model="replyText" placeholder="Write your reply&hellip;"></textarea>
 
         <blockquote class="" x-text="selectedText"></blockquote>
 

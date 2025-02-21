@@ -12,7 +12,7 @@
             type="search"
             name="q"
             id="{{ $formId }}-query"
-            placeholder="{{ trans('Search...') }}&hellip;">
+            placeholder="{{ trans('Search') }}&hellip;">
 
         <button class="button icon-search" type="submit">
             <span class="sr-only">

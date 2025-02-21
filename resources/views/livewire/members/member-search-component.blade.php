@@ -23,21 +23,21 @@
                 <td>
                     <input
                         type="text"
-                        placeholder="{{ trans('Filter') }}..."
+                        placeholder="{{ trans('Filter') }}&hellip;"
                         autocomplete="off"
                         wire:model.live="searchColumns.username">
                 </td>
                 <td>
                     <input
                         type="text"
-                        placeholder="{{ trans('Filter') }}..."
+                        placeholder="{{ trans('Filter') }}&hellip;"
                         autocomplete="off"
                         wire:model.live="searchColumns.id">
                 </td>
             </tr>
         </thead>
         <tbody class="striped">
-            @foreach ($this->activeMembers as $member)
+            @foreach ($this->members as $member)
                 <tr>
                     <td>
                         {{ $member->username }}
@@ -49,6 +49,4 @@
             @endforeach
         </tbody>
     </table>
-
-    {{ $this->activeMembers->links() }}
 </div>
