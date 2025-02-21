@@ -1,7 +1,7 @@
 <footer class="comment-footer">
     <div class="level">
         <div>
-            <x-members.profile-link-component :user="$comment->user"/>
+            <x-members.profile-link-component :user="$comment->user" />
 
             @include('comments.partials.comment-timestamp', [
                 'comment' => $comment,

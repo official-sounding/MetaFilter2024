@@ -41,7 +41,7 @@
 
 <div class="container main-contents-wrapper">
     <!-- He's the DJ; I'm the wrapper -->
-    <x-buttons.top-bottom-button-component location="top"/>
+    <x-buttons.top-bottom-button-component location="top" />
 
     <main class="main-contents" id="main-contents">
         @if (isset($showTitle) && $showTitle === true)
@@ -57,7 +57,7 @@
         @include('layouts.partials.my-mefi-sidebar')
     </aside>
 
-    <x-buttons.top-bottom-button-component location="bottom"/>
+    <x-buttons.top-bottom-button-component location="bottom" />
 </div>
 
 <footer class="site-footer" id="site-footer">

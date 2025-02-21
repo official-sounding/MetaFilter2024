@@ -7,22 +7,22 @@
         <x-forms.input
             name="title"
             type="text"
-            label="{{ trans('Post Title') }}"/>
+            label="{{ trans('Post Title') }}" />
 
         <x-forms.input
             name="url"
             type="url"
-            label="{{ trans('Link URL') }}"/>
+            label="{{ trans('Link URL') }}" />
 
         <x-forms.input
             name="link_text"
             type="text"
-            label="{{ trans('Link Text') }}"/>
+            label="{{ trans('Link Text') }}" />
 
         <div wire:ignore>
             <x-forms.textarea
                 name="body"
-                label="{{ trans('Body') }}"/>
+                label="{{ trans('Body') }}" />
         </div>
     </fieldset>
 
@@ -30,7 +30,7 @@
         <div wire:ignore>
             <x-forms.textarea
                 name="more_inside"
-                label="{{ trans('More Inside') }}"/>
+                label="{{ trans('More Inside') }}" />
         </div>
     </fieldset>
 

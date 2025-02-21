@@ -2,38 +2,41 @@
     {{ $comment->text }}
 
     <footer class="comment-footer">
-        <x-members.profile-link-component :user="$comment->user"/>
+        <x-members.profile-link-component :user="$comment->user" />
 
         @include('comments.partials.comment-timestamp', [
             'comment' => $comment,
         ])
+
         @auth
             <button
                 class="button footer-button"
                 wire:click.prevent="toggleReplying()"
                 aria-controls="comment-reply-form-{{ $comment->id }}"
                 aria-expanded="{{ $this->isReplying ? 'true' : 'false' }}">
-                <x-icons.icon-component filename="reply-fill"/>
+                <x-icons.icon-component filename="reply-fill" />
                 {{ trans('reply') }}
             </button>
 
-            <button
-                class="button footer-button"
-                wire:click.prevent="toggleEditing()"
-                aria-controls="edit-comment-form-{{ $comment->id }}"
-                aria-expanded="{{ $this->isEditing ? 'true' : 'false' }}">
-                <x-icons.icon-component filename="pencil-square"/>
-                {{ trans('Edit') }}
-            </button>
-            @can('edit-comment', $comment)
-            @endcan
+            @if ($comment->user_id === $authorizedUserId)
+                <button
+                    class="button footer-button"
+                    wire:click.prevent="toggleEditing()"
+                    aria-controls="edit-comment-form-{{ $comment->id }}"
+                    aria-expanded="{{ $this->isEditing ? 'true' : 'false' }}">
+                    <x-icons.icon-component filename="pencil-square" />
+                    {{ trans('Edit') }}
+                </button>
+            @endif
+
+            <livewire:favorites.favorite-component :model="$comment" />
 
             @auth
                 @if ($userFlagged === true)
                     <button
                         class="button footer-button"
                         title="{{ trans('Remove flag') }}">
-                        <x-icons.icon-component filename="{{ $flagIconFilename  }}"/>
+                        <x-icons.icon-component filename="{{ $flagIconFilename  }}" />
                         {{ $flagCount }}
                     </button>
                 @else
@@ -42,7 +45,7 @@
                         wire:click="toggleFlagging()"
                         aria-controls="flag-comment-form-{{ $comment->id }}"
                         aria-expanded="{{ $this->isFlagging ? 'true' : 'false' }}">
-                        <x-icons.icon-component filename="{{ $flagIconFilename }}"/>
+                        <x-icons.icon-component filename="{{ $flagIconFilename }}" />
                     </button>
                 @endif
             @endauth
@@ -50,7 +53,7 @@
 
         @guest
             <button class="button footer-button" disabled>
-                <x-icons.icon-component filename="flag"/>
+                <x-icons.icon-component filename="flag" />
                 {{ $flagCount }}
             </button>
         @endguest

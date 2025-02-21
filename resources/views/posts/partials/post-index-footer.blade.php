@@ -1,5 +1,5 @@
 <footer class="post-footer post-index-footer">
-    <x-members.profile-link-component :user="$post->user"/>
+    <x-members.profile-link-component :user="$post->user" />
 
     <span>
         <x-icons.icon-component filename="clock" />

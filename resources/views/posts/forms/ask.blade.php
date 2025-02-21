@@ -7,12 +7,12 @@
         <x-forms.input
                 name="title"
                 type="text"
-                label="{{ trans('Question Title') }}"/>
+                label="{{ trans('Question Title') }}" />
 
         <div wire:ignore>
             <x-forms.textarea
                     name="body"
-                    label="{{ trans('Your Question') }}"/>
+                    label="{{ trans('Your Question') }}" />
         </div>
     </fieldset>
 
@@ -20,7 +20,7 @@
         <div wire:ignore>
             <x-forms.textarea
                     name="more_inside"
-                    label="{{ trans('More Inside') }}"/>
+                    label="{{ trans('More Inside') }}" />
         </div>
     </fieldset>
 

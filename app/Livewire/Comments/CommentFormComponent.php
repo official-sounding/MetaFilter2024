@@ -17,8 +17,8 @@ final class CommentFormComponent extends Component
     public int $authorizedUserId;
     public string $buttonText = '';
     public ?Comment $comment;
-    public bool $isEditing = false;
-    public bool $isReplying = false;
+    public bool $isEditing;
+    public bool $isReplying;
     public string $text = '';
     public int $postId;
     public ?int $parentId = null;
@@ -27,12 +27,13 @@ final class CommentFormComponent extends Component
     public function mount(
         int $authorizedUserId,
         int $postId,
-        bool $isEditing,
-        bool $isReplying,
         ?Comment $comment,
         ?int $parentId = null,
     ): void {
         $this->authorizedUserId = $authorizedUserId;
+
+        $this->isEditing = false;
+        $this->isReplying = false;
 
         $this->postId = $postId;
         $this->parentId = $parentId;
@@ -76,7 +77,7 @@ final class CommentFormComponent extends Component
         if ($stored) {
             $this->dispatch(LivewireEventEnum::CommentStored->value);
 
-            $this->message = trans('Comment created successfully.');
+            $this->message = trans('Comment created.');
         }
     }
 
@@ -91,7 +92,7 @@ final class CommentFormComponent extends Component
         if ($updated) {
             $this->dispatch(LivewireEventEnum::CommentUpdated->value);
 
-            $this->message = trans('Comment updated successfully.');
+            $this->message = trans('Comment updated.');
         }
     }
 }
