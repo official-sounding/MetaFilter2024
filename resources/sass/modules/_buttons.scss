@@ -1,3 +1,5 @@
+@use '../mixins/breakpoints';
+
 :root {
     --button-border-radius: 0.33rem;
     --button-border-width: 0.25rem;
@@ -136,4 +138,10 @@ main > .primary-button {
 
 .top-button {
     top: -3.5rem;
+}
+
+@include breakpoints.tablet-portrait-up() {
+    .copy-url-button {
+        display: none;
+    }
 }

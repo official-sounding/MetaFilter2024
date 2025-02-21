@@ -12,4 +12,6 @@
         {{ Str::plural('member', $favoritesCount) }}
         {{ trans('marked this as a favorite') }}
     @endif
+
+    <x-buttons.copy-url-button url="{{ $canonicalUrl }}" />
 </footer>
