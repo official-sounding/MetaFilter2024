@@ -6,6 +6,7 @@
         "build": "vite build"
     },
     "dependencies": {
+        "@alpinejs/collapse": "^3.14.8",
         "@ckeditor/ckeditor5-build-classic": "^43.1.1",
         "@ryangjchandler/alpine-clipboard": "^2.3.0",
         "ckeditor5": "^43.1.1",
