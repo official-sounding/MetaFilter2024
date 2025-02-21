@@ -30,44 +30,44 @@ class BaseRepository implements BaseRepositoryInterface
         $this->subdomain = $this->getSubdomain();
     }
 
-    public function getQuery(): Builder
+    public function baseQuery(): Builder
     {
         return $this->model->query();
     }
 
     public function all(): Collection|array
     {
-        return $this->getQuery()->get();
+        return $this->baseQuery()->get();
     }
 
     public function count(): int
     {
-        return $this->getQuery()->count();
+        return $this->baseQuery()->count();
     }
 
     public function create(array $data): Model
     {
-        return $this->getQuery()->create($data);
+        return $this->baseQuery()->create($data);
     }
 
     public function delete(int $id): ?bool
     {
-        return $this->getQuery()->find($id)->delete();
+        return $this->baseQuery()->find($id)->delete();
     }
 
     public function find(int $id): Model
     {
-        return $this->getQuery()->find($id);
+        return $this->baseQuery()->find($id);
     }
 
     public function getById(int $id): Builder
     {
-        return $this->getQuery()->where('id', '=', $id);
+        return $this->baseQuery()->where('id', '=', $id);
     }
 
     public function getBySlug(string $slug): Model|null
     {
-        return $this->getQuery()->where('slug', '=', $slug)->firstOrFail();
+        return $this->baseQuery()->where('slug', '=', $slug)->firstOrFail();
     }
 
     public function getDropdownValues(string $column, string $key = 'id', bool $cache = true): array
@@ -76,38 +76,38 @@ class BaseRepository implements BaseRepositoryInterface
 
         if ($cache === true) {
             cache()->remember(key: $cacheKey, ttl: $this->oneHour(), callback: function () use ($column, $key) {
-                return $this->getQuery()->pluck($column, $key)->toArray();
+                return $this->baseQuery()->pluck($column, $key)->toArray();
             });
         }
 
-        return $this->getQuery()->pluck($column, $key)->toArray();
+        return $this->baseQuery()->pluck($column, $key)->toArray();
     }
 
     public function first(): Model
     {
-        return $this->getQuery()->first();
+        return $this->baseQuery()->first();
     }
 
     public function firstOrCreate(array $attributes = [], array $values = []): Builder|Model
     {
-        return $this->getQuery()->firstOrCreate($attributes, $values);
+        return $this->baseQuery()->firstOrCreate($attributes, $values);
     }
 
     public function paginate($limit = 20): LengthAwarePaginator
     {
-        return $this->getQuery()->paginate($limit);
+        return $this->baseQuery()->paginate($limit);
     }
 
     public function where($column, $id, $first = false): Model|Collection|Builder|array|null
     {
-        $query = $this->getQuery()->where($column, '=', $id);
+        $query = $this->baseQuery()->where($column, '=', $id);
 
         return ($first) ? $query->first() : $query->get();
     }
 
     public function update($id, array $data): Model|Collection|Builder|array|null
     {
-        $model = $this->getQuery()->find($id);
+        $model = $this->baseQuery()->find($id);
 
         $model->update($data);
 
@@ -118,6 +118,6 @@ class BaseRepository implements BaseRepositoryInterface
 
     public function with($relation): Builder
     {
-        return $this->getQuery()->with($relation);
+        return $this->baseQuery()->with($relation);
     }
 }

@@ -11,16 +11,17 @@ use App\Models\Post;
 use App\Traits\LoggingTrait;
 use App\Traits\SubsiteTrait;
 use Carbon\Carbon;
-use Illuminate\Contracts\Pagination\CursorPaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 final class PostRepository extends BaseRepository implements PostRepositoryInterface
 {
     use LoggingTrait;
     use SubsiteTrait;
 
-    private const int POSTS_PER_PAGE = 20;
+    private const int PER_PAGE = 20;
     private const array COLUMNS = [
         'posts.id',
         'posts.title',
@@ -43,32 +44,36 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
         parent::__construct($model);
     }
 
-    public function getPosts($popular = false): CursorPaginator
+    public function getPosts(int $page = 1): LengthAwarePaginator
     {
-        $query = $this->model->newQuery()
-            ->join('users', 'posts.user_id', '=', 'users.id')
-            ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
-            ->where('subsites.subdomain', '=', $this->subdomain)
-            ->select(self::COLUMNS)
-            ->withCount([
-                'comments',
-                //                'favorites',
-                //                'flags',
-            ])
-        ;
+        $query = $this->baseQuery();
 
-        $query->orderBy('posts.created_at', 'desc')->get();
+        $query->withCount([
+            'comments',
+            'favorites',
+            'flags',
+        ])
+            ->limit(self::PER_PAGE);
 
-        if ($popular) {
-            // TODO: Add logic to get popular posts
-        }
+        $posts = $query->orderBy(column: 'posts.created_at', direction: 'desc')->get();
 
-        return $query->cursorPaginate(self::POSTS_PER_PAGE);
+        $groupedPosts = $posts->groupBy(function ($item) {
+            return Carbon::parse($item->getRawOriginal('created_at'))->format('M d, Y');
+        });
+
+        $page = Paginator::resolveCurrentPage();
+
+        $currentPageItems = $groupedPosts->slice(($page - 1) * self::PER_PAGE, self::PER_PAGE)->all();
+
+        return new LengthAwarePaginator($currentPageItems, count($groupedPosts), self::PER_PAGE, $page, [
+            'path' => Paginator::resolveCurrentPath(),
+        ]);
     }
+
 
     public function getBySubdomain(int $page = 1): Collection
     {
-        $query = $this->getQuery();
+        $query = $this->baseQuery();
 
         $query->with([
             'user',
@@ -78,7 +83,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             'favorites',
             'flags',
         ])
-        ->limit(self::POSTS_PER_PAGE)
+        ->limit(self::PER_PAGE)
         ->orderBy('posts.created_at', 'desc');
 
         // TODO: Add categories
@@ -90,7 +95,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
 
     public function getDraftPosts(): Collection
     {
-        $query = $this->getQuery();
+        $query = $this->baseQuery();
 
         if (isset(auth()->user()->id)) {
             $query->where('posts.user_id', '=', auth()->user()->id);
@@ -116,7 +121,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
                 'favorites',
                 'flags',
             ])
-            ->limit(self::POSTS_PER_PAGE)
+            ->limit(self::PER_PAGE)
             ->orderBy('posts.created_at', 'desc')->get()
             ->groupBy(function ($val) {
                 return Carbon::parse($val->created_at)->format('F j');
@@ -125,7 +130,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
 
     public function getRandomPost(): Post
     {
-        $query = $this->getQuery();
+        $query = $this->baseQuery();
 
         $query
             ->withCount([
@@ -171,7 +176,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
         return [];
     }
 
-    public function getQuery(): Builder
+    public function baseQuery(): Builder
     {
         return $this->model->query()
             ->join('users', 'posts.user_id', '=', 'users.id')
