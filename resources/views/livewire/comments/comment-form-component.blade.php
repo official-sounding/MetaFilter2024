@@ -39,10 +39,10 @@
 
         <small class="smaller">
             <x-icons.icon-component filename="markdown-fill" />
-            <a href="https://www.markdownguide.org/basic-syntax/">
+            <a href="https://www.markdownguide.org/basic-syntax/" class="text-link">
                 {{ trans('Styling with Markdown is supported') }}
-                <x-icons.icon-component filename="box-arrow-up-right" alt-text="External link" />
             </a>
+            <x-icons.icon-component filename="box-arrow-up-right" alt-text="External link" />
         </small>
     </fieldset>
 </form>
