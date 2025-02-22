@@ -20,7 +20,7 @@ body {
 //noinspection CssInvalidFunction
 a:link,
 a:visited {
-    color: light-dark(var(--base-color), var(--yellow-green));
+    color: light-dark(var(--base-color), var(--base-color));
     background-color: transparent;
 }
 
@@ -231,16 +231,12 @@ textarea:focus {
     border-color: var(--darker-base-color);
 }
 
-.main-contents form a:link,
-.main-contents form a:visited,
 .notification.is-info a:link,
 .notification.is-info a:visited {
     color: var(--white);
     background-color: var(--dark-base-color);
 }
 
-.main-contents form a:active,
-.main-contents form a:hover,
 .notification.is-info a:active,
 .notification.is-info a:hover {
     color: var(--dark-base-color);

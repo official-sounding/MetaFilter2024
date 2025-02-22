@@ -18,14 +18,24 @@ picture {
     color: currentColor;
 }
 
-.icon.big img {
+.icon.icon-big img {
     width: 1.25rem;
     height: 1.25rem;
 }
 
-.icon.bigger img {
+.icon.icon-bigger img {
     width: 1.5rem;
     height: 1.5rem;
+}
+
+.icon.icon-small img {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.icon.icon-smaller img {
+    width: 0.5rem;
+    height: 0.5rem;
 }
 
 svg {
