@@ -38,7 +38,9 @@ final class ProfileLinkComponent extends Component
 
     private function getFilename(): string
     {
-        return $this->user === auth()->user() ? $this->filename : 'person-fill';
+        \Log::debug('user: ' . $this->user->username);
+        \Log::debug('auth: ' . auth()->user()->username);
+        return $this->user->username === auth()->user()->username ? 'person-fill' : $this->filename;
     }
 
     private function getTitleText(): string
