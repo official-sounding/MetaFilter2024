@@ -7,40 +7,44 @@ namespace Database\Seeders\Production;
 use App\Enums\PermissionEnum;
 use App\Enums\RoleNameEnum;
 use App\Traits\LoggingTrait;
-use Exception;
+use App\Traits\PermissionAndRoleTrait;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Spatie\Permission\PermissionRegistrar;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Throwable;
 
 final class RoleSeeder extends Seeder
 {
     use LoggingTrait;
+    use PermissionAndRoleTrait;
     use WithoutModelEvents;
 
+    /**
+     * @throws Throwable
+     */
     public function run(): void
     {
-        app()[PermissionRegistrar::class]->forgetCachedPermissions();
+        $this->forgetCachedPermissions();
 
         DB::beginTransaction();
 
         try {
-            $moderatorRole = $this->createModeratorRole();
+            $this->createModeratorRole();
 
             $this->createDeveloperRoleWithPermissions();
 
             $this->assignControlPanelAccess();
 
             DB::commit();
-        } catch (Exception $exception) {
+        } catch (Throwable $exception) {
             $this->logError($exception);
 
             DB::rollback();
         }
 
-        app()[PermissionRegistrar::class]->forgetCachedPermissions();
+        $this->forgetCachedPermissions();
     }
 
     private function createModeratorRole(): Role
@@ -65,17 +69,7 @@ final class RoleSeeder extends Seeder
         foreach (RoleNameEnum::cases() as $roleName) {
             $role = $this->getRole($roleName->value);
 
-            $this->givePermissionToRole($role, PermissionEnum::AccessPanel->value);
+            $this->givePermissionToRole($role, PermissionEnum::AccessAdminPanel->value);
         }
-    }
-
-    private function getRole(string $roleName): Role
-    {
-        return DB::table('roles')->where('name', '=', $roleName)->firstOrFail();
-    }
-
-    private function givePermissionToRole(Role $role, string $permission): void
-    {
-        $role->givePermissionTo($permission);
     }
 }

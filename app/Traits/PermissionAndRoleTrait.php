@@ -6,12 +6,32 @@ namespace App\Traits;
 
 use App\Enums\PermissionEnum;
 use App\Enums\RoleNameEnum;
+use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 
 trait PermissionAndRoleTrait
 {
     public function canAccessAdminPanel(): bool
     {
         return auth()->check() && auth()->user()->can(PermissionEnum::AccessAdminPanel->value);
+    }
+
+    public function forgetCachedPermissions(): void
+    {
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
+    }
+
+    public function getRole(string $roleName): Role
+    {
+        return DB::table('roles')
+            ->where('name', '=', $roleName)
+            ->firstOrFail();
+    }
+
+    public function givePermissionToRole(Role $role, string $permission): void
+    {
+        $role->givePermissionTo($permission);
     }
 
     public function isBoardMember(): bool
