@@ -14,8 +14,8 @@ enum RoleNameEnum: string
     {
         return match ($this) {
             RoleNameEnum::BOARD_MEMBER => 'Board Member',
-            RoleNameEnum::DEVELOPER => 'Developers',
-            RoleNameEnum::MODERATOR => 'Moderators',
+            RoleNameEnum::DEVELOPER => 'Developer',
+            RoleNameEnum::MODERATOR => 'Moderator',
         };
     }
 }
