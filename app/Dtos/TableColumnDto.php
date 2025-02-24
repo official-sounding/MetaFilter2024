@@ -9,7 +9,7 @@ readonly class TableColumnDto
     public function __construct(
         public string $key,
         public string $label,
-        public bool $isHeader = false,
+        public bool $isRowHeader = false,
         public ?string $route = null,
     ) {}
 }

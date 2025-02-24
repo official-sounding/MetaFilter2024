@@ -22,7 +22,7 @@ final class MemberTableComponent extends TableComponent
             new TableColumnDto(
                 key: 'username',
                 label: 'Username',
-                isHeader: true,
+                isRowHeader: true,
             ),
             new TableColumnDto(
                 key: 'id',
@@ -34,6 +34,10 @@ final class MemberTableComponent extends TableComponent
     public function query(): Builder
     {
         return User::query()
+            ->select([
+                'id',
+                'username',
+            ])
             ->where(column: 'state', operator: '=', value: UserStateEnum::Active);
     }
 }

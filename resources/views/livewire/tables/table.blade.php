@@ -13,7 +13,7 @@
             @foreach($this->data() as $row)
                 <tr>
                     @foreach($this->columns() as $column)
-                        @if (isset($column->isHeader) && $column->isHeader === true)
+                        @if (isset($column->isRowHeader) && $column->isRowHeader === true)
                             <th scope="row">
                                 <x-dynamic-component
                                     :component="$column->component"
