@@ -47,6 +47,11 @@
     </div>
 
     <div class="level">
+        <x-buttons.link-button
+            buttonText="Cancel"
+            url="{{ url()->previous() }}">
+        </x-buttons.link-button>
+
         <x-forms.button
             type="submit"
             class="primary-button next-step">
