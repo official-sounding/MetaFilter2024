@@ -3,5 +3,5 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    <livewire:tables.member-table />
+    <livewire:tables.member-table-component />
 @endsection
