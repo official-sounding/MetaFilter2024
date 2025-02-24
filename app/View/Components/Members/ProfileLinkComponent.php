@@ -38,8 +38,6 @@ final class ProfileLinkComponent extends Component
 
     private function getFilename(): string
     {
-        \Log::debug('user: ' . $this->user->username);
-        \Log::debug('auth: ' . auth()->user()->username);
         return $this->user->username === auth()->user()->username ? 'person-fill' : $this->filename;
     }
 
