@@ -14,7 +14,7 @@ final class MemberTableComponent extends TableComponent
 {
     use WithPagination;
 
-    public string $orderByColumn = 'username';
+    public string $orderBy = 'username';
 
     public function columns(): array
     {
