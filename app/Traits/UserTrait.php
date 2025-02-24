@@ -6,10 +6,11 @@ namespace App\Traits;
 
 use App\Enums\RouteNameEnum;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 
 trait UserTrait
 {
-    public function getProfileUrl(User $user): string
+    public function getProfileUrl(Model|User $user): string
     {
         return route(RouteNameEnum::MemberShow->value, [
             'user' => $user,
