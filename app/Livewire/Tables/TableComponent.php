@@ -6,12 +6,14 @@ declare(strict_types=1);
 
 namespace App\Livewire\Tables;
 
+use App\Traits\PaginationTrait;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 abstract class TableComponent extends Component
 {
+    use PaginationTrait;
     use WithPagination;
 
     protected const string ASCENDING = 'asc';
@@ -23,40 +25,12 @@ abstract class TableComponent extends Component
     public string $sortDirection = self::ASCENDING;
 
     public string $searchColumn = '';
+    public string $searchTerm = '';
 
     abstract public function columns(): array;
 
     public function render(): View
     {
         return view('livewire.tables.table-component');
-    }
-
-    public function data()
-    {
-        return $this
-            ->query()
-            ->when($this->orderBy !== '', function ($query) {
-                $query->orderBy($this->orderBy, $this->sortDirection);
-            })
-            /*
-            ->when($this->searchColumn !== '', function ($query) {
-                $query->whereLike($this->searchColumn, trim($this->searchColumns['title']));
-            })
-            */
-            ->simplePaginate($this->perPage);
-    }
-
-    public function sort(string $key): void
-    {
-        $this->resetPage();
-
-        if ($this->orderBy === $key) {
-            $this->sortDirection = $this->sortDirection === self::ASCENDING ? self::DESCENDING : self::ASCENDING;
-
-            return;
-        }
-
-        $this->orderBy = $key;
-        $this->sortDirection = self::ASCENDING;
     }
 }
