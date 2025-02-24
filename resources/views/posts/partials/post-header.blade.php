@@ -1,9 +1,6 @@
 <header class="post-header">
     <h3>
-        <a href="{{ route("$subdomain.post.show", [
-                    'post' => $post,
-                    'slug' => $post->slug
-                ]) }}">
+        <a href="{{ $post->present()->url }}">
             {{ $post->title }}
         </a>
     </h3>

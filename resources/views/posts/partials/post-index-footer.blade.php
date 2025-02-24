@@ -7,10 +7,7 @@
     </span>
 
     <a class="button footer-button"
-        href="{{ route("$subdomain.post.show", [
-            'post' => $post,
-            'slug' => $post->slug
-        ]) }}#comments"
+        href="{{ $post->present()->url }}#comments"
         title="Comments">
         <x-icons.icon-component filename="chat" />
         {{ $commentsCount > 0 ?: 0 }}
