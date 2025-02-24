@@ -7,13 +7,49 @@ namespace App\Traits;
 use App\Enums\RouteNameEnum;
 use App\Enums\SubsiteEnum;
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Builder;
 
 trait PostTrait
 {
     use SubsiteTrait;
     use UrlTrait;
 
-    public function isArchived(Post $post, int $days = 30): bool
+    private const int DAYS_UNTIL_ARCHIVED = 30;
+
+    public function baseQuery(string $subdomain): Builder
+    {
+        $columns = $this->columns();
+
+        return Post::query()
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
+            ->where('subsites.subdomain', '=', $subdomain)
+            ->whereNotNull('published_at')
+            ->select($columns)
+            ->with([
+                'user',
+            ]);
+    }
+
+    public function columns(): array
+    {
+        return [
+            'posts.id',
+            'posts.title',
+            'posts.slug',
+            'posts.link_text',
+            'posts.link_url',
+            'posts.body',
+            'posts.created_at',
+            'posts.deleted_at',
+            'subsites.subdomain AS subdomain',
+            'subsites.name AS subsite',
+            'users.id AS user_id',
+            'users.username',
+        ];
+    }
+
+    public function isArchived(Post $post, int $days = self::DAYS_UNTIL_ARCHIVED): bool
     {
         $archiveDate = now()->subDays($days);
 
@@ -24,11 +60,7 @@ trait PostTrait
 
     public function getCanonicalUrl(Post $post): string
     {
-        $subdomain = $this->getSubdomain();
-
-        if ($subdomain = 'www') {
-            $subdomain = 'metafilter';
-        }
+        $subdomain = 'www' ? 'metafilter' : $this->getSubdomain();
 
         return route("$subdomain.post.show", [
             'post' => $post,

@@ -15,7 +15,7 @@ trait PaginationTrait
             ->when($this->orderBy !== '', function ($query) {
                 $query->orderBy(column: $this->orderBy, direction: $this->sortDirection);
             })
-            ->when($this->searchColumn !== '', function ($query) {
+            ->when(isset($this->searchColumn) && $this->searchColumn !== '', function ($query) {
                 $query->whereLike(column: $this->searchColumn, value: trim($this->searchTerm));
             })
             ->simplePaginate($this->perPage);
