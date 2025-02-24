@@ -7,19 +7,23 @@ namespace App\Livewire\Tables;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-class TableHeaderComponent extends Component
+final class TableHeaderComponent extends Component
 {
-    public array $headers = [];
+    public array $columns = [];
+    public string $orderBy = '';
+    public string $sortDirection = 'asc';
 
-    public function mount(array $headers): void
+    public function mount(array $columns, string $orderBy): void
     {
-        $this->headers = $headers;
+        $this->columns = $columns;
+        $this->orderBy = $orderBy;
     }
 
     public function render(): View
     {
         return view('livewire.tables.table-header-component', [
-            'headers' => $this->headers,
+            'columns' => $this->columns,
+            'orderBy' => $this->orderBy,
         ]);
     }
 }
