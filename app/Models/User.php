@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Builders\UserQueryBuilder;
+use App\Presenters\UserPresenter;
 use App\States\User\UserState;
 use App\Traits\SearchTrait;
+use Coderflex\LaravelPresenter\Concerns\CanPresent;
+use Coderflex\LaravelPresenter\Concerns\UsesPresenters;
 use Cog\Contracts\Ban\Bannable as BannableInterface;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Filament\Models\Contracts\FilamentUser;
@@ -39,6 +41,7 @@ use Spatie\Permission\Traits\HasRoles;
  */
 final class User extends Authenticatable implements
     BannableInterface,
+    CanPresent,
     FilamentUser,
     HasMedia,
     HasName
@@ -52,6 +55,7 @@ final class User extends Authenticatable implements
     use Notifiable;
     use SearchTrait;
     use SoftDeletes;
+    use UsesPresenters;
 
     private const string DOMAIN = '@metafilter.com';
 
@@ -71,6 +75,10 @@ final class User extends Authenticatable implements
     protected $hidden = [
         'password',
         'remember_token',
+    ];
+
+    protected array $presenters = [
+        'default' => UserPresenter::class,
     ];
 
     protected array $searchable = [

@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Builders\PostQueryBuilder;
+use App\Presenters\PostPresenter;
 use App\Traits\SearchTrait;
+use Coderflex\LaravelPresenter\Concerns\CanPresent;
+use Coderflex\LaravelPresenter\Concerns\UsesPresenters;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -36,7 +38,7 @@ use Spatie\Tags\HasTags;
  * @property bool $is_published
  * @property string $state
  */
-final class Post extends BaseModel implements HasMedia
+final class Post extends BaseModel implements CanPresent, HasMedia
 {
     use HasDrafts;
     use HasFactory;
@@ -46,6 +48,7 @@ final class Post extends BaseModel implements HasMedia
     use SearchTrait;
     use Sluggable;
     use SoftDeletes;
+    use UsesPresenters;
     use VersionableTrait;
 
     // Properties
@@ -62,6 +65,10 @@ final class Post extends BaseModel implements HasMedia
         'published_at',
         'is_published',
         'state',
+    ];
+
+    protected array $presenters = [
+        'default' => PostPresenter::class,
     ];
 
     protected array $searchable = [
