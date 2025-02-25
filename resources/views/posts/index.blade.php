@@ -21,13 +21,5 @@
         ])
     @endguest
 
-    @if (count($datePosts) > 0)
-        @include('posts.partials.list-posts-by-date', [
-            'dayPosts' => $datePosts
-        ])
-    @else
-        @include('notifications.none-listed', [
-            'records' => 'posts'
-        ])
-    @endif
+    <livewire:posts.post-index-component />
 @endsection

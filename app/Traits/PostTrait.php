@@ -21,14 +21,12 @@ trait PostTrait
         $columns = $this->columns();
 
         return Post::query()
+            ->with('user')
             ->join('users', 'posts.user_id', '=', 'users.id')
             ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
             ->where('subsites.subdomain', '=', $subdomain)
             ->whereNotNull('published_at')
-            ->select($columns)
-            ->with([
-                'user',
-            ]);
+            ->select($columns);
     }
 
     public function columns(): array

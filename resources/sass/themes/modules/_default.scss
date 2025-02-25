@@ -194,7 +194,9 @@ input[type='search']:focus {
 .logout-button:active .icon,
 .logout-button:hover .icon,
 .utility-navigation a:active .icon,
-.utility-navigation a:hover .icon {
+.utility-navigation a:hover .icon,
+.utility-navigation a[aria-current='page']:link .icon,
+.utility-navigation a[aria-current='page']:visited .icon {
     filter: invert(67%) sepia(59%) saturate(368%) hue-rotate(41deg) brightness(97%) contrast(89%);
 }
 

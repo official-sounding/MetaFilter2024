@@ -17,6 +17,7 @@ use App\Traits\PostTrait;
 use App\Traits\RedirectTrait;
 use App\Traits\SubsiteTrait;
 use Illuminate\Contracts\View\View;
+use Throwable;
 
 final class PostWizardComponent extends BaseWizardComponent
 {
@@ -67,13 +68,13 @@ final class PostWizardComponent extends BaseWizardComponent
     {
         $this->validate();
 
-        $stored = $this->storePost();
+        try {
+            $stored = $this->storePost();
 
-        if ($stored) {
             $this->post = $stored;
             $this->currentStep = 2;
-        } else {
-            // TODO: Add error message
+        } catch (Throwable $exception) {
+            $this->logError($exception, 'Error saving post as pending');
         }
     }
 
@@ -85,64 +86,73 @@ final class PostWizardComponent extends BaseWizardComponent
 
     public function saveAsDraft(): void
     {
+        \Log::debug('saveAsDraft');
         $state = PostStateEnum::Draft->value;
 
         $data = [
             'state' => $state,
         ];
 
-        $updated = $this->postService->update($this->post->id, $data);
-
-        if ($updated) {
-            $url = $this->getPostShowUrl($this->post);
-            $type = NotificationTypeEnum::Success->value;
-            $message = NotificationMessageEnum::PostDraftSuccess->value;
-
-            $this->redirectToUrlWithNotification($url, $type, $message);
-        } else {
-            // TODO: Add error message
+        try {
+            $this->postService->update($this->post->id, $data);
+        } catch (Throwable $exception) {
+            $this->logError($exception, 'Error updating post to draft');
         }
+
+        $url = $this->getPostShowUrl($this->post);
+        $type = NotificationTypeEnum::Success->value;
+        $message = NotificationMessageEnum::PostDraftSuccess->value;
+
+        $this->redirectToUrlWithNotification($url, $type, $message);
     }
 
     public function publishPost(): void
     {
-        $publishedAt = $this->getFormattedInsertDateTime(now());
+        \Log::debug('publishPost');
 
-        $data = [
-            'published_at' => $publishedAt,
-            'is_published' => true,
-        ];
+        try {
+            $publishedAt = $this->getFormattedInsertDateTime(now());
 
-        $published = $this->postService->update($this->post->id, $data);
+            $data = [
+                'published_at' => $publishedAt,
+                'is_published' => true,
+            ];
 
-        if ($published) {
-            $url = $this->getPostShowUrl($this->post);
-            $type = NotificationTypeEnum::Success->value;
-            $message = NotificationMessageEnum::PostPublishSuccess->value;
-
-            $this->redirectToUrlWithNotification($url, $type, $message);
-        } else {
-            // TODO: Add error message
+            $this->postService->update($this->post->id, $data);
+        } catch (Throwable $exception) {
+            $this->logError($exception, 'Error publishing post');
         }
+
+        $url = $this->getPostShowUrl($this->post);
+        $type = NotificationTypeEnum::Success->value;
+        $message = NotificationMessageEnum::PostPublishSuccess->value;
+
+        $this->redirectToUrlWithNotification($url, $type, $message);
     }
 
     private function storePost(): ?Post
     {
-        $state = PostStateEnum::Pending->value;
+        try {
+            $state = PostStateEnum::Pending->value;
 
-        $dto = new PostDto(
-            title: $this->title,
-            link_url: $this->link_url ?? null,
-            link_text: $this->link_text ?? null,
-            body: $this->body,
-            more_inside: $this->more_inside,
-            user_id: auth()->id(),
-            subsite_id: $this->subsiteId,
-            state: $state,
-            published_at: null,
-            is_published: false,
-        );
+            $dto = new PostDto(
+                title: $this->title,
+                link_url: $this->link_url ?? null,
+                link_text: $this->link_text ?? null,
+                body: $this->body,
+                more_inside: $this->more_inside,
+                user_id: auth()->id(),
+                subsite_id: $this->subsiteId,
+                state: $state,
+                published_at: null,
+                is_published: false,
+            );
 
-        return $this->postService->store($dto);
+            return $this->postService->store($dto);
+        } catch (Throwable $exception) {
+            $this->logError($exception, 'Error storing post');
+
+            return null;
+        }
     }
 }

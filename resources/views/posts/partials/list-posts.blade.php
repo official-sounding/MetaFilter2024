@@ -7,8 +7,9 @@
 
         @include('posts.partials.post-index-footer', [
             'post' => $post,
-            'userId' => $post->user_id,
-            'username' => $post->username,
+            'user' => $post->user,
+            'username' => $post->user->username,
+            'userId' => $post->user->id,
             'commentsCount' => $post->comments()->count(),
         ])
     </article>

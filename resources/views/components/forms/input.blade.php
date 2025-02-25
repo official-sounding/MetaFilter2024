@@ -27,7 +27,7 @@
         value="{{ old($name) }}"
         wire:model.live="{{ $name }}"
         @if ($autofocus === true)
-            autofocus="autofocus"
+            autofocus
         @endif
     />
 
