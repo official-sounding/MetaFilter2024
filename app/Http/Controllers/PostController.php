@@ -27,13 +27,10 @@ final class PostController extends BaseController
         parent::__construct();
     }
 
-    public function index(int $page = 1): View
+    public function index(): View
     {
-        $datePosts = $this->postRepository->getBySubdomain($page);
-
         return view('posts.index', [
             'title' => trans('Posts'),
-            'datePosts' => $datePosts,
             'showSecondaryNavigation' => true,
         ]);
     }

@@ -1,9 +1,7 @@
 <a title="{{ trans($titleText) }}"
-   href="{{ route($memberShowRoute, [
-        'user' => $user
-    ]) }}">
+   href="/members/{{ $user->id }}">
     @if ($showIcon === true)
-        <x-icons.icon-component filename="person" />
+        <x-icons.icon-component filename="{{ $filename }}" />
     @endif
     {{ $user->username }}
 </a>

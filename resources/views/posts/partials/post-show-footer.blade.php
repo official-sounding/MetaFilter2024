@@ -1,5 +1,13 @@
 <footer class="post-footer post-show-footer">
-    <x-members.profile-link-component :user="$post->user" />
+    <a title="View {{ $post->user->username }}'s profile"
+       href="/members/{{ $post->user->id }}">
+        @if ($post->user->id === auth()->id())
+            <x-icons.icon-component filename="person-fill" />
+        @else
+            <x-icons.icon-component filename="person" />
+        @endif
+        {{ $post->user->username }}
+    </a>
 
     <span>
         <x-icons.icon-component filename="chat" />

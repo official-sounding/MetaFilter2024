@@ -13,6 +13,7 @@ final class ProfileLinkComponent extends Component
     public string $filename = 'person';
     public bool $showIcon = true;
     public string $titleText = '';
+    public string $username = '';
     public int $userId = 0;
     public User $user;
 
@@ -30,7 +31,8 @@ final class ProfileLinkComponent extends Component
     public function render(): View
     {
         return view('components.members.profile-link-component', [
-            'user' => $this->user,
+            'username' => $this->username,
+            'userId' => $this->userId,
             'filename' => $this->filename,
             'showIcon' => $this->showIcon,
         ]);
@@ -38,11 +40,23 @@ final class ProfileLinkComponent extends Component
 
     private function getFilename(): string
     {
-        return $this->user->username === auth()->user()->username ? 'person-fill' : $this->filename;
+        $filename = 'person';
+
+        if (isset($this->user->username) && $this->user->username === auth()->user()->username) {
+            $filename = 'person-fill';
+        }
+
+        return $filename;
     }
 
     private function getTitleText(): string
     {
-        return 'View ' . $this->user->username . "'s profile";
+        $text = 'View profile';
+
+        if (isset($this->user->username)) {
+            $text = 'View ' . $this->user->username . "'s profile";
+        }
+
+        return $text;
     }
 }
