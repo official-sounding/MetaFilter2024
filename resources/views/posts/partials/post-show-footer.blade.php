@@ -23,3 +23,27 @@
 
     <x-buttons.copy-url-button url="{{ $canonicalUrl }}" />
 </footer>
+
+<footer class="post-footer post-admin-footer">
+    <button>
+        <x-icons.icon-component filename="pencil-square" />
+        {{ trans('Edit') }}
+    </button>
+
+    <button>
+        <x-icons.icon-component filename="card-text" />
+        {{ trans('Note') }}
+    </button>
+
+    <button>
+        <x-icons.icon-component filename="eye-fill" />
+        {{ trans('Close Thread') }}
+    </button>
+
+    <button>
+        <x-icons.icon-component filename="eye-fill" />
+        {{ trans('Watch') }}
+    </button>
+
+    edit | note | close thread [watch]
+</footer>
