@@ -7,28 +7,31 @@
                 </a>
             </h3>
         </header>
-        preview
+
+        {{ $post->body ?? '' }}
+
+        {{ $post->more_inside ?? '' }}
     </article>
 
     <div class="level">
         <x-forms.button
             class="tertiary-button previous-step"
             type="button"
-            wire:click.prevent="goToStep(1)">
+            wire:click="goToStep(1)">
             {{ trans('Edit') }}
         </x-forms.button>
 
         <x-forms.button
-            class="secondary-button previous-step"
             type="button"
-            wire:click.prevent="saveAsDraft()">
+            class="secondary-button previous-step"
+            wire:click="saveAsDraft({{ $post->id }}">
             {{ trans('Save as Draft') }}
         </x-forms.button>
 
         <x-forms.button
-            type="submit"
+            type="button"
             class="primary-button next-step"
-            wire:click.prevent="publishPost()">
+            wire:click="publishPost({{ $post->id }})">
             {{ trans('Post') }}
         </x-forms.button>
     </div>
