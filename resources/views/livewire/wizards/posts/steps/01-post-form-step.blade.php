@@ -58,4 +58,8 @@
             {{ trans('Next') }}
         </x-forms.button>
     </div>
+
+    <script>
+        document.getElementById('title').focus();
+    </script>
 </form>
