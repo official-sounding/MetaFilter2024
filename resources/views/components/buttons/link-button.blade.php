@@ -1,5 +1,5 @@
 <a href="{{ $url }}" class="button link-button">
-    @if ($iconFilename !== '')
+    @if (isset($iconFilename) && $iconFilename !== '')
         <x-icons.icon-component filename="{{ $iconFilename }}" />
     @endif
     {{ $buttonText }}
