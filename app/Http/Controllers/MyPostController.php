@@ -58,6 +58,14 @@ final class MyPostController extends BaseController
         ]);
     }
 
+    public function preview(Post $post): View
+    {
+        return view('my-posts.preview', [
+            'title' => $this->getEditPostText(),
+            'post' => compact($post),
+        ]);
+    }
+
     public function update(UpdatePostRequest $request, Post $post): void
     {
         $updated = $this->postService->update($request->validated());
