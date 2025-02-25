@@ -36,7 +36,7 @@
     </button>
 
     <button>
-        <x-icons.icon-component filename="eye-fill" />
+        <x-icons.icon-component filename="x-square-fill" />
         {{ trans('Close Thread') }}
     </button>
 
@@ -44,6 +44,4 @@
         <x-icons.icon-component filename="eye-fill" />
         {{ trans('Watch') }}
     </button>
-
-    edit | note | close thread [watch]
 </footer>
