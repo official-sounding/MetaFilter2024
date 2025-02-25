@@ -8,56 +8,56 @@ return [
     'menu_items' => [
         [
             'name' => 'MetaFilter',
-            'route' => RouteNameEnum::MetaFilterPostIndex,
+            'route' => RouteNameEnum::MetaFilterPostIndex->value,
         ],
         [
             'name' => 'Ask MeFi',
-            'route' => RouteNameEnum::AskPostIndex,
+            'route' => RouteNameEnum::AskPostIndex->value,
         ],
         [
             'name' => 'FanFare',
-            'route' => RouteNameEnum::FanfarePostIndex,
+            'route' => RouteNameEnum::FanfarePostIndex->value,
         ],
         [
             'name' => 'Projects',
-            'route' => RouteNameEnum::ProjectsPostIndex,
+            'route' => RouteNameEnum::ProjectsPostIndex->value,
         ],
         [
             'name' => 'Music',
-            'route' => RouteNameEnum::MusicPostIndex,
+            'route' => RouteNameEnum::MusicPostIndex->value,
         ],
         [
             'name' => 'Jobs',
-            'route' => RouteNameEnum::JobsPostIndex,
+            'route' => RouteNameEnum::JobsPostIndex->value,
         ],
         [
             'name' => 'IRL',
-            'route' => RouteNameEnum::IrlPostIndex,
+            'route' => RouteNameEnum::IrlPostIndex->value,
         ],
         [
             'name' => 'MetaTalk',
-            'route' => RouteNameEnum::MetaTalkPostIndex,
+            'route' => RouteNameEnum::MetaTalkPostIndex->value,
         ],
         [
             'name' => 'Best Of',
-            'route' => RouteNameEnum::BestOfHomeIndex,
+            'route' => RouteNameEnum::BestOfHomeIndex->value,
             'start_dropdown' => true,
         ],
         [
             'name' => 'Podcast',
-            'route' => RouteNameEnum::PodcastPostIndex,
+            'route' => RouteNameEnum::PodcastPostIndex->value,
         ],
         [
             'name' => 'Chat',
-            'route' => RouteNameEnum::ChatHomeIndex,
+            'route' => RouteNameEnum::ChatHomeIndex->value,
         ],
         [
             'name' => 'Labs',
-            'route' => RouteNameEnum::LabsHomeIndex,
+            'route' => RouteNameEnum::LabsHomeIndex->value,
         ],
         [
             'name' => 'Mall',
-            'route' => RouteNameEnum::MallHomeIndex,
+            'route' => RouteNameEnum::MallHomeIndex->value,
         ],
     ],
 ];
