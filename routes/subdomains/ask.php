@@ -24,7 +24,10 @@ Route::middleware('auth')->group(function () {
         Route::post('store', 'store')
             ->name(RouteNameEnum::AskMyPostsStore);
 
-        Route::get('edit', 'edit')
+        Route::get('preview/{post}', 'preview')
+            ->name(RouteNameEnum::AskMyPostsPreview);
+
+        Route::get('edit/{post}', 'edit')
             ->name(RouteNameEnum::AskMyPostsEdit);
 
         Route::post('update', 'update')

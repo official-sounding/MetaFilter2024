@@ -37,6 +37,7 @@ enum RouteNameEnum: string
     case AskMyPostsIndex = 'ask.my-posts.index';
     case AskMyPostsShow = 'ask.my-posts.show';
     case AskMyPostsCreate = 'ask.my-posts.create';
+    case AskMyPostsPreview = 'ask.my-posts.preview';
     case AskMyPostsStore = 'ask.my-posts.store';
     case AskMyPostsEdit = 'ask.my-posts.edit';
     case AskMyPostsUpdate = 'ask.my-posts.update';
@@ -73,6 +74,7 @@ enum RouteNameEnum: string
     case FanFareMyPostsIndex = 'fanfare.my-posts.index';
     case FanFareMyPostsShow = 'fanfare.my-posts.show';
     case FanFareMyPostsCreate = 'fanfare.my-posts.create';
+    case FanFareMyPostsPreview = 'fanfare.my-posts.preview';
     case FanFareMyPostsStore = 'fanfare.my-posts.store';
     case FanFareMyPostsEdit = 'fanfare.my-posts.edit';
     case FanFareMyPostsUpdate = 'fanfare.my-posts.update';
@@ -94,6 +96,7 @@ enum RouteNameEnum: string
     case IrlMyPostsIndex = 'irl.my-posts.index';
     case IrlMyPostsShow = 'irl.my-posts.show';
     case IrlMyPostsCreate = 'irl.my-posts.create';
+    case IrlMyPostsPreview = 'irl.my-posts.preview';
     case IrlMyPostsStore = 'irl.my-posts.store';
     case IrlMyPostsEdit = 'irl.my-posts.edit';
     case IrlMyPostsUpdate = 'irl.my-posts.update';
@@ -109,6 +112,7 @@ enum RouteNameEnum: string
     case JobsMyPostsCreate = 'jobs.my-posts.create';
     case JobsMyPostsJobCreate = 'jobs.my-post-job.create';
     case JobsMyPostsAvailabilityCreate = 'jobs.my-post-availability.create';
+    case JobsMyPostsPreview = 'jobs.my-posts.preview';
     case JobsMyPostsStore = 'jobs.my-posts.store';
     case JobsMyPostsEdit = 'jobs.my-posts.edit';
     case JobsMyPostsUpdate = 'jobs.my-posts.update';
@@ -158,6 +162,7 @@ enum RouteNameEnum: string
     case MetaFilterMyPostsIndex = 'metafilter.my-posts.index';
     case MetaFilterMyPostsShow = 'metafilter.my-posts.show';
     case MetaFilterMyPostsCreate = 'metafilter.my-posts.create';
+    case MetaFilterMyPostsPreview = 'metafilter.my-posts.preview';
     case MetaFilterMyPostsStore = 'metafilter.my-posts.store';
     case MetaFilterMyPostsEdit = 'metafilter.my-posts.edit';
     case MetaFilterMyPostsUpdate = 'metafilter.my-posts.update';
@@ -174,6 +179,7 @@ enum RouteNameEnum: string
     case MetaTalkMyPostsIndex = 'metatalk.my-posts.index';
     case MetaTalkMyPostsShow = 'metatalk.my-posts.show';
     case MetaTalkMyPostsCreate = 'metatalk.my-posts.create';
+    case MetaTalkMyPostsPreview = 'metatalk.my-posts.preview';
     case MetaTalkMyPostsStore = 'metatalk.my-posts.store';
     case MetaTalkMyPostsEdit = 'metatalk.my-posts.edit';
     case MetaTalkMyPostsUpdate = 'metatalk.my-posts.update';
@@ -194,6 +200,7 @@ enum RouteNameEnum: string
     case MusicMyPostsCreate = 'music.my-posts-create';
     case MusicMyPostsSongCreate = 'music.my-posts-song.create';
     case MusicMyPostsTalkCreate = 'music.my-posts-talk.create';
+    case MusicMyPostsPreview = 'music.my-posts.preview';
     case MusicMyPostsStore = 'music.my-posts.store';
     case MusicMyPostsEdit = 'music.my-posts.edit';
     case MusicMyPostsUpdate = 'music.my-posts.update';
@@ -209,6 +216,7 @@ enum RouteNameEnum: string
     case PodcastMyPostsIndex = 'podcast.my-posts.index';
     case PodcastMyPostsShow = 'podcast.my-posts.show';
     case PodcastMyPostsCreate = 'podcast.my-posts.create';
+    case PodcastMyPostsPreview = 'podcast.my-posts.preview';
     case PodcastMyPostsStore = 'podcast.my-posts.store';
     case PodcastMyPostsEdit = 'podcast.my-posts.edit';
     case PodcastMyPostsUpdate = 'podcast.my-posts.update';
@@ -226,6 +234,7 @@ enum RouteNameEnum: string
     case ProjectsMyPostsIndex = 'projects.my-posts.index';
     case ProjectsMyPostsShow = 'projects.my-posts.show';
     case ProjectsMyPostsCreate = 'projects.my-posts.create';
+    case ProjectsMyPostsPreview = 'projects.my-posts.preview';
     case ProjectsMyPostsStore = 'projects.my-posts.store';
     case ProjectsMyPostsEdit = 'projects.my-posts.edit';
     case ProjectsMyPostsUpdate = 'projects.my-posts.update';

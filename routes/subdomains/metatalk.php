@@ -26,7 +26,10 @@ Route::middleware('auth')->group(function () {
             Route::post('store', 'store')
                 ->name(RouteNameEnum::MetaTalkMyPostsStore);
 
-            Route::get('edit', 'edit')
+            Route::get('preview/{post}', 'preview')
+                ->name(RouteNameEnum::MetaTalkMyPostsPreview);
+
+            Route::get('edit/{post}', 'edit')
                 ->name(RouteNameEnum::MetaTalkMyPostsEdit);
 
             Route::post('update', 'update')

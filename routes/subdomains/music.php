@@ -32,7 +32,10 @@ Route::middleware('auth')->group(function () {
             Route::post('store', 'store')
                 ->name(RouteNameEnum::MusicMyPostsStore);
 
-            Route::get('edit', 'edit')
+            Route::get('preview/{post}', 'preview')
+                ->name(RouteNameEnum::MusicMyPostsPreview);
+
+            Route::get('edit/{post}', 'edit')
                 ->name(RouteNameEnum::MusicMyPostsEdit);
 
             Route::post('update', 'update')
