@@ -14,9 +14,4 @@ return new class extends Migration
             {{ definition }}
         });
     }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('{{ table }}');
-    }
 };
