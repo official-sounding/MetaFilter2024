@@ -20,11 +20,8 @@ final class ProfileLinkComponent extends Component
     public function __construct(User $user, bool $showIcon = true)
     {
         $this->user = $user;
-
         $this->filename = $this->getFilename();
-
         $this->showIcon = $showIcon;
-
         $this->titleText = $this->getTitleText();
     }
 
