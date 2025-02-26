@@ -38,6 +38,18 @@ trait SubsiteTrait
         };
     }
 
+    public function getPreviewPostText(): string
+    {
+        $subdomain = $this->getSubdomain();
+
+        return match ($subdomain) {
+            'ask' => trans('Preview Question'),
+            'irl' => trans('Preview Event'),
+            'projects' => trans('Preview Project'),
+            default => trans('Preview Post'),
+        };
+    }
+
     public function getSubdomain(): string
     {
         if (session()->has('subdomain')) {
