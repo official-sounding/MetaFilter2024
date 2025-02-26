@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use App\Enums\RouteNameEnum;
 use App\Http\Controllers\Jobs\PostJobController;
-use App\Http\Controllers\MyPostController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\Posts\MyPostController;
+use App\Http\Controllers\Posts\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {

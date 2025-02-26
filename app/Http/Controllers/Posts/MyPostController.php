@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Posts;
 
+use App\Http\Controllers\BaseController;
 use App\Http\Requests\Post\StorePostRequest;
 use App\Http\Requests\Post\UpdatePostRequest;
 use App\Models\Post;
@@ -34,10 +35,8 @@ final class MyPostController extends BaseController
     public function show(Post $post): View
     {
         return view('posts.show', [
-            'title' => $post->title,
+            'title' => $this->getPreviewPostText(),
             'post' => $post,
-            'next' => $post->next(),
-            'previous' => $post->previous(),
         ]);
     }
 
@@ -54,15 +53,7 @@ final class MyPostController extends BaseController
     {
         return view('my-posts.edit', [
             'title' => $this->getEditPostText(),
-            'post' => compact($post),
-        ]);
-    }
-
-    public function preview(Post $post): View
-    {
-        return view('my-posts.preview', [
-            'title' => $this->getEditPostText(),
-            'post' => compact($post),
+            'post' => $post,
         ]);
     }
 

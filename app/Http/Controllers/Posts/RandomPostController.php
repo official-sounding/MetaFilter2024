@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Posts;
 
+use App\Http\Controllers\BaseController;
 use App\Repositories\PostRepositoryInterface;
 use Illuminate\Http\RedirectResponse;
 

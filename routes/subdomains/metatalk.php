@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 use App\Enums\RouteNameEnum;
 use App\Http\Controllers\MyFavoritesController;
-use App\Http\Controllers\MyPostController;
-use App\Http\Controllers\PopularPostController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\Posts\MyPostController;
+use App\Http\Controllers\Posts\PopularPostController;
+use App\Http\Controllers\Posts\PostController;
 use App\Http\Controllers\RecentCommentsController;
 use Illuminate\Support\Facades\Route;
 

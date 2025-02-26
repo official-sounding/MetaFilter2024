@@ -12,13 +12,13 @@ use App\Http\Controllers\MeFiMailController;
 use App\Http\Controllers\MyCommentsController;
 use App\Http\Controllers\MyFavoritesController;
 use App\Http\Controllers\MyMeFiController;
-use App\Http\Controllers\MyPostController;
+use App\Http\Controllers\Posts\MyPostController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\PopularPostController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\Posts\PopularPostController;
+use App\Http\Controllers\Posts\PostController;
 use App\Http\Controllers\PreferencesController;
 use App\Http\Controllers\MemberController;
-use App\Http\Controllers\RandomPostController;
+use App\Http\Controllers\Posts\RandomPostController;
 use App\Http\Controllers\RecentActivityController;
 use App\Http\Controllers\RecentCommentsController;
 use App\Http\Controllers\TagController;
@@ -61,26 +61,23 @@ Route::middleware('auth')->group(function () {
     Route::get('my-mefi', [MyMeFiController::class, 'index'])
         ->name(RouteNameEnum::MetaFilterMyMeFiIndex);
 
-    Route::controller(MyPostController::class)->prefix('my-posts')->group(function () {
-        Route::get('', 'index')
+    Route::controller(MyPostController::class)->group(function () {
+        Route::get('my-posts', 'index')
             ->name(RouteNameEnum::MetaFilterMyPostsIndex);
 
-        Route::get('{post}/{slug}', 'show')
-            ->name(RouteNameEnum::MetaFilterMyPostsShow);
-
-        Route::get('create', 'create')
+        Route::get('my-posts/create', 'create')
             ->name(RouteNameEnum::MetaFilterMyPostsCreate);
 
-        Route::post('store', 'store')
+        Route::post('my-posts/store', 'store')
             ->name(RouteNameEnum::MetaFilterMyPostsStore);
 
-        Route::get('preview/{post}', 'preview')
+        Route::get('my-posts/preview/{post}', 'preview')
             ->name(RouteNameEnum::MetaFilterMyPostsPreview);
 
-        Route::get('edit/{post}', 'edit')
+        Route::get('my-posts/edit/{post}', 'edit')
             ->name(RouteNameEnum::MetaFilterMyPostsEdit);
 
-        Route::post('update', 'update')
+        Route::post('my-posts/update', 'update')
             ->name(RouteNameEnum::MetaFilterMyPostsUpdate);
     });
 
