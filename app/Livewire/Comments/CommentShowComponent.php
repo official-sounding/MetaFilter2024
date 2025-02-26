@@ -28,6 +28,7 @@ final class CommentShowComponent extends Component
     public bool $isReplying = false;
     public bool $userFavorited = false;
     public bool $userFlagged = false;
+    public bool $userWatching = false;
 
     public function mount(Comment $comment): void
     {
