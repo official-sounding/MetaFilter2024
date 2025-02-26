@@ -34,6 +34,9 @@
         <livewire:comments.comment-index-component :post="$post" />
     </section>
 
-    @include('posts.partials.related-posts')
+    @if (isset($relatedPosts))
+        @include('posts.partials.related-posts')
+    @endif
+
     @include('posts.partials.previous-next')
 @endsection

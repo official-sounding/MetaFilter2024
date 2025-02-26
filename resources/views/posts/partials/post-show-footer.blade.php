@@ -21,7 +21,9 @@
         {{ trans('marked this as a favorite') }}
     @endif
 
-    <x-buttons.copy-url-button url="{{ $canonicalUrl }}" />
+    @if (isset($canonicalUrl))
+        <x-buttons.copy-url-button url="{{ $canonicalUrl }}" />
+    @endif
 </footer>
 
 <footer class="post-footer post-admin-footer">
