@@ -38,12 +38,12 @@
     </button>
 
     <button>
-        <x-icons.icon-component filename="x-square-fill" />
+        <x-icons.icon-component filename="x-square" />
         {{ trans('Close Thread') }}
     </button>
 
     <button>
-        <x-icons.icon-component filename="eye-fill" />
+        <x-icons.icon-component filename="eye" />
         {{ trans('Watch') }}
     </button>
 </footer>
