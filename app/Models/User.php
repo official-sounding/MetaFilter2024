@@ -113,6 +113,11 @@ final class User extends Authenticatable implements
         return $this->hasMany(Comment::class);
     }
 
+    public function passkeys(): HasMany
+    {
+        return $this->hasMany(Passkey::class);
+    }
+
     public function getFilamentName(): string
     {
         return $this->username;
