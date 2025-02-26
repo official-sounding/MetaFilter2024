@@ -4,33 +4,47 @@ declare(strict_types=1);
 
 namespace App\Mail;
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Mail\Mailable;
+use App\Dtos\ContactMessageDto;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Queue\SerializesModels;
 
-final class ContactFormMessage extends Mailable
+final class ContactFormMessage extends BaseMailable
 {
-    use Queueable;
-    use SerializesModels;
-
-    public function __construct()
+    public function __construct(public ContactMessageDto $dto)
     {
-        //
     }
 
     public function envelope(): Envelope
     {
-        return new Envelope(
-            subject: 'Contact Form Message',
+        $senderName = $this->dto->name;
+        $senderEmail = $this->dto->email;
+
+        $envelope = new Envelope(
+            from: new Address(
+                address: $senderEmail,
+                name: $senderName,
+            ),
+            subject: $this->dto->subject,
         );
+
+        if ($this->dto->copySender === true) {
+            $envelope->cc(
+                address: $senderEmail,
+                name: $senderName,
+            );
+        }
+
+        return $envelope;
     }
 
     public function content(): Content
     {
         return new Content(
-            view: 'emails.contact-form-message',
+            view: 'emails.contact-form',
+            with: [
+                'dto' => $this->dto
+            ],
         );
     }
 }

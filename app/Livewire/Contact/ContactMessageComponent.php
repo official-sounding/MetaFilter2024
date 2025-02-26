@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Livewire\Contact;
 
+use App\Dtos\ContactMessageDto;
 use App\Http\Requests\Contact\StoreContactMessageRequest;
+use App\Services\ContactMessageService;
 use App\Services\EmailService;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
@@ -30,19 +32,19 @@ final class ContactMessageComponent extends Component
         return view('livewire.contact.contact-form');
     }
 
-    public function store(EmailService $emailService): void
+    public function store(ContactMessageService $contactMessageService): void
     {
         $this->validate();
 
-        $data = [
-            'name' => $this->name,
-            'email' => $this->email,
-            'subject' => $this->subject,
-            'copy_sender' => $this->copy_sender,
-            'message' => $this->message,
-        ];
+        $dto = new ContactMessageDto(
+            name: $this->name,
+            email: $this->email,
+            subject: $this->subject,
+            message: $this->message,
+            copySender: $this->copy_sender,
+        );
 
-        $stored = $emailService->store($data);
+        $stored = $contactMessageService->handle($dto);
 
         $this->reset();
 

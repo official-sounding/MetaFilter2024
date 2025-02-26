@@ -4,26 +4,26 @@ declare(strict_types=1);
 
 namespace App\Mail;
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Mail\Mailable;
+use App\Models\User;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Queue\SerializesModels;
 
-final class VerifyEmail extends Mailable
+final class VerifyEmail extends BaseMailable
 {
-    use Queueable;
-    use SerializesModels;
+    public function __construct(
+        public User $user,
+    ) {}
 
-    public function __construct()
-    {
-        //
-    }
 
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Verify Email Address for MetaFilter',
+            to: new Address(
+                address: $this->user->email,
+                name: $this->user->username,
+            ),
+            subject: trans('Please Verify Your Email Address'),
         );
     }
 
@@ -31,6 +31,9 @@ final class VerifyEmail extends Mailable
     {
         return new Content(
             view: 'emails.verify-email',
+            with: [
+                'user' => $this->user,
+            ],
         );
     }
 }
