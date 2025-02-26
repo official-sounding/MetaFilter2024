@@ -5,12 +5,9 @@ declare(strict_types=1);
 namespace {{ namespace }};
 
 use App\Http\Requests\BaseFormRequest;
-use App\Traits\FormRequestTrait;
 
 class {{ class }} extends BaseFormRequest
 {
-    use FormRequestTrait;
-
     public function authorize(): bool
     {
         return false;
