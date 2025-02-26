@@ -1,13 +1,15 @@
 <footer class="post-footer post-show-footer">
-    <a title="View {{ $post->user->username }}'s profile"
-       href="/members/{{ $post->user->id }}">
-        @if ($post->user->id === auth()->id())
-            <x-icons.icon-component filename="person-fill" />
-        @else
-            <x-icons.icon-component filename="person" />
-        @endif
-        {{ $post->user->username }}
-    </a>
+    <address>
+        <a title="View {{ $post->user->username }}'s profile"
+           href="/members/{{ $post->user->id }}">
+            @if ($post->user->id === auth()->id())
+                <x-icons.icon-component filename="person-fill" />
+            @else
+                <x-icons.icon-component filename="person" />
+            @endif
+            {{ $post->user->username }}
+        </a>
+    </address>
 
     <span>
         <x-icons.icon-component filename="chat" />
@@ -26,24 +28,29 @@
     @endif
 </footer>
 
-<footer class="post-footer post-admin-footer">
-    <button>
-        <x-icons.icon-component filename="pencil-square" />
-        {{ trans('Edit') }}
-    </button>
+@auth()
+    <footer class="post-footer post-admin-footer">
+        <button>
+            <x-icons.icon-component filename="pencil-square" />
+            {{ trans('Edit') }}
+        </button>
 
-    <button>
-        <x-icons.icon-component filename="card-text" />
-        {{ trans('Note') }}
-    </button>
+        <button>
+            <x-icons.icon-component filename="card-text" />
+            {{ trans('Note') }}
+        </button>
 
-    <button>
-        <x-icons.icon-component filename="x-square" />
-        {{ trans('Close Thread') }}
-    </button>
+        {{-- MetaTalk only --}}
+        <button>
+            <x-icons.icon-component filename="x-square" />
+            {{ trans('Close Thread') }}
+        </button>
 
-    <button>
-        <x-icons.icon-component filename="eye" />
-        {{ trans('Watch') }}
-    </button>
-</footer>
+        <livewire:admin.watch-component :model="$post" />
+
+        <button>
+            <x-icons.icon-component filename="eye" />
+            {{ trans('Watch') }}
+        </button>
+    </footer>
+@endauth

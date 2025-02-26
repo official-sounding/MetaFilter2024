@@ -1,18 +1,19 @@
 <footer class="post-footer post-index-footer">
-    <a title="View {{ $post->user->username }}'s profile"
-       href="/members/{{ $post->user->id }}">
-        @if ($post->user->id === auth()->id())
-            <x-icons.icon-component filename="person-fill" />
-        @else
-            <x-icons.icon-component filename="person" />
-        @endif
-        {{ $post->user->username }}
-    </a>
+    <address>
+        <a title="View {{ $post->user->username }}'s profile"
+           href="/members/{{ $post->user->id }}">
+            @if ($post->user->id === auth()->id())
+                <x-icons.icon-component filename="person-fill" />
+            @else
+                <x-icons.icon-component filename="person" />
+            @endif
+            {{ $post->user->username }}
+        </a>
+    </address>
 
-    <span>
-        <x-icons.icon-component filename="clock" />
-        {{ $post->created_at->format('g:i a') }}
-    </span>
+    @include('posts.partials.post-created-at-time', [
+        'post' => $post,
+    ])
 
     <a class="button footer-button"
         href="{{ $post->present()->url }}#comments"
