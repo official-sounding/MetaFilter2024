@@ -101,7 +101,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             $query->where('posts.user_id', '=', auth()->user()->id);
         }
 
-        $query->where('posts.state', '!=', PostStateEnum::Draft->value);
+        $query->where('posts.state', '=', PostStateEnum::Draft->value);
 
         $query->orderBy('posts.created_at', 'desc')->get();
 
