@@ -22,6 +22,8 @@ final class StoreLoginRequest extends BaseFormRequest
             'username' => [
                 'required',
                 'string',
+                'min:4',
+                'max:50',
             ],
             'password' => [
                 'required',
