@@ -17,7 +17,7 @@
 
     <a class="button footer-button"
         href="{{ $post->present()->url }}#comments"
-        title="Comments">
+        title="{{ trans('Comments') }}">
         <x-icons.icon-component filename="chat" />
         {{ $commentsCount > 0 ?: 0 }}
     </a>
