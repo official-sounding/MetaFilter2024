@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
-use App\Enums\RoleNameEnum;
 use App\Models\Comment;
 
 trait CommentTrait
@@ -14,11 +13,6 @@ trait CommentTrait
     public function ownsComment(Comment $comment): bool
     {
         return $comment->user_id === auth()->id();
-    }
-
-    public function isModerator(): bool
-    {
-        return auth()->user()->hasRole(RoleNameEnum::MODERATOR->value);
     }
 
     public function getCommentFormNote(): ?string
