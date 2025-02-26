@@ -45,6 +45,9 @@ return [
         'token' => env('GITHUB_TOKEN'),
         'url' => env('GITHUB_API_URL', 'https://api.github.com/'),
     ],
+    'ipinfo' => [
+        'access_token' => env('IPINFO_SECRET'),
+    ],
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
