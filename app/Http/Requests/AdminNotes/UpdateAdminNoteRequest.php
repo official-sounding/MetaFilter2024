@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\ModeratorNotes;
+namespace App\Http\Requests\AdminNotes;
 
-final class UpdateModeratorNoteRequest extends StoreModeratorNoteRequest
+final class UpdateAdminNoteRequest extends StoreAdminNoteRequest
 {
     public function authorize(): bool
     {

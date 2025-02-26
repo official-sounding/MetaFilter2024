@@ -8,21 +8,21 @@ use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\File;
 
-trait ModeratorSeederTrait
+trait AdminSeederTrait
 {
     use LoggingTrait;
     use WithoutModelEvents;
 
-    public function getModeratorsFromJson(): mixed
+    public function getAdminsFromJson(): mixed
     {
-        $path = storage_path('app/imports/metafilter-moderators.json');
+        $path = storage_path('app/imports/metafilter-admin.json');
 
         try {
             $json = File::get($path);
 
             return json_decode($json, true);
         } catch (FileNotFoundException $e) {
-            $this->logDebugMessage('Moderators JSON file could not be read: ' . $e->getMessage());
+            $this->logDebugMessage('Admins JSON file could not be read: ' . $e->getMessage());
 
             return null;
         }

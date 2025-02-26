@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Repositories\AdminNoteRepository;
+use App\Repositories\AdminNoteRepositoryInterface;
 use App\Repositories\BannerLinkRepository;
 use App\Repositories\BannerLinkRepositoryInterface;
 use App\Repositories\CategoryRepository;
@@ -22,8 +24,6 @@ use App\Repositories\FlagRepository;
 use App\Repositories\FlagRepositoryInterface;
 use App\Repositories\MeFiMailRepository;
 use App\Repositories\MeFiMailRepositoryInterface;
-use App\Repositories\ModeratorNoteRepository;
-use App\Repositories\ModeratorNoteRepositoryInterface;
 use App\Repositories\SimplePageRepository;
 use App\Repositories\SimplePageRepositoryInterface;
 use App\Repositories\PostRepository;
@@ -52,7 +52,7 @@ final class RepositoryServiceProvider extends ServiceProvider
             FlagReasonRepositoryInterface::class => FlagReasonRepository::class,
             FlagRepositoryInterface::class => FlagRepository::class,
             MeFiMailRepositoryInterface::class => MeFiMailRepository::class,
-            ModeratorNoteRepositoryInterface::class => ModeratorNoteRepository::class,
+            AdminNoteRepositoryInterface::class => AdminNoteRepository::class,
             SimplePageRepositoryInterface::class => SimplePageRepository::class,
             SnippetRepositoryInterface::class => SnippetRepository::class,
             PostRepositoryInterface::class => PostRepository::class,

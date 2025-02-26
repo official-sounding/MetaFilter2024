@@ -7,15 +7,15 @@ namespace Database\Seeders\Production;
 use App\Enums\RoleNameEnum;
 use App\Models\User;
 use App\Traits\LoggingTrait;
-use App\Traits\ModeratorSeederTrait;
+use App\Traits\AdminSeederTrait;
 use App\Traits\PermissionAndRoleTrait;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-final class ModeratorRoleSeeder extends Seeder
+final class AdminRoleSeeder extends Seeder
 {
     use LoggingTrait;
-    use ModeratorSeederTrait;
+    use AdminSeederTrait;
     use PermissionAndRoleTrait;
     use WithoutModelEvents;
 
@@ -23,17 +23,16 @@ final class ModeratorRoleSeeder extends Seeder
     {
         $this->forgetCachedPermissions();
 
-        $moderators = $this->getModeratorsFromJson();
+        $admins = $this->getAdminsFromJson();
 
-        collect($moderators)->each(function ($moderator) {
-            $user = (new User())->where('email', '=', $moderator['email'])->first();
+        collect($admins)->each(function ($admin) {
+            $user = (new User())->where('email', '=', $admin['email'])->first();
 
             if ($user) {
-
                 $user->assignRole(RoleNameEnum::MODERATOR->label());
 
             } else {
-                $this->logDebugMessage($moderator['email'] . ' not listed in database');
+                $this->logDebugMessage($admin['email'] . ' not listed in database');
             }
         });
 

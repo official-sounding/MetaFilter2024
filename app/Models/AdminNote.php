@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Builders\ModeratorNoteQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,18 +11,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property int $id
- * @property int $moderator_id
+ * @property int $admin_id
  * @property int $notable_id
  * @property string $notable_type
  * @property string $text
  */
-final class ModeratorNote extends Model
+final class AdminNote extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
     protected $fillable = [
-        'moderator_id',
+        'admin_id',
         'notable_id',
         'notable_type',
         'text',
@@ -38,7 +37,7 @@ final class ModeratorNote extends Model
     */
     // Relationships
 
-    public function moderator(): BelongsTo
+    public function admin(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('moderator_notes', function (Blueprint $table) {
+        Schema::create('admin_notes', function (Blueprint $table) {
             $table->id();
 
             $table->text('text');
 
-            $table->foreignId('moderator_id')
+            $table->foreignId('admin_id')
                 ->constrained('users')
                 ->onDelete('cascade');
 

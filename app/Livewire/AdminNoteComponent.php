@@ -7,10 +7,10 @@ namespace App\Livewire;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-final class ModeratorNoteComponent extends Component
+final class AdminNoteComponent extends Component
 {
     public function render(): View
     {
-        return view('livewire.moderator-note-component');
+        return view('livewire.admin.admin-note-component');
     }
 }

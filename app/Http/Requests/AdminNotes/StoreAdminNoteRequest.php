@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\ModeratorNotes;
+namespace App\Http\Requests\AdminNotes;
 
 use App\Http\Requests\BaseFormRequest;
 
-class StoreModeratorNoteRequest extends BaseFormRequest
+class StoreAdminNoteRequest extends BaseFormRequest
 {
     public function authorize(): bool
     {

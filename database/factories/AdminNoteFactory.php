@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Models\Comment;
-use App\Models\ModeratorNote;
+use App\Models\AdminNote;
 use App\Models\Post;
 use App\Models\User;
 
-final class ModeratorNoteFactory extends BaseFactory
+final class AdminNoteFactory extends BaseFactory
 {
-    protected $model = ModeratorNote::class;
+    protected $model = AdminNote::class;
 
     public function definition(): array
     {

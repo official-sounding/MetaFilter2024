@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\ModeratorNotes;
+namespace App\Livewire\Admin;
 
 use App\Models\BaseModel;
 use App\Traits\AuthStatusTrait;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-final class ModeratorNoteComponent extends Component
+final class AddNoteComponent extends Component
 {
     use AuthStatusTrait;
 
@@ -25,6 +25,6 @@ final class ModeratorNoteComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.moderators.moderator-note-component');
+        return view('livewire.moderators.add-note-component');
     }
 }

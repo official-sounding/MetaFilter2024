@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
-use Database\Seeders\Development\ModeratorSeeder;
+use Database\Seeders\Development\AdminSeeder;
 use Illuminate\Console\Command;
 
 final class RunModeratorSeeder extends Command
@@ -14,7 +14,7 @@ final class RunModeratorSeeder extends Command
 
     public function handle(): void
     {
-        $seeder = new ModeratorSeeder();
+        $seeder = new AdminSeeder();
 
         $seeder->run();
     }
