@@ -17,4 +17,6 @@ enum LivewireEventEnum: string
     case HideFlagCommentForm = 'hide-flag-comment-form';
     case ToggleFlagCommentForm = 'toggle-flag-comment-form';
     case ToggleFlagPostForm = 'toggle-flag-post-form';
+    case WatchingStarted = 'watching-started';
+    case WatchingStopped = 'watching-stopped';
 }
