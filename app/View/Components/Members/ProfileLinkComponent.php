@@ -42,6 +42,10 @@ final class ProfileLinkComponent extends Component
     {
         $filename = 'person';
 
+        if (auth()->guest()) {
+            return $filename;
+        }
+
         if (isset($this->user->username) && $this->user->username === auth()->user()->username) {
             $filename = 'person-fill';
         }
@@ -52,6 +56,10 @@ final class ProfileLinkComponent extends Component
     private function getTitleText(): string
     {
         $text = 'View profile';
+
+        if (auth()->guest()) {
+            return $text;
+        }
 
         if (isset($this->user->username)) {
             $text = 'View ' . $this->user->username . "'s profile";
