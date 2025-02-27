@@ -6,6 +6,7 @@ namespace App\Enums;
 
 enum PostStateEnum: string
 {
+    case Closed = 'closed';
     case Draft = 'draft';
     case Pending = 'pending';
     case Published = 'published';
@@ -13,6 +14,7 @@ enum PostStateEnum: string
     public function label(): string
     {
         return match ($this) {
+            self::Closed => 'Closed',
             self::Draft => 'Draft',
             self::Pending => 'Pending',
             self::Published => 'Published',
