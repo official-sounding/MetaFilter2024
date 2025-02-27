@@ -32,14 +32,15 @@ a:hover {
 }
 
 //noinspection CssInvalidFunction
-.secondary-navigation a.top-bottom-button:link,
-.secondary-navigation a.top-bottom-button:visited {
+a.top-bottom-button:link .icon,
+a.top-bottom-button:visited .icon {
     color: light-dark(var(--dark-base-color), var(--light-base-color));
     background-color: transparent;
 }
 
 //noinspection CssInvalidFunction
-.secondary-navigation a.top-bottom-button:hover {
+a.top-bottom-button:active .icon,
+a.top-bottom-button:hover .icon {
     color: light-dark(var(--dark-base-color), var(--yellow-green));
     background-color: transparent;
 }
