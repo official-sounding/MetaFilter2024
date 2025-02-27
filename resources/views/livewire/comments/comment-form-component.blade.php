@@ -36,13 +36,16 @@
                 @endif
             </button>
         </div>
-
+        {{--
         <small class="smaller">
             <x-icons.icon-component filename="markdown-fill" />
-            <a href="https://www.markdownguide.org/basic-syntax/" class="text-link">
+            <a href="https://www.markdownguide.org/basic-syntax/"
+               class="text-link"
+               target="_blank">
                 {{ trans('Styling with Markdown is supported') }}
             </a>
-            <x-icons.icon-component filename="box-arrow-up-right" alt-text="External link" />
+            <x-icons.icon-component filename="box-arrow-up-right" alt-text="Opens in new tab or window" />
         </small>
+        --}}
     </fieldset>
 </form>
