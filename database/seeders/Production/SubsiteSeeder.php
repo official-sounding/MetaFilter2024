@@ -17,7 +17,7 @@ final class SubsiteSeeder extends Seeder
         $subsites = config('metafilter.seeders.subsites');
 
         foreach ($subsites as $subsite) {
-            Subsite::firstOrCreate([
+            (new Subsite())->firstOrCreate([
                 'name' => $subsite['name'],
                 'nickname' => $subsite['nickname'] ?? null,
                 'logo_filename' => $subsite['logo_filename'] ?? null,
