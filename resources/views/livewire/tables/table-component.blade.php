@@ -1,22 +1,22 @@
 <table>
     <thead>
-    <tr>
-        @foreach ($this->columns() as $column)
-            <th scope="col"
-                wire:click="sort('{{ $column->key }}')"
-                title="Sort by {{ $column->label }}">
-                {{ $column->label }}
+        <tr>
+            @foreach ($this->columns() as $column)
+                <th scope="col"
+                    wire:click="sort('{{ $column->key }}')"
+                    title="Sort by {{ $column->label }}">
+                    {{ $column->label }}
 
-                @if ($orderBy === $column->key)
-                    @if ($sortDirection === 'asc')
-                        <x-icons.icon-component filename="sort-up"/>
-                    @else
-                        <x-icons.icon-component filename="sort-down"/>
+                    @if ($orderBy === $column->key)
+                        @if ($sortDirection === 'asc')
+                            <x-icons.icon-component filename="sort-up"/>
+                        @else
+                            <x-icons.icon-component filename="sort-down"/>
+                        @endif
                     @endif
-                @endif
-            </th>
-        @endforeach
-    </tr>
+                </th>
+            @endforeach
+        </tr>
     </thead>
     <tbody>
         <tr>
@@ -43,6 +43,8 @@
                                 {{ $row[$column->key] }}
                             @endif
                         </th>
+                    @elseif (!is_null($column->dateFormat))
+                        <x-dates.formatted-date-time-component :date="$row[$column->key]" :format="$column->dateFormat" />
                     @else
                         <td>
                             {{ $row[$column->key] }}
