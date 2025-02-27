@@ -23,7 +23,7 @@ final class FaqFactory extends Factory
             'question' => $question,
             'slug' => $this->getSlug($question),
             'answer' => $this->faker->paragraph(),
-            'subsite_id' => Subsite::inRandomOrder()->first(),
+            'subsite_id' => (new Subsite())->inRandomOrder()->first(),
         ];
     }
 }
