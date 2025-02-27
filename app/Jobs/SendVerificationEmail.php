@@ -24,11 +24,11 @@ final class SendVerificationEmail implements ShouldQueue
 
     public function __construct(User $user)
     {
-        //
+        $this->user = $user;
     }
 
     public function handle(): void
     {
-        Mail::send(new VerifyEmail());
+        Mail::send(new VerifyEmail($this->user));
     }
 }
