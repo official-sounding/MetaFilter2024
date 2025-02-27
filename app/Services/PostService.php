@@ -19,6 +19,11 @@ final readonly class PostService
         protected PurifierService $purifierService,
     ) {}
 
+    public function closePost(Post $post): void
+    {
+        $this->postRepository->closePost($post);
+    }
+
     public function store(PostDto $dto): ?Post
     {
         try {
