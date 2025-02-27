@@ -67,7 +67,7 @@ class BaseRepository implements BaseRepositoryInterface
 
     public function getBySlug(string $slug): Model|null
     {
-        return $this->baseQuery()->where('slug', '=', $slug)->firstOrFail();
+        return $this->baseQuery()->where('slug', '=', $slug)->sole();
     }
 
     public function getDropdownValues(string $column, string $key = 'id', bool $cache = true): array
