@@ -7,7 +7,7 @@ namespace App\Livewire\Tables;
 use App\Dtos\TableColumnDto;
 use App\Enums\UserStateEnum;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Query\Builder;
 use Livewire\WithPagination;
 
 final class MemberTableComponent extends TableComponent
