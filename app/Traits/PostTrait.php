@@ -26,6 +26,11 @@ trait PostTrait
             ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
             ->where('subsites.subdomain', '=', $subdomain)
             ->whereNotNull('published_at')
+            ->withCount([
+                'comments',
+                'favorites',
+                'flags',
+            ])
             ->select($columns);
     }
 
