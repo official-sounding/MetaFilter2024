@@ -11,5 +11,6 @@ readonly class TableColumnDto
         public string $label,
         public bool $isRowHeader = false,
         public ?string $route = null,
+        public ?string $dateFormat = null,
     ) {}
 }
