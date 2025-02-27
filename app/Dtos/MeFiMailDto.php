@@ -8,8 +8,7 @@ readonly class MeFiMailDto
 {
     public function __construct(
         public string $subject,
-        public string $body,
-        public string $state,
+        public string $message,
         public int $sender_id,
         public int $recipient_id,
     ) {}

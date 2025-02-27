@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Mail\StoreMailRequest;
+use App\Dtos\MeFiMailDto;
+use App\Http\Requests\Mail\StoreMeFiMailRequest;
 use App\Http\Requests\Mail\UpdateMailRequest;
 use App\Models\MeFiMail;
 use App\Services\MeFiMailService;
@@ -12,7 +13,7 @@ use Illuminate\Contracts\View\View;
 
 final class MeFiMailController extends BaseController
 {
-    private const string TITLE_PREFIX = 'MeFi Mail';
+    private const string TITLE_PREFIX = 'MeFi Mail: ';
 
     public function __construct(
         protected MeFiMailService $mefiMailService,
@@ -22,34 +23,44 @@ final class MeFiMailController extends BaseController
 
     public function index(): View
     {
-        return view('mail.index', [
-            'title' => self::TITLE_PREFIX . 'Your Inbox',
+        return view('mefi-mail.index', [
+            'title' => self::TITLE_PREFIX . trans('Your Inbox'),
         ]);
     }
 
     public function show(MeFiMail $mail): View
     {
-        return view('mail.show', [
-            'title' => self::TITLE_PREFIX . 'Message',
+        return view('mefi-mail.show', [
+            'title' => self::TITLE_PREFIX . trans('Message'),
             'mail' => $mail,
         ]);
     }
 
     public function create(): View
     {
-        return view('mail.create', [
-            'title' => self::TITLE_PREFIX . 'Compose a Message',
+        return view('mefi-mail.create', [
+            'title' => self::TITLE_PREFIX . trans('Compose a Message'),
         ]);
     }
 
-    public function store(StoreMailRequest $request): void
+    public function store(StoreMeFiMailRequest $request): void
     {
-        // TODO: Encrypt before saving
+        $senderId = auth()->id();
+        $recipientId = auth()->id(); // TODO: Change to correct user ID
+
+        $dto = new MeFiMailDto(
+            subject: $request->message,
+            message: $request->subject,
+            sender_id: $senderId,
+            recipient_id: $recipientId,
+        );
+
+        $this->mefiMailService->store($dto);
     }
 
     public function edit(MeFiMail $mail): View
     {
-        return view('mail.edit', [
+        return view('mefi-mail.edit', [
             'title' => trans('Edit Email'),
             'mail' => $mail,
         ]);

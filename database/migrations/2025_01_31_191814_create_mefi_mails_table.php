@@ -12,13 +12,21 @@ return new class extends Migration {
         Schema::create('me_fi_mails', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('sender_id')
+                ->constrained('users')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
+            $table->foreignId('recipient_id')
+                ->constrained('users')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
+            $table->string('subject');
+            $table->text('message');
+
             $table->nullableTimestamps();
             $table->softDeletes();
         });
-    }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('me_fi_mails');
     }
 };

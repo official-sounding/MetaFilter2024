@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @property int $id
  * @property string $subject
- * @property string $body
+ * @property string $message
  * @property int $sender_id
  * @property int $recipient_id
  */
@@ -25,7 +25,7 @@ final class MeFiMail extends BaseModel
 
     protected $fillable = [
         'subject',
-        'body',
+        'message',
         'sender_id',
         'recipient_id',
     ];
