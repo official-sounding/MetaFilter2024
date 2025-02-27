@@ -11,6 +11,7 @@ use App\Models\Post;
 use App\Traits\LoggingTrait;
 use App\Traits\SubsiteTrait;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -42,6 +43,19 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
     public function __construct(Post $model)
     {
         parent::__construct($model);
+    }
+
+    public function closePost(Post $post): void
+    {
+        try {
+            $data = [
+                'state' => PostStateEnum::Closed->value,
+            ];
+
+            $this->update($post->id, $data);
+        } catch (Exception $exception) {
+            $this->logError($exception);
+        }
     }
 
     public function getPosts(int $page = 1): LengthAwarePaginator
@@ -146,7 +160,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
     {
         $query = collect($this->query);
 
-        $query->groupBy(fn($item) => $item->created_at->format('F j'));
+        $query->groupBy(fn ($item) => $item->created_at->format('F j'));
 
         return $this->model->newQuery()
             ->join('users', 'posts.user_id', '=', 'users.id')
@@ -156,7 +170,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             ->select(self::COLUMNS)
             ->orderBy('posts.created_at', 'desc')
             ->get()
-            ->groupBy(fn($item) => $item->created_at->format('F j'));
+            ->groupBy(fn ($item) => $item->created_at->format('F j'));
     }
 
     public function getRelatedPosts(Post $post): Collection

@@ -8,6 +8,8 @@ use App\Models\Post;
 
 interface PostRepositoryInterface extends BaseRepositoryInterface
 {
+    public function closePost(Post $post);
+
     public function getPosts();
 
     public function getBySubdomain();
