@@ -3,11 +3,11 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    @forelse ($emails as $email)
-        {{ $email->subject }}<br>
-    @empty
+    @if (count($emails) > 0)
+        <livewire:tables.mefi-mail-table-component />
+    @else
         @include('notifications.none-listed', [
             'records' => 'MeFi mails'
         ])
-    @endforelse
+    @endif
 @endsection
