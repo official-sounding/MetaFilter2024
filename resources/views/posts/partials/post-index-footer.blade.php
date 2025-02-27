@@ -3,9 +3,7 @@
         <x-members.profile-link-component :user="$post->user" />
     </address>
 
-    @include('posts.partials.post-created-at-time', [
-        'post' => $post,
-    ])
+    at <x-dates.formatted-date-time-component :date="$post->created_at" format="g:i a" />
 
     <a class="button footer-button"
         href="{{ $post->present()->url }}#comments"
