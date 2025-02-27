@@ -29,7 +29,7 @@ final class AuthenticatedSessionController extends Controller
             'password' => $request->validated(key: 'password'),
             // TODO: Check for active user
             // https://laravel.com/docs/12.x/authentication#specifying-additional-conditions
-            'active' => 1
+            'active' => 1,
         ])) {
             $request->session()->regenerate();
 

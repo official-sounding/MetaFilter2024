@@ -16,7 +16,7 @@ final class MeFiMailService
 
     public function __construct(
         protected MeFiMailRepository $meFiMailRepository,
-        protected PurifierService $purifierService
+        protected PurifierService $purifierService,
     ) {}
 
     public function store(MeFiMailDto $dto): bool

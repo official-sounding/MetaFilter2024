@@ -7,7 +7,6 @@ namespace App\Livewire\Contact;
 use App\Dtos\ContactMessageDto;
 use App\Http\Requests\Contact\StoreContactMessageRequest;
 use App\Services\ContactMessageService;
-use App\Services\EmailService;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 

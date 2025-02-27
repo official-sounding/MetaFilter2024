@@ -11,9 +11,7 @@ use Illuminate\Mail\Mailables\Envelope;
 
 final class ContactFormMessage extends BaseMailable
 {
-    public function __construct(public ContactMessageDto $dto)
-    {
-    }
+    public function __construct(public ContactMessageDto $dto) {}
 
     public function envelope(): Envelope
     {
@@ -43,7 +41,7 @@ final class ContactFormMessage extends BaseMailable
         return new Content(
             view: 'emails.contact-form',
             with: [
-                'dto' => $this->dto
+                'dto' => $this->dto,
             ],
         );
     }
