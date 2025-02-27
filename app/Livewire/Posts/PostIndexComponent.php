@@ -91,6 +91,4 @@ final class PostIndexComponent extends Component
 
         return Paginator::make($collection->all(), $total, self::PER_PAGE);
     }
-
-    )
 }
