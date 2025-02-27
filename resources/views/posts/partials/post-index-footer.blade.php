@@ -1,14 +1,6 @@
 <footer class="post-footer post-index-footer">
     <address>
-        <a title="View {{ $post->user->username }}'s profile"
-           href="/members/{{ $post->user->id }}">
-            @if ($post->user->id === auth()->id())
-                <x-icons.icon-component filename="person-fill" />
-            @else
-                <x-icons.icon-component filename="person" />
-            @endif
-            {{ $post->user->username }}
-        </a>
+        <x-members.profile-link-component :user="$post->user" />
     </address>
 
     @include('posts.partials.post-created-at-time', [
@@ -19,6 +11,6 @@
         href="{{ $post->present()->url }}#comments"
         title="{{ trans('Comments') }}">
         <x-icons.icon-component filename="chat" />
-        {{ $commentsCount > 0 ?: 0 }}
+        {{ $post->comments()->count() > 0 ?: 0 }}
     </a>
 </footer>
