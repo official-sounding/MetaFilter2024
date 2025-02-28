@@ -17,17 +17,14 @@ final class SimplePageSeeder extends Seeder
         $pages = config('metafilter.seeders.pages');
 
         foreach ($pages as $page) {
-            $simplePage = new SimplePage();
-
-            $simplePage->title = $page['title'];
-            $simplePage->slug = $page['slug'];
-            $simplePage->content = $page['content'];
-
-            $simplePage->is_public = true;
-            $simplePage->indexable = true;
-            $simplePage->register_outside_filament = true;
-
-            $simplePage->firstOrCreate();
+            (new SimplePage())->firstOrCreate([
+                'title' => $page['title'],
+                'slug' => $page['slug'],
+                'content' => $page['content'],
+                'is_public' => true,
+                'indexable' => true,
+                'register_outside_filament' => true,
+            ]);
         }
     }
 }
