@@ -10,5 +10,4 @@ use Illuminate\Database\Seeder;
 final class RolePermissionSeeder extends Seeder
 {
     use WithoutModelEvents;
-
 }
