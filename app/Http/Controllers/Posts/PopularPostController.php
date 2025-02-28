@@ -31,6 +31,7 @@ final class PopularPostController extends BaseController
             'title' => $this->getTitle(),
             'showTitle' => true,
             'datePosts' => $datePosts,
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

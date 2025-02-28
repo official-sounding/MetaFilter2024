@@ -12,6 +12,7 @@ final class MyCommentsController extends BaseController
     {
         return view('my-comments.index', [
             'title' => trans('My Comments'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

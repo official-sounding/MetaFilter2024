@@ -12,6 +12,7 @@ final class MyFavoritesController extends BaseController
     {
         return view('my-favorites.index', [
             'title' => trans('My Favorites'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

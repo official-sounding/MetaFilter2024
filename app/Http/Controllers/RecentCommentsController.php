@@ -12,6 +12,7 @@ final class RecentCommentsController extends BaseController
     {
         return view('recent-comments.index', [
             'title' => trans('Recent Comments'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }
