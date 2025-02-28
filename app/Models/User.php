@@ -96,7 +96,6 @@ final class User extends Authenticatable implements
     public function canAccessPanel(Panel $panel): bool
     {
         return str_ends_with($this->email, self::DOMAIN);
-        // return $this->can(PermissionEnum::AccessPanel->value);
     }
 
     // Builders

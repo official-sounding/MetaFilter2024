@@ -20,8 +20,8 @@ final class ProfileLinkComponent extends Component
     public function __construct(User $user, bool $showIcon = true)
     {
         $this->user = $user;
-        $this->filename = $this->getFilename();
         $this->showIcon = $showIcon;
+        $this->filename = $this->getFilename();
         $this->titleText = $this->getTitleText();
     }
 
@@ -29,7 +29,6 @@ final class ProfileLinkComponent extends Component
     {
         return view('components.members.profile-link-component', [
             'username' => $this->username,
-            'userId' => $this->userId,
             'filename' => $this->filename,
             'showIcon' => $this->showIcon,
         ]);
