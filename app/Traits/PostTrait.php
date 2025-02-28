@@ -81,23 +81,6 @@ trait PostTrait
         ]);
     }
 
-    private function getShowRouteName(Post $post): string
-    {
-        $subdomain = $post->subsite()->value('subdomain');
-
-        return match ($subdomain) {
-            SubsiteEnum::Ask->value => RouteNameEnum::AskPostShow->value,
-            SubsiteEnum::FanFare->value => RouteNameEnum::FanFarePostShow->value,
-            SubsiteEnum::Irl->value => RouteNameEnum::IrlPostShow->value,
-            SubsiteEnum::Jobs->value => RouteNameEnum::JobsPostShow->value,
-            SubsiteEnum::MetaFilter->value => RouteNameEnum::MetaFilterPostShow->value,
-            SubsiteEnum::MetaTalk->value => RouteNameEnum::MetaTalkPostShow->value,
-            SubsiteEnum::Music->value => RouteNameEnum::MusicPostShow->value,
-            SubsiteEnum::Podcast->value => RouteNameEnum::PodcastPostShow->value,
-            SubsiteEnum::Projects->value => RouteNameEnum::ProjectsPostShow->value,
-        };
-    }
-
     private function getMyShowRouteName(Post $post): string
     {
         $subdomain = $post->subsite()->value('subdomain');

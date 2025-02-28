@@ -12,6 +12,7 @@ use App\Traits\LoggingTrait;
 use App\Traits\TypeTrait;
 use Exception;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
 
 final class WatchComponent extends Component
@@ -31,9 +32,7 @@ final class WatchComponent extends Component
     public function mount($model): void
     {
         $this->model = $model;
-
         $this->watchableId = $this->model->id;
-
         $this->watchableType = $this->getType($this->model);
 
         $this->updateWatchData();
@@ -68,9 +67,9 @@ final class WatchComponent extends Component
         try {
             $watched = new Watch();
 
+            $watched->admin_id = $this->authorizedUserId;
             $watched->watchable_id = $this->model->id;
             $watched->watchable_type = $this->watchableType;
-            $watched->user_id = $this->authorizedUserId;
 
             $watched->save();
         } catch (Exception $exception) {
@@ -86,12 +85,12 @@ final class WatchComponent extends Component
         $this->dispatch(LivewireEventEnum::WatchingStarted->value);
     }
 
-    private function getWatchedModel()
+    private function getWatchedModel(): Model
     {
-        return Watch::where('watchable_id', '=', $this->model->id)
+        return (new Watch())->where('watchable_id', '=', $this->model->id)
             ->where('watchable_type', '=', $this->watchableType)
             ->where('user_id', '=', $this->authorizedUserId)
-            ->first();
+            ->sole();
     }
 
     private function updateWatchData(): void

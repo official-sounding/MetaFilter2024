@@ -9,7 +9,7 @@ use App\Traits\AuthStatusTrait;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-final class AddNoteComponent extends Component
+final class AdminNoteComponent extends Component
 {
     use AuthStatusTrait;
 
@@ -22,9 +22,8 @@ final class AddNoteComponent extends Component
 
         $this->model = $model;
     }
-
     public function render(): View
     {
-        return view('livewire.moderators.add-note-component');
+        return view('livewire.admin.admin-note-component');
     }
 }

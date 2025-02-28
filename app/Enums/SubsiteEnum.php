@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Enums;
 
+use Exception;
+
 enum SubsiteEnum: string
 {
     case Ask = 'ask';
@@ -21,6 +23,9 @@ enum SubsiteEnum: string
     case Podcast = 'podcast';
     case Projects = 'projects';
 
+    /**
+     * @throws Exception
+     */
     public function route(): string
     {
         return match ($this) {
@@ -37,9 +42,13 @@ enum SubsiteEnum: string
             self::Music => RouteNameEnum::MusicPostIndex->value,
             self::Podcast => RouteNameEnum::PodcastPostIndex->value,
             self::Projects => RouteNameEnum::ProjectsPostIndex->value,
+            self::Mail => throw new Exception('To be implemented'),
         };
     }
 
+    /**
+     * @throws Exception
+     */
     public function title(): string
     {
         return match ($this) {
@@ -56,6 +65,7 @@ enum SubsiteEnum: string
             self::Music => 'Music',
             self::Podcast => 'Podcast',
             self::Projects => 'Projects',
+            self::Mail => throw new Exception('To be implemented'),
         };
     }
 }

@@ -1,0 +1,55 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Livewire\Tables;
+
+use App\Dtos\TableColumnDto;
+use App\Models\MeFiMail;
+use Illuminate\Database\Query\Builder;
+use Livewire\WithPagination;
+
+final class MeFiMailTableComponent extends TableComponent
+{
+    use WithPagination;
+
+    public string $orderBy = 'date_created';
+
+    public function columns(): array
+    {
+        return [
+            new TableColumnDto(
+                key: 'senderUsername',
+                label: 'From',
+                isRowHeader: true,
+            ),
+            new TableColumnDto(
+                key: 'subject',
+                label: 'Subject',
+            ),
+            new TableColumnDto(
+                key: 'created_at',
+                label: 'Date',
+                dateFormat: 'M j, Y h:i a',
+            ),
+        ];
+    }
+
+    // TODO: Check database name
+    public function query(): ?Builder
+    {
+        if (isset(auth()->user()->id)) {
+            return MeFiMail::query()
+                ->join('users', 'mefi-mails.sender_id', '=', 'users.id')
+                ->select([
+                    'mefi-mails.id',
+                    'mefi-mails.subject',
+                    'mefi-mails.created_at',
+                    'users.username AS senderUsername',
+                ])
+                ->where(column: 'mefi-mails.recipient_id', operator: '=', value: auth()->user()->id);
+        }
+
+        return null;
+    }
+}

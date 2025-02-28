@@ -15,7 +15,6 @@ final class VerifyEmail extends BaseMailable
         public User $user,
     ) {}
 
-
     public function envelope(): Envelope
     {
         return new Envelope(

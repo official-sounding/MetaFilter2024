@@ -16,7 +16,7 @@ final class CategoryFactory extends Factory
     {
         return [
             'category' => $this->faker->words(),
-            'subsite_id' => Subsite::inRandomOrder()->first(),
+            'subsite_id' => (new Subsite())->inRandomOrder()->first(),
         ];
     }
 }

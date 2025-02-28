@@ -1,3 +1,6 @@
-<div>
-    {{-- Care about people's approval and you will be their prisoner. --}}
-</div>
+<button
+    type="button"
+    wire:click="closePost"
+    wire:confirm="{{ trans('Are you sure you want to close this post?"') }}">
+    {{ trans('Close Post') }}
+</button>

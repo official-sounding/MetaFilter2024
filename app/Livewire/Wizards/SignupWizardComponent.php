@@ -108,10 +108,7 @@ final class SignupWizardComponent extends BaseWizardComponent
     {
         // Assuming successful payment
 
-        \Log::debug('username: ' . $this->username);
-
-        $user = User::where('username', '=', $this->username)->first();
-        \Log::debug('user ID: ' . $user->id);
+        $user = (new User())->where('username', '=', $this->username)->sole();
 
         $data = [
             'state' => UserStateEnum::Active->value,
@@ -119,8 +116,8 @@ final class SignupWizardComponent extends BaseWizardComponent
 
         $this->userService->update($user->id, $data);
 
-        // TODO: Send verification email
-        // Mail::to()->queue(new SendVerificationEmail());
+        SendVerificationEmail::dispatch($user);
+
         Auth::login($user);
 
         $this->redirectRoute(RouteNameEnum::SignupThanks->value);
