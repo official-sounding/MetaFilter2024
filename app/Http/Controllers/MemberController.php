@@ -28,6 +28,7 @@ final class MemberController extends BaseController
         return view('members.show', [
             'title' => $user->username . '&rsquo;s profile',
             'user' => $user,
+            'showMemberNav' => $user->id === auth()->id(),
         ]);
     }
 
