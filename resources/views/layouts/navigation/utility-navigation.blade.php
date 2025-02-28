@@ -1,3 +1,3 @@
 <nav class="utility-navigation" id="utility-navigation">
-    {!! $utilityNavigation ?? 'Utility navigation unavailable' !!}
+    {!! $utilityNavigation ?? trans('Utility navigation unavailable') !!}
 </nav>

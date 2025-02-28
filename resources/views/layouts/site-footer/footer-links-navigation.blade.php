@@ -1,5 +1,5 @@
 <nav aria-label="Links navigation">
     <h3>Links</h3>
 
-    {!! $footerLinksNavigation ?? 'Links navigation unavailable' !!}
+    {!! $footerLinksNavigation ?? trans('Links navigation unavailable') !!}
 </nav>

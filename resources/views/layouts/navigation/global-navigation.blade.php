@@ -3,7 +3,7 @@
      aria-label="Global navigation"
      aria-labelledby="global-navigation-toggle">
     <div class="container level">
-        {!! $globalNavigation ?? 'Global navigation unavailable' !!}
+        {!! $globalNavigation ?? trans('Global navigation unavailable') !!}
 
         <livewire:search.search-component />
     </div>

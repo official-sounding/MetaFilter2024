@@ -1,1 +1,1 @@
-{!! $title ?? 'Untitled' !!}
+{!! $title ?? trans('Untitled') !!}

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $title ?? 'Untitled')
+@section('title', $title ?? trans('Untitled'))
 
 @section('contents')
     mefi mail edit
