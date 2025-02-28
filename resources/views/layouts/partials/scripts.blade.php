@@ -1,9 +1,15 @@
 @if (isset($useLivewire) && $useLivewire === true)
+    @livewireScripts
+
     @if (isset($useFilepondScripts) && $useFilepondScripts === true)
         @filepondScripts
     @endif
 
-    @livewireScripts
+    @if (isset($useAlerts) && $useAlerts === true)
+        <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
+
+        <x-livewire-alert::flash />
+    @endif
 @endif
 
 @vite([
