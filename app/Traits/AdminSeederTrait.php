@@ -15,7 +15,7 @@ trait AdminSeederTrait
 
     public function getAdminsFromJson(): mixed
     {
-        $path = storage_path('app/imports/metafilter-admin.json');
+        $path = storage_path('app/imports/metafilter-admins.json');
 
         try {
             $json = File::get($path);
