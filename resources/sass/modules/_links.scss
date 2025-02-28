@@ -48,15 +48,8 @@ form a,
     position: relative;
 }
 
-.post-navigation-menu a[aria-current='page']::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    margin: 0 0 -8px -8px;
-    border-width: 8px 8px 0 8px;
-    border-style: solid solid none solid;
-    border-top: 8px solid var(--lightest-gray);
+.secondary-navigation-menu a {
+    position: relative;
 }
 
 .site-banner a {

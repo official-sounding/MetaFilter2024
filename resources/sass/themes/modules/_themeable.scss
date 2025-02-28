@@ -357,6 +357,48 @@ textarea:focus {
     background-color: light-dark(var(--base-color), var(--white));
 }
 
+//noinspection CssInvalidFunction
+.secondary-navigation-menu a[aria-current='page']:link,
+.secondary-navigation-menu a[aria-current='page']:visited {
+    color: light-dark(var(--yellow-green), var(--yellow-green));
+    background-color: light-dark(var(--darker-base-color), var(--darker-base-color));
+}
+
+//noinspection CssInvalidFunction
+.secondary-navigation-menu a[aria-current='page']::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin-left: -0.5rem;
+    border-style: solid;
+    border-width: 0.5rem;
+    border-bottom-width: 0;
+    border-top-color: light-dark(var(--darker-base-color), var(--darker-base-color));
+    margin-bottom: -0.5rem;
+    color: transparent;
+}
+
+//noinspection CssInvalidFunction
+.secondary-navigation-menu a[aria-current='page']:hover::after {
+    border-top-color: light-dark(var(--darker-base-color), var(--yellow-green));
+}
+
+//noinspection CssInvalidFunction
+.secondary-navigation-menu a[aria-current='page']:link,
+.secondary-navigation-menu a[aria-current='page']:visited {
+    color: light-dark(var(--yellow-green), var(--yellow-green));
+    background-color: light-dark(var(--darker-base-color), var(--darker-base-color));
+}
+
+
+//noinspection CssInvalidFunction
+.secondary-navigation-menu a[aria-current='page']:active,
+.secondary-navigation-menu a[aria-current='page']:hover {
+    color: light-dark(var(--base-color), var(--darker-base-color));
+    background-color: light-dark(var(--white), var(--yellow-green));
+}
+
 .tagline {
     color: var(--lighter-base-color);
     background-color: inherit;
@@ -374,17 +416,4 @@ textarea:focus {
 .years-ago a:hover {
     color: light-dark(var(--white), var(--base-color));
     background-color: light-dark(var(--base-color), var(--white));
-}
-
-// TODO: Adapt to aria-current='page' triangle
-body.subsite-metatalk.dark-mode nav.tertiary li.current a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    margin-left: -8px;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 8px solid #323232;
-    margin-bottom: -8px;
 }
