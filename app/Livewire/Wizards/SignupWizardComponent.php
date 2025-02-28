@@ -16,7 +16,6 @@ use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 final class SignupWizardComponent extends BaseWizardComponent
 {
