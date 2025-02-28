@@ -16,7 +16,7 @@ final class Pint extends Command
 
     protected $description = 'Run Pint command';
 
-    public function handle(): bool
+    public function handle(): int
     {
         $options = [
             'test' => $this->option('test'),
@@ -34,20 +34,32 @@ final class Pint extends Command
             ...$additionalArguments,
         ]);
 
+        $this->info('Executing command: ' . implode(' ', $command));
+
         $process = new Process($command);
 
         $process->setTimeout(null);
 
         $process->run(function ($type, $output) {
-            $this->output->write($output);
+            $typeLabel = $type === Process::ERR ? '[ERROR]' : '';
+            $this->output->write($typeLabel . $output);
         });
 
-        if (!$process->isSuccessful()) {
-            $this->error($process->getErrorOutput());
+        $exitCode = $process->getExitCode();
+        $this->info('Process exit code: ' . $exitCode);
 
-            return false;
+        $errorOutput = $process->getErrorOutput();
+        $this->info('Error output: ' . ($errorOutput ?: 'None'));
+
+        $this->info('Process output length: ' . strlen($process->getOutput()));
+
+        if (!$process->isSuccessful()) {
+            $this->error('Process failed with exit code: ' . $exitCode);
+            $this->error($errorOutput ?: 'No error output was provided');
+
+            return 1;
         }
 
-        return true;
+        return 0;
     }
 }
