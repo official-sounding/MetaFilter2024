@@ -21,24 +21,30 @@ final class GlobalNavigationViewComposer implements ViewComposerInterface
 
     private function getNavigationItems(): string
     {
-        $navigationItems = '<ul>';
+        $navigation = '';
 
-        $menuItems = config('metafilter.navigation.global.menu_items');
+        $items = config('metafilter.navigation.global.menu_items');
 
-        foreach ($menuItems as $itemData) {
-            if (isset($itemData['start_dropdown']) && $itemData['start_dropdown']) {
-                $navigationItems .= '<li class="has-dropdown">';
-                $navigationItems .= '<button class="dropdown-toggle" aria-expanded="false" aria-controls="global-navigation-menu">';
-                $navigationItems .= trans('Menu');
-                $navigationItems .= '</button>';
-                $navigationItems .= '<ul class="dropdown-menu global-navigation-menu" id="global-navigation-menu">';
+        if ($items === null) {
+            $this->logError('Global navigation items are null.');
+        } else {
+            $navigation = '<ul class="global-navigation-menu">';
+
+            foreach ($items as $itemData) {
+                if (isset($itemData['start_dropdown']) && $itemData['start_dropdown']) {
+                    $navigation .= '<li class="has-dropdown">';
+                    $navigation .= '<button class="dropdown-toggle" aria-expanded="false" aria-controls="global-navigation-menu">';
+                    $navigation .= trans('Menu');
+                    $navigation .= '</button>';
+                    $navigation .= '<ul class="dropdown-menu global-navigation-menu" id="global-navigation-menu">';
+                }
+
+                $navigation .= $this->getNavigationItem($itemData);
             }
 
-            $navigationItems .= $this->getNavigationItem($itemData);
+            $navigation .= '</ul></ul>';
         }
 
-        $navigationItems .= '</ul></ul>';
-
-        return $navigationItems;
+        return $navigation;
     }
 }

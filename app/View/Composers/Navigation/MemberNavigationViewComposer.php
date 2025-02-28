@@ -14,15 +14,21 @@ final class MemberNavigationViewComposer implements ViewComposerInterface
 
     public function compose(View $view): void
     {
-        $navigation = '<ul class="sidebar-menu">';
+        $navigation = '';
 
         $items = config('metafilter.navigation.member-sidebar-links');
 
-        foreach ($items as $itemData) {
-            $navigation .= $this->getNavigationItem($itemData);
-        }
+        if ($items === null) {
+            $this->logError('Member navigation items are null.');
+        } else {
+            $navigation = '<ul class="sidebar-menu">';
 
-        $navigation .= '</ul>';
+            foreach ($items as $itemData) {
+                $navigation .= $this->getNavigationItem($itemData);
+            }
+
+            $navigation .= '</ul>';
+        }
 
         $view->with([
             'sidebarNavigation', $navigation,
