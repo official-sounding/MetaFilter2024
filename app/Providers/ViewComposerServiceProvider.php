@@ -8,6 +8,7 @@ use App\View\Composers\Navigation\CreatePostButtonViewComposer;
 use App\View\Composers\Navigation\FooterLinksNavigationViewComposer;
 use App\View\Composers\Navigation\FooterSubsiteNavigationViewComposer;
 use App\View\Composers\Navigation\GlobalNavigationViewComposer;
+use App\View\Composers\Navigation\MemberNavigationViewComposer;
 use App\View\Composers\Navigation\SecondaryNavigationViewComposer;
 use App\View\Composers\Navigation\PrimaryNavigationViewComposer;
 use App\View\Composers\Navigation\UserSidebarViewComposer;
@@ -38,6 +39,11 @@ final class ViewComposerServiceProvider extends ServiceProvider
         view()->composer(
             'layouts.navigation.global-navigation',
             GlobalNavigationViewComposer::class,
+        );
+
+        view()->composer(
+            'layouts.minimal',
+            MemberNavigationViewComposer::class,
         );
 
         view()->composer(

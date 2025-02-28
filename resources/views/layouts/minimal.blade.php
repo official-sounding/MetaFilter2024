@@ -24,6 +24,10 @@
     <h1>{!! $title ?? 'Untitled' !!}</h1>
 
     @yield('contents')
+
+    @if (isset($showMemberNav) && $showMemberNav === true)
+        @include('layouts.navigation.member-navigation')
+    @endif
 </main>
 
 <footer class="site-footer" id="site-footer">
