@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Builders\MeFiMailQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -22,6 +21,8 @@ final class MeFiMail extends BaseModel
     use SoftDeletes;
 
     // Properties
+
+    protected $table = 'mefi_mails';
 
     protected $fillable = [
         'subject',

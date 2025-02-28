@@ -35,19 +35,18 @@ final class MeFiMailTableComponent extends TableComponent
         ];
     }
 
-    // TODO: Check database name
     public function query(): ?Builder
     {
         if (isset(auth()->user()->id)) {
             return MeFiMail::query()
-                ->join('users', 'mefi-mails.sender_id', '=', 'users.id')
+                ->join('users', 'mefi_mails.sender_id', '=', 'users.id')
                 ->select([
-                    'mefi-mails.id',
-                    'mefi-mails.subject',
-                    'mefi-mails.created_at',
+                    'mefi_mails.id',
+                    'mefi_mails.subject',
+                    'mefi_mails.created_at',
                     'users.username AS senderUsername',
                 ])
-                ->where(column: 'mefi-mails.recipient_id', operator: '=', value: auth()->user()->id);
+                ->where(column: 'mefi_mails.recipient_id', operator: '=', value: auth()->user()->id);
         }
 
         return null;
