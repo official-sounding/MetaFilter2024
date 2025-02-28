@@ -25,22 +25,22 @@ final class PayPalSubscriptions implements SubscriptionInterface
         }
     }
 
-    public function create(int $plan_id, int $coupon_user_id, string $method, float $amount = 0)
+    public function create(int $plan_id, int $coupon_user_id, string $method, float $amount = 0): mixed
     {
         // TODO: Implement create() method.
     }
 
-    public function cancel(string $subscription_id = null)
+    public function cancel(?string $subscription_id = null): void
     {
         // TODO: Implement cancel() method.
     }
 
-    public function pause()
+    public function pause(): void
     {
         // TODO: Implement pause() method.
     }
 
-    public function resume()
+    public function resume(): void
     {
         // TODO: Implement resume() method.
     }

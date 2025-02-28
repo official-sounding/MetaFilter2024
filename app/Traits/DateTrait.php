@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 trait DateTrait
 {
-    public function getFormattedDate(int $year = null, int $month = null, int $day = null): ?string
+    public function getFormattedDate(?int $year = null, ?int $month = null, ?int $day = null): ?string
     {
         $year = $year ?? date('Y');
 

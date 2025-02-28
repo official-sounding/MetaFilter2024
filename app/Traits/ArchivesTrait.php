@@ -11,7 +11,7 @@ trait ArchivesTrait
 {
     use DateTrait;
 
-    public function getPosts(int $year = null, int $month = null, int $day = null): ?Collection
+    public function getPosts(?int $year = null, ?int $month = null, ?int $day = null): ?Collection
     {
         if (is_null($year) || is_null($month) && is_null($day)) {
             return null;
@@ -28,7 +28,7 @@ trait ArchivesTrait
         return $query->get();
     }
 
-    public function getTitle(int $year = null, int $month = null, int $day = null): string
+    public function getTitle(?int $year = null, ?int $month = null, ?int $day = null): string
     {
         if (is_null($year) && is_null($month) && is_null($day)) {
             return 'Archives';
@@ -47,7 +47,7 @@ trait ArchivesTrait
         return "$year Archives";
     }
 
-    public function getView(int $year = null, int $month = null, int $day = null): string
+    public function getView(?int $year = null, ?int $month = null, ?int $day = null): string
     {
         if ($year && $month && $day) {
             return 'index-day';
