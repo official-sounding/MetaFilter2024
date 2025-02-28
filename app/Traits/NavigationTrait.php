@@ -50,9 +50,13 @@ trait NavigationTrait
                 $item .= $this->getIcon($itemData['icon']);
             }
 
-            $text = $itemData['name'] ?? $itemData['nickname'] ?? $itemData['text'];
+            if ($itemData['name'] === 'Profile') {
+                $item .= auth()->user()->username;
+            } else {
+                $text = $itemData['name'] ?? $itemData['nickname'] ?? $itemData['text'];
 
-            $item .= trans($text);
+                $item .= trans($text);
+            }
 
             $item .= '</a>';
             $item .= '</li>';
