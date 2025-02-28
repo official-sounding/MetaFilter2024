@@ -29,7 +29,7 @@ final class AdminRoleSeeder extends Seeder
             $user = (new User())->where('email', '=', $admin['email'])->first();
 
             if ($user) {
-                $user->assignRole(RoleNameEnum::MODERATOR->label());
+                $user->assignRole(RoleNameEnum::MODERATOR->value);
 
             } else {
                 $this->logDebugMessage($admin['email'] . ' not listed in database');
