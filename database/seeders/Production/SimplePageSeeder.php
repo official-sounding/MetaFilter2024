@@ -27,7 +27,7 @@ final class SimplePageSeeder extends Seeder
             $simplePage->indexable = true;
             $simplePage->register_outside_filament = true;
 
-            $simplePage->save();
+            $simplePage->firstOrCreate();
         }
     }
 }
