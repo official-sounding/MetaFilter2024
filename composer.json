@@ -2,6 +2,7 @@
     "name": "metafilter/metafilter2024",
     "homepage": "https://www.metafilter.com/",
     "description": "Source code for MetaFilter websites.",
+    "version": "1.0.0",
     "license": "MIT",
     "support": {
         "issues": "https://github.com/MetaFilter/MetaFilter2024/issues",
