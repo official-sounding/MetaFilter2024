@@ -10,10 +10,8 @@ use App\Traits\LoggingTrait;
 use App\Traits\PermissionAndRoleTrait;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use Throwable;
 
 final class RoleSeeder extends Seeder
 {
@@ -21,45 +19,43 @@ final class RoleSeeder extends Seeder
     use PermissionAndRoleTrait;
     use WithoutModelEvents;
 
-    /**
-     * @throws Throwable
-     */
+    protected const string GUARD_NAME = 'web';
+
     public function run(): void
     {
         $this->forgetCachedPermissions();
 
-        DB::beginTransaction();
+        $this->createBoardMemberRole();
+        $this->createModeratorRole();
+        $this->createDeveloperRoleWithPermissions();
 
-        try {
-            $this->createModeratorRole();
-
-            $this->createDeveloperRoleWithPermissions();
-
-            $this->assignControlPanelAccess();
-
-            DB::commit();
-        } catch (Throwable $exception) {
-            $this->logError($exception);
-
-            DB::rollback();
-        }
+        $this->assignControlPanelAccess();
 
         $this->forgetCachedPermissions();
     }
 
     private function createModeratorRole(): Role
     {
-        return Role::create([
-            'name' => RoleNameEnum::MODERATOR->value,
-        ]);
+        return Role::findOrCreate(
+            name: RoleNameEnum::MODERATOR->value,
+            guardName: self::GUARD_NAME,
+        );
     }
 
+    private function createBoardMemberRole(): Role
+    {
+        return Role::findOrCreate(
+            name: RoleNameEnum::BOARD_MEMBER->value,
+            guardName: self::GUARD_NAME,
+        );
+    }
 
     private function createDeveloperRoleWithPermissions(): void
     {
-        $role = Role::create([
-            'name' => RoleNameEnum::DEVELOPER->value,
-        ]);
+        $role = Role::findOrCreate(
+            name: RoleNameEnum::DEVELOPER->value,
+            guardName: self::GUARD_NAME,
+        );
 
         $role->givePermissionTo(Permission::all());
     }

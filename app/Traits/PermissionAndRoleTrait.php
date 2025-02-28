@@ -6,7 +6,6 @@ namespace App\Traits;
 
 use App\Enums\PermissionEnum;
 use App\Enums\RoleNameEnum;
-use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 
@@ -24,9 +23,7 @@ trait PermissionAndRoleTrait
 
     public function getRole(string $roleName): Role
     {
-        return DB::table('roles')
-            ->where('name', '=', $roleName)
-            ->firstOrFail();
+        return Role::where('name', '=', $roleName)->firstOrFail();
     }
 
     public function givePermissionToRole(Role $role, string $permission): void

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders\Production;
 
+use App\Enums\PermissionEnum;
 use App\Traits\PermissionAndRoleTrait;
 use App\Traits\StringFormattingTrait;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -15,6 +16,8 @@ final class PermissionSeeder extends Seeder
     use PermissionAndRoleTrait;
     use StringFormattingTrait;
     use WithoutModelEvents;
+
+    protected const string GUARD_NAME = 'web';
 
     public function run(): void
     {
@@ -31,15 +34,20 @@ final class PermissionSeeder extends Seeder
             }
         }
 
+        $this->createEnumPermissions();
+
         $this->forgetCachedPermissions();
     }
 
     private function addPermission(string $permissionName): void
     {
-        $permission = new Permission();
+        Permission::findOrCreate($this->getSlug($permissionName), guardName: self::GUARD_NAME);
+    }
 
-        $permission->name = $this->getSlug($permissionName);
-
-        $permission->save();
+    private function createEnumPermissions(): void
+    {
+        foreach (PermissionEnum::cases() as $permission) {
+            Permission::findOrCreate($permission->value, guardName: self::GUARD_NAME);
+        }
     }
 }
