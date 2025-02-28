@@ -160,7 +160,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
     {
         $query = collect($this->query);
 
-        $query->groupBy(fn ($item) => $item->created_at->format('F j'));
+        $query->groupBy(fn($item) => $item->created_at->format('F j'));
 
         return $this->model->newQuery()
             ->join('users', 'posts.user_id', '=', 'users.id')
@@ -170,7 +170,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             ->select(self::COLUMNS)
             ->orderBy('posts.created_at', 'desc')
             ->get()
-            ->groupBy(fn ($item) => $item->created_at->format('F j'));
+            ->groupBy(fn($item) => $item->created_at->format('F j'));
     }
 
     public function getRelatedPosts(Post $post): Collection
