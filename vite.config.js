@@ -17,6 +17,7 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/sass/email.scss',
+                'resources/sass/errors.scss',
                 'resources/sass/themes/ask.scss',
                 'resources/sass/themes/fanfare.scss',
                 'resources/sass/themes/irl.scss',
