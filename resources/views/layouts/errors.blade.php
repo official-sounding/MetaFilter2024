@@ -5,19 +5,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>@yield('title')</title>
+<title>@yield('title') - MetaFilter</title>
 
-<style>
-    *, :after, :before {
-        box-sizing: border-box;
-    }
-</style>
+<link rel="stylesheet" href="/css/errors.css">
+
 </head>
 
 <body>
 
 <main>
-    <h1>@yield('code')</h1>
+    <h1 class="site-title-text">
+        <span class="white">
+            @yield('code')
+        </span>
+        <span class="green">
+            @yield('title')
+        </span>
+    </h1>
 
     <p>@yield('message')</p>
 </main>
