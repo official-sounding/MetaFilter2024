@@ -1,0 +1,34 @@
+
+html,
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--lightest-blue);
+    background-color: var(--darker-blue);
+}
+
+main {
+    color: var(--darker-blue);
+    background-color: var(--lightest-blue);
+}
+
+.site-title-text {
+    color: var(--white);
+    background-color: var(--blue);
+    white-space: nowrap;
+}
+
+.site-title-text .green {
+    color: var(--yellow-green);
+}
+
+.site-title-text .white {
+    color: var(--white);
+}
+
+p,
+.site-title-text {
+    padding: 1rem;
+}
