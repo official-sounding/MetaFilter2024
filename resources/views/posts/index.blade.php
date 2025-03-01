@@ -11,6 +11,12 @@
         <x-snippets.snippet-component slug="jobs-location-note" small-text=true />
     @endif
 
+    @if ($subdomain ==='metafilter')
+        @auth
+            <x-members.happy-birthday-component />
+        @endauth
+    @endif
+
     @if (isset($showTitle) && $showTitle === true)
         <h1>{{ $title }}</h1>
     @endif
