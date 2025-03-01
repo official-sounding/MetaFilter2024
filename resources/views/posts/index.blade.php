@@ -7,6 +7,10 @@
         <x-snippets.snippet-component slug="fanfare-spoilers-note" small-text=true />
     @endif
 
+    @if ($subdomain ==='jobs')
+        <x-snippets.snippet-component slug="jobs-location-note" small-text=true />
+    @endif
+
     @if (isset($showTitle) && $showTitle === true)
         <h1>{{ $title }}</h1>
     @endif
