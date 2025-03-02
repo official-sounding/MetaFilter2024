@@ -23,7 +23,7 @@ final class HappyBirthdayComponent extends Component
 
     public function render(): View
     {
-        return view('components.happy-birthday-component');
+        return view('components.members.happy-birthday-component');
     }
 
     private function determineBirthday(): void
