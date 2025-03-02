@@ -10,6 +10,7 @@ use App\Traits\PostTrait;
 use App\Traits\SubsiteTrait;
 use Illuminate\Contracts\Pagination\CursorPaginator;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -45,8 +46,9 @@ final class PostIndexComponent extends Component
     public string $orderBy = 'created_at';
     public string $sortDirection = self::DESCENDING;
     public string $subdomain;
-    public mixed $groupedPosts;
     public mixed $days;
+    public string|null $searchColumn = null;
+    public string|null $searchTerm = null;
 
     public function boot(): void
     {
@@ -60,6 +62,13 @@ final class PostIndexComponent extends Component
         return view('livewire.posts.post-index-component', [
             'posts' => $posts,
         ]);
+    }
+
+    public function query(): Builder
+    {
+        // This is just a placeholder to satisfy the PaginationTrait
+        // The actual functionality is in getPosts() method
+        return Post::query();
     }
 
     private function getPosts(): CursorPaginator
