@@ -51,7 +51,11 @@ trait NavigationTrait
             }
 
             if ($itemData['name'] === 'Profile') {
-                $item .= auth()->user()->username;
+                if (auth()->user() !== null) {
+                    $item .= auth()->user()->username;
+                } else {
+                    $item .= trans('Profile');
+                }
             } else {
                 $text = $itemData['name'] ?? $itemData['nickname'] ?? $itemData['text'];
 
