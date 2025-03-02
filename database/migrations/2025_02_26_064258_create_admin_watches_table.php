@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('watches', function (Blueprint $table) {
+        Schema::create('admin_watches', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('admin_id')
