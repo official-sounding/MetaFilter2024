@@ -103,7 +103,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
         // TODO: Add categories
         return $query->get()
             ->groupBy(function ($val) {
-                return Carbon::parse($val->created_at)->format('F j');
+                return Carbon::parse($val->getAttribute('created_at'))->format('F j');
             });
     }
 
@@ -138,11 +138,11 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             ->limit(self::PER_PAGE)
             ->orderBy('posts.created_at', 'desc')->get()
             ->groupBy(function ($val) {
-                return Carbon::parse($val->created_at)->format('F j');
+                return Carbon::parse($val->getAttribute('created_at'))->format('F j');
             });
     }
 
-    public function getRandomPost(): Post
+    public function getRandomPost(): ?Post
     {
         $query = $this->baseQuery();
 
@@ -153,14 +153,14 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             ->inRandomOrder()
             ->limit(1);
 
-        return $query->first();
+        return $query->first() instanceof Post ? $query->first() : null;
     }
 
     public function getRecentPosts(): Collection
     {
-        $query = collect($this->query);
-
-        $query->groupBy(fn($item) => $item->created_at->format('F j'));
+        // Remove the problematic query collection grouping that's not used
+        // $query = collect($this->query);
+        // $query->groupBy(fn($item) => Carbon::parse($item->getAttribute('created_at'))->format('F j'));
 
         return $this->model->newQuery()
             ->join('users', 'posts.user_id', '=', 'users.id')
@@ -170,7 +170,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
             ->select(self::COLUMNS)
             ->orderBy('posts.created_at', 'desc')
             ->get()
-            ->groupBy(fn($item) => $item->created_at->format('F j'));
+            ->groupBy(fn($item) => Carbon::parse($item->getAttribute('created_at'))->format('F j'));
     }
 
     public function getRelatedPosts(Post $post): Collection
