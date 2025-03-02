@@ -6,8 +6,10 @@ namespace App\Repositories;
 
 use Spatie\Tags\Tag;
 
-final class TagRepository implements TagRepositoryInterface
+final class TagRepository extends BaseRepository implements TagRepositoryInterface
 {
-    public function __construct(Tag $model) {}
-
+    public function __construct(Tag $model)
+    {
+        parent::__construct($model);
+    }
 }
