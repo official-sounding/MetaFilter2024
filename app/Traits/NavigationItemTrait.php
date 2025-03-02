@@ -7,7 +7,7 @@ namespace App\Traits;
 use App\Enums\RouteNameEnum;
 use Throwable;
 
-trait NavigationTrait
+trait NavigationItemTrait
 {
     use AuthStatusTrait;
     use LoggingTrait;
@@ -17,8 +17,15 @@ trait NavigationTrait
     public function getNavigationItem(
         array $itemData,
         bool $showRssLink = false,
-    ): ?string {
+    ): ?string
+    {
         $loggedIn = $this->loggedIn();
+
+        if (isset($itemData['login_required'])) {
+            if ($itemData['login_required'] === true && $loggedIn === false) {
+                return null;
+            }
+        }
 
         $item = '<li>';
 

@@ -7,7 +7,7 @@ namespace App\View\Composers\Navigation;
 use App\Enums\PermissionEnum;
 use App\Traits\AuthStatusTrait;
 use App\Traits\LoggingTrait;
-use App\Traits\NavigationTrait;
+use App\Traits\NavigationItemTrait;
 use App\Traits\SubsiteTrait;
 use App\View\Composers\ViewComposerInterface;
 use Illuminate\Contracts\View\View;
@@ -16,7 +16,7 @@ final class UtilityNavigationViewComposer implements ViewComposerInterface
 {
     use AuthStatusTrait;
     use LoggingTrait;
-    use NavigationTrait;
+    use NavigationItemTrait;
     use SubsiteTrait;
 
     public function compose(View $view): void

@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\View\Composers\Navigation;
 
-use App\Traits\NavigationTrait;
+use App\Traits\NavigationItemTrait;
 use App\Traits\SubsiteTrait;
 use App\View\Composers\ViewComposerInterface;
 use Illuminate\Contracts\View\View;
 
 final class CreatePostButtonViewComposer implements ViewComposerInterface
 {
-    use NavigationTrait;
+    use NavigationItemTrait;
     use SubsiteTrait;
 
     protected string $subdomain;
