@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * @template T
+ * @param string $view
+ * @param array<string, mixed> $data
+ * @param array<string, mixed> $mergeData
+ * @return \Illuminate\Contracts\View\View
+ */
+function view($view, $data = [], $mergeData = []) {}
+
