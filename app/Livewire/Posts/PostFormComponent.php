@@ -4,26 +4,38 @@ declare(strict_types=1);
 
 namespace App\Livewire\Posts;
 
+use App\Dtos\PostDto;
+use App\Enums\PostStateEnum;
 use App\Http\Requests\Post\StorePostRequest;
 use App\Services\PostService;
 use App\Traits\LoggingTrait;
+use App\Traits\SubsiteTrait;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 final class PostFormComponent extends Component
 {
     use LoggingTrait;
+    use SubsiteTrait;
 
     public string $title = '';
     public string $url = '';
     public string $link_text = '';
     public string $body = '';
     public string $more_inside = '';
+    public int $subsiteId = 0;
+    public int $userId = 0;
 
     private PostService $postService;
     public function boot(PostService $postService): void
     {
         $this->postService = $postService;
+    }
+
+    public function mount(): void
+    {
+        $this->subsiteId = $this->getSubsiteFromUrl()->id;
+        $this->userId = auth()->id();
     }
 
     protected function rules(): array
@@ -40,15 +52,20 @@ final class PostFormComponent extends Component
     {
         $this->validate();
 
-        $data = [
-            'title' => $this->title,
-            'url' => $this->url ?? null,
-            'link_text' => $this->link_text ?? null,
-            'body' => $this->body,
-            'more_inside' => $this->more_inside ?? null,
-        ];
+        $dto = new PostDto(
+            title: $this->title,
+            link_url: $this->url,
+            link_text: $this->link_text,
+            body: $this->body,
+            more_inside: $this->more_inside,
+            user_id: $this->userId,
+            subsite_id: $this->subsiteId,
+            state: PostStateEnum::Draft->value,
+            published_at: now()->toDateTimeString(),
+            is_published: true,
+        );
 
-        $post = $this->postService->store($data);
+        $post = $this->postService->store($dto);
 
         if ($post) {
             $this->logInfo('Post created');
