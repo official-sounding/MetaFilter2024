@@ -35,16 +35,6 @@ final class FooterSubsiteNavigationViewComposer implements ViewComposerInterface
 
         return $this->sortItems($subsites);
     }
-    /*
-        private function filterItems(array $subsites): array
-        {
-            return array_filter($subsites, $isFooterItem, ARRAY_FILTER_USE_KEY);
-        }
-    */
-    private function isFooterItem($key): bool
-    {
-        return array_key_exists('in_footer_nav', $key) && $key['in_footer_nav'] === true;
-    }
 
     private function sortItems(array $items): array
     {
