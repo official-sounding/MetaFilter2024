@@ -14,6 +14,7 @@ final class CommentForm extends Form
 {
     use AuthStatusTrait;
 
+    public Comment $comment;
     public int $authorizedUserId;
     public string $text = '';
     public int $postId = 0;
