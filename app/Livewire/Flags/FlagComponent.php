@@ -1,12 +1,11 @@
 <?php
 
-/** @noinspection PhpPossiblePolymorphicInvocationInspection */
-
 declare(strict_types=1);
 
 namespace App\Livewire\Flags;
 
-use App\Models\BaseModel;
+use App\Models\Comment;
+use App\Models\Post;
 use App\Services\FlagService;
 use App\Traits\AuthStatusTrait;
 use App\Traits\TypeTrait;
@@ -21,8 +20,7 @@ final class FlagComponent extends Component
     private const string FLAG_WITH_NOTE = 'flag-with-note';
     private const string MODEL_PATH = 'App\Models\/';
 
-    // TODO: Check that model is post or comment
-    public BaseModel $model;
+    public Comment|Post $model;
     public int $authorizedUserId;
     public int $flagCount = 0;
     public int $flaggableId = 0;
@@ -45,7 +43,7 @@ final class FlagComponent extends Component
     }
 
     public function mount(
-        $model,
+        Comment|Post $model,
     ): void {
         $this->model = $model;
         $this->flaggableId = $this->model->id;

@@ -1,14 +1,13 @@
 <?php
 
-/** @noinspection PhpPossiblePolymorphicInvocationInspection */
-
 declare(strict_types=1);
 
 namespace App\Livewire\Favorites;
 
 use App\Enums\LivewireEventEnum;
-use App\Models\BaseModel;
+use App\Models\Comment;
 use App\Models\Favorite;
+use App\Models\Post;
 use App\Traits\AuthStatusTrait;
 use App\Traits\LoggingTrait;
 use App\Traits\TypeTrait;
@@ -22,7 +21,7 @@ final class FavoriteComponent extends Component
     use LoggingTrait;
     use TypeTrait;
 
-    public BaseModel $model;
+    public Comment|Post $model;
     public int $authorizedUserId;
     public int $favoritableId;
     public int $favoriteCount = 0;
@@ -31,7 +30,7 @@ final class FavoriteComponent extends Component
     public string $favoritableType = '';
     public bool $userFavorited = false;
 
-    public function mount($model): void
+    public function mount(Comment|Post $model): void
     {
         $this->model = $model;
 
