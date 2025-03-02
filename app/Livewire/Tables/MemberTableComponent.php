@@ -7,7 +7,7 @@ namespace App\Livewire\Tables;
 use App\Dtos\TableColumnDto;
 use App\Enums\UserStateEnum;
 use App\Models\User;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\WithPagination;
 
 final class MemberTableComponent extends TableComponent
@@ -31,7 +31,7 @@ final class MemberTableComponent extends TableComponent
         ];
     }
 
-    public function query(): Builder
+    public function query(): Builder|null
     {
         return User::query()
             ->select([
