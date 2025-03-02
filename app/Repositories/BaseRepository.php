@@ -74,13 +74,15 @@ class BaseRepository implements BaseRepositoryInterface
     {
         $cacheKey = $column . '-dropdown-values';
 
+        $query = $this->baseQuery()->pluck($column, $key)->toArray();
+
         if ($cache === true) {
-            cache()->remember(key: $cacheKey, ttl: $this->oneHour(), callback: function () use ($column, $key) {
-                return $this->baseQuery()->pluck($column, $key)->toArray();
+            cache()->remember(key: $cacheKey, ttl: $this->oneDay(), callback: function () use ($query) {
+                return $query;
             });
         }
 
-        return $this->baseQuery()->pluck($column, $key)->toArray();
+        return $query;
     }
 
     public function first(): Model
