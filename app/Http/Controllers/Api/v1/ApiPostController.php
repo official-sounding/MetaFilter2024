@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api\v1;
 
 use App\Enums\StatusEnum;
-use App\Http\Requests\Post\StoreMetaFilterPostRequest;
+use App\Http\Requests\Post\StorePostRequest;
 use App\Repositories\PostRepositoryInterface;
 use App\Services\PostService;
 use Illuminate\Http\JsonResponse;
@@ -17,16 +17,16 @@ final class ApiPostController extends BaseApiController
         protected PostService $postService,
     ) {}
 
-    public function store(StoreMetaFilterPostRequest $request): JsonResponse
+    public function store(StorePostRequest $request): JsonResponse
     {
         $stored = $this->postService->store($request->validated());
 
         if ($stored) {
-            $message = StatusEnum::PostAdded;
-            $status = StatusEnum::Success;
+            $message = StatusEnum::PostAdded->value;
+            $status = StatusEnum::Success->value;
         } else {
-            $message = StatusEnum::AddingPostFailed;
-            $status = StatusEnum::Failure;
+            $message = StatusEnum::AddingPostFailed->value;
+            $status = StatusEnum::Failure->value;
         }
 
         $data = [
