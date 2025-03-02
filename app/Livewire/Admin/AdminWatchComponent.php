@@ -6,7 +6,7 @@ namespace App\Livewire\Admin;
 
 use App\Enums\LivewireEventEnum;
 use App\Models\BaseModel;
-use App\Models\Watch;
+use App\Models\AdminWatch;
 use App\Traits\AuthStatusTrait;
 use App\Traits\LoggingTrait;
 use App\Traits\TypeTrait;
@@ -15,7 +15,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
 
-final class WatchComponent extends Component
+final class AdminWatchComponent extends Component
 {
     use AuthStatusTrait;
     use LoggingTrait;
@@ -65,7 +65,7 @@ final class WatchComponent extends Component
     public function startWatching(): void
     {
         try {
-            $watched = new Watch();
+            $watched = new AdminWatch();
 
             $watched->admin_id = $this->authorizedUserId;
             $watched->watchable_id = $this->model->id;
@@ -87,7 +87,7 @@ final class WatchComponent extends Component
 
     private function getWatchedModel(): Model
     {
-        return (new Watch())->where('watchable_id', '=', $this->model->id)
+        return (new AdminWatch())->where('watchable_id', '=', $this->model->id)
             ->where('watchable_type', '=', $this->watchableType)
             ->where('user_id', '=', $this->authorizedUserId)
             ->sole();

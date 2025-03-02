@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $watchable_id
  * @property string $watchable_type
  */
-final class Watch extends BaseModel
+final class AdminWatch extends BaseModel
 {
     use HasFactory;
     use SoftDeletes;
