@@ -15,12 +15,7 @@ trait FavoriteTrait
 
     public function toggleFavorite(): void
     {
-        if ($this->favorited) {
-            $this->delete();
-        } else {
-            $this->store();
-        }
-
+        // TODO: Implement toggleFavorite() method.
         $this->favorited = ! $this->favorited;
     }
 
