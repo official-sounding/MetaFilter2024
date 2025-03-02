@@ -27,7 +27,7 @@ final class SiteBannerComponent extends Component
     {
         $this->bannerLinkRepository = $bannerLinkRepository;
 
-        $this->bannerLinks = $this->bannerLinkRepository->getBannerLinks();
+        $this->bannerLinks = $this->bannerLinkRepository->getBannerLinks(limit: self::LINKS_TO_SHOW);
     }
 
     public function render(): View
