@@ -22,7 +22,7 @@ final class AdminNoteFactory extends BaseFactory
         return [
             'text' => $this->faker->paragraph(),
             // TODO: Search for a mod
-            'moderator_id' => (new User())->inRandomOrder()->first(),
+            'admin_id' => (new User())->inRandomOrder()->first(),
             'notable_id' => $notableId,
             'notable_type' => $notableType,
             'created_at' => $timestamp,
