@@ -16,9 +16,7 @@ final class AdminNoteFactory extends BaseFactory
     public function definition(): array
     {
         $timestamp = $this->getFakeTimestamp();
-
         $notableType = $this->getNotableType();
-
         $notableId = $this->getNotableId($notableType);
 
         return [
