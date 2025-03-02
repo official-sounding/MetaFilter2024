@@ -43,7 +43,7 @@ final class ContactMessageService
         }
     }
 
-    private function store(ContactMessageDto $dto): bool
+    public function store(ContactMessageDto $dto): bool
     {
         try {
             $data = [
