@@ -11,6 +11,6 @@ final class EditPostComponent extends Component
 {
     public function render(): View
     {
-        return view('livewire.edit-post-component');
+        return view('livewire.posts.edit-post-component');
     }
 }

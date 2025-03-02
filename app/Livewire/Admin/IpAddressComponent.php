@@ -18,6 +18,6 @@ final class IpAddressComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.moderators.ip-address-component');
+        return view('livewire.admin.ip-address-component');
     }
 }

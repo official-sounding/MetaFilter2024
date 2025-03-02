@@ -11,6 +11,6 @@ final class ToastComponent extends Component
 {
     public function render(): View
     {
-        return view('livewire.toast-component');
+        return view('livewire.toasts.toast-component');
     }
 }

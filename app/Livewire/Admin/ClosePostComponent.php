@@ -20,7 +20,7 @@ final class ClosePostComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.close-post-component');
+        return view('livewire.admin.close-post-component');
     }
 
     public function closePost(PostService $postService): void

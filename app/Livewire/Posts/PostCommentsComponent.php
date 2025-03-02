@@ -35,7 +35,7 @@ final class PostCommentsComponent extends Component
     {
         $this->getComments();
 
-        return view('livewire.post.post-comments-component')->with([
+        return view('livewire.posts.post-comments-component')->with([
             'comments' => $this->comments,
         ]);
     }

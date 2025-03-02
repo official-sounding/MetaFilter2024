@@ -19,7 +19,7 @@ final class LoginComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.auth.login-form');
+        return view('forms.auth.login-form');
     }
 
     public function login(): void
