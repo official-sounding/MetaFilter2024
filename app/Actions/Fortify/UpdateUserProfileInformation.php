@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Actions\Fortify;
 
 use App\Models\User;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
@@ -30,7 +29,8 @@ final class UpdateUserProfileInformation implements UpdatesUserProfileInformatio
             ],
         ])->validateWithBag('updateProfileInformation');
 
-        if ($input['email'] !== $user->email && $user instanceof MustVerifyEmail) {
+        if ($input['email'] !== $user->email &&
+            $this->shouldVerifyEmail()) {
             $this->updateVerifiedUser($user, $input);
         } else {
             $user->forceFill([
@@ -49,5 +49,10 @@ final class UpdateUserProfileInformation implements UpdatesUserProfileInformatio
         ])->save();
 
         $user->sendEmailVerificationNotification();
+    }
+
+    protected function shouldVerifyEmail(): bool
+    {
+        return config('fortify.email_verification', false);
     }
 }
