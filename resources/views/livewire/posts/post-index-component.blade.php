@@ -13,4 +13,6 @@
 
         <livewire:posts.post-index-item-component :post="$post" :key="$post->id" />
     @endforeach
+
+    {{ $posts->links() }}
 </section>
