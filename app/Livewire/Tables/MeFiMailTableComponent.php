@@ -6,7 +6,7 @@ namespace App\Livewire\Tables;
 
 use App\Dtos\TableColumnDto;
 use App\Models\MeFiMail;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\WithPagination;
 
 final class MeFiMailTableComponent extends TableComponent
@@ -35,7 +35,7 @@ final class MeFiMailTableComponent extends TableComponent
         ];
     }
 
-    public function query(): ?Builder
+    public function query(): Builder|null
     {
         if (isset(auth()->user()->id)) {
             return MeFiMail::query()
