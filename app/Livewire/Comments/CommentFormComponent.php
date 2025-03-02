@@ -79,6 +79,8 @@ final class CommentFormComponent extends Component
 
             $this->message = trans('Comment created.');
         }
+
+        $this->reset('text');
     }
 
     public function update(CommentService $commentService): void
