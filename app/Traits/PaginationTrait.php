@@ -10,15 +10,25 @@ trait PaginationTrait
 {
     public function data(): Paginator
     {
-        return $this
-            ->query()
-            ->when($this->orderBy !== '', function ($query) {
-                $query->orderBy(column: $this->orderBy, direction: $this->sortDirection);
-            })
-            ->when(isset($this->searchColumn) && $this->searchColumn !== '', function ($query) {
-                $query->whereLike(column: $this->searchColumn, value: trim($this->searchTerm));
-            })
-            ->simplePaginate($this->perPage);
+        $query = $this->query();
+
+        $orderBy = $this->orderBy ?? '';
+        $direction = $this->sortDirection ?? self::ASCENDING;
+
+        if ($orderBy !== '') {
+            $query->orderBy($orderBy, $direction);
+        }
+
+        $searchColumn = $this->searchColumn ?? '';
+        $searchTerm = $this->searchTerm ?? '';
+
+        if ($searchColumn !== '' && $searchTerm !== '') {
+            $query->whereLike($searchColumn, trim($searchTerm));
+        }
+
+        $perPage = $this->perPage ?? 20;
+
+        return $query->simplePaginate($perPage);
     }
 
     public function sort(string $key): void
