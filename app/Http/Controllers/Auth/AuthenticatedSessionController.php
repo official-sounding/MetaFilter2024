@@ -9,6 +9,7 @@ use App\Http\Requests\Auth\StoreLoginRequest;
 use App\Http\Requests\Auth\StoreLogoutRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 
 final class AuthenticatedSessionController extends Controller
@@ -41,7 +42,7 @@ final class AuthenticatedSessionController extends Controller
         ])->onlyInput('username');
     }
 
-    public function delete(StoreLogoutRequest $request): RedirectResponse
+    public function delete(StoreLogoutRequest $request): Redirector
     {
         Auth::logout();
 

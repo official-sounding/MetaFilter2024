@@ -25,7 +25,7 @@ final class PayPalSubscriptions implements SubscriptionInterface
         }
     }
 
-    public function create(int $plan_id, int $coupon_user_id, string $method, float $amount = 0): mixed
+    public function create(int $plan_id, int $coupon_user_id, string $method, float $amount = 0): void
     {
         // TODO: Implement create() method.
     }

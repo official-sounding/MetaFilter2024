@@ -23,7 +23,7 @@ final class TopBottomButtonComponent extends Component
     public function __construct(string $location)
     {
         if (! in_array($location, self::LOCATIONS, true)) {
-            return null;
+            return;
         }
 
         $this->handle($location);
