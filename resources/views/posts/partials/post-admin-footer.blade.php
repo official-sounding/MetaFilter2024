@@ -15,8 +15,7 @@
         {{ trans('Close Thread') }}
     </button>
 
-    <livewire:admin.watch-component :model="$post" />
-
+    <livewire:admin.admin-watch-component :model="$post" />
     <button>
         <x-icons.icon-component filename="eye" />
         {{ trans('Watch') }}
