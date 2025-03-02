@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Dtos\ContactMessageDto;
 use App\Http\Requests\Contact\StoreContactMessageRequest;
 use App\Services\ContactMessageService;
 use Illuminate\Contracts\View\View;
@@ -26,7 +27,15 @@ final class ContactMessageController extends BaseController
 
     public function store(StoreContactMessageRequest $request): RedirectResponse
     {
-        $stored = $this->contactMessageService->store($request->validated());
+        $dto = new ContactMessageDto(
+            $request->input('name'),
+            $request->input('email'),
+            $request->input('subject'),
+            $request->input('message'),
+            $request->input('copy_sender'),
+        );
+
+        $stored = $this->contactMessageService->store($dto);
 
         if ($stored) {
             $status = trans('Your message has been sent successfully.');

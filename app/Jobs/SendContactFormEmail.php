@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Jobs;
 
+use App\Dtos\ContactMessageDto;
 use App\Mail\ContactFormMessage;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -19,13 +20,15 @@ final class SendContactFormEmail implements ShouldQueue
     use Queueable;
     use SerializesModels;
 
-    public function __construct()
+    protected ContactMessageDto $dto;
+
+    public function __construct(ContactMessageDto $dto)
     {
-        //
+        $this->dto = $dto;
     }
 
     public function handle(): void
     {
-        Mail::send(new ContactFormMessage());
+        Mail::send(new ContactFormMessage($this->dto));
     }
 }
