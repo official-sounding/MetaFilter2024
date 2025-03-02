@@ -30,9 +30,9 @@ final class LdJsonService
             ->headline($post->title)
             ->datePublished($datePublished)
             ->dateModified($dateModified)
-            ->author($post->user->username)
+            ->author($post->user()->first()->username)
             // TODO: Get canonical URL
-            ->mainEntityOfPage($post->url)
+//            ->mainEntityOfPage($post->present()->url)
             ->articleBody($post->body . $post->more_inside);
 
         return $blogPosting->toScript();
