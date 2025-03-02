@@ -13,17 +13,24 @@ final class ContactController extends Controller
 {
     public function index(): View
     {
-        return view('contacts.index');
+        $viewPath = 'contacts.index';
+
+        return view($viewPath);
     }
 
     public function show(Contact $contact): View
     {
-        return view('contacts.show', compact('contact'));
+        $viewPath = 'contacts.show';
+
+        return view($viewPath, compact('contact'));
     }
 
     public function create(): View
     {
-        //
+
+        $viewPath = 'contacts.create';
+
+        return view($viewPath);
     }
 
     public function store(StoreContactRequest $request): void
@@ -33,7 +40,9 @@ final class ContactController extends Controller
 
     public function edit(Contact $contact): View
     {
-        return view('contacts.edit', compact('contact'));
+        $viewPath = 'contacts.edit';
+
+        return view($viewPath, compact('contact'));
     }
 
     public function update(UpdateContactRequest $request, Contact $contact): void
