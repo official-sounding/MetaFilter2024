@@ -10,7 +10,6 @@ use App\Traits\PostTrait;
 use App\Traits\SubsiteTrait;
 use Illuminate\Contracts\Pagination\CursorPaginator;
 use Illuminate\Contracts\View\View;
-use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -65,16 +64,14 @@ final class PostIndexComponent extends Component
 
     private function getPosts(): CursorPaginator
     {
-        return Post::select(
+        $dateQueries = [
             DB::raw('DATE_FORMAT(posts.created_at, "%m-%d") as month_day'),
             DB::raw('COUNT(*) as total_posts'),
-            'posts.id',
-            'posts.title',
-            'posts.slug',
-            'posts.body',
-            'posts.user_id',
-            'posts.created_at',
-        )
+        ];
+
+        $columns = array_merge(self::COLUMNS, $dateQueries);
+
+        return Post::select($columns)
         ->join(table: 'users', first: 'posts.user_id', operator: '=', second: 'users.id')
         ->join(table: 'subsites', first: 'posts.subsite_id', operator: '=', second: 'subsites.id')
         ->where(column: 'subsites.subdomain', operator: '=', value: $this->subdomain)
@@ -91,57 +88,3 @@ final class PostIndexComponent extends Component
         ->cursorPaginate(perPage: self::PER_PAGE);
     }
 }
-
-// https://jenssegers.com/laravel-pagination-with-grouping-and-eager-loading
-// https://laracasts.com/discuss/channels/general-discussion/handling-over-7k-records-groupby-and-pagination
-// https://www.devopsfreelancer.com/blog/how-to-group-a-collection-by-day-month-and-year-in-laravel/
-/*
- *         $posts = Post::with([
-    'user',
-])
-->withCount([
-    'comments',
-    'favorites',
-    'flags',
-])
-->get()
-->groupBy('created_at')
-->toArray();
-
-$currentPage = LengthAwarePaginator::resolveCurrentPage();
-
-$currentPosts = array_slice($posts, self::PER_PAGE * ($currentPage - 1), self::PER_PAGE);
-
-return new LengthAwarePaginator($currentPosts, count($posts), self::PER_PAGE, $currentPage);
-
-
-        $results = (new Post())->groupBy(function ($post){
-            return Carbon::parse($post->created_at)->format('F j');
-        })->get();
-
-        $total = count($results);
-        $start = (Paginator::getCurrentPage() - 1) * self::PER_PAGE;
-        $sliced = array_slice((array)$results, $start, self::PER_PAGE);
-
-        $collection = Post::hydrate($sliced);
-
-        $collection->load('relation');
-
-        return Paginator::make($collection->all(), $total, self::PER_PAGE);
-
-        $this->days = (new Post())
-            ->join('users', 'posts.user_id', '=', 'users.id')
-            ->join('subsites', 'posts.subsite_id', '=', 'subsites.id')
-            ->where('subsites.subdomain', '=', $this->subdomain)
-            ->select(self::COLUMNS)
-            ->withCount([
-                'comments',
-                'favorites',
-                'flags',
-            ])
-            ->orderBy('created_at', self::DESCENDING)
-            ->groupBy(function ($post) {
-                return Carbon::parse($post->created_at)->format('F j');
-            })
-            ->get();
-*/
