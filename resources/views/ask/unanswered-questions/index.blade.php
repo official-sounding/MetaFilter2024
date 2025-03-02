@@ -3,6 +3,6 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    unasnwered questions
+    unanswered questions
     index
 @endsection
