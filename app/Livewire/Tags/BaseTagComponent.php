@@ -8,10 +8,11 @@ use App\Models\BaseModel;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Livewire\Component;
 use Spatie\Tags\Tag;
 use Stringable;
 
-class BaseTagComponent
+final class BaseTagComponent extends Component
 {
     public BaseModel $model;
     public string $className;
@@ -81,7 +82,7 @@ class BaseTagComponent
             $this->allTags = Tag::all();
             $this->iteration++;
         } catch (Exception $exception) {
-            $this->emit('errorAlert', 'Some problem in saving Tags');
+            $this->dispatch('errorAlert', 'Some problem in saving Tags');
         }
     }
 }
