@@ -33,6 +33,9 @@ export default defineConfig({
                 'app/Livewire/**',
             ],
             publicDirectory: 'public_html',
+            build: {
+                outDir: 'public_html/build',
+            },
         })
     ],
     resolve: {
