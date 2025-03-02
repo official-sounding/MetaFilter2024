@@ -11,7 +11,6 @@ use App\Filament\Resources\PostResource\Pages\ListPosts;
 use App\Models\Post;
 use App\Traits\LoggingTrait;
 use Exception;
-use Filament\Actions\Action;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -104,7 +103,6 @@ final class PostResource extends Resource
                     ]),
                 ]);
         } catch (Exception $exception) {
-            self::logError($exception);
 
             return $table;
         }
