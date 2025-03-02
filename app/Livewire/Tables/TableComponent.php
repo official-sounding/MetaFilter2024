@@ -6,6 +6,7 @@ namespace App\Livewire\Tables;
 
 use App\Traits\PaginationTrait;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -26,6 +27,8 @@ abstract class TableComponent extends Component
     public string $searchTerm = '';
 
     abstract public function columns(): array;
+
+    abstract public function query(): Builder|null;
 
     public function render(): View
     {
