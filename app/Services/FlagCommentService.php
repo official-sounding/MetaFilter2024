@@ -20,7 +20,11 @@ final class FlagCommentService
 
     public function flagged(int $commentId, int $userId): bool
     {
-        return $this->flagRepository->userFlagged(self::FLAGGABLE_TYPE, $commentId, $userId);
+        return $this->flagRepository->userFlagged(
+            flaggableType: self::FLAGGABLE_TYPE,
+            flaggableId: $commentId,
+            userId: $userId,
+        );
     }
 
     public function create(array $data): bool
@@ -38,14 +42,12 @@ final class FlagCommentService
 
     public function delete(int $commentId, int $userId): bool
     {
-        $data = [
-            'flaggable_type' => self::FLAGGABLE_TYPE,
-            'flaggable_id' => $commentId,
-            'user_id' => $userId,
-        ];
-
         try {
-            $this->flagRepository->deleteFlag($data);
+            $this->flagRepository->deleteFlag(
+                flaggableType: self::FLAGGABLE_TYPE,
+                flagId: $commentId,
+                userId: $userId,
+            );
 
             return true;
         } catch (Exception $exception) {

@@ -20,7 +20,11 @@ final class FlagPostService
 
     public function flagged(int $postId, int $userId): bool
     {
-        return $this->flagRepository->userFlagged(self::FLAGGABLE_TYPE, $postId, $userId);
+        return $this->flagRepository->userFlagged(
+            flaggableType: self::FLAGGABLE_TYPE,
+            flaggableId: $postId,
+            userId: $userId,
+        );
     }
 
     public function create(array $data): bool
@@ -38,14 +42,12 @@ final class FlagPostService
 
     public function delete(int $postId, int $userId): bool
     {
-        $data = [
-            'flaggable_type' => self::FLAGGABLE_TYPE,
-            'flaggable_id' => $postId,
-            'user_id' => $userId,
-        ];
-
         try {
-            $this->flagRepository->deleteFlag($data);
+            $this->flagRepository->deleteFlag(
+                flaggableType: self::FLAGGABLE_TYPE,
+                flagId: $postId,
+                userId: $userId,
+            );
 
             return true;
         } catch (Exception $exception) {
