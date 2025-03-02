@@ -18,10 +18,10 @@ final class VerifyEmail extends BaseMailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            to: new Address(
+            to: [new Address(
                 address: $this->user->email,
                 name: $this->user->username,
-            ),
+            )],
             subject: trans('Please Verify Your Email Address'),
         );
     }
