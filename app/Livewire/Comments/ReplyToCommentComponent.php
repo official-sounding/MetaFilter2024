@@ -47,16 +47,11 @@ final class ReplyToCommentComponent extends Component
         $this->selectedText = '';
         $this->isVisible = false;
 
-        $this->emit('replyAdded');
+        $this->dispatch('replyAdded');
     }
 
     public function render(): View
     {
         return view('livewire.comments.reply-to-comment-component');
-    }
-
-    private function getReplyFormId(): string
-    {
-        return 'reply-form-' . $this->comment->id;
     }
 }
