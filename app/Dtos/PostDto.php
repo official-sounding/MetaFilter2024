@@ -11,7 +11,7 @@ readonly class PostDto
         public ?string $link_url,
         public ?string $link_text,
         public string $body,
-        public string $more_inside,
+        public ?string $more_inside,
         public int $user_id,
         public int $subsite_id,
         public string $state,
