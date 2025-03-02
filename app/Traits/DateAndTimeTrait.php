@@ -65,7 +65,7 @@ trait DateAndTimeTrait
 
         for ($i = $startMonth; $i <= 12; $i++) {
             $months[$i] = [
-                'name' => Carbon::createFromDate($year, $i)->format('F'),
+                'name' => Carbon::createFromDate((int) $year, $i)->format('F'),
                 'value' => $i,
                 'selected' => $this->isCurrentMonth($i),
             ];
