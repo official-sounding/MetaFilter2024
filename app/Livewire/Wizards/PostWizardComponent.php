@@ -41,6 +41,7 @@ final class PostWizardComponent extends BaseWizardComponent
     public string $state = '';
     public ?string $published_at = null;
     public bool $is_published = false;
+    public int $userId = 0;
 
     public Post $post;
     public int $subsiteId;
@@ -51,6 +52,7 @@ final class PostWizardComponent extends BaseWizardComponent
     {
         $this->postService = $postService;
         $this->subsiteId = $this->getSubsiteFromUrl()->id;
+        $this->userId = auth()->id();
     }
 
     public function render(): View
@@ -141,7 +143,7 @@ final class PostWizardComponent extends BaseWizardComponent
                 link_text: $this->link_text ?? null,
                 body: $this->body,
                 more_inside: $this->more_inside,
-                user_id: auth()->id(),
+                user_id: $this->userId,
                 subsite_id: $this->subsiteId,
                 state: $state,
                 published_at: null,
