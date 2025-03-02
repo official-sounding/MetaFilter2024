@@ -29,7 +29,7 @@ final class CommentCreate extends Component
 
     public function setComment(): void
     {
-        $this->form->postId = $this->postId;
+        $this->form->userId = $this->userId;
         $this->form->parentId = $this->parentId;
     }
 }
