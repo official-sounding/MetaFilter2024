@@ -21,7 +21,10 @@ final class EditCommentComponent extends Component
     protected CommentRepository $commentRepository;
 
     protected array $rules = [
-        'text' => 'required|string|max:500',
+        'commentText' => [
+            'required',
+            'string',
+        ],
     ];
 
     public function mount(Comment $comment, CommentRepository $commentRepository): void
@@ -29,6 +32,7 @@ final class EditCommentComponent extends Component
         $this->authorizedUserId = $this->getAuthorizedUserId();
 
         $this->comment = $comment;
+        $this->commentText = $comment->text;
 
         $this->commentRepository = $commentRepository;
     }
@@ -56,7 +60,7 @@ final class EditCommentComponent extends Component
         $this->validate();
 
         $this->comment->update([
-            'text' => $this->text,
+            'text' => $this->commentText,
         ]);
 
         $this->isEditing = false;
