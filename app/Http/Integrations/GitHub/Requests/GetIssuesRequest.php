@@ -21,6 +21,6 @@ final class GetIssuesRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        // TODO: Implement resolveEndpoint() method.
+        return "/repos/{$this->owner}/{$this->repo}/issues";
     }
 }
