@@ -5,39 +5,39 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Models\Comment;
-use App\Models\Favorite;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\AdminWatch;
 
-final class FavoriteFactory extends BaseFactory
+final class AdminWatchFactory extends BaseFactory
 {
-    protected $model = Favorite::class;
+    protected $model = AdminWatch::class;
 
     public function definition(): array
     {
         $timestamp = $this->getFakeTimestamp();
-        $favoritableType = $this->getFavoritableType();
-        $favoritableId = $this->getFavoritableId($favoritableType);
+        $watchType = $this->getWatchableType();
+        $watchId = $this->getWatchableId($watchType);
 
         return [
             'user_id' => (new User())->inRandomOrder()->first(),
-            'favoritable_id' => $favoritableId,
-            'favoritable_type' => $favoritableType,
+            'watch_id' => $watchId,
+            'watch_type' => $watchType,
             'created_at' => $timestamp,
             'published_at' => $timestamp,
             'updated_at' => null,
         ];
     }
 
-    private function getFavoritableId(string $favoritableType): string
+    private function getWatchableId(string $watchType): string
     {
-        return match ($favoritableType) {
+        return match ($watchType) {
             'comment' => (new Comment())->inRandomOrder()->first()->pluck('id'),
             'post' => (new Post())->inRandomOrder()->first()->pluck('id'),
         };
     }
 
-    private function getFavoritableType(): string
+    private function getWatchableType(): string
     {
         $random = mt_rand(0, 1);
 

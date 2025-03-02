@@ -14,6 +14,8 @@ final class SimplePageFactory extends Factory
 
     protected $model = SimplePage::class;
 
+    private const int NUMBER_OF_PARAGRAPHS = 3;
+
     public function definition(): array
     {
         $title = $this->faker->words();
@@ -21,7 +23,7 @@ final class SimplePageFactory extends Factory
         return [
             'title' => $title,
             'slug' => $this->getSlug($title),
-            'content' => $this->faker->paragraphs(3, true),
+            'content' => $this->faker->paragraphs(self::NUMBER_OF_PARAGRAPHS, true),
         ];
     }
 }

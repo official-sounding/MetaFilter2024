@@ -7,16 +7,14 @@ namespace Database\Factories;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Factories\Factory;
 
-final class CommentFactory extends Factory
+final class CommentFactory extends BaseFactory
 {
     protected $model = Comment::class;
 
     public function definition(): array
     {
-        $timestamp = $this->faker->dateTimeBetween('-20 years')->format('Y-m-d H:i:s');
-        $timestamp = date('Y-m-d H:i:s', strtotime($timestamp));
+        $timestamp = $this->getFakeTimestamp();
 
         return [
             'text' => $this->faker->paragraph(),

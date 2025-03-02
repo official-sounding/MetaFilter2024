@@ -11,11 +11,14 @@ final class SnippetFactory extends Factory
 {
     protected $model = Snippet::class;
 
+    private const int NUMBER_OF_WORDS = 3;
+    private const int NUMBER_OF_PARAGRAPHS = 2;
+
     public function definition(): array
     {
         return [
-            'title' => $this->faker->words(3, true),
-            'body' => $this->faker->paragraphs(2, true),
+            'title' => $this->faker->words(self::NUMBER_OF_WORDS, true),
+            'body' => $this->faker->paragraphs(self::NUMBER_OF_PARAGRAPHS, true),
         ];
     }
 }
