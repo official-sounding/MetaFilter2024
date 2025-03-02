@@ -27,7 +27,7 @@ final class TagController extends BaseController
     {
         return view('tags.show', [
             'title' => $tag->name,
-            'tag' => compact($tag),
+            'tag' => $tag,
         ]);
     }
 }
