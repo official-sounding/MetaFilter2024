@@ -8,6 +8,7 @@ use App\Enums\RouteNameEnum;
 use App\Enums\SubsiteEnum;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Builder;
+use InvalidArgumentException;
 
 trait PostTrait
 {
@@ -99,6 +100,7 @@ trait PostTrait
             SubsiteEnum::Music->value => RouteNameEnum::MusicMyPostsShow->value,
             SubsiteEnum::Podcast->value => RouteNameEnum::PodcastMyPostsShow->value,
             SubsiteEnum::Projects->value => RouteNameEnum::ProjectsMyPostsShow->value,
+            default => throw new InvalidArgumentException("Unknown subdomain: $subdomain"),
         };
     }
 
@@ -116,6 +118,7 @@ trait PostTrait
             SubsiteEnum::Music->value => RouteNameEnum::MusicPostShow->value,
             SubsiteEnum::Podcast->value => RouteNameEnum::PodcastPostShow->value,
             SubsiteEnum::Projects->value => RouteNameEnum::ProjectsPostShow->value,
+            default => throw new InvalidArgumentException("Unknown subdomain: $subdomain"),
         };
     }
 }
