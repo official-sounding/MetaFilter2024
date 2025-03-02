@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Tags\HasTags;
 
 /**
+ * @property int $id
  * @property string $created_at
  * @property string $deleted_at
  * @property string $published_at
