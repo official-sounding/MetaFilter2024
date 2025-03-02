@@ -63,7 +63,11 @@ trait PostTrait
 
     public function getCanonicalUrl(Post $post): string
     {
-        $subdomain = 'www' ? 'metafilter' : $this->getSubdomain();
+        $subdomain = $this->getSubdomain();
+
+        if ($subdomain === 'www') {
+            $subdomain = 'metafilter';
+        }
 
         return route("$subdomain.post.show", [
             'post' => $post,
@@ -95,6 +99,23 @@ trait PostTrait
             SubsiteEnum::Music->value => RouteNameEnum::MusicMyPostsShow->value,
             SubsiteEnum::Podcast->value => RouteNameEnum::PodcastMyPostsShow->value,
             SubsiteEnum::Projects->value => RouteNameEnum::ProjectsMyPostsShow->value,
+        };
+    }
+
+    private function getShowRouteName(Post $post): string
+    {
+        $subdomain = $post->subsite()->value('subdomain');
+
+        return match ($subdomain) {
+            SubsiteEnum::Ask->value => RouteNameEnum::AskPostShow->value,
+            SubsiteEnum::FanFare->value => RouteNameEnum::FanFarePostShow->value,
+            SubsiteEnum::Irl->value => RouteNameEnum::IrlPostShow->value,
+            SubsiteEnum::Jobs->value => RouteNameEnum::JobsPostShow->value,
+            SubsiteEnum::MetaFilter->value => RouteNameEnum::MetaFilterPostShow->value,
+            SubsiteEnum::MetaTalk->value => RouteNameEnum::MetaTalkPostShow->value,
+            SubsiteEnum::Music->value => RouteNameEnum::MusicPostShow->value,
+            SubsiteEnum::Podcast->value => RouteNameEnum::PodcastPostShow->value,
+            SubsiteEnum::Projects->value => RouteNameEnum::ProjectsPostShow->value,
         };
     }
 }
