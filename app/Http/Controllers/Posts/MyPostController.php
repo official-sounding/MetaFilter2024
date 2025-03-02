@@ -59,11 +59,11 @@ final class MyPostController extends BaseController
 
     public function update(UpdatePostRequest $request, Post $post): void
     {
-        $updated = $this->postService->update($request->validated());
+        $this->postService->update($post->id, $request->validated());
     }
 
     public function delete(Post $post): void
     {
-        $this->postService->delete($post);
+        $this->postService->delete($post->id);
     }
 }
