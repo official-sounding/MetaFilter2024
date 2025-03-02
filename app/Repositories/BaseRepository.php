@@ -114,7 +114,10 @@ class BaseRepository implements BaseRepositoryInterface
         return $model;
     }
 
-    public function updateOrCreate(array $data): Model|Collection|Builder|array|null {}
+    public function updateOrCreate(array $data): Model|Collection|Builder|array|null
+    {
+        return $this->baseQuery()->updateOrCreate($data);
+    }
 
     public function with($relation): Builder
     {
