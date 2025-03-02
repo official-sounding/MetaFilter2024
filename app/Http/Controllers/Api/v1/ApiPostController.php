@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Dtos\PostDto;
 use App\Enums\StatusEnum;
 use App\Http\Requests\Post\StorePostRequest;
 use App\Repositories\PostRepositoryInterface;
@@ -19,7 +20,22 @@ final class ApiPostController extends BaseApiController
 
     public function store(StorePostRequest $request): JsonResponse
     {
-        $stored = $this->postService->store($request->validated());
+        $validated = $request->validated();
+
+        $postDto = new PostDto(
+            title: $validated['title'],
+            link_url: $validated['link_url'] ?? null,
+            link_text: $validated['link_text'] ?? null,
+            body: $validated['body'],
+            more_inside: $validated['more_inside'] ?? null,
+            user_id: (int) $validated['user_id'],
+            subsite_id: (int) $validated['subsite_id'],
+            state: $validated['state'],
+            published_at: $validated['published_at'] ?? null,
+            is_published: (bool) ($validated['is_published'] ?? false),
+        );
+
+        $stored = $this->postService->store($postDto);
 
         if ($stored) {
             $message = StatusEnum::PostAdded->value;
