@@ -17,8 +17,7 @@ trait NavigationItemTrait
     public function getNavigationItem(
         array $itemData,
         bool $showRssLink = false,
-    ): ?string
-    {
+    ): ?string {
         $loggedIn = $this->loggedIn();
 
         if (isset($itemData['login_required'])) {

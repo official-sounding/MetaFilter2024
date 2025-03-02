@@ -21,6 +21,8 @@ final class Faq extends BaseModel
     use HasFactory;
     use Sluggable;
 
+    // Properties
+
     protected $fillable = [
         'question',
         'answer',
