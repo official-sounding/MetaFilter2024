@@ -16,9 +16,11 @@ final class CommentForm extends Form
 
     public Comment $comment;
     public int $authorizedUserId;
+    public ?int $userId = null;
     public string $text = '';
     public int $postId = 0;
     public ?int $parentId = null;
+    public ?object $parent = null;
 
     public function mount(): void
     {
