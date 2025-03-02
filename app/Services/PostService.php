@@ -28,10 +28,10 @@ final readonly class PostService
     {
         try {
             $data = [
-                'title' => $this->purifierService->clean($dto->title) ?? null,
+                'title' => $this->purifierService->clean($dto->title),
                 'link_url' => $this->purifierService->clean($dto->link_url) ?? null,
                 'link_text' => $this->purifierService->clean($dto->link_text) ?? null,
-                'body' => $this->purifierService->clean($dto->body) ?? null,
+                'body' => $this->purifierService->clean($dto->body),
                 'more_inside' => $this->purifierService->clean($dto->more_inside) ?? null,
                 'user_id' => $dto->user_id,
                 'subsite_id' => $dto->subsite_id,
