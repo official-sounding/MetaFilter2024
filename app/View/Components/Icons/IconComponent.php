@@ -29,7 +29,7 @@ final class IconComponent extends Component
 
     public function render(): View
     {
-        $this->iconPath = $this->getIconPath($this->filename) ?? 'icon-path';
+        $this->iconPath = $this->getIconPath($this->filename) ?: 'icon-path';
 
         return view('components.icons.icon-component', [
             'iconPath' => $this->iconPath,
