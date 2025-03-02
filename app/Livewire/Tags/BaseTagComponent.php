@@ -12,7 +12,7 @@ use Livewire\Component;
 use Spatie\Tags\Tag;
 use Stringable;
 
-final class BaseTagComponent extends Component
+class BaseTagComponent extends Component
 {
     public BaseModel $model;
     public string $className;
