@@ -9,13 +9,15 @@
         {{ trans('Note') }}
     </button>
 
-    {{-- MetaTalk only --}}
-    <button>
-        <x-icons.icon-component filename="x-square" />
-        {{ trans('Close Thread') }}
-    </button>
+    @if (isset($subsite) && $subsite === 'MetaTalk')
+        <button>
+            <x-icons.icon-component filename="x-square" />
+            {{ trans('Close Thread') }}
+        </button>
+    @endif
 
     <livewire:admin.admin-watch-component :model="$post" />
+
     <button>
         <x-icons.icon-component filename="eye" />
         {{ trans('Watch') }}

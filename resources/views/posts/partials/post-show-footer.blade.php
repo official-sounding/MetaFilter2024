@@ -1,5 +1,7 @@
 <footer class="post-footer post-show-footer">
     <address>
+        <x.members.profile-link-component :user="$post->user" />
+
         <a title="View {{ $post->user->username }}'s profile"
            href="/members/{{ $post->user->id }}">
             @if ($post->user->id === auth()->id())
@@ -18,7 +20,6 @@
 
     @if (isset($favoritesCount) && $favoritesCount > 0)
         {{ $favoritesCount }}
-
         {{ Str::plural('member', $favoritesCount) }}
         {{ trans('marked this as a favorite') }}
     @endif
@@ -27,7 +28,8 @@
         <x-buttons.copy-url-button url="{{ $canonicalUrl }}" />
     @endif
 </footer>
-
+{{--
 @auth()
     @include('posts.partials.post-admin-footer')
 @endauth
+--}}
