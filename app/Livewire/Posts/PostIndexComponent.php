@@ -34,6 +34,7 @@ final class PostIndexComponent extends Component
         'posts.created_at',
         'posts.deleted_at',
         'subsites.subdomain',
+        'subsites.id AS subsite_id',
         'subsites.name AS subsite',
         'users.id AS user_id',
         'users.username',
