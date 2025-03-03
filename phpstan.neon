@@ -13,4 +13,3 @@ parameters:
 
     stubFiles:
         - stubs/view.stub
-
