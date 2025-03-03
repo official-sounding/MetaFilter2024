@@ -22,6 +22,9 @@ php artisan clear-compiled
 # Recreate cache
 php artisan optimize
 
+# Recreate Filament cache
+php artisan filament:optimize
+
 # Compile npm assets
 npm run build
 
