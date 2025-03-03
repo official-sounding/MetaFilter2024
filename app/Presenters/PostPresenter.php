@@ -17,10 +17,15 @@ final class PostPresenter extends Presenter
     public function getCanonicalUrl(Model $post): string
     {
         if (!($post instanceof Post)) {
-            throw new InvalidArgumentException('Expected Post model');
+            throw new InvalidArgumentException(message: 'Expected Post model');
         }
 
-        return route('posts.show', $post);
+        $routeName = $this->getshowRouteName($post);
+
+        return route($routeName, [
+            'post' => $post,
+            'slug' => $post->slug,
+        ]);
     }
 
     public function url(): string
