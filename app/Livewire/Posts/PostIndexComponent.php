@@ -43,7 +43,6 @@ final class PostIndexComponent extends Component
     protected const int PER_PAGE = 20;
 
     public int $page = 1;
-    public int $perPage = 20;
     public string $orderBy = 'created_at';
     public string $sortDirection = self::DESCENDING;
     public string $subdomain;
