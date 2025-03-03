@@ -12,10 +12,12 @@ use App\Http\Requests\Signup\StoreEmailAddressRequest;
 use App\Http\Requests\Signup\StoreOptionalInfoRequest;
 use App\Http\Requests\Signup\StoreUsernameRequest;
 use App\Jobs\SendVerificationEmail;
+use App\Mail\VerifyEmail;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 final class SignupWizardComponent extends BaseWizardComponent
 {
@@ -115,7 +117,8 @@ final class SignupWizardComponent extends BaseWizardComponent
 
         $this->userService->update($user->id, $data);
 
-        SendVerificationEmail::dispatch($user);
+        //        SendVerificationEmail::dispatch($user);
+        Mail::to($user)->send(new VerifyEmail($user));
 
         Auth::login($user);
 
