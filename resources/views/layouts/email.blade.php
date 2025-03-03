@@ -11,17 +11,36 @@
     * {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
     }
+
 </style>
 <![endif]-->
 
 <!--[if !mso]>
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=montserrat:400,400i">
-    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=source-sans-pro:200,200i,300,300i,400,400i,600,600i,700,700i">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link rel="stylesheet" href="https://fonts.bunny.net/css?family=montserrat:400,400i">
+<link rel="stylesheet" href="https://fonts.bunny.net/css?family=source-sans-pro:200,200i,300,300i,400,400i,600,600i,700,700i">
 
-    * {
-        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-    }
+<style>
+* {
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
+.email-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #02253b;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.email-button:hover {
+    color: #fff;
+    background-color: #9bc654;
+}
+</style>
 <![endif]-->
 
 <title>{!! $title ?? 'Untitled' !!}</title>
@@ -44,7 +63,7 @@
             <table width="600" cellpadding="0" cellspacing="0" border="0" role="presentation">
                 <tr>
                     <td style="color: black;background-color: white; font-size: 16px;">
-                        <h1 style="font-family: Montserrat, 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-weight: 400;">
+                        <h1 style="font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-weight: 400;">
                             {!! $title ?? 'Untitled' !!}
                         </h1>
                     </td>
