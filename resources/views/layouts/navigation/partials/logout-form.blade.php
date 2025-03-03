@@ -1,5 +1,5 @@
 <form
-    action="{{ $logoutRoute }}"
+    action="/{{ $logoutRoute }}"
     class="logout-form"
     method="POST"
 >
