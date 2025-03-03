@@ -10,9 +10,9 @@ use Symfony\Component\Process\Process;
 final class Pint extends Command
 {
     protected $signature = 'pint
-                            {--test : If you would like Pint to simply inspect your code for style errors without actually changing the files, you may use the --test option}
-                            {--dirty : If you would like Pint to only modify the files that have uncommitted changes according to Git, you may use the --dirty option}
-                            {argument?* : Additional arguments for ./vendor/bin/pint like app/Models to run Pint on specific directory}';
+        {--test : If you would like Pint to simply inspect your code for style errors without actually changing the files, you may use the --test option}
+        {--dirty : If you would like Pint to only modify the files that have uncommitted changes according to Git, you may use the --dirty option}
+        {argument?* : Additional arguments for ./vendor/bin/pint like app/Models to run Pint on specific directory}';
 
     protected $description = 'Run Pint command';
 

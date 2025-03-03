@@ -68,7 +68,9 @@ trait SubsiteTrait
 
         $subdomain = str_replace(search: $baseDomain, replace: '', subject: $urlParts['host']);
 
-        session(['subdomain' => $subdomain]);
+        session([
+            'subdomain' => $subdomain,
+        ]);
 
         return $subdomain;
     }
