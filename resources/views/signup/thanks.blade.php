@@ -9,5 +9,5 @@
         If you still don&rsquo;t see it, <a href="/contact">let us know</a> and we&rsquo;ll help you out.
     </p>
 
-    <p><a href="{{ route($metaFilterPostIndexRoute) }}">Go to the home page</a> to create a new post or comment on other posts.</p>
+    <p><a href="{{ route($metaFilterPostIndexRoute) }}" style="text-decoration: underline;">Go to the home page</a> to create a new post or comment on other posts.</p>
 @endsection
