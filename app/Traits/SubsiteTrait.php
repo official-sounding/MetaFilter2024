@@ -6,8 +6,6 @@ namespace App\Traits;
 
 use App\Enums\RouteNameEnum;
 use App\Models\Subsite;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
 
 trait SubsiteTrait
 {
@@ -52,27 +50,13 @@ trait SubsiteTrait
 
     public function getSubdomain(): string
     {
-        if (session()->has('subdomain')) {
-            try {
-                return session()->get('subdomain');
-            } catch (NotFoundExceptionInterface|ContainerExceptionInterface $exception) {
-                $this->logError($exception);
-            }
-        }
-
         $currentUrl = url()->current();
 
         $urlParts = parse_url($currentUrl);
 
         $baseDomain = '.' . config('app.host');
 
-        $subdomain = str_replace(search: $baseDomain, replace: '', subject: $urlParts['host']);
-
-        session([
-            'subdomain' => $subdomain,
-        ]);
-
-        return $subdomain;
+        return str_replace(search: $baseDomain, replace: '', subject: $urlParts['host']);
     }
 
     public function getSubsiteFromUrl(): ?Subsite
