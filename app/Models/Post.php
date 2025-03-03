@@ -51,6 +51,8 @@ final class Post extends BaseModel implements CanPresent, HasMedia
     use UsesPresenters;
     use VersionableTrait;
 
+    protected const int DAYS_UNTIL_ARCHIVED = 30;
+
     // Properties
 
     protected $fillable = [
@@ -81,12 +83,12 @@ final class Post extends BaseModel implements CanPresent, HasMedia
 
     public function isFavoritedBy(User $user): bool
     {
-        return $this->favorites()->where('user_id', '=', $user->id)->exists();
+        return $this->favorites()->where(column: 'user_id', operator: '=', value: $user->id)->exists();
     }
 
     public function isFlaggedBy(User $user): bool
     {
-        return $this->flags()->where('user_id', '=', $user->id)->exists();
+        return $this->flags()->where(column: 'user_id', operator: '=', value: $user->id)->exists();
     }
 
     public function sluggable(): array
@@ -96,7 +98,7 @@ final class Post extends BaseModel implements CanPresent, HasMedia
 
     protected function isArchived(): Attribute
     {
-        $archiveDate = now()->subDays(30);
+        $archiveDate = now()->subDays(self::DAYS_UNTIL_ARCHIVED);
 
         return Attribute::make(
             get: fn(bool $value) => $this->created_at <= $archiveDate,
