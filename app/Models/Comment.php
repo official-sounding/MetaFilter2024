@@ -4,12 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Builders\CommentQueryBuilder;
-use App\Enums\RouteNameEnum;
 use App\Traits\SearchTrait;
-use App\Traits\SitemapTrait;
-use App\Traits\SubsiteTrait;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -18,8 +13,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
-use Spatie\Sitemap\Contracts\Sitemapable;
-use Spatie\Sitemap\Tags\Url;
 
 /**
  * @property int $id
@@ -29,14 +22,12 @@ use Spatie\Sitemap\Tags\Url;
  * @property int $user_id
  * @property User $user
  */
-final class Comment extends BaseModel implements Sitemapable
+final class Comment extends BaseModel
 {
     use HasFactory;
     use LogsActivity;
     use SearchTrait;
-    use SitemapTrait;
     use SoftDeletes;
-    use SubsiteTrait;
     use VersionableTrait;
 
     // Properties
@@ -55,16 +46,6 @@ final class Comment extends BaseModel implements Sitemapable
     public function getActivityLogOptions(): LogOptions
     {
         return LogOptions::defaults()->logFillable();
-    }
-
-    public function toSitemapTag(): Url
-    {
-        $routeName = $this->getShowPostRouteName();
-
-        return $this->getSitemapUrl(
-            $routeName,
-            $this->updated_at,
-        );
     }
 
     // Builders

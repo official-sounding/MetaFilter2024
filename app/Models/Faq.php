@@ -4,13 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Builders\FaqQueryBuilder;
-use App\Traits\SitemapTrait;
-use App\Traits\SubsiteTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Spatie\Sitemap\Contracts\Sitemapable;
-use Spatie\Sitemap\Tags\Url;
 
 /**
  * @property int $id
@@ -20,12 +15,10 @@ use Spatie\Sitemap\Tags\Url;
  * @property int $legacy_id
  * @property int $subsite_id
  */
-final class Faq extends BaseModel implements Sitemapable
+final class Faq extends BaseModel
 {
     use HasFactory;
     use Sluggable;
-    use SitemapTrait;
-    use SubsiteTrait;
 
     // Properties
 
@@ -47,14 +40,4 @@ final class Faq extends BaseModel implements Sitemapable
         {
             return new FaqQueryBuilder($query);
         }*/
-
-    public function toSitemapTag(): Url
-    {
-        $routeName = $this->getShowPostRouteName();
-
-        return $this->getSitemapUrl(
-            $routeName,
-            $this->updated_at,
-        );
-    }
 }

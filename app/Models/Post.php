@@ -6,8 +6,6 @@ namespace App\Models;
 
 use App\Presenters\PostPresenter;
 use App\Traits\SearchTrait;
-use App\Traits\SitemapTrait;
-use App\Traits\SubsiteTrait;
 use Coderflex\LaravelPresenter\Concerns\CanPresent;
 use Coderflex\LaravelPresenter\Concerns\UsesPresenters;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -23,8 +21,6 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\Sitemap\Contracts\Sitemapable;
-use Spatie\Sitemap\Tags\Url;
 use Spatie\Tags\HasTags;
 
 /**
@@ -42,7 +38,7 @@ use Spatie\Tags\HasTags;
  * @property bool $is_published
  * @property string $state
  */
-final class Post extends BaseModel implements CanPresent, HasMedia, Sitemapable
+final class Post extends BaseModel implements CanPresent, HasMedia
 {
     use HasDrafts;
     use HasFactory;
@@ -50,10 +46,8 @@ final class Post extends BaseModel implements CanPresent, HasMedia, Sitemapable
     use InteractsWithMedia;
     use LogsActivity;
     use SearchTrait;
-    use SitemapTrait;
     use Sluggable;
     use SoftDeletes;
-    use SubsiteTrait;
     use UsesPresenters;
     use VersionableTrait;
 
@@ -114,16 +108,6 @@ final class Post extends BaseModel implements CanPresent, HasMedia, Sitemapable
     public function getActivityLogOptions(): LogOptions
     {
         return LogOptions::defaults()->logFillable();
-    }
-
-    public function toSitemapTag(): Url
-    {
-        $routeName = $this->getShowPostRouteName();
-
-        return $this->getSitemapUrl(
-            $routeName,
-            $this->updated_at,
-        );
     }
 
     // Builders
