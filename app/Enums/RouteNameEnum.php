@@ -250,6 +250,9 @@ enum RouteNameEnum: string
     case SignupWizard = 'signup.wizard';
     case AuthVerifyEmail = 'auth.verify-email';
 
+    // Sitemap
+    case SitemapIndex = 'metafilter.sitemap.index';
+
     // Tags
     case TagsIndex = 'metafilter.tags.index';
 }

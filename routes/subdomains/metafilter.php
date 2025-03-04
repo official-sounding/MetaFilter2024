@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Enums\RouteNameEnum;
 use App\Http\Controllers\ArchivesController;
 use App\Http\Controllers\BugController;
+use App\Http\Controllers\Common\SitemapController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\FundingController;
@@ -120,6 +121,9 @@ Route::get('recent-activity', [RecentActivityController::class, 'show'])
 
 Route::get('recent-comments', [RecentCommentsController::class, 'index'])
     ->name(RouteNameEnum::MetaFilterRecentCommentsIndex);
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])
+    ->name(RouteNameEnum::SitemapIndex->value);
 
 Route::get('tags', [TagController::class, 'index'])
     ->name(RouteNameEnum::TagsIndex);
