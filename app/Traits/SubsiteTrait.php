@@ -108,6 +108,22 @@ trait SubsiteTrait
         };
     }
 
+    public function getShowPostRouteName(): string
+    {
+        $subdomain = $this->getSubdomain();
+
+        return match ($subdomain) {
+            'ask' => RouteNameEnum::AskPostShow->value,
+            'fanfare' => RouteNameEnum::FanFarePostShow->value,
+            'irl' => RouteNameEnum::IrlPostShow->value,
+            'metatalk' => RouteNameEnum::MetaTalkPostShow->value,
+            'music' => RouteNameEnum::MusicPostShow->value,
+            'podcast' => RouteNameEnum::PodcastPostShow->value,
+            'projects' => RouteNameEnum::ProjectsPostShow->value,
+            default => RouteNameEnum::MetaFilterPostShow->value,
+        };
+    }
+
     public function getStorePostRouteName(): string
     {
         $subdomain = $this->getSubdomain();
