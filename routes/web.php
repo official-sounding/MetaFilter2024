@@ -12,7 +12,7 @@ $middleware = [
     'web',
 ];
 
-// Route::feeds();
+Route::feeds();
 
 Route::get('search', [SearchController::class, 'create'])
     ->name('search.create');
