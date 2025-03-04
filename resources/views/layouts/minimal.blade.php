@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" x-data="themeSwitcher()" :class="theme">
+<html lang="{{ app()->getLocale() }}">
 <head>
 
 <meta charset="utf-8">

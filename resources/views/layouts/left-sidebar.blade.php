@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" x-data="themeSwitcher()" :class="theme">
+<html lang="{{ app()->getLocale() }}">
 <head>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 
 <title>@include('layouts.partials.window-title') - {{ $subsiteName }}</title>
 
