@@ -186,7 +186,6 @@ button,
 .button,
 .current-theme,
 .dropdown-toggle,
-.site-title-text,
 label.required,
 legend,
 .logout-button,
@@ -212,6 +211,10 @@ th,
 
 .site-footer p {
     line-height: 1.4rem;
+}
+
+.tagline {
+    letter-spacing: 0.03rem;
 }
 
 .icon-comment-empty {
