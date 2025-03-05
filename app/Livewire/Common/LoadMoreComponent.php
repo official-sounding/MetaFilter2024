@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Shared;
+namespace App\Livewire\Common;
 
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
