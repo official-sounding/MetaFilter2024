@@ -186,7 +186,6 @@ button,
 .button,
 .current-theme,
 .dropdown-toggle,
-.site-title-text,
 label.required,
 legend,
 .logout-button,
@@ -196,7 +195,6 @@ nav a,
 .site-banner,
 .site-footer a.button,
 main .steps li,
-.tagline,
 th,
 .years-ago a {
     font-weight: 600;
@@ -212,6 +210,10 @@ th,
 
 .site-footer p {
     line-height: 1.4rem;
+}
+
+.tagline {
+    letter-spacing: 0.03rem;
 }
 
 .icon-comment-empty {
