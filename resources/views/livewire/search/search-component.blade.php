@@ -7,7 +7,7 @@
 
             <input id="search-terms" name="q" type="search">
             <button type="button">
-                {{ trans('Go') }}
+                {{ trans('Search') }}
             </button>
         </form>
 
