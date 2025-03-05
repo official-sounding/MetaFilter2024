@@ -138,6 +138,12 @@ textarea:focus {
     background-color: var(--lightest-base-color);
 }
 
+//noinspection CssInvalidFunction
+.comment:hover,
+.post:hover {
+    color: light-dark(var(--lightest-base-color), var(--lighter-base-color));
+}
+
 .cta-button:link,
 .cta-button:visited {
     color: var(--black);
