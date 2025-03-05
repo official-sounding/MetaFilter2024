@@ -32,7 +32,7 @@ enum SubsiteEnum: string
             self::Ask => RouteNameEnum::AskPostIndex->value,
             self::BestOf => RouteNameEnum::BestOfHomeIndex->value,
             self::Chat => RouteNameEnum::ChatHomeIndex->value,
-            self::FanFare => RouteNameEnum::FanfarePostIndex->value,
+            self::FanFare => RouteNameEnum::FanFarePostIndex->value,
             self::Irl => RouteNameEnum::IrlPostIndex->value,
             self::Jobs => RouteNameEnum::JobsPostIndex->value,
             self::Labs => RouteNameEnum::LabsHomeIndex->value,

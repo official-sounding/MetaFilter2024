@@ -16,7 +16,7 @@ return [
         ],
         [
             'name' => 'FanFare',
-            'route' => RouteNameEnum::FanfarePostIndex->value,
+            'route' => RouteNameEnum::FanFarePostIndex->value,
         ],
         [
             'name' => 'Projects',

@@ -27,7 +27,7 @@ return [
     SubsiteEnum::FanFare->value => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::FanfarePostIndex->value,
+            'route' => RouteNameEnum::FanFarePostIndex->value,
         ],
         [
             'name' => 'About',

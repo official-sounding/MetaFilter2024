@@ -64,7 +64,7 @@ enum RouteNameEnum: string
 
     // FanFare
     case FanFarePopularFavoritesIndex = 'fanfare.popular-favorites.index';
-    case FanfarePostIndex = 'fanfare.post.index';
+    case FanFarePostIndex = 'fanfare.post.index';
     case FanFarePostShow = 'fanfare.post.show';
     case FanFareClubsIndex = 'fanfare.clubs.index';
     case FanFareTalkIndex = 'fanfare.talk.index';

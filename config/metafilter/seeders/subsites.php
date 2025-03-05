@@ -61,7 +61,7 @@ return [
         'green_text' => 'Fare',
         'tagline' => 'overthinking entertainment',
         'subdomain' => 'fanfare',
-        'route' => RouteNameEnum::FanfarePostIndex->value,
+        'route' => RouteNameEnum::FanFarePostIndex->value,
         'view' => 'posts.index',
         'in_dropdown' => false,
         'in_footer_nav' => true,

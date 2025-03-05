@@ -31,7 +31,7 @@ return [
     SubsiteEnum::FanFare->value => [
         [
             'name' => 'Recent Posts',
-            'route' => RouteNameEnum::FanfarePostIndex->value,
+            'route' => RouteNameEnum::FanFarePostIndex->value,
             'login_required' => false,
         ],
         [
