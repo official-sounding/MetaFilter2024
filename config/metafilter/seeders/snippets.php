@@ -28,4 +28,12 @@ return [
         'slug' => 'out-of-the-blue',
         'body' => 'Bite-sized episodes focusing on one interesting story from the MetaFilter community.',
     ],
+    /*
+        Reset password link sent
+        If the provided email exists in our system, you will receive an email to reset your password.
+        Can’t find the email? Try checking your spam folder.
+
+    Reset Your Password
+    Enter your registered email address and we’ll send you link via email to reset your password.
+    */
 ];
