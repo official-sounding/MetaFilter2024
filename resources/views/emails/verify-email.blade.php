@@ -3,9 +3,15 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    <p>Hello, <strong>{{ $user->username }}</strong></p>
+    <x-email.html-email-paragraph-component>
+        <b style='color: #033d63;'>{{ $user->username }}</b>
+    </x-email.html-email-paragraph-component>
 
-    <p>Welcome to MetaFilter. To complete your signup, please confirm your email address.</p>
+    <x.email.html-email-paragraph-component>
+        Welcome to MetaFilter! To complete your signup, please verify your email address.
+    </x.email.html-email-paragraph-component>
 
-    <a class="email-button" href="#">Confirm (not implemented yet)</a>
+    <x.email.html-email-button-component url="{{ $url }}">
+        Verify Email (not implemented yet)
+    </x.email.html-email-button-component>
 @endsection
