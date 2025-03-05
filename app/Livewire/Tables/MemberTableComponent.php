@@ -46,20 +46,20 @@ final class MemberTableComponent extends TableComponent
         //if (empty($this->searchColumns['title']) && empty($this->searchColumns['description'])) {
 
         ->when(
-                $this->searchId > 0,
-                fn (Builder $query) => $query->where(
-                    column: 'author_id',
-                    operator: '=',
-                    value: $this->searchId
-                )
-            )
+            $this->searchId > 0,
+            fn(Builder $query) => $query->where(
+                column: 'author_id',
+                operator: '=',
+                value: $this->searchId,
+            ),
+        )
             ->when(
                 !empty($this->columns('username')),
-                fn (Builder $query) => $query->where(
+                fn(Builder $query) => $query->where(
                     column: 'name',
                     operator: 'like',
-                    value: '%'. $this->searchUsername .'%'
-                )
+                    value: '%' . $this->searchUsername . '%',
+                ),
             )
             ->where(column: 'state', operator: '=', value: UserStateEnum::Active);
     }
