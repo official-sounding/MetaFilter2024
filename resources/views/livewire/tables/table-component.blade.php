@@ -24,7 +24,7 @@
                 <td>
                     <input
                         type="text"
-                        placeholder="Filter..."
+                        placeholder="{{ trans('Filter') }}&hellip;"
                         autocomplete="off"
                         wire:model.live="searchColumns.{{ $column->key }}">
                 </td>
