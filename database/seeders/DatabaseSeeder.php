@@ -41,7 +41,6 @@ final class DatabaseSeeder extends Seeder
     private function seedDevelopmentData(): void
     {
         $this->call([
-            AdminSeeder::class,
             FakeBannerLinkSeeder::class,
             FakeTagSeeder::class,
             FakeUserSeeder::class,
@@ -55,7 +54,7 @@ final class DatabaseSeeder extends Seeder
             FakeFavoriteSeeder::class,
             FakeFlagSeeder::class,
 
-            AdminRoleSeeder::class,
+            //            AdminRoleSeeder::class,
             // Needs AdminSeeder and RoleSeeder
         ]);
     }
