@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Spatie\Permission\DefaultTeamResolver;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -12,7 +13,7 @@ return [
         /*
          * When using the "HasPermissions" trait from this package, we need to know which
          * Eloquent model should be used to retrieve your permissions. Of course, it
-         * is often just the "Permission" model, but you may use whatever you like.
+         * is often just the "Permission" model but you may use whatever you like.
          *
          * The model you want to use as a Permission model needs to implement the
          * `Spatie\Permission\Contracts\Permission` contract.
@@ -23,7 +24,7 @@ return [
         /*
          * When using the "HasRoles" trait from this package, we need to know which
          * Eloquent model should be used to retrieve your roles. Of course, it
-         * is often just the "Role" model, but you may use whatever you like.
+         * is often just the "Role" model but you may use whatever you like.
          *
          * The model you want to use as a Role model needs to implement the
          * `Spatie\Permission\Contracts\Role` contract.
@@ -38,7 +39,7 @@ return [
         /*
          * When using the "HasRoles" trait from this package, we need to know which
          * table should be used to retrieve your roles. We have chosen a basic
-         * default value, but you may easily change it to any table you like.
+         * default value but you may easily change it to any table you like.
          */
 
         'roles' => 'roles',
@@ -46,7 +47,7 @@ return [
         /*
          * When using the "HasPermissions" trait from this package, we need to know which
          * table should be used to retrieve your permissions. We have chosen a basic
-         * default value, but you may easily change it to any table you like.
+         * default value but you may easily change it to any table you like.
          */
 
         'permissions' => 'permissions',
@@ -54,7 +55,7 @@ return [
         /*
          * When using the "HasPermissions" trait from this package, we need to know which
          * table should be used to retrieve your models permissions. We have chosen a
-         * basic default value, but you may easily change it to any table you like.
+         * basic default value but you may easily change it to any table you like.
          */
 
         'model_has_permissions' => 'model_has_permissions',
@@ -62,7 +63,7 @@ return [
         /*
          * When using the "HasRoles" trait from this package, we need to know which
          * table should be used to retrieve your models roles. We have chosen a
-         * basic default value, but you may easily change it to any table you like.
+         * basic default value but you may easily change it to any table you like.
          */
 
         'model_has_roles' => 'model_has_roles',
@@ -70,7 +71,7 @@ return [
         /*
          * When using the "HasRoles" trait from this package, we need to know which
          * table should be used to retrieve your roles permissions. We have chosen a
-         * basic default value, but you may easily change it to any table you like.
+         * basic default value but you may easily change it to any table you like.
          */
 
         'role_has_permissions' => 'role_has_permissions',
@@ -80,8 +81,8 @@ return [
         /*
          * Change this if you want to name the related pivots other than defaults
          */
-        'role_pivot_key' => null, //default 'role_id',
-        'permission_pivot_key' => null, //default 'permission_id',
+        'role_pivot_key' => null, // default 'role_id',
+        'permission_pivot_key' => null, // default 'permission_id',
 
         /*
          * Change this if you want to name the related model primary key other than
@@ -116,6 +117,17 @@ return [
     'register_octane_reset_listener' => false,
 
     /*
+     * Events will fire when a role or permission is assigned/unassigned:
+     * \Spatie\Permission\Events\RoleAttached
+     * \Spatie\Permission\Events\RoleDetached
+     * \Spatie\Permission\Events\PermissionAttached
+     * \Spatie\Permission\Events\PermissionDetached
+     *
+     * To enable, set to true, and then create listeners to watch these events.
+     */
+    'events_enabled' => true,
+
+    /*
      * Teams Feature.
      * When set to true the package implements teams using the 'team_foreign_key'.
      * If you want the migrations to register the 'team_foreign_key', you must
@@ -126,6 +138,11 @@ return [
      */
 
     'teams' => false,
+
+    /*
+     * The class to use to resolve the permissions team id
+     */
+    'team_resolver' => DefaultTeamResolver::class,
 
     /*
      * Passport Client Credentials Grant

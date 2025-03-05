@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 return [
     'shield_resource' => [
         'should_register_navigation' => true,
@@ -14,6 +12,8 @@ return [
         'is_scoped_to_tenant' => true,
         'cluster' => null,
     ],
+
+    'tenant_model' => null,
 
     'auth_provider_model' => [
         'fqcn' => 'App\\Models\\User',
@@ -85,7 +85,7 @@ return [
     ],
 
     'register_role_policy' => [
-        'enabled' => false,
+        'enabled' => true,
     ],
 
 ];
