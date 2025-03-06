@@ -34,7 +34,6 @@
         "laravel/telescope": "^5.2",
         "laravel/tinker": "^2.9",
         "league/csv": "^9.16",
-        "matt-daneshvar/laravel-survey": "^0.4.0",
         "mews/purifier": "^3.4",
         "mpociot/versionable": "^4.4",
         "nickurt/laravel-stopforumspam": "^1.9",
