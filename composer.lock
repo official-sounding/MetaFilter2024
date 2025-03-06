@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07194f27033685878c9773ddcc8b706c",
+    "content-hash": "05a1db9003cda865815a90713e77182c",
     "packages": [
         {
             "name": "amphp/amp",
@@ -6546,6 +6546,64 @@
                 "source": "https://github.com/Masterminds/html5-php/tree/2.9.0"
             },
             "time": "2024-03-31T07:05:07+00:00"
+        },
+        {
+            "name": "matt-daneshvar/laravel-survey",
+            "version": "v0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matt-daneshvar/laravel-survey.git",
+                "reference": "23ea83076e17abff13e327c57b005325a5a25bc8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matt-daneshvar/laravel-survey/zipball/23ea83076e17abff13e327c57b005325a5a25bc8",
+                "reference": "23ea83076e17abff13e327c57b005325a5a25bc8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^10.0|^11.0|^12.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "illuminate/http": "^10.0|^11.0|^12.0",
+                "laravel/legacy-factories": "^1.4",
+                "orchestra/testbench": "^8.0|^9.0|^10.0",
+                "phpunit/phpunit": "^10.0|^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MattDaneshvar\\Survey\\SurveyServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MattDaneshvar\\Survey\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Daneshvar",
+                    "email": "matt.daneshvar@gmail.com"
+                }
+            ],
+            "description": "Create surveys inside your Laravel app",
+            "keywords": [
+                "laravel",
+                "survey"
+            ],
+            "support": {
+                "issues": "https://github.com/matt-daneshvar/laravel-survey/issues",
+                "source": "https://github.com/matt-daneshvar/laravel-survey/tree/v0.5.0"
+            },
+            "time": "2025-02-25T12:54:35+00:00"
         },
         {
             "name": "mews/purifier",
@@ -14945,6 +15003,66 @@
                 }
             ],
             "time": "2025-03-03T10:10:01+00:00"
+        },
+        {
+            "name": "watson/sitemap",
+            "version": "5.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dwightwatson/sitemap.git",
+                "reference": "f92d6f468b5a4af1242d82f6edfc95362cdd5564"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dwightwatson/sitemap/zipball/f92d6f468b5a4af1242d82f6edfc95362cdd5564",
+                "reference": "f92d6f468b5a4af1242d82f6edfc95362cdd5564",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "^8.0|^9.0|^10.0|^11.0|^12.0",
+                "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3.1",
+                "phpunit/phpunit": "^9.0|^10.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Sitemap": "Watson\\Sitemap\\Facades\\Sitemap"
+                    },
+                    "providers": [
+                        "Watson\\Sitemap\\SitemapServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Watson\\": "src/Watson"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dwight Watson",
+                    "email": "dwightwatson@studious.com.au"
+                }
+            ],
+            "description": "Generate Google Sitemaps in Laravel",
+            "keywords": [
+                "laravel",
+                "sitemaps"
+            ],
+            "support": {
+                "issues": "https://github.com/dwightwatson/sitemap/issues",
+                "source": "https://github.com/dwightwatson/sitemap/tree/5.4.1"
+            },
+            "time": "2025-03-02T11:43:22+00:00"
         },
         {
             "name": "webmozart/assert",
