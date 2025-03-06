@@ -42,6 +42,7 @@
         "nickurt/laravel-stopforumspam": "^1.9",
         "oddvalue/laravel-drafts": "^2.0",
         "opcodesio/log-viewer": "^3.10",
+        "pxlrbt/filament-activity-log": "^1.1",
         "rahulalam31/laravel-abuse-ip": "^1.2",
         "saloonphp/laravel-plugin": "^3.5",
         "saloonphp/saloon": "^3.9",
