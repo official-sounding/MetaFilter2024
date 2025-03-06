@@ -42,6 +42,7 @@ final class AppServiceProvider extends ServiceProvider
         ]);
 
         $subdomain = $this->getSubdomain();
+
         $subsite = $this->getSubsiteBySubdomain($subdomain);
 
         session([
