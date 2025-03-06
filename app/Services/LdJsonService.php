@@ -11,7 +11,7 @@ use DateMalformedStringException;
 use DateTime;
 use Spatie\SchemaOrg\Schema;
 
-final class LdJsonService
+class LdJsonService
 {
     use LoggingTrait;
 

@@ -10,7 +10,7 @@ use App\Repositories\PostRepositoryInterface;
 use App\Traits\LoggingTrait;
 use Exception;
 
-final readonly class PostService
+class PostService
 {
     use LoggingTrait;
 
