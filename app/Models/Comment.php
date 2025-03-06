@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Traits\SearchTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -26,7 +26,7 @@ final class Comment extends BaseModel
 {
     use HasFactory;
     use LogsActivity;
-    use SearchTrait;
+    use Searchable;
     use SoftDeletes;
     use VersionableTrait;
 
@@ -46,6 +46,11 @@ final class Comment extends BaseModel
     public function getActivityLogOptions(): LogOptions
     {
         return LogOptions::defaults()->logFillable();
+    }
+
+    public function toSearchableArray(): array
+    {
+        return ['id' => (string) $this->id] + $this->toArray();
     }
 
     // Builders

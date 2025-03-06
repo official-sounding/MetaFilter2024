@@ -6,7 +6,6 @@ namespace App\Models;
 
 use App\Presenters\UserPresenter;
 use App\States\User\UserState;
-use App\Traits\SearchTrait;
 use Coderflex\LaravelPresenter\Concerns\CanPresent;
 use Coderflex\LaravelPresenter\Concerns\UsesPresenters;
 use Cog\Contracts\Ban\Bannable as BannableInterface;
@@ -21,6 +20,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\ModelStates\HasStates;
@@ -53,7 +53,7 @@ final class User extends Authenticatable implements
     use HasStates;
     use InteractsWithMedia;
     use Notifiable;
-    use SearchTrait;
+    use Searchable;
     use SoftDeletes;
     use UsesPresenters;
 
@@ -96,6 +96,11 @@ final class User extends Authenticatable implements
     public function canAccessPanel(Panel $panel): bool
     {
         return str_ends_with($this->email, self::DOMAIN);
+    }
+
+    public function toSearchableArray(): array
+    {
+        return ['id' => (string) $this->id] + $this->toArray();
     }
 
     // Builders

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Traits\SearchTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 
 /**
  * @property int $id
@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 final class SimplePage extends BaseModel
 {
     use HasFactory;
-    use SearchTrait;
+    use Searchable;
     use Sluggable;
     use SoftDeletes;
 
@@ -54,5 +54,10 @@ final class SimplePage extends BaseModel
     public function sluggable(): array
     {
         return $this->getSlugFrom('title');
+    }
+
+    public function toSearchableArray(): array
+    {
+        return ['id' => (string) $this->id] + $this->toArray();
     }
 }

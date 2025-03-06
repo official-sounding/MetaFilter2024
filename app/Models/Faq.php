@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Scout\Searchable;
 
 /**
  * @property int $id
@@ -18,6 +19,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 final class Faq extends BaseModel
 {
     use HasFactory;
+    use Searchable;
     use Sluggable;
 
     // Properties
@@ -32,6 +34,11 @@ final class Faq extends BaseModel
     public function sluggable(): array
     {
         return $this->getSlugFrom('question');
+    }
+
+    public function toSearchableArray(): array
+    {
+        return ['id' => (string) $this->id] + $this->toArray();
     }
 
     // Builders

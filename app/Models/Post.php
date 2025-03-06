@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Presenters\PostPresenter;
-use App\Traits\SearchTrait;
 use Coderflex\LaravelPresenter\Concerns\CanPresent;
 use Coderflex\LaravelPresenter\Concerns\UsesPresenters;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -15,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 use Mpociot\Versionable\VersionableTrait;
 use Oddvalue\LaravelDrafts\Concerns\HasDrafts;
 use Spatie\Activitylog\LogOptions;
@@ -45,7 +45,7 @@ final class Post extends BaseModel implements CanPresent, HasMedia
     use HasTags;
     use InteractsWithMedia;
     use LogsActivity;
-    use SearchTrait;
+    use Searchable;
     use Sluggable;
     use SoftDeletes;
     use UsesPresenters;
@@ -81,6 +81,20 @@ final class Post extends BaseModel implements CanPresent, HasMedia
         'more_inside',
     ];
 
+    public function getActivityLogOptions(): LogOptions
+    {
+        return LogOptions::defaults()->logFillable();
+    }
+
+    protected function isArchived(): Attribute
+    {
+        $archiveDate = now()->subDays(self::DAYS_UNTIL_ARCHIVED);
+
+        return Attribute::make(
+            get: fn(bool $value) => $this->created_at <= $archiveDate,
+        );
+    }
+
     public function isFavoritedBy(User $user): bool
     {
         return $this->favorites()->where(column: 'user_id', operator: '=', value: $user->id)->exists();
@@ -96,18 +110,9 @@ final class Post extends BaseModel implements CanPresent, HasMedia
         return $this->getSlugFrom('title');
     }
 
-    protected function isArchived(): Attribute
+    public function toSearchableArray(): array
     {
-        $archiveDate = now()->subDays(self::DAYS_UNTIL_ARCHIVED);
-
-        return Attribute::make(
-            get: fn(bool $value) => $this->created_at <= $archiveDate,
-        );
-    }
-
-    public function getActivityLogOptions(): LogOptions
-    {
-        return LogOptions::defaults()->logFillable();
+        return ['id' => (string) $this->id] + $this->toArray();
     }
 
     // Builders
