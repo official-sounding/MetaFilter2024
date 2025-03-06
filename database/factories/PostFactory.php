@@ -23,7 +23,7 @@ final class PostFactory extends BaseFactory
         return [
             'title' => $this->faker->sentence(),
             'body' => $this->faker->paragraph(),
-            'more_inside' => $this->faker->paragraphs(3, true),
+            'more_inside' => $this->faker->paragraph(),
             'subsite_id' => (new Subsite())->inRandomOrder()->first(),
             'user_id' => (new User())->inRandomOrder()->first(),
             'created_at' => $timestamp,
