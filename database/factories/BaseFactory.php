@@ -9,6 +9,15 @@ abstract class BaseFactory extends Factory
 {
     use DateAndTimeTrait;
 
+    protected string $host;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->host = config('app.host');
+    }
+
     public function getFakeTimestamp(): string
     {
         $timestamp = $this->faker->dateTimeBetween('-20 years')->format('Y-m-d H:i:s');
