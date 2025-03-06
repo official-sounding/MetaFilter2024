@@ -12,6 +12,13 @@ trait SubsiteTrait
     use LoggingTrait;
     use UrlTrait;
 
+    public function getFullUrl(string $subdomain)
+    {
+        $host = config('app.host');
+
+        return $subdomain . $host;
+    }
+
     public function getNewPostText(): string
     {
         $subdomain = $this->getSubdomain();
@@ -105,6 +112,24 @@ trait SubsiteTrait
             'podcast' => RouteNameEnum::PodcastMyPostsCreate->value,
             'projects' => RouteNameEnum::ProjectsMyPostsCreate->value,
             default => RouteNameEnum::MetaFilterMyPostsCreate->value,
+        };
+    }
+
+    public function getPostIndexRouteName(string $subdomain = ''): string
+    {
+        if ($subdomain === '') {
+            $subdomain = $this->getSubdomain();
+        }
+
+        return match ($subdomain) {
+            'ask' => RouteNameEnum::AskPostIndex->value,
+            'fanfare' => RouteNameEnum::FanFarePostIndex->value,
+            'irl' => RouteNameEnum::IrlPostIndex->value,
+            'metatalk' => RouteNameEnum::MetaTalkPostIndex->value,
+            'music' => RouteNameEnum::MusicPostIndex->value,
+            'podcast' => RouteNameEnum::PodcastPostIndex->value,
+            'projects' => RouteNameEnum::ProjectsPostIndex->value,
+            default => RouteNameEnum::MetaFilterPostIndex->value,
         };
     }
 
