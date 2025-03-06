@@ -9,7 +9,7 @@ body {
     justify-content: center;
     height: 100%;
     color: var(--lightest-blue);
-    background-color: var(--darkest-blue);
+    background-color: var(--blue);
 }
 
 main {
@@ -20,12 +20,12 @@ main {
 
 .site-title-text {
     color: var(--white);
-    background-color: var(--blue);
+    background-color: var(--darker-blue);
     white-space: nowrap;
     font-family: Montserrat, 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-optical-sizing: auto;
-    font-style: normal;
     font-size: 1.5rem;
+    font-style: normal;
     border-top-right-radius: var(--border-radius);
     border-top-left-radius: var(--border-radius);
 }
