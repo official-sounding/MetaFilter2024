@@ -46,7 +46,7 @@ Route::get('water-cooler', [WaterCoolerController::class, 'index'])
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
-        ->name(RouteNameEnum::FanfarePostIndex);
+        ->name(RouteNameEnum::FanFarePostIndex);
 
     Route::get('{post}/{slug}', 'show')
         ->name(RouteNameEnum::FanFarePostShow);
