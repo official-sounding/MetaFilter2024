@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4107f3eb6980d85aa826b9a3db1f024e",
+    "content-hash": "d071cbab64517db51f6a8f627eada609",
     "packages": [
         {
             "name": "amphp/amp",
@@ -879,6 +879,78 @@
                 "source": "https://github.com/AnourValar/eloquent-serialize/tree/1.2.29"
             },
             "time": "2025-02-25T05:18:46+00:00"
+        },
+        {
+            "name": "ashallendesign/favicon-fetcher",
+            "version": "v3.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ash-jc-allen/favicon-fetcher.git",
+                "reference": "e9e79ec1286066d216ecffdad360cd28ea2a666a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ash-jc-allen/favicon-fetcher/zipball/e9e79ec1286066d216ecffdad360cd28ea2a666a",
+                "reference": "e9e79ec1286066d216ecffdad360cd28ea2a666a",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.4",
+                "illuminate/cache": "^9.0|^10.0|^11.0|^12.0",
+                "illuminate/filesystem": "^9.0|^10.0|^11.0|^12.0",
+                "illuminate/http": "^9.0|^10.0|^11.0|^12.0",
+                "nesbot/carbon": "^2.0|^3.0",
+                "php": "^8.1",
+                "symfony/dom-crawler": "^6.3 || ^7.0"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.0|^3.0",
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^7.0|^8.0|^9.0",
+                "phpunit/phpunit": "^9.0|^10.0|^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AshAllenDesign\\FaviconFetcher\\FaviconFetcherProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AshAllenDesign\\FaviconFetcher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ash Allen",
+                    "email": "mail@ashallendesign.co.uk"
+                }
+            ],
+            "description": "A Laravel package for fetching website's favicons.",
+            "homepage": "https://github.com/ash-jc-allen/favicon-fetcher",
+            "keywords": [
+                "ashallendesign",
+                "favicon",
+                "favicon-fetcher",
+                "icon"
+            ],
+            "support": {
+                "issues": "https://github.com/ash-jc-allen/favicon-fetcher/issues",
+                "source": "https://github.com/ash-jc-allen/favicon-fetcher/tree/v3.8.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/ash-jc-allen",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-02-24T00:06:49+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -4338,6 +4410,82 @@
                 "source": "https://github.com/jantinnerezo/livewire-alert/tree/v3.0.3"
             },
             "time": "2025-02-26T13:38:27+00:00"
+        },
+        {
+            "name": "joaopaulolndev/filament-check-ssl-widget",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joaopaulolndev/filament-check-ssl-widget.git",
+                "reference": "1420d71ebc2e425c09bb3516d14c68a5c08f8f9e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joaopaulolndev/filament-check-ssl-widget/zipball/1420d71ebc2e425c09bb3516d14c68a5c08f8f9e",
+                "reference": "1420d71ebc2e425c09bb3516d14c68a5c08f8f9e",
+                "shasum": ""
+            },
+            "require": {
+                "ashallendesign/favicon-fetcher": "^3.5",
+                "filament/filament": "^3.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.15.0",
+                "spatie/ssl-certificate": "^2.6"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.9",
+                "orchestra/testbench": "^8.0",
+                "pestphp/pest": "^2.1",
+                "pestphp/pest-plugin-arch": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "FilamentCheckSslWidget": "Joaopaulolndev\\FilamentCheckSslWidget\\Facades\\FilamentCheckSslWidget"
+                    },
+                    "providers": [
+                        "Joaopaulolndev\\FilamentCheckSslWidget\\FilamentCheckSslWidgetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Joaopaulolndev\\FilamentCheckSslWidget\\": "src/",
+                    "Joaopaulolndev\\FilamentCheckSslWidget\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "João Paulo Leite Nascimento",
+                    "email": "joaopauloln7@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A filamentPHP widget to get details about ssl certificate",
+            "homepage": "https://github.com/joaopaulolndev/filament-check-ssl-widget",
+            "keywords": [
+                "filament-check-ssl-widget",
+                "joaopaulolndev",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/joaopaulolndev/filament-check-ssl-widget/issues",
+                "source": "https://github.com/joaopaulolndev/filament-check-ssl-widget"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/joaopaulolndev",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-02-17T09:19:41+00:00"
         },
         {
             "name": "kelunik/certificate",
