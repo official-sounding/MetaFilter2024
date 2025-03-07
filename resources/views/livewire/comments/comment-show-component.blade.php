@@ -2,6 +2,8 @@
     {{ $comment->text }}
 
     <footer class="comment-footer">
+        <p>{{ $wordCount . ' ' .  trans('words') }}</p>
+
         <x-members.profile-link-component :user="$comment->user" />
 
         @include('comments.partials.comment-timestamp', [
@@ -70,7 +72,7 @@
         @endif
 
         @if ($isReplying === true)
-            <livewire:comments.comment-form-component
+            <livewire:comments.reply-to-comment-component
                 wire:key="'reply-to-comment-' . $comment->id"
                 :authorized-user-id="$authorizedUserId"
                 :post-id="$comment->post_id"
