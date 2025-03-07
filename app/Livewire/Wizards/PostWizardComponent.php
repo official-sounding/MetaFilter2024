@@ -34,8 +34,6 @@ final class PostWizardComponent extends BaseWizardComponent
     ];
 
     public string $title = '';
-    public ?string $link_url = '';
-    public ?string $link_text = '';
     public string $body = '';
     public string $more_inside = '';
     public string $state = '';
@@ -139,8 +137,6 @@ final class PostWizardComponent extends BaseWizardComponent
 
             $dto = new PostDto(
                 title: $this->title,
-                link_url: $this->link_url ?? null,
-                link_text: $this->link_text ?? null,
                 body: $this->body,
                 more_inside: $this->more_inside,
                 user_id: $this->userId,

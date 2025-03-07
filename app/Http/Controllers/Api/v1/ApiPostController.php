@@ -24,8 +24,6 @@ final class ApiPostController extends BaseApiController
 
         $postDto = new PostDto(
             title: $validated['title'],
-            link_url: $validated['link_url'] ?? null,
-            link_text: $validated['link_text'] ?? null,
             body: $validated['body'],
             more_inside: $validated['more_inside'] ?? null,
             user_id: (int) $validated['user_id'],

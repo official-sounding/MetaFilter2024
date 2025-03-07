@@ -29,8 +29,6 @@ class PostService
         try {
             $data = [
                 'title' => $this->purifierService->clean($dto->title),
-                'link_url' => $this->purifierService->clean($dto->link_url),
-                'link_text' => $this->purifierService->clean($dto->link_text),
                 'body' => $this->purifierService->clean($dto->body),
                 'more_inside' => $this->purifierService->clean($dto->more_inside),
                 'user_id' => $dto->user_id,

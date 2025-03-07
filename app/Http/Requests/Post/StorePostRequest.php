@@ -44,18 +44,6 @@ class StorePostRequest extends BaseFormRequest
                 'string',
                 'max:255',
             ],
-            'link_text' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-            'link_url' => [
-                'nullable',
-                'string',
-                'max:255',
-                'url:https',
-                'active_url',
-            ],
             'body' => [
                 'required',
                 'string',

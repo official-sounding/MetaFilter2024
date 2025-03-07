@@ -54,8 +54,6 @@ final class PostFormComponent extends Component
 
         $dto = new PostDto(
             title: $this->title,
-            link_url: $this->url,
-            link_text: $this->link_text,
             body: $this->body,
             more_inside: $this->more_inside,
             user_id: $this->userId,

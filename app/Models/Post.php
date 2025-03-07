@@ -57,8 +57,6 @@ final class Post extends BaseModel implements CanPresent, HasMedia
 
     protected $fillable = [
         'title',
-        'link_text',
-        'link_url',
         'body',
         'more_inside',
         'legacy_id',
