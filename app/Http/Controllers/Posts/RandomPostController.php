@@ -6,25 +6,30 @@ namespace App\Http\Controllers\Posts;
 
 use App\Http\Controllers\BaseController;
 use App\Repositories\PostRepositoryInterface;
+use App\Traits\SubsiteTrait;
 use Illuminate\Http\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 final class RandomPostController extends BaseController
 {
+    use SubsiteTrait;
+
     public function __construct(
         protected PostRepositoryInterface $postRepository,
     ) {
         parent::__construct();
     }
 
-    public function show(): RedirectResponse
+    public function show(): RedirectResponse|Response
     {
         $post = $this->postRepository->getRandomPost();
 
-        $route = $post->subdomain === 'www' ? 'metafilter.post.show' : "$post->subdomain.post.show";
+        if ($post === null) {
+            return response()->view(view: 'errors.404', status: Response::HTTP_NOT_FOUND);
+        }
 
-        return redirect()->route($route, [
-            'post' => $post,
-            'slug' => $post->slug,
-        ]);
+        $route = $post->url()->show();
+
+        return redirect()->route($route);
     }
 }
