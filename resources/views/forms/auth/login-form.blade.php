@@ -2,7 +2,6 @@
     @include('forms.partials.csrf-token')
 
     <fieldset>
-
         @include('forms.partials.validation-summary')
         @include('forms.partials.required-fields-note')
 
