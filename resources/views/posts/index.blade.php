@@ -3,15 +3,15 @@
 @section('title', $title ?? 'Untitled')
 
 @section('contents')
-    @if ($subdomain ==='fanfare')
+    @if (isset($subdomain) && $subdomain ==='fanfare')
         <x-snippets.snippet-component slug="fanfare-spoilers-note" small-text=true />
     @endif
 
-    @if ($subdomain ==='jobs')
+    @if (isset($subdomain) && $subdomain ==='jobs')
         <x-snippets.snippet-component slug="jobs-location-note" small-text=true />
     @endif
 
-    @if ($subdomain ==='metafilter')
+    @if (isset($subdomain) && $subdomain ==='metafilter')
         @auth
             <x-members.happy-birthday-component />
         @endauth
