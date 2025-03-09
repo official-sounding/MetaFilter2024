@@ -117,17 +117,6 @@ body {
     padding-top: 1rem;
 }
 
-
-.comment-footer,
-.post-footer {
-    visibility: hidden;
-}
-
-.comment:hover .comment-footer,
-.post:hover .post-footer {
-    visibility: visible;
-}
-
 .profile {
     gap: 3rem;
 }

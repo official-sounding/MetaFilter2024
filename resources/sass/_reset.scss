@@ -3,11 +3,11 @@
     color-scheme: light dark;
 }
 
-:root[data-theme='light'] {
+:root[data-theme-preference='light'] {
     color-scheme: light;
 }
 
-:root[data-theme='dark'] {
+:root[data-theme-preference='dark'] {
     color-scheme: dark;
 }
 

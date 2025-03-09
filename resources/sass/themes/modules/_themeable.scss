@@ -18,6 +18,13 @@ body {
 }
 
 //noinspection CssInvalidFunction
+.comment,
+.post {
+    color: light-dark(var(--darker-base-color), var(--lightest-base-color));
+    background-color: light-dark(var(--very-light-gray), var(--dark-base-color));
+}
+
+//noinspection CssInvalidFunction
 a:link,
 a:visited {
     color: light-dark(var(--base-color), var(--yellow-greenq));
@@ -58,24 +65,6 @@ a.top-bottom-button:hover .icon {
 //noinspection CssInvalidFunction
 .secondary-button {
 
-}
-
-.theme-toggle,
-.theme-toggle::after {
-    background-color: var(--lighter-base-color);
-}
-
-.theme-toggle::before {
-    background-color: var(--gold);
-}
-
-.theme-toggle:checked::before {
-    background-color: var(--light-gray);
-}
-
-.theme-toggle:checked,
-.theme-toggle:checked::after {
-    background-color: var(--darker-base-color);
 }
 
 //noinspection CssInvalidFunction
@@ -136,12 +125,6 @@ textarea:focus {
 .main-contents form {
     color: light-dark(var(--dark-base-color), var(--dark-base-color));
     background-color: var(--lightest-base-color);
-}
-
-//noinspection CssInvalidFunction
-.comment:hover,
-.post:hover {
-    color: light-dark(var(--lightest-base-color), var(--lighter-base-color));
 }
 
 .cta-button:link,
