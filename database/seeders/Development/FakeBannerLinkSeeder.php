@@ -13,6 +13,8 @@ final class FakeBannerLinkSeeder extends Seeder
 
     public function run(): void
     {
-        BannerLink::factory(self::NUMBER_OF_FAKE_LINKS)->create();
+        BannerLink::factory()
+            ->count(self::NUMBER_OF_FAKE_LINKS)
+            ->create();
     }
 }

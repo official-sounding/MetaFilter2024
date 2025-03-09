@@ -13,6 +13,8 @@ final class FakeTagSeeder extends Seeder
 
     public function run(): void
     {
-        Tag::factory(self::NUMBER_OF_FAKE_TAGS)->create();
+        Tag::factory()
+            ->count(self::NUMBER_OF_FAKE_TAGS)
+            ->create();
     }
 }
