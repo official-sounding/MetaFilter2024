@@ -1,5 +1,7 @@
 <div class="notification is-info">
     <p>
+        <x-icons.icon-component filename="exclamation-triangle-fill" />
+
         You aren&rsquo;t logged in.
         @switch($context)
             @case('comment')
