@@ -14,12 +14,14 @@ final class SubsitePolicy
 
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_subsite');
+        return true;
+        //        return $user->can('view_any_subsite');
     }
 
     public function view(User $user, Subsite $subsite): bool
     {
-        return $user->can('view_subsite');
+        //        return $user->can('view_subsite');
+        return true;
     }
 
     public function create(User $user): bool

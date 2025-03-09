@@ -12,15 +12,18 @@ final class PostPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(User $user): bool
+    public function viewAny(): bool
     {
         return true;
     }
 
     public function view(User $user, Post $post): bool
     {
-        //        return $user->can('view_post');
-        return true;
+        if ($user->hasRole(['admin']) || $post->user_id === $user->id) {
+            return true;
+        }
+
+        return $post->published_at !== null;
     }
 
     public function create(User $user): bool
@@ -31,8 +34,11 @@ final class PostPolicy
 
     public function update(User $user, Post $post): bool
     {
-        //        return $user->can('update_post');
-        return true;
+        if ($user->hasRole(['admin']) || $post->user_id === $user->id) {
+            return true;
+        }
+
+        return $post->published_at !== null;
     }
 
     public function delete(User $user, Post $post): bool
