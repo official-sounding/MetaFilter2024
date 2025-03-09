@@ -8,11 +8,13 @@ use App\Filament\Resources\BannerLinkResource\Pages\CreateBannerLinks;
 use App\Filament\Resources\BannerLinkResource\Pages\EditBannerLinks;
 use App\Filament\Resources\BannerLinkResource\Pages\ListBannerLinks;
 use App\Models\BannerLink;
-use Filament\Actions\EditAction;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 final class BannerLinkResource extends Resource
@@ -20,11 +22,18 @@ final class BannerLinkResource extends Resource
     protected static ?string $model = BannerLink::class;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public const int INPUT_MAX_LENGTH = 255;
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                TextInput::make('title')
+                    ->required()
+                    ->maxLength(self::INPUT_MAX_LENGTH),
+                TextInput::make('url')
+                    ->required()
+                    ->maxLength(self::INPUT_MAX_LENGTH),
             ]);
     }
 
@@ -32,7 +41,8 @@ final class BannerLinkResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('title')
+                    ->searchable(),
             ])
             ->filters([
                 //
