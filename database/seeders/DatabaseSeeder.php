@@ -5,15 +5,12 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 use App\Enums\EnvironmentEnum;
-use Database\Seeders\Development\AdminSeeder;
 use Database\Seeders\Development\FakeBannerLinkSeeder;
-use Database\Seeders\Development\FakeCommentSeeder;
 use Database\Seeders\Development\FakePostSeeder;
 use Database\Seeders\Development\FakeTagSeeder;
 use Database\Seeders\Development\FakeUserSeeder;
 use Database\Seeders\Development\FakeFavoriteSeeder;
 use Database\Seeders\Development\FakeFlagSeeder;
-use Database\Seeders\Production\AdminRoleSeeder;
 use Database\Seeders\Production\FlagReasonSeeder;
 use Database\Seeders\Production\PermissionSeeder;
 use Database\Seeders\Production\RoleSeeder;
@@ -48,14 +45,8 @@ final class DatabaseSeeder extends Seeder
             // Needs FakeTagSeeder and FakeUserSeeder
             FakePostSeeder::class,
 
-            // Needs FakeUserSeeder and FakePostSeeder
-            FakeCommentSeeder::class,
-
             FakeFavoriteSeeder::class,
             FakeFlagSeeder::class,
-
-            //            AdminRoleSeeder::class,
-            // Needs AdminSeeder and RoleSeeder
         ]);
     }
 
