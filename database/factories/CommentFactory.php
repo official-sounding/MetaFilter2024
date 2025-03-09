@@ -19,8 +19,8 @@ final class CommentFactory extends BaseFactory
         return [
             'text' => $this->faker->paragraph(),
             'parent_id' => null,
-            'post_id' => (new Post())->inRandomOrder()->first(),
-            'user_id' => (new User())->inRandomOrder()->first(),
+            'post_id' => Post::inRandomOrder()->first()?->id,
+            'user_id' => User::inRandomOrder()->first()?->id,
             'created_at' => $timestamp,
             'updated_at' => null,
             'deleted_at' => null,

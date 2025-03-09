@@ -8,10 +8,12 @@ use App\Enums\PostStateEnum;
 use App\Models\Post;
 use App\Models\Subsite;
 use App\Models\User;
+use App\Traits\StringFormattingTrait;
 use App\Traits\UrlTrait;
 
 final class PostFactory extends BaseFactory
 {
+    use StringFormattingTrait;
     use UrlTrait;
 
     protected $model = Post::class;
@@ -20,12 +22,15 @@ final class PostFactory extends BaseFactory
     {
         $timestamp = $this->getFakeTimestamp();
 
+        $title = $this->faker->sentence();
+
         return [
-            'title' => $this->faker->sentence(),
+            'title' => $title,
+            'slug' => $this->getSlug($title),
             'body' => $this->faker->paragraph(),
             'more_inside' => $this->faker->paragraph(),
-            'subsite_id' => (new Subsite())->inRandomOrder()->first(),
-            'user_id' => (new User())->inRandomOrder()->first(),
+            'subsite_id' => Subsite::inRandomOrder()->value('id'),
+            'user_id' => User::inRandomOrder()->value('id'),
             'created_at' => $timestamp,
             'published_at' => $timestamp,
             'updated_at' => null,
