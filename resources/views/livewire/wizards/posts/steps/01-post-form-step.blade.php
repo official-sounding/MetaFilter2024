@@ -11,25 +11,6 @@
         />
     </fieldset>
 
-    <fieldset class="optional">
-        <legend>{{ trans('Optional') }}</legend>
-
-        <x-forms.input
-            name="link_url"
-            type="url"
-            :required="false"
-            label="{{ trans('URL') }}"
-        />
-
-        <x-forms.input
-            name="link_text"
-            type="text"
-            :required="false"
-            note="{{ trans('These will be the first words of your post, and will be a clickable link to the URL') }}"
-            label="{{ trans('Link text') }}"
-        />
-    </fieldset>
-
     <div wire:ignore>
         <x-forms.textarea
             name="body"
