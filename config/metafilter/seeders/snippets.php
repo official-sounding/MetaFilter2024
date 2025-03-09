@@ -28,12 +28,24 @@ return [
         'slug' => 'out-of-the-blue',
         'body' => 'Bite-sized episodes focusing on one interesting story from the MetaFilter community.',
     ],
-    /*
-        Reset password link sent
-        If the provided email exists in our system, you will receive an email to reset your password.
-        Can’t find the email? Try checking your spam folder.
-
-    Reset Your Password
-    Enter your registered email address and we’ll send you link via email to reset your password.
-    */
+    [
+        'title' => 'MetaFilter Comment Note',
+        'slug' => 'metafilter-comment-note',
+        'body' => 'Note: Help maintain a healthy, respectful discussion by focusing comments on the issues, topics, and facts at hand—not at other members of the site.',
+    ],
+    [
+        'title' => 'MetaTalk Comment Note',
+        'slug' => 'metatalk-comment-note',
+        'body' => 'Note: Everybody needs a hug.',
+    ],
+    [
+        'title' => 'Reset Password Link Sent',
+        'slug' => 'reset-password-link-sent',
+        'body' => 'If the provided email exists in our system, you will receive an email to reset your password. Can’t find the email? Try checking your spam folder.',
+    ],
+    [
+        'title' => 'Reset Your Password',
+        'slug' => 'reset-your-password',
+        'body' => 'Enter your registered email address and we’ll send you link via email to reset your password.',
+    ],
 ];
