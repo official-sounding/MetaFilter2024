@@ -1,6 +1,7 @@
 @props([
     'label',
     'name',
+    'note' => null,
     'required',
 ])
 
@@ -9,6 +10,12 @@
         :for="$name"
         :label="$label"
         :required="$required" />
+
+    @if (!empty($note))
+        <small class="form-note">
+            {!! $note !!}
+        </small>
+    @endif
 
     <textarea
         name="{{ $name }}"
