@@ -19,6 +19,7 @@ html {
 
 .comment,
 .post {
+    hanging-punctuation: first;
     line-height: 1.5;
 }
 
@@ -189,6 +190,7 @@ legend,
 .logout-button,
 nav a,
 .notification a,
+.post h3,
 .posts h4,
 .site-banner,
 .site-footer a.button,

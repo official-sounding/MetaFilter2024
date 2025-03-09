@@ -1,0 +1,40 @@
+
+@media print {
+    body {
+        margin: 0 !important;
+    }
+}
+
+.main-container {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ck-content {
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.editor-container-classic-editor .editor-container-editor {
+    min-width: 795px;
+    max-width: 795px;
+}
+
+.editor-container-word-count .ck-word-count {
+    display: flex;
+    height: 20px;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+
+.editor-container-include-word-count.editor-container-classic-editor .editor-container-word-count {
+    border: 1px solid black;
+    border-radius: 0 0 0.25rem 0.25rem;
+    border-top: none;
+}
+
+.editor-container-include-word-count.editor-container-classic-editor .editor-container-editor .ck-editor .ck-editor-editable {
+    border-radius: 0;
+}
