@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" data-theme-preference="light">
 <head>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" id="color-scheme" content="light dark">
 
 <title>@include('layouts.partials.window-title') - {{ $subsiteName }}</title>
 
