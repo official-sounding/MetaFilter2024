@@ -147,6 +147,7 @@ final class PostRepository extends BaseRepository implements PostRepositoryInter
         $query = $this->baseQuery();
 
         $query
+            ->where('subsites.subdomain', '=', $this->subdomain)
             ->withCount([
                 'comments',
             ])
