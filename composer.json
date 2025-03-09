@@ -46,6 +46,7 @@
         "rahulalam31/laravel-abuse-ip": "^1.2",
         "saloonphp/laravel-plugin": "^3.5",
         "saloonphp/saloon": "^3.9",
+        "spatie/eloquent-sortable": "^4.4",
         "spatie/laravel-activitylog": "^4.8",
         "spatie/laravel-csp": "^2.10",
         "spatie/laravel-honeypot": "^4.5",
