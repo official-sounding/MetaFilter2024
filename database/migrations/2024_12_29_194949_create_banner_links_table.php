@@ -14,6 +14,7 @@ return new class extends Migration {
 
             $table->string('title');
             $table->text('url');
+            $table->integer('sort_order');
 
             $table->nullableTimestamps();
             $table->softDeletes();

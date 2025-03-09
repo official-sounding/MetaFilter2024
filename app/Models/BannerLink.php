@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property int $id
+ * @property int $sort_order
  * @property string $title
  * @property string $url
  */
@@ -21,6 +22,7 @@ final class BannerLink extends BaseModel
     // Properties
 
     protected $fillable = [
+        'sort_order',
         'title',
         'url',
     ];

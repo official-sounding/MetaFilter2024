@@ -14,6 +14,7 @@ final class BannerLinkFactory extends Factory
     public function definition(): array
     {
         return [
+            'sort_order' => $this->faker->numberBetween(1, 3),
             'title' => $this->faker->words(3, true),
             'url' => $this->faker->url(),
             'created_at' => $this->faker->dateTimeThisYear(),

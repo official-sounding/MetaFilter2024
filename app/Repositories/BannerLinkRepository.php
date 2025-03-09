@@ -26,7 +26,7 @@ final class BannerLinkRepository extends BaseRepository implements BannerLinkRep
     {
         return cache()->remember('banner-links', $this->oneHour(), function () use ($limit) {
             return $this->model->select(self::COLUMNS)
-            ->orderBy('created_at')
+            ->orderBy('sort_order')
             ->limit($limit)
             ->get();
         });
