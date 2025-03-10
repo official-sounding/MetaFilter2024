@@ -19,6 +19,7 @@ use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use STS\FilamentImpersonate\Impersonate;
 
 final class UserResource extends Resource
 {
@@ -81,6 +82,7 @@ final class UserResource extends Resource
             ])
             ->actions([
                 EditAction::make(),
+                Impersonate::make(),
             ])
             ->bulkActions([
                 BulkActionGroup::make([
