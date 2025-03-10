@@ -33,6 +33,22 @@ main input[type='url'] {
     flex: 1;
 }
 
+.icon-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: 1px solid #ccc;
+}
+
+.icon-group .icon {
+    padding: 0.8em 1em 0.7em;
+    background: #ccc;
+    color: #fff;
+}
+
 .input-icon, .input-with-icon {
     padding: 10px;
 }

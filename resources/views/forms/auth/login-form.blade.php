@@ -18,6 +18,8 @@
             :required="true"
             label="{{ trans('Password') }}" />
 
+        <livewire:auth.input-password-component />
+
         <x-forms.field>
             <button type="submit" class="button primary-button">
                 {{ trans('Log In') }}
