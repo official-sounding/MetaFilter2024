@@ -6,7 +6,7 @@
     />
 
     <div class="icon-group">
-        <input type="{{ $type }}" class="search-field">
+        <input type="{{ $type }}" class="search-field" name="password" id="password" wire:model="password" required>
         <span class="icon">
             <img
                 src="{{ asset($eyeIconPath) }}"

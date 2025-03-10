@@ -12,12 +12,6 @@
             :required="true"
             label="{{ trans('Username') }}" />
 
-        <x-forms.input
-            name="password"
-            type="password"
-            :required="true"
-            label="{{ trans('Password') }}" />
-
         <livewire:auth.input-password-component />
 
         <x-forms.field>
