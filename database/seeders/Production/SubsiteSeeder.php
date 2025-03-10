@@ -28,10 +28,6 @@ final class SubsiteSeeder extends Seeder
                 'route' => $subsite['route'],
                 'view' => $subsite['view'],
                 'has_theme' => $subsite['has_theme'] ?? false,
-                'in_dropdown' => $subsite['in_dropdown'] ?? false,
-                'in_footer_nav' => $subsite['in_footer_nav'] ?? false,
-                'footer_navigation_sort_order' => $subsite['footer_navigation_sort_order'] ?? 0,
-                'global_navigation_sort_order' => $subsite['global_navigation_sort_order'] ?? 0,
             ]);
         }
     }

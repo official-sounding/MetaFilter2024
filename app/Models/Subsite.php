@@ -22,8 +22,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $route
  * @property string $view
  * @property bool $has_theme
- * @property bool $in_dropdown
- * @property bool $in_footer_nav
  */
 final class Subsite extends BaseModel
 {
@@ -44,8 +42,6 @@ final class Subsite extends BaseModel
         'route',
         'view',
         'has_theme',
-        'in_dropdown',
-        'in_footer_nav',
     ];
 
     public function sluggable(): array

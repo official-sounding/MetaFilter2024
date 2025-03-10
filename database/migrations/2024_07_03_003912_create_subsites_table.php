@@ -24,12 +24,6 @@ return new class extends Migration {
             $table->string('view');
             $table->boolean('has_theme')->default(false);
 
-            $table->tinyInteger('footer_navigation_sort_order')->default(0);
-            $table->tinyInteger('global_navigation_sort_order')->default(0);
-
-            $table->boolean('in_dropdown')->default(false);
-            $table->boolean('in_footer_nav')->default(false);
-
             $table->nullableTimestamps();
             $table->softDeletes();
         });
