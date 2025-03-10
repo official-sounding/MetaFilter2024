@@ -17,7 +17,7 @@
             aria-expanded="{{ $isExpanded }}"
             aria-controls="site-banner"
             aria-label="{{ trans($altText) }}"
-            class="button icon">
+            class="button icon site-banner-toggle">
             <img src="{{ asset("images/icons/$iconFilename.svg") }}" alt="{{ trans($altText) }}">
         </button>
     @else

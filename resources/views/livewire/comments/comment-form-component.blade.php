@@ -17,7 +17,7 @@
         </div>
 
         <div class="level">
-            @if ($isEditing === true || $isReplying === true)
+            @if($isEditing === true || $isReplying === true)
                 <button
                     type="button"
                     class="button secondary-button"
