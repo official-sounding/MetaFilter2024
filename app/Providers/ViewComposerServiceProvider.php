@@ -13,7 +13,6 @@ use App\View\Composers\Navigation\SecondaryNavigationViewComposer;
 use App\View\Composers\Navigation\PrimaryNavigationViewComposer;
 use App\View\Composers\Navigation\UserSidebarViewComposer;
 use App\View\Composers\Navigation\UtilityNavigationViewComposer;
-use App\View\Composers\Sidebar\TodayInHistoryViewComposer;
 use App\View\Composers\Snippets\SnippetViewComposer;
 use Illuminate\Support\ServiceProvider;
 
@@ -61,11 +60,6 @@ final class ViewComposerServiceProvider extends ServiceProvider
         view()->composer(
             'layouts.navigation.primary-navigation',
             PrimaryNavigationViewComposer::class,
-        );
-
-        view()->composer(
-            'layouts.sidebars.partials.today-in-mefi-history',
-            TodayInHistoryViewComposer::class,
         );
 
         view()->composer(
