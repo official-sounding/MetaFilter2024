@@ -7,6 +7,8 @@ namespace App\Models;
 use App\Builders\BannerLinkQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 
 /**
  * @property int $id
@@ -14,10 +16,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $title
  * @property string $url
  */
-final class BannerLink extends BaseModel
+final class BannerLink extends BaseModel implements Sortable
 {
     use HasFactory;
     use SoftDeletes;
+    use SortableTrait;
 
     // Properties
 
@@ -25,6 +28,11 @@ final class BannerLink extends BaseModel
         'sort_order',
         'title',
         'url',
+    ];
+
+    public array $sortable = [
+        'order_column_name' => 'sort_order',
+        'sort_when_creating' => true,
     ];
 
     // Builders
