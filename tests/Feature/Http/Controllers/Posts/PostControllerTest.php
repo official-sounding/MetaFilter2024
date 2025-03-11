@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Http\Controllers\Posts;
 
+use App\Http\Controllers\Posts\PostController;
 use App\Models\Post;
 use App\Models\Subsite;
 use App\Models\User;
@@ -12,8 +13,10 @@ use App\Repositories\PostRepositoryInterface;
 use App\Services\LdJsonService;
 use App\Services\PostService;
 use App\Traits\SubsiteTrait;
+use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\Request;
 use Mockery;
 use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -33,6 +36,7 @@ final class PostControllerTest extends BaseFeatureTest
     protected Post $post;
     protected Subsite $subsite;
     protected User $user;
+    protected PostController $controller;
 
     protected function setUp(): void
     {
@@ -43,47 +47,131 @@ final class PostControllerTest extends BaseFeatureTest
         $this->postRepository = $this->mock(PostRepositoryInterface::class);
         $this->postService = $this->mock(PostService::class);
 
+        // Set up expectations for flagReasonRepository->getDropdownValues
+        $this->flagReasonRepository->shouldReceive('getDropdownValues')
+            ->with('reason')
+            ->andReturn([
+                1 => 'Spam',
+                2 => 'Offensive content',
+                3 => 'Inappropriate',
+                4 => 'Off-topic',
+            ]);
+
         $this->user = User::factory()->create();
 
+        $this->getController();
+        $this->getPost();
+    }
+
+    protected function tearDown(): void
+    {
+        Mockery::close();
+
+        parent::tearDown();
+    }
+
+    #[Test]
+    #[DataProvider('subdomainData')]
+    public function index_page_displays_successfully(string $name, string $subdomain): void
+    {
+        // Arrange
+        $subsite = Subsite::factory()->create([
+            'name' => $name,
+            'subdomain' => $subdomain,
+        ]);
+
+        if (isset($subsite->id)) {
+            Post::factory()->create([
+                'subsite_id' => $subsite->id,
+            ]);
+        }
+
+        $request = Request::create('/');
+
+        $host = "$subdomain.metafilter.test";
+
+        $request->headers->set(key: 'HOST', values: $host);
+
+        $this->app['config']->set('app.domain', $host);
+        $this->app['config']->set('app.url', 'https://' . $host);
+
+        // Act
+        $response = $this->controller->index();
+
+        // Assert
+
+        $this->assertInstanceOf(expected: View::class, actual: $response);
+        $this->assertEquals(expected: 'posts.index', actual: $response->getName());
+        $this->assertArrayHasKey(key: 'title', array: $response->getData());
+        $this->assertArrayHasKey(key: 'showSecondaryNavigation', array: $response->getData());
+        $this->assertTrue($response->getData()['showSecondaryNavigation']);
+    }
+
+    #[Test]
+    #[DataProvider('subdomainData')]
+    public function show_page_displays_successfully(string $name, string $subdomain): void
+    {
+        $this->markTestIncomplete();
+
+        // Arrange
+        $subsite = Subsite::factory()->create([
+            'name' => $name,
+            'subdomain' => $subdomain,
+        ]);
+
+        if (isset($subsite->id)) {
+            $post = Post::factory()->create([
+                'subsite_id' => $subsite->id,
+            ]);
+        }
+
+        $request = Request::create("$post->id/$post->slug");
+
+        $host = "$subdomain.metafilter.test";
+
+        $request->headers->set(key: 'HOST', values: $host);
+
+        $this->app['config']->set('app.domain', $host);
+        $this->app['config']->set('app.url', 'https://' . $host);
+
+        // Set up expectations for related methods called in show()
+        $this->postRepository->shouldReceive('getRelatedPosts')
+            ->with($post)
+            ->andReturn([]);
+
+        $this->ldJsonService->shouldReceive('generatePostJsonLd')
+            ->with($post)
+            ->andReturn(['@context' => 'https://schema.org']);
+
+        // Act
+        $response = $this->controller->show($post);
+
+        // Assert
+
+        $this->assertInstanceOf(expected: View::class, actual: $response);
+        $this->assertEquals(expected: 'posts.show', actual: $response->getName());
+        $this->assertArrayHasKey(key: 'title', array: $response->getData());
+        $this->assertArrayHasKey(key: 'showSecondaryNavigation', array: $response->getData());
+        $this->assertTrue($response->getData()['showSecondaryNavigation']);
+    }
+
+    private function getController(): void
+    {
+        $this->controller = new PostController(
+            $this->flagReasonRepository,
+            $this->ldJsonService,
+            $this->postRepository,
+            $this->postService,
+        );
+    }
+
+    private function getPost(): void
+    {
         $this->post = Post::factory()->create([
             'user_id' => $this->user->id,
             'title' => 'Test Post Title',
             'slug' => 'test-post-title',
             'body' => 'Test post body content',
         ]);
-
-        $this->subsite = Subsite::factory()->create();
-    }
-
-    protected function tearDown(): void
-    {
-        Mockery::close();
-        parent::tearDown();
-    }
-
-    #[Test]
-    #[DataProvider('subdomainData')]
-    public function index_displays_post_index_page_successfully(string $name, string $subdomain): void
-    {
-        // Arrange
-        $subsite = Subsite::factory()->make(
-            [
-                'name' => $name,
-                'subdomain' => $subdomain,
-            ],
-        );
-
-        Post::factory()->make([
-            'subsite_id' => $subsite->id,
-        ]);
-
-        $routeName = $this->getPostIndexRouteName($subdomain);
-
-        // Act
-        $response = $this->get(route($routeName));
-
-        // Assert
-        $response->assertStatus(200);
-        $response->assertViewIs('posts.index');
     }
 }
