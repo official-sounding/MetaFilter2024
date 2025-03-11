@@ -53,6 +53,15 @@ a.top-bottom-button:hover .icon {
 }
 
 //noinspection CssInvalidFunction
+.comment-footer a:link .icon,
+.comment-footer a:visited .icon,
+.post-footer a:link .icon,
+.post-footer a:visited .icon {
+    color: light-dark(var(--darker-base-color), var(--lightest-base-color));
+    background-color: inherit;
+}
+
+//noinspection CssInvalidFunction
 .link-button {
 
 }
@@ -216,6 +225,19 @@ textarea:focus {
 
 //noinspection CssInvalidFunction
 .notification.is-info {
+    color: light-dark(var(--base-color), var(--base-color));
+    background-color: light-dark(var(--lightest-base-color), var(--lightest-base-color));
+    border-color: var(--darker-base-color);
+}
+
+//noinspection CssInvalidFunction
+.color-scheme-toggle {
+    color: light-dark(var(--base-color), var(--lightest-base-color));
+    background-color: transparent;
+}
+
+//noinspection CssInvalidFunction
+.notification.is-info .icon img {
     color: light-dark(var(--base-color), var(--base-color));
     background-color: light-dark(var(--lightest-base-color), var(--lightest-base-color));
     border-color: var(--darker-base-color);
@@ -391,6 +413,16 @@ textarea:focus {
 .tagline {
     color: var(--lighter-base-color);
     background-color: inherit;
+}
+
+.toggle [aria-pressed=true]::after {
+    color: var(--lightest-base-color);
+    border-color: var(--lightest-base-color);
+}
+
+.toggle [aria-pressed=true]::before {
+    background-color: var(--lightest-base-color);
+    border-color: var(--lightest-base-color);
 }
 
 //noinspection CssInvalidFunction

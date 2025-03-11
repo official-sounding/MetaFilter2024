@@ -148,24 +148,11 @@ main > .primary-button {
     display: block;
     box-sizing: border-box;
     border: none;
-    color: inherit;
-    background: none;
     font: inherit;
     line-height: inherit;
     text-align: left;
     padding: 0.4em 0 0.4em 4em;
     position: relative;
-}
-
-.toggle [aria-pressed][disabled],
-.toggle [aria-pressed][disabled]:hover {
-    color: #999;
-}
-
-.toggle [aria-pressed]:focus,
-.toggle [aria-pressed]:hover {
-    color: #00f;
-    outline: none;
 }
 
 .toggle [aria-pressed]:focus::before,
@@ -210,13 +197,6 @@ main > .primary-button {
 
 .toggle [aria-pressed=true]::after {
     left: 1.6em;
-    border-color: #36a829;
-    color: #36a829;
-}
-
-.toggle [aria-pressed=true]::before {
-    background-color: #36a829;
-    border-color: #36a829;
 }
 
 .toggle [aria-pressed][disabled]::before {
