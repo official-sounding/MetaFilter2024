@@ -27,7 +27,7 @@ final class PageController extends BaseController
 
         return view('pages.show', [
             'page' => $page,
-            'title' => $page->getAttribute('title') ?? 'Page',
+            'title' => $page->title,
         ]);
     }
 }
