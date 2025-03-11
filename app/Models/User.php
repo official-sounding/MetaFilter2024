@@ -20,7 +20,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
-use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\ModelStates\HasStates;
@@ -53,9 +52,13 @@ final class User extends Authenticatable implements
     use HasStates;
     use InteractsWithMedia;
     use Notifiable;
-    use Searchable;
     use SoftDeletes;
     use UsesPresenters;
+
+    private const array ALLOWED_EMAIL_ADDRESSES = [
+        'brandon@fake.com',
+        'loup@fake.com',
+    ];
 
     private const string DOMAIN = '@metafilter.com';
 
@@ -95,6 +98,10 @@ final class User extends Authenticatable implements
 
     public function canAccessPanel(Panel $panel): bool
     {
+        if (in_array($this->email, self::ALLOWED_EMAIL_ADDRESSES)) {
+            return true;
+        }
+
         return str_ends_with($this->email, self::DOMAIN);
     }
 
