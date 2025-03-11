@@ -17,7 +17,7 @@ return new class extends Migration {
             'name' => 'filament_simple_pages',
             'fields' => [
                 'title',
-                'content',
+                'body',
             ],
         ],
         [

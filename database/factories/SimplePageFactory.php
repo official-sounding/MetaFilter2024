@@ -23,7 +23,7 @@ final class SimplePageFactory extends Factory
         return [
             'title' => $title,
             'slug' => $this->getSlug($title),
-            'content' => $this->faker->paragraphs(self::NUMBER_OF_PARAGRAPHS, true),
+            'body' => $this->faker->paragraphs(self::NUMBER_OF_PARAGRAPHS, true),
         ];
     }
 }

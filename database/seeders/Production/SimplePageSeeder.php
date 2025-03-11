@@ -17,10 +17,20 @@ final class SimplePageSeeder extends Seeder
         $pages = config('metafilter.seeders.pages');
 
         foreach ($pages as $page) {
+            if (!isset($page['body'])) {
+                $title = $page['title'] ?? 'unknown';
+                $slug = $page['slug'] ?? 'unknown';
+                $page['body'] = '';
+            }
+
+            if ($page['body'] === '') {
+                \Log::warning("Empty 'body' field for page: $title (slug: $slug).");
+            }
+
             (new SimplePage())->firstOrCreate([
                 'title' => $page['title'],
                 'slug' => $page['slug'],
-                'content' => $page['content'],
+                'body' => $page['body'],
                 'is_public' => true,
                 'indexable' => true,
                 'register_outside_filament' => true,

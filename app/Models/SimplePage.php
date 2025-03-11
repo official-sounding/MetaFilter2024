@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $title
  * @property string $slug
  * @property ?string $image_url
- * @property string $content
+ * @property string $body
  * @property bool $is_public
  * @property bool $indexable
  * @property bool $register_outside_filament
@@ -35,7 +35,7 @@ final class SimplePage extends BaseModel
         'title',
         'slug',
         'image_url',
-        'content',
+        'body',
         'is_public',
         'indexable',
         'register_outside_filament',
@@ -46,7 +46,7 @@ final class SimplePage extends BaseModel
 
     protected array $searchable = [
         'title',
-        'content',
+        'body',
     ];
 
     public function sluggable(): array

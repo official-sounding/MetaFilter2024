@@ -15,9 +15,9 @@ return new class extends Migration {
             $table->string('slug')->unique();
             $table->string('title')->nullable();
             $table->string('image_url')->nullable()->default(null);
-            $table->longText('content')->nullable();
+            $table->longText('body')->nullable();
             $table->boolean('is_public');
-            $table->boolean('indexable');
+            $table->boolean('indexable')->default(true);
             $table->boolean('register_outside_filament');
             $table->string('layout')->nullable();
             $table->string('extends')->nullable();
