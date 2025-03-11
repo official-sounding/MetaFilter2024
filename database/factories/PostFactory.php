@@ -29,7 +29,7 @@ final class PostFactory extends BaseFactory
             'slug' => $this->getSlug($title),
             'body' => $this->faker->paragraph(),
             'more_inside' => $this->faker->paragraph(),
-            'subsite_id' => Subsite::inRandomOrder()->value('id'),
+            'subsite_id' => $this->getSubsiteId(),
             'user_id' => User::inRandomOrder()->value('id'),
             'created_at' => $timestamp,
             'published_at' => $timestamp,
@@ -62,5 +62,16 @@ final class PostFactory extends BaseFactory
             'link_text' => $this->faker->sentence(),
             'link_url' => $this->useSecureProtocol($url),
         ]);
+    }
+
+    private function getSubsiteId(): int
+    {
+        $subsiteId = Subsite::inRandomOrder()->value('id');
+
+        if ($subsiteId === null) {
+            $subsiteId = Subsite::factory()->create()->id;
+        }
+
+        return $subsiteId;
     }
 }
