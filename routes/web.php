@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
@@ -77,3 +78,15 @@ Route::domain('www.' . $appUrl)
 Route::domain('www.' . $appUrl)
     ->middleware($middleware)
     ->group(base_path('routes/subdomains/metafilter.php'));
+
+$pageSlugs = [
+    'about',
+    'chat',
+    'donate',
+    'labs',
+];
+
+foreach ($pageSlugs as $slug) {
+    Route::get($slug, [PageController::class, 'show'])
+        ->name('pages.' . $slug);
+}

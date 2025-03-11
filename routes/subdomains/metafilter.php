@@ -13,7 +13,6 @@ use App\Http\Controllers\MyCommentsController;
 use App\Http\Controllers\MyFavoritesController;
 use App\Http\Controllers\MyMeFiController;
 use App\Http\Controllers\Posts\MyPostController;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\Posts\PopularPostController;
 use App\Http\Controllers\Posts\PostController;
 use App\Http\Controllers\PreferencesController;
@@ -137,6 +136,3 @@ Route::controller(PostController::class)->group(function () {
     Route::get('{post}/{slug}', 'show')
         ->name(RouteNameEnum::MetaFilterPostShow);
 });
-
-Route::any('/{slug}', [PageController::class, 'show'])
-    ->where('any', '^((?!about|donate).)*$');
