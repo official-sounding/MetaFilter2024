@@ -15,14 +15,16 @@ final class SubsiteFactory extends BaseFactory
         $timestamp = $this->getFakeTimestamp();
 
         return [
-            'name',
-            'nickname',
-            'tagline',
-            'subdomain',
+            'name' => $this->faker->word(),
+            'nickname' => $this->faker->word(),
+            'tagline' => $this->faker->sentence(),
+            'subdomain' => $this->faker->word(),
             'green_text' => 'Meta',
             'white_text' => 'Filter',
+            'slug' => $this->faker->unique()->slug(),
+            'route' => $this->faker->word(),
+            'view' => $this->faker->word(),
             'created_at' => $timestamp,
-            'published_at' => $timestamp,
             'updated_at' => null,
         ];
     }
