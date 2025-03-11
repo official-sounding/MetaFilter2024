@@ -11,6 +11,6 @@ final class LoadMoreComponent extends Component
 {
     public function render(): View
     {
-        return view('livewire.shared.load-more-component');
+        return view('livewire.common.load-more-component');
     }
 }
