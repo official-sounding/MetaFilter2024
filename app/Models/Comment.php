@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Scout\Searchable;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -26,7 +25,6 @@ final class Comment extends BaseModel
 {
     use HasFactory;
     use LogsActivity;
-    use Searchable;
     use SoftDeletes;
     use VersionableTrait;
 

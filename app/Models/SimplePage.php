@@ -7,7 +7,6 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Scout\Searchable;
 
 /**
  * @property int $id
@@ -25,7 +24,6 @@ use Laravel\Scout\Searchable;
 final class SimplePage extends BaseModel
 {
     use HasFactory;
-    use Searchable;
     use Sluggable;
     use SoftDeletes;
 

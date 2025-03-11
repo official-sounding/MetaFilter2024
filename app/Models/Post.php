@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Scout\Searchable;
 use Mpociot\Versionable\VersionableTrait;
 use Oddvalue\LaravelDrafts\Concerns\HasDrafts;
 use Spatie\Activitylog\LogOptions;
@@ -45,7 +44,6 @@ final class Post extends BaseModel implements CanPresent, HasMedia
     use HasTags;
     use InteractsWithMedia;
     use LogsActivity;
-    use Searchable;
     use Sluggable;
     use SoftDeletes;
     use UsesPresenters;
@@ -106,11 +104,6 @@ final class Post extends BaseModel implements CanPresent, HasMedia
     public function sluggable(): array
     {
         return $this->getSlugFrom('title');
-    }
-
-    public function toSearchableArray(): array
-    {
-        return ['id' => (string) $this->id] + $this->toArray();
     }
 
     // Builders

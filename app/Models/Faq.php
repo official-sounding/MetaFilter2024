@@ -6,7 +6,6 @@ namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Laravel\Scout\Searchable;
 
 /**
  * @property int $id
@@ -19,7 +18,6 @@ use Laravel\Scout\Searchable;
 final class Faq extends BaseModel
 {
     use HasFactory;
-    use Searchable;
     use Sluggable;
 
     // Properties
