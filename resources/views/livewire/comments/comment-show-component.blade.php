@@ -2,7 +2,10 @@
     {{ $comment->text }}
 
     <footer class="comment-footer">
-        <p>{{ $wordCount . ' ' .  trans('words') }}</p>
+        <p>
+            <x-icons.icon-component filename="card-text" />
+            {{ $wordCount . ' ' .  trans('words') }}
+        </p>
 
         <x-members.profile-link-component :user="$comment->user" />
 
