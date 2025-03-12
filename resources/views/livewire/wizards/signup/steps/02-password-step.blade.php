@@ -3,22 +3,14 @@
     @include('forms.partials.csrf-token')
 
     <fieldset>
-        <x-forms.input
-            :label="'Next, enter a password'"
-            :name="'password'"
-            :type="'password'"
-            :note="'Minimum 8 characters'"
-            :autofocus="true"
-            :required="false"
+        <livewire:auth.input-password-component
+            name="password"
+            label="Next, enter a password"
         />
 
-        <x-forms.input
-            :label="'And confirm your password'"
-            :name="'password_confirmation'"
-            :type="'password'"
-            :note="''"
-            :autofocus="false"
-            :required="false"
+        <livewire:auth.input-password-component
+            name="password_confirmation"
+            label="And confirm your password"
         />
     </fieldset>
 

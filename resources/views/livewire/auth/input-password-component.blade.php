@@ -1,12 +1,18 @@
 <div>
     <x-forms.label
-        for="password"
-        label="Password"
+        for="{{ $name }}"
+        label="{{ $label ?? ucfirst($name) }}"
         :required="true"
     />
 
     <div class="icon-group">
-        <input type="{{ $type }}" class="search-field" name="password" id="password" wire:model="password" required>
+        <input
+            type="{{ $type }}"
+            name="{{ $name }}"
+            id="{{ $name }}"
+            wire:model="password"
+            required
+        >
         <span class="icon">
             <img
                 src="{{ asset($eyeIconPath) }}"

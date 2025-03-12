@@ -17,11 +17,16 @@ final class InputPasswordComponent extends Component
     public string $eyeIconPath;
     public string $eyeIconTitleText;
     public string $eyeOpenIconPath;
+    public ?string $label;
+    public string $name;
     public string $eyeClosedIconPath;
     public string $type = 'password';
 
-    public function mount(): void
+    public function mount(string $name = 'password', ?string $label = null): void
     {
+        $this->label = $label;
+        $this->name = $name;
+
         $this->eyeClosedIconPath = $this->getIconPath('eye-slash-fill');
         $this->eyeOpenIconPath = $this->getIconPath('eye-fill');
 
