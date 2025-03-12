@@ -6,7 +6,7 @@
     @endif
 
     @if (isset($useAlerts) && $useAlerts === true)
-        <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
+        <script defer src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
 
         <x-livewire-alert::flash />
     @endif
