@@ -23,7 +23,7 @@ final class InputPasswordComponent extends Component
     public function mount(): void
     {
         $this->eyeClosedIconPath = $this->getIconPath('eye-slash-fill');
-        $this->eyeOpenIconPath = $this->getIconPath('eye-slash');
+        $this->eyeOpenIconPath = $this->getIconPath('eye-fill');
 
         $this->eyeIconPath = $this->eyeClosedIconPath;
         $this->eyeIconTitleText = self::EYE_CLOSED_TITLE;
@@ -34,7 +34,7 @@ final class InputPasswordComponent extends Component
         return view('livewire.auth.input-password-component');
     }
 
-    public function toggleType(): void
+    public function togglePassword(): void
     {
         if ($this->type === 'password') {
             $this->type = 'text';

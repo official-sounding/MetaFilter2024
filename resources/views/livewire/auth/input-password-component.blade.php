@@ -12,7 +12,7 @@
                 src="{{ asset($eyeIconPath) }}"
                 alt=""
                 title="{{ $eyeIconTitleText }}"
-                wire:click="toggleType">
+                wire:click="togglePassword">
         </span>
     </div>
 </div>
