@@ -15,7 +15,7 @@ final class FakePostSeeder extends Seeder
 {
     use LoggingTrait;
 
-    private const int CHUNK_SIZE = 50;
+    private const int CHUNK_SIZE = 25;
     private const int MAX_COMMENTS_PER_POST = 20;
     private const int NUMBER_OF_FAKE_POSTS = 2500;
     private const array DATETIME_FIELDS = [
@@ -34,7 +34,9 @@ final class FakePostSeeder extends Seeder
                 function ($chunk) {
                     $chunk->map(
                         function () {
-                            $post = Post::factory()->create();
+                            $post = Post::factory()->create([
+                                'created_at' => Carbon::today()->subDays(rand(0, 365))->format('Y-m-d H:i:s'),
+                            ]);
 
                             foreach (self::DATETIME_FIELDS as $field) {
                                 if (isset($post[$field]) && $post[$field]) {
