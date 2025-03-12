@@ -10,22 +10,26 @@
     position: relative;
     flex: 1;
     border-radius: 0.25rem;
+    padding: 1rem;
+    max-width: 50%;
 }
 
 .next .title,
 .previous .title {
     display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 90%;
 }
 
 .next {
     margin: 0;
-    padding: 1rem 2rem 1rem 1rem;
     text-align: right;
 }
 
 .previous {
     margin: 0;
-    padding: 1rem 1rem 1rem 2rem;
 }
 
 .next::after,

@@ -37,15 +37,12 @@ main input[type='url'] {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    border: 1px solid #ccc;
+    margin: 0 auto 0 auto;
 }
 
 .icon-group .icon {
-    padding: 0.8em 1em 0.7em;
-    background: #ccc;
+    padding: 0.8rem 1rem 0.7rem 1rem;
+    background: inherit;
     color: #fff;
 }
 

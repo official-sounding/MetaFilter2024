@@ -20,14 +20,14 @@ body {
 //noinspection CssInvalidFunction
 .comment,
 .post {
-    color: light-dark(var(--darker-base-color), var(--lightest-base-color));
+    color: light-dark(var(--black), var(--lightest-base-color));
     background-color: light-dark(var(--very-light-gray), var(--dark-base-color));
 }
 
 //noinspection CssInvalidFunction
 a:link,
 a:visited {
-    color: light-dark(var(--base-color), var(--yellow-greenq));
+    color: light-dark(var(--base-color), var(--yellow-green));
     background-color: transparent;
 }
 
@@ -36,6 +36,20 @@ a:active,
 a:hover {
     color: light-dark(var(--light-base-color), var(--lighter-base-color));
     background-color: transparent;
+}
+
+//noinspection CssInvalidFunction
+h3 a:link,
+h3 a:visited {
+    color: light-dark(var(--base-color), var(--yellow-green));
+    background-color: transparent;
+}
+
+//noinspection CssInvalidFunction
+h3 a:active,
+h3 a:hover {
+    color: light-dark(var(--base-color), var(--yellow-green));
+    background-color:  light-dark(var(--base-color), var(--darker-base-color));
 }
 
 //noinspection CssInvalidFunction

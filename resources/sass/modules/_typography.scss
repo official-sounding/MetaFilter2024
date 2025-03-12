@@ -50,13 +50,13 @@ em {
 .comment-footer,
 .dateline,
 .dropdown-menu,
-.next .title,
+.next,
+.previous,
 .nickname-prompt,
 .post-footer,
 .post-navigation,
 .primary-navigation,
 .secondary-navigation,
-.previous .title,
 small,
 .steps li,
 .utility-navigation {
@@ -72,12 +72,12 @@ small.smallest {
     font-size: var(--font-size-minus-3);
 }
 
+.next .title,
+.previous .title,
 .sidebar h3 {
     font-size: var(--font-size-normal);
 }
 
-.next,
-.previous,
 .main-contents h2{
     font-size: var(--font-size-plus-1);
 }
@@ -173,8 +173,6 @@ nav.secondary-navigation a,
     font-weight: 400;
 }
 
-.comment-footer a,
-.post-footer a,
 tbody th,
 main .steps li .stepNumber {
     font-weight: 500;
@@ -183,6 +181,8 @@ main .steps li .stepNumber {
 b,
 button,
 .button,
+.comment-footer a,
+.post-footer a,
 .current-theme,
 .dropdown-toggle,
 label.required,
