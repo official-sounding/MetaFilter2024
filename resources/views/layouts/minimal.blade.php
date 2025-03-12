@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" data-theme-preference="light">
 <head>
 
 <meta charset="utf-8">
@@ -8,6 +8,10 @@
 <title>@include('layouts.partials.window-title') - {{ $subsiteName }}</title>
 
 @include('layouts.partials.styles')
+
+@if (isset($useWysiwyg) && $useWysiwyg === true)
+    <script defer src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+@endif
 
 </head>
 <body class="minimal">
