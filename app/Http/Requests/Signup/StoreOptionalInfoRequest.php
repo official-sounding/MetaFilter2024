@@ -28,7 +28,6 @@ final class StoreOptionalInfoRequest extends BaseFormRequest
                 'nullable',
                 'string',
                 'max:255',
-                'url:https',
                 'active_url',
             ],
         ];

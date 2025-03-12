@@ -129,7 +129,7 @@ final class SignupWizardComponent extends BaseWizardComponent
             password: $this->password,
             email: $this->email,
             name: $this->name ?? null,
-            homepage_url: $this->homepage_url ?? null,
+            homepage_url: str_ireplace('http://', 'https://', $this->homepage_url) ?? null,
             state: $state,
         );
 
