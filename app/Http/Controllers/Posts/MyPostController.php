@@ -42,8 +42,11 @@ final class MyPostController extends BaseController
 
     public function create(): View
     {
+
         return view('my-posts.create', [
+            'routeName' => $this->getStorePostRouteName(),
             'title' => $this->getNewPostText(),
+            'useWysiwyg' => true,
         ]);
     }
 
@@ -54,6 +57,7 @@ final class MyPostController extends BaseController
         return view('my-posts.edit', [
             'title' => $this->getEditPostText(),
             'post' => $post,
+            'useWysiwyg' => true,
         ]);
     }
 
