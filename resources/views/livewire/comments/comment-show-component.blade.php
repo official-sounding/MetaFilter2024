@@ -86,7 +86,7 @@
 
         @if ($isFlagging === true)
             <livewire:flags.flag-component
-                wire:key="'reply-to-comment-' . $comment->id"
+                wire:key="'flagging-comment-' . $comment->id"
                 :comment-id="$comment->id"
                 :model="$comment"
                 is-flagging="true"
