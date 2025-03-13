@@ -6,15 +6,16 @@
     </small>
 
     <small class="smaller we-all-float">
+        {{-- TODO: DeEasterEggIfy --}}
         🎈 {{ trans('We all float down here.') }}
     </small>
 
-    {{--
+    {{-- TODO: DeEasterEggIfy --}}
     <button class="danger-button">
         <span class="icon">
             <img src="{{ asset('images/icons/exclamation-triangle-fill.svg') }}" alt="">
         </span>
         {{ trans('Do not click this button.') }}
     </button>
-    --}}
 </section>
+

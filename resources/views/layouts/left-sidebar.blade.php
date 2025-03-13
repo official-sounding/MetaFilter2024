@@ -37,6 +37,7 @@
 </header>
 
 <div class="container main-contents-wrapper">
+    {{-- TODO: DeEasterEggIfy --}}
     <!-- He's the DJ; I'm the wrapper -->
     <x-buttons.top-bottom-button-component location="top" />
 
