@@ -19,7 +19,7 @@
 
 @vite('resources/sass/app.scss')
 
-@if ($subsiteHasTheme)
+@if ($subsiteHasTheme && $subdomain !== 'www')
     @vite("resources/sass/themes/$subdomain.scss")
 @else
     @vite('resources/sass/themes/metafilter.scss')

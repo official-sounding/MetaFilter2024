@@ -43,15 +43,10 @@ final class AppServiceProvider extends ServiceProvider
         $subdomain = $this->getSubdomain();
 
         $subsite = $this->getSubsiteBySubdomain($subdomain);
-
-        session([
-            'subsite' => $subsite,
-            'subsiteHasTheme' => $subsite->has_theme ?? null,
-            'subsiteName' => $subsite->name ?? null,
-        ]);
+        $subsite->route = $this->getSubsiteRoute($subdomain);
 
         view()->share([
-            'subdomain' => $subdomain === 'www' ? 'metafilter' : $subdomain,
+            'subdomain' => $subdomain,
             'subsite' => $subsite,
             'subsiteHasTheme' => $subsite->has_theme ?? null,
             'subsiteName' => $subsite->name ?? null,
@@ -59,5 +54,16 @@ final class AppServiceProvider extends ServiceProvider
             'whiteText' => $subsite->white_text ?? null,
             'tagline' => $subsite->tagline ?? null,
         ]);
+    }
+
+    private function getSubsiteRoute(string $subdomain): string
+    {
+        return match ($subdomain) {
+            'chat' => 'chat.home.index',
+            'labs' => 'labs.home.index',
+            'mall' => 'mall.home.index',
+            'www' => 'metafilter.posts.index',
+            default => "$subdomain.posts.index",
+        };
     }
 }
