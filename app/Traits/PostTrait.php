@@ -110,6 +110,7 @@ trait PostTrait
 
         return match ($subdomain) {
             SubsiteEnum::Ask->value => 'ask.posts.show',
+            SubsiteEnum::BestOf->value => 'bestof.posts.show',
             SubsiteEnum::FanFare->value => 'fanfare.posts.show',
             SubsiteEnum::Irl->value => 'irl.posts.show',
             SubsiteEnum::Jobs->value => 'jobs.posts.show',
