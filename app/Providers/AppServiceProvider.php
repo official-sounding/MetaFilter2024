@@ -43,11 +43,12 @@ final class AppServiceProvider extends ServiceProvider
         $subdomain = $this->getSubdomain();
 
         $subsite = $this->getSubsiteBySubdomain($subdomain);
-        $subsite->route = $this->getSubsiteRoute($subdomain);
+        $subsiteRoute = $this->getSubsiteRoute($subdomain);
 
         view()->share([
             'subdomain' => $subdomain,
             'subsite' => $subsite,
+            'subsiteRoute' => $subsiteRoute,
             'subsiteHasTheme' => $subsite->has_theme ?? null,
             'subsiteName' => $subsite->name ?? null,
             'greenText' => $subsite->green_text ?? null,
