@@ -19,8 +19,6 @@ final class AppServiceProvider extends ServiceProvider
     use SubsiteTrait;
     use UrlTrait;
 
-    private const string DEFAULT_COLOR_SCHEME = 'light';
-
     public function boot(): void
     {
         try {
