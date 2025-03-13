@@ -11,11 +11,13 @@ use App\Repositories\PostRepositoryInterface;
 use App\Services\LdJsonService;
 use App\Services\PostService;
 use App\Traits\PostTrait;
+use App\Traits\SubsiteTrait;
 use Illuminate\Contracts\View\View;
 
 final class PostController extends BaseController
 {
     use PostTrait;
+    use SubsiteTrait;
 
     public array $flagReasons;
 
@@ -42,6 +44,8 @@ final class PostController extends BaseController
 
         $relatedPosts = $this->postRepository->getRelatedPosts($post);
 
+        $subdomain = $this->getSubdomain() === 'www' ? 'metafilter' : $this->getSubdomain();
+
         return view('posts.show', [
             'title' => $post->title,
             'post' => $post,
@@ -52,6 +56,7 @@ final class PostController extends BaseController
             'isArchived' => $this->isArchived($post),
             'canonicalUrl' => $this->getCanonicalUrl($post),
             'relatedPosts' => $relatedPosts,
+            'subdomain' => $subdomain,
             'useLivewire' => true,
             'useWysiwyg' => true,
         ]);
