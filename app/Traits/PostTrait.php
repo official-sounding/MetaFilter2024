@@ -70,7 +70,7 @@ trait PostTrait
             $subdomain = 'metafilter';
         }
 
-        return route("$subdomain.post.show", [
+        return route("$subdomain.posts.show", [
             'post' => $post,
             'slug' => $post->slug,
         ]);

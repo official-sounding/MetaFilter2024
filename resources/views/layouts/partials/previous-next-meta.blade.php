@@ -1,7 +1,7 @@
 @if (isset($previous))
     <link
         rel="prev"
-        href="{{ route("$subdomain.post.show", [
+        href="{{ route("$subdomain.posts.show", [
             'post' => $previous,
             'slug' => $previous->slug
         ]) }}">
@@ -9,7 +9,7 @@
 @if (isset($next))
     <link
         rel="next"
-        href="{{ route("$subdomain.post.show", [
+        href="{{ route("$subdomain.posts.show", [
             'post' => $next,
             'slug' => $next->slug
         ]) }}">

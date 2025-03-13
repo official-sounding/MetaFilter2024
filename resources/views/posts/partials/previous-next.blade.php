@@ -4,7 +4,7 @@
             @include('posts.partials.previous-next-link', [
                 'direction' => 'Previous',
                 'post' => $previous,
-                'routeName' => "$subdomain.post.show",
+                'routeName' => "$subdomain.posts.show",
             ])
         @endif
 
@@ -12,7 +12,7 @@
             @include('posts.partials.previous-next-link', [
                 'direction' => 'Next',
                 'post' => $next,
-                'routeName' => "$subdomain.post.show",
+                'routeName' => "$subdomain.posts.show",
             ])
         @endif
     </nav>

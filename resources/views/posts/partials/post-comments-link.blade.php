@@ -1,6 +1,6 @@
 Context: {{ $context }}
 @if ('context' === 'index')
-    <a href="{{ route("$subdomain.post.show", [
+    <a href="{{ route("$subdomain.posts.show", [
         'post' => $post,
         'slug' => $post->slug
     ]) }}#comments"
