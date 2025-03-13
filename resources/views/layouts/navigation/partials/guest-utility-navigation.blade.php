@@ -11,7 +11,7 @@
         </a>
     </li>
     <li>
-        <a href="{{ route('sign-up') }}"
+        <a href="{{ route('signup') }}"
            @if (request()->segment(1) === 'signup')
                aria-current="page"
             @endif>

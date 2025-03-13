@@ -7,10 +7,10 @@
             @case('comment')
                 {{-- TODO: Localize text --}}
                 <a href="{{ route('login') }}">Log in</a> or
-                <a href="{{ route('sign-up') }}">sign up</a> to add comments.
+                <a href="{{ route('signup') }}">sign up</a> to add comments.
                 @break
             @case('index')
-                Please <a href="{{ route('sign-up') }}">sign up</a> to add posts and comments,
+                Please <a href="{{ route('signup') }}">sign up</a> to add posts and comments,
                 or <a href="{{ route('login') }}">log in</a> if you&rsquo;re already a member.
         @endswitch
     </p>

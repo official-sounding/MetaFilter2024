@@ -22,7 +22,7 @@
 
         <p>
             {!! trans('Don&rsquo;t have an account?') !!}
-            <a href="{{ route('sign-up') }}">
+            <a href="{{ route('signup') }}">
                 {{ trans('Sign up here') }}
             </a>
         </p>

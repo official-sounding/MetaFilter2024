@@ -118,7 +118,7 @@ final class SignupWizardComponent extends BaseWizardComponent
 
         Auth::login($user);
 
-        $this->redirectRoute('sign-up.thanks');
+        $this->redirectRoute('signup.thanks');
     }
 
     public function store(string $state): User

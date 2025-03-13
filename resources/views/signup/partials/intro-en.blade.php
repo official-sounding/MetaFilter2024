@@ -26,13 +26,10 @@
         advertising.
     </li>
 </ul>
-{{--
-        @include('signup.partials.banning-venn-diagram')
-<img
-    src="{{ asset('images/infographics/metafilter-banning-venn-diagram.png') }}"
-    alt="Venn diagram">
---}}
-<a href="{{ route('sign-up.wizard') }}"
+
+@include('signup.partials.banning-venn-diagram')
+
+<a href="{{ route('signup.wizard') }}"
    class="button cta-button">
     Ready to sign up?
 </a>

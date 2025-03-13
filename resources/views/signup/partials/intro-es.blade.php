@@ -30,7 +30,7 @@
     </li>
 </ul>
 
-<a href="{{ route('sign-up.wizard') }}"
+<a href="{{ route('signup.wizard') }}"
    class="button cta-button">
     ¿Listo para registrarte? ¡Vamos allá!
 </a>
