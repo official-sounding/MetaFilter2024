@@ -22,8 +22,6 @@ final class SubsiteFactory extends BaseFactory
             'green_text' => 'Meta',
             'white_text' => 'Filter',
             'slug' => $this->faker->unique()->slug(),
-            'route' => $this->faker->word(),
-            'view' => $this->faker->word(),
             'created_at' => $timestamp,
             'updated_at' => null,
         ];

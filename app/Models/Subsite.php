@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Events\SubsiteSaved;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -19,8 +18,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $logo_filename
  * @property string $green_text
  * @property string $white_text
- * @property string $route
- * @property string $view
  * @property bool $has_theme
  */
 final class Subsite extends BaseModel
@@ -39,8 +36,6 @@ final class Subsite extends BaseModel
         'logo_filename',
         'green_text',
         'white_text',
-        'route',
-        'view',
         'has_theme',
     ];
 
@@ -48,8 +43,4 @@ final class Subsite extends BaseModel
     {
         return $this->getSlugFrom('name');
     }
-
-    protected $dispatchesEvents = [
-        'saved' => SubsiteSaved::class,
-    ];
 }

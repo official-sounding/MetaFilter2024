@@ -20,8 +20,6 @@ return new class extends Migration {
             $table->text('logo_filename')->nullable();
             $table->string('white_text')->nullable();
             $table->string('green_text')->nullable();
-            $table->string('route');
-            $table->string('view');
             $table->boolean('has_theme')->default(false);
 
             $table->nullableTimestamps();

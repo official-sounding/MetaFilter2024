@@ -16,8 +16,6 @@ return [
         'green_text' => $metaFilter,
         'tagline' => 'querying the hive mind',
         'subdomain' => 'ask',
-        'route' => RouteNameEnum::AskPostIndex->value,
-        'view' => 'posts.index',
         'has_theme' => true,
     ],
     'bestof' => [
@@ -27,8 +25,6 @@ return [
         'green_text' => null,
         'tagline' => 'Highlighting the best bits from the MetaFilter universe',
         'subdomain' => 'bestof',
-        'route' => RouteNameEnum::BestOfHomeIndex->value,
-        'view' => 'bestof.home.index',
         'has_theme' => true,
     ],
     'chat' => [
@@ -38,8 +34,6 @@ return [
         'green_text' => 'Chat',
         'tagline' => 'talk about ' . $metaFilter,
         'subdomain' => 'chat',
-        'route' => RouteNameEnum::ChatHomeIndex->value,
-        'view' => 'chat.home.index',
         'has_theme' => false,
     ],
     'fanfare' => [
@@ -49,8 +43,6 @@ return [
         'green_text' => 'Fare',
         'tagline' => 'overthinking entertainment',
         'subdomain' => 'fanfare',
-        'route' => RouteNameEnum::FanFarePostIndex->value,
-        'view' => 'posts.index',
         'has_theme' => true,
     ],
     'faq' => [
@@ -68,8 +60,6 @@ return [
         'green_text' => 'IRL',
         'tagline' => 'get out. meet people.',
         'subdomain' => 'irl',
-        'route' => RouteNameEnum::IrlPostIndex->value,
-        'view' => 'posts.index',
         'has_theme' => true,
     ],
     'jobs' => [
@@ -79,8 +69,6 @@ return [
         'green_text' => 'Jobs',
         'tagline' => 'all work and no play',
         'subdomain' => 'jobs',
-        'route' => RouteNameEnum::JobsPostIndex->value,
-        'view' => 'posts.index',
         'has_theme' => true,
     ],
     'labs' => [
@@ -89,8 +77,6 @@ return [
         'green_text' => 'Labs',
         'tagline' => 'digital experimentation',
         'subdomain' => 'labs',
-        'route' => RouteNameEnum::LabsHomeIndex->value,
-        'view' => 'labs.home.index',
         'has_theme' => false,
     ],
     'mail' => [
@@ -98,8 +84,6 @@ return [
         'white_text' => 'MeFi',
         'green_text' => 'Mall',
         'subdomain' => 'mall',
-        'route' => RouteNameEnum::MallHomeIndex->value,
-        'view' => 'mall.home.index',
         'has_theme' => false,
     ],
     'mall' => [
@@ -107,8 +91,6 @@ return [
         'white_text' => 'MeFi',
         'green_text' => 'Mall',
         'subdomain' => 'mall',
-        'route' => RouteNameEnum::MallHomeIndex->value,
-        'view' => 'mall.home.index',
         'has_theme' => false,
     ],
     'metatalk' => [
@@ -118,8 +100,6 @@ return [
         'green_text' => 'Talk',
         'tagline' => 'feature requests, bugs, etc.',
         'subdomain' => 'metatalk',
-        'route' => RouteNameEnum::MetaTalkPostIndex->value,
-        'view' => 'posts.index',
         'has_theme' => true,
     ],
     'music' => [
@@ -129,8 +109,6 @@ return [
         'green_text' => 'Music',
         'tagline' => 'rock and/or roll',
         'subdomain' => 'music',
-        'route' => RouteNameEnum::MusicPostIndex->value,
-        'view' => 'posts.index',
         'has_theme' => true,
     ],
     'podcast' => [
@@ -140,8 +118,6 @@ return [
         'green_text' => 'Podcast',
         'tagline' => 'best of the website',
         'subdomain' => 'podcast',
-        'route' => RouteNameEnum::PodcastPostIndex->value,
-        'view' => 'posts.index',
         'has_theme' => false,
     ],
     'projects' => [
@@ -151,8 +127,6 @@ return [
         'green_text' => 'Projects',
         'tagline' => 'where self-links rule',
         'subdomain' => 'projects',
-        'route' => RouteNameEnum::ProjectsPostIndex->value,
-        'view' => 'posts.index',
         'has_theme' => true,
     ],
     'www' => [
@@ -162,8 +136,7 @@ return [
         'green_text' => 'Filter',
         'tagline' => 'community weblog',
         'subdomain' => 'www',
-        'route' => RouteNameEnum::MetaFilterPostIndex->value,
-        'view' => 'posts.index',
+        'route' => 'metafilter.posts.index',
         'has_theme' => true,
     ],
 ];
