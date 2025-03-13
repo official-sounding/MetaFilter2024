@@ -4,27 +4,68 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
-use App\Models\Comment;
-
 trait CommentTrait
 {
-    use SubsiteTrait;
-
-    public function ownsComment(Comment $comment): bool
+    public function toggleEditing(): void
     {
-        return $comment->user_id === auth()->id();
+        if ($this->isEditing === true) {
+            $this->stopEditing();
+        } else {
+            $this->startEditing();
+        }
     }
 
-    public function getCommentFormNote(): ?string
+    public function toggleFlagging(): void
     {
-        $subdomain = $this->getSubdomain();
+        if ($this->isFlagging === true) {
+            $this->stopFlagging();
+        } else {
+            $this->startFlagging();
+        }
+    }
 
-        // TODO: Get texts from subsites
-        return match ($subdomain) {
-            'ask' => trans('Edit Question'),
-            'irl' => trans('Edit Event'),
-            'projects' => trans('Edit Project'),
-            default => trans('Edit Post'),
-        };
+    public function toggleReplying(): void
+    {
+        if ($this->isReplying === true) {
+            $this->stopReplying();
+        } else {
+            $this->startReplying();
+        }
+    }
+
+    public function startEditing(): void
+    {
+        $this->isEditing = true;
+        $this->stopFlagging();
+        $this->stopReplying();
+    }
+
+    public function stopEditing(): void
+    {
+        $this->isEditing = false;
+    }
+
+    public function startFlagging(): void
+    {
+        $this->isFlagging = true;
+        $this->stopEditing();
+        $this->stopReplying();
+    }
+
+    public function stopFlagging(): void
+    {
+        $this->isFlagging = false;
+    }
+
+    public function startReplying(): void
+    {
+        $this->isReplying = true;
+        $this->stopEditing();
+        $this->stopFlagging();
+    }
+
+    public function stopReplying(): void
+    {
+        $this->isReplying = false;
     }
 }
