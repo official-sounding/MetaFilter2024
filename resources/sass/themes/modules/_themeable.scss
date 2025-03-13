@@ -5,8 +5,9 @@ body {
     background-color: light-dark(var(--white), var(--base-color));
 }
 
+//noinspection CssInvalidFunction
 .main-contents p.snippet {
-    color: var(--lighter-base-color);
+    color: light-dark(var(--dark-base-color), var(--lighter-base-color));
     background-color: inherit;
 }
 
