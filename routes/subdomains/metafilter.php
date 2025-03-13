@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
             ->name('mefi.mail.index');
 
         Route::get('mefi-mail/{mail}', 'show')
-            ->name('mefi.mail.index');
+            ->name('mefi.mail.show');
     });
 
     Route::get('my-comments', [MyCommentsController::class, 'index'])

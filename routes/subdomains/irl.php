@@ -42,7 +42,7 @@ Route::get('past-events', [PastEventsController::class, 'index'])
     ->name('irl.past-events.index');
 
 Route::get('proposed-events', [ProposedEventsController::class, 'index'])
-    ->name('proposed.past-events.index');
+    ->name('irl.proposed-events.index');
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
