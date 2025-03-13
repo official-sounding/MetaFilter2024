@@ -122,4 +122,16 @@ trait PostTrait
             default => throw new InvalidArgumentException("Unknown subdomain: $subdomain"),
         };
     }
+
+    public function getEditPostTitle(): ?string
+    {
+        $subdomain = $this->getSubdomain();
+
+        return match ($subdomain) {
+            'ask' => trans('Edit Question'),
+            'irl' => trans('Edit Event'),
+            'projects' => trans('Edit Project'),
+            default => trans('Edit Post'),
+        };
+    }
 }
