@@ -45,7 +45,7 @@ Route::middleware('auth')->group(function () {
             ->name('mefi.mail.index');
 
         Route::get('mefi-mail/create', 'create')
-            ->name('mefi.mail.index');
+            ->name('mefi.mail.create');
 
         Route::get('mefi-mail/{mail}', 'show')
             ->name('mefi.mail.show');
