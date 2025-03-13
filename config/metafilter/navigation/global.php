@@ -43,7 +43,7 @@ return [
         ],
         [
             'name' => 'Podcast',
-            'route' => 'chat.posts.index',
+            'route' => 'podcast.posts.index',
         ],
         [
             'name' => 'Chat',
