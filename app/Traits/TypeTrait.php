@@ -8,7 +8,7 @@ use App\Models\BaseModel;
 
 trait TypeTrait
 {
-    private function getType(BaseModel $model): string
+    public function getType(BaseModel $model): string
     {
         $class = $model::class;
 
