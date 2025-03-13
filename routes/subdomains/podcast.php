@@ -37,15 +37,15 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('best-of-the-web', [BestOfTheWebController::class, 'index'])
-    ->name(RouteNameEnum::PodcastBestOfTheWebIndex);
+    ->name('podcast.best-of-the-web.index');
 
 Route::get('out-of-the-blue', [OutOfTheBlueController::class, 'index'])
-    ->name(RouteNameEnum::PodcastOutOfTheBlueIndex);
+    ->name('podcast.out-of-the-blue.index');
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
-        ->name(RouteNameEnum::PodcastPostIndex);
+        ->name('podcast.posts.index');
 
     Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::PodcastPostShow);
+        ->name('podcast.posts.show');
 });

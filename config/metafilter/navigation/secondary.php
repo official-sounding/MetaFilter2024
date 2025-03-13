@@ -9,83 +9,83 @@ return [
     SubsiteEnum::Ask->value => [
         [
             'name' => 'Recent Posts',
-            'route' => RouteNameEnum::AskPostIndex->value,
+            'route' => 'ask.posts.index',
             'login_required' => false,
         ],
         [
             'name' => 'Popular Questions',
-            'route' => RouteNameEnum::AskPopularQuestionsIndex->value,
+            'route' => 'ask.popular-questions.index',
             'login_required' => false,
         ],
         [
             'name' => 'Answered',
-            'route' => RouteNameEnum::AskAnsweredQuestionsIndex->value,
+            'route' => 'ask.answered-questions.index',
             'login_required' => false,
         ],
         [
             'name' => 'Unanswered',
-            'route' => RouteNameEnum::AskUnansweredQuestionsIndex->value,
+            'route' => 'ask.unanswered-questions.index',
             'login_required' => false,
         ],
     ],
     SubsiteEnum::FanFare->value => [
         [
             'name' => 'Recent Posts',
-            'route' => RouteNameEnum::FanFarePostIndex->value,
+            'route' => 'fanfare.posts.index',
             'login_required' => false,
         ],
         [
             'name' => 'FanFare Talk',
-            'route' => RouteNameEnum::FanFareTalkIndex->value,
+            'route' => 'fanfare.talk.index',
             'login_required' => false,
         ],
         [
             'name' => 'Clubs',
-            'route' => RouteNameEnum::FanFareClubsIndex->value,
+            'route' => 'fanfare.clubs.index',
             'login_required' => false,
         ],
         [
             'name' => 'Water Cooler',
-            'route' => RouteNameEnum::FanFareWaterCoolerIndex->value,
+            'route' => 'fanfare.water-cooler.index',
             'login_required' => false,
         ],
     ],
     SubsiteEnum::Irl->value => [
         [
             'name' => 'Upcoming Events',
-            'route' => RouteNameEnum::IrlPostIndex->value,
+            'route' => 'irl.posts.index',
             'login_required' => false,
         ],
         [
             'name' => 'Past Events',
-            'route' => RouteNameEnum::IrlPastEventsIndex->value,
+            'route' => 'irl.past-events.index',
             'login_required' => false,
         ],
         [
             'name' => 'Future Events',
-            'route' => RouteNameEnum::IrlFutureEventsIndex->value,
+            'route' => 'irl.future-events.index',
             'login_required' => false,
         ],
         [
             'name' => 'Proposed Events',
-            'route' => RouteNameEnum::IrlProposedEventsIndex->value,
+            'route' => 'irl.proposed-events.index',
             'login_required' => false,
         ],
     ],
     SubsiteEnum::MetaFilter->value => [
         [
             'name' => 'Recent Posts',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
             'login_required' => false,
         ],
         [
             'name' => 'Popular Posts',
-            'route' => RouteNameEnum::MetaFilterPopularPostsIndex->value,
+            'route' => 'metafilter.popular-posts.index',
             'login_required' => false,
         ],
         [
             'name' => 'Recent Comments',
-            'route' => RouteNameEnum::MetaFilterRecentCommentsIndex->value,
+            'route' => 'metafilter.recent-comments.index',
             'login_required' => false,
         ],
         [
@@ -107,17 +107,17 @@ return [
     SubsiteEnum::MetaTalk->value => [
         [
             'name' => 'Recent Posts',
-            'route' => RouteNameEnum::MetaTalkPostIndex->value,
+            'route' => 'metatalk.posts.index',
             'login_required' => false,
         ],
         [
             'name' => 'Popular Posts',
-            'route' => RouteNameEnum::MetaTalkPopularPostsIndex->value,
+            'route' => 'metatalk.popular-posts.index',
             'login_required' => false,
         ],
         [
             'name' => 'Recent Comments',
-            'route' => RouteNameEnum::MetaTalkRecentCommentsIndex->value,
+            'route' => 'metatalk.recent-comments.index',
             'login_required' => false,
         ],
         [
@@ -129,39 +129,39 @@ return [
     SubsiteEnum::Music->value => [
         [
             'name' => 'Songs',
-            'route' => RouteNameEnum::MusicPostIndex->value,
+            'route' => 'music.posts.index',
             'login_required' => false,
         ],
         [
             'name' => 'Talk',
-            'route' => RouteNameEnum::MusicTalkIndex->value,
+            'route' => 'music.talk.index',
             'login_required' => false,
         ],
         [
             'name' => 'Charts',
-            'route' => RouteNameEnum::MusicChartsIndex->value,
+            'route' => 'music.charts.index',
             'login_required' => false,
         ],
         [
             'name' => 'Challenges',
-            'route' => RouteNameEnum::MusicChallengesIndex->value,
+            'route' => 'music.challenges.index',
             'login_required' => false,
         ],
     ],
     SubsiteEnum::Podcast->value => [
         [
             'name' => 'Recent Posts',
-            'route' => RouteNameEnum::PodcastPostIndex->value,
+            'route' => 'podcast.posts.index',
             'login_required' => false,
         ],
         [
             'name' => 'Best of the Web',
-            'route' => RouteNameEnum::PodcastBestOfTheWebIndex->value,
+            'route' => 'podcast.best-of-the-web.index',
             'login_required' => false,
         ],
         [
             'name' => 'Out of the Blue',
-            'route' => RouteNameEnum::PodcastOutOfTheBlueIndex->value,
+            'route' => 'podcast.out-of-the-blue.index',
             'login_required' => false,
         ],
     ],

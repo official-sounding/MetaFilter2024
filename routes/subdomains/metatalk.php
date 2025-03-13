@@ -41,15 +41,15 @@ Route::get('my-favorites', [MyFavoritesController::class, 'index'])
     ->name(RouteNameEnum::MetaTalkMyFavoritesIndex);
 
 Route::get('popular-posts', [PopularPostController::class, 'index'])
-    ->name(RouteNameEnum::MetaTalkPopularPostsIndex);
+    ->name('metatalk.popular-posts.index');
 
 Route::get('recent-comments', [RecentCommentsController::class, 'index'])
-    ->name(RouteNameEnum::MetaTalkRecentCommentsIndex);
+    ->name('metatalk.recent-comments.index');
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
-        ->name(RouteNameEnum::MetaTalkPostIndex);
+        ->name('metatalk.posts.index');
 
     Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::MetaTalkPostShow);
+        ->name('metatalk.posts.show');
 });

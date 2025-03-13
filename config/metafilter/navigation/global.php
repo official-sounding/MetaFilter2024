@@ -2,62 +2,60 @@
 
 declare(strict_types=1);
 
-use App\Enums\RouteNameEnum;
-
 return [
     'menu_items' => [
         [
             'name' => 'MetaFilter',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Ask MeFi',
-            'route' => RouteNameEnum::AskPostIndex->value,
+            'route' => 'ask.posts.index',
         ],
         [
             'name' => 'FanFare',
-            'route' => RouteNameEnum::FanFarePostIndex->value,
+            'route' => 'fanfare.posts.index',
         ],
         [
             'name' => 'Projects',
-            'route' => RouteNameEnum::ProjectsPostIndex->value,
+            'route' => 'projects.posts.index',
         ],
         [
             'name' => 'Music',
-            'route' => RouteNameEnum::MusicPostIndex->value,
+            'route' => 'music.posts.index',
         ],
         [
             'name' => 'Jobs',
-            'route' => RouteNameEnum::JobsPostIndex->value,
+            'route' => 'jobs.posts.index',
         ],
         [
             'name' => 'IRL',
-            'route' => RouteNameEnum::IrlPostIndex->value,
+            'route' => 'irl.posts.index',
         ],
         [
             'name' => 'MetaTalk',
-            'route' => RouteNameEnum::MetaTalkPostIndex->value,
+            'route' => 'metatalk.posts.index',
         ],
         [
             'name' => 'Best Of',
-            'route' => RouteNameEnum::BestOfHomeIndex->value,
+            'route' => 'bestof.posts.index',
             'start_dropdown' => true,
         ],
         [
             'name' => 'Podcast',
-            'route' => RouteNameEnum::PodcastPostIndex->value,
+            'route' => 'chat.posts.index',
         ],
         [
             'name' => 'Chat',
-            'route' => RouteNameEnum::ChatHomeIndex->value,
+            'route' => 'chat.home.index',
         ],
         [
             'name' => 'Labs',
-            'route' => RouteNameEnum::LabsHomeIndex->value,
+            'route' => 'labs.home.index',
         ],
         [
             'name' => 'Mall',
-            'route' => RouteNameEnum::MallHomeIndex->value,
+            'route' => 'mall.home.index',
         ],
     ],
 ];

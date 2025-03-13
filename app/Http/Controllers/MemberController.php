@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Enums\RouteNameEnum;
 use App\Enums\StatusEnum;
 use App\Http\Requests\User\DeleteProfileRequest;
 use App\Http\Requests\User\UpdateProfileRequest;
@@ -73,7 +72,7 @@ final class MemberController extends BaseController
         $request->session()->regenerateToken();
 
         return redirect()
-            ->route(RouteNameEnum::MetaFilterPostIndex)
+            ->route('metafilter.posts.index')
             ->with('status', StatusEnum::ProfileDeleted);
     }
 }

@@ -39,11 +39,11 @@ Route::post(RoutePath::for('password.update', '/reset-password'), [NewPasswordCo
     ->middleware(['guest:' . config('fortify.guard')])
     ->name('password.update');
 
-Route::get('signup', [RegisteredUserController::class, 'create'])
-    ->name(RouteNameEnum::SignupCreate);
+Route::get('sign-up', [RegisteredUserController::class, 'create'])
+    ->name('sign-up');
 
-Route::get('signup/thanks', [SignupController::class, 'thanks'])
-    ->name(RouteNameEnum::SignupThanks);
+Route::get('sign-up/thanks', [SignupController::class, 'thanks'])
+    ->name('sign-up.thanks');
 
-Route::get('signup/wizard', [SignupController::class, 'wizard'])
-    ->name(RouteNameEnum::SignupWizard);
+Route::get('sign-up/wizard', [SignupController::class, 'wizard'])
+    ->name('sign-up.wizard');

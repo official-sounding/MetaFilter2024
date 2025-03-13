@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Enums\RouteNameEnum;
 use App\Traits\LoggingTrait;
 use App\Traits\SubsiteTrait;
 use App\Traits\UrlTrait;
@@ -52,20 +51,6 @@ final class AppServiceProvider extends ServiceProvider
         ]);
 
         view()->share([
-            'appLocale' => app()->getLocale(),
-            'contactMessageRoute' => RouteNameEnum::ContactMessageCreate,
-            'defaultColorScheme' => self::DEFAULT_COLOR_SCHEME,
-            'forgotPasswordRoute' => RouteNameEnum::AuthForgotPasswordCreate,
-            'fundingIndexRoute' => RouteNameEnum::MetaFilterFundingIndex,
-            'metaFilterPostIndexRoute' => RouteNameEnum::MetaFilterPostIndex->value,
-            'loginCreateRoute' => RouteNameEnum::AuthLoginCreate,
-            'logoutRoute' => RouteNameEnum::AuthLogout,
-            'preferencesEditRoute' => RouteNameEnum::PreferencesEdit,
-            'memberEditRoute' => RouteNameEnum::MemberEdit,
-            'memberShowRoute' => RouteNameEnum::MemberShow,
-            'signupCreateRoute' => RouteNameEnum::SignupCreate,
-            'signupThanksRoute' => RouteNameEnum::SignupThanks,
-            'signupWizardRoute' => RouteNameEnum::SignupWizard,
             'subdomain' => $subdomain === 'www' ? 'metafilter' : $subdomain,
             'subsite' => $subsite,
             'subsiteHasTheme' => $subsite->has_theme ?? null,

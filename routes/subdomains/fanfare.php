@@ -36,18 +36,18 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('clubs', [ClubsController::class, 'index'])
-    ->name(RouteNameEnum::FanFareClubsIndex);
+    ->name('fanfare.clubs.index');
 
 Route::get('talk', [TalkController::class, 'index'])
-    ->name(RouteNameEnum::FanFareTalkIndex);
+    ->name('fanfare.talk.index');
 
 Route::get('water-cooler', [WaterCoolerController::class, 'index'])
-    ->name(RouteNameEnum::FanFareWaterCoolerIndex);
+    ->name('fanfare.water-cooler.index');
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
-        ->name(RouteNameEnum::FanFarePostIndex);
+        ->name('fanfare.posts.index');
 
     Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::FanFarePostShow);
+        ->name('fanfare.posts.show');
 });

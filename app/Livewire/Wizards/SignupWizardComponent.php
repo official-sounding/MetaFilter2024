@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Livewire\Wizards;
 
 use App\Dtos\UserDto;
-use App\Enums\RouteNameEnum;
 use App\Enums\UserStateEnum;
 use App\Http\Requests\Auth\StorePasswordRequest;
 use App\Http\Requests\Signup\StoreEmailAddressRequest;
@@ -119,7 +118,7 @@ final class SignupWizardComponent extends BaseWizardComponent
 
         Auth::login($user);
 
-        $this->redirectRoute(RouteNameEnum::SignupThanks->value);
+        $this->redirectRoute('sign-up.thanks');
     }
 
     public function store(string $state): User

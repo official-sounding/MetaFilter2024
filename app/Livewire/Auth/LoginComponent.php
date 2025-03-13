@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Livewire\Auth;
 
-use App\Enums\RouteNameEnum;
 use App\Traits\LoggingTrait;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
@@ -43,7 +42,7 @@ final class LoginComponent extends Component
 
             session()->flash('message', trans('Login successful'));
 
-            $redirectUrl = route(RouteNameEnum::MetaFilterPostIndex);
+            $redirectUrl = route('metafilter.posts.index');
 
             $this->redirect($redirectUrl, navigate: true);
 

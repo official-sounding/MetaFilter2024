@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
     Route::get('create', [PostJobController::class, 'create'])
-        ->name(RouteNameEnum::JobsMyPostsCreate);
+        ->name('jobs.posts.create');
 
     Route::controller(MyPostController::class)->prefix('my-posts')->group(function () {
         Route::get('', 'index')
@@ -41,8 +41,8 @@ Route::middleware('auth')->group(function () {
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
-        ->name(RouteNameEnum::JobsPostIndex);
+        ->name('jobs.posts.index');
 
     Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::JobsPostShow);
+        ->name('jobs.posts.show');
 });

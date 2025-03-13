@@ -29,19 +29,19 @@ enum SubsiteEnum: string
     public function route(): string
     {
         return match ($this) {
-            self::Ask => RouteNameEnum::AskPostIndex->value,
-            self::BestOf => RouteNameEnum::BestOfHomeIndex->value,
-            self::Chat => RouteNameEnum::ChatHomeIndex->value,
-            self::FanFare => RouteNameEnum::FanFarePostIndex->value,
-            self::Irl => RouteNameEnum::IrlPostIndex->value,
-            self::Jobs => RouteNameEnum::JobsPostIndex->value,
-            self::Labs => RouteNameEnum::LabsHomeIndex->value,
-            self::Mall => RouteNameEnum::MallHomeIndex->value,
-            self::MetaFilter => RouteNameEnum::MetaFilterPostIndex->value,
-            self::MetaTalk => RouteNameEnum::MetaTalkPostIndex->value,
-            self::Music => RouteNameEnum::MusicPostIndex->value,
-            self::Podcast => RouteNameEnum::PodcastPostIndex->value,
-            self::Projects => RouteNameEnum::ProjectsPostIndex->value,
+            self::Ask => 'ask.posts.index',
+            self::BestOf => 'bestof.posts.index',
+            self::Chat => 'chat.home.index',
+            self::FanFare => 'fanfare.posts.index',
+            self::Irl => 'irl.posts.index',
+            self::Jobs => 'jobs.posts.index',
+            self::Labs => 'labs.home.index',
+            self::Mall => 'mall.home.index',
+            self::MetaFilter => 'metafilter.posts.index',
+            self::MetaTalk => 'metatalk.posts.index',
+            self::Music => 'music.posts.index',
+            self::Podcast => 'podcast.posts.index',
+            self::Projects => 'projects.posts.index',
             self::Mail => throw new Exception('To be implemented'),
         };
     }

@@ -35,8 +35,8 @@ Route::middleware('auth')->group(function () {
 Route::controller(PostController::class)
     ->group(function () {
         Route::get('', 'index')
-            ->name(RouteNameEnum::ProjectsPostIndex);
+            ->name('projects.posts.index');
 
         Route::get('{post}/{slug}', 'show')
-            ->name(RouteNameEnum::ProjectsPostShow);
+            ->name('projects.posts.show');
     });

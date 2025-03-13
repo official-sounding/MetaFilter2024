@@ -32,7 +32,7 @@
     src="{{ asset('images/infographics/metafilter-banning-venn-diagram.png') }}"
     alt="Venn diagram">
 --}}
-<a href="{{ route($signupWizardRoute) }}"
+<a href="{{ route('sign-up.wizard') }}"
    class="button cta-button">
     Ready to sign up?
 </a>

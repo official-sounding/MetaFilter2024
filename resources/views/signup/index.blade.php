@@ -4,7 +4,7 @@
 
 @section('contents')
     @includeFirst([
-        "signup.partials.intro-$appLocale",
+        "signup.partials.intro-en",
         'signup.partials.intro-en'
     ])
 @endsection

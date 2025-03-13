@@ -122,14 +122,14 @@ trait SubsiteTrait
         }
 
         return match ($subdomain) {
-            'ask' => RouteNameEnum::AskPostIndex->value,
-            'fanfare' => RouteNameEnum::FanFarePostIndex->value,
-            'irl' => RouteNameEnum::IrlPostIndex->value,
-            'metatalk' => RouteNameEnum::MetaTalkPostIndex->value,
-            'music' => RouteNameEnum::MusicPostIndex->value,
-            'podcast' => RouteNameEnum::PodcastPostIndex->value,
-            'projects' => RouteNameEnum::ProjectsPostIndex->value,
-            default => RouteNameEnum::MetaFilterPostIndex->value,
+            'ask' => 'ask.posts.index',
+            'fanfare' => 'fanfare.posts.index',
+            'irl' => 'irl.posts.index',
+            'metatalk' => 'metatalk.posts.index',
+            'music' => 'music.posts.index',
+            'podcast' => 'podcast.posts.index',
+            'projects' => 'projects.posts.index',
+            default => 'metafilter.posts.index',
         };
     }
 
@@ -138,14 +138,14 @@ trait SubsiteTrait
         $subdomain = $this->getSubdomain();
 
         return match ($subdomain) {
-            'ask' => RouteNameEnum::AskPostShow->value,
-            'fanfare' => RouteNameEnum::FanFarePostShow->value,
-            'irl' => RouteNameEnum::IrlPostShow->value,
-            'metatalk' => RouteNameEnum::MetaTalkPostShow->value,
-            'music' => RouteNameEnum::MusicPostShow->value,
-            'podcast' => RouteNameEnum::PodcastPostShow->value,
-            'projects' => RouteNameEnum::ProjectsPostShow->value,
-            default => RouteNameEnum::MetaFilterPostShow->value,
+            'ask' => 'ask.posts.show',
+            'fanfare' => 'fanfare.posts.show',
+            'irl' => 'irl.posts.show',
+            'metatalk' => 'metatalk.posts.show',
+            'music' => 'music.posts.show',
+            'podcast' => 'podcast.posts.show',
+            'projects' => 'projects.posts.show',
+            default => 'metafilter.posts.show',
         };
     }
 

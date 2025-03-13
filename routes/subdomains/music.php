@@ -44,19 +44,19 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('charts', [ChartsController::class, 'index'])
-    ->name(RouteNameEnum::MusicChartsIndex);
+    ->name('music.charts.index');
 
 Route::get('challenges', [ChallengesController::class, 'index'])
-    ->name(RouteNameEnum::MusicChallengesIndex);
+    ->name('music.challenges.index');
 
 Route::get('talk', [TalkController::class, 'index'])
-    ->name(RouteNameEnum::MusicTalkIndex);
+    ->name('music.talk.index');
 
 Route::controller(PostController::class)->group(function () {
 
     Route::get('', 'index')
-        ->name(RouteNameEnum::MusicPostIndex);
+        ->name('music.posts.index');
 
     Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::MusicPostShow);
+        ->name('music.posts.show');
 });

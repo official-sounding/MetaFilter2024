@@ -2,35 +2,33 @@
 
 declare(strict_types=1);
 
-use App\Enums\RouteNameEnum;
-
 return [
     [
         'name' => 'Account',
-        'route' => RouteNameEnum::AskPostIndex->value,
+        'route' => 'ask.posts.index',
     ],
     [
         'name' => 'Contacts',
-        'route' => RouteNameEnum::AskPostIndex->value,
+        'route' => 'ask.posts.index',
     ],
     [
         'name' => 'Favorites',
-        'route' => RouteNameEnum::AskPostIndex->value,
+        'route' => 'ask.posts.index',
     ],
     [
         'name' => 'Mail',
-        'route' => RouteNameEnum::AskPostIndex->value,
+        'route' => 'ask.posts.index',
     ],
     [
         'name' => 'Preferences',
-        'route' => RouteNameEnum::AskPostIndex->value,
+        'route' => 'ask.posts.index',
     ],
     [
         'name' => 'Profile',
-        'route' => RouteNameEnum::AskPostIndex->value,
+        'route' => 'ask.posts.index',
     ],
     [
         'name' => 'Recent Activity',
-        'route' => RouteNameEnum::AskPostIndex->value,
+        'route' => 'ask.posts.index',
     ],
 ];

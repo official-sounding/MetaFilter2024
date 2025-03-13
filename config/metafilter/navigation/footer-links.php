@@ -11,18 +11,18 @@ return [
     ],
     [
         'name' => 'Guidelines',
-        'route' => RouteNameEnum::MetaFilterPostIndex,
+        'route' => 'metafilter.posts.index',
     ],
     [
         'name' => 'Content Policy',
-        'route' => RouteNameEnum::MetaFilterPostIndex,
+        'route' => 'metafilter.posts.index',
     ],
     [
         'name' => 'Privacy Policy',
-        'route' => RouteNameEnum::MetaFilterPostIndex,
+        'route' => 'metafilter.posts.index',
     ],
     [
         'name' => 'BIPOC Board',
-        'route' => RouteNameEnum::MetaFilterPostIndex,
+        'route' => 'metafilter.posts.index',
     ],
 ];

@@ -1,6 +1,6 @@
 <ul class="utility-navigation-menu" id="utility-navigation-menu">
     <li>
-        <a href="{{ route($loginCreateRoute) }}"
+        <a href="{{ route('login') }}"
            @if (request()->segment(1) === 'login')
                aria-current="page"
             @endif>
@@ -11,7 +11,7 @@
         </a>
     </li>
     <li>
-        <a href="{{ route($signupCreateRoute) }}"
+        <a href="{{ route('sign-up') }}"
            @if (request()->segment(1) === 'signup')
                aria-current="page"
             @endif>

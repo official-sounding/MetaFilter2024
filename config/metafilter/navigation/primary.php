@@ -9,37 +9,37 @@ return [
     SubsiteEnum::Ask->value => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::AskPostIndex->value,
+            'route' => 'ask.posts.index',
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
     ],
     SubsiteEnum::FanFare->value => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::FanFarePostIndex->value,
+            'route' => 'fanfare.posts.index',
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
     ],
     'faq' => [
@@ -51,55 +51,55 @@ return [
     SubsiteEnum::Irl->value => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::IrlPostIndex->value,
+            'route' => 'irl.posts.index',
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
     ],
     SubsiteEnum::Jobs->value => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::JobsPostIndex->value,
+            'route' => 'jobs.posts.index',
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
     ],
     SubsiteEnum::Labs->value => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::LabsHomeIndex->value,
+            'route' => 'labs.home.index',
         ],
     ],
     SubsiteEnum::Mail->value => [
         [
             'name' => 'Mail Home',
-            'route' => RouteNameEnum::MeFiMailIndex->value,
+            'route' => 'mefi.mail.index',
         ],
     ],
     SubsiteEnum::MetaFilter->value => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'FAQ',
@@ -107,83 +107,83 @@ return [
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::MetaFilterArchivesIndex->value,
+            'route' => 'metafilter.archives.index',
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::TagsIndex->value,
+            'route' => 'metafilter.tags.index',
         ],
         [
             'name' => 'Popular',
-            'route' => RouteNameEnum::MetaFilterPopularPostsIndex->value,
+            'route' => 'metafilter.popular-posts.index',
         ],
         [
             'name' => 'Random',
-            'route' => RouteNameEnum::MetaFilterRandomPostShow,
+            'route' => 'metafilter.random-post.show',
         ],
     ],
     SubsiteEnum::MetaTalk->value => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::MetaTalkPostIndex->value,
+            'route' => 'metatalk.posts.index',
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
     ],
     SubsiteEnum::Music->value => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::MusicPostIndex->value,
+            'route' => 'music.posts.index',
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
     ],
     SubsiteEnum::Podcast->value => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::PodcastPostIndex->value,
+            'route' => 'podcast.posts.index',
         ],
     ],
     SubsiteEnum::Projects->value => [
         [
             'name' => 'Home',
-            'route' => RouteNameEnum::ProjectsPostIndex->value,
+            'route' => 'projects.posts.index',
         ],
         [
             'name' => 'About',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Archives',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
         [
             'name' => 'Tags',
-            'route' => RouteNameEnum::MetaFilterPostIndex->value,
+            'route' => 'metafilter.posts.index',
         ],
     ],
 ];

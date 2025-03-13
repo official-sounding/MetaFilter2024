@@ -8,30 +8,10 @@ enum RouteNameEnum: string
 {
     // Auth
     case AdminPanel = 'filament.admin.auth.login';
-    case AuthConfirmPasswordShow = 'auth.confirm-password.show';
-    case AuthConfirmPasswordStore = 'auth.confirm-password.store';
     case AuthForgotPasswordCreate = 'auth.forgot-password.create';
-    case AuthForgotPasswordStore = 'auth.forgot-password.store';
     case AuthLoginCreate = 'login';
     case AuthLoginStore = 'login.store';
     case AuthLogout = 'logout';
-    case AuthResetPasswordCreate = 'auth.reset-password.create';
-    case AuthResetPasswordStore = 'auth.reset-password.store';
-    case AuthResetPasswordUpdate = 'auth.reset-password.update';
-
-    case AboutMetaFilter = 'about.metafilter';
-
-    // Ask
-    case AskPopularFavoritesIndex = 'ask.popular-favorites.index';
-    case AskPopularQuestionsIndex = 'ask.popular-questions.index';
-    case AskAnsweredQuestionsIndex = 'ask.answered-questions.index';
-    case AskUnansweredQuestionsIndex = 'ask.unanswered-questions.index';
-
-    case AskPopularPostIndex = 'ask.post.popular.index';
-    case AskRandomPostShow = 'ask.random.show';
-
-    case AskPostIndex = 'ask.post.index';
-    case AskPostShow = 'ask.post.show';
 
     // Ask MetaFilter My Posts
     case AskMyPostsIndex = 'ask.my-posts.index';
@@ -42,33 +22,6 @@ enum RouteNameEnum: string
     case AskMyPostsEdit = 'ask.my-posts.edit';
     case AskMyPostsUpdate = 'ask.my-posts.update';
     case AskMyPostsDelete = 'ask.my-posts.delete';
-
-
-    // Best Of
-    case BestOfHomeIndex = 'bestof.home.index';
-    case BestOfPostShow = 'bestof.post.show';
-
-    // Bugs
-    case BugsIndex = 'bugs.index';
-    case BugsCreate = 'bugs.create';
-
-    // Chat
-    case ChatHomeIndex = 'chat.home.index';
-
-    // Contact Message
-    case ContactMessageCreate = 'contact.create';
-    case ContactMessageStore = 'contact.store';
-
-    // Contacts
-    case ContactsIndex = 'contacts.index';
-
-    // FanFare
-    case FanFarePopularFavoritesIndex = 'fanfare.popular-favorites.index';
-    case FanFarePostIndex = 'fanfare.post.index';
-    case FanFarePostShow = 'fanfare.post.show';
-    case FanFareClubsIndex = 'fanfare.clubs.index';
-    case FanFareTalkIndex = 'fanfare.talk.index';
-    case FanFareWaterCoolerIndex = 'fanfare.water-cooler.index';
 
     // FanFare My Posts
     case FanFareMyPostsIndex = 'fanfare.my-posts.index';
@@ -85,13 +38,6 @@ enum RouteNameEnum: string
 
     case FavoritesIndex = 'favorites.index';
 
-    // IRL
-    case IrlPastEventsIndex = 'irl.past-events.index';
-    case IrlFutureEventsIndex = 'irl.future-events.index';
-    case IrlProposedEventsIndex = 'irl.proposed-events.index';
-    case IrlPostIndex = 'irl.post.index';
-    case IrlPostShow = 'irl.post.show';
-
     // IRL My Posts
     case IrlMyPostsIndex = 'irl.my-posts.index';
     case IrlMyPostsShow = 'irl.my-posts.show';
@@ -103,8 +49,6 @@ enum RouteNameEnum: string
     case IrlMyPostsDelete = 'irl.my-posts.delete';
 
     // Jobs
-    case JobsPostIndex = 'jobs.post.index';
-    case JobsPostShow = 'jobs.post.show';
 
     // Jobs My Posts
     case JobsMyPostsIndex = 'jobs.my-posts.index';
@@ -118,40 +62,8 @@ enum RouteNameEnum: string
     case JobsMyPostsUpdate = 'jobs.my-posts.update';
     case JobsMyPostsDelete = 'jobs.my-posts.delete';
 
-    // Labs
-    case LabsHomeIndex = 'labs.home.index';
-
     // Language Switcher
     case LanguageSwitcher = 'language';
-
-    // Mall
-    case MallHomeIndex = 'mall.home.index';
-
-    // MeFi Mail
-    case MeFiMailIndex = 'mefi.mail.index';
-    case MeFiMailCreate = 'mefi.mail.create';
-    case MeFiMailShow = 'mefi.mail.show';
-
-    // Members
-    case MemberIndex = 'members.index';
-    case MemberShow = 'members.show';
-    case MemberCreate = 'members.create';
-    case MemberStore = 'members.store';
-    case MemberEdit = 'members.edit';
-    case MemberUpdate = 'members.update';
-    case MemberDelete = 'members.delete';
-
-    // MetaFilter
-    case MetaFilterArchivesIndex = 'metafilter.archives.index';
-    // Funding
-    case MetaFilterFundingIndex = 'metafilter.funding.index';
-    case MetaFilterPopularPostsIndex = 'metafilter.popular-posts.index';
-    case MetaFilterPopularFavoritesIndex = 'metafilter.popular-favorites.index';
-    case MetaFilterPostIndex = 'metafilter.post.index';
-    case MetaFilterPostShow = 'metafilter.post.show';
-    case MetaFilterRandomPostShow = 'metafilter.random.show';
-    case MetaFilterRecentCommentsIndex = 'metafilter.recent-comments.index';
-    case RecentActivityShow = 'metafilter.recent-activity.show';
 
     // My MeFi
     case MetaFilterMyMeFiIndex = 'metafilter.my-mefi.index';
@@ -169,10 +81,7 @@ enum RouteNameEnum: string
     case MetaFilterMyPostsDelete = 'metafilter.my-posts.delete';
 
     // Jobs
-    case MetaTalkPostIndex = 'metatalk.post.index';
-    case MetaTalkPostShow = 'metatalk.post.show';
     case MetaTalkMyFavoritesIndex = 'metatalk.my-favorites.index';
-    case MetaTalkPopularPostsIndex = 'metatalk.popular-posts.index';
     case MetaTalkRecentCommentsIndex = 'metatalk.recent-comments.index';
 
     // MetaTalk My Posts
@@ -184,15 +93,6 @@ enum RouteNameEnum: string
     case MetaTalkMyPostsEdit = 'metatalk.my-posts.edit';
     case MetaTalkMyPostsUpdate = 'metatalk.my-posts.update';
     case MetaTalkMyPostsDelete = 'metatalk.my-posts.delete';
-
-    // Music
-    case MusicPopularPostIndex = 'music.post.popular.index';
-    case MusicPopularFavoritesIndex = 'music.popular-favorites.index';
-    case MusicChartsIndex = 'music.charts.index';
-    case MusicChallengesIndex = 'music.challenges.index';
-    case MusicPostIndex = 'music.post.index';
-    case MusicPostShow = 'music.post.show';
-    case MusicTalkIndex = 'music.talk.index';
 
     // Music My Posts
     case MusicMyPostsIndex = 'music.my-posts.index';
@@ -206,12 +106,6 @@ enum RouteNameEnum: string
     case MusicMyPostsUpdate = 'music.my-posts.update';
     case MusicMyPostsDelete = 'music.my-posts.delete';
 
-    // Podcast
-    case PodcastBestOfTheWebIndex = 'podcast.best-of-the-web.index';
-    case PodcastOutOfTheBlueIndex = 'podcast.out-of-the-blue.index';
-    case PodcastPostIndex = 'podcast.post.index';
-    case PodcastPostShow = 'podcast.post.show';
-
     // Podcast My Posts
     case PodcastMyPostsIndex = 'podcast.my-posts.index';
     case PodcastMyPostsShow = 'podcast.my-posts.show';
@@ -222,14 +116,6 @@ enum RouteNameEnum: string
     case PodcastMyPostsUpdate = 'podcast.my-posts.update';
     case PodcastMyPostsDelete = 'podcast.my-posts.delete';
 
-    // Preferences
-    case PreferencesEdit = 'preferences.edit';
-
-    // Projects
-    case ProjectsPopularPostIndex = 'projects.post.popular.index';
-    case ProjectsPostIndex = 'projects.post.index';
-    case ProjectsPostShow = 'projects.post.show';
-
     // Projects My Posts
     case ProjectsMyPostsIndex = 'projects.my-posts.index';
     case ProjectsMyPostsShow = 'projects.my-posts.show';
@@ -239,20 +125,4 @@ enum RouteNameEnum: string
     case ProjectsMyPostsEdit = 'projects.my-posts.edit';
     case ProjectsMyPostsUpdate = 'projects.my-posts.update';
     case ProjectsMyPostsDelete = 'projects.my-posts.delete';
-
-    // Search
-    case SearchCreate = 'search.create';
-    case SearchShow = 'search.show';
-
-    // Signup
-    case SignupCreate = 'signup';
-    case SignupThanks = 'signup.thanks';
-    case SignupWizard = 'signup.wizard';
-    case AuthVerifyEmail = 'auth.verify-email';
-
-    // Sitemap
-    case SitemapIndex = 'metafilter.sitemap.index';
-
-    // Tags
-    case TagsIndex = 'metafilter.tags.index';
 }

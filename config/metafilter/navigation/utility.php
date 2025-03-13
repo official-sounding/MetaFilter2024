@@ -8,17 +8,17 @@ return [
     'auth' => [
         [
             'name' => 'Profile',
-            'route' => RouteNameEnum::MemberShow->value,
+            'route' => 'members.show',
             'icon' => 'person-fill',
         ],
         [
             'name' => 'Preferences',
-            'route' => RouteNameEnum::PreferencesEdit->value,
+            'route' => 'preferences.edit',
             'icon' => 'gear-fill',
         ],
         [
             'name' => 'Mail',
-            'route' => RouteNameEnum::MeFiMailIndex->value,
+            'route' => 'mefi.mail.index',
             'icon' => 'envelope-fill',
         ],
         [
@@ -28,7 +28,7 @@ return [
         ],
         [
             'name' => 'Recent Activity',
-            'route' => RouteNameEnum::RecentActivityShow->value,
+            'route' => 'metafilter.recent-activity.show',
             'icon' => 'clock',
         ],
     ],
@@ -40,7 +40,7 @@ return [
         ],
         [
             'name' => 'Sign Up',
-            'route' => RouteNameEnum::SignupCreate->value,
+            'route' => 'signup',
             'icon' => 'person-plus-fill',
         ],
     ],

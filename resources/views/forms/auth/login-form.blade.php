@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route($loginCreateRoute) }}">
+<form method="POST" action="{{ route('login') }}">
     @include('forms.partials.csrf-token')
 
     <fieldset>
@@ -22,21 +22,21 @@
 
         <p>
             {!! trans('Don&rsquo;t have an account?') !!}
-            <a href="{{ route($signupCreateRoute) }}">
+            <a href="{{ route('sign-up') }}">
                 {{ trans('Sign up here') }}
             </a>
         </p>
         {{--
         TODO: Fix errors on forgot password page
         <p>
-            <a href="{{ route($forgotPasswordRoute) }}">
+            <a href="{{ route('forgot-password') }}">
                 {{ trans('Forgot your password?') }}
             </a>
         </p>
         --}}
         <p>
             {{ trans('Need help?') }}
-            <a href="{{ route($contactMessageRoute) }}">
+            <a href="{{ route('contact.create') }}">
                 {{ trans('Contact the admins.') }}
             </a>
         </p>

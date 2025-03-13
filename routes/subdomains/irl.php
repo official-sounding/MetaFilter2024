@@ -36,18 +36,18 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('future-events', [FutureEventsController::class, 'index'])
-    ->name(RouteNameEnum::IrlFutureEventsIndex);
+    ->name('irl.future-events.index');
 
 Route::get('past-events', [PastEventsController::class, 'index'])
-    ->name(RouteNameEnum::IrlPastEventsIndex);
+    ->name('irl.past-events.index');
 
 Route::get('proposed-events', [ProposedEventsController::class, 'index'])
-    ->name(RouteNameEnum::IrlProposedEventsIndex);
+    ->name('proposed.past-events.index');
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
-        ->name(RouteNameEnum::IrlPostIndex);
+        ->name('irl.posts.index');
 
     Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::IrlPostShow);
+        ->name('irl.posts.show');
 });

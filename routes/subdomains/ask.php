@@ -36,18 +36,18 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('answered-questions', [AnsweredQuestionsController::class, 'index'])
-    ->name(RouteNameEnum::AskAnsweredQuestionsIndex);
+    ->name('ask.answered-questions.index');
 
 Route::get('popular-questions', [PopularPostController::class, 'index'])
-    ->name(RouteNameEnum::AskPopularQuestionsIndex);
+    ->name('ask.popular-questions.index');
 
 Route::get('unanswered-questions', [UnansweredQuestionsController::class, 'index'])
-    ->name(RouteNameEnum::AskUnansweredQuestionsIndex);
+    ->name('ask.unanswered-questions.index');
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
-        ->name(RouteNameEnum::AskPostIndex);
+        ->name('ask.posts.index');
 
     Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::AskPostShow);
+        ->name('ask.posts.show');
 });

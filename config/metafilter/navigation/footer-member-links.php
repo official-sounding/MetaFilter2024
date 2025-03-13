@@ -2,35 +2,34 @@
 
 declare(strict_types=1);
 
-use App\Enums\RouteNameEnum;
 
 return [
     [
         'name' => 'Profile',
-        'route' => RouteNameEnum::MetaFilterPostIndex,
+        'route' => 'metafilter.posts.index',
     ],
     [
         'name' => 'Preferences',
-        'route' => RouteNameEnum::MetaFilterPostIndex,
+        'route' => 'metafilter.posts.index',
     ],
     [
         'name' => 'Favorites',
-        'route' => RouteNameEnum::MetaFilterPostIndex,
+        'route' => 'metafilter.posts.index',
     ],
     [
         'name' => 'Recent Activity',
-        'route' => RouteNameEnum::MetaFilterPostIndex,
+        'route' => 'metafilter.posts.index',
     ],
     [
         'name' => 'Contacts',
-        'route' => RouteNameEnum::MetaFilterPostIndex,
+        'route' => 'metafilter.posts.index',
     ],
     [
         'name' => 'New Post',
-        'route' => RouteNameEnum::MetaFilterPostIndex,
+        'route' => 'metafilter.posts.index',
     ],
     [
         'name' => 'Log Out',
-        'route' => RouteNameEnum::MetaFilterPostIndex,
+        'route' => 'metafilter.posts.index',
     ],
 ];

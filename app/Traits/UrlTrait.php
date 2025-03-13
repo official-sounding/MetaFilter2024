@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
-use App\Enums\RouteNameEnum;
-
 trait UrlTrait
 {
     public function getDateUrl(int $targetYear): string
     {
         $currentYear = date('Y');
 
-        return route(RouteNameEnum::MetaFilterArchivesIndex, [
+        return route('metafilter.archives.index', [
             'day' => date('d'),
             'month' => date('m'),
             'year' => $currentYear - $targetYear,

@@ -28,28 +28,27 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 Route::middleware('auth')->group(function () {
     Route::controller(BugController::class)->group(function () {
         Route::get('bugs', 'index')
-            ->name(RouteNameEnum::BugsIndex);
+            ->name('bugs.posts.index');
 
         Route::get('bugs/create', 'create')
-            ->name(RouteNameEnum::BugsCreate);
+            ->name('bugs.posts.create');
     });
 
     Route::get('favorites', [FavoritesController::class, 'index'])
         ->name(RouteNameEnum::FavoritesIndex);
 
     Route::get('preferences/{user}', [PreferencesController::class, 'edit'])
-        ->name(RouteNameEnum::PreferencesEdit);
-
+        ->name('preferences.edit');
 
     Route::controller(MeFiMailController::class)->group(function () {
         Route::get('mefi-mail', 'index')
-            ->name(RouteNameEnum::MeFiMailIndex);
+            ->name('mefi.mail.index');
 
         Route::get('mefi-mail/create', 'create')
-            ->name(RouteNameEnum::MeFiMailCreate);
+            ->name('mefi.mail.index');
 
         Route::get('mefi-mail/{mail}', 'show')
-            ->name(RouteNameEnum::MeFiMailShow);
+            ->name('mefi.mail.index');
     });
 
     Route::get('my-comments', [MyCommentsController::class, 'index'])
@@ -83,56 +82,54 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(MemberController::class)->group(function () {
         Route::get('members', [MemberController::class, 'edit'])
-            ->name(RouteNameEnum::MemberEdit);
+            ->name('members.edit');
 
         Route::patch('members', [MemberController::class, 'update'])
-            ->name(RouteNameEnum::MemberUpdate);
+            ->name('members.update');
 
         Route::delete('members', [MemberController::class, 'delete'])
-            ->name(RouteNameEnum::MemberDelete);
+            ->name('members.delete');
     });
 });
 
 Route::get('archives/{year?}/{month?}/{day?}', [ArchivesController::class, 'index'])
-    ->name(RouteNameEnum::MetaFilterArchivesIndex);
+    ->name('metafilter.archives.index');
 
 Route::get('contact', [ContactMessageController::class, 'create'])
     ->middleware(ProtectAgainstSpam::class)
-    ->name(RouteNameEnum::ContactMessageCreate);
+    ->name('contact.create');
 
 Route::get('funding', [FundingController::class, 'index'])
-    ->name(RouteNameEnum::MetaFilterFundingIndex);
+    ->name('metafilter.funding.index');
 
 Route::get('members', [MemberController::class, 'index'])
-    ->name(RouteNameEnum::MemberIndex);
+    ->name('members.index');
 
 Route::get('members/{user:id}', [MemberController::class, 'show'])
-    ->name(RouteNameEnum::MemberShow);
+    ->name('members.show');
 
 Route::get('popular-posts', [PopularPostController::class, 'index'])
-    ->name(RouteNameEnum::MetaFilterPopularPostsIndex);
+    ->name('metafilter.popular-posts.index');
 
 Route::get('random', [RandomPostController::class, 'show'])
-    ->name(RouteNameEnum::MetaFilterRandomPostShow);
+    ->name('metafilter.random-post.show');
 
 Route::get('recent-activity', [RecentActivityController::class, 'show'])
-    ->name(RouteNameEnum::RecentActivityShow);
+    ->name('metafilter.recent-activity.show');
 
 Route::get('recent-comments', [RecentCommentsController::class, 'index'])
-    ->name(RouteNameEnum::MetaFilterRecentCommentsIndex);
+    ->name('metafilter.recent-comments.index');
 
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])
-    ->name(RouteNameEnum::SitemapIndex->value);
+    ->name('metafilter.sitemap.index');
 
 Route::get('tags', [TagController::class, 'index'])
-    ->name(RouteNameEnum::TagsIndex);
+    ->name('metafilter.tags.index');
 
 Route::controller(PostController::class)->group(function () {
     Route::get('', 'index')
-        ->name(RouteNameEnum::MetaFilterPostIndex);
-
-    Route::get('page/{page}', 'index');
+        ->name('metafilter.posts.index');
 
     Route::get('{post}/{slug}', 'show')
-        ->name(RouteNameEnum::MetaFilterPostShow);
+        ->name('metafilter.posts.show');
 });
