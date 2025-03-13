@@ -63,7 +63,9 @@ trait SubsiteTrait
 
         $baseDomain = '.' . config('app.host');
 
-        return str_replace(search: $baseDomain, replace: '', subject: $urlParts['host']);
+        $subdomain = str_replace(search: $baseDomain, replace: '', subject: $urlParts['host']);
+
+        return $subdomain === 'www' ? 'metafilter' : $subdomain;
     }
 
     public function getSubsiteFromUrl(): ?Subsite
