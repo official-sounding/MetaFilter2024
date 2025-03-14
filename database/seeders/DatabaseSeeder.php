@@ -11,7 +11,6 @@ use Database\Seeders\Development\FakeTagSeeder;
 use Database\Seeders\Development\FakeUserSeeder;
 use Database\Seeders\Development\FakeFavoriteSeeder;
 use Database\Seeders\Development\FakeFlagSeeder;
-use Database\Seeders\Production\FlagReasonSeeder;
 use Database\Seeders\Production\PermissionSeeder;
 use Database\Seeders\Production\RoleSeeder;
 use Database\Seeders\Production\SimplePageSeeder;
@@ -53,7 +52,6 @@ final class DatabaseSeeder extends Seeder
     private function seedProductionData(): void
     {
         $this->call([
-            FlagReasonSeeder::class,
             SubsiteSeeder::class,
             SimplePageSeeder::class,
             SnippetSeeder::class,

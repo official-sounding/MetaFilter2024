@@ -18,10 +18,6 @@ use App\Repositories\FaqRepository;
 use App\Repositories\FaqRepositoryInterface;
 use App\Repositories\FavoriteRepository;
 use App\Repositories\FavoriteRepositoryInterface;
-use App\Repositories\FlagReasonRepository;
-use App\Repositories\FlagReasonRepositoryInterface;
-use App\Repositories\FlagRepository;
-use App\Repositories\FlagRepositoryInterface;
 use App\Repositories\MeFiMailRepository;
 use App\Repositories\MeFiMailRepositoryInterface;
 use App\Repositories\SimplePageRepository;
@@ -49,8 +45,6 @@ final class RepositoryServiceProvider extends ServiceProvider
             ContactMessageRepositoryInterface::class => ContactMessageRepository::class,
             FaqRepositoryInterface::class => FaqRepository::class,
             FavoriteRepositoryInterface::class => FavoriteRepository::class,
-            FlagReasonRepositoryInterface::class => FlagReasonRepository::class,
-            FlagRepositoryInterface::class => FlagRepository::class,
             MeFiMailRepositoryInterface::class => MeFiMailRepository::class,
             AdminNoteRepositoryInterface::class => AdminNoteRepository::class,
             SimplePageRepositoryInterface::class => SimplePageRepository::class,

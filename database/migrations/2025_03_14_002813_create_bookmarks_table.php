@@ -9,20 +9,17 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('flags', function (Blueprint $table) {
+        Schema::create('markable_bookmarks', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('flag_reason_id')
+            $table->foreignId(column: 'user_id')
                 ->constrained()
-                ->onDelete('cascade');
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
 
-            $table->foreignId('user_id')
-                ->constrained()
-                ->onDelete('cascade');
-
-            $table->morphs('flaggable');
-
-            $table->text('note')->nullable();
+            $table->morphs('markable');
+            $table->string('value')->nullable();
+            $table->json('metadata')->nullable();
 
             $table->nullableTimestamps();
         });

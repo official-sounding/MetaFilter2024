@@ -7,8 +7,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Maize\Markable\Markable;
+use Maize\Markable\Models\Bookmark;
+use Maize\Markable\Models\Favorite;
 use Mpociot\Versionable\VersionableTrait;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -25,6 +27,7 @@ final class Comment extends BaseModel
 {
     use HasFactory;
     use LogsActivity;
+    use Markable;
     use SoftDeletes;
     use VersionableTrait;
 
@@ -35,6 +38,12 @@ final class Comment extends BaseModel
         'parent_id',
         'post_id',
         'user_id',
+    ];
+
+    protected static array $marks = [
+        Bookmark::class,
+        Favorite::class,
+        Flag::class,
     ];
 
     protected array $searchable = [
@@ -60,16 +69,6 @@ final class Comment extends BaseModel
     */
 
     // Relationships
-
-    public function favorites(): MorphMany
-    {
-        return $this->morphMany(Favorite::class, 'favoritable');
-    }
-
-    public function flags(): MorphMany
-    {
-        return $this->morphMany(Flag::class, 'flaggable');
-    }
 
     public function parent(): BelongsTo
     {

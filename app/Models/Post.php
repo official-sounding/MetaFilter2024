@@ -12,8 +12,10 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Maize\Markable\Markable;
+use Maize\Markable\Models\Bookmark;
+use Maize\Markable\Models\Favorite;
 use Mpociot\Versionable\VersionableTrait;
 use Oddvalue\LaravelDrafts\Concerns\HasDrafts;
 use Spatie\Activitylog\LogOptions;
@@ -44,6 +46,7 @@ final class Post extends BaseModel implements CanPresent, HasMedia
     use HasTags;
     use InteractsWithMedia;
     use LogsActivity;
+    use Markable;
     use Sluggable;
     use SoftDeletes;
     use UsesPresenters;
@@ -63,6 +66,12 @@ final class Post extends BaseModel implements CanPresent, HasMedia
         'published_at',
         'is_published',
         'state',
+    ];
+
+    protected static array $marks = [
+        Bookmark::class,
+        Favorite::class,
+        Flag::class,
     ];
 
     protected array $presenters = [
@@ -91,16 +100,6 @@ final class Post extends BaseModel implements CanPresent, HasMedia
         );
     }
 
-    public function isFavoritedBy(User $user): bool
-    {
-        return $this->favorites()->where(column: 'user_id', operator: '=', value: $user->id)->exists();
-    }
-
-    public function isFlaggedBy(User $user): bool
-    {
-        return $this->flags()->where(column: 'user_id', operator: '=', value: $user->id)->exists();
-    }
-
     public function sluggable(): array
     {
         return $this->getSlugFrom('title');
@@ -121,16 +120,7 @@ final class Post extends BaseModel implements CanPresent, HasMedia
         return $this->hasMany(Comment::class);
     }
 
-    public function favorites(): MorphMany
-    {
-        return $this->morphMany(Favorite::class, 'favoritable');
-    }
-
-    public function flags(): MorphMany
-    {
-        return $this->morphMany(Flag::class, 'flaggable');
-    }
-
+    // TODO: Rework to only get slug, ID, and title
     public function next(): Post|null
     {
         return $this->orderBy('id')

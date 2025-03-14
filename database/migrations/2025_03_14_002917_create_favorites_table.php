@@ -9,15 +9,17 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('favorites', function (Blueprint $table) {
+        Schema::create('markable_favorites', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user_id')
+            $table->foreignId(column: 'user_id')
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
-            $table->morphs('favoritable');
+            $table->morphs('markable');
+            $table->string('value')->nullable();
+            $table->json('metadata')->nullable();
 
             $table->nullableTimestamps();
         });
