@@ -25,6 +25,10 @@ body {
     background-color: light-dark(var(--very-light-gray), var(--dark-base-color));
 }
 
+.main-contents > .post {
+    background-color: inherit;
+}
+
 //noinspection CssInvalidFunction
 a:link,
 a:visited {
@@ -213,11 +217,28 @@ textarea:focus {
     opacity: 1;
 }
 
-.next,
-.previous {
+a.next:link,
+a.next:visited,
+a.previous:link,
+a.previous:visited {
+    color: inherit;
     border-width: 1px;
     border-style: solid;
     border-color: var(--lighter-base-color);
+}
+
+a.next:link .title,
+a.next:visited .title,
+a.previous:link .title,
+a.previous:visited .title {
+    color: var(--base-color);
+}
+
+a.next:active .title,
+a.next:hover .title,
+a.previous:active .title,
+a.previous:hover .title {
+    text-decoration: dotted underline;
 }
 
 .notification.is-danger {
