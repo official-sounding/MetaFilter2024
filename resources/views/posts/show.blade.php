@@ -10,19 +10,29 @@
     @endguest
 
     <article class="post post-show">
-        <h1>
-            {!! $post->title !!}
-        </h1>
+        <header>
+            <h1>
+                {!! $post->title !!}
+            </h1>
 
-        <p class="dateline">
-            {{ $post->created_at->format('F j, Y g:i a') }}
-        </p>
+            <p class="dateline">
+                <time
+                    datetime="{{ $post->created_at->format('Y-m-d H:i:d') }}">
+                    {{ $post->created_at->format('g:i a') }}
+                </time>
+
+                {{ $post->created_at->format('F j, Y g:i a') }}
+
+                <x-posts.post-rss-button :post="$post" />
+            </p>
+        </header>
 
         {!! $post->body !!}
 
         @if ($post->more_inside)
             {!! $post->more_inside !!}
         @endif
+
         @include('posts.partials.post-show-footer', [
             'post' => $post,
             'commentsCount' => $post->comments()->count(),
