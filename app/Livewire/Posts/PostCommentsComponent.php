@@ -14,7 +14,6 @@ use Livewire\Component;
 
 final class PostCommentsComponent extends Component
 {
-    public array $flagReasons;
     public Post $post;
     public Collection $comments;
     public bool $showFlagCommentForm = false;
