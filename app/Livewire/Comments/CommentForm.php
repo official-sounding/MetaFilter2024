@@ -48,7 +48,7 @@ final class CommentForm extends Form
             $this->validate();
 
             $this->comment->update(
-                $this->all()
+                $this->all(),
             );
         } catch (ValidationException $exception) {
             Log::error($exception->getMessage());
