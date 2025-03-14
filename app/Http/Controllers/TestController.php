@@ -10,7 +10,7 @@ class TestController extends Controller
 {
     public function index(): View
     {
-        return view('test.index', [
+        return view('jocularity.cferror', [
             'title' => trans('Test'),
         ]);
     }
