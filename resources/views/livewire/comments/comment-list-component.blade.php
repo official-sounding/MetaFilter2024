@@ -4,7 +4,7 @@
     </h2>
 
     @forelse ($comments as $comment)
-        <livewire:comments.comment-show-component
+        <livewire:comments.comment-component
             wire:key="{{ $comment->id }}"
             :comment="$comment"
         />
@@ -13,15 +13,4 @@
             'records' => $recordsText,
         ])
     @endforelse
-
-    @auth
-        <h2>
-            {{ trans('Add a comment') }}
-        </h2>
-
-        <livewire:comments.comment-form-component
-            :authorized-user-id="$authorizedUserId"
-            :post-id="$post->id"
-        />
-    @endauth
 </section>

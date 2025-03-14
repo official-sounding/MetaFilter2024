@@ -14,7 +14,7 @@ use Illuminate\Support\Collection;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
-final class CommentIndexComponent extends Component
+final class CommentListComponent extends Component
 {
     use AuthStatusTrait;
     use SubsiteTrait;
@@ -43,7 +43,7 @@ final class CommentIndexComponent extends Component
     {
         $comments = $this->comments;
 
-        return view('livewire.comments.comment-index-component', [
+        return view('livewire.comments.comment-list-component', [
             'comments' => compact('comments'),
         ]);
     }
