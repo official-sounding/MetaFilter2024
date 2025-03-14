@@ -6,7 +6,6 @@ namespace App\Http\Controllers\Posts;
 
 use App\Http\Controllers\BaseController;
 use App\Models\Post;
-use App\Repositories\FlagReasonRepositoryInterface;
 use App\Repositories\PostRepositoryInterface;
 use App\Services\LdJsonService;
 use App\Services\PostService;
@@ -19,10 +18,7 @@ final class PostController extends BaseController
     use PostTrait;
     use SubsiteTrait;
 
-    public array $flagReasons;
-
     public function __construct(
-        protected FlagReasonRepositoryInterface $flagReasonRepository,
         protected LdJsonService $ldJsonService,
         protected PostRepositoryInterface $postRepository,
         protected PostService $postService,
@@ -40,8 +36,6 @@ final class PostController extends BaseController
 
     public function show(Post $post): View
     {
-        $this->flagReasons = $this->flagReasonRepository->getDropdownValues(column: 'reason');
-
         $relatedPosts = $this->postRepository->getRelatedPosts($post);
 
         $subdomain = $this->getSubdomain() === 'www' ? 'metafilter' : $this->getSubdomain();
@@ -52,7 +46,6 @@ final class PostController extends BaseController
             'user' => $post->user(),
             'next' => $post->next(),
             'previous' => $post->previous(),
-            'flagReasons' => $this->flagReasons,
             'isArchived' => $this->isArchived($post),
             'canonicalUrl' => $this->getCanonicalUrl($post),
             'relatedPosts' => $relatedPosts,

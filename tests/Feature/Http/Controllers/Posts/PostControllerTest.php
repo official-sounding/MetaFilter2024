@@ -8,7 +8,6 @@ use App\Http\Controllers\Posts\PostController;
 use App\Models\Post;
 use App\Models\Subsite;
 use App\Models\User;
-use App\Repositories\FlagReasonRepositoryInterface;
 use App\Repositories\PostRepositoryInterface;
 use App\Services\LdJsonService;
 use App\Services\PostService;
@@ -29,7 +28,6 @@ final class PostControllerTest extends BaseFeatureTest
     use SubsiteTrait;
     use WithFaker;
 
-    protected MockInterface $flagReasonRepository;
     protected MockInterface $ldJsonService;
     protected MockInterface $postRepository;
     protected MockInterface $postService;
@@ -42,20 +40,9 @@ final class PostControllerTest extends BaseFeatureTest
     {
         parent::setUp();
 
-        $this->flagReasonRepository = $this->mock(FlagReasonRepositoryInterface::class);
         $this->ldJsonService = $this->mock(LdJsonService::class);
         $this->postRepository = $this->mock(PostRepositoryInterface::class);
         $this->postService = $this->mock(PostService::class);
-
-        // Set up expectations for flagReasonRepository->getDropdownValues
-        $this->flagReasonRepository->shouldReceive('getDropdownValues')
-            ->with('reason')
-            ->andReturn([
-                1 => 'Spam',
-                2 => 'Offensive content',
-                3 => 'Inappropriate',
-                4 => 'Off-topic',
-            ]);
 
         $this->user = User::factory()->create();
 
@@ -116,7 +103,6 @@ final class PostControllerTest extends BaseFeatureTest
         // Arrange
         $subsite = Subsite::factory()->create([
             'name' => $name,
-            'subdomain' => $subdomain,
         ]);
 
         if (isset($subsite->id)) {
@@ -158,7 +144,6 @@ final class PostControllerTest extends BaseFeatureTest
     private function getController(): void
     {
         $this->controller = new PostController(
-            $this->flagReasonRepository,
             $this->ldJsonService,
             $this->postRepository,
             $this->postService,
