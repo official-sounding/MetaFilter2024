@@ -24,6 +24,7 @@ final class CommentForm extends Form
         $this->comment = $comment;
         $this->text = $comment->text;
     }
+
     public function store(CommentService $commentService): void
     {
         try {

@@ -6,7 +6,6 @@ namespace App\Livewire\Flags;
 
 use App\Models\Comment;
 use App\Models\Post;
-use App\Services\FlagService;
 use App\Traits\AuthStatusTrait;
 use App\Traits\TypeTrait;
 use Illuminate\Contracts\View\View;
