@@ -1,4 +1,4 @@
-<span class="icon">
+<span class="icon @if(!empty($class)) {{ $class }} @endif">
     @if (isset($iconPath))
         @if (!empty($titleText))
             <img
