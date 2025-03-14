@@ -25,8 +25,6 @@ final class SubsiteSeeder extends Seeder
                 'green_text' => $subsite['green_text'] ?? null,
                 'tagline' => $subsite['tagline'] ?? null,
                 'subdomain' => $subsite['subdomain'],
-                'route' => $subsite['route'],
-                'view' => $subsite['view'],
                 'has_theme' => $subsite['has_theme'] ?? false,
             ]);
         }
