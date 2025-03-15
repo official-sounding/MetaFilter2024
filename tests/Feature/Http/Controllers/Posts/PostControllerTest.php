@@ -16,7 +16,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Request;
-use Mockery;
 use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
@@ -40,21 +39,13 @@ final class PostControllerTest extends BaseFeatureTest
     {
         parent::setUp();
 
-        $this->ldJsonService = $this->mock(LdJsonService::class);
-        $this->postRepository = $this->mock(PostRepositoryInterface::class);
-        $this->postService = $this->mock(PostService::class);
+        $this->ldJsonService = $this->mock(abstract: LdJsonService::class);
+        $this->postRepository = $this->mock(abstract: PostRepositoryInterface::class);
+        $this->postService = $this->mock(abstract: PostService::class);
 
         $this->user = User::factory()->create();
 
         $this->getController();
-        $this->getPost();
-    }
-
-    protected function tearDown(): void
-    {
-        Mockery::close();
-
-        parent::tearDown();
     }
 
     #[Test]
@@ -62,20 +53,14 @@ final class PostControllerTest extends BaseFeatureTest
     public function index_page_displays_successfully(string $name, string $subdomain): void
     {
         // Arrange
-        $subsite = Subsite::factory()->create([
+        Subsite::factory()->create([
             'name' => $name,
             'subdomain' => $subdomain,
         ]);
 
-        if (isset($subsite->id)) {
-            Post::factory()->create([
-                'subsite_id' => $subsite->id,
-            ]);
-        }
-
         $request = Request::create('/');
 
-        $host = "$subdomain.metafilter.test";
+        $host = $this->getHost($subdomain);
 
         $request->headers->set(key: 'HOST', values: $host);
 
@@ -86,7 +71,6 @@ final class PostControllerTest extends BaseFeatureTest
         $response = $this->controller->index();
 
         // Assert
-
         $this->assertInstanceOf(expected: View::class, actual: $response);
         $this->assertEquals(expected: 'posts.index', actual: $response->getName());
         $this->assertArrayHasKey(key: 'title', array: $response->getData());
@@ -101,9 +85,7 @@ final class PostControllerTest extends BaseFeatureTest
         $this->markTestIncomplete();
 
         // Arrange
-        $subsite = Subsite::factory()->create([
-            'name' => $name,
-        ]);
+        $subsite = $this->getSubsite($name, $subdomain);
 
         if (isset($subsite->id)) {
             $post = Post::factory()->create([
@@ -111,16 +93,15 @@ final class PostControllerTest extends BaseFeatureTest
             ]);
         }
 
-        $request = Request::create("$post->id/$post->slug");
+        if (!isset($post->id)) {
+            exit();
+        }
 
-        $host = "$subdomain.metafilter.test";
-
-        $request->headers->set(key: 'HOST', values: $host);
+        $host = $this->getHost($subdomain);
 
         $this->app['config']->set('app.domain', $host);
         $this->app['config']->set('app.url', 'https://' . $host);
 
-        // Set up expectations for related methods called in show()
         $this->postRepository->shouldReceive('getRelatedPosts')
             ->with($post)
             ->andReturn([]);
@@ -133,7 +114,6 @@ final class PostControllerTest extends BaseFeatureTest
         $response = $this->controller->show($post);
 
         // Assert
-
         $this->assertInstanceOf(expected: View::class, actual: $response);
         $this->assertEquals(expected: 'posts.show', actual: $response->getName());
         $this->assertArrayHasKey(key: 'title', array: $response->getData());
@@ -148,15 +128,5 @@ final class PostControllerTest extends BaseFeatureTest
             $this->postRepository,
             $this->postService,
         );
-    }
-
-    private function getPost(): void
-    {
-        $this->post = Post::factory()->create([
-            'user_id' => $this->user->id,
-            'title' => 'Test Post Title',
-            'slug' => 'test-post-title',
-            'body' => 'Test post body content',
-        ]);
     }
 }

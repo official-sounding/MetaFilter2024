@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
+use App\Models\Subsite;
+use Mockery;
 use Tests\TestCase;
 
 abstract class BaseFeatureTest extends TestCase
@@ -44,5 +46,25 @@ abstract class BaseFeatureTest extends TestCase
                 'projects', // subdomain
             ],
         ];
+    }
+
+    protected function tearDown(): void
+    {
+        Mockery::close();
+
+        parent::tearDown();
+    }
+
+    protected function getHost(string $subdomain): string
+    {
+        return "$subdomain.metafilter.test";
+    }
+
+    protected function getSubsite(string $name, string $subdomain): Subsite
+    {
+        return Subsite::factory()->create([
+            'name' => $name,
+            'subdomain' => $subdomain,
+        ]);
     }
 }
