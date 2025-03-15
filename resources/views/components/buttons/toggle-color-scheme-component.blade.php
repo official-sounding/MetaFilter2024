@@ -5,14 +5,15 @@
         aria-pressed="false"
         type="button">
         <span class="current-color-scheme">
-            Dark mode
+            {{ trans('Dark mode') }}
         </span>
     </button>
 </label>
 
 <script>
     const colorSchemeToggle = document.getElementById('color-scheme-toggle');
-    let prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
     let newTheme;
 
     function setTheme(newTheme) {
@@ -33,7 +34,7 @@
         newTheme = 'light';
     }
 
-    colorSchemeToggle.addEventListener('click', function(event) {
+    colorSchemeToggle.addEventListener('click', function() {
         newTheme = document.documentElement.getAttribute('data-theme-preference') === 'dark' ? 'light' : 'dark';
 
         setTheme(newTheme);
