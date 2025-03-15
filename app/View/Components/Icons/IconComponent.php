@@ -12,19 +12,22 @@ final class IconComponent extends Component
 {
     use IconTrait;
 
+    public string $altText = '';
+    public string $class = '';
     public string $filename = '';
     public string $iconPath = '';
-    public ?string $altText = null;
-    public ?string $titleText = null;
+    public string $titleText = '';
 
     public function __construct(
         string $filename,
-        ?string $altText = null,
-        ?string $titleText = null,
+        string $altText = '',
+        string $titleText = '',
+        string $class = '',
     ) {
         $this->filename = $filename;
         $this->altText = $altText;
         $this->titleText = $titleText;
+        $this->class = $class;
     }
 
     public function render(): View
@@ -35,6 +38,7 @@ final class IconComponent extends Component
             'iconPath' => $this->iconPath,
             'altText' => $this->altText,
             'titleText' => $this->titleText,
+            'class' => $this->class,
         ]);
     }
 }
