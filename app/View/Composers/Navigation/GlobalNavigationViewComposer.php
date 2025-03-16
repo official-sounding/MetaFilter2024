@@ -25,15 +25,13 @@ final class GlobalNavigationViewComposer implements ViewComposerInterface
 
         $items = config('metafilter.navigation.global.menu_items');
 
-        if ($items === null) {
-            $this->logError('Global navigation items are null.');
-        } else {
+        if ($items !== null) {
             $navigation = '<ul class="global-navigation-menu">';
 
             foreach ($items as $itemData) {
                 if (isset($itemData['start_dropdown']) && $itemData['start_dropdown']) {
                     $navigation .= '<li class="has-dropdown">';
-                    $navigation .= '<button class="dropdown-toggle" aria-expanded="false" aria-controls="global-navigation-menu">';
+                    $navigation .= '<button class="dropdown-toggle" id="global-navigation-dropdown-toggle" aria-expanded="false" aria-controls="global-navigation-menu">';
                     $navigation .= trans('Menu');
                     $navigation .= '</button>';
                     $navigation .= '<ul class="dropdown-menu global-navigation-menu" id="global-navigation-menu">';

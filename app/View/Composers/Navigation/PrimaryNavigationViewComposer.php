@@ -28,9 +28,7 @@ final class PrimaryNavigationViewComposer implements ViewComposerInterface
 
         $items = config($key);
 
-        if ($items === null) {
-            $this->logError('Primary navigation items are null.');
-        } else {
+        if ($items !== null) {
             $navigation = '<ul class="primary-navigation-menu">';
 
             foreach ($items as $item) {

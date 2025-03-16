@@ -30,9 +30,7 @@ final class PrimarySidebarNavigationComposer implements ViewComposerInterface
 
         $items = config("metafilter.navigation.primary-sidebar-navigation.$this->subdomain");
 
-        if ($items === null) {
-            $this->logError('Primary sidebar navigation items are null.');
-        } else {
+        if ($items !== null) {
             foreach ($items as $item) {
                 $navigation .= $this->getNavigationItem($item);
             }

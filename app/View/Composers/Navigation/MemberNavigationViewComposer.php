@@ -18,9 +18,7 @@ final class MemberNavigationViewComposer implements ViewComposerInterface
 
         $items = config('metafilter.navigation.member-sidebar-links');
 
-        if ($items === null) {
-            $this->logError('Member navigation items are null.');
-        } else {
+        if ($items !== null) {
             $navigation = '<ul class="sidebar-menu">';
 
             foreach ($items as $itemData) {
