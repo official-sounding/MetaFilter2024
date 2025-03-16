@@ -30,4 +30,4 @@ function toggleDropdowns() {
     });
 }
 
-export {toggleDropdowns};
+export {closeDropdown, toggleDropdowns};

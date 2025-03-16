@@ -2,9 +2,7 @@
 
 function toggleTheme() {
     document.addEventListener('DOMContentLoaded', function () {
-        console.log('toggleTheme loaded');
         let colorScheme = document.getElementById('color-scheme');
-        let currentTheme = document.getElementById('current-theme').innerText;
 
         const themeToggle = document.getElementById('theme-toggle');
         const savedTheme = localStorage.getItem('color-scheme') || 'light';
@@ -17,8 +15,6 @@ function toggleTheme() {
             console.log('toggleTheme clicked');
             const newTheme = themeToggle.checked ? 'dark' : 'light';
             console.log('newTheme: ', newTheme);
-
-            currentTheme = newTheme;
 
             colorScheme.setAttribute('content', savedTheme);
 
