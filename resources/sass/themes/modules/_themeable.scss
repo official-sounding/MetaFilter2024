@@ -446,6 +446,13 @@ a.previous:hover .title {
     background-color: light-dark(var(--white), var(--yellow-green));
 }
 
+
+//noinspection CssInvalidFunction
+tbody tr:nth-child(even) {
+    color: light-dark(var(--base-color), var(--darker-base-color));
+    background-color: light-dark(var(--lightest-base-color), var(--lightest-base-color));
+}
+
 .tagline {
     color: var(--lighter-base-color);
     background-color: inherit;
