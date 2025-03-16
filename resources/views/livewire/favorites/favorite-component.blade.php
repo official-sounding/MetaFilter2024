@@ -2,6 +2,9 @@
     class="button footer-button"
     type="button"
     title="{{ $titleText }}"
+    @if ($this->user === null)
+        disabled
+    @endif
     @auth
         @if (isset($userFavorited) && $userFavorited === true)
             wire:click="removeFavorite()"
