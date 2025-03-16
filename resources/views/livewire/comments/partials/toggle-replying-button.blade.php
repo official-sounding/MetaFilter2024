@@ -4,5 +4,5 @@
     aria-controls="comment-reply-form-{{ $comment->id }}"
     aria-expanded="{{ $this->isReplying ? 'true' : 'false' }}">
     <x-icons.icon-component filename="reply-fill" />
-    {{ trans('reply') }}
+    {{ trans('Reply') }}
 </button>
