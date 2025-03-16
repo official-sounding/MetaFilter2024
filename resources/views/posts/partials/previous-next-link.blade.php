@@ -6,6 +6,14 @@
    ]) }}">
     {{ trans($direction) }}
     <span class="title">
+        @if ($direction === 'Previous')
+            <x-icons.icon-component filename="chevron-left" />
+        @endif
+
         {{ $post->title }}
+
+        @if ($direction === 'Next')
+            <x-icons.icon-component filename="chevron-right" />
+        @endif
     </span>
 </a>
