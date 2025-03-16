@@ -27,9 +27,7 @@ final class SecondaryNavigationViewComposer implements ViewComposerInterface
 
         $items = config("metafilter.navigation.secondary.$this->subdomain");
 
-        if ($items === null) {
-            $this->logError('Secondary navigation items are null.');
-        } else {
+        if ($items !== null) {
             $navigation = '<ul class="secondary-navigation-menu">';
 
             foreach ($items as $item) {
