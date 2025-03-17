@@ -8,7 +8,7 @@ use App\Filament\Resources\BannerLinkResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditBannerLinks extends EditRecord
+final class EditBannerLink extends EditRecord
 {
     protected static string $resource = BannerLinkResource::class;
 
