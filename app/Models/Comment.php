@@ -62,6 +62,7 @@ final class Comment extends BaseModel
     {
         return array_merge($this->toArray(), [
             'id' => (string) $this->id,
+            'text' => $this->text,
             'created_at' => $this->created_at->timestamp,
         ]);
     }

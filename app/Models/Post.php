@@ -85,6 +85,9 @@ final class Post extends BaseModel implements CanPresent, HasMedia
     {
         return array_merge($this->toArray(), [
             'id' => (string) $this->id,
+            'title' => $this->title,
+            'body' => $this->body,
+            'more_inside' => $this->more_inside,
             'created_at' => $this->created_at->timestamp,
         ]);
     }
