@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 use Maize\Markable\Markable;
 use Maize\Markable\Models\Bookmark;
 use Maize\Markable\Models\Favorite;
@@ -28,6 +30,7 @@ final class Comment extends BaseModel
     use HasFactory;
     use LogsActivity;
     use Markable;
+    use Searchable;
     use SoftDeletes;
     use VersionableTrait;
 
@@ -57,7 +60,10 @@ final class Comment extends BaseModel
 
     public function toSearchableArray(): array
     {
-        return ['id' => (string) $this->id] + $this->toArray();
+        return array_merge($this->toArray(), [
+            'id' => (string) $this->id,
+            'created_at' => $this->created_at->timestamp,
+        ]);
     }
 
     // Builders
@@ -67,6 +73,14 @@ final class Comment extends BaseModel
             return new CommentQueryBuilder($query);
         }
     */
+    public function scopeSearch(Builder $query, string $keyword): Builder
+    {
+        return $query->whereFullText(
+            ['text'],
+            "$keyword*",
+            ['mode' => 'boolean'],
+        );
+    }
 
     // Relationships
 
