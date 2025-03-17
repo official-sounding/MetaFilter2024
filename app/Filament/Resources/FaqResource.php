@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\FaqResource\CreateFaqs;
-use App\Filament\Resources\FaqResource\EditFaqs;
-use App\Filament\Resources\FaqResource\ListFaqs;
+use App\Filament\Resources\FaqResource\Pages\CreateFaqs;
+use App\Filament\Resources\FaqResource\Pages\EditFaqs;
+use App\Filament\Resources\FaqResource\Pages\ListFaqs;
 use App\Models\Faq;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
