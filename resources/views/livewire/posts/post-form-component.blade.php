@@ -8,16 +8,6 @@
             type="text"
             label="{{ trans('Post Title') }}" />
 
-        <x-forms.input
-            name="url"
-            type="url"
-            label="{{ trans('URL') }}" />
-
-        <x-forms.input
-            name="link_text"
-            type="text"
-            label="{{ trans('Link Text') }}" />
-
         <div wire:ignore>
             <x-forms.textarea
                 name="body"

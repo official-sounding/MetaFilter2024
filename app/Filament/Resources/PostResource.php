@@ -40,10 +40,6 @@ final class PostResource extends Resource
                     ->maxLength(self::INPUT_MAX_LENGTH),
                 TextInput::make('legacy_id')
                     ->numeric(),
-                Textarea::make('link_url')
-                    ->columnSpanFull(),
-                Textarea::make('link_text')
-                    ->columnSpanFull(),
                 Textarea::make('body')
                     ->required()
                     ->columnSpanFull(),

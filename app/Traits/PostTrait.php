@@ -41,8 +41,6 @@ trait PostTrait
             'posts.id',
             'posts.title',
             'posts.slug',
-            'posts.link_text',
-            'posts.link_url',
             'posts.body',
             'posts.created_at',
             'posts.deleted_at',
