@@ -7,7 +7,7 @@ namespace App\Filament\Resources\BannerLinkResource\Pages;
 use App\Filament\Resources\BannerLinkResource;
 use Filament\Resources\Pages\CreateRecord;
 
-final class CreateBannerLinks extends CreateRecord
+final class CreateBannerLink extends CreateRecord
 {
     protected static string $resource = BannerLinkResource::class;
 }

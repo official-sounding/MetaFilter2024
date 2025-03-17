@@ -8,11 +8,13 @@ use App\Presenters\PostPresenter;
 use Coderflex\LaravelPresenter\Concerns\CanPresent;
 use Coderflex\LaravelPresenter\Concerns\UsesPresenters;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 use Maize\Markable\Markable;
 use Maize\Markable\Models\Bookmark;
 use Maize\Markable\Models\Favorite;
@@ -45,6 +47,7 @@ final class Post extends BaseModel implements CanPresent, HasMedia
     use InteractsWithMedia;
     use LogsActivity;
     use Markable;
+    use Searchable;
     use Sluggable;
     use SoftDeletes;
     use UsesPresenters;
@@ -76,6 +79,17 @@ final class Post extends BaseModel implements CanPresent, HasMedia
         'default' => PostPresenter::class,
     ];
 
+    public function toSearchableArray(): array
+    {
+        return array_merge($this->toArray(), [
+            'id' => (string) $this->id,
+            'title' => $this->title,
+            'body' => $this->body,
+            'more_inside' => $this->more_inside,
+            'created_at' => $this->created_at->timestamp,
+        ]);
+    }
+
     protected array $searchable = [
         'title',
         'body',
@@ -92,7 +106,19 @@ final class Post extends BaseModel implements CanPresent, HasMedia
         $archiveDate = now()->subDays(self::DAYS_UNTIL_ARCHIVED);
 
         return Attribute::make(
-            get: fn(bool $value) => $this->created_at <= $archiveDate,
+            get: fn (bool $value) => $this->created_at <= $archiveDate,
+        );
+    }
+
+    public function scopeSearch(Builder $query, string $keyword): Builder
+    {
+        return $query->whereFullText(
+            [
+                'title',
+                'more_inside',
+            ],
+            "$keyword*",
+            ['mode' => 'boolean'],
         );
     }
 
