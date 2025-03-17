@@ -13,4 +13,6 @@
             'records' => $recordsText,
         ])
     @endforelse
+
+    <div wire:poll.30s="getComments"></div>
 </section>
