@@ -2,9 +2,14 @@
 
 declare(strict_types=1);
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\v1\LoginController;
+use App\Http\Controllers\Api\v1\PostController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+Route::group([
+    'prefix' => 'api/v1/',
+    'middleware' => ['auth:api']
+], function () {
+    Route::post('login', [LoginController::class, 'store']);
+    Route::post('posts', [PostController::class, 'store']);
+});
