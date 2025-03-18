@@ -9,16 +9,14 @@
 
                     @if ($orderBy === $column->key)
                         @if ($sortDirection === 'asc')
-                            <x-icons.icon-component filename="sort-up"/>
+                            <x-icons.icon-component filename="sort-up" />
                         @else
-                            <x-icons.icon-component filename="sort-down"/>
+                            <x-icons.icon-component filename="sort-down" />
                         @endif
                     @endif
                 </th>
             @endforeach
         </tr>
-    </thead>
-    <tbody>
         <tr>
             @foreach ($this->columns() as $column)
                 <td>
@@ -30,6 +28,8 @@
                 </td>
             @endforeach
         </tr>
+    </thead>
+    <tbody>
         @foreach ($this->data() as $row)
             <tr>
                 @foreach ($this->columns() as $column)

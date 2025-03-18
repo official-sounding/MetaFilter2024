@@ -7,7 +7,7 @@
             wire:click="removeBookmark()"
         @else
             wire:click="addBookmark()"
-        @endif
+       @endif
     @endauth
 >
     <x-icons.icon-component filename="{{ $iconFilename }}" />
