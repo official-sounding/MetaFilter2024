@@ -35,33 +35,24 @@ final class MemberTableComponent extends TableComponent
 
     public function query(): Builder|null
     {
-        return User::query()
+        $query = User::query()
             ->select([
                 'id',
                 'username',
-
-
-                //https://medium.com/@hnishad020/how-to-build-a-powerful-search-feature-in-laravel-livewire-4c3b546fe4ef
             ])
-        //if (empty($this->searchColumns['title']) && empty($this->searchColumns['description'])) {
-
-        ->when(
-            $this->searchId > 0,
-            fn(Builder $query) => $query->where(
-                column: 'author_id',
-                operator: '=',
-                value: $this->searchId,
-            ),
-        )
-            ->when(
-                !empty($this->columns('username')),
-                fn(Builder $query) => $query->where(
-                    column: 'name',
-                    operator: 'like',
-                    value: '%' . $this->searchUsername . '%',
-                ),
-            )
             ->where(column: 'state', operator: '=', value: UserStateEnum::Active);
+
+        if (!empty($this->searchColumns['id'])) {
+            $query->where(column: 'id', operator: 'like', value: '%' . $this->searchColumns['id'] . '%');
+        }
+
+        if (!empty($this->searchColumns['username'])) {
+            $query->where(column: 'username', operator: 'like', value: '%' . $this->searchColumns['username'] . '%');
+        }
+
+        //https://medium.com/@hnishad020/how-to-build-a-powerful-search-feature-in-laravel-livewire-4c3b546fe4ef
+
+        return $query;
     }
 
     public function updating($key): void
