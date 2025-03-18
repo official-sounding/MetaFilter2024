@@ -4,41 +4,38 @@ declare(strict_types=1);
 
 namespace App\Livewire\Favorites;
 
-use App\Enums\LivewireEventEnum;
 use App\Models\Comment;
-use App\Models\Favorite;
 use App\Models\Post;
-use App\Traits\AuthStatusTrait;
+use App\Models\User;
 use App\Traits\LoggingTrait;
 use App\Traits\TypeTrait;
-use Exception;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use Maize\Markable\Exceptions\InvalidMarkValueException;
+use Maize\Markable\Models\Favorite;
 
 final class FavoriteComponent extends Component
 {
-    use AuthStatusTrait;
     use LoggingTrait;
     use TypeTrait;
 
     public Comment|Post $model;
-    public int $authorizedUserId;
-    public int $favoritableId;
-    public int $favoriteCount = 0;
+    public ?User $user;
     public string $iconFilename = 'heart';
     public string $titleText = '';
-    public string $favoritableType = '';
     public bool $userFavorited = false;
+    public int $favoriteCount = 0;
 
     public function mount(Comment|Post $model): void
     {
         $this->model = $model;
+        $this->user = auth()->user() ?? null;
 
-        $this->favoritableId = $this->model->id;
+        $this->favoriteCount = Favorite::count($this->model);
+        $this->userFavorited = !($this->user === null) && Favorite::has($this->model, $this->user);
 
-        $this->favoritableType = $this->getType($this->model);
-
-        $this->updateFavoriteData();
+        $this->setIconFilename();
+        $this->setTitleText();
     }
 
     public function render(): View
@@ -48,74 +45,39 @@ final class FavoriteComponent extends Component
 
     public function addFavorite(): void
     {
-        try {
-            $favorite = new Favorite();
-
-            $favorite->favoritable_id = $this->model->id;
-            $favorite->favoritable_type = $this->favoritableType;
-            $favorite->user_id = $this->authorizedUserId;
-
-            $favorite->save();
-        } catch (Exception $exception) {
-            $this->logError($exception);
-
-            return;
-        }
-
         $this->userFavorited = true;
+        $this->favoriteCount++;
 
-        $this->updateFavoriteData();
+        $this->setIconFilename();
+        $this->setTitleText();
 
-        $this->dispatch(LivewireEventEnum::FavoriteStored->value);
+        try {
+            Favorite::add($this->model, $this->user);
+        } catch (InvalidMarkValueException $exception) {
+            $this->logError($exception);
+        }
     }
 
     public function removeFavorite(): void
     {
-        try {
-            $favorite = $this->getFavorite();
-
-            $favorite->delete();
-        } catch (Exception $exception) {
-            $this->logError($exception);
-
-            return;
-        }
-
         $this->userFavorited = false;
+        $this->favoriteCount--;
 
-        $this->updateFavoriteData();
+        $this->setIconFilename();
+        $this->setTitleText();
 
-        $this->dispatch(LivewireEventEnum::FavoriteDeleted->value);
+        Favorite::remove($this->model, $this->user);
     }
 
-    private function getFavorite()
+    private function setIconFilename(): void
     {
-        return Favorite::where('favoritable_id', '=', $this->model->id)
-            ->where('favoritable_type', '=', $this->favoritableType)
-            ->where('user_id', '=', $this->authorizedUserId)
-            ->first();
+        $this->iconFilename = $this->userFavorited ? 'heart-fill' : 'heart';
     }
 
-    private function updateFavoriteData(): void
+    private function setTitleText(): void
     {
-        $this->favoriteCount = $this->model->favorites()->count();
+        $favoriteText = 'Favorite this ';
 
-        $this->iconFilename = $this->getIconFilename();
-
-        $this->titleText = $this->getTitleText();
-
-        $this->authorizedUserId = $this->getAuthorizedUserId();
-    }
-
-    private function getIconFilename(): string
-    {
-        return $this->userFavorited ? 'heart-fill' : 'heart';
-    }
-
-    private function getTitleText(): string
-    {
-        $favoriteText = 'Favorite this ' . $this->favoritableType;
-
-        return $this->userFavorited ? trans('Remove favorite') : trans($favoriteText);
+        $this->titleText = $this->userFavorited ? trans('Remove favorite') : trans($favoriteText);
     }
 }

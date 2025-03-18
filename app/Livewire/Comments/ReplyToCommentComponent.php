@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Livewire\Comments;
 
 use App\Models\Comment;
-use App\Repositories\CommentRepositoryInterface;
 use Illuminate\View\View;
 use Livewire\Component;
 
@@ -18,23 +17,24 @@ final class ReplyToCommentComponent extends Component
     public bool $isVisible = false;
 
     protected array $rules = [
-        'replyText' => 'required|string|min:3',
+        'replyText' => [
+            'required',
+            'string',
+            'min:3',
+        ],
     ];
 
-    protected CommentRepositoryInterface $commentRepository;
-
-    public function mount(Comment $comment, CommentRepositoryInterface $commentRepository): void
+    public function mount(Comment $comment): void
     {
         $this->comment = $comment;
-        $this->commentRepository = $commentRepository;
     }
 
-    public function toggleForm(): void
+    public function render(): View
     {
-        $this->isVisible = !$this->isVisible;
+        return view('livewire.comments.reply-to-comment-component');
     }
 
-    public function submitReply(): void
+    public function store(): void
     {
         $this->validate();
 
@@ -48,10 +48,5 @@ final class ReplyToCommentComponent extends Component
         $this->isVisible = false;
 
         $this->dispatch('replyAdded');
-    }
-
-    public function render(): View
-    {
-        return view('livewire.comments.reply-to-comment-component');
     }
 }

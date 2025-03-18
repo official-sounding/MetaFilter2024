@@ -1,7 +1,10 @@
 <form
-    wire:submit.prevent="store"
-    @if ($isEditing === true || $isReplying === true)
-        id="comment-reply-form-{{ $comment->id }}"
+    wire:submit.prevent="submit"
+    @if ($isEditing === true)
+        id="reply-to-comment-form-{{ $comment->id }}"
+    @endif
+    @if ($isReplying === true)
+        id="edit-comment-form-{{ $comment->id }}"
     @endif
 >
     @include('forms.partials.validation-summary')
@@ -14,38 +17,41 @@
             </label>
 
             <textarea wire:model="text" name="text" id="text"></textarea>
-        </div>
 
-        <div class="level">
-            @if($isEditing === true || $isReplying === true)
-                <button
-                    type="button"
-                    class="button secondary-button"
-                    wire:click="$parent.closeForm({{ $comment->id }})">
-                    {{ trans('Cancel') }}
-                </button>
-            @endif
-
-            <button
-                type="submit"
-                class="button primary-button">
-                @if (!empty($buttonText))
-                    {{ trans($buttonText) }}
-                @else
-                    {{ trans('Add Comment') }}
+            <div class="level">
+                @if($isEditing === true || $isReplying === true)
+                    <button
+                        type="button"
+                        class="button secondary-button"
+                        wire:click="$parent.closeForm({{ $comment->id }})">
+                        {{ trans('Cancel') }}
+                    </button>
                 @endif
-            </button>
+
+                <button
+                    type="submit"
+                    class="button primary-button">
+                    @if (!empty($buttonText))
+                        {{ trans($buttonText) }}
+                    @else
+                        {{ trans('Add Comment') }}
+                    @endif
+                </button>
+            </div>
         </div>
-        {{--
-        <small class="smaller">
-            <x-icons.icon-component filename="markdown-fill" />
-            <a href="https://www.markdownguide.org/basic-syntax/"
-               class="text-link"
-               target="_blank">
-                {{ trans('Styling with Markdown is supported') }}
-            </a>
-            <x-icons.icon-component filename="box-arrow-up-right" alt-text="Opens in new tab or window" />
-        </small>
-        --}}
     </fieldset>
 </form>
+
+{{--
+<input wire:model="content" type="text">
+
+<small class="smaller">
+    <x-icons.icon-component filename="markdown-fill" />
+    <a href="https://www.markdownguide.org/basic-syntax/"
+       class="text-link"
+       target="_blank">
+        {{ trans('Styling with Markdown is supported') }}
+    </a>
+    <x-icons.icon-component filename="box-arrow-up-right" alt-text="Opens in new tab or window" />
+</small>
+--}}

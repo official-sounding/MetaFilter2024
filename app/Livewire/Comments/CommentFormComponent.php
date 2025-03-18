@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace App\Livewire\Comments;
 
-use App\Dtos\CommentDto;
 use App\Enums\LivewireEventEnum;
 use App\Http\Requests\Comment\StoreCommentRequest;
 use App\Models\Comment;
-use App\Services\CommentService;
+use App\Traits\LoggingTrait;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 final class CommentFormComponent extends Component
 {
-    public int $authorizedUserId;
+    use LoggingTrait;
+
+    public ?int $authorizedUserId;
     public string $buttonText = '';
     public ?Comment $comment;
     public bool $isEditing;
@@ -25,15 +27,16 @@ final class CommentFormComponent extends Component
     public ?string $message = null;
 
     public function mount(
-        int $authorizedUserId,
         int $postId,
         ?Comment $comment,
         ?int $parentId = null,
+        bool $isEditing = false,
+        bool $isReplying = false,
     ): void {
-        $this->authorizedUserId = $authorizedUserId;
+        $this->authorizedUserId = auth()->id() ?? null;
 
-        $this->isEditing = false;
-        $this->isReplying = false;
+        $this->isEditing = $isEditing;
+        $this->isReplying = $isReplying;
 
         $this->postId = $postId;
         $this->parentId = $parentId;
@@ -52,49 +55,53 @@ final class CommentFormComponent extends Component
         return (new StoreCommentRequest())->rules();
     }
 
-    public function handle(CommentService $commentService): void
+    public function submit(): void
     {
         $this->validate();
 
         if ($this->isEditing === true) {
-            $this->update($commentService);
+            $this->update();
         } else {
-            $this->store($commentService);
+            $this->store();
         }
     }
 
-    public function store(CommentService $commentService): void
+    public function store(): void
     {
-        $dto = new CommentDto(
-            text: $this->text,
-            post_id: $this->postId,
-            user_id: $this->authorizedUserId,
-            parent_id: $this->parentId,
-        );
+        try {
+            $comment = new Comment(
+                [
+                    'text' => $this->text,
+                    'post_id' => $this->postId,
+                    'user_id' => $this->authorizedUserId,
+                    'parent_id' => $this->parentId,
+                ],
+            );
 
-        $stored = $commentService->store($dto);
+            $comment->save();
 
-        if ($stored) {
             $this->dispatch(LivewireEventEnum::CommentStored->value);
 
             $this->message = trans('Comment created.');
+        } catch (Exception $exception) {
+            $this->logError($exception);
         }
 
         $this->reset('text');
     }
 
-    public function update(CommentService $commentService): void
+    public function update(): void
     {
-        $data = [
-            'text' => $this->text,
-        ];
+        try {
+            $comment = Comment::find($this->comment->id);
+            $comment->text = $this->text;
+            $comment->save();
 
-        $updated = $commentService->update($this->comment->id, $data);
-
-        if ($updated) {
             $this->dispatch(LivewireEventEnum::CommentUpdated->value);
 
             $this->message = trans('Comment updated.');
+        } catch (Exception $exception) {
+            $this->logError($exception);
         }
     }
 }

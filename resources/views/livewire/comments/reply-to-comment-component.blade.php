@@ -1,36 +1,22 @@
-<div x-data="{ selectedText: '' }">
-    <button wire:click="toggleForm">
-        yay
-        {{ trans('Reply') }}
-    </button>
+    <form>
+        <textarea wire:model="replyText" placeholder="{{ trans('Write your reply') }}&hellip;">
 
-    <form x-show="$wire.isVisible">
-        <textarea wire:model="replyText" placeholder="Write your reply&hellip;"></textarea>
-
-        <blockquote class="" x-text="selectedText"></blockquote>
+        </textarea>
 
         <div class="level">
-            <button type="button" class="button-link">
+            <button
+                type="button"
+                class="button secondary-button"
+                wire:click="$parent.closeForm({{ $comment->id }})">
                 {{ trans('Cancel') }}
             </button>
 
-            <button wire:click="submitReply()">
-                {{ trans(' Save Reply') }}
+            <button
+                type="submit"
+                class="button primary-button"
+                wire:click="store()">
+                {{ trans(' Reply') }}
             </button>
         </div>
     </form>
 
-    <script>
-        document.addEventListener('mouseup', function () {
-            let selected = window.getSelection().toString().trim();
-
-            let selectedText = '';
-
-            if (selected) {
-                selectedText = selected;
-
-                @this.selectedText = selected;
-            }
-        });
-    </script>
-</div>

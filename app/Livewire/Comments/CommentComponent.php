@@ -4,26 +4,27 @@ declare(strict_types=1);
 
 namespace App\Livewire\Comments;
 
-use App\Dtos\CommentDto;
-use App\Http\Requests\Comment\StoreCommentRequest;
-use App\Http\Requests\Comment\UpdateCommentRequest;
+use App\Enums\LivewireEventEnum;
 use App\Models\Comment;
-use App\Services\CommentService;
-use App\Traits\CommentTrait;
+use App\Models\Post;
+use App\Traits\CommentComponentTrait;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Validation\ValidationException;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 final class CommentComponent extends Component
 {
-    use CommentTrait;
+    use CommentComponentTrait;
 
     // Data
+    public ?int $authorizedUserId;
     public string $text = '';
     public ?int $parentId = null;
-    public int $postId;
+    public int $flagCount = 0;
+    public string $flagIconFilename = 'flag';
+    public string $flagButtonText = '';
     public int $wordCount = 0;
+    public bool $userFlagged = false;
 
     // State
     public bool $isEditing = false;
@@ -32,17 +33,23 @@ final class CommentComponent extends Component
 
     public Comment $comment;
     public CommentForm $commentForm;
+    public Post $post;
 
-    public function mount(Comment $comment, int $postId): void
+    public function mount(Comment $comment, Post $post): void
     {
+        $this->authorizedUserId = auth()->id() ?? null;
+
         $this->comment = $comment;
         $this->commentForm->setComment($comment);
 
-        $this->postId = $postId;
+        $this->post = $post;
 
         $this->text = $comment->text;
 
         $this->wordCount = str_word_count($comment->text);
+
+        $this->flagIconFilename = $this->getIconFilename();
+        $this->flagButtonText = $this->getTitleText();
     }
 
     public function render(): View
@@ -50,40 +57,31 @@ final class CommentComponent extends Component
         return view('livewire.comments.comment-component');
     }
 
-    public function store(CommentService $commentService): void
+    private function getIconFilename(): string
     {
-        $rules = (new StoreCommentRequest())->rules();
-
-        try {
-            $this->commentForm->validate($rules);
-
-            $dto = new CommentDto(
-                text: $this->text,
-                post_id: $this->postId,
-                user_id: auth()->id(),
-                parent_id: $this->parentId,
-            );
-
-            $stored = $commentService->store($dto);
-        } catch (ValidationException $exception) {
-            Log::error($exception->getMessage());
-        }
+        return $this->userFlagged ? 'flag-fill' : 'flag';
     }
 
-    public function update(CommentService $commentService): void
+    private function getTitleText(): string
     {
-        $rules = (new UpdateCommentRequest())->rules();
+        return $this->userFlagged ? trans('Remove flag') : trans('Flag this comment');
+    }
 
-        try {
-            $this->commentForm->validate($rules);
-        } catch (ValidationException $exception) {
-            Log::error($exception->getMessage());
-        }
+    #[On([
+        LivewireEventEnum::CommentStored->value,
+        LivewireEventEnum::CommentDeleted->value,
+        LivewireEventEnum::CommentUpdated->value,
+        LivewireEventEnum::EscapeKeyClicked->value,
+    ])]
+    public function closeForm(): void
+    {
+        $this->reset([
+            'text',
+            'wordCount',
+        ]);
 
-        $data = [
-            'text' => $this->text,
-        ];
-
-        $updated = $commentService->update($this->comment->id, $data);
+        $this->stopEditing();
+        $this->stopFlagging();
+        $this->stopReplying();
     }
 }
