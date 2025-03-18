@@ -29,9 +29,7 @@ final class CreatePostButtonViewComposer implements ViewComposerInterface
 
         $items = config("metafilter.navigation.create-post-links.$this->subdomain");
 
-        if ($items === null) {
-            $this->logError('Create post items are null.');
-        } else {
+        if ($items !== null) {
             foreach ($items as $item) {
                 if (!isset($item['text'])) {
                     $item['text'] = self::DEFAULT_TEXT;

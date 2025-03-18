@@ -20,10 +20,11 @@
                 aria-controls="comment-reply-form-{{ $comment->id }}"
                 aria-expanded="{{ $this->isReplying ? 'true' : 'false' }}">
                 <x-icons.icon-component filename="reply-fill" />
-                {{ trans('reply') }}
+                {{ trans('Reply') }}
             </button>
 
             @if ($comment->user_id === $authorizedUserId)
+            @endif
                 <button
                     class="button footer-button"
                     wire:click.prevent="toggleEditing()"
@@ -32,7 +33,6 @@
                     <x-icons.icon-component filename="pencil-square" />
                     {{ trans('Edit') }}
                 </button>
-            @endif
 
             <livewire:favorites.favorite-component :model="$comment" />
 

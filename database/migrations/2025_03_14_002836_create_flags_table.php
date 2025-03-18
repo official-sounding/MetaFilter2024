@@ -21,8 +21,6 @@ return new class () extends Migration {
             $table->string('value')->nullable();
             $table->json('metadata')->nullable();
 
-            $table->string('note')->nullable();
-
             $table->nullableTimestamps();
         });
     }

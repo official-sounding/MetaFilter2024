@@ -54,16 +54,6 @@ final class PostFactory extends BaseFactory
         ]);
     }
 
-    public function linkTextAndUrl(): PostFactory
-    {
-        $url = $this->faker->url();
-
-        return $this->state(fn(array $attributes) => [
-            'link_text' => $this->faker->sentence(),
-            'link_url' => $this->useSecureProtocol($url),
-        ]);
-    }
-
     private function getSubsiteId(): int
     {
         $subsiteId = Subsite::inRandomOrder()->value('id');

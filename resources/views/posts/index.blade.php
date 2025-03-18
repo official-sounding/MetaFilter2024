@@ -17,10 +17,6 @@
         @endauth
     @endif
 
-    @if (isset($showTitle) && $showTitle === true)
-        <h1>{{ $title }}</h1>
-    @endif
-
     @auth
         <x-buttons.new-post-button />
     @endauth

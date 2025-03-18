@@ -3,7 +3,7 @@ import './bootstrap';
 import Clipboard from '@ryangjchandler/alpine-clipboard';
 import Precognition from 'laravel-precognition-alpine';
 
-import {toggleDropdowns} from './modules/toggleDropdowns.js';
+import {closeDropdown, toggleDropdowns} from './modules/toggleDropdowns.js';
 import {toggleTheme} from './modules/toggleTheme.js';
 
 window.Alpine = Alpine;
@@ -17,12 +17,10 @@ toggleDropdowns();
 toggleTheme();
 
 document.addEventListener('click', event => {
-    console.log('Click event listener');
-
     let eventTarget = event.target;
 
     if (!eventTarget.closest('.global-navigation-menu')) {
-        console.log('Clicked outside!');
+//        closeDropdown('global-navigation-dropdown-toggle');
     }
 }, false);
 

@@ -30,8 +30,6 @@ use Spatie\Tags\HasTags;
  * @property int $id
  * @property string $title
  * @property string $slug
- * @property string $link_text
- * @property string $link_url
  * @property string $body
  * @property string $more_inside
  * @property int $legacy_id
@@ -95,8 +93,6 @@ final class Post extends BaseModel implements CanPresent, HasMedia
     protected array $searchable = [
         'title',
         'body',
-        'link_text',
-        'link_url',
         'more_inside',
     ];
 
@@ -145,7 +141,22 @@ final class Post extends BaseModel implements CanPresent, HasMedia
     {
         return $this->hasMany(Comment::class);
     }
+    /*
+        public function bookmarks(): HasMany
+        {
+            return $this->hasMany(Flag::class);
+        }
 
+        public function favorites(): HasMany
+        {
+            return $this->hasMany(Flag::class);
+        }
+
+        public function flags(): HasMany
+        {
+            return $this->hasMany(Flag::class);
+        }
+    */
     // TODO: Rework to only get slug, ID, and title
     public function next(): Post|null
     {

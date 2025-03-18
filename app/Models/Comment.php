@@ -84,7 +84,22 @@ final class Comment extends BaseModel
     }
 
     // Relationships
+    /*
+        public function bookmarks(): HasMany
+        {
+            return $this->hasMany(Flag::class);
+        }
 
+        public function favorites(): HasMany
+        {
+            return $this->hasMany(Flag::class);
+        }
+
+        public function flags(): HasMany
+        {
+            return $this->hasMany(Flag::class);
+        }
+    */
     public function parent(): BelongsTo
     {
         return $this->belongsTo(Comment::class, 'parent_id');

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
-trait CommentTrait
+trait CommentComponentTrait
 {
     public function toggleEditing(): void
     {

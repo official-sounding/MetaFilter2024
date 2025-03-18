@@ -19,8 +19,6 @@ final class PostFormComponent extends Component
     use SubsiteTrait;
 
     public string $title = '';
-    public string $url = '';
-    public string $link_text = '';
     public string $body = '';
     public string $more_inside = '';
     public int $subsiteId = 0;
