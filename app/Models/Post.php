@@ -106,7 +106,7 @@ final class Post extends BaseModel implements CanPresent, HasMedia
         $archiveDate = now()->subDays(self::DAYS_UNTIL_ARCHIVED);
 
         return Attribute::make(
-            get: fn (bool $value) => $this->created_at <= $archiveDate,
+            get: fn(bool $value) => $this->created_at <= $archiveDate,
         );
     }
 

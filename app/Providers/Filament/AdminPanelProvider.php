@@ -54,7 +54,7 @@ final class AdminPanelProvider extends PanelProvider
                 FilamentInfoWidget::class,
             ])
 //            ->viteTheme('resources/css/filament/admin/theme.css')
-            ->brandLogo(fn () => view('filament.admin.logo'))
+            ->brandLogo(fn() => view('filament.admin.logo'))
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

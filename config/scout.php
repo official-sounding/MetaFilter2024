@@ -205,7 +205,7 @@ return [
                     'default_sorting_field' => 'created_at',
                 ],
                 'search-parameters' => [
-                    'query_by' => 'text'
+                    'query_by' => 'text',
                 ],
             ],
             Post::class => [
