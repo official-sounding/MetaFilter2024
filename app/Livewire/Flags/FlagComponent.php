@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\Flags;
 
 use App\Enums\LivewireEventEnum;
+use App\Http\Requests\StoreFlagRequest;
 use App\Models\Comment;
 use App\Models\Flag;
 use App\Models\Post;
@@ -74,7 +75,10 @@ final class FlagComponent extends Component
 
     public function store(): void
     {
-        // TODO: Add validation
+        //        $rules = (new StoreFlagRequest())->rules();
+
+        //        $this->validate($rules);
+
         $selectedReason = trim($this->selectedReason);
 
         try {
