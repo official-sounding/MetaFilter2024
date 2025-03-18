@@ -31,6 +31,7 @@ final class FlagComponent extends Component
     public string $iconFilename = 'flag';
     public string $note = '';
     public array $flagReasons = [];
+    public ?array $metadata = null;
     public string $selectedReason = '';
     public bool $showForm = false;
     public bool $showNoteField = false;
@@ -73,14 +74,21 @@ final class FlagComponent extends Component
 
     public function store(): void
     {
+        // TODO: Add validation
         $selectedReason = trim($this->selectedReason);
 
         try {
-            Flag::add($this->model, auth()->user(), $selectedReason);
+            if ($selectedReason === self::FLAG_WITH_NOTE && strlen($this->note) > 0) {
+                $this->metadata = ['note' => $this->note];
+            }
+
+            Flag::add($this->model, auth()->user(), $selectedReason, $this->metadata);
+
             $this->showForm = false;
+
             $this->updateFlagData();
 
-            $this->dispatch(LivewireEventEnum::CommentStored->value);
+            $this->dispatch(LivewireEventEnum::CommentFlagged->value);
         } catch (InvalidMarkValueException $exception) {
             $this->logError($exception);
         }
@@ -90,7 +98,9 @@ final class FlagComponent extends Component
     {
         try {
             Flag::remove($this->model, auth()->user());
+
             $this->updateFlagData();
+
             $this->userFlagged = false;
         } catch (Exception $exception) {
             $this->logError($exception);
@@ -110,13 +120,16 @@ final class FlagComponent extends Component
     private function getType(): string
     {
         $class = mb_strtolower($this->model::class);
+
         return str_replace(search: self::MODEL_PATH, replace: '', subject: $class);
     }
 
     private function setTitleText(): void
     {
         $type = $this->getType();
+
         $flagText = 'Flag this ' . $type;
+
         $this->titleText = $this->userFlagged ? trans('Remove flag') : trans($flagText);
     }
 }

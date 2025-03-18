@@ -70,6 +70,7 @@ final class CommentComponent extends Component
     #[On([
         LivewireEventEnum::CommentStored->value,
         LivewireEventEnum::CommentDeleted->value,
+        LivewireEventEnum::CommentFlagged->value,
         LivewireEventEnum::CommentUpdated->value,
         LivewireEventEnum::EscapeKeyClicked->value,
     ])]
