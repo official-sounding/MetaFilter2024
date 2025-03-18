@@ -13,12 +13,15 @@
             wire:model="password"
             required
         >
-        <span class="icon">
+        <button
+            class="icon"
+            role="switch"
+            aria-pressed="{{ $pressed }}">
             <img
                 src="{{ asset($eyeIconPath) }}"
                 alt=""
-                title="{{ $eyeIconTitleText }}"
+                title="{{ trans('Toggle password visibility') }}"
                 wire:click="togglePassword">
-        </span>
+        </button>
     </div>
 </div>

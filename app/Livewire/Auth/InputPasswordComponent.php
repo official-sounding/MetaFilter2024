@@ -12,14 +12,12 @@ final class InputPasswordComponent extends Component
 {
     use IconTrait;
 
-    private const string EYE_CLOSED_TITLE = 'Show password';
-    private const string EYE_OPEN_TITLE = 'Hide password';
     public string $eyeIconPath;
-    public string $eyeIconTitleText;
     public string $eyeOpenIconPath;
     public ?string $label;
     public string $name;
     public string $eyeClosedIconPath;
+    public bool $pressed = false;
     public string $type = 'password';
 
     public function mount(string $name = 'password', ?string $label = null): void
@@ -31,7 +29,6 @@ final class InputPasswordComponent extends Component
         $this->eyeOpenIconPath = $this->getIconPath('eye-fill');
 
         $this->eyeIconPath = $this->eyeClosedIconPath;
-        $this->eyeIconTitleText = self::EYE_CLOSED_TITLE;
     }
 
     public function render(): View
@@ -44,11 +41,11 @@ final class InputPasswordComponent extends Component
         if ($this->type === 'password') {
             $this->type = 'text';
             $this->eyeIconPath = $this->eyeOpenIconPath;
-            $this->eyeIconTitleText = self::EYE_OPEN_TITLE;
+            $this->pressed = true;
         } else {
             $this->type = 'password';
             $this->eyeIconPath = $this->eyeClosedIconPath;
-            $this->eyeIconTitleText = self::EYE_CLOSED_TITLE;
+            $this->pressed = false;
         }
     }
 }
