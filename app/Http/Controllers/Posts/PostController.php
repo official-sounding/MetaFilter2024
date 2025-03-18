@@ -52,6 +52,7 @@ final class PostController extends BaseController
             'subdomain' => $subdomain,
             'useLivewire' => true,
             'useWysiwyg' => true,
+            'showSecondaryNavigation' => true,
         ]);
     }
 }
