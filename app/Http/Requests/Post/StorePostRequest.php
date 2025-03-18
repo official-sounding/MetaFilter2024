@@ -52,6 +52,10 @@ class StorePostRequest extends BaseFormRequest
                 'nullable',
                 'string',
             ],
+            'user_id' => [
+                'nullable',
+                'integer',
+            ],
         ];
     }
 
