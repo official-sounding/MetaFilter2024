@@ -7,6 +7,7 @@
         <livewire:comments.comment-component
             wire:key="{{ $comment->id }}"
             :comment="$comment"
+            :post="$post"
         />
     @empty
         @include('notifications.none-listed', [
