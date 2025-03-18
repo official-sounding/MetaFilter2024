@@ -22,9 +22,7 @@ final class ProcessProductImportJob implements ShouldQueue
 
     // WIP: https://laraveldaily.com/post/laravel-import-very-large-csv-jobs-queues
 
-    public function __construct(private readonly array $dataLine, private readonly array $fieldMap)
-    {
-    }
+    public function __construct(private readonly array $dataLine, private readonly array $fieldMap) {}
     public function handle(): void
     {
         $category = ProductCategory::firstOrCreate(
@@ -33,7 +31,7 @@ final class ProcessProductImportJob implements ShouldQueue
             ],
             [
                 'name' => $this->dataLine[$this->fieldMap['category']],
-            ]
+            ],
         );
 
         try {
@@ -48,7 +46,7 @@ final class ProcessProductImportJob implements ShouldQueue
                     'description' => $this->dataLine[$this->fieldMap['description']],
                     'price' => $this->dataLine[$this->fieldMap['price']],
                     'stock_left' => $this->dataLine[$this->fieldMap['stock']],
-                ]
+                ],
             );
         } catch (Exception $exception) {
             $this->logError($exception);

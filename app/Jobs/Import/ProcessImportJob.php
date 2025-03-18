@@ -21,9 +21,7 @@ final class ProcessImportJob implements ShouldQueue
 
     // WIP: https://laraveldaily.com/post/laravel-import-very-large-csv-jobs-queues
 
-    public function __construct(private readonly string $file)
-    {
-    }
+    public function __construct(private readonly string $file) {}
 
     public function handle(): void
     {
