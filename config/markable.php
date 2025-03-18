@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Enums\FlagReasonEnum;
 use App\Models\User;
 
 return [
@@ -43,6 +42,13 @@ return [
     */
 
     'allowed_values' => [
-        'reaction' => FlagReasonEnum::getValuesAsArray(),
+        'flag' => [
+            'Fantastic',
+            'HTML/display error',
+            'Offensive/sexism/racism',
+            'It breaks the guidelines',
+            'Noise/derail/other',
+            'Flag with note',
+        ],
     ],
 ];

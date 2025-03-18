@@ -4,26 +4,30 @@ declare(strict_types=1);
 
 namespace App\Livewire\Flags;
 
+use App\Enums\LivewireEventEnum;
 use App\Models\Comment;
+use App\Models\Flag;
 use App\Models\Post;
 use App\Traits\AuthStatusTrait;
+use App\Traits\LoggingTrait;
 use App\Traits\TypeTrait;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use Maize\Markable\Exceptions\InvalidMarkValueException;
 
 final class FlagComponent extends Component
 {
     use AuthStatusTrait;
+    use LoggingTrait;
     use TypeTrait;
 
-    private const string FLAG_WITH_NOTE = 'flag-with-note';
-    private const string MODEL_PATH = 'App\Models\/';
+    private const string FLAG_WITH_NOTE = 'Flag with note';
+    private const string MODEL_PATH = 'app\\models\\';
 
     public Comment|Post $model;
     public int $authorizedUserId;
     public int $flagCount = 0;
-    public int $flaggableId = 0;
-    public int $flagReasonId = 0;
     public string $iconFilename = 'flag';
     public string $note = '';
     public array $flagReasons = [];
@@ -31,26 +35,16 @@ final class FlagComponent extends Component
     public bool $showForm = false;
     public bool $showNoteField = false;
     public string $titleText;
-    public string $type = '';
     public bool $userFlagged = false;
-
-    protected FlagService $flagService;
-
-    public function boot(FlagService $flagService): void
-    {
-        $this->flagService = $flagService;
-    }
 
     public function mount(
         Comment|Post $model,
     ): void {
+        $configReasons = config('markable.allowed_values.flag', []);
+        $this->flagReasons = is_array($configReasons) ? $configReasons : [];
+
         $this->model = $model;
-        $this->flaggableId = $this->model->id;
-        $this->type = $this->getType();
-
         $this->authorizedUserId = $this->getAuthorizedUserId();
-        $this->flagReasons = $this->flagService->getFlagReasons();
-
         $this->updateFlagData();
     }
 
@@ -59,30 +53,13 @@ final class FlagComponent extends Component
         return view('livewire.flags.flag-component');
     }
 
-    public function store(): void
-    {
-        $stored = $this->flagService->store([
-            'flaggable_type' => $this->type,
-            'flaggable_id' => $this->model->id,
-            'flag_reason_id' => $this->flagReasonId,
-            'user_id' => $this->authorizedUserId,
-            'note' => $this->note,
-        ]);
-
-        if ($stored === true) {
-            $this->userFlagged = true;
-
-            $this->updateFlagData();
-        }
-    }
-
     public function flagReasonSelected(string $selectedReason): void
     {
         if ($selectedReason === self::FLAG_WITH_NOTE) {
             $this->showNoteField = true;
         } else {
             $this->showNoteField = false;
-            $this->note = '';
+            $this->reset('note');
         }
 
         $this->selectedReason = $selectedReason;
@@ -90,25 +67,33 @@ final class FlagComponent extends Component
 
     public function updateFlagData(): void
     {
-        $this->flagCount = $this->model->flags()->count();
-        $this->userFlagged = $this->model->flags()->where('user_id', '=', $this->authorizedUserId)->exists();
-
         $this->setIconFilename();
         $this->setTitleText();
     }
 
-    public function delete(int $flaggableId): void
+    public function store(): void
     {
-        $deleted = $this->flagService->delete(
-            flaggableType: $this->type,
-            flaggableId: $flaggableId,
-            userId: $this->authorizedUserId,
-        );
+        $selectedReason = trim($this->selectedReason);
 
-        if ($deleted === true) {
+        try {
+            Flag::add($this->model, auth()->user(), $selectedReason);
+            $this->showForm = false;
             $this->updateFlagData();
 
+            $this->dispatch(LivewireEventEnum::CommentStored->value);
+        } catch (InvalidMarkValueException $exception) {
+            $this->logError($exception);
+        }
+    }
+
+    public function delete(): void
+    {
+        try {
+            Flag::remove($this->model, auth()->user());
+            $this->updateFlagData();
             $this->userFlagged = false;
+        } catch (Exception $exception) {
+            $this->logError($exception);
         }
     }
 
@@ -124,15 +109,14 @@ final class FlagComponent extends Component
 
     private function getType(): string
     {
-        $type = str_replace(self::MODEL_PATH, '', $this->model::class);
-
-        return mb_strtolower($type);
+        $class = mb_strtolower($this->model::class);
+        return str_replace(search: self::MODEL_PATH, replace: '', subject: $class);
     }
 
     private function setTitleText(): void
     {
-        $flagText = 'Flag this ' . $this->type;
-
-        $this->titleText =  $this->userFlagged ? trans('Remove flag') : trans($flagText);
+        $type = $this->getType();
+        $flagText = 'Flag this ' . $type;
+        $this->titleText = $this->userFlagged ? trans('Remove flag') : trans($flagText);
     }
 }

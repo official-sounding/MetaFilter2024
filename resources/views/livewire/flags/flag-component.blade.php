@@ -12,15 +12,15 @@
             />
         </small>
 
-        @foreach ($flagReasons as $key => $label)
+        @foreach ($flagReasons as $reason)
             <label class="block">
                 <input
                     type="radio"
                     name="flag_reason_id"
-                    wire:model="flagReasonId"
-                    wire:change="flagReasonSelected('{{ Str::slug($label) }}')"
-                    value="{{ $key }}">
-                {{ $label }}
+                    wire:model="selectedReason"
+                    wire:change="flagReasonSelected('{{ $reason }}')"
+                    value="{{ $reason }}">
+                {{ $reason }}
             </label>
         @endforeach
 
@@ -33,6 +33,7 @@
                 wire:model="note"
                 name="note"
                 id="note"
+                wire:model="note"
                 placeholder="{{ trans('Additional details (optional)') }}">
             </textarea>
         @endif
