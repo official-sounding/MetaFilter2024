@@ -29,7 +29,7 @@ return [
         [
             'name' => 'Recent Activity',
             'route' => 'metafilter.recent-activity.show',
-            'icon' => 'clock',
+            'icon' => 'clock-fill',
         ],
     ],
     'guest' => [
