@@ -6,9 +6,12 @@ namespace App\Livewire\Comments;
 
 use App\Enums\LivewireEventEnum;
 use App\Models\Comment;
+use App\Models\Flag;
 use App\Models\Post;
+use App\Models\User;
 use App\Traits\CommentComponentTrait;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -34,6 +37,7 @@ final class CommentComponent extends Component
     public Comment $comment;
     public CommentForm $commentForm;
     public Post $post;
+    public ?User $user;
 
     public function mount(Comment $comment, Post $post): void
     {
@@ -48,8 +52,13 @@ final class CommentComponent extends Component
 
         $this->wordCount = str_word_count($comment->text);
 
-        $this->flagIconFilename = $this->getIconFilename();
-        $this->flagButtonText = $this->getTitleText();
+        $this->user = auth()->user() ?? null;
+
+        $this->updateFlagCount();
+        $this->hasUserFlagged();
+
+        $this->flagIconFilename = $this->getFlagIconFilename();
+        $this->flagButtonText = $this->getFlagTitleText();
     }
 
     public function render(): View
@@ -57,14 +66,25 @@ final class CommentComponent extends Component
         return view('livewire.comments.comment-component');
     }
 
-    private function getIconFilename(): string
+    private function getFlagIconFilename(): string
     {
         return $this->userFlagged ? 'flag-fill' : 'flag';
     }
 
-    private function getTitleText(): string
+    private function getFlagTitleText(): string
     {
         return $this->userFlagged ? trans('Remove flag') : trans('Flag this comment');
+    }
+
+    private function hasUserFlagged(): void
+    {
+        $userFlagCount = DB::table(table: 'markable_flags')
+            ->where(column: 'user_id', operator: '=', value: auth()->id())
+            ->where(column: 'markable_id', operator: '=', value: $this->comment->id)
+            ->where(column: 'markable_type', operator: 'LIKE', value: '%Comment%')
+            ->count();
+
+        $this->userFlagged = $userFlagCount > 0;
     }
 
     #[On([
@@ -84,5 +104,25 @@ final class CommentComponent extends Component
         $this->stopEditing();
         $this->stopFlagging();
         $this->stopReplying();
+    }
+
+    private function updateFlagCount(): void
+    {
+        $this->flagCount = Flag::count($this->comment);
+    }
+
+    #[On('comment-flagged.{comment.id}')]
+    public function addUserFlag(): void
+    {
+        \Log::debug('CommentComponent::addUserFlag');
+        $this->userFlagged = true;
+        $this->flagCount++;
+    }
+
+    #[On('comment-flag-deleted.{comment.id}')]
+    public function removeUserFlag(): void
+    {
+        $this->userFlagged = false;
+        $this->flagCount--;
     }
 }
