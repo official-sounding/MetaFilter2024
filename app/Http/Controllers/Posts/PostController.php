@@ -82,7 +82,7 @@ final class PostController extends BaseController
                 subsite_id: $subsiteId,
                 state: PostStateEnum::Published->value,
                 published_at: now()->toDateTimeString(),
-                is_published: true
+                is_published: true,
             );
 
             $this->postService->store($dto);
