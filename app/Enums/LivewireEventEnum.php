@@ -17,6 +17,11 @@ enum LivewireEventEnum: string
     case FlagStored = 'flag-stored';
     case FlagDeleted = 'flag-deleted';
     case HideFlagCommentForm = 'hide-flag-comment-form';
+    case PostDeleted = 'post-deleted';
+    case PostFlagDeleted = 'post-flag-deleted';
+    case PostFlagged = 'post-flagged';
+    case PostStored = 'post-stored';
+    case PostUpdated = 'post-updated';
     case ToggleFlagCommentForm = 'toggle-flag-comment-form';
     case ToggleFlagPostForm = 'toggle-flag-post-form';
     case WatchingStarted = 'watching-started';
