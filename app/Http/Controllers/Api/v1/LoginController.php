@@ -14,7 +14,7 @@ final class LoginController extends BaseApiController
     {
         if (Auth::attempt([
             'username' => $request->username,
-            'password' => $request->password
+            'password' => $request->password,
         ])) {
             $message = 'Login successful';
 
@@ -31,7 +31,7 @@ final class LoginController extends BaseApiController
         } else {
             return $this->sendError(
                 error: 'Unauthorised.',
-                errorMessages: ['message' => 'The provided credentials are incorrect.']
+                errorMessages: ['message' => 'The provided credentials are incorrect.'],
             );
         }
     }

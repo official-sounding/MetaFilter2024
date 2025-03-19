@@ -12,9 +12,7 @@ use Illuminate\Http\JsonResponse;
 
 final class PostController extends BaseApiController
 {
-    public function __construct(protected PostService $postService)
-    {
-    }
+    public function __construct(protected PostService $postService) {}
 
     public function store(StorePostRequest $request): JsonResponse
     {
@@ -40,7 +38,7 @@ final class PostController extends BaseApiController
         $message = 'Post created';
         // TODO: Get the post URL
         $data = [
-            'post_url' => ''
+            'post_url' => '',
         ];
 
         return $this->sendResponse($message, $data);
