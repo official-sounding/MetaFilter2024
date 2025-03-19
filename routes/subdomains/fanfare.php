@@ -17,21 +17,6 @@ Route::middleware('auth')->group(function () {
 
         Route::get('{post}/{slug}', 'show')
             ->name(RouteNameEnum::FanFareMyPostsShow);
-
-        Route::get('create', 'create')
-            ->name(RouteNameEnum::FanFareMyPostsCreate);
-
-        Route::post('store', 'store')
-            ->name(RouteNameEnum::FanFareMyPostsStore);
-
-        Route::get('preview/{post}', 'preview')
-            ->name(RouteNameEnum::FanFareMyPostsPreview);
-
-        Route::get('edit/{post}', 'edit')
-            ->name(RouteNameEnum::FanFareMyPostsEdit);
-
-        Route::post('update', 'update')
-            ->name(RouteNameEnum::FanFareMyPostsUpdate);
     });
 });
 
@@ -50,4 +35,21 @@ Route::controller(PostController::class)->group(function () {
 
     Route::get('{post}/{slug}', 'show')
         ->name('fanfare.posts.show');
+
+    Route::middleware('auth')->group(function () {
+        Route::get('create', 'create')
+            ->name('fanfare.posts.create');
+
+        Route::post('store', 'store')
+            ->name('fanfare.posts.store');
+
+        Route::get('preview/{post}', 'preview')
+            ->name('fanfare.posts.preview');
+
+        Route::get('edit/{post}', 'edit')
+            ->name('fanfare.posts.edit');
+
+        Route::post('update', 'update')
+            ->name('fanfare.posts.update');
+    });
 });

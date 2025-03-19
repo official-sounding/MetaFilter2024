@@ -63,21 +63,6 @@ Route::middleware('auth')->group(function () {
     Route::controller(MyPostController::class)->group(function () {
         Route::get('my-posts', 'index')
             ->name(RouteNameEnum::MetaFilterMyPostsIndex);
-
-        Route::get('my-posts/create', 'create')
-            ->name(RouteNameEnum::MetaFilterMyPostsCreate);
-
-        Route::post('my-posts/store', 'store')
-            ->name(RouteNameEnum::MetaFilterMyPostsStore);
-
-        Route::get('my-posts/preview/{post}', 'preview')
-            ->name(RouteNameEnum::MetaFilterMyPostsPreview);
-
-        Route::get('my-posts/edit/{post}', 'edit')
-            ->name(RouteNameEnum::MetaFilterMyPostsEdit);
-
-        Route::post('my-posts/update', 'update')
-            ->name(RouteNameEnum::MetaFilterMyPostsUpdate);
     });
 
     Route::controller(MemberController::class)->group(function () {
@@ -132,4 +117,21 @@ Route::controller(PostController::class)->group(function () {
 
     Route::get('{post}/{slug}', 'show')
         ->name('metafilter.posts.show');
+
+    Route::middleware('auth')->group(function () {
+        Route::get('posts/create', 'create')
+            ->name('metafilter.posts.create');
+
+        Route::post('posts/store', 'store')
+            ->name('metafilter.posts.store');
+
+        Route::get('posts/preview/{post}', 'preview')
+            ->name('metafilter.posts.preview');
+
+        Route::get('posts/edit/{post}', 'edit')
+            ->name('metafilter.posts.edit');
+
+        Route::post('posts/update', 'update')
+            ->name('metafilter.posts.update');
+    });
 });

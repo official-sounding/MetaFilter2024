@@ -19,21 +19,6 @@ Route::middleware('auth')->group(function () {
 
             Route::get('{post}/{slug}', 'show')
                 ->name(RouteNameEnum::MetaTalkMyPostsShow);
-
-            Route::get('create', 'create')
-                ->name(RouteNameEnum::MetaTalkMyPostsCreate);
-
-            Route::post('store', 'store')
-                ->name(RouteNameEnum::MetaTalkMyPostsStore);
-
-            Route::get('preview/{post}', 'preview')
-                ->name(RouteNameEnum::MetaTalkMyPostsPreview);
-
-            Route::get('edit/{post}', 'edit')
-                ->name(RouteNameEnum::MetaTalkMyPostsEdit);
-
-            Route::post('update', 'update')
-                ->name(RouteNameEnum::MetaTalkMyPostsUpdate);
         });
 });
 
@@ -52,4 +37,21 @@ Route::controller(PostController::class)->group(function () {
 
     Route::get('{post}/{slug}', 'show')
         ->name('metatalk.posts.show');
+
+    Route::middleware('auth')->group(function () {
+        Route::get('create', 'create')
+            ->name('metatalk.posts.create');
+
+        Route::post('store', 'store')
+            ->name('metatalk.posts.store');
+
+        Route::get('preview/{post}', 'preview')
+            ->name('metatalk.posts.preview');
+
+        Route::get('edit/{post}', 'edit')
+            ->name('metatalk.posts.edit');
+
+        Route::post('update', 'update')
+            ->name('metatalk.posts.update');
+    });
 });

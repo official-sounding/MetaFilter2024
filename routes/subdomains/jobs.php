@@ -18,24 +18,6 @@ Route::middleware('auth')->group(function () {
 
         Route::get('{post}/{slug}', 'show')
             ->name(RouteNameEnum::JobsMyPostsShow);
-
-        Route::get('create-availability', 'create')
-            ->name(RouteNameEnum::JobsMyPostsAvailabilityCreate);
-
-        Route::get('create-job', 'create')
-            ->name(RouteNameEnum::JobsMyPostsJobCreate);
-
-        Route::post('store', 'store')
-            ->name(RouteNameEnum::JobsMyPostsStore);
-
-        Route::get('preview/{post}', 'preview')
-            ->name(RouteNameEnum::JobsMyPostsPreview);
-
-        Route::get('edit/{post}', 'edit')
-            ->name(RouteNameEnum::JobsMyPostsEdit);
-
-        Route::post('update', 'update')
-            ->name(RouteNameEnum::JobsMyPostsUpdate);
     });
 });
 
@@ -45,4 +27,21 @@ Route::controller(PostController::class)->group(function () {
 
     Route::get('{post}/{slug}', 'show')
         ->name('jobs.posts.show');
+
+    Route::middleware('auth')->group(function () {
+        Route::get('create', 'create')
+            ->name('jobs.posts.create');
+
+        Route::post('store', 'store')
+            ->name('jobs.posts.store');
+
+        Route::get('preview/{post}', 'preview')
+            ->name('jobs.posts.preview');
+
+        Route::get('edit/{post}', 'edit')
+            ->name('jobs.posts.edit');
+
+        Route::post('update', 'update')
+            ->name('jobs.posts.update');
+    });
 });

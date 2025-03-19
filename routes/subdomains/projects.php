@@ -14,21 +14,6 @@ Route::middleware('auth')->group(function () {
 
         Route::get('{post}/{slug}', 'show')
             ->name(RouteNameEnum::ProjectsMyPostsShow);
-
-        Route::get('create', 'create')
-            ->name(RouteNameEnum::ProjectsMyPostsCreate);
-
-        Route::post('store', 'store')
-            ->name(RouteNameEnum::ProjectsMyPostsStore);
-
-        Route::get('preview/{post}', 'preview')
-            ->name(RouteNameEnum::ProjectsMyPostsPreview);
-
-        Route::get('edit/{post}', 'edit')
-            ->name(RouteNameEnum::ProjectsMyPostsEdit);
-
-        Route::post('update', 'update')
-            ->name(RouteNameEnum::ProjectsMyPostsUpdate);
     });
 });
 
@@ -39,4 +24,21 @@ Route::controller(PostController::class)
 
         Route::get('{post}/{slug}', 'show')
             ->name('projects.posts.show');
+
+        Route::middleware('auth')->group(function () {
+            Route::get('create', 'create')
+                ->name('projects.posts.create');
+
+            Route::post('store', 'store')
+                ->name('projects.posts.store');
+
+            Route::get('preview/{post}', 'preview')
+                ->name('projects.posts.preview');
+
+            Route::get('edit/{post}', 'edit')
+                ->name('projects.posts.edit');
+
+            Route::post('update', 'update')
+                ->name('projects.posts.update');
+        });
     });

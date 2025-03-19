@@ -19,27 +19,6 @@ Route::middleware('auth')->group(function () {
 
             Route::get('{post}/{slug}', 'show')
                 ->name(RouteNameEnum::MusicMyPostsShow);
-
-            Route::get('create', 'create')
-                ->name(RouteNameEnum::MusicMyPostsCreate);
-
-            Route::get('create-song', 'create')
-                ->name(RouteNameEnum::MusicMyPostsSongCreate);
-
-            Route::get('create-talk', 'create')
-                ->name(RouteNameEnum::MusicMyPostsTalkCreate);
-
-            Route::post('store', 'store')
-                ->name(RouteNameEnum::MusicMyPostsStore);
-
-            Route::get('preview/{post}', 'preview')
-                ->name(RouteNameEnum::MusicMyPostsPreview);
-
-            Route::get('edit/{post}', 'edit')
-                ->name(RouteNameEnum::MusicMyPostsEdit);
-
-            Route::post('update', 'update')
-                ->name(RouteNameEnum::MusicMyPostsUpdate);
         });
 });
 
@@ -59,4 +38,21 @@ Route::controller(PostController::class)->group(function () {
 
     Route::get('{post}/{slug}', 'show')
         ->name('music.posts.show');
+
+    Route::middleware('auth')->group(function () {
+        Route::get('create', 'create')
+            ->name('music.posts.create');
+
+        Route::post('store', 'store')
+            ->name('music.posts.store');
+
+        Route::get('preview/{post}', 'preview')
+            ->name('music.posts.preview');
+
+        Route::get('edit/{post}', 'edit')
+            ->name('music.posts.edit');
+
+        Route::post('update', 'update')
+            ->name('music.posts.update');
+    });
 });
