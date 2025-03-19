@@ -3,60 +3,59 @@
 declare(strict_types=1);
 
 use App\Enums\SubsiteEnum;
-use App\Enums\RouteNameEnum;
 
 return [
     SubsiteEnum::Ask->value => [
         [
             'text' => 'Post a Question',
-            'route' => RouteNameEnum::AskMyPostsCreate,
+            'route' => 'ask.posts.create',
         ],
     ],
     SubsiteEnum::FanFare->value => [
         [
-            'route' => RouteNameEnum::FanFareMyPostsCreate,
+            'route' => 'fanfare.posts.create',
         ],
     ],
     SubsiteEnum::Irl->value => [
         [
             'text' => 'Post an Event',
-            'route' => RouteNameEnum::IrlMyPostsCreate,
+            'route' => 'irl.posts.create',
         ],
     ],
     SubsiteEnum::Jobs->value => [
         [
             'text' => 'Post a Job',
-            'route' => RouteNameEnum::JobsMyPostsJobCreate,
+            'route' => 'jobs.posts.create',
         ],
         [
             'text' => 'Post Your Availability',
-            'route' => RouteNameEnum::JobsMyPostsAvailabilityCreate,
+            'route' => 'jobs.availability.create',
         ],
     ],
     SubsiteEnum::MetaFilter->value => [
         [
-            'route' => RouteNameEnum::MetaFilterMyPostsCreate,
+            'route' => 'metafilter.posts.create',
         ],
     ],
     SubsiteEnum::MetaTalk->value => [
         [
-            'route' => RouteNameEnum::MetaTalkMyPostsCreate,
+            'route' => 'metatalk.posts.create',
         ],
     ],
     SubsiteEnum::Music->value => [
         [
             'text' => 'Post a Song',
-            'route' => RouteNameEnum::MusicMyPostsSongCreate,
+            'route' => 'music.posts.create',
         ],
         [
             'text' => 'Post to Music Talk',
-            'route' => RouteNameEnum::MusicMyPostsTalkCreate,
+            'route' => 'music.talk.create',
         ],
     ],
     SubsiteEnum::Projects->value => [
         [
             'text' => 'Post a Project',
-            'route' => RouteNameEnum::ProjectsMyPostsCreate,
+            'route' => 'projects.posts.create',
         ],
     ],
 ];
