@@ -17,6 +17,9 @@
                 <input
                     type="radio"
                     name="flag_reason_id"
+                    @if ($reason === 'Fantastic')
+                        class="fantastic"
+                    @endif
                     wire:model="selectedReason"
                     wire:change="flagReasonSelected('{{ $reason }}')"
                     value="{{ $reason }}">
