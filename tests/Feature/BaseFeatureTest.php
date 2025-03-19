@@ -13,35 +13,35 @@ abstract class BaseFeatureTest extends TestCase
     public static function subdomainData(): array
     {
         return [
-            "AskMetaFilter" => [
+            'AskMetaFilter' => [
                 'AskMetaFilter', // name
                 'AskMetaFilter', // subdomain
             ],
-            "FanFare" => [
+            'FanFare' => [
                 'FanFare', // name
                 'fanfare', // subdomain
             ],
-            "IRL" => [
+            'IRL' => [
                 'IRL', // name
                 'irl', // subdomain
             ],
-            "MetaFilter" => [
+            'MetaFilter' => [
                 'MetaFilter', // name
                 'metafilter', // subdomain
             ],
-            "MetaTalk" => [
+            'MetaTalk' => [
                 'MetaTalk', // name
                 'metatalk', // subdomain
             ],
-            "Music" => [
+            'Music' => [
                 'Music', // name
                 'music', // subdomain
             ],
-            "Podcast" => [
+            'Podcast' => [
                 'Podcast', // name
                 'podcast', // subdomain
             ],
-            "Projects" => [
+            'Projects' => [
                 'Projects', // name
                 'projects', // subdomain
             ],

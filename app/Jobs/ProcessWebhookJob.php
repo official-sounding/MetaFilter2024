@@ -29,7 +29,7 @@ final class ProcessWebhookJob extends SpatieProcessWebhookJob implements ShouldQ
 
         logger('ProcessWebhookJob', [
             'event' => $event,
-            'data'  => $data,
+            'data' => $data,
         ]);
     }
 }

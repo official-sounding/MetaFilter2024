@@ -16,5 +16,5 @@ return [
     |
     */
 
-    'presenter_namespace'   => 'App\\Presenters',
+    'presenter_namespace' => 'App\\Presenters',
 ];

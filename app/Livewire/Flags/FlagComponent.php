@@ -79,10 +79,10 @@ final class FlagComponent extends Component
 
         //        $this->validate($rules);
 
-        $selectedReason = trim($this->selectedReason);
+        $selectedReason = mb_trim($this->selectedReason);
 
         try {
-            if ($selectedReason === self::FLAG_WITH_NOTE && strlen($this->note) > 0) {
+            if ($selectedReason === self::FLAG_WITH_NOTE && mb_strlen($this->note) > 0) {
                 $this->metadata = ['note' => $this->note];
             }
 

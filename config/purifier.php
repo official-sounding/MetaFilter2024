@@ -20,28 +20,28 @@ declare(strict_types=1);
  */
 
 return [
-    'encoding'           => 'UTF-8',
-    'finalize'           => true,
-    'ignoreNonStrings'   => false,
-    'cachePath'          => storage_path('app/purifier'),
-    'cacheFileMode'      => 0755,
-    'settings'      => [
+    'encoding' => 'UTF-8',
+    'finalize' => true,
+    'ignoreNonStrings' => false,
+    'cachePath' => storage_path('app/purifier'),
+    'cacheFileMode' => 0755,
+    'settings' => [
         'default' => [
-            'HTML.Doctype'             => 'XHTML 1.0 Strict',
-            'HTML.Allowed'             => 'div,b,strong,i,em,blockquote,cite,a[href|title],ul,ol,li,p,br,small,table,tr,td,td,tbody,thead,tfoot',
-            'CSS.AllowedProperties'    => null,
+            'HTML.Doctype' => 'XHTML 1.0 Strict',
+            'HTML.Allowed' => 'div,b,strong,i,em,blockquote,cite,a[href|title],ul,ol,li,p,br,small,table,tr,td,td,tbody,thead,tfoot',
+            'CSS.AllowedProperties' => null,
             'AutoFormat.AutoParagraph' => false,
-            'AutoFormat.RemoveEmpty'   => true,
+            'AutoFormat.RemoveEmpty' => true,
         ],
-        'test'    => [
+        'test' => [
             'Attr.EnableID' => 'true',
         ],
-        "youtube" => [
-            "HTML.SafeIframe"      => 'true',
-            "URI.SafeIframeRegexp" => "%^(http://|https://|//)(www.youtube.com/embed/|player.vimeo.com/video/)%",
+        'youtube' => [
+            'HTML.SafeIframe' => 'true',
+            'URI.SafeIframeRegexp' => '%^(http://|https://|//)(www.youtube.com/embed/|player.vimeo.com/video/)%',
         ],
         'custom_definition' => [
-            'id'  => 'html5-definitions',
+            'id' => 'html5-definitions',
             'rev' => 1,
             'debug' => false,
             'elements' => [

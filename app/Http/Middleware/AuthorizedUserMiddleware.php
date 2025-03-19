@@ -12,7 +12,7 @@ final class AuthorizedUserMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user->id == auth()->id()) {
+        if ($request->user->id === auth()->id()) {
             return $next($request);
         }
 

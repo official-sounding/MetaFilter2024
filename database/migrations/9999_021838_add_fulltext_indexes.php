@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-return new class () extends Migration {
+return new class extends Migration {
     private const array TABLES = [
         [
             'name' => 'comments',
@@ -39,7 +39,7 @@ return new class () extends Migration {
     {
         foreach (self::TABLES as $tableData) {
             $tableName = $tableData['name'];
-            $fields  = implode(', ', $tableData['fields']);
+            $fields = implode(', ', $tableData['fields']);
 
             DB::statement(
                 "ALTER TABLE $tableName ADD FULLTEXT fulltext_index($fields)",

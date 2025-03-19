@@ -14,8 +14,8 @@ use Illuminate\Database\Seeder;
 
 final class AdminRoleSeeder extends Seeder
 {
-    use LoggingTrait;
     use AdminSeederTrait;
+    use LoggingTrait;
     use PermissionAndRoleTrait;
     use WithoutModelEvents;
 

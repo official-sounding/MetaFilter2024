@@ -43,13 +43,13 @@ final class ContactMessageController extends BaseController
             return redirect()
                 ->route('contact.thanks')
                 ->with('status', $status);
-        } else {
-            $status = 'Sorry, there was a problem sending your message. Please try again.';
-
-            return back()
-                ->withInput()
-                ->with('status', $status);
         }
+
+        $status = 'Sorry, there was a problem sending your message. Please try again.';
+
+        return back()
+            ->withInput()
+            ->with('status', $status);
     }
 
     public function thanks(): View

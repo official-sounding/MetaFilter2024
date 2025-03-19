@@ -28,8 +28,8 @@ final class BasicAuth
 
         $isNotAuthenticated = (
             !$hasSuppliedCredentials ||
-            $_SERVER['PHP_AUTH_USER'] != $AUTH_USERNAME ||
-            $_SERVER['PHP_AUTH_PW'] != $AUTH_PASSWORD
+            $_SERVER['PHP_AUTH_USER'] !== $AUTH_USERNAME ||
+            $_SERVER['PHP_AUTH_PW'] !== $AUTH_PASSWORD
         );
 
         if ($isNotAuthenticated) {

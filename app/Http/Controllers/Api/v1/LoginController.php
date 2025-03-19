@@ -28,11 +28,12 @@ final class LoginController extends BaseApiController
             ];
 
             return $this->sendResponse($message, $data);
-        } else {
-            return $this->sendError(
-                error: 'Unauthorised.',
-                errorMessages: ['message' => 'The provided credentials are incorrect.'],
-            );
         }
+        return $this->sendError(
+            error: 'Unauthorised.',
+            errorMessages: [
+                'message' => 'The provided credentials are incorrect.',
+            ],
+        );
     }
 }

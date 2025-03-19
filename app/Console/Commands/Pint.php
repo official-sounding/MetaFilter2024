@@ -51,7 +51,7 @@ final class Pint extends Command
         $errorOutput = $process->getErrorOutput();
         $this->info('Error output: ' . ($errorOutput ?: 'None'));
 
-        $this->info('Process output length: ' . strlen($process->getOutput()));
+        $this->info('Process output length: ' . mb_strlen($process->getOutput()));
 
         if (!$process->isSuccessful()) {
             $this->error('Process failed with exit code: ' . $exitCode);

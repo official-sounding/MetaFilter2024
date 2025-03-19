@@ -11,12 +11,12 @@ return [
     [
         'title' => 'FanFare Spoilers Note',
         'slug' => 'fanfare-spoilers-note',
-        'body' => "Each post contains a brief plot summary. You can turn them off if you&rsquo;re worried about spoilers.",
+        'body' => 'Each post contains a brief plot summary. You can turn them off if you&rsquo;re worried about spoilers.',
     ],
     [
         'title' => 'Jobs Location Note',
         'slug' => 'jobs-location-note',
-        'body' => "If you&rsquo;re logged in, and your latitude/longitude is stored in your profile, you&rsquo;ll also see how far away each job is from you.",
+        'body' => 'If you&rsquo;re logged in, and your latitude/longitude is stored in your profile, you&rsquo;ll also see how far away each job is from you.',
     ],
     [
         'title' => 'Best of the Web',

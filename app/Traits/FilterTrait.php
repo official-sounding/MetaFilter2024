@@ -10,6 +10,6 @@ trait FilterTrait
     {
         $unacceptableWords = config('config.unacceptable_words');
 
-        return stripos(json_encode($unacceptableWords), $text);
+        return mb_stripos(json_encode($unacceptableWords), $text);
     }
 }

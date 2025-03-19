@@ -23,7 +23,7 @@ trait PaginationTrait
         $searchTerm = $this->searchTerm ?? '';
 
         if ($searchColumn !== '' && $searchTerm !== '') {
-            $query->whereLike($searchColumn, trim($searchTerm));
+            $query->whereLike($searchColumn, mb_trim($searchTerm));
         }
 
         $perPage = $this->perPage ?? 20;
