@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
-use App\Enums\RouteNameEnum;
 use App\Models\Subsite;
 
 trait SubsiteTrait
@@ -12,7 +11,7 @@ trait SubsiteTrait
     use LoggingTrait;
     use UrlTrait;
 
-    public function getFullUrl(string $subdomain)
+    public function getFullUrl(string $subdomain): string
     {
         $host = config('app.host');
 
@@ -89,7 +88,14 @@ trait SubsiteTrait
             $subdomain = 'www';
         }
 
-        return (new Subsite())->where('subdomain', '=', $subdomain)->first();
+        return (new Subsite())->where(column: 'subdomain', operator: '=', value: $subdomain)->first();
+    }
+
+    public function getSubsiteId()
+    {
+        $subdomain = $this->getSubdomain();
+
+        return Subsite::where(column: 'subdomain', operator: '=', value: '$subdomain')->value('id');
     }
 
     public function getStylesheetName(): string
@@ -108,23 +114,20 @@ trait SubsiteTrait
         $subdomain = $this->getSubdomain();
 
         return match ($subdomain) {
-            'ask' => RouteNameEnum::AskMyPostsCreate->value,
-            'fanfare' => RouteNameEnum::FanFareMyPostsCreate->value,
-            'irl' => RouteNameEnum::IrlMyPostsCreate->value,
-            'jobs' => RouteNameEnum::JobsMyPostsJobCreate->value,
-            'metatalk' => RouteNameEnum::MetaTalkMyPostsCreate->value,
-            'music' => RouteNameEnum::MusicMyPostsCreate->value,
-            'podcast' => RouteNameEnum::PodcastMyPostsCreate->value,
-            'projects' => RouteNameEnum::ProjectsMyPostsCreate->value,
-            default => RouteNameEnum::MetaFilterMyPostsCreate->value,
+            'ask' => 'ask.posts.create',
+            'fanfare' => 'fanfare.posts.create',
+            'irl' => 'irl.posts.create',
+            'metatalk' => 'metatalk.posts.create',
+            'music' => 'music.posts.create',
+            'podcast' => 'podcast.posts.create',
+            'projects' => 'projects.posts.create',
+            default => 'metafilter.posts.create',
         };
     }
 
-    public function getPostIndexRouteName(string $subdomain = ''): string
+    public function getPostIndexRouteName(): string
     {
-        if ($subdomain === '') {
-            $subdomain = $this->getSubdomain();
-        }
+        $subdomain = $this->getSubdomain();
 
         return match ($subdomain) {
             'ask' => 'ask.posts.index',
@@ -159,14 +162,14 @@ trait SubsiteTrait
         $subdomain = $this->getSubdomain();
 
         return match ($subdomain) {
-            'ask' => RouteNameEnum::AskMyPostsStore->value,
-            'fanfare' => RouteNameEnum::FanFareMyPostsStore->value,
-            'irl' => RouteNameEnum::IrlMyPostsStore->value,
-            'metatalk' => RouteNameEnum::MetaTalkMyPostsStore->value,
-            'music' => RouteNameEnum::MusicMyPostsStore->value,
-            'podcast' => RouteNameEnum::PodcastMyPostsStore->value,
-            'projects' => RouteNameEnum::ProjectsMyPostsStore->value,
-            default => RouteNameEnum::MetaFilterMyPostsStore->value,
+            'ask' => 'ask.posts.store',
+            'fanfare' => 'fanfare.posts.store',
+            'irl' => 'irl.posts.store',
+            'metatalk' => 'metatalk.posts.store',
+            'music' => 'music.posts.store',
+            'podcast' => 'podcast.posts.store',
+            'projects' => 'projects.posts.store',
+            default => 'metafilter.posts.store',
         };
     }
 }
