@@ -19,6 +19,44 @@ main input[type='url'] {
     width: 100%;
 }
 
+input[type='radio'] {
+    appearance: none;
+    background-color: inherit;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    border: 0.15rem solid currentColor;
+    width: 1.15rem;
+    height: 1.15rem;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
+
+input[type='radio']::before {
+    content: '';
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--dark-base-color);
+}
+
+input[type='radio']:checked::before {
+    transform: scale(1);
+    background-color: CanvasText;
+}
+
+input[type='radio']:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+}
+
+.radio-button-label:focus-within {
+    color: var(--dark-base-color);
+}
+
 .ck.ck-reset[role='application'] {
     margin: 0 0 1rem 0;
 }

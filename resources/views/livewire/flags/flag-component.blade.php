@@ -13,7 +13,7 @@
         </small>
 
         @foreach ($flagReasons as $reason)
-            <label class="block">
+            <label class="block radio-button-label">
                 <input
                     type="radio"
                     name="flag_reason_id"
