@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers\Filament;
 
+use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Croustibat\FilamentJobsMonitor\FilamentJobsMonitorPlugin;
 use Exception;
 use Filament\Http\Middleware\Authenticate;
@@ -46,8 +47,9 @@ final class AdminPanelProvider extends PanelProvider
                 Dashboard::class,
             ])
             ->plugins([
-                FilamentJobsMonitorPlugin::make(),
                 FilamentCheckSslWidgetPlugin::make(),
+                FilamentJobsMonitorPlugin::make(),
+                FilamentShieldPlugin::make(),
             ])
             ->widgets([
                 AccountWidget::class,
