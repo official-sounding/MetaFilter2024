@@ -13,6 +13,7 @@
         "@simplewebauthn/browser": "^13.1.0",
         "ckeditor5": "^43.1.1",
         "laravel-precognition-alpine": "^0.5.14",
+        "notyf": "^3.10.0",
         "webtour": "^1.1.0"
     },
     "devDependencies": {
