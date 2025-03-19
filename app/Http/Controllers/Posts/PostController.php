@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Posts;
 
+use App\Dtos\PostDto;
+use App\Enums\PostStateEnum;
 use App\Http\Controllers\BaseController;
+use App\Http\Requests\Post\StorePostRequest;
+use App\Http\Requests\Post\UpdatePostRequest;
 use App\Models\Post;
 use App\Repositories\PostRepositoryInterface;
 use App\Services\LdJsonService;
@@ -54,5 +58,53 @@ final class PostController extends BaseController
             'useWysiwyg' => true,
             'showSecondaryNavigation' => true,
         ]);
+    }
+
+    public function create(): View
+    {
+        return view('posts.create', [
+            'routeName' => $this->getStorePostRouteName(),
+            'title' => $this->getNewPostText(),
+            'useWysiwyg' => true,
+        ]);
+    }
+
+    public function store(StorePostRequest $request): void
+    {
+        if (isset(auth()->user()->id)) {
+            $subsiteId = $this->getSubsiteId();
+
+            $dto = new PostDto(
+                title: 'title',
+                body: $request->validated('body'),
+                more_inside: $request->input('more_inside'),
+                user_id: auth()->user()->id,
+                subsite_id: $subsiteId,
+                state: PostStateEnum::Published->value,
+                published_at: now()->toDateTimeString(),
+                is_published: true
+            );
+
+            $this->postService->store($dto);
+        }
+    }
+
+    public function edit(Post $post): View
+    {
+        return view('posts.edit', [
+            'title' => $this->getEditPostText(),
+            'post' => $post,
+            'useWysiwyg' => true,
+        ]);
+    }
+
+    public function update(UpdatePostRequest $request, Post $post): void
+    {
+        $this->postService->update($post->id, $request->validated());
+    }
+
+    public function delete(Post $post): void
+    {
+        $this->postService->delete($post->id);
     }
 }

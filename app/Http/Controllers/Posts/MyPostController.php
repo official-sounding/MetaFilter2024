@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Posts;
 
 use App\Http\Controllers\BaseController;
-use App\Http\Requests\Post\StorePostRequest;
-use App\Http\Requests\Post\UpdatePostRequest;
 use App\Models\Post;
 use App\Repositories\PostRepositoryInterface;
 use App\Services\PostService;
@@ -38,36 +36,5 @@ final class MyPostController extends BaseController
             'title' => $this->getPreviewPostText(),
             'post' => $post,
         ]);
-    }
-
-    public function create(): View
-    {
-
-        return view('my-posts.create', [
-            'routeName' => $this->getStorePostRouteName(),
-            'title' => $this->getNewPostText(),
-            'useWysiwyg' => true,
-        ]);
-    }
-
-    public function store(StorePostRequest $request): void {}
-
-    public function edit(Post $post): View
-    {
-        return view('my-posts.edit', [
-            'title' => $this->getEditPostText(),
-            'post' => $post,
-            'useWysiwyg' => true,
-        ]);
-    }
-
-    public function update(UpdatePostRequest $request, Post $post): void
-    {
-        $this->postService->update($post->id, $request->validated());
-    }
-
-    public function delete(Post $post): void
-    {
-        $this->postService->delete($post->id);
     }
 }
