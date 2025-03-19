@@ -13,6 +13,7 @@ final class OutOfTheBlueController extends BaseController
     {
         return view('podcast.out-of-the-blue.index', [
             'title' => trans('Out of the Blue'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

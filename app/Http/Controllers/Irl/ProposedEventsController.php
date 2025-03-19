@@ -13,6 +13,7 @@ final class ProposedEventsController extends BaseController
     {
         return view('irl.proposed-events.index', [
             'title' => trans('Proposed Events'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

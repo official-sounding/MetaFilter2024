@@ -13,6 +13,7 @@ final class PastEventsController extends BaseController
     {
         return view('irl.past-events.index', [
             'title' => trans('Past Events'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

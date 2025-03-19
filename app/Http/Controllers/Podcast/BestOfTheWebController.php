@@ -13,6 +13,7 @@ final class BestOfTheWebController extends BaseController
     {
         return view('podcast.best-of-the-web.index', [
             'title' => trans('Best of the Web'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

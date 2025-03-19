@@ -13,6 +13,7 @@ final class ChallengesController extends BaseController
     {
         return view('music.challenges.index', [
             'title' => trans('Challenges'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

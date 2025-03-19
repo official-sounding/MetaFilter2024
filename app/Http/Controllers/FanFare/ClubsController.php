@@ -13,6 +13,7 @@ final class ClubsController extends BaseController
     {
         return view('fanfare.clubs.index', [
             'title' => trans('Clubs'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

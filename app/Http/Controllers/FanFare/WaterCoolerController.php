@@ -13,6 +13,7 @@ final class WaterCoolerController extends BaseController
     {
         return view('fanfare.water-cooler.index', [
             'title' => trans('Water Cooler'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

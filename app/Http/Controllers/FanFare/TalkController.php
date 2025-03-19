@@ -13,6 +13,7 @@ final class TalkController extends BaseController
     {
         return view('fanfare.talk.index', [
             'title' => trans('Talk'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

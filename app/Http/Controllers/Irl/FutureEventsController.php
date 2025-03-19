@@ -13,6 +13,7 @@ final class FutureEventsController extends BaseController
     {
         return view('irl.future-events.index', [
             'title' => trans('Future Events'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

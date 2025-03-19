@@ -13,6 +13,7 @@ final class UnansweredQuestionsController extends BaseController
     {
         return view('ask.unanswered-questions.index', [
             'title' => trans('Unanswered Questions'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

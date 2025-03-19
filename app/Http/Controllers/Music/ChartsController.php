@@ -13,6 +13,7 @@ final class ChartsController extends BaseController
     {
         return view('music.charts.index', [
             'title' => trans('Charts'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

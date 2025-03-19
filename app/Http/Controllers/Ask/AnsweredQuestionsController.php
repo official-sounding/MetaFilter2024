@@ -13,6 +13,7 @@ final class AnsweredQuestionsController extends BaseController
     {
         return view('ask.answered-questions.index', [
             'title' => trans('Answered Questions'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }

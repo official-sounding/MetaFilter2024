@@ -13,6 +13,7 @@ final class TalkController extends BaseController
     {
         return view('music.talk.index', [
             'title' => trans('Talk'),
+            'showSecondaryNavigation' => true,
         ]);
     }
 }
