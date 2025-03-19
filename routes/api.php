@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     'prefix' => 'api/v1/',
-    'middleware' => ['auth:api']
+    'middleware' => ['auth:sanctum']
 ], function () {
     Route::post('login', [LoginController::class, 'store']);
     Route::post('posts', [PostController::class, 'store']);
