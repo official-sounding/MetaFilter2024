@@ -22,7 +22,7 @@ final class TagAutocompleteComponent extends Component
     {
         if (!empty($this->searchTag)) {
             $this->searchResults =
-                Tag::where('name', 'like', '%' . $this->searchTag . '%')
+                Tag::where('name', 'LIKE', '%' . $this->searchTag . '%')
                     ->limit(5)
                     ->get()
                     ->toArray();
