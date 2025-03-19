@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Livewire\Flags;
 
 use App\Enums\LivewireEventEnum;
-use App\Http\Requests\StoreFlagRequest;
 use App\Models\Comment;
 use App\Models\Flag;
 use App\Models\Post;
@@ -27,16 +26,15 @@ final class FlagComponent extends Component
     private const string MODEL_PATH = 'app\\models\\';
 
     public Comment|Post $model;
-    public int $authorizedUserId;
     public int $flagCount = 0;
     public string $iconFilename = 'flag';
     public string $note = '';
     public array $flagReasons = [];
-    public ?array $metadata = null;
     public string $selectedReason = '';
     public bool $showForm = false;
     public bool $showNoteField = false;
     public string $titleText;
+    public string $type;
     public bool $userFlagged = false;
 
     public function mount(
@@ -46,7 +44,7 @@ final class FlagComponent extends Component
         $this->flagReasons = is_array($configReasons) ? $configReasons : [];
 
         $this->model = $model;
-        $this->authorizedUserId = $this->getAuthorizedUserId();
+        $this->type = $this->getType();
         $this->updateFlagData();
     }
 
@@ -69,7 +67,6 @@ final class FlagComponent extends Component
 
     public function updateFlagData(): void
     {
-        $this->setIconFilename();
         $this->setTitleText();
     }
 
@@ -78,21 +75,28 @@ final class FlagComponent extends Component
         //        $rules = (new StoreFlagRequest())->rules();
 
         //        $this->validate($rules);
+        $metadata = [];
 
         $selectedReason = mb_trim($this->selectedReason);
 
         try {
             if ($selectedReason === self::FLAG_WITH_NOTE && mb_strlen($this->note) > 0) {
-                $this->metadata = ['note' => $this->note];
+                $metadata = ['note' => $this->note];
             }
 
-            Flag::add($this->model, auth()->user(), $selectedReason, $this->metadata);
+            $event = $this->type === 'comment' ?
+                LivewireEventEnum::CommentFlagged->value :
+                LivewireEventEnum::PostFlagged->value;
+
+            $this->dispatchEvent($event);
+
+            Flag::add($this->model, auth()->user(), $selectedReason, $metadata);
 
             $this->showForm = false;
 
-            $this->updateFlagData();
+            $this->userFlagged = false;
 
-            $this->dispatch(LivewireEventEnum::CommentFlagged->value);
+            $this->updateFlagData();
         } catch (InvalidMarkValueException $exception) {
             $this->logError($exception);
         }
@@ -101,11 +105,17 @@ final class FlagComponent extends Component
     public function delete(): void
     {
         try {
+            $event = $this->type === 'comment' ?
+                LivewireEventEnum::CommentFlagDeleted->value :
+                LivewireEventEnum::PostFlagDeleted->value;
+
+            $this->dispatchEvent($event);
+
             Flag::remove($this->model, auth()->user());
 
-            $this->updateFlagData();
-
             $this->userFlagged = false;
+
+            $this->updateFlagData();
         } catch (Exception $exception) {
             $this->logError($exception);
         }
@@ -114,11 +124,6 @@ final class FlagComponent extends Component
     public function toggleForm(): void
     {
         $this->showForm = !$this->showForm;
-    }
-
-    private function setIconFilename(): void
-    {
-        $this->iconFilename = $this->userFlagged ? 'flag-fill' : 'flag';
     }
 
     private function getType(): string
@@ -130,10 +135,13 @@ final class FlagComponent extends Component
 
     private function setTitleText(): void
     {
-        $type = $this->getType();
-
-        $flagText = 'Flag this ' . $type;
+        $flagText = 'Flag this ' . $this->type;
 
         $this->titleText = $this->userFlagged ? trans('Remove flag') : trans($flagText);
+    }
+
+    private function dispatchEvent(string $event): void
+    {
+        $this->dispatch($event, id: $this->model->id);
     }
 }
