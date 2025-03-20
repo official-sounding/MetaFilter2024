@@ -7,7 +7,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PageResource\Pages\CreatePage;
 use App\Filament\Resources\PageResource\Pages\EditPage;
 use App\Filament\Resources\PageResource\Pages\ListPages;
-use App\Models\SimplePage;
+use App\Models\Page;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
@@ -18,7 +18,7 @@ use Filament\Tables\Table;
 
 final class PageResource extends Resource
 {
-    protected static ?string $model = SimplePage::class;
+    protected static ?string $model = Page::class;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationLabel = 'Pages';
 

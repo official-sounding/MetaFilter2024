@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Builders;
 
-final class SimplePageQueryBuilder extends BaseQueryBuilder
+final class PageQueryBuilder extends BaseQueryBuilder
 {
     public function __construct($query)
     {

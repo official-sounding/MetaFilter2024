@@ -20,8 +20,8 @@ use App\Repositories\FavoriteRepository;
 use App\Repositories\FavoriteRepositoryInterface;
 use App\Repositories\MeFiMailRepository;
 use App\Repositories\MeFiMailRepositoryInterface;
-use App\Repositories\SimplePageRepository;
-use App\Repositories\SimplePageRepositoryInterface;
+use App\Repositories\PageRepository;
+use App\Repositories\PageRepositoryInterface;
 use App\Repositories\PostRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Repositories\SnippetRepository;
@@ -47,7 +47,7 @@ final class RepositoryServiceProvider extends ServiceProvider
             FavoriteRepositoryInterface::class => FavoriteRepository::class,
             MeFiMailRepositoryInterface::class => MeFiMailRepository::class,
             AdminNoteRepositoryInterface::class => AdminNoteRepository::class,
-            SimplePageRepositoryInterface::class => SimplePageRepository::class,
+            PageRepositoryInterface::class => PageRepository::class,
             SnippetRepositoryInterface::class => SnippetRepository::class,
             PostRepositoryInterface::class => PostRepository::class,
             SubsiteRepositoryInterface::class => SubsiteRepository::class,

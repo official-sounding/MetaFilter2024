@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Database\Seeders\Production;
 
-use App\Models\SimplePage;
+use App\Models\Page;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-final class SimplePageSeeder extends Seeder
+final class PageSeeder extends Seeder
 {
     use WithoutModelEvents;
 
@@ -27,7 +27,7 @@ final class SimplePageSeeder extends Seeder
                 \Log::warning("Empty 'body' field for page: $title (slug: $slug).");
             }
 
-            (new SimplePage())->firstOrCreate([
+            (new Page())->firstOrCreate([
                 'title' => $page['title'],
                 'slug' => $page['slug'],
                 'body' => $page['body'],

@@ -13,7 +13,7 @@ use Database\Seeders\Development\FakeFavoriteSeeder;
 use Database\Seeders\Development\FakeFlagSeeder;
 use Database\Seeders\Production\PermissionSeeder;
 use Database\Seeders\Production\RoleSeeder;
-use Database\Seeders\Production\SimplePageSeeder;
+use Database\Seeders\Production\PageSeeder;
 use Database\Seeders\Production\SnippetSeeder;
 use Database\Seeders\Production\SubsiteSeeder;
 use Illuminate\Database\Eloquent\Model;
@@ -53,7 +53,7 @@ final class DatabaseSeeder extends Seeder
     {
         $this->call([
             SubsiteSeeder::class,
-            SimplePageSeeder::class,
+            PageSeeder::class,
             SnippetSeeder::class,
 
             PermissionSeeder::class,

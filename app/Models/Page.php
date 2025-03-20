@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property ?string $extends
  * @property ?string $section
  */
-final class SimplePage extends BaseModel
+final class Page extends BaseModel
 {
     use HasFactory;
     use Sluggable;

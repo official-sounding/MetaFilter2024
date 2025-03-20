@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Models\SimplePage;
+use App\Models\Page;
 use App\Traits\StringFormattingTrait;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-final class SimplePageFactory extends Factory
+final class PageFactory extends Factory
 {
     use StringFormattingTrait;
 
-    protected $model = SimplePage::class;
+    protected $model = Page::class;
 
     private const int NUMBER_OF_PARAGRAPHS = 3;
 
