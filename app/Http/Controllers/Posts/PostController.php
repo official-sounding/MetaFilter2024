@@ -22,11 +22,15 @@ final class PostController extends BaseController
     use PostTrait;
     use SubsiteTrait;
 
+    protected int $subsiteId;
+
     public function __construct(
         protected LdJsonService $ldJsonService,
         protected PostRepositoryInterface $postRepository,
         protected PostService $postService,
     ) {
+        $this->subsiteId = $this->getSubsiteId();
+
         parent::__construct();
     }
 
@@ -72,14 +76,14 @@ final class PostController extends BaseController
     public function store(StorePostRequest $request): void
     {
         if (isset(auth()->user()->id)) {
-            $subsiteId = $this->getSubsiteId();
 
             $dto = new PostDto(
-                title: 'title',
+                title: $request->validated('title'),
                 body: $request->validated('body'),
                 more_inside: $request->input('more_inside'),
+                tags: $request->input('tags'),
                 user_id: auth()->user()->id,
-                subsite_id: $subsiteId,
+                subsite_id: $this->subsiteId,
                 state: PostStateEnum::Published->value,
                 published_at: now()->toDateTimeString(),
                 is_published: true,
