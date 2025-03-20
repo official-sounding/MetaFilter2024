@@ -8,7 +8,6 @@ use App\Presenters\PostPresenter;
 use Coderflex\LaravelPresenter\Concerns\CanPresent;
 use Coderflex\LaravelPresenter\Concerns\UsesPresenters;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -110,18 +109,6 @@ final class Post extends BaseModel implements CanPresent, HasMedia
         );
     }
 
-    public function scopeSearch(Builder $query, string $keyword): Builder
-    {
-        return $query->whereFullText(
-            [
-                'title',
-                'more_inside',
-            ],
-            "$keyword*",
-            ['mode' => 'boolean'],
-        );
-    }
-
     public function sluggable(): array
     {
         return $this->getSlugFrom('title');
@@ -141,22 +128,22 @@ final class Post extends BaseModel implements CanPresent, HasMedia
     {
         return $this->hasMany(Comment::class);
     }
-    /*
-        public function bookmarks(): HasMany
-        {
-            return $this->hasMany(Flag::class);
-        }
 
-        public function favorites(): HasMany
-        {
-            return $this->hasMany(Flag::class);
-        }
+    public function bookmarks(): HasMany
+    {
+        return Bookmark::count($this);
+    }
 
-        public function flags(): HasMany
-        {
-            return $this->hasMany(Flag::class);
-        }
-    */
+    public function favorites(): HasMany
+    {
+        return Favorite::count($this);
+    }
+
+    public function flags(): HasMany
+    {
+        return Flag::count($this);
+    }
+
     // TODO: Rework to only get slug, ID, and title
     public function next(): Post|null
     {
