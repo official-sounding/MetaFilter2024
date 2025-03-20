@@ -17,6 +17,7 @@ class PostService
     public function __construct(
         protected PostRepositoryInterface $postRepository,
         protected PurifierService $purifierService,
+        protected TagService $tagService,
     ) {}
 
     public function closePost(Post $post): void
@@ -38,7 +39,11 @@ class PostService
                 'is_published' => $dto->is_published,
             ];
 
-            return $this->postRepository->create($data);
+            $post = $this->postRepository->create($data);
+
+            $this->tagService->addTagsToPost($post, $dto->tags);
+
+            return $post;
         } catch (Exception $exception) {
             $this->logError($exception);
 
