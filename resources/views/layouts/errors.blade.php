@@ -14,6 +14,8 @@
 
 <link rel="stylesheet" href="/css/errors.css">
 
+@stack('styles')
+
 </head>
 
 <body>
@@ -30,6 +32,8 @@
 
     <p>@yield('message')</p>
 </main>
+
+@stack('scripts')
 
 </body>
 </html>
