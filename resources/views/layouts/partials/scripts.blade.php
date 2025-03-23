@@ -12,9 +12,11 @@
     @endif
 @endif
 
-@vite([
-    'resources/js/app.js'
-])
+@vite(['resources/js/app.js'])
+
+@if (isset($useWysiwyg) && $useWysiwyg === true)
+    @vite(['resources/js/wysiwyg.js'])
+@endif
 
 @stack('scripts')
 

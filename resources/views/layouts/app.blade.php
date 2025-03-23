@@ -18,6 +18,7 @@
 
 @if (isset($useWysiwyg) && $useWysiwyg === true)
     <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+    <meta name="ckeditor-config" content='@json(config("ckeditor"))'>
 @endif
 
 </head>
@@ -39,7 +40,6 @@
 </header>
 
 <div class="container main-contents-wrapper">
-    {{-- TODO: DeEasterEggIfy --}}
     <!-- He's the DJ; I'm the wrapper -->
     <x-buttons.top-bottom-button-component location="top" />
 
@@ -66,6 +66,12 @@
 </footer>
 
 @include('layouts.partials.scripts')
-
+{{--
+<script>
+    document.addEventListener('comment-flagged', event => {
+        alert(`Comment was flagged: ${event.detail.message}`);
+    });
+</script>
+--}}
 </body>
 </html>

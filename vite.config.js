@@ -29,6 +29,7 @@ export default defineConfig({
                 'resources/sass/themes/projects.scss',
                 'resources/css/filament/admin/theme.css',
                 'resources/js/app.js',
+                'resources/js/wysiwyg.js',
             ],
             refresh: [
                 'app/Livewire/**',
