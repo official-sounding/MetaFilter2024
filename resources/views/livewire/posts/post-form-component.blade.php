@@ -6,12 +6,12 @@
     <x-forms.input
         name="title"
         type="text"
-        label="{{ trans('Post Title') }}" />
+        label="{{ trans('Title') }}" />
 
     <div wire:ignore>
-        <x-forms.textarea
-            name="body"
-            label="{{ trans('Body') }}" />
+        <livewire:wysiwyg.wysiwyg-component
+            editor-id="post-body"
+        />
     </div>
 
     <div wire:ignore>
@@ -23,11 +23,15 @@
     <x-forms.input
         name="tags"
         type="text"
-        :note="{!! trans('Combine and capitalize words, <strong>LikeThis</strong>') !!}"
+        note="{!! trans('Combine and capitalize words, <strong>LikeThis</strong>') !!}"
         label="{{ trans('Tags') }}" />
 
+    <x-forms.hidden
+        name="user_id"
+        value="{{ $userId }}" />
+
     <button type="submit" class="button primary-button">
-        {{ trans('Add Post') }}
+        {{ trans('Preview') }}
     </button>
 </form>
 
