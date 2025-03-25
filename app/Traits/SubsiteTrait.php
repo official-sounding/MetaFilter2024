@@ -95,7 +95,7 @@ trait SubsiteTrait
     {
         $subdomain = $this->getSubdomain();
 
-        return Subsite::where(column: 'subdomain', operator: '=', value: '$subdomain')->value('id');
+        return Subsite::where(column: 'subdomain', operator: '=', value: $subdomain)->value('id');
     }
 
     public function getStylesheetName(): string
