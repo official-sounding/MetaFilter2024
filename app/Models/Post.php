@@ -53,6 +53,11 @@ final class Post extends BaseModel implements CanPresent, HasMedia
     use VersionableTrait;
 
     protected const int DAYS_UNTIL_ARCHIVED = 30;
+    protected const array PREVIOUS_NEXT_COLUMNS = [
+        'id',
+        'slug',
+        'title',
+    ];
 
     // Properties
 
@@ -129,35 +134,36 @@ final class Post extends BaseModel implements CanPresent, HasMedia
         return $this->hasMany(Comment::class);
     }
 
-    public function bookmarks(): HasMany
+    public function bookmarks(): int
     {
         return Bookmark::count($this);
     }
 
-    public function favorites(): HasMany
+    public function favorites(): int
     {
         return Favorite::count($this);
     }
 
-    public function flags(): HasMany
+    public function flags(): int
     {
         return Flag::count($this);
     }
 
-    // TODO: Rework to only get slug, ID, and title
     public function next(): Post|null
     {
-        return $this->orderBy('id')
+        return $this->select(self::PREVIOUS_NEXT_COLUMNS)
             ->where('id', '>', $this->id)
             ->where('subsite_id', '=', $this->subsite_id)
+            ->orderBy('id')
             ->first();
     }
 
     public function previous(): Post|null
     {
-        return $this->orderByDesc('id')
+        return $this->select(self::PREVIOUS_NEXT_COLUMNS)
             ->where('id', '<', $this->id)
             ->where('subsite_id', '=', $this->subsite_id)
+            ->orderByDesc('id')
             ->first();
     }
 
