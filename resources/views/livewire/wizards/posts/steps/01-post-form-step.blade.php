@@ -7,7 +7,7 @@
             name="title"
             type="text"
             :required="true"
-            label="{{ trans('First, enter a title') }}"
+            label="{{ trans('Title') }}"
         />
     </fieldset>
 
