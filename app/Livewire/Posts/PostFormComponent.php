@@ -21,6 +21,7 @@ final class PostFormComponent extends Component
     public string $title = '';
     public string $body = '';
     public string $more_inside = '';
+    public string $tags = '';
     public int $subsiteId = 0;
     public int $userId = 0;
 
@@ -54,6 +55,7 @@ final class PostFormComponent extends Component
             title: $this->title,
             body: $this->body,
             more_inside: $this->more_inside,
+            tags: $this->tags,
             user_id: $this->userId,
             subsite_id: $this->subsiteId,
             state: PostStateEnum::Draft->value,
