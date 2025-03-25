@@ -39,10 +39,6 @@ final class CommentRepository extends BaseRepository implements CommentRepositor
             ->with([
                 'user',
             ])
-            ->withCount([
-                'favorites',
-                'flags',
-            ])
             ->where('comments.post_id', '=', $postId);
 
         if ($latestComment !== null) {
