@@ -34,3 +34,5 @@
    class="button cta-button">
     ¿Listo para registrarte? ¡Vamos allá!
 </a>
+
+@include('signup.partials.banning-venn-diagram')

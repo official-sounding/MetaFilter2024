@@ -27,9 +27,9 @@
     </li>
 </ul>
 
-@include('signup.partials.banning-venn-diagram')
-
 <a href="{{ route('signup.wizard') }}"
    class="button cta-button">
     Ready to sign up?
 </a>
+
+@include('signup.partials.banning-venn-diagram')
