@@ -4,8 +4,7 @@
 
 @section('contents')
     @auth
-        {{-- TODO: Replace with Livewire form --}}
-        <livewire:wizards.post-wizard-component />
+        <livewire:posts.post-form-component />
     @endauth
 
     @guest

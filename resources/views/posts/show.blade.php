@@ -43,7 +43,7 @@
         @include('posts.partials.post-show-footer', [
             'post' => $post,
             'commentsCount' => $post->comments()->count(),
-            'favoritesCount' => $post->favorites()->count(),
+            'favoritesCount' => $post->favorites(),
         ])
     </article>
 
@@ -56,6 +56,11 @@
             <h2>
                 {{ trans('Add a comment') }}
             </h2>
+
+            @livewire('wysiwyg.wysiwyg-component', [
+                'editorId' => 'add-comment-editor',
+                'content' => ''
+            ])
 
             <livewire:comments.comment-form-component
                 :post-id="$post->id"

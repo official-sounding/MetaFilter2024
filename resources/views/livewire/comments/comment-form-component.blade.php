@@ -43,6 +43,8 @@
 </form>
 
 {{--
+@livewire('wysiwyg-editor', ['editorId' => 'editor1', 'content' => 'Initial content 1'])
+
 <input wire:model="content" type="text">
 
 <small class="smaller">
