@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Overtrue\LaravelVote\Traits\Voter;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\ModelStates\HasStates;
@@ -54,6 +55,7 @@ final class User extends Authenticatable implements
     use Notifiable;
     use SoftDeletes;
     use UsesPresenters;
+    use Voter;
 
     private const array ALLOWED_EMAIL_ADDRESSES = [
         'brandon@fake.com',
