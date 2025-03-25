@@ -53,6 +53,10 @@ input[type='radio']:focus {
     outline-offset: max(2px, 0.15em);
 }
 
+.ck-editor__editable {
+    min-height: 10rem;
+}
+
 .radio-button-label:focus-within {
     color: var(--dark-base-color);
 }
@@ -216,7 +220,6 @@ form.mode-switcher,
 
 main form {
     margin: 0 auto 0 auto;
-    max-width: 75%;
 }
 
 .form-group {

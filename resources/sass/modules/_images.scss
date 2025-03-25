@@ -4,6 +4,20 @@ picture {
     display: block;
 }
 
+figure {
+    width: fit-content;
+}
+
+figure a:link,
+figure a:visited {
+    display: block;
+    border: 3px solid transparent;
+}
+
+figure a:hover {
+    border-color: var(--yellow-green);
+}
+
 .icon {
     color: inherit;
 }

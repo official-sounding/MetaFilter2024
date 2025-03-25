@@ -36,6 +36,10 @@ button,
     border-width: var(--button-border-width);
 }
 
+.main-contents .cta-button + figure {
+    margin-top: 2rem;
+}
+
 button .cta-button:hover,
 .button.cta-button:hover {
     color: var(--yellow-green);
