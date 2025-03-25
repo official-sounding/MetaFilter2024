@@ -79,14 +79,4 @@ Route::domain('www.' . $appUrl)
     ->middleware($middleware)
     ->group(base_path('routes/subdomains/metafilter.php'));
 
-$pageSlugs = [
-    'about',
-    'chat',
-    'donate',
-    'labs',
-];
-
-foreach ($pageSlugs as $slug) {
-    Route::get($slug, [PageController::class, 'show'])
-        ->name('pages.' . $slug);
-}
+Route::any('{any}', [PageController::class, 'show']);
