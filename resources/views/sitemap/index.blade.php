@@ -1,7 +1,10 @@
-@extends('layouts.minimal')
+<?php echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>
 
-@section('title', $title ?? 'Untitled')
-
-@section('contents')
-sitemap
-@endsection
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    @if ($post !== null && $post->updated_at !== null)
+        <sitemap>
+            <loc>{{ route('sitemap.posts.index') }}</loc>
+            <lastmod>{{ $post->updated_at->tz('UTC')->toAtomString() }}</lastmod>
+        </sitemap>
+    @endif
+</sitemapindex>
