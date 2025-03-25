@@ -75,10 +75,10 @@ th {
 
 <main>
 
-<p><strong>The widget package is not installed.</strong></p>
+<p><strong>The flibbertigibbet package is not installed.</strong></p>
 
 <p>You can install package through CLI package manager (C:/ColdFusion/cfusion/bin/cfpm.bat)
-by running the command: install widget.</p>
+by running the command: install flibbertigibbet.</p>
 
 <p>Resources:</p>
 
