@@ -2,7 +2,7 @@
     'autofocus' => false,
     'label',
     'name',
-    'required',
+    'required' => false,
     'type',
     'note' => null,
 ])

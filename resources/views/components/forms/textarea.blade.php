@@ -2,7 +2,7 @@
     'label',
     'name',
     'note' => null,
-    'required',
+    'required' => false,
 ])
 
 <x-forms.field>
