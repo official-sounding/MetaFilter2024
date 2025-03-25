@@ -8,13 +8,14 @@ use App\Repositories\PageRepository;
 use App\Traits\SubsiteTrait;
 use App\Traits\UrlTrait;
 use Illuminate\Contracts\View\View;
+use Symfony\Component\HttpFoundation\Response;
 
 final class PageController extends BaseController
 {
     use SubsiteTrait;
     use UrlTrait;
 
-    public function __construct(protected PageRepository $simplePageRepository)
+    public function __construct(protected PageRepository $pageRepository)
     {
         parent::__construct();
     }
@@ -23,11 +24,15 @@ final class PageController extends BaseController
     {
         $slug = $this->getUrlSegment(1);
 
-        $page = $this->simplePageRepository->getBySlug($slug);
+        $page = $this->pageRepository->getBySlug($slug);
 
-        return view('pages.show', [
-            'page' => $page,
-            'title' => $page->title,
-        ]);
+        if (isset($page->title)) {
+            return view('pages.show', [
+                'page' => $page,
+                'title' => $page->title,
+            ]);
+        }
+
+        abort(code: Response::HTTP_NOT_FOUND);
     }
 }
