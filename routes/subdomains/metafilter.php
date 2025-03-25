@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use App\Enums\RouteNameEnum;
-use App\Http\Controllers\ArchivesController;
+use App\Http\Controllers\Posts\ArchivesController;
 use App\Http\Controllers\BugController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\FavoritesController;
@@ -20,7 +20,8 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\Posts\RandomPostController;
 use App\Http\Controllers\RecentActivityController;
 use App\Http\Controllers\RecentCommentsController;
-use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\Sitemaps\PostSitemapController;
+use App\Http\Controllers\Sitemaps\SitemapController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
@@ -105,8 +106,14 @@ Route::get('recent-activity', [RecentActivityController::class, 'show'])
 Route::get('recent-comments', [RecentCommentsController::class, 'index'])
     ->name('metafilter.recent-comments.index');
 
-Route::get('/sitemap.xml', [SitemapController::class, 'index'])
-    ->name('metafilter.sitemap.index');
+Route::get('sitemap.xml', [SitemapController::class, 'index'])
+    ->name('sitemap.index');
+
+Route::get('sitemap/posts.xml', [PostSitemapController::class, 'index'])
+    ->name('sitemap.posts.index');
+
+Route::get('sitemap/posts/{letter}.xml', [PostSitemapController::class, 'show'])
+    ->name('sitemap.posts.show');
 
 Route::get('tags', [TagController::class, 'index'])
     ->name('metafilter.tags.index');
@@ -119,19 +126,19 @@ Route::controller(PostController::class)->group(function () {
         ->name('metafilter.posts.show');
 
     Route::middleware('auth')->group(function () {
-        Route::get('posts/create', 'create')
+        Route::get('create', 'create')
             ->name('metafilter.posts.create');
 
-        Route::post('posts/store', 'store')
+        Route::post('store', 'store')
             ->name('metafilter.posts.store');
 
-        Route::get('posts/preview/{post}', 'preview')
+        Route::get('preview/{post}', 'preview')
             ->name('metafilter.posts.preview');
 
-        Route::get('posts/edit/{post}', 'edit')
+        Route::get('edit/{post}', 'edit')
             ->name('metafilter.posts.edit');
 
-        Route::post('posts/update', 'update')
+        Route::post('update', 'update')
             ->name('metafilter.posts.update');
     });
 });
