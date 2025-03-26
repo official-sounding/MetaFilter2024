@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('slug')->unique();
             $table->integer('legacy_id')->nullable();
             $table->text('body');
-            $table->text('more_inside')->nullable();
+            $table->longText('more_inside')->nullable();
             $table->string('state');
 
             $table->foreignId('subsite_id')

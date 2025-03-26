@@ -14,7 +14,7 @@ return new class extends Migration {
 
             $table->string('question')->unique();
             $table->string('slug');
-            $table->text('answer');
+            $table->longText('answer');
             $table->integer('legacy_id')->nullable();
 
             $table->foreignId('subsite_id')
