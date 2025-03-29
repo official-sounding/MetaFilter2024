@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 final class LoginController extends BaseApiController
@@ -16,7 +17,7 @@ final class LoginController extends BaseApiController
             'username' => $request->username,
             'password' => $request->password,
         ])) {
-            $message = 'Login successful';
+            $message = trans('Login successful');
 
             $user = Auth::user();
             $token = $user->createToken('auth_token')->plainTextToken;
@@ -32,8 +33,17 @@ final class LoginController extends BaseApiController
         return $this->sendError(
             error: 'Unauthorised.',
             errorMessages: [
-                'message' => 'The provided credentials are incorrect.',
+                'message' => trans(key: 'The provided credentials are incorrect.'),
             ],
         );
+    }
+
+    public function logout(Request $request): JsonResponse
+    {
+        $request->user()->token()->revoke();
+
+        return response()->json(data: [
+            'message' => trans(key: 'Logged out successfully'),
+        ]);
     }
 }
