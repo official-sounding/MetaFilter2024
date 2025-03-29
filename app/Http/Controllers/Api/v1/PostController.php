@@ -19,6 +19,7 @@ final class PostController extends BaseApiController
 
     public function store(StorePostRequest $request): JsonResponse
     {
+        // TODO: Validate the request and get subdomain ID if it's not in the request
         $validated = $request->validated();
 
         $subsiteId = $this->getSubsiteId();
@@ -26,7 +27,8 @@ final class PostController extends BaseApiController
         $dto = new PostDto(
             title: $validated['title'],
             body: $validated['content'],
-            more_inside: $validated['more_inside'],
+            more_inside: $validated['more_inside'] ?? null,
+            tags: null,
             user_id: $validated['user_id'],
             subsite_id: $subsiteId,
             state: PostStateEnum::Published->value,
