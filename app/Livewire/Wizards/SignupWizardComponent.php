@@ -60,9 +60,20 @@ final class SignupWizardComponent extends BaseWizardComponent
     // Step 2
     public function submitPassword(): void
     {
-        $rules = (new StorePasswordRequest())->rules();
+        $this->validate([
+            'password' => [
+                'required',
+                'string',
+                'confirmed',
+            ],
+        ]);
 
-        $this->validate($rules);
+        //        $rules = [
+        //            'password' => 'required||min:6',
+        //        ];
+        //        $rules = (new StorePasswordRequest())->rules();
+
+        //        $this->validate($rules);
 
         $this->currentStep = 3;
     }

@@ -83,12 +83,11 @@ final class PostIndexComponent extends Component
         ->join(table: 'subsites', first: 'posts.subsite_id', operator: '=', second: 'subsites.id')
         ->where(column: 'subsites.subdomain', operator: '=', value: $this->subdomain)
         ->with([
-            'user',
-        ])
-        ->withCount([
             'comments',
-            'favorites',
-            'flags',
+            //            'bookmarks',
+            //            'favorites',
+            //            'flags',
+            'user',
         ])
         ->groupBy('month_day', 'id', 'title', 'created_at')
         ->orderBy(column: 'posts.created_at', direction: self::DESCENDING)
