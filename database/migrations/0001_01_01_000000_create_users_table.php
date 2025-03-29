@@ -26,6 +26,7 @@ return new class extends Migration {
             $table->string('homepage_url')->nullable();
             $table->boolean('agrees_to_terms')->nullable();
             $table->integer('legacy_id')->nullable()->unique();
+            $table->longText('blurb')->nullable();
 
             // Project-specific fields
             $table->string('state');
