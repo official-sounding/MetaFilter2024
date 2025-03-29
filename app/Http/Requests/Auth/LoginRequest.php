@@ -22,6 +22,8 @@ final class LoginRequest extends BaseFormRequest
     use AuthStatusTrait;
     use LoggingTrait;
 
+    private const int RATE_LIMIT_ATTEMPTS = 5;
+
     public function authorize(): bool
     {
         return $this->loggedOut();
@@ -68,7 +70,7 @@ final class LoginRequest extends BaseFormRequest
      */
     public function ensureIsNotRateLimited(): void
     {
-        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+        if (! RateLimiter::tooManyAttempts($this->throttleKey(), maxAttempts: self::RATE_LIMIT_ATTEMPTS)) {
             return;
         }
 
