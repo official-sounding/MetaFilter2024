@@ -40,15 +40,15 @@ final class MemberTableComponent extends TableComponent
                 'id',
                 'username',
             ])
+/*
+            ->when($this->searchColumns['id'] !== '', fn(Builder $query) => $query->where(
+                'name', 'like', '%'. trim($this->searchColumns['id']) .'%'
+            ))
+            ->when($this->$this->searchColumns['username'] !== '', fn(Builder $query) => $query->where(
+                'name', 'like', '%'. trim($this->searchColumns['username']) .'%'
+            ))
+*/
             ->where(column: 'state', operator: '=', value: UserStateEnum::Active);
-
-        if (!empty($this->searchColumns['id'])) {
-            $query->where(column: 'id', operator: 'like', value: '%' . $this->searchColumns['id'] . '%');
-        }
-
-        if (!empty($this->searchColumns['username'])) {
-            $query->where(column: 'username', operator: 'like', value: '%' . $this->searchColumns['username'] . '%');
-        }
 
         //https://medium.com/@hnishad020/how-to-build-a-powerful-search-feature-in-laravel-livewire-4c3b546fe4ef
 
