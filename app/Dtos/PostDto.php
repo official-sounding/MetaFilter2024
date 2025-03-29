@@ -10,7 +10,7 @@ readonly class PostDto
         public string $title,
         public string $body,
         public ?string $more_inside,
-        public string $tags,
+        public ?string $tags,
         public int $user_id,
         public int $subsite_id,
         public string $state,
