@@ -14,7 +14,7 @@
 
         <button
             wire:click="toggleBanner()"
-            aria-expanded="{{ $isExpanded }}"
+            aria-expanded="{{ $isExpanded ? "true" : "false" }}"
             aria-controls="site-banner"
             aria-label="{{ trans($altText) }}"
             class="button icon site-banner-toggle">
