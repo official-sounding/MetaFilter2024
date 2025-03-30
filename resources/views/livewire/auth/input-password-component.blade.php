@@ -16,12 +16,14 @@
         <button
             class="icon"
             role="switch"
-            aria-pressed="{{ $pressed }}">
+            aria-checked="{{ $pressed ? "true" : "false" }}"
+            wire:click="togglePassword">
+            <span aria-hidden="true">Toggle password visibility</span>
             <img
                 src="{{ asset($eyeIconPath) }}"
                 alt=""
                 title="{{ trans('Toggle password visibility') }}"
-                wire:click="togglePassword">
+                >
         </button>
     </div>
 </div>
