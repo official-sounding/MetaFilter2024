@@ -89,12 +89,12 @@ services:
   npm:
     image: node:current-alpine
     volumes:
-      - .:/var/www/html
+      - .:/MetaFilter2024
     ports:
       - "3000:3000"
       - "3001:3001"
       - "5173:5173"
-    working_dir: /var/www/html
+    working_dir: /MetaFilter2024
     entrypoint: [ 'npm' ]
     profiles:
       - tools

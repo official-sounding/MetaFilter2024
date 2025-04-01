@@ -23,10 +23,10 @@ At this point, you should be able to run `docker compose up` and see logs from t
 
 To help work around any differences in the tool versions available on your machine, or even just the lack of installed tools on your machine, there are tool containers that can be run ad-hoc.
 
- * `composer` - use `docker compose run --rm composer` followed by the arguments for `composer`.
- * `php artisan` - use `docker compose run --rm artisan` followed by the arguments for `php artisan` (see additional notes below for running `php artisan serve`).
- * `npm` - use `docker compose run --rm npm` follow by the arguments for `npm`
- * `mysql` - use `docker compose run --rm mysql mysql -h mysql -u metafilter -p` to access a `mysql` client
+-   `composer` - use `docker compose run --rm composer` followed by the arguments for `composer`.
+-   `php artisan` - use `docker compose run --rm artisan` followed by the arguments for `php artisan` (see additional notes below for running `php artisan serve`).
+-   `npm` - use `docker compose run --rm npm` follow by the arguments for `npm`
+-   `mysql` - use `docker compose run --rm mysql mysql -h mysql -u metafilter -p` to access a `mysql` client
 
 ## Initial setup
 
@@ -40,7 +40,7 @@ docker compose run --rm composer install
 docker compose run --rm npm install
 
 # npm build
-docker compose run --rm npm build
+docker compose run --rm npm run build
 
 # php artisan key:generate
 docker compose run --rm artisan key:generate
@@ -62,7 +62,7 @@ docker compose run --rm --service-ports artisan serve --host=0.0.0.0
 
 ## Configure test host names
 
-The Laravel app uses hostname routes - i.e. just browsing to `http://localhost:8000` will not show the site. Add the following to `/etc/hosts` so you can browse instead to `http://www.metafilter.test:8000/` and see the right routes:
+The Laravel app uses hostname routes - i.e. just browsing to `http://localhost` will not show the site. Add the following to `/etc/hosts` so you can browse instead to `http://www.metafilter.test/` and see the right routes:
 
 ```
 127.0.0.1   www.metafilter.test
