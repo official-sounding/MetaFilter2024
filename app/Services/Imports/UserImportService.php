@@ -32,7 +32,7 @@ final class UserImportService
             filePath: 'app/test,csv',
             columns: self::COLUMNS,
             columnLabel: 'date_of_birth',
-            columnValue: "STR_TO_DATE(@date_of_birth, '%c/%d/%Y')"
+            columnValue: "STR_TO_DATE(@date_of_birth, '%c/%d/%Y')",
         );
 
         $this->importData($dto);
