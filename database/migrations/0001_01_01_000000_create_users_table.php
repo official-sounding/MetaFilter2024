@@ -13,23 +13,18 @@ return new class extends Migration {
             $table->id();
 
             // MetaFilter-specific fields
+            $table->integer('legacy_id')->nullable()->unique();
             $table->string('username')->nullable()->unique();
+            $table->string('salt');
+            $table->string('hashed_password');
+            $table->string('state');
 
             // Default Laravel fields
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
-
-            // MetaFilter-specific fields
-            $table->string('homepage_url')->nullable();
-            $table->boolean('agrees_to_terms')->nullable();
-            $table->integer('legacy_id')->nullable()->unique();
-            $table->longText('blurb')->nullable();
-
-            // Project-specific fields
-            $table->string('state');
 
             $table->nullableTimestamps();
             $table->softDeletes();

@@ -28,14 +28,16 @@ use Spatie\Permission\Traits\HasRoles;
 
 /**
  * @property int $id
- * @property bool $agrees_to_terms
- * @property string $name
- * @property string $username
- * @property string $homepage_url
  * @property int $legacy_id
- * @property string $email
- * @property string $password
+ * @property string $username
+ * @property string $salt
+ * @property string $hashed_password
  * @property string $state
+ * @property string $name
+ * @property string $homepage_url
+ * @property string $email
+ * @property string $email_verified_at
+ * @property string $password
  *
  * @mixin Builder
  */
@@ -57,24 +59,19 @@ final class User extends Authenticatable implements
     use UsesPresenters;
     use Voter;
 
-    private const array ALLOWED_EMAIL_ADDRESSES = [
-        'brandon@fake.com',
-        'loup@fake.com',
-    ];
-
-    private const string DOMAIN = '@metafilter.com';
-
     // Properties
 
     protected $fillable = [
-        'agrees_to_terms',
-        'name',
-        'username',
-        'homepage_url',
         'legacy_id',
-        'email',
-        'password',
+        'username',
+        'salt',
+        'hashed_password',
         'state',
+        'name',
+        'homepage_url',
+        'email',
+        'email_verified_at',
+        'password',
     ];
 
     protected $hidden = [
@@ -98,15 +95,6 @@ final class User extends Authenticatable implements
         ];
     }
 
-    public function canAccessPanel(Panel $panel): bool
-    {
-        if (in_array($this->email, self::ALLOWED_EMAIL_ADDRESSES)) {
-            return true;
-        }
-
-        return str_ends_with($this->email, self::DOMAIN);
-    }
-
     public function toSearchableArray(): array
     {
         return ['id' => (string) $this->id] + $this->toArray();
@@ -126,13 +114,13 @@ final class User extends Authenticatable implements
         return $this->hasMany(Comment::class);
     }
 
-    public function passkeys(): HasMany
-    {
-        return $this->hasMany(Passkey::class);
-    }
-
     public function getFilamentName(): string
     {
         return $this->username;
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return false;
     }
 }
