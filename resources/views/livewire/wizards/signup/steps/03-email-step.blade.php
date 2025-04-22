@@ -16,6 +16,7 @@
     <div class="level">
         <x-forms.button
             class="secondary-button previous-step"
+            onclick="goToStep(2)"
             type="button">
             {{ trans('Previous') }}
         </x-forms.button>
