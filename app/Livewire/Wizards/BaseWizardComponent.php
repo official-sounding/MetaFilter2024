@@ -27,4 +27,13 @@ abstract class BaseWizardComponent extends Component
 
         $this->uuid = $this->getUuid();
     }
+
+    public function goToStep(int $step): void
+    {
+        if ($step < 1 || $step > $this->totalSteps) {
+            return;
+        }
+
+        $this->currentStep = $step;
+    }
 }
