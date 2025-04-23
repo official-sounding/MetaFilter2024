@@ -11,8 +11,8 @@
         "@alpinejs/collapse": "^3.14.8",
         "@ryangjchandler/alpine-clipboard": "^2.3.0",
         "@simplewebauthn/browser": "^13.1.0",
-        "ckeditor5": "^43.1.1",
-        "laravel-precognition-alpine": "^0.5.14",
+        "ckeditor5": "^45.0.0",
+        "laravel-precognition-alpine": "^0.7.2",
         "notyf": "^3.10.0",
         "webtour": "^1.1.0"
     },
