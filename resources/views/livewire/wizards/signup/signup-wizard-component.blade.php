@@ -8,9 +8,7 @@
     @elseif ($currentStep === 3)
         @include('livewire.wizards.signup.steps.03-email-step')
     @elseif ($currentStep === 4)
-        @include('livewire.wizards.signup.steps.04-optional-info-step')
-    @else ($currentStep === 5)
-        @include('livewire.wizards.signup.steps.05-payment-step')
+        @include('livewire.wizards.signup.steps.04-payment-step')
     @endif
 
     <div>
