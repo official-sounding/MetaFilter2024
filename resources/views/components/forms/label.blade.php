@@ -6,5 +6,5 @@
     @else
         optional
    @endif">
-    {{ trans($label) }}
+    {!! trans($label) !!}
 </label>
