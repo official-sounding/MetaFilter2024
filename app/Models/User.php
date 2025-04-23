@@ -34,7 +34,6 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $hashed_password
  * @property string $state
  * @property string $name
- * @property string $homepage_url
  * @property string $email
  * @property string $email_verified_at
  * @property string $password
@@ -68,7 +67,6 @@ final class User extends Authenticatable implements
         'hashed_password',
         'state',
         'name',
-        'homepage_url',
         'email',
         'email_verified_at',
         'password',
