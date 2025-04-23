@@ -29,13 +29,6 @@ final class UserFactory extends Factory
         ];
     }
 
-    public function agreesToTerms(): UserFactory
-    {
-        return $this->state(fn(array $attributes) => [
-            'agrees_to_terms' => true,
-        ]);
-    }
-
     public function remember(): UserFactory
     {
         return $this->state(fn(array $attributes) => [
