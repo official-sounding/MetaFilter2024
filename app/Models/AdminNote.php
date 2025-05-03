@@ -39,6 +39,8 @@ final class AdminNote extends Model
 
     public function admin(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(
+            related: User::class,
+        );
     }
 }

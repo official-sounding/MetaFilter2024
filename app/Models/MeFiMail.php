@@ -42,11 +42,17 @@ final class MeFiMail extends BaseModel
 
     public function sender(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(
+            related: User::class,
+            foreignKey: 'user_id',
+        );
     }
 
     public function recipient(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(
+            related: User::class,
+            foreignKey: 'user_id',
+        );
     }
 }

@@ -32,16 +32,24 @@ final class AdminWatch extends BaseModel
 
     public function admin(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(
+            related: User::class,
+        );
     }
 
     public function comments(): MorphToMany
     {
-        return $this->morphedByMany(Comment::class, 'watchable');
+        return $this->morphedByMany(
+            related: Comment::class,
+            name: 'watchable',
+        );
     }
 
     public function posts(): MorphToMany
     {
-        return $this->morphedByMany(Post::class, 'watchable');
+        return $this->morphedByMany(
+            related: Post::class,
+            name: 'watchable',
+        );
     }
 }

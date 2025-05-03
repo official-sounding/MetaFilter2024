@@ -109,7 +109,9 @@ final class User extends Authenticatable implements
 
     public function comments(): HasMany
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(
+            related: Comment::class,
+        );
     }
 
     public function getFilamentName(): string

@@ -46,11 +46,17 @@ final class Category extends BaseModel
 
     public function parent(): BelongsTo
     {
-        return $this->belongsTo(Category::class, 'parent_id');
+        return $this->belongsTo(
+            related: Category::class,
+            foreignKey: 'parent_id',
+        );
     }
 
     public function subcategories(): HasMany
     {
-        return $this->hasMany(Category::class, 'parent_id');
+        return $this->hasMany(
+            related: Category::class,
+            foreignKey: 'parent_id',
+        )->orderBy('name');
     }
 }
