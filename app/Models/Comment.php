@@ -19,7 +19,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @property int $id
- * @property string $text
+ * @property string $body
  * @property int $parent_id
  * @property int $post_id
  * @property int $user_id
@@ -37,7 +37,7 @@ final class Comment extends BaseModel
     // Properties
 
     protected $fillable = [
-        'text',
+        'body',
         'parent_id',
         'post_id',
         'user_id',
@@ -100,23 +100,37 @@ final class Comment extends BaseModel
         return Flag::count($this);
     }
 
-    public function parent(): BelongsTo
-    {
-        return $this->belongsTo(Comment::class, 'parent_id');
-    }
-
     public function post(): BelongsTo
     {
         return $this->belongsTo(Post::class);
     }
 
-    public function replies(): HasMany
-    {
-        return $this->hasMany(Comment::class, 'parent_id');
-    }
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(
+            related: Comment::class,
+            foreignKey: 'parent_id',
+            ownerKey: 'id',
+        );
+    }
+
+
+    public function replies(): HasMany
+    {
+        return $this->hasMany(
+            related: Comment::class,
+            foreignKey: 'parent_id',
+            localKey: 'id',
+        )->with([
+            'user',
+            'bookmarks',
+            'favorites',
+            'flags',
+        ]);
     }
 }
