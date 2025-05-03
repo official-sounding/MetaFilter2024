@@ -35,6 +35,7 @@ use Spatie\Tags\HasTags;
  * @property int $subsite_id
  * @property int $user_id
  * @property string $published_at
+ * @property bool $is_archived
  * @property bool $is_published
  * @property string $state
  */
@@ -110,7 +111,7 @@ final class Post extends BaseModel implements CanPresent, HasMedia
         $archiveDate = now()->subDays(self::DAYS_UNTIL_ARCHIVED);
 
         return Attribute::make(
-            get: fn(bool $value) => $this->created_at <= $archiveDate,
+            get: fn($value) => $this->created_at <= $archiveDate,
         );
     }
 

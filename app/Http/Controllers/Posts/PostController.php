@@ -54,7 +54,6 @@ final class PostController extends BaseController
             'user' => $post->user(),
             'next' => $post->next(),
             'previous' => $post->previous(),
-            'isArchived' => $this->isArchived($post),
             'canonicalUrl' => $this->getCanonicalUrl($post),
             'relatedPosts' => $relatedPosts,
             'subdomain' => $subdomain,
