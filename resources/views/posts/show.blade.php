@@ -28,7 +28,7 @@
             </p>
         </header>
 
-        @if ($isArchived === true)
+        @if ($post->is_archived)
             <x-notifications.notification-component iconFilename="archive">
                 {{ trans('This post has been archived and is closed to new comments.') }}
             </x-notifications.notification-component>
@@ -51,7 +51,7 @@
         <livewire:comments.comment-list-component :post="$post" />
     </section>
 
-    @if ($isArchived === false)
+    @if ($post->is_archived === false)
         @auth
             <h2>
                 {{ trans('Add a comment') }}

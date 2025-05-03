@@ -51,15 +51,6 @@ trait PostTrait
         ];
     }
 
-    public function isArchived(Post $post, int $days = self::DAYS_UNTIL_ARCHIVED): bool
-    {
-        $archiveDate = now()->subDays($days);
-
-        $postDate = $post->created_at;
-
-        return $postDate <= $archiveDate;
-    }
-
     public function getCanonicalUrl(Post $post): string
     {
         $subdomain = $this->getSubdomain();
