@@ -19,7 +19,7 @@ class StoreCommentRequest extends BaseFormRequest
     public function rules(): array
     {
         return [
-            'text' => [
+            'body' => [
                 'required',
                 'string',
             ],

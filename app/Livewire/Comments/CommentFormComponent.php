@@ -21,7 +21,7 @@ final class CommentFormComponent extends Component
     public ?Comment $comment;
     public bool $isEditing;
     public bool $isReplying;
-    public string $text = '';
+    public string $body = '';
     public int $postId;
     public ?int $parentId = null;
     public ?string $message = null;
@@ -42,7 +42,7 @@ final class CommentFormComponent extends Component
         $this->parentId = $parentId;
 
         $this->comment = $comment ?? null;
-        $this->text = $this->comment->text ?? '';
+        $this->body = $this->comment->body ?? '';
     }
 
     public function render(): View
@@ -71,7 +71,7 @@ final class CommentFormComponent extends Component
         try {
             $comment = new Comment(
                 [
-                    'text' => $this->text,
+                    'body' => $this->body,
                     'post_id' => $this->postId,
                     'user_id' => $this->authorizedUserId,
                     'parent_id' => $this->parentId,
@@ -87,14 +87,14 @@ final class CommentFormComponent extends Component
             $this->logError($exception);
         }
 
-        $this->reset('text');
+        $this->reset('body');
     }
 
     public function update(): void
     {
         try {
             $comment = Comment::find($this->comment->id);
-            $comment->text = $this->text;
+            $comment->body = $this->body;
             $comment->save();
 
             $this->dispatch(LivewireEventEnum::CommentUpdated->value);

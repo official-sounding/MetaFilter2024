@@ -97,7 +97,7 @@ final class CommentComponent extends Component
     public function closeForm(): void
     {
         $this->reset([
-            'text',
+            'body',
             'wordCount',
         ]);
 
