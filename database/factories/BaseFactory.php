@@ -19,11 +19,4 @@ abstract class BaseFactory extends Factory
 
         $this->host = config('app.host');
     }
-
-    public function getFakeTimestamp(): string
-    {
-        $timestamp = $this->faker->dateTimeBetween('-20 years')->format('Y-m-d H:i:s');
-
-        return date('Y-m-d H:i:s', strtotime($timestamp));
-    }
 }
