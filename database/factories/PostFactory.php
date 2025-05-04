@@ -6,13 +6,13 @@ namespace Database\Factories;
 
 use App\Enums\PostStateEnum;
 use App\Models\Post;
-use App\Models\Subsite;
-use App\Models\User;
+use App\Traits\FactoryTrait;
 use App\Traits\StringFormattingTrait;
 use App\Traits\UrlTrait;
 
 final class PostFactory extends BaseFactory
 {
+    use FactoryTrait;
     use StringFormattingTrait;
     use UrlTrait;
 
@@ -30,7 +30,7 @@ final class PostFactory extends BaseFactory
             'body' => $this->faker->paragraph(),
             'more_inside' => $this->faker->paragraph(),
             'subsite_id' => $this->getSubsiteId(),
-            'user_id' => User::inRandomOrder()->value('id'),
+            'user_id' => $this->getRandomUserId(),
             'created_at' => $timestamp,
             'published_at' => $timestamp,
             'updated_at' => null,
@@ -56,12 +56,6 @@ final class PostFactory extends BaseFactory
 
     private function getSubsiteId(): int
     {
-        $subsiteId = Subsite::inRandomOrder()->value('id');
-
-        if ($subsiteId === null) {
-            $subsiteId = Subsite::factory()->create()->id;
-        }
-
-        return $subsiteId;
+        return $this->getSubsiteId();
     }
 }

@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Models\Faq;
-use App\Models\Subsite;
+use App\Traits\FactoryTrait;
 use App\Traits\StringFormattingTrait;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 final class FaqFactory extends Factory
 {
+    use FactoryTrait;
     use StringFormattingTrait;
 
     protected $model = Faq::class;
@@ -23,7 +24,7 @@ final class FaqFactory extends Factory
             'question' => $question,
             'slug' => $this->getSlug($question),
             'answer' => $this->faker->paragraph(),
-            'subsite_id' => (new Subsite())->inRandomOrder()->first(),
+            'subsite_id' => $this->getRandomSubsiteId(),
         ];
     }
 }

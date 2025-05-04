@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Models\Comment;
-use App\Models\Favorite;
-use App\Models\Post;
-use App\Models\User;
+use App\Traits\FactoryTrait;
+use Maize\Markable\Models\Favorite;
 
 final class FavoriteFactory extends BaseFactory
 {
+    use FactoryTrait;
+
     protected $model = Favorite::class;
 
     public function definition(): array
@@ -20,7 +20,7 @@ final class FavoriteFactory extends BaseFactory
         $favoritableId = $this->getFavoritableId($favoritableType);
 
         return [
-            'user_id' => (new User())->inRandomOrder()->first(),
+            'user_id' => $this->getRandomUserId(),
             'favoritable_id' => $favoritableId,
             'favoritable_type' => $favoritableType,
             'created_at' => $timestamp,
@@ -29,11 +29,11 @@ final class FavoriteFactory extends BaseFactory
         ];
     }
 
-    private function getFavoritableId(string $favoritableType): string
+    private function getFavoritableId(string $favoritableType): int
     {
         return match ($favoritableType) {
-            'comment' => (new Comment())->inRandomOrder()->first()->pluck('id'),
-            'post' => (new Post())->inRandomOrder()->first()->pluck('id'),
+            'comment' => $this->getRandomCommentId(),
+            'post' => $this->getRandomPostId(),
         };
     }
 

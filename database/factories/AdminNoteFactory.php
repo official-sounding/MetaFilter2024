@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Models\Comment;
 use App\Models\AdminNote;
-use App\Models\Post;
-use App\Models\User;
+use App\Traits\FactoryTrait;
 
 final class AdminNoteFactory extends BaseFactory
 {
+    use FactoryTrait;
+
     protected $model = AdminNote::class;
 
     public function definition(): array
@@ -22,7 +22,7 @@ final class AdminNoteFactory extends BaseFactory
         return [
             'text' => $this->faker->paragraph(),
             // TODO: Search for a mod
-            'admin_id' => (new User())->inRandomOrder()->first(),
+            'admin_id' => $this->getRandomUserId(),
             'notable_id' => $notableId,
             'notable_type' => $notableType,
             'created_at' => $timestamp,
@@ -31,11 +31,11 @@ final class AdminNoteFactory extends BaseFactory
         ];
     }
 
-    private function getNotableId(string $notableType): string
+    private function getNotableId(string $notableType): int
     {
         return match ($notableType) {
-            'comment' => (new Comment())->inRandomOrder()->first()->pluck('id'),
-            'post' => (new Post())->inRandomOrder()->first()->pluck('id'),
+            'comment' => $this->getRandomCommentId(),
+            'post' => $this->getRandomPostId(),
         };
     }
 

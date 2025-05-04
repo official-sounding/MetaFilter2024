@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Models\Comment;
-use App\Models\Post;
-use App\Models\User;
 use App\Models\AdminWatch;
+use App\Traits\FactoryTrait;
 
 final class AdminWatchFactory extends BaseFactory
 {
+    use FactoryTrait;
+
     protected $model = AdminWatch::class;
 
     public function definition(): array
@@ -20,7 +20,7 @@ final class AdminWatchFactory extends BaseFactory
         $watchId = $this->getWatchableId($watchType);
 
         return [
-            'user_id' => (new User())->inRandomOrder()->first(),
+            'user_id' => $this->getRandomUserId(),
             'watch_id' => $watchId,
             'watch_type' => $watchType,
             'created_at' => $timestamp,
@@ -29,11 +29,11 @@ final class AdminWatchFactory extends BaseFactory
         ];
     }
 
-    private function getWatchableId(string $watchType): string
+    private function getWatchableId(string $watchType): int
     {
         return match ($watchType) {
-            'comment' => (new Comment())->inRandomOrder()->first()->pluck('id'),
-            'post' => (new Post())->inRandomOrder()->first()->pluck('id'),
+            'comment' => $this->getRandomCommentId(),
+            'post' => $this->getRandomPostId(),
         };
     }
 

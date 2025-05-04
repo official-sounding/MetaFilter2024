@@ -5,23 +5,24 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Models\Comment;
-use App\Models\Post;
-use App\Models\User;
+use App\Traits\FactoryTrait;
 
 final class CommentFactory extends BaseFactory
 {
+    use FactoryTrait;
+
     protected $model = Comment::class;
 
     public function definition(): array
     {
-        $timestamp = $this->getFakeTimestamp();
+        $random = rand(1, 4);
 
         return [
-            'text' => $this->faker->paragraph(),
-            'parent_id' => null,
-            'post_id' => Post::inRandomOrder()->first()?->id,
-            'user_id' => User::inRandomOrder()->first()?->id,
-            'created_at' => $timestamp,
+            'body' => $this->faker->paragraph(),
+            'parent_id' => $random === 1 ? $this->getRandomCommentId() : null,
+            'post_id' => $this->getRandomPostId(),
+            'user_id' => $this->getRandomUserId(),
+            'created_at' => $this->getFakeTimestamp(),
             'updated_at' => null,
             'deleted_at' => null,
         ];
