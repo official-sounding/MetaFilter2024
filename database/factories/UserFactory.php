@@ -6,12 +6,15 @@ namespace Database\Factories;
 
 use App\Enums\UserStateEnum;
 use App\Models\User;
+use App\Traits\FactoryTrait;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 final class UserFactory extends Factory
 {
+    use FactoryTrait;
+
     protected $model = User::class;
     protected static ?string $password;
 

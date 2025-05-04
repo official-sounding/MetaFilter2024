@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Models\Snippet;
+use App\Traits\FactoryTrait;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 final class SnippetFactory extends Factory
 {
+    use FactoryTrait;
+
     protected $model = Snippet::class;
 
     private const int NUMBER_OF_WORDS = 3;

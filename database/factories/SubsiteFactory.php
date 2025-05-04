@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Models\Subsite;
+use App\Traits\FactoryTrait;
 
 final class SubsiteFactory extends BaseFactory
 {
+    use FactoryTrait;
+
     protected $model = Subsite::class;
 
     public function definition(): array
