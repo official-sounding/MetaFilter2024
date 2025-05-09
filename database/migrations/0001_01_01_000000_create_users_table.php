@@ -15,8 +15,6 @@ return new class extends Migration {
             // MetaFilter-specific fields
             $table->integer('legacy_id')->nullable()->unique();
             $table->string('username')->nullable()->unique();
-            $table->string('salt');
-            $table->string('hashed_password');
             $table->string('state');
 
             // Default Laravel fields

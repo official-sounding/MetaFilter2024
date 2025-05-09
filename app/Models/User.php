@@ -30,8 +30,6 @@ use Spatie\Permission\Traits\HasRoles;
  * @property int $id
  * @property int $legacy_id
  * @property string $username
- * @property string $salt
- * @property string $hashed_password
  * @property string $state
  * @property string $name
  * @property string $email
@@ -63,8 +61,6 @@ final class User extends Authenticatable implements
     protected $fillable = [
         'legacy_id',
         'username',
-        'salt',
-        'hashed_password',
         'state',
         'name',
         'email',
