@@ -56,6 +56,6 @@ final class PostFactory extends BaseFactory
 
     private function getSubsiteId(): int
     {
-        return $this->getSubsiteId();
+        return $this->faker->numberBetween(1, 5); // Assuming there are 5 subsites, adjust as needed
     }
 }

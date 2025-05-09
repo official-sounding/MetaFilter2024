@@ -20,12 +20,14 @@ final class UserFactory extends Factory
 
     public function definition(): array
     {
+        $random = mt_rand(1, 2);
+
         return [
             'name' => fake()->name(),
             'username' => fake()->unique()->userName(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => null,
-            'legacy_id' => fake()->unique()->randomNumber(9, true),
+            'legacy_id' => $random === 1 ? fake()->unique()->randomNumber(9, true) : null,
             'password' => self::$password ??= Hash::make('password'),
             'remember_token' => null,
             'state' => UserStateEnum::Active->value,
