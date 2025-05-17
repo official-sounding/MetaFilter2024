@@ -65,6 +65,7 @@ final class User extends Authenticatable implements
         'name',
         'email',
         'email_verified_at',
+        'homepage_url',
         'password',
     ];
 
