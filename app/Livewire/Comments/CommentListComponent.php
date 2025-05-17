@@ -36,7 +36,7 @@ final class CommentListComponent extends Component
 
         $this->post = $post;
         $this->getComments();
-        $this->setRecordsText();
+        $this->setRecordsLabel();
     }
 
     public function render(): View
@@ -58,7 +58,7 @@ final class CommentListComponent extends Component
         $this->comments = $this->commentRepository->getCommentsByPostId($this->post->id);
     }
 
-    private function setRecordsText(): void
+    private function setRecordsLabel(): void
     {
         $subdomain = $this->getSubdomain();
 
