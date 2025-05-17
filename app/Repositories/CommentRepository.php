@@ -11,7 +11,7 @@ final class CommentRepository extends BaseRepository implements CommentRepositor
 {
     private const array COLUMNS = [
         'comments.id',
-        'comments.text',
+        'comments.body',
         'comments.post_id',
         'comments.user_id',
         'comments.created_at',
