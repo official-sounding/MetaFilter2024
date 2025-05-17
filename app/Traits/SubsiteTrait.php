@@ -88,7 +88,7 @@ trait SubsiteTrait
         ) {
             $subdomain = 'www';
         }
-        \Log::info('Subdomain: ' . $subdomain);
+
         if (Schema::hasTable('subsites')) {
             return (new Subsite())->where(column: 'subdomain', operator: '=', value: $subdomain)->first();
         }
