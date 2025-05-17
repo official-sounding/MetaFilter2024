@@ -26,7 +26,6 @@ final class UserService
                 'password' => bcrypt($dto->password),
                 'email' => $dto->email,
                 'name' => $dto->name,
-                'homepage_url' => $dto->homepage_url,
                 'state' => $dto->state,
             ];
 
