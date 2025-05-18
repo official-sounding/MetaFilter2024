@@ -46,9 +46,6 @@ final class FakePostSeeder extends Seeder
             $remainingPosts = self::NUMBER_OF_FAKE_POSTS - $postsCreated;
             $currentChunkSize = min(self::CHUNK_SIZE, $remainingPosts);
 
-            $this->log('Processing chunk ' . ($chunkIndex + 1) . " of $totalChunks ($currentChunkSize posts)");
-
-            // Use a transaction for each chunk
             try {
                 DB::beginTransaction();
             } catch (Throwable $exception) {
@@ -69,7 +66,6 @@ final class FakePostSeeder extends Seeder
                 }
 
                 DB::commit();
-                $this->log('Completed chunk ' . ($chunkIndex + 1) . " ($postsCreated posts total)");
             } catch (Exception $e) {
                 DB::rollBack();
 
