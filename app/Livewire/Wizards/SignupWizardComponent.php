@@ -8,37 +8,45 @@ use App\Dtos\UserDto;
 use App\Enums\UserStateEnum;
 use App\Http\Requests\Auth\StorePasswordRequest;
 use App\Http\Requests\Signup\StoreEmailAddressRequest;
-use App\Http\Requests\Signup\StoreOptionalInfoRequest;
 use App\Http\Requests\Signup\StoreUsernameRequest;
 use App\Jobs\SendVerificationEmail;
 use App\Models\User;
+use App\Repositories\UserRepositoryInterface;
 use App\Services\UserService;
+use App\Traits\LoggingTrait;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 
 final class SignupWizardComponent extends BaseWizardComponent
 {
+    use LoggingTrait;
+
     public string $username;
     public string $password;
     public string $password_confirmation;
     public string $email;
     public string $name;
     public string $state;
-    public string $homepage_url;
 
     public array $steps = [
         'Username',
         'Password',
         'Email Address',
-        'Optional Info',
         'Payment',
     ];
 
     protected User $user;
+    protected ?int $userId = null;
+    protected UserRepositoryInterface $userRepository;
     protected UserService $userService;
 
-    public function boot(UserService $userService): void
-    {
+    public function boot(
+        UserRepositoryInterface $userRepository,
+        UserService $userService,
+    ): void {
+        $this->user = new User();
+        $this->userRepository = $userRepository;
         $this->userService = $userService;
     }
 
@@ -53,7 +61,7 @@ final class SignupWizardComponent extends BaseWizardComponent
         $rules = (new StoreUsernameRequest())->rules();
 
         $this->validate($rules);
-
+        \Log::debug('Username: ' . $this->username);
         $this->currentStep = 2;
     }
 
@@ -61,6 +69,7 @@ final class SignupWizardComponent extends BaseWizardComponent
     public function submitPassword(): void
     {
         $rules = (new StorePasswordRequest())->rules();
+        \Log::debug('Password: ' . $this->password);
 
         $this->validate($rules);
 
@@ -71,27 +80,19 @@ final class SignupWizardComponent extends BaseWizardComponent
     public function submitEmailAddress(): void
     {
         $rules = (new StoreEmailAddressRequest())->rules();
-
-        $this->validate($rules);
-
-        $this->currentStep = 4;
-    }
-
-    // Step 4
-    public function submitOptionalInfo(): void
-    {
-        $rules = (new StoreOptionalInfoRequest())->rules();
+        \Log::debug('Email: ' . $this->email);
 
         $this->validate($rules);
 
         $state = UserStateEnum::Pending->value;
 
-        $this->store($state);
-
-        $this->currentStep = 5;
+        $this->user = $this->store($state);
+        \Log::debug('This user ID: ' . $this->user->id);
+        $this->userId = $this->user->id;
+        $this->currentStep = 4;
     }
 
-    // Step 5
+    // Step 4
     public function payWithPayPal(): void
     {
         $this->paymentSubmitted();
@@ -105,14 +106,9 @@ final class SignupWizardComponent extends BaseWizardComponent
     private function paymentSubmitted(): void
     {
         // Assuming successful payment
-
-        $user = (new User())->where('username', '=', $this->username)->sole();
-
-        $data = [
-            'state' => UserStateEnum::Active->value,
-        ];
-
-        $this->userService->update($user->id, $data);
+        $user = User::where('username', '=', $this->username)->first();
+        $user->state = UserStateEnum::Active->value;
+        $user->save();
 
         SendVerificationEmail::dispatch($user);
 
@@ -121,17 +117,22 @@ final class SignupWizardComponent extends BaseWizardComponent
         $this->redirectRoute('signup.thanks');
     }
 
-    public function store(string $state): User
+    public function store(string $state): ?User
     {
-        $dto = new UserDto(
-            username: $this->username,
-            password: $this->password,
-            email: $this->email,
-            name: $this->name ?? null,
-            homepage_url: str_ireplace('http://', 'https://', $this->homepage_url) ?? null,
-            state: $state,
-        );
+        try {
+            $dto = new UserDto(
+                username: $this->username,
+                password: bcrypt($this->password),
+                email: $this->email,
+                name: $this->name ?? null,
+                state: $state,
+            );
 
-        return $this->userService->store($dto);
+            return $this->userRepository->createUser($dto);
+        } catch (Exception $exception) {
+            $this->logError($exception);
+
+            return null;
+        }
     }
 }
