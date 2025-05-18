@@ -16,5 +16,10 @@ final class FakeUserSeeder extends Seeder
         User::factory()
             ->count(self::NUMBER_OF_FAKE_USERS)
             ->create();
+
+        User::factory()->create([
+            'username' => 'guest',
+            'password' => bcrypt('password'),
+        ]);
     }
 }
