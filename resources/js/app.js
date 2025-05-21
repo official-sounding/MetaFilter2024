@@ -1,17 +1,14 @@
-import './bootstrap';
+import "./bootstrap";
 
-import Clipboard from '@ryangjchandler/alpine-clipboard';
-import Precognition from 'laravel-precognition-alpine';
+import Clipboard from "@ryangjchandler/alpine-clipboard";
+import Precognition from "laravel-precognition-alpine";
 
 import { toggleDropdowns } from "./modules/toggleDropdowns.js";
 import { registerThemeToggle } from "./modules/toggleTheme.js";
 
 window.Alpine = Alpine;
 
-Alpine.plugin([
-    Clipboard,
-    Precognition
-]);
+Alpine.plugin([Clipboard, Precognition]);
 
 toggleDropdowns();
 registerThemeToggle();
