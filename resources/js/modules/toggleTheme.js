@@ -1,28 +1,57 @@
-/* jshint esversion: 6 */
+const storageKey = "theme-preference";
+const colorSchemeToggle = document.getElementById("color-scheme-toggle");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-function toggleTheme() {
-    document.addEventListener('DOMContentLoaded', function () {
-        let colorScheme = document.getElementById('color-scheme');
+export function registerThemeToggle() {
+    document.addEventListener("DOMContentLoaded", function () {
+        function setTheme(newTheme, skipLocalStorage) {
+            if (!newTheme) {
+                newTheme = "light";
+            }
+            let pressed = newTheme === "dark" ? "true" : "false";
 
-        const themeToggle = document.getElementById('theme-toggle');
-        const savedTheme = localStorage.getItem('color-scheme') || 'light';
+            colorSchemeToggle.setAttribute("aria-pressed", pressed);
 
-        colorScheme.setAttribute('content', savedTheme);
+            document.documentElement.setAttribute(
+                "data-theme-preference",
+                newTheme
+            );
 
-        themeToggle.checked = savedTheme === 'dark';
+            if (!skipLocalStorage) {
+                localStorage.setItem(storageKey, newTheme);
+            }
+        }
 
-        themeToggle.addEventListener('change', function () {
-            console.log('toggleTheme clicked');
-            const newTheme = themeToggle.checked ? 'dark' : 'light';
-            console.log('newTheme: ', newTheme);
+        if (localStorage.getItem(storageKey)) {
+            setTheme(localStorage.getItem(storageKey));
+        } else if (prefersDark.matches) {
+            setTheme("dark");
+        } else {
+            setTheme("light");
+        }
 
-            colorScheme.setAttribute('content', savedTheme);
+        colorSchemeToggle.addEventListener("click", function () {
+            const newTheme =
+                document.documentElement.getAttribute(
+                    "data-theme-preference"
+                ) === "dark"
+                    ? "light"
+                    : "dark";
 
-            colorScheme = newTheme;
+            setTheme(newTheme);
+        });
 
-            localStorage.setItem('color-scheme', newTheme);
+        prefersDark.addEventListener("change", function (event) {
+            const newTheme = event.matches ? "dark" : "light";
+
+            setTheme(newTheme);
+        });
+
+        // storage event fires when another tab/window for the same origin updates a localStorage value
+        addEventListener("storage", function (event) {
+            if (event.key === storageKey && event.newValue !== event.oldValue) {
+                setTheme(event.newValue, true);
+            }
         });
     });
 }
-
-export {toggleTheme};
