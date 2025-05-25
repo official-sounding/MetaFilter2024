@@ -32,7 +32,7 @@ final class EditCommentComponent extends Component
         $this->authorizedUserId = $this->getAuthorizedUserId();
 
         $this->comment = $comment;
-        $this->commentText = $comment->text;
+        $this->commentText = $comment->body;
 
         $this->commentRepository = $commentRepository;
     }
