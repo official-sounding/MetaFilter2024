@@ -33,4 +33,4 @@ In order to ensure that the MetaFilter coding community is welcoming to all, ple
 
 ## License
 
-MetaFilter2024 is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+MetaFilter2024 is open-sourced software licensed under the [GPLv3 license](./LICENSE.GPL).

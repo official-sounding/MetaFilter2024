@@ -5,7 +5,7 @@
         "laravel",
         "larecipe"
     ],
-    "license": "MIT",
+    "license": "GPL-3.0-only",
     "require": {
         "php": ">=7.1.0"
     },
